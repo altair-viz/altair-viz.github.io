@@ -29,6 +29,7 @@
     <script type="text/javascript" src="https://vega.github.io/vega/vega.js"></script>
     <script type="text/javascript" src="https://vega.github.io/vega-lite/vega-lite.js"></script>
     <script type="text/javascript" src="https://vega.github.io/vega-editor/vendor/vega-embed.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="top" title="Altair 1.0.0 documentation" href="../index.html" />
     <link rel="up" title="Altair Documentation" href="index.html" />
     <link rel="next" title="Encodings" href="encoding.html" />
@@ -55,12 +56,12 @@
         
   <div class="section" id="defining-data">
 <span id="id1"></span><h1>Defining Data<a class="headerlink" href="#defining-data" title="Permalink to this headline">¶</a></h1>
-<p>Each top-level chart object, including <code class="xref py py-class docutils literal"><span class="pre">Chart</span></code>, <code class="xref py py-class docutils literal"><span class="pre">LayeredChart</span></code>,
-and <code class="xref py py-class docutils literal"><span class="pre">FacetedChart</span></code>, can take a dataset as its first argument.
+<p>Each top-level chart object, including <a class="reference internal" href="../API.html#altair.Chart" title="altair.Chart"><code class="xref py py-class docutils literal"><span class="pre">Chart</span></code></a>, <a class="reference internal" href="../API.html#altair.LayeredChart" title="altair.LayeredChart"><code class="xref py py-class docutils literal"><span class="pre">LayeredChart</span></code></a>,
+and <a class="reference internal" href="../API.html#altair.FacetedChart" title="altair.FacetedChart"><code class="xref py py-class docutils literal"><span class="pre">FacetedChart</span></code></a>, can take a dataset as its first argument.
 The dataset can be specified in one of three ways:</p>
 <ul class="simple">
 <li>as a <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html">Pandas DataFrame</a></li>
-<li>as a <code class="xref py py-class docutils literal"><span class="pre">Data</span></code> object</li>
+<li>as a <a class="reference internal" href="../API.html#altair.Data" title="altair.Data"><code class="xref py py-class docutils literal"><span class="pre">Data</span></code></a> object</li>
 <li>as a url pointing to a <code class="docutils literal"><span class="pre">json</span></code> or <code class="docutils literal"><span class="pre">csv</span></code> formatted text file</li>
 </ul>
 <p>For example, here we specify data via a dataframe:</p>
@@ -83,7 +84,7 @@ The dataset can be specified in one of three ways:</p>
 </div><p>When data is specified as a DataFrame, the encoding is quite simple, as Altair
 uses the data type information provided by Pandas to automatically determine
 the data types required in the encoding.</p>
-<p>By comparison, here we create the same chart using a <code class="xref py py-class docutils literal"><span class="pre">Data</span></code> object,
+<p>By comparison, here we create the same chart using a <a class="reference internal" href="../API.html#altair.Data" title="altair.Data"><code class="xref py py-class docutils literal"><span class="pre">Data</span></code></a> object,
 with the data specified as a JSON-style list of records:</p>
 <div class="highlight-python" id="data-rst-altair-source-1"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">altair</span> <span class="kn">import</span> <span class="n">Chart</span><span class="p">,</span> <span class="n">Data</span>
 
@@ -104,7 +105,7 @@ with the data specified as a JSON-style list of records:</p>
   vg.embed("#data-rst-altair-plot-1", "data-rst-altair-plot-1.vl.json", function(error, result) {});
 </script>
 </div><p>notice the extra markup required in the encoding; because Altair cannot infer
-the types within a <code class="xref py py-class docutils literal"><span class="pre">Data</span></code> object, we must specify them manually
+the types within a <a class="reference internal" href="../API.html#altair.Data" title="altair.Data"><code class="xref py py-class docutils literal"><span class="pre">Data</span></code></a> object, we must specify them manually
 (here we use <a class="reference internal" href="encoding.html#shorthand-description"><span class="std std-ref">Encoding Shorthands</span></a> to specify <em>ordinal</em> (<code class="docutils literal"><span class="pre">O</span></code>) for <code class="docutils literal"><span class="pre">x</span></code>
 and <em>quantitative</em> (<code class="docutils literal"><span class="pre">Q</span></code>) for <code class="docutils literal"><span class="pre">y</span></code>; see <a class="reference internal" href="encoding.html#data-types"><span class="std std-ref">Data Types</span></a> below).</p>
 <p>Similarly, we must also specify the data type when referencing data by URL:</p>
@@ -123,7 +124,7 @@ and <em>quantitative</em> (<code class="docutils literal"><span class="pre">Q</s
 <script>
   vg.embed("#data-rst-altair-plot-2", "data-rst-altair-plot-2.vl.json", function(error, result) {});
 </script>
-</div><p>We will further discuss encodings and associated types below.</p>
+</div><p>We will further discuss encodings and associated types in <a class="reference internal" href="encoding.html#encoding-reference"><span class="std std-ref">Encodings</span></a>, next.</p>
 </div>
 
 

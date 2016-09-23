@@ -29,6 +29,7 @@
     <script type="text/javascript" src="https://vega.github.io/vega/vega.js"></script>
     <script type="text/javascript" src="https://vega.github.io/vega-lite/vega-lite.js"></script>
     <script type="text/javascript" src="https://vega.github.io/vega-editor/vendor/vega-embed.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="top" title="Altair 1.0.0 documentation" href="index.html" />
     <link rel="prev" title="Altair Plot Recipes" href="recipes.html" /> 
   </head>
@@ -3758,238 +3759,108 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 </tbody>
 </table>
-<dl class="attribute">
-<dt id="altair.Axis.axisColor">
-<code class="descname">axisColor</code><a class="headerlink" href="#altair.Axis.axisColor" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
+<dl class="method">
+<dt id="altair.Axis.from_dict">
+<code class="descname">from_dict</code><span class="sig-paren">(</span><em>dct</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Axis.from_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate the object from a valid JSON dictionary</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>dct</strong> : dict</p>
+<blockquote>
+<div><p>The dictionary containing a valid JSON chart specification.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>chart</strong> : Chart object</p>
+<blockquote class="last">
+<div><p>The altair Chart object built from the specification.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="altair.Axis.axisWidth">
-<code class="descname">axisWidth</code><a class="headerlink" href="#altair.Axis.axisWidth" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
+<dl class="method">
+<dt id="altair.Axis.from_json">
+<code class="descname">from_json</code><span class="sig-paren">(</span><em>spec</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Axis.from_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate the object from a valid JSON string</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>spec</strong> : string</p>
+<blockquote>
+<div><p>The string containing a valid JSON chart specification.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>chart</strong> : Chart object</p>
+<blockquote class="last">
+<div><p>The altair Chart object built from the specification.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="altair.Axis.characterWidth">
-<code class="descname">characterWidth</code><a class="headerlink" href="#altair.Axis.characterWidth" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
+<dl class="method">
+<dt id="altair.Axis.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><em>data=True</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Axis.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit the JSON representation for this object as as dict.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then include data in the representation.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>spec</strong> : dict</p>
+<blockquote class="last">
+<div><p>The JSON specification of the chart object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="altair.Axis.format">
-<code class="descname">format</code><a class="headerlink" href="#altair.Axis.format" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Axis.grid">
-<code class="descname">grid</code><a class="headerlink" href="#altair.Axis.grid" title="Permalink to this definition">¶</a></dt>
-<dd><p>A boolean (True, False) trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Axis.gridColor">
-<code class="descname">gridColor</code><a class="headerlink" href="#altair.Axis.gridColor" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Axis.gridDash">
-<code class="descname">gridDash</code><a class="headerlink" href="#altair.Axis.gridDash" title="Permalink to this definition">¶</a></dt>
-<dd><p>An instance of a Python list.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Axis.gridOpacity">
-<code class="descname">gridOpacity</code><a class="headerlink" href="#altair.Axis.gridOpacity" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Axis.gridWidth">
-<code class="descname">gridWidth</code><a class="headerlink" href="#altair.Axis.gridWidth" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Axis.labelAlign">
-<code class="descname">labelAlign</code><a class="headerlink" href="#altair.Axis.labelAlign" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Axis.labelAngle">
-<code class="descname">labelAngle</code><a class="headerlink" href="#altair.Axis.labelAngle" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Axis.labelBaseline">
-<code class="descname">labelBaseline</code><a class="headerlink" href="#altair.Axis.labelBaseline" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Axis.labelMaxLength">
-<code class="descname">labelMaxLength</code><a class="headerlink" href="#altair.Axis.labelMaxLength" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Axis.labels">
-<code class="descname">labels</code><a class="headerlink" href="#altair.Axis.labels" title="Permalink to this definition">¶</a></dt>
-<dd><p>A boolean (True, False) trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Axis.layer">
-<code class="descname">layer</code><a class="headerlink" href="#altair.Axis.layer" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Axis.offset">
-<code class="descname">offset</code><a class="headerlink" href="#altair.Axis.offset" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Axis.orient">
-<code class="descname">orient</code><a class="headerlink" href="#altair.Axis.orient" title="Permalink to this definition">¶</a></dt>
-<dd><p>One of [&#8216;top&#8217;, &#8216;right&#8217;, &#8216;left&#8217;, &#8216;bottom&#8217;]</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Axis.properties">
-<code class="descname">properties</code><a class="headerlink" href="#altair.Axis.properties" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait which allows any value.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Axis.shortTimeLabels">
-<code class="descname">shortTimeLabels</code><a class="headerlink" href="#altair.Axis.shortTimeLabels" title="Permalink to this definition">¶</a></dt>
-<dd><p>A boolean (True, False) trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Axis.subdivide">
-<code class="descname">subdivide</code><a class="headerlink" href="#altair.Axis.subdivide" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Axis.tickColor">
-<code class="descname">tickColor</code><a class="headerlink" href="#altair.Axis.tickColor" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Axis.tickLabelColor">
-<code class="descname">tickLabelColor</code><a class="headerlink" href="#altair.Axis.tickLabelColor" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Axis.tickLabelFont">
-<code class="descname">tickLabelFont</code><a class="headerlink" href="#altair.Axis.tickLabelFont" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Axis.tickLabelFontSize">
-<code class="descname">tickLabelFontSize</code><a class="headerlink" href="#altair.Axis.tickLabelFontSize" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Axis.tickPadding">
-<code class="descname">tickPadding</code><a class="headerlink" href="#altair.Axis.tickPadding" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Axis.tickSize">
-<code class="descname">tickSize</code><a class="headerlink" href="#altair.Axis.tickSize" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Axis.tickSizeEnd">
-<code class="descname">tickSizeEnd</code><a class="headerlink" href="#altair.Axis.tickSizeEnd" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Axis.tickSizeMajor">
-<code class="descname">tickSizeMajor</code><a class="headerlink" href="#altair.Axis.tickSizeMajor" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Axis.tickSizeMinor">
-<code class="descname">tickSizeMinor</code><a class="headerlink" href="#altair.Axis.tickSizeMinor" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Axis.tickWidth">
-<code class="descname">tickWidth</code><a class="headerlink" href="#altair.Axis.tickWidth" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Axis.ticks">
-<code class="descname">ticks</code><a class="headerlink" href="#altair.Axis.ticks" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Axis.title">
-<code class="descname">title</code><a class="headerlink" href="#altair.Axis.title" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Axis.titleColor">
-<code class="descname">titleColor</code><a class="headerlink" href="#altair.Axis.titleColor" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Axis.titleFont">
-<code class="descname">titleFont</code><a class="headerlink" href="#altair.Axis.titleFont" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Axis.titleFontSize">
-<code class="descname">titleFontSize</code><a class="headerlink" href="#altair.Axis.titleFontSize" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Axis.titleFontWeight">
-<code class="descname">titleFontWeight</code><a class="headerlink" href="#altair.Axis.titleFontWeight" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Axis.titleMaxLength">
-<code class="descname">titleMaxLength</code><a class="headerlink" href="#altair.Axis.titleMaxLength" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Axis.titleOffset">
-<code class="descname">titleOffset</code><a class="headerlink" href="#altair.Axis.titleOffset" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Axis.values">
-<code class="descname">values</code><a class="headerlink" href="#altair.Axis.values" title="Permalink to this definition">¶</a></dt>
-<dd><p>An instance of a Python list.</p>
+<dl class="method">
+<dt id="altair.Axis.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>data=True</em>, <em>sort_keys=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Axis.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit the JSON representation for this object as a string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then include data in the representation.</p>
+</div></blockquote>
+<p><strong>sort_keys</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then sort the keys in the output</p>
+</div></blockquote>
+<p><strong>**kwargs</strong></p>
+<blockquote>
+<div><p>Additional keyword arguments are passed to <code class="docutils literal"><span class="pre">json.dumps()</span></code></p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>spec</strong> : string</p>
+<blockquote class="last">
+<div><p>The JSON specification of the chart object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -4154,214 +4025,108 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 </tbody>
 </table>
-<dl class="attribute">
-<dt id="altair.AxisConfig.axisColor">
-<code class="descname">axisColor</code><a class="headerlink" href="#altair.AxisConfig.axisColor" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
+<dl class="method">
+<dt id="altair.AxisConfig.from_dict">
+<code class="descname">from_dict</code><span class="sig-paren">(</span><em>dct</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.AxisConfig.from_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate the object from a valid JSON dictionary</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>dct</strong> : dict</p>
+<blockquote>
+<div><p>The dictionary containing a valid JSON chart specification.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>chart</strong> : Chart object</p>
+<blockquote class="last">
+<div><p>The altair Chart object built from the specification.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="altair.AxisConfig.axisWidth">
-<code class="descname">axisWidth</code><a class="headerlink" href="#altair.AxisConfig.axisWidth" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
+<dl class="method">
+<dt id="altair.AxisConfig.from_json">
+<code class="descname">from_json</code><span class="sig-paren">(</span><em>spec</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.AxisConfig.from_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate the object from a valid JSON string</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>spec</strong> : string</p>
+<blockquote>
+<div><p>The string containing a valid JSON chart specification.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>chart</strong> : Chart object</p>
+<blockquote class="last">
+<div><p>The altair Chart object built from the specification.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="altair.AxisConfig.characterWidth">
-<code class="descname">characterWidth</code><a class="headerlink" href="#altair.AxisConfig.characterWidth" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
+<dl class="method">
+<dt id="altair.AxisConfig.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><em>data=True</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.AxisConfig.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit the JSON representation for this object as as dict.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then include data in the representation.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>spec</strong> : dict</p>
+<blockquote class="last">
+<div><p>The JSON specification of the chart object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="altair.AxisConfig.grid">
-<code class="descname">grid</code><a class="headerlink" href="#altair.AxisConfig.grid" title="Permalink to this definition">¶</a></dt>
-<dd><p>A boolean (True, False) trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.AxisConfig.gridColor">
-<code class="descname">gridColor</code><a class="headerlink" href="#altair.AxisConfig.gridColor" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.AxisConfig.gridDash">
-<code class="descname">gridDash</code><a class="headerlink" href="#altair.AxisConfig.gridDash" title="Permalink to this definition">¶</a></dt>
-<dd><p>An instance of a Python list.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.AxisConfig.gridOpacity">
-<code class="descname">gridOpacity</code><a class="headerlink" href="#altair.AxisConfig.gridOpacity" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.AxisConfig.gridWidth">
-<code class="descname">gridWidth</code><a class="headerlink" href="#altair.AxisConfig.gridWidth" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.AxisConfig.labelAlign">
-<code class="descname">labelAlign</code><a class="headerlink" href="#altair.AxisConfig.labelAlign" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.AxisConfig.labelAngle">
-<code class="descname">labelAngle</code><a class="headerlink" href="#altair.AxisConfig.labelAngle" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.AxisConfig.labelBaseline">
-<code class="descname">labelBaseline</code><a class="headerlink" href="#altair.AxisConfig.labelBaseline" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.AxisConfig.labelMaxLength">
-<code class="descname">labelMaxLength</code><a class="headerlink" href="#altair.AxisConfig.labelMaxLength" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.AxisConfig.labels">
-<code class="descname">labels</code><a class="headerlink" href="#altair.AxisConfig.labels" title="Permalink to this definition">¶</a></dt>
-<dd><p>A boolean (True, False) trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.AxisConfig.layer">
-<code class="descname">layer</code><a class="headerlink" href="#altair.AxisConfig.layer" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.AxisConfig.offset">
-<code class="descname">offset</code><a class="headerlink" href="#altair.AxisConfig.offset" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.AxisConfig.properties">
-<code class="descname">properties</code><a class="headerlink" href="#altair.AxisConfig.properties" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait which allows any value.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.AxisConfig.shortTimeLabels">
-<code class="descname">shortTimeLabels</code><a class="headerlink" href="#altair.AxisConfig.shortTimeLabels" title="Permalink to this definition">¶</a></dt>
-<dd><p>A boolean (True, False) trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.AxisConfig.subdivide">
-<code class="descname">subdivide</code><a class="headerlink" href="#altair.AxisConfig.subdivide" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.AxisConfig.tickColor">
-<code class="descname">tickColor</code><a class="headerlink" href="#altair.AxisConfig.tickColor" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.AxisConfig.tickLabelColor">
-<code class="descname">tickLabelColor</code><a class="headerlink" href="#altair.AxisConfig.tickLabelColor" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.AxisConfig.tickLabelFont">
-<code class="descname">tickLabelFont</code><a class="headerlink" href="#altair.AxisConfig.tickLabelFont" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.AxisConfig.tickLabelFontSize">
-<code class="descname">tickLabelFontSize</code><a class="headerlink" href="#altair.AxisConfig.tickLabelFontSize" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.AxisConfig.tickPadding">
-<code class="descname">tickPadding</code><a class="headerlink" href="#altair.AxisConfig.tickPadding" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.AxisConfig.tickSize">
-<code class="descname">tickSize</code><a class="headerlink" href="#altair.AxisConfig.tickSize" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.AxisConfig.tickSizeEnd">
-<code class="descname">tickSizeEnd</code><a class="headerlink" href="#altair.AxisConfig.tickSizeEnd" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.AxisConfig.tickSizeMajor">
-<code class="descname">tickSizeMajor</code><a class="headerlink" href="#altair.AxisConfig.tickSizeMajor" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.AxisConfig.tickSizeMinor">
-<code class="descname">tickSizeMinor</code><a class="headerlink" href="#altair.AxisConfig.tickSizeMinor" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.AxisConfig.tickWidth">
-<code class="descname">tickWidth</code><a class="headerlink" href="#altair.AxisConfig.tickWidth" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.AxisConfig.ticks">
-<code class="descname">ticks</code><a class="headerlink" href="#altair.AxisConfig.ticks" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.AxisConfig.titleColor">
-<code class="descname">titleColor</code><a class="headerlink" href="#altair.AxisConfig.titleColor" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.AxisConfig.titleFont">
-<code class="descname">titleFont</code><a class="headerlink" href="#altair.AxisConfig.titleFont" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.AxisConfig.titleFontSize">
-<code class="descname">titleFontSize</code><a class="headerlink" href="#altair.AxisConfig.titleFontSize" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.AxisConfig.titleFontWeight">
-<code class="descname">titleFontWeight</code><a class="headerlink" href="#altair.AxisConfig.titleFontWeight" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.AxisConfig.titleMaxLength">
-<code class="descname">titleMaxLength</code><a class="headerlink" href="#altair.AxisConfig.titleMaxLength" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.AxisConfig.titleOffset">
-<code class="descname">titleOffset</code><a class="headerlink" href="#altair.AxisConfig.titleOffset" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
+<dl class="method">
+<dt id="altair.AxisConfig.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>data=True</em>, <em>sort_keys=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.AxisConfig.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit the JSON representation for this object as a string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then include data in the representation.</p>
+</div></blockquote>
+<p><strong>sort_keys</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then sort the keys in the output</p>
+</div></blockquote>
+<p><strong>**kwargs</strong></p>
+<blockquote>
+<div><p>Additional keyword arguments are passed to <code class="docutils literal"><span class="pre">json.dumps()</span></code></p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>spec</strong> : string</p>
+<blockquote class="last">
+<div><p>The JSON specification of the chart object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -4418,52 +4183,108 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 </tbody>
 </table>
-<dl class="attribute">
-<dt id="altair.Bin.base">
-<code class="descname">base</code><a class="headerlink" href="#altair.Bin.base" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
+<dl class="method">
+<dt id="altair.Bin.from_dict">
+<code class="descname">from_dict</code><span class="sig-paren">(</span><em>dct</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Bin.from_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate the object from a valid JSON dictionary</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>dct</strong> : dict</p>
+<blockquote>
+<div><p>The dictionary containing a valid JSON chart specification.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>chart</strong> : Chart object</p>
+<blockquote class="last">
+<div><p>The altair Chart object built from the specification.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="altair.Bin.div">
-<code class="descname">div</code><a class="headerlink" href="#altair.Bin.div" title="Permalink to this definition">¶</a></dt>
-<dd><p>An instance of a Python list.</p>
+<dl class="method">
+<dt id="altair.Bin.from_json">
+<code class="descname">from_json</code><span class="sig-paren">(</span><em>spec</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Bin.from_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate the object from a valid JSON string</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>spec</strong> : string</p>
+<blockquote>
+<div><p>The string containing a valid JSON chart specification.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>chart</strong> : Chart object</p>
+<blockquote class="last">
+<div><p>The altair Chart object built from the specification.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="altair.Bin.max">
-<code class="descname">max</code><a class="headerlink" href="#altair.Bin.max" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
+<dl class="method">
+<dt id="altair.Bin.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><em>data=True</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Bin.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit the JSON representation for this object as as dict.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then include data in the representation.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>spec</strong> : dict</p>
+<blockquote class="last">
+<div><p>The JSON specification of the chart object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="altair.Bin.maxbins">
-<code class="descname">maxbins</code><a class="headerlink" href="#altair.Bin.maxbins" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Bin.min">
-<code class="descname">min</code><a class="headerlink" href="#altair.Bin.min" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Bin.minstep">
-<code class="descname">minstep</code><a class="headerlink" href="#altair.Bin.minstep" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Bin.step">
-<code class="descname">step</code><a class="headerlink" href="#altair.Bin.step" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Bin.steps">
-<code class="descname">steps</code><a class="headerlink" href="#altair.Bin.steps" title="Permalink to this definition">¶</a></dt>
-<dd><p>An instance of a Python list.</p>
+<dl class="method">
+<dt id="altair.Bin.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>data=True</em>, <em>sort_keys=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Bin.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit the JSON representation for this object as a string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then include data in the representation.</p>
+</div></blockquote>
+<p><strong>sort_keys</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then sort the keys in the output</p>
+</div></blockquote>
+<p><strong>**kwargs</strong></p>
+<blockquote>
+<div><p>Additional keyword arguments are passed to <code class="docutils literal"><span class="pre">json.dumps()</span></code></p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>spec</strong> : string</p>
+<blockquote class="last">
+<div><p>The JSON specification of the chart object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -4528,64 +4349,108 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 </tbody>
 </table>
-<dl class="attribute">
-<dt id="altair.CellConfig.clip">
-<code class="descname">clip</code><a class="headerlink" href="#altair.CellConfig.clip" title="Permalink to this definition">¶</a></dt>
-<dd><p>A boolean (True, False) trait.</p>
+<dl class="method">
+<dt id="altair.CellConfig.from_dict">
+<code class="descname">from_dict</code><span class="sig-paren">(</span><em>dct</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.CellConfig.from_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate the object from a valid JSON dictionary</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>dct</strong> : dict</p>
+<blockquote>
+<div><p>The dictionary containing a valid JSON chart specification.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>chart</strong> : Chart object</p>
+<blockquote class="last">
+<div><p>The altair Chart object built from the specification.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="altair.CellConfig.fill">
-<code class="descname">fill</code><a class="headerlink" href="#altair.CellConfig.fill" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
+<dl class="method">
+<dt id="altair.CellConfig.from_json">
+<code class="descname">from_json</code><span class="sig-paren">(</span><em>spec</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.CellConfig.from_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate the object from a valid JSON string</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>spec</strong> : string</p>
+<blockquote>
+<div><p>The string containing a valid JSON chart specification.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>chart</strong> : Chart object</p>
+<blockquote class="last">
+<div><p>The altair Chart object built from the specification.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="altair.CellConfig.fillOpacity">
-<code class="descname">fillOpacity</code><a class="headerlink" href="#altair.CellConfig.fillOpacity" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
+<dl class="method">
+<dt id="altair.CellConfig.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><em>data=True</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.CellConfig.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit the JSON representation for this object as as dict.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then include data in the representation.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>spec</strong> : dict</p>
+<blockquote class="last">
+<div><p>The JSON specification of the chart object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="altair.CellConfig.height">
-<code class="descname">height</code><a class="headerlink" href="#altair.CellConfig.height" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.CellConfig.stroke">
-<code class="descname">stroke</code><a class="headerlink" href="#altair.CellConfig.stroke" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.CellConfig.strokeDash">
-<code class="descname">strokeDash</code><a class="headerlink" href="#altair.CellConfig.strokeDash" title="Permalink to this definition">¶</a></dt>
-<dd><p>An instance of a Python list.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.CellConfig.strokeDashOffset">
-<code class="descname">strokeDashOffset</code><a class="headerlink" href="#altair.CellConfig.strokeDashOffset" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.CellConfig.strokeOpacity">
-<code class="descname">strokeOpacity</code><a class="headerlink" href="#altair.CellConfig.strokeOpacity" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.CellConfig.strokeWidth">
-<code class="descname">strokeWidth</code><a class="headerlink" href="#altair.CellConfig.strokeWidth" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.CellConfig.width">
-<code class="descname">width</code><a class="headerlink" href="#altair.CellConfig.width" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
+<dl class="method">
+<dt id="altair.CellConfig.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>data=True</em>, <em>sort_keys=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.CellConfig.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit the JSON representation for this object as a string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then include data in the representation.</p>
+</div></blockquote>
+<p><strong>sort_keys</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then sort the keys in the output</p>
+</div></blockquote>
+<p><strong>**kwargs</strong></p>
+<blockquote>
+<div><p>Additional keyword arguments are passed to <code class="docutils literal"><span class="pre">json.dumps()</span></code></p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>spec</strong> : string</p>
+<blockquote class="last">
+<div><p>The JSON specification of the chart object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -4650,76 +4515,108 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 </tbody>
 </table>
-<dl class="attribute">
-<dt id="altair.Config.axis">
-<code class="descname">axis</code><a class="headerlink" href="#altair.Config.axis" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait whose value must be an instance of a specified class.</p>
-<p>The value can also be an instance of a subclass of the specified class.</p>
-<p>Subclasses can declare default classes by overriding the klass attribute</p>
+<dl class="method">
+<dt id="altair.Config.from_dict">
+<code class="descname">from_dict</code><span class="sig-paren">(</span><em>dct</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Config.from_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate the object from a valid JSON dictionary</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>dct</strong> : dict</p>
+<blockquote>
+<div><p>The dictionary containing a valid JSON chart specification.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>chart</strong> : Chart object</p>
+<blockquote class="last">
+<div><p>The altair Chart object built from the specification.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="altair.Config.background">
-<code class="descname">background</code><a class="headerlink" href="#altair.Config.background" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
+<dl class="method">
+<dt id="altair.Config.from_json">
+<code class="descname">from_json</code><span class="sig-paren">(</span><em>spec</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Config.from_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate the object from a valid JSON string</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>spec</strong> : string</p>
+<blockquote>
+<div><p>The string containing a valid JSON chart specification.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>chart</strong> : Chart object</p>
+<blockquote class="last">
+<div><p>The altair Chart object built from the specification.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="altair.Config.cell">
-<code class="descname">cell</code><a class="headerlink" href="#altair.Config.cell" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait whose value must be an instance of a specified class.</p>
-<p>The value can also be an instance of a subclass of the specified class.</p>
-<p>Subclasses can declare default classes by overriding the klass attribute</p>
+<dl class="method">
+<dt id="altair.Config.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><em>data=True</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Config.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit the JSON representation for this object as as dict.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then include data in the representation.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>spec</strong> : dict</p>
+<blockquote class="last">
+<div><p>The JSON specification of the chart object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="altair.Config.facet">
-<code class="descname">facet</code><a class="headerlink" href="#altair.Config.facet" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait whose value must be an instance of a specified class.</p>
-<p>The value can also be an instance of a subclass of the specified class.</p>
-<p>Subclasses can declare default classes by overriding the klass attribute</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Config.legend">
-<code class="descname">legend</code><a class="headerlink" href="#altair.Config.legend" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait whose value must be an instance of a specified class.</p>
-<p>The value can also be an instance of a subclass of the specified class.</p>
-<p>Subclasses can declare default classes by overriding the klass attribute</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Config.mark">
-<code class="descname">mark</code><a class="headerlink" href="#altair.Config.mark" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait whose value must be an instance of a specified class.</p>
-<p>The value can also be an instance of a subclass of the specified class.</p>
-<p>Subclasses can declare default classes by overriding the klass attribute</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Config.numberFormat">
-<code class="descname">numberFormat</code><a class="headerlink" href="#altair.Config.numberFormat" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Config.scale">
-<code class="descname">scale</code><a class="headerlink" href="#altair.Config.scale" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait whose value must be an instance of a specified class.</p>
-<p>The value can also be an instance of a subclass of the specified class.</p>
-<p>Subclasses can declare default classes by overriding the klass attribute</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Config.timeFormat">
-<code class="descname">timeFormat</code><a class="headerlink" href="#altair.Config.timeFormat" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Config.viewport">
-<code class="descname">viewport</code><a class="headerlink" href="#altair.Config.viewport" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
+<dl class="method">
+<dt id="altair.Config.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>data=True</em>, <em>sort_keys=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Config.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit the JSON representation for this object as a string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then include data in the representation.</p>
+</div></blockquote>
+<p><strong>sort_keys</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then sort the keys in the output</p>
+</div></blockquote>
+<p><strong>**kwargs</strong></p>
+<blockquote>
+<div><p>Additional keyword arguments are passed to <code class="docutils literal"><span class="pre">json.dumps()</span></code></p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>spec</strong> : string</p>
+<blockquote class="last">
+<div><p>The JSON specification of the chart object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -4756,22 +4653,108 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 </tbody>
 </table>
-<dl class="attribute">
-<dt id="altair.Data.formatType">
-<code class="descname">formatType</code><a class="headerlink" href="#altair.Data.formatType" title="Permalink to this definition">¶</a></dt>
-<dd><p>One of [&#8216;json&#8217;, &#8216;csv&#8217;, &#8216;tsv&#8217;]</p>
+<dl class="method">
+<dt id="altair.Data.from_dict">
+<code class="descname">from_dict</code><span class="sig-paren">(</span><em>dct</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Data.from_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate the object from a valid JSON dictionary</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>dct</strong> : dict</p>
+<blockquote>
+<div><p>The dictionary containing a valid JSON chart specification.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>chart</strong> : Chart object</p>
+<blockquote class="last">
+<div><p>The altair Chart object built from the specification.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="altair.Data.url">
-<code class="descname">url</code><a class="headerlink" href="#altair.Data.url" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
+<dl class="method">
+<dt id="altair.Data.from_json">
+<code class="descname">from_json</code><span class="sig-paren">(</span><em>spec</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Data.from_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate the object from a valid JSON string</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>spec</strong> : string</p>
+<blockquote>
+<div><p>The string containing a valid JSON chart specification.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>chart</strong> : Chart object</p>
+<blockquote class="last">
+<div><p>The altair Chart object built from the specification.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="altair.Data.values">
-<code class="descname">values</code><a class="headerlink" href="#altair.Data.values" title="Permalink to this definition">¶</a></dt>
-<dd><p>An instance of a Python list.</p>
+<dl class="method">
+<dt id="altair.Data.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><em>data=True</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Data.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit the JSON representation for this object as as dict.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then include data in the representation.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>spec</strong> : dict</p>
+<blockquote class="last">
+<div><p>The JSON specification of the chart object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="altair.Data.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>data=True</em>, <em>sort_keys=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Data.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit the JSON representation for this object as a string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then include data in the representation.</p>
+</div></blockquote>
+<p><strong>sort_keys</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then sort the keys in the output</p>
+</div></blockquote>
+<p><strong>**kwargs</strong></p>
+<blockquote>
+<div><p>Additional keyword arguments are passed to <code class="docutils literal"><span class="pre">json.dumps()</span></code></p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>spec</strong> : string</p>
+<blockquote class="last">
+<div><p>The JSON specification of the chart object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -4812,36 +4795,108 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 </tbody>
 </table>
-<dl class="attribute">
-<dt id="altair.FacetConfig.axis">
-<code class="descname">axis</code><a class="headerlink" href="#altair.FacetConfig.axis" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait whose value must be an instance of a specified class.</p>
-<p>The value can also be an instance of a subclass of the specified class.</p>
-<p>Subclasses can declare default classes by overriding the klass attribute</p>
+<dl class="method">
+<dt id="altair.FacetConfig.from_dict">
+<code class="descname">from_dict</code><span class="sig-paren">(</span><em>dct</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.FacetConfig.from_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate the object from a valid JSON dictionary</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>dct</strong> : dict</p>
+<blockquote>
+<div><p>The dictionary containing a valid JSON chart specification.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>chart</strong> : Chart object</p>
+<blockquote class="last">
+<div><p>The altair Chart object built from the specification.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="altair.FacetConfig.cell">
-<code class="descname">cell</code><a class="headerlink" href="#altair.FacetConfig.cell" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait whose value must be an instance of a specified class.</p>
-<p>The value can also be an instance of a subclass of the specified class.</p>
-<p>Subclasses can declare default classes by overriding the klass attribute</p>
+<dl class="method">
+<dt id="altair.FacetConfig.from_json">
+<code class="descname">from_json</code><span class="sig-paren">(</span><em>spec</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.FacetConfig.from_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate the object from a valid JSON string</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>spec</strong> : string</p>
+<blockquote>
+<div><p>The string containing a valid JSON chart specification.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>chart</strong> : Chart object</p>
+<blockquote class="last">
+<div><p>The altair Chart object built from the specification.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="altair.FacetConfig.grid">
-<code class="descname">grid</code><a class="headerlink" href="#altair.FacetConfig.grid" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait whose value must be an instance of a specified class.</p>
-<p>The value can also be an instance of a subclass of the specified class.</p>
-<p>Subclasses can declare default classes by overriding the klass attribute</p>
+<dl class="method">
+<dt id="altair.FacetConfig.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><em>data=True</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.FacetConfig.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit the JSON representation for this object as as dict.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then include data in the representation.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>spec</strong> : dict</p>
+<blockquote class="last">
+<div><p>The JSON specification of the chart object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="altair.FacetConfig.scale">
-<code class="descname">scale</code><a class="headerlink" href="#altair.FacetConfig.scale" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait whose value must be an instance of a specified class.</p>
-<p>The value can also be an instance of a subclass of the specified class.</p>
-<p>Subclasses can declare default classes by overriding the klass attribute</p>
+<dl class="method">
+<dt id="altair.FacetConfig.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>data=True</em>, <em>sort_keys=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.FacetConfig.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit the JSON representation for this object as a string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then include data in the representation.</p>
+</div></blockquote>
+<p><strong>sort_keys</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then sort the keys in the output</p>
+</div></blockquote>
+<p><strong>**kwargs</strong></p>
+<blockquote>
+<div><p>Additional keyword arguments are passed to <code class="docutils literal"><span class="pre">json.dumps()</span></code></p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>spec</strong> : string</p>
+<blockquote class="last">
+<div><p>The JSON specification of the chart object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -4877,22 +4932,108 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 </tbody>
 </table>
-<dl class="attribute">
-<dt id="altair.FacetGridConfig.color">
-<code class="descname">color</code><a class="headerlink" href="#altair.FacetGridConfig.color" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
+<dl class="method">
+<dt id="altair.FacetGridConfig.from_dict">
+<code class="descname">from_dict</code><span class="sig-paren">(</span><em>dct</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.FacetGridConfig.from_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate the object from a valid JSON dictionary</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>dct</strong> : dict</p>
+<blockquote>
+<div><p>The dictionary containing a valid JSON chart specification.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>chart</strong> : Chart object</p>
+<blockquote class="last">
+<div><p>The altair Chart object built from the specification.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="altair.FacetGridConfig.offset">
-<code class="descname">offset</code><a class="headerlink" href="#altair.FacetGridConfig.offset" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
+<dl class="method">
+<dt id="altair.FacetGridConfig.from_json">
+<code class="descname">from_json</code><span class="sig-paren">(</span><em>spec</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.FacetGridConfig.from_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate the object from a valid JSON string</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>spec</strong> : string</p>
+<blockquote>
+<div><p>The string containing a valid JSON chart specification.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>chart</strong> : Chart object</p>
+<blockquote class="last">
+<div><p>The altair Chart object built from the specification.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="altair.FacetGridConfig.opacity">
-<code class="descname">opacity</code><a class="headerlink" href="#altair.FacetGridConfig.opacity" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
+<dl class="method">
+<dt id="altair.FacetGridConfig.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><em>data=True</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.FacetGridConfig.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit the JSON representation for this object as as dict.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then include data in the representation.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>spec</strong> : dict</p>
+<blockquote class="last">
+<div><p>The JSON specification of the chart object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="altair.FacetGridConfig.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>data=True</em>, <em>sort_keys=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.FacetGridConfig.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit the JSON representation for this object as a string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then include data in the representation.</p>
+</div></blockquote>
+<p><strong>sort_keys</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then sort the keys in the output</p>
+</div></blockquote>
+<p><strong>**kwargs</strong></p>
+<blockquote>
+<div><p>Additional keyword arguments are passed to <code class="docutils literal"><span class="pre">json.dumps()</span></code></p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>spec</strong> : string</p>
+<blockquote class="last">
+<div><p>The JSON specification of the chart object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -4924,16 +5065,108 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 </tbody>
 </table>
-<dl class="attribute">
-<dt id="altair.FacetScaleConfig.padding">
-<code class="descname">padding</code><a class="headerlink" href="#altair.FacetScaleConfig.padding" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
+<dl class="method">
+<dt id="altair.FacetScaleConfig.from_dict">
+<code class="descname">from_dict</code><span class="sig-paren">(</span><em>dct</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.FacetScaleConfig.from_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate the object from a valid JSON dictionary</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>dct</strong> : dict</p>
+<blockquote>
+<div><p>The dictionary containing a valid JSON chart specification.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>chart</strong> : Chart object</p>
+<blockquote class="last">
+<div><p>The altair Chart object built from the specification.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="altair.FacetScaleConfig.round">
-<code class="descname">round</code><a class="headerlink" href="#altair.FacetScaleConfig.round" title="Permalink to this definition">¶</a></dt>
-<dd><p>A boolean (True, False) trait.</p>
+<dl class="method">
+<dt id="altair.FacetScaleConfig.from_json">
+<code class="descname">from_json</code><span class="sig-paren">(</span><em>spec</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.FacetScaleConfig.from_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate the object from a valid JSON string</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>spec</strong> : string</p>
+<blockquote>
+<div><p>The string containing a valid JSON chart specification.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>chart</strong> : Chart object</p>
+<blockquote class="last">
+<div><p>The altair Chart object built from the specification.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="altair.FacetScaleConfig.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><em>data=True</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.FacetScaleConfig.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit the JSON representation for this object as as dict.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then include data in the representation.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>spec</strong> : dict</p>
+<blockquote class="last">
+<div><p>The JSON specification of the chart object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="altair.FacetScaleConfig.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>data=True</em>, <em>sort_keys=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.FacetScaleConfig.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit the JSON representation for this object as a string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then include data in the representation.</p>
+</div></blockquote>
+<p><strong>sort_keys</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then sort the keys in the output</p>
+</div></blockquote>
+<p><strong>**kwargs</strong></p>
+<blockquote>
+<div><p>Additional keyword arguments are passed to <code class="docutils literal"><span class="pre">json.dumps()</span></code></p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>spec</strong> : string</p>
+<blockquote class="last">
+<div><p>The JSON specification of the chart object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -4965,16 +5198,108 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 </tbody>
 </table>
-<dl class="attribute">
-<dt id="altair.Formula.expr">
-<code class="descname">expr</code><a class="headerlink" href="#altair.Formula.expr" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
+<dl class="method">
+<dt id="altair.Formula.from_dict">
+<code class="descname">from_dict</code><span class="sig-paren">(</span><em>dct</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Formula.from_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate the object from a valid JSON dictionary</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>dct</strong> : dict</p>
+<blockquote>
+<div><p>The dictionary containing a valid JSON chart specification.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>chart</strong> : Chart object</p>
+<blockquote class="last">
+<div><p>The altair Chart object built from the specification.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="altair.Formula.field">
-<code class="descname">field</code><a class="headerlink" href="#altair.Formula.field" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
+<dl class="method">
+<dt id="altair.Formula.from_json">
+<code class="descname">from_json</code><span class="sig-paren">(</span><em>spec</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Formula.from_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate the object from a valid JSON string</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>spec</strong> : string</p>
+<blockquote>
+<div><p>The string containing a valid JSON chart specification.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>chart</strong> : Chart object</p>
+<blockquote class="last">
+<div><p>The altair Chart object built from the specification.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="altair.Formula.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><em>data=True</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Formula.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit the JSON representation for this object as as dict.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then include data in the representation.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>spec</strong> : dict</p>
+<blockquote class="last">
+<div><p>The JSON specification of the chart object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="altair.Formula.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>data=True</em>, <em>sort_keys=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Formula.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit the JSON representation for this object as a string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then include data in the representation.</p>
+</div></blockquote>
+<p><strong>sort_keys</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then sort the keys in the output</p>
+</div></blockquote>
+<p><strong>**kwargs</strong></p>
+<blockquote>
+<div><p>Additional keyword arguments are passed to <code class="docutils literal"><span class="pre">json.dumps()</span></code></p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>spec</strong> : string</p>
+<blockquote class="last">
+<div><p>The JSON specification of the chart object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -5107,166 +5432,108 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 </tbody>
 </table>
-<dl class="attribute">
-<dt id="altair.Legend.format">
-<code class="descname">format</code><a class="headerlink" href="#altair.Legend.format" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
+<dl class="method">
+<dt id="altair.Legend.from_dict">
+<code class="descname">from_dict</code><span class="sig-paren">(</span><em>dct</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Legend.from_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate the object from a valid JSON dictionary</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>dct</strong> : dict</p>
+<blockquote>
+<div><p>The dictionary containing a valid JSON chart specification.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>chart</strong> : Chart object</p>
+<blockquote class="last">
+<div><p>The altair Chart object built from the specification.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="altair.Legend.gradientHeight">
-<code class="descname">gradientHeight</code><a class="headerlink" href="#altair.Legend.gradientHeight" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
+<dl class="method">
+<dt id="altair.Legend.from_json">
+<code class="descname">from_json</code><span class="sig-paren">(</span><em>spec</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Legend.from_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate the object from a valid JSON string</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>spec</strong> : string</p>
+<blockquote>
+<div><p>The string containing a valid JSON chart specification.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>chart</strong> : Chart object</p>
+<blockquote class="last">
+<div><p>The altair Chart object built from the specification.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="altair.Legend.gradientStrokeColor">
-<code class="descname">gradientStrokeColor</code><a class="headerlink" href="#altair.Legend.gradientStrokeColor" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
+<dl class="method">
+<dt id="altair.Legend.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><em>data=True</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Legend.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit the JSON representation for this object as as dict.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then include data in the representation.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>spec</strong> : dict</p>
+<blockquote class="last">
+<div><p>The JSON specification of the chart object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="altair.Legend.gradientStrokeWidth">
-<code class="descname">gradientStrokeWidth</code><a class="headerlink" href="#altair.Legend.gradientStrokeWidth" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Legend.gradientWidth">
-<code class="descname">gradientWidth</code><a class="headerlink" href="#altair.Legend.gradientWidth" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Legend.labelAlign">
-<code class="descname">labelAlign</code><a class="headerlink" href="#altair.Legend.labelAlign" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Legend.labelBaseline">
-<code class="descname">labelBaseline</code><a class="headerlink" href="#altair.Legend.labelBaseline" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Legend.labelColor">
-<code class="descname">labelColor</code><a class="headerlink" href="#altair.Legend.labelColor" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Legend.labelFont">
-<code class="descname">labelFont</code><a class="headerlink" href="#altair.Legend.labelFont" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Legend.labelFontSize">
-<code class="descname">labelFontSize</code><a class="headerlink" href="#altair.Legend.labelFontSize" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Legend.labelOffset">
-<code class="descname">labelOffset</code><a class="headerlink" href="#altair.Legend.labelOffset" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Legend.margin">
-<code class="descname">margin</code><a class="headerlink" href="#altair.Legend.margin" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Legend.offset">
-<code class="descname">offset</code><a class="headerlink" href="#altair.Legend.offset" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Legend.orient">
-<code class="descname">orient</code><a class="headerlink" href="#altair.Legend.orient" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Legend.padding">
-<code class="descname">padding</code><a class="headerlink" href="#altair.Legend.padding" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Legend.properties">
-<code class="descname">properties</code><a class="headerlink" href="#altair.Legend.properties" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait which allows any value.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Legend.shortTimeLabels">
-<code class="descname">shortTimeLabels</code><a class="headerlink" href="#altair.Legend.shortTimeLabels" title="Permalink to this definition">¶</a></dt>
-<dd><p>A boolean (True, False) trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Legend.symbolColor">
-<code class="descname">symbolColor</code><a class="headerlink" href="#altair.Legend.symbolColor" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Legend.symbolShape">
-<code class="descname">symbolShape</code><a class="headerlink" href="#altair.Legend.symbolShape" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Legend.symbolSize">
-<code class="descname">symbolSize</code><a class="headerlink" href="#altair.Legend.symbolSize" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Legend.symbolStrokeWidth">
-<code class="descname">symbolStrokeWidth</code><a class="headerlink" href="#altair.Legend.symbolStrokeWidth" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Legend.title">
-<code class="descname">title</code><a class="headerlink" href="#altair.Legend.title" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Legend.titleColor">
-<code class="descname">titleColor</code><a class="headerlink" href="#altair.Legend.titleColor" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Legend.titleFont">
-<code class="descname">titleFont</code><a class="headerlink" href="#altair.Legend.titleFont" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Legend.titleFontSize">
-<code class="descname">titleFontSize</code><a class="headerlink" href="#altair.Legend.titleFontSize" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Legend.titleFontWeight">
-<code class="descname">titleFontWeight</code><a class="headerlink" href="#altair.Legend.titleFontWeight" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Legend.values">
-<code class="descname">values</code><a class="headerlink" href="#altair.Legend.values" title="Permalink to this definition">¶</a></dt>
-<dd><p>An instance of a Python list.</p>
+<dl class="method">
+<dt id="altair.Legend.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>data=True</em>, <em>sort_keys=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Legend.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit the JSON representation for this object as a string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then include data in the representation.</p>
+</div></blockquote>
+<p><strong>sort_keys</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then sort the keys in the output</p>
+</div></blockquote>
+<p><strong>**kwargs</strong></p>
+<blockquote>
+<div><p>Additional keyword arguments are passed to <code class="docutils literal"><span class="pre">json.dumps()</span></code></p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>spec</strong> : string</p>
+<blockquote class="last">
+<div><p>The JSON specification of the chart object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -5387,148 +5654,108 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 </tbody>
 </table>
-<dl class="attribute">
-<dt id="altair.LegendConfig.gradientHeight">
-<code class="descname">gradientHeight</code><a class="headerlink" href="#altair.LegendConfig.gradientHeight" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
+<dl class="method">
+<dt id="altair.LegendConfig.from_dict">
+<code class="descname">from_dict</code><span class="sig-paren">(</span><em>dct</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.LegendConfig.from_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate the object from a valid JSON dictionary</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>dct</strong> : dict</p>
+<blockquote>
+<div><p>The dictionary containing a valid JSON chart specification.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>chart</strong> : Chart object</p>
+<blockquote class="last">
+<div><p>The altair Chart object built from the specification.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="altair.LegendConfig.gradientStrokeColor">
-<code class="descname">gradientStrokeColor</code><a class="headerlink" href="#altair.LegendConfig.gradientStrokeColor" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
+<dl class="method">
+<dt id="altair.LegendConfig.from_json">
+<code class="descname">from_json</code><span class="sig-paren">(</span><em>spec</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.LegendConfig.from_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate the object from a valid JSON string</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>spec</strong> : string</p>
+<blockquote>
+<div><p>The string containing a valid JSON chart specification.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>chart</strong> : Chart object</p>
+<blockquote class="last">
+<div><p>The altair Chart object built from the specification.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="altair.LegendConfig.gradientStrokeWidth">
-<code class="descname">gradientStrokeWidth</code><a class="headerlink" href="#altair.LegendConfig.gradientStrokeWidth" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
+<dl class="method">
+<dt id="altair.LegendConfig.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><em>data=True</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.LegendConfig.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit the JSON representation for this object as as dict.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then include data in the representation.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>spec</strong> : dict</p>
+<blockquote class="last">
+<div><p>The JSON specification of the chart object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="altair.LegendConfig.gradientWidth">
-<code class="descname">gradientWidth</code><a class="headerlink" href="#altair.LegendConfig.gradientWidth" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.LegendConfig.labelAlign">
-<code class="descname">labelAlign</code><a class="headerlink" href="#altair.LegendConfig.labelAlign" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.LegendConfig.labelBaseline">
-<code class="descname">labelBaseline</code><a class="headerlink" href="#altair.LegendConfig.labelBaseline" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.LegendConfig.labelColor">
-<code class="descname">labelColor</code><a class="headerlink" href="#altair.LegendConfig.labelColor" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.LegendConfig.labelFont">
-<code class="descname">labelFont</code><a class="headerlink" href="#altair.LegendConfig.labelFont" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.LegendConfig.labelFontSize">
-<code class="descname">labelFontSize</code><a class="headerlink" href="#altair.LegendConfig.labelFontSize" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.LegendConfig.labelOffset">
-<code class="descname">labelOffset</code><a class="headerlink" href="#altair.LegendConfig.labelOffset" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.LegendConfig.margin">
-<code class="descname">margin</code><a class="headerlink" href="#altair.LegendConfig.margin" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.LegendConfig.offset">
-<code class="descname">offset</code><a class="headerlink" href="#altair.LegendConfig.offset" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.LegendConfig.orient">
-<code class="descname">orient</code><a class="headerlink" href="#altair.LegendConfig.orient" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.LegendConfig.padding">
-<code class="descname">padding</code><a class="headerlink" href="#altair.LegendConfig.padding" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.LegendConfig.properties">
-<code class="descname">properties</code><a class="headerlink" href="#altair.LegendConfig.properties" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait which allows any value.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.LegendConfig.shortTimeLabels">
-<code class="descname">shortTimeLabels</code><a class="headerlink" href="#altair.LegendConfig.shortTimeLabels" title="Permalink to this definition">¶</a></dt>
-<dd><p>A boolean (True, False) trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.LegendConfig.symbolColor">
-<code class="descname">symbolColor</code><a class="headerlink" href="#altair.LegendConfig.symbolColor" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.LegendConfig.symbolShape">
-<code class="descname">symbolShape</code><a class="headerlink" href="#altair.LegendConfig.symbolShape" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.LegendConfig.symbolSize">
-<code class="descname">symbolSize</code><a class="headerlink" href="#altair.LegendConfig.symbolSize" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.LegendConfig.symbolStrokeWidth">
-<code class="descname">symbolStrokeWidth</code><a class="headerlink" href="#altair.LegendConfig.symbolStrokeWidth" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.LegendConfig.titleColor">
-<code class="descname">titleColor</code><a class="headerlink" href="#altair.LegendConfig.titleColor" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.LegendConfig.titleFont">
-<code class="descname">titleFont</code><a class="headerlink" href="#altair.LegendConfig.titleFont" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.LegendConfig.titleFontSize">
-<code class="descname">titleFontSize</code><a class="headerlink" href="#altair.LegendConfig.titleFontSize" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.LegendConfig.titleFontWeight">
-<code class="descname">titleFontWeight</code><a class="headerlink" href="#altair.LegendConfig.titleFontWeight" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
+<dl class="method">
+<dt id="altair.LegendConfig.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>data=True</em>, <em>sort_keys=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.LegendConfig.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit the JSON representation for this object as a string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then include data in the representation.</p>
+</div></blockquote>
+<p><strong>sort_keys</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then sort the keys in the output</p>
+</div></blockquote>
+<p><strong>**kwargs</strong></p>
+<blockquote>
+<div><p>Additional keyword arguments are passed to <code class="docutils literal"><span class="pre">json.dumps()</span></code></p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>spec</strong> : string</p>
+<blockquote class="last">
+<div><p>The JSON specification of the chart object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -5701,226 +5928,108 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 </tbody>
 </table>
-<dl class="attribute">
-<dt id="altair.MarkConfig.align">
-<code class="descname">align</code><a class="headerlink" href="#altair.MarkConfig.align" title="Permalink to this definition">¶</a></dt>
-<dd><p>One of [&#8216;left&#8217;, &#8216;right&#8217;, &#8216;center&#8217;]</p>
+<dl class="method">
+<dt id="altair.MarkConfig.from_dict">
+<code class="descname">from_dict</code><span class="sig-paren">(</span><em>dct</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.MarkConfig.from_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate the object from a valid JSON dictionary</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>dct</strong> : dict</p>
+<blockquote>
+<div><p>The dictionary containing a valid JSON chart specification.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>chart</strong> : Chart object</p>
+<blockquote class="last">
+<div><p>The altair Chart object built from the specification.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="altair.MarkConfig.angle">
-<code class="descname">angle</code><a class="headerlink" href="#altair.MarkConfig.angle" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
+<dl class="method">
+<dt id="altair.MarkConfig.from_json">
+<code class="descname">from_json</code><span class="sig-paren">(</span><em>spec</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.MarkConfig.from_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate the object from a valid JSON string</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>spec</strong> : string</p>
+<blockquote>
+<div><p>The string containing a valid JSON chart specification.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>chart</strong> : Chart object</p>
+<blockquote class="last">
+<div><p>The altair Chart object built from the specification.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="altair.MarkConfig.applyColorToBackground">
-<code class="descname">applyColorToBackground</code><a class="headerlink" href="#altair.MarkConfig.applyColorToBackground" title="Permalink to this definition">¶</a></dt>
-<dd><p>A boolean (True, False) trait.</p>
+<dl class="method">
+<dt id="altair.MarkConfig.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><em>data=True</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.MarkConfig.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit the JSON representation for this object as as dict.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then include data in the representation.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>spec</strong> : dict</p>
+<blockquote class="last">
+<div><p>The JSON specification of the chart object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="altair.MarkConfig.barSize">
-<code class="descname">barSize</code><a class="headerlink" href="#altair.MarkConfig.barSize" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.MarkConfig.barThinSize">
-<code class="descname">barThinSize</code><a class="headerlink" href="#altair.MarkConfig.barThinSize" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.MarkConfig.baseline">
-<code class="descname">baseline</code><a class="headerlink" href="#altair.MarkConfig.baseline" title="Permalink to this definition">¶</a></dt>
-<dd><p>One of [&#8216;top&#8217;, &#8216;middle&#8217;, &#8216;bottom&#8217;]</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.MarkConfig.color">
-<code class="descname">color</code><a class="headerlink" href="#altair.MarkConfig.color" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.MarkConfig.dx">
-<code class="descname">dx</code><a class="headerlink" href="#altair.MarkConfig.dx" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.MarkConfig.dy">
-<code class="descname">dy</code><a class="headerlink" href="#altair.MarkConfig.dy" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.MarkConfig.fill">
-<code class="descname">fill</code><a class="headerlink" href="#altair.MarkConfig.fill" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.MarkConfig.fillOpacity">
-<code class="descname">fillOpacity</code><a class="headerlink" href="#altair.MarkConfig.fillOpacity" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.MarkConfig.filled">
-<code class="descname">filled</code><a class="headerlink" href="#altair.MarkConfig.filled" title="Permalink to this definition">¶</a></dt>
-<dd><p>A boolean (True, False) trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.MarkConfig.font">
-<code class="descname">font</code><a class="headerlink" href="#altair.MarkConfig.font" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.MarkConfig.fontSize">
-<code class="descname">fontSize</code><a class="headerlink" href="#altair.MarkConfig.fontSize" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.MarkConfig.fontStyle">
-<code class="descname">fontStyle</code><a class="headerlink" href="#altair.MarkConfig.fontStyle" title="Permalink to this definition">¶</a></dt>
-<dd><p>One of [&#8216;normal&#8217;, &#8216;italic&#8217;]</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.MarkConfig.fontWeight">
-<code class="descname">fontWeight</code><a class="headerlink" href="#altair.MarkConfig.fontWeight" title="Permalink to this definition">¶</a></dt>
-<dd><p>One of [&#8216;normal&#8217;, &#8216;bold&#8217;]</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.MarkConfig.format">
-<code class="descname">format</code><a class="headerlink" href="#altair.MarkConfig.format" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.MarkConfig.interpolate">
-<code class="descname">interpolate</code><a class="headerlink" href="#altair.MarkConfig.interpolate" title="Permalink to this definition">¶</a></dt>
-<dd><p>One of [&#8216;linear&#8217;, &#8216;linear-closed&#8217;, &#8216;step&#8217;, &#8216;step-before&#8217;, &#8216;step-after&#8217;, &#8216;basis&#8217;, &#8216;basis-open&#8217;, &#8216;basis-closed&#8217;, &#8216;cardinal&#8217;, &#8216;cardinal-open&#8217;, &#8216;cardinal-closed&#8217;, &#8216;bundle&#8217;, &#8216;monotone&#8217;]</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.MarkConfig.lineSize">
-<code class="descname">lineSize</code><a class="headerlink" href="#altair.MarkConfig.lineSize" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.MarkConfig.opacity">
-<code class="descname">opacity</code><a class="headerlink" href="#altair.MarkConfig.opacity" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.MarkConfig.orient">
-<code class="descname">orient</code><a class="headerlink" href="#altair.MarkConfig.orient" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.MarkConfig.radius">
-<code class="descname">radius</code><a class="headerlink" href="#altair.MarkConfig.radius" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.MarkConfig.ruleSize">
-<code class="descname">ruleSize</code><a class="headerlink" href="#altair.MarkConfig.ruleSize" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.MarkConfig.shape">
-<code class="descname">shape</code><a class="headerlink" href="#altair.MarkConfig.shape" title="Permalink to this definition">¶</a></dt>
-<dd><p>One of [&#8216;circle&#8217;, &#8216;square&#8217;, &#8216;cross&#8217;, &#8216;diamond&#8217;, &#8216;triangle-up&#8217;, &#8216;triangle-down&#8217;]</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.MarkConfig.shortTimeLabels">
-<code class="descname">shortTimeLabels</code><a class="headerlink" href="#altair.MarkConfig.shortTimeLabels" title="Permalink to this definition">¶</a></dt>
-<dd><p>A boolean (True, False) trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.MarkConfig.size">
-<code class="descname">size</code><a class="headerlink" href="#altair.MarkConfig.size" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.MarkConfig.stacked">
-<code class="descname">stacked</code><a class="headerlink" href="#altair.MarkConfig.stacked" title="Permalink to this definition">¶</a></dt>
-<dd><p>One of [&#8216;zero&#8217;, &#8216;center&#8217;, &#8216;normalize&#8217;, &#8216;none&#8217;]</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.MarkConfig.stroke">
-<code class="descname">stroke</code><a class="headerlink" href="#altair.MarkConfig.stroke" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.MarkConfig.strokeDash">
-<code class="descname">strokeDash</code><a class="headerlink" href="#altair.MarkConfig.strokeDash" title="Permalink to this definition">¶</a></dt>
-<dd><p>An instance of a Python list.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.MarkConfig.strokeDashOffset">
-<code class="descname">strokeDashOffset</code><a class="headerlink" href="#altair.MarkConfig.strokeDashOffset" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.MarkConfig.strokeOpacity">
-<code class="descname">strokeOpacity</code><a class="headerlink" href="#altair.MarkConfig.strokeOpacity" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.MarkConfig.strokeWidth">
-<code class="descname">strokeWidth</code><a class="headerlink" href="#altair.MarkConfig.strokeWidth" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.MarkConfig.tension">
-<code class="descname">tension</code><a class="headerlink" href="#altair.MarkConfig.tension" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.MarkConfig.text">
-<code class="descname">text</code><a class="headerlink" href="#altair.MarkConfig.text" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.MarkConfig.theta">
-<code class="descname">theta</code><a class="headerlink" href="#altair.MarkConfig.theta" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.MarkConfig.tickSize">
-<code class="descname">tickSize</code><a class="headerlink" href="#altair.MarkConfig.tickSize" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.MarkConfig.tickThickness">
-<code class="descname">tickThickness</code><a class="headerlink" href="#altair.MarkConfig.tickThickness" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
+<dl class="method">
+<dt id="altair.MarkConfig.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>data=True</em>, <em>sort_keys=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.MarkConfig.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit the JSON representation for this object as a string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then include data in the representation.</p>
+</div></blockquote>
+<p><strong>sort_keys</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then sort the keys in the output</p>
+</div></blockquote>
+<p><strong>**kwargs</strong></p>
+<blockquote>
+<div><p>Additional keyword arguments are passed to <code class="docutils literal"><span class="pre">json.dumps()</span></code></p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>spec</strong> : string</p>
+<blockquote class="last">
+<div><p>The JSON specification of the chart object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -5989,70 +6098,108 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 </tbody>
 </table>
-<dl class="attribute">
-<dt id="altair.Scale.bandSize">
-<code class="descname">bandSize</code><a class="headerlink" href="#altair.Scale.bandSize" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
+<dl class="method">
+<dt id="altair.Scale.from_dict">
+<code class="descname">from_dict</code><span class="sig-paren">(</span><em>dct</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Scale.from_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate the object from a valid JSON dictionary</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>dct</strong> : dict</p>
+<blockquote>
+<div><p>The dictionary containing a valid JSON chart specification.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>chart</strong> : Chart object</p>
+<blockquote class="last">
+<div><p>The altair Chart object built from the specification.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="altair.Scale.clamp">
-<code class="descname">clamp</code><a class="headerlink" href="#altair.Scale.clamp" title="Permalink to this definition">¶</a></dt>
-<dd><p>A boolean (True, False) trait.</p>
+<dl class="method">
+<dt id="altair.Scale.from_json">
+<code class="descname">from_json</code><span class="sig-paren">(</span><em>spec</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Scale.from_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate the object from a valid JSON string</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>spec</strong> : string</p>
+<blockquote>
+<div><p>The string containing a valid JSON chart specification.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>chart</strong> : Chart object</p>
+<blockquote class="last">
+<div><p>The altair Chart object built from the specification.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="altair.Scale.domain">
-<code class="descname">domain</code><a class="headerlink" href="#altair.Scale.domain" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait type representing a Union type.</p>
+<dl class="method">
+<dt id="altair.Scale.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><em>data=True</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Scale.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit the JSON representation for this object as as dict.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then include data in the representation.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>spec</strong> : dict</p>
+<blockquote class="last">
+<div><p>The JSON specification of the chart object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="altair.Scale.exponent">
-<code class="descname">exponent</code><a class="headerlink" href="#altair.Scale.exponent" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Scale.nice">
-<code class="descname">nice</code><a class="headerlink" href="#altair.Scale.nice" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait type representing a Union type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Scale.padding">
-<code class="descname">padding</code><a class="headerlink" href="#altair.Scale.padding" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Scale.range">
-<code class="descname">range</code><a class="headerlink" href="#altair.Scale.range" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait type representing a Union type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Scale.round">
-<code class="descname">round</code><a class="headerlink" href="#altair.Scale.round" title="Permalink to this definition">¶</a></dt>
-<dd><p>A boolean (True, False) trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Scale.type">
-<code class="descname">type</code><a class="headerlink" href="#altair.Scale.type" title="Permalink to this definition">¶</a></dt>
-<dd><p>One of [&#8216;linear&#8217;, &#8216;log&#8217;, &#8216;pow&#8217;, &#8216;sqrt&#8217;, &#8216;quantile&#8217;, &#8216;quantize&#8217;, &#8216;ordinal&#8217;, &#8216;time&#8217;, &#8216;utc&#8217;]</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Scale.useRawDomain">
-<code class="descname">useRawDomain</code><a class="headerlink" href="#altair.Scale.useRawDomain" title="Permalink to this definition">¶</a></dt>
-<dd><p>A boolean (True, False) trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.Scale.zero">
-<code class="descname">zero</code><a class="headerlink" href="#altair.Scale.zero" title="Permalink to this definition">¶</a></dt>
-<dd><p>A boolean (True, False) trait.</p>
+<dl class="method">
+<dt id="altair.Scale.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>data=True</em>, <em>sort_keys=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Scale.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit the JSON representation for this object as a string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then include data in the representation.</p>
+</div></blockquote>
+<p><strong>sort_keys</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then sort the keys in the output</p>
+</div></blockquote>
+<p><strong>**kwargs</strong></p>
+<blockquote>
+<div><p>Additional keyword arguments are passed to <code class="docutils literal"><span class="pre">json.dumps()</span></code></p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>spec</strong> : string</p>
+<blockquote class="last">
+<div><p>The JSON specification of the chart object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -6133,88 +6280,108 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 </tbody>
 </table>
-<dl class="attribute">
-<dt id="altair.ScaleConfig.bandSize">
-<code class="descname">bandSize</code><a class="headerlink" href="#altair.ScaleConfig.bandSize" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
+<dl class="method">
+<dt id="altair.ScaleConfig.from_dict">
+<code class="descname">from_dict</code><span class="sig-paren">(</span><em>dct</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.ScaleConfig.from_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate the object from a valid JSON dictionary</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>dct</strong> : dict</p>
+<blockquote>
+<div><p>The dictionary containing a valid JSON chart specification.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>chart</strong> : Chart object</p>
+<blockquote class="last">
+<div><p>The altair Chart object built from the specification.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="altair.ScaleConfig.barSizeRange">
-<code class="descname">barSizeRange</code><a class="headerlink" href="#altair.ScaleConfig.barSizeRange" title="Permalink to this definition">¶</a></dt>
-<dd><p>An instance of a Python list.</p>
+<dl class="method">
+<dt id="altair.ScaleConfig.from_json">
+<code class="descname">from_json</code><span class="sig-paren">(</span><em>spec</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.ScaleConfig.from_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate the object from a valid JSON string</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>spec</strong> : string</p>
+<blockquote>
+<div><p>The string containing a valid JSON chart specification.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>chart</strong> : Chart object</p>
+<blockquote class="last">
+<div><p>The altair Chart object built from the specification.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="altair.ScaleConfig.fontSizeRange">
-<code class="descname">fontSizeRange</code><a class="headerlink" href="#altair.ScaleConfig.fontSizeRange" title="Permalink to this definition">¶</a></dt>
-<dd><p>An instance of a Python list.</p>
+<dl class="method">
+<dt id="altair.ScaleConfig.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><em>data=True</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.ScaleConfig.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit the JSON representation for this object as as dict.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then include data in the representation.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>spec</strong> : dict</p>
+<blockquote class="last">
+<div><p>The JSON specification of the chart object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="altair.ScaleConfig.nominalColorRange">
-<code class="descname">nominalColorRange</code><a class="headerlink" href="#altair.ScaleConfig.nominalColorRange" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait type representing a Union type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.ScaleConfig.opacity">
-<code class="descname">opacity</code><a class="headerlink" href="#altair.ScaleConfig.opacity" title="Permalink to this definition">¶</a></dt>
-<dd><p>An instance of a Python list.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.ScaleConfig.padding">
-<code class="descname">padding</code><a class="headerlink" href="#altair.ScaleConfig.padding" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.ScaleConfig.pointSizeRange">
-<code class="descname">pointSizeRange</code><a class="headerlink" href="#altair.ScaleConfig.pointSizeRange" title="Permalink to this definition">¶</a></dt>
-<dd><p>An instance of a Python list.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.ScaleConfig.round">
-<code class="descname">round</code><a class="headerlink" href="#altair.ScaleConfig.round" title="Permalink to this definition">¶</a></dt>
-<dd><p>A boolean (True, False) trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.ScaleConfig.ruleSizeRange">
-<code class="descname">ruleSizeRange</code><a class="headerlink" href="#altair.ScaleConfig.ruleSizeRange" title="Permalink to this definition">¶</a></dt>
-<dd><p>An instance of a Python list.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.ScaleConfig.sequentialColorRange">
-<code class="descname">sequentialColorRange</code><a class="headerlink" href="#altair.ScaleConfig.sequentialColorRange" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait type representing a Union type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.ScaleConfig.shapeRange">
-<code class="descname">shapeRange</code><a class="headerlink" href="#altair.ScaleConfig.shapeRange" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait type representing a Union type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.ScaleConfig.textBandWidth">
-<code class="descname">textBandWidth</code><a class="headerlink" href="#altair.ScaleConfig.textBandWidth" title="Permalink to this definition">¶</a></dt>
-<dd><p>A casting version of the float trait.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.ScaleConfig.tickSizeRange">
-<code class="descname">tickSizeRange</code><a class="headerlink" href="#altair.ScaleConfig.tickSizeRange" title="Permalink to this definition">¶</a></dt>
-<dd><p>An instance of a Python list.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="altair.ScaleConfig.useRawDomain">
-<code class="descname">useRawDomain</code><a class="headerlink" href="#altair.ScaleConfig.useRawDomain" title="Permalink to this definition">¶</a></dt>
-<dd><p>A boolean (True, False) trait.</p>
+<dl class="method">
+<dt id="altair.ScaleConfig.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>data=True</em>, <em>sort_keys=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.ScaleConfig.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit the JSON representation for this object as a string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then include data in the representation.</p>
+</div></blockquote>
+<p><strong>sort_keys</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then sort the keys in the output</p>
+</div></blockquote>
+<p><strong>**kwargs</strong></p>
+<blockquote>
+<div><p>Additional keyword arguments are passed to <code class="docutils literal"><span class="pre">json.dumps()</span></code></p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>spec</strong> : string</p>
+<blockquote class="last">
+<div><p>The JSON specification of the chart object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -6250,22 +6417,108 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 </tbody>
 </table>
-<dl class="attribute">
-<dt id="altair.SortField.field">
-<code class="descname">field</code><a class="headerlink" href="#altair.SortField.field" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
+<dl class="method">
+<dt id="altair.SortField.from_dict">
+<code class="descname">from_dict</code><span class="sig-paren">(</span><em>dct</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.SortField.from_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate the object from a valid JSON dictionary</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>dct</strong> : dict</p>
+<blockquote>
+<div><p>The dictionary containing a valid JSON chart specification.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>chart</strong> : Chart object</p>
+<blockquote class="last">
+<div><p>The altair Chart object built from the specification.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="altair.SortField.op">
-<code class="descname">op</code><a class="headerlink" href="#altair.SortField.op" title="Permalink to this definition">¶</a></dt>
-<dd><p>One of [&#8216;values&#8217;, &#8216;count&#8217;, &#8216;valid&#8217;, &#8216;missing&#8217;, &#8216;distinct&#8217;, &#8216;sum&#8217;, &#8216;mean&#8217;, &#8216;average&#8217;, &#8216;variance&#8217;, &#8216;variancep&#8217;, &#8216;stdev&#8217;, &#8216;stdevp&#8217;, &#8216;median&#8217;, &#8216;q1&#8217;, &#8216;q3&#8217;, &#8216;modeskew&#8217;, &#8216;min&#8217;, &#8216;max&#8217;, &#8216;argmin&#8217;, &#8216;argmax&#8217;]</p>
+<dl class="method">
+<dt id="altair.SortField.from_json">
+<code class="descname">from_json</code><span class="sig-paren">(</span><em>spec</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.SortField.from_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate the object from a valid JSON string</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>spec</strong> : string</p>
+<blockquote>
+<div><p>The string containing a valid JSON chart specification.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>chart</strong> : Chart object</p>
+<blockquote class="last">
+<div><p>The altair Chart object built from the specification.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="altair.SortField.order">
-<code class="descname">order</code><a class="headerlink" href="#altair.SortField.order" title="Permalink to this definition">¶</a></dt>
-<dd><p>One of [&#8216;ascending&#8217;, &#8216;descending&#8217;, &#8216;none&#8217;]</p>
+<dl class="method">
+<dt id="altair.SortField.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><em>data=True</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.SortField.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit the JSON representation for this object as as dict.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then include data in the representation.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>spec</strong> : dict</p>
+<blockquote class="last">
+<div><p>The JSON specification of the chart object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="altair.SortField.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>data=True</em>, <em>sort_keys=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.SortField.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit the JSON representation for this object as a string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then include data in the representation.</p>
+</div></blockquote>
+<p><strong>sort_keys</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then sort the keys in the output</p>
+</div></blockquote>
+<p><strong>**kwargs</strong></p>
+<blockquote>
+<div><p>Additional keyword arguments are passed to <code class="docutils literal"><span class="pre">json.dumps()</span></code></p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>spec</strong> : string</p>
+<blockquote class="last">
+<div><p>The JSON specification of the chart object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -6302,22 +6555,108 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 </tbody>
 </table>
-<dl class="attribute">
-<dt id="altair.Transform.calculate">
-<code class="descname">calculate</code><a class="headerlink" href="#altair.Transform.calculate" title="Permalink to this definition">¶</a></dt>
-<dd><p>An instance of a Python list.</p>
+<dl class="method">
+<dt id="altair.Transform.from_dict">
+<code class="descname">from_dict</code><span class="sig-paren">(</span><em>dct</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Transform.from_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate the object from a valid JSON dictionary</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>dct</strong> : dict</p>
+<blockquote>
+<div><p>The dictionary containing a valid JSON chart specification.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>chart</strong> : Chart object</p>
+<blockquote class="last">
+<div><p>The altair Chart object built from the specification.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="altair.Transform.filter">
-<code class="descname">filter</code><a class="headerlink" href="#altair.Transform.filter" title="Permalink to this definition">¶</a></dt>
-<dd><p>A trait for unicode strings.</p>
+<dl class="method">
+<dt id="altair.Transform.from_json">
+<code class="descname">from_json</code><span class="sig-paren">(</span><em>spec</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Transform.from_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate the object from a valid JSON string</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>spec</strong> : string</p>
+<blockquote>
+<div><p>The string containing a valid JSON chart specification.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>chart</strong> : Chart object</p>
+<blockquote class="last">
+<div><p>The altair Chart object built from the specification.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="altair.Transform.filterNull">
-<code class="descname">filterNull</code><a class="headerlink" href="#altair.Transform.filterNull" title="Permalink to this definition">¶</a></dt>
-<dd><p>A boolean (True, False) trait.</p>
+<dl class="method">
+<dt id="altair.Transform.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><em>data=True</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Transform.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit the JSON representation for this object as as dict.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then include data in the representation.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>spec</strong> : dict</p>
+<blockquote class="last">
+<div><p>The JSON specification of the chart object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="altair.Transform.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>data=True</em>, <em>sort_keys=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Transform.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit the JSON representation for this object as a string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then include data in the representation.</p>
+</div></blockquote>
+<p><strong>sort_keys</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then sort the keys in the output</p>
+</div></blockquote>
+<p><strong>**kwargs</strong></p>
+<blockquote>
+<div><p>Additional keyword arguments are passed to <code class="docutils literal"><span class="pre">json.dumps()</span></code></p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>spec</strong> : string</p>
+<blockquote class="last">
+<div><p>The JSON specification of the chart object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
