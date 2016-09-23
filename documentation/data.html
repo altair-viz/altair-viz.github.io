@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Defining Data &mdash; altair 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/altair-gallery.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
+    <script type="text/javascript" src="https://vega.github.io/vega/vega.js"></script>
+    <script type="text/javascript" src="https://vega.github.io/vega-lite/vega-lite.js"></script>
+    <script type="text/javascript" src="https://vega.github.io/vega-editor/vendor/vega-embed.js"></script>
+    <link rel="top" title="altair 1.0.0 documentation" href="../index.html" />
+    <link rel="up" title="Altair Documentation" href="index.html" />
+    <link rel="next" title="Encodings" href="encoding.html" />
+    <link rel="prev" title="Altair Documentation" href="index.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="defining-data">
+<span id="id1"></span><h1>Defining Data<a class="headerlink" href="#defining-data" title="Permalink to this headline">¶</a></h1>
+<p>Each top-level chart object, including <code class="xref py py-class docutils literal"><span class="pre">Chart</span></code>, <code class="xref py py-class docutils literal"><span class="pre">LayeredChart</span></code>,
+and <code class="xref py py-class docutils literal"><span class="pre">FacetedChart</span></code>, can take a dataset as its first argument.
+The dataset can be specified in one of three ways:</p>
+<ul class="simple">
+<li>as a <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html">Pandas DataFrame</a></li>
+<li>as a <code class="xref py py-class docutils literal"><span class="pre">Data</span></code> object</li>
+<li>as a url pointing to a <code class="docutils literal"><span class="pre">json</span></code> or <code class="docutils literal"><span class="pre">csv</span></code> formatted text file</li>
+</ul>
+<p>For example, here we specify data via a dataframe:</p>
+<div class="highlight-python" id="data-rst-altair-source-0"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">altair</span> <span class="kn">import</span> <span class="n">Chart</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s">&#39;x&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;A&#39;</span><span class="p">,</span> <span class="s">&#39;B&#39;</span><span class="p">,</span> <span class="s">&#39;C&#39;</span><span class="p">,</span> <span class="s">&#39;D&#39;</span><span class="p">,</span> <span class="s">&#39;E&#39;</span><span class="p">],</span>
+                     <span class="s">&#39;y&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">]})</span>
+<span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s">&#39;x&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s">&#39;y&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="data-rst-altair-plot-0">
+<script>
+  vg.embed("#data-rst-altair-plot-0", "data-rst-altair-plot-0.vl.json", function(error, result) {});
+</script>
+</div><p>When data is specified as a DataFrame, the encoding is quite simple, as Altair
+uses the data type information provided by Pandas to automatically determine
+the data types required in the encoding.</p>
+<p>By comparison, here we create the same chart using a <code class="xref py py-class docutils literal"><span class="pre">Data</span></code> object,
+with the data specified as a JSON-style list of records:</p>
+<div class="highlight-python" id="data-rst-altair-source-1"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">altair</span> <span class="kn">import</span> <span class="n">Chart</span><span class="p">,</span> <span class="n">Data</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">Data</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">[{</span><span class="s">&#39;x&#39;</span><span class="p">:</span> <span class="s">&#39;A&#39;</span><span class="p">,</span> <span class="s">&#39;y&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">},</span>
+                    <span class="p">{</span><span class="s">&#39;x&#39;</span><span class="p">:</span> <span class="s">&#39;B&#39;</span><span class="p">,</span> <span class="s">&#39;y&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">},</span>
+                    <span class="p">{</span><span class="s">&#39;x&#39;</span><span class="p">:</span> <span class="s">&#39;C&#39;</span><span class="p">,</span> <span class="s">&#39;y&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">},</span>
+                    <span class="p">{</span><span class="s">&#39;x&#39;</span><span class="p">:</span> <span class="s">&#39;D&#39;</span><span class="p">,</span> <span class="s">&#39;y&#39;</span><span class="p">:</span> <span class="mi">7</span><span class="p">},</span>
+                    <span class="p">{</span><span class="s">&#39;x&#39;</span><span class="p">:</span> <span class="s">&#39;E&#39;</span><span class="p">,</span> <span class="s">&#39;y&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}])</span>
+<span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s">&#39;x:O&#39;</span><span class="p">,</span>  <span class="c"># specify ordinal data</span>
+    <span class="n">y</span><span class="o">=</span><span class="s">&#39;y:Q&#39;</span><span class="p">,</span>  <span class="c"># specify quantitative data</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="data-rst-altair-plot-1">
+<script>
+  vg.embed("#data-rst-altair-plot-1", "data-rst-altair-plot-1.vl.json", function(error, result) {});
+</script>
+</div><p>notice the extra markup required in the encoding; because Altair cannot infer
+the types within a <code class="xref py py-class docutils literal"><span class="pre">Data</span></code> object, we must specify them manually
+(here we use <a class="reference internal" href="encoding.html#shorthand-description"><span class="std std-ref">Encoding Shorthands</span></a> to specify <em>ordinal</em> (<code class="docutils literal"><span class="pre">O</span></code>) for <code class="docutils literal"><span class="pre">x</span></code>
+and <em>quantitative</em> (<code class="docutils literal"><span class="pre">Q</span></code>) for <code class="docutils literal"><span class="pre">y</span></code>; see <a class="reference internal" href="encoding.html#data-types"><span class="std std-ref">Data Types</span></a> below).</p>
+<p>Similarly, we must also specify the data type when referencing data by URL:</p>
+<div class="highlight-python" id="data-rst-altair-source-2"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">altair</span> <span class="kn">import</span> <span class="n">Chart</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">&#39;https://vega.github.io/vega-datasets/data/cars.json&#39;</span>
+
+<span class="n">Chart</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s">&#39;Horsepower:Q&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s">&#39;Miles_per_Gallon:Q&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="data-rst-altair-plot-2">
+<script>
+  vg.embed("#data-rst-altair-plot-2", "data-rst-altair-plot-2.vl.json", function(error, result) {});
+</script>
+</div><p>We will further discuss encodings and associated types below.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Altair Documentation</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Altair Documentation</a></li>
+      <li>Next: <a href="encoding.html" title="next chapter">Encodings</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/documentation/data.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Brian Granger and Jake VanderPlas.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+      |
+      <a href="../_sources/documentation/data.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

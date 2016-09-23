@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Altair Datasets &mdash; altair 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/altair-gallery.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
+    <script type="text/javascript" src="https://vega.github.io/vega/vega.js"></script>
+    <script type="text/javascript" src="https://vega.github.io/vega-lite/vega-lite.js"></script>
+    <script type="text/javascript" src="https://vega.github.io/vega-editor/vendor/vega-embed.js"></script>
+    <link rel="top" title="altair 1.0.0 documentation" href="../index.html" />
+    <link rel="up" title="Altair Documentation" href="index.html" />
+    <link rel="next" title="Example Gallery" href="../gallery/index.html" />
+    <link rel="prev" title="Displaying and Saving Altair Visualizations" href="displaying.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="altair-datasets">
+<span id="datasets"></span><h1>Altair Datasets<a class="headerlink" href="#altair-datasets" title="Permalink to this headline">¶</a></h1>
+<p>Altair includes a loader for a number of built-in datasets, available in the
+<a class="reference external" href="https://github.com/vega/vega-datasets">vega-datasets</a> github repository.
+These datasets are used throughout the documentation, and particularly in
+the <a class="reference internal" href="../gallery/index.html#example-gallery"><span class="std std-ref">Example Gallery</span></a>.</p>
+<p>The list of available datasets can be found using the
+<code class="xref py py-func docutils literal"><span class="pre">list_datasets()</span></code> function:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">altair.datasets</span> <span class="k">import</span> <span class="n">list_datasets</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">list_datasets</span><span class="p">())</span>
+<span class="go">40</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">list_datasets</span><span class="p">()[:</span><span class="mi">5</span><span class="p">]</span>
+<span class="go">[&#39;airports&#39;, &#39;anscombe&#39;, &#39;barley&#39;, &#39;birdstrikes&#39;, &#39;budget&#39;]</span>
+</pre></div>
+</div>
+<p>If you would like to load a dataset and use it within a plot, use the
+<a class="reference internal" href="../API.html#altair.load_dataset" title="altair.load_dataset"><code class="xref py py-func docutils literal"><span class="pre">altair.load_dataset()</span></code></a> function:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">altair</span> <span class="k">import</span> <span class="n">load_dataset</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span><span class="s">&#39;movies&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="go">Index([&#39;Creative_Type&#39;, &#39;Director&#39;, &#39;Distributor&#39;, &#39;IMDB_Rating&#39;, &#39;IMDB_Votes&#39;,</span>
+<span class="go">       &#39;MPAA_Rating&#39;, &#39;Major_Genre&#39;, &#39;Production_Budget&#39;, &#39;Release_Date&#39;,</span>
+<span class="go">       &#39;Rotten_Tomatoes_Rating&#39;, &#39;Running_Time_min&#39;, &#39;Source&#39;, &#39;Title&#39;,</span>
+<span class="go">       &#39;US_DVD_Sales&#39;, &#39;US_Gross&#39;, &#39;Worldwide_Gross&#39;],</span>
+<span class="go">      dtype=&#39;object&#39;)</span>
+</pre></div>
+</div>
+<p>The data is returned as a Pandas dataframe, which can then be used directly
+within Altair:</p>
+<div class="highlight-python" id="datasets-rst-altair-source-1"><span id="altair-plot-0"></span><div class="highlight"><pre><span class="kn">from</span> <span class="nn">altair</span> <span class="kn">import</span> <span class="n">Chart</span>
+
+<span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_tick</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s">&#39;Production_Budget&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s">&#39;MPAA_Rating&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">configure_cell</span><span class="p">(</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">400</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="datasets-rst-altair-plot-1">
+<script>
+  vg.embed("#datasets-rst-altair-plot-1", "datasets-rst-altair-plot-1.vl.json", function(error, result) {});
+</script>
+</div><p>Note that you can also &#8220;load&#8221; the dataset by url:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">url</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span><span class="s">&#39;movies&#39;</span><span class="p">,</span> <span class="n">url_only</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">url</span>
+<span class="go">&#39;https://vega.github.io/vega-datasets/data/movies.json&#39;</span>
+</pre></div>
+</div>
+<p>Passing data by URL can be more efficient, as the plot specification is not
+required to encode the entire dataset within the JSON structure. Keep in mind,
+though, that Altair cannot do type inference on data specified by URL, so
+you must specify the <a class="reference internal" href="encoding.html#data-types"><span class="std std-ref">Data Types</span></a> explicitly:</p>
+<div class="highlight-python" id="datasets-rst-altair-source-3"><span id="altair-plot-2"></span><div class="highlight"><pre><span class="kn">from</span> <span class="nn">altair</span> <span class="kn">import</span> <span class="n">Chart</span>
+
+<span class="n">Chart</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">mark_tick</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s">&#39;Production_Budget:Q&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s">&#39;MPAA_Rating:N&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">configure_cell</span><span class="p">(</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">400</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="datasets-rst-altair-plot-3">
+<script>
+  vg.embed("#datasets-rst-altair-plot-3", "datasets-rst-altair-plot-3.vl.json", function(error, result) {});
+</script>
+</div><p>For more examples of visualization using the available datasets, see the
+<a class="reference internal" href="../gallery/index.html#example-gallery"><span class="std std-ref">Example Gallery</span></a>.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Altair Documentation</a><ul>
+      <li>Previous: <a href="displaying.html" title="previous chapter">Displaying and Saving Altair Visualizations</a></li>
+      <li>Next: <a href="../gallery/index.html" title="next chapter">Example Gallery</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/documentation/datasets.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Brian Granger and Jake VanderPlas.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+      |
+      <a href="../_sources/documentation/datasets.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
