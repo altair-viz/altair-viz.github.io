@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Altair: Declarative Visualization in Python &mdash; altair 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/altair-gallery.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
+    <script type="text/javascript" src="https://vega.github.io/vega/vega.js"></script>
+    <script type="text/javascript" src="https://vega.github.io/vega-lite/vega-lite.js"></script>
+    <script type="text/javascript" src="https://vega.github.io/vega-editor/vendor/vega-embed.js"></script>
+    <link rel="top" title="altair 1.0.0 documentation" href="#" />
+    <link rel="next" title="Installation" href="installation.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="altair-declarative-visualization-in-python">
+<h1>Altair: Declarative Visualization in Python<a class="headerlink" href="#altair-declarative-visualization-in-python" title="Permalink to this headline">¶</a></h1>
+<p>Altair is a declarative statistical visualization library for Python.</p>
+<p>With Altair, you can spend more time understanding your data and its meaning.
+Altair&#8217;s API is simple, friendly and consistent and built on top of the
+powerful <a class="reference external" href="http://vega.github.io/vega-lite">Vega-Lite</a> visualization grammar. This elegant simplicity produces
+beautiful and effective visualizations with a minimal amount of code.</p>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>Here is an example of using the Altair API to quickly visualize a dataset:</p>
+<div class="highlight-python" id="index-rst-altair-source-0"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">altair</span> <span class="kn">import</span> <span class="n">Chart</span><span class="p">,</span> <span class="n">load_dataset</span>
+
+<span class="c"># load built-in dataset as a pandas DataFrame</span>
+<span class="n">cars</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span><span class="s">&#39;cars&#39;</span><span class="p">)</span>
+
+<span class="n">Chart</span><span class="p">(</span><span class="n">cars</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s">&#39;Horsepower&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s">&#39;Miles_per_Gallon&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s">&#39;Origin&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="index-rst-altair-plot-0">
+<script>
+  vg.embed("#index-rst-altair-plot-0", "index-rst-altair-plot-0.vl.json", function(error, result) {});
+</script>
+</div><p>The key idea is that you are declaring links between <em>data columns</em> to <em>encoding channels</em>, such as the x-axis, y-axis, color, etc. and the rest of the plot details are handled automatically.
+Building on this declarative plotting idea, a surprising number of useful plots and visualizations can be created.
+For more details, see the documentation below:</p>
+</div>
+<div class="section" id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#development-install">Development Install</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">Altair Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/getting-started.html">Getting Started with Altair</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/exploring-weather.html">Exploring Data: Seattle Weather</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="displaying.html">Displaying and Saving Altair Visualizations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="displaying.html#displaying-plots-in-jupyter-notebook">Displaying Plots in Jupyter Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="displaying.html#outputting-plots-as-html">Outputting Plots as HTML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="displaying.html#displaying-plots-via-a-local-http-server">Displaying Plots via a Local HTTP Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="displaying.html#online-vega-lite-editor">Online Vega-Lite Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="displaying.html#saving-figures-as-png-and-svg">Saving Figures as PNG and SVG</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gallery/index.html">Example Gallery</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gallery/index.html#basic">Basic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gallery/index.html#stack">Stack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gallery/index.html#trellis">Trellis</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">Altair Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#data-in-altair">Data in Altair</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#encodings">Encodings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#marks">Marks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#data-transformations">Data Transformations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="recipes.html">Altair Plot Recipes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#histograms">Histograms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#heatmaps">Heatmaps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#grouped-regression-plots">Grouped Regression Plots</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="API.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="API.html#top-level-objects">Top-Level Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="API.html#encoding-collections">Encoding Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="API.html#encoding-channels">Encoding Channels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="API.html#module-altair">Other Objects</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Altair: Declarative Visualization in Python</a><ul>
+<li><a class="reference internal" href="#example">Example</a></li>
+<li><a class="reference internal" href="#documentation">Documentation</a></li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+      <li>Next: <a href="installation.html" title="next chapter">Installation</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Brian Granger and Jake VanderPlas.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+      |
+      <a href="_sources/index.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

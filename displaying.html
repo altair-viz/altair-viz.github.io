@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Displaying and Saving Altair Visualizations &mdash; altair 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/altair-gallery.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
+    <script type="text/javascript" src="https://vega.github.io/vega/vega.js"></script>
+    <script type="text/javascript" src="https://vega.github.io/vega-lite/vega-lite.js"></script>
+    <script type="text/javascript" src="https://vega.github.io/vega-editor/vendor/vega-embed.js"></script>
+    <link rel="top" title="altair 1.0.0 documentation" href="index.html" />
+    <link rel="next" title="Example Gallery" href="gallery/index.html" />
+    <link rel="prev" title="Exploring Data: Seattle Weather" href="tutorials/exploring-weather.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="displaying-and-saving-altair-visualizations">
+<span id="displaying-plots"></span><h1>Displaying and Saving Altair Visualizations<a class="headerlink" href="#displaying-and-saving-altair-visualizations" title="Permalink to this headline">¶</a></h1>
+<p>Fundamentally, Altair does one thing: create Vega-Lite JSON specifications of
+visualizations. For example, consider the following plot specification</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">altair</span> <span class="k">import</span> <span class="n">Chart</span><span class="p">,</span> <span class="n">load_dataset</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span><span class="s">&#39;cars&#39;</span><span class="p">,</span> <span class="n">url_only</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">chart</span> <span class="o">=</span> <span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+<span class="gp">... </span>            <span class="n">x</span><span class="o">=</span><span class="s">&#39;Horsepower:Q&#39;</span><span class="p">,</span>
+<span class="gp">... </span>            <span class="n">y</span><span class="o">=</span><span class="s">&#39;Miles_per_Gallon:Q&#39;</span><span class="p">,</span>
+<span class="gp">... </span>            <span class="n">color</span><span class="o">=</span><span class="s">&#39;Origin:N&#39;</span><span class="p">,</span>
+<span class="gp">... </span>        <span class="p">)</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal"><span class="pre">chart</span></code> object defined here is an Altair chart, which contains functionality
+to generate a JSON encoding that conforms to the <a class="reference external" href="https://vega.github.io/vega-lite/vega-lite-schema.json">Vega-Lite Schema</a>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">chart</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+<span class="go">{</span>
+<span class="go">  &quot;data&quot;: {</span>
+<span class="go">    &quot;url&quot;: &quot;https://vega.github.io/vega-datasets/data/cars.json&quot;</span>
+<span class="go">  },</span>
+<span class="go">  &quot;encoding&quot;: {</span>
+<span class="go">    &quot;color&quot;: {</span>
+<span class="go">      &quot;field&quot;: &quot;Origin&quot;,</span>
+<span class="go">      &quot;type&quot;: &quot;nominal&quot;</span>
+<span class="go">    },</span>
+<span class="go">    &quot;x&quot;: {</span>
+<span class="go">      &quot;field&quot;: &quot;Horsepower&quot;,</span>
+<span class="go">      &quot;type&quot;: &quot;quantitative&quot;</span>
+<span class="go">    },</span>
+<span class="go">    &quot;y&quot;: {</span>
+<span class="go">      &quot;field&quot;: &quot;Miles_per_Gallon&quot;,</span>
+<span class="go">      &quot;type&quot;: &quot;quantitative&quot;</span>
+<span class="go">    }</span>
+<span class="go">  },</span>
+<span class="go">  &quot;mark&quot;: &quot;point&quot;</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+<p>This specification is a full definition of a Vega-Lite visualization, and
+can be rendered in one of several ways.</p>
+<div class="section" id="displaying-plots-in-jupyter-notebook">
+<span id="displaying-plots-jupyter"></span><h2>Displaying Plots in Jupyter Notebook<a class="headerlink" href="#displaying-plots-in-jupyter-notebook" title="Permalink to this headline">¶</a></h2>
+<p>Perhaps the most straightforward way to interactively create and render
+Altair visualizations is in the <a class="reference external" href="https://jupyter.readthedocs.io/en/latest/install.html">Jupyter Notebook</a>.
+If you have installed correctly configured the <a class="reference external" href="http://github.com/vega/ipyvega">ipyvega</a> package
+(See <a class="reference internal" href="installation.html#installation"><span class="std std-ref">Installation</span></a>), then a chart on the last line of a code cell
+will automatically be represented within the notebook as a rendered plot:</p>
+<div class="highlight-python" id="displaying-rst-altair-source-0"><div class="highlight"><pre><span class="c"># Within Jupyter Notebook</span>
+<span class="kn">from</span> <span class="nn">altair</span> <span class="kn">import</span> <span class="n">Chart</span><span class="p">,</span> <span class="n">load_dataset</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span><span class="s">&#39;cars&#39;</span><span class="p">,</span> <span class="n">url_only</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s">&#39;Horsepower:Q&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s">&#39;Miles_per_Gallon:Q&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s">&#39;Origin:N&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="displaying-rst-altair-plot-0">
+<script>
+  vg.embed("#displaying-rst-altair-plot-0", "displaying-rst-altair-plot-0.vl.json", function(error, result) {});
+</script>
+</div><p>Alternatively, you can use <code class="docutils literal"><span class="pre">chart.display()</span></code> to more explicitly display
+any chart object</p>
+</div>
+<div class="section" id="outputting-plots-as-html">
+<span id="displaying-plots-html"></span><h2>Outputting Plots as HTML<a class="headerlink" href="#outputting-plots-as-html" title="Permalink to this headline">¶</a></h2>
+<p>If you prefer working outside the notebook, Altair includes the ability to
+generate a stand-alone HTML document containing the JSON specification along
+with the javascript commands to render it:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">html</span> <span class="o">=</span> <span class="n">chart</span><span class="o">.</span><span class="n">to_html</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;chart.html&#39;</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>  
+</pre></div>
+</div>
+<p>If you then point your browser at <code class="docutils literal"><span class="pre">chart.html</span></code>, you will see the rendered result.
+For more information on embedding Vega-Lite plots within HTML pages, see
+Vega-Lite&#8217;s documentation, in particular
+<a class="reference external" href="http://vega.github.io/vega-lite/usage/embed.html">Embedding Vega-Lite</a>.</p>
+</div>
+<div class="section" id="displaying-plots-via-a-local-http-server">
+<span id="displaying-plots-server"></span><h2>Displaying Plots via a Local HTTP Server<a class="headerlink" href="#displaying-plots-via-a-local-http-server" title="Permalink to this headline">¶</a></h2>
+<p>Because the above exercise (outputting html, saving to file, and opening a
+web browser) can be a bit tedious, Altair provides a <code class="docutils literal"><span class="pre">chart.serve()</span></code> method
+that will use Python&#8217;s <code class="docutils literal"><span class="pre">HTTPServer</span></code> to launch a local web server and open
+the visualization in your browser.
+Given a chart object, you can do this with</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">chart</span><span class="o">.</span><span class="n">serve</span><span class="p">()</span>   
+<span class="go">Serving to http://127.0.0.1:8888/    [Ctrl-C to exit]</span>
+<span class="go">127.0.0.1 - - [15/Sep/2016 14:40:39] &quot;GET / HTTP/1.1&quot; 200 -</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="online-vega-lite-editor">
+<span id="displaying-plots-vega-editor"></span><h2>Online Vega-Lite Editor<a class="headerlink" href="#online-vega-lite-editor" title="Permalink to this headline">¶</a></h2>
+<p>Finally, if you wish to play with Vega/Vega-Lite specifications directly, you
+can paste the JSON into the <a class="reference external" href="https://vega.github.io/vega-editor/?mode=vega-lite">Vega-Lite Online Editor</a>.
+This provides an interface in which to directly explore the plot outputs
+of Vega-Lite specifications.</p>
+</div>
+<div class="section" id="saving-figures-as-png-and-svg">
+<h2>Saving Figures as PNG and SVG<a class="headerlink" href="#saving-figures-as-png-and-svg" title="Permalink to this headline">¶</a></h2>
+<p>The easiest way to export figures to PNG or EPS is to click the
+&#8220;Open In Vega Editor&#8221; link under any rendered figure, and then use the &#8220;Export&#8221;
+command to save the figure as either PNG format (With the Renderer set to
+&#8220;Canvas&#8221;) or SVG format (with the renderer set to &#8220;SVG&#8221;).</p>
+<div class="section" id="saving-figures-programatically">
+<h3>Saving Figures Programatically<a class="headerlink" href="#saving-figures-programatically" title="Permalink to this headline">¶</a></h3>
+<p>If you would like to save an Altair visualization as PNG or EPS <em>from a script</em>,
+Altair does provide an interface that allows this, though it requires some
+extra setup.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This feature is experimental and relatively brittle; we are working on
+improving it and this API will likely change in the future.</p>
+</div>
+<p>The <a class="reference external" href="https://github.com/vega/vega-lite">Vega-Lite</a> javascript library provides a <a class="reference external" href="https://nodejs.org/en/">NodeJS</a> command-line tool to
+generate <code class="docutils literal"><span class="pre">png</span></code> and <code class="docutils literal"><span class="pre">svg</span></code> outputs from Altair/Vega-Lite specifications.
+The <code class="xref py py-func docutils literal"><span class="pre">altair.utils.node.savechart()</span></code> function provides an interface that
+will use these command-line tools to output PNG or SVG outputs of a chart.</p>
+<p>If you have <code class="docutils literal"><span class="pre">nodejs</span></code> and <code class="docutils literal"><span class="pre">npm</span></code> available on your system, you can install
+the required command-line tools using:</p>
+<div class="highlight-default"><div class="highlight"><pre>$ npm install canvas vega-lite
+</pre></div>
+</div>
+<p>If you don&#8217;t have <code class="docutils literal"><span class="pre">nodejs</span></code> and are using <code class="docutils literal"><span class="pre">conda</span></code>, you can create an
+environment with nodejs/npm and the required packages as follows
+(note that the canvas tool seems to require Python 2.7):</p>
+<blockquote>
+<div>$ conda create -n nodejs-env -c conda-forge python=2.7 nodejs altair
+$ source activate nodejs-env
+$ npm install canvas vega-lite</div></blockquote>
+<p>Once you have successfully installed these packages, you should have new binary
+files <code class="docutils literal"><span class="pre">vl2vg</span></code>, <code class="docutils literal"><span class="pre">vg2png</span></code>, and <code class="docutils literal"><span class="pre">vg2eps</span></code> within your node root directory.</p>
+<p>With this set-up, you can use the installed command-line utilities to save your chart:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">altair</span> <span class="k">import</span> <span class="n">Chart</span><span class="p">,</span> <span class="n">load_dataset</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span><span class="s">&#39;cars&#39;</span><span class="p">,</span> <span class="n">url_only</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">chart</span> <span class="o">=</span> <span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+<span class="gp">... </span>            <span class="n">x</span><span class="o">=</span><span class="s">&#39;Horsepower:Q&#39;</span><span class="p">,</span>
+<span class="gp">... </span>            <span class="n">y</span><span class="o">=</span><span class="s">&#39;Miles_per_Gallon:Q&#39;</span><span class="p">,</span>
+<span class="gp">... </span>            <span class="n">color</span><span class="o">=</span><span class="s">&#39;Origin:N&#39;</span><span class="p">,</span>
+<span class="gp">... </span>        <span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">altair.utils.node</span> <span class="k">import</span> <span class="n">savechart</span><span class="p">,</span> <span class="n">savechart_available</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># save as PNG</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">savechart</span><span class="p">(</span><span class="n">chart</span><span class="p">,</span> <span class="s">&#39;mychart.png&#39;</span><span class="p">)</span>  
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># save as SVG</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">savechart</span><span class="p">(</span><span class="n">chart</span><span class="p">,</span> <span class="s">&#39;mychart.svg&#39;</span><span class="p">)</span>  
+</pre></div>
+</div>
+<p>Internally, the code executes <code class="docutils literal"><span class="pre">npm</span> <span class="pre">root</span></code> to determine the installation directory,
+and calls the <code class="docutils literal"><span class="pre">vl2vg</span></code>, <code class="docutils literal"><span class="pre">vg2png</span></code>, and <code class="docutils literal"><span class="pre">vg2eps</span></code> executables within this root.
+If you want to manually specify the npm executable directory, you can use the
+<code class="docutils literal"><span class="pre">node_bin_dir</span></code> keyword:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">savechart</span><span class="p">(</span><span class="n">chart</span><span class="p">,</span> <span class="s">&#39;mychart.svg&#39;</span><span class="p">,</span> <span class="n">node_bin_dir</span><span class="o">=</span><span class="s">&#39;~/node_modules/.bin/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We hope to find a way to streamline this in the future, but creating transparent
+interactions between Python packages and NodeJS packages remains challenging.
+If you have ideas on how to improve this aspect of Altair&#8217;s user experience,
+please send comments or contributions via Altair&#8217;s
+<a class="reference external" href="https://github.com/ellisonbg/altair/issues">Github Issue Tracker</a>.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Displaying and Saving Altair Visualizations</a><ul>
+<li><a class="reference internal" href="#displaying-plots-in-jupyter-notebook">Displaying Plots in Jupyter Notebook</a></li>
+<li><a class="reference internal" href="#outputting-plots-as-html">Outputting Plots as HTML</a></li>
+<li><a class="reference internal" href="#displaying-plots-via-a-local-http-server">Displaying Plots via a Local HTTP Server</a></li>
+<li><a class="reference internal" href="#online-vega-lite-editor">Online Vega-Lite Editor</a></li>
+<li><a class="reference internal" href="#saving-figures-as-png-and-svg">Saving Figures as PNG and SVG</a><ul>
+<li><a class="reference internal" href="#saving-figures-programatically">Saving Figures Programatically</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="tutorials/exploring-weather.html" title="previous chapter">Exploring Data: Seattle Weather</a></li>
+      <li>Next: <a href="gallery/index.html" title="next chapter">Example Gallery</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/displaying.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Brian Granger and Jake VanderPlas.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+      |
+      <a href="_sources/displaying.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

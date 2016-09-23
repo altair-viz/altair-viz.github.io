@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Becker’s Barley Trellis Plot &mdash; altair 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/altair-gallery.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
+    <script type="text/javascript" src="https://vega.github.io/vega/vega.js"></script>
+    <script type="text/javascript" src="https://vega.github.io/vega-lite/vega-lite.js"></script>
+    <script type="text/javascript" src="https://vega.github.io/vega-editor/vendor/vega-embed.js"></script>
+    <link rel="top" title="altair 1.0.0 documentation" href="../index.html" />
+    <link rel="up" title="Example Gallery" href="index.html" />
+    <link rel="next" title="Stacked Bar Chart" href="stacked_bar_weather.html" />
+    <link rel="prev" title="Trellis Histograms" href="trellis_bar_histogram.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="becker-s-barley-trellis-plot">
+<span id="gallery-trellis-barley"></span><h1>Becker&#8217;s Barley Trellis Plot<a class="headerlink" href="#becker-s-barley-trellis-plot" title="Permalink to this headline">¶</a></h1>
+<p>&lt; <a class="reference internal" href="trellis_bar_histogram.html#gallery-trellis-bar-histogram"><span class="std std-ref">Trellis Histograms</span></a>
+| <a class="reference internal" href="index.html#example-gallery"><span class="std std-ref">Example Gallery</span></a> | <a class="reference internal" href="stacked_bar_weather.html#gallery-stacked-bar-weather"><span class="std std-ref">Stacked Bar Chart</span></a> &gt;</p>
+
+<div id="trellis_barley-rst-altair-plot-0">
+<script>
+  vg.embed("#trellis_barley-rst-altair-plot-0", "trellis_barley-rst-altair-plot-0.vl.json", function(error, result) {});
+</script>
+</div><div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">altair</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">Chart</span><span class="p">(</span><span class="s">&#39;http://vega.github.io/vega-lite/data/barley.json&#39;</span><span class="p">,</span>
+    <span class="n">description</span><span class="o">=</span><span class="s">&#39;The Trellis display by Becker et al. helped establish small multiples as a “powerful mechanism for understanding interactions in studies of how a response depends on explanatory variables”. Here we reproduce a trellis of Barley yields from the 1930s, complete with main-effects ordering to facilitate comparison.&#39;</span><span class="p">,</span>
+<span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">color</span><span class="o">=</span><span class="s">&#39;year:N&#39;</span><span class="p">,</span>
+    <span class="n">row</span><span class="o">=</span><span class="s">&#39;site:O&#39;</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s">&#39;mean(yield):Q&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">Y</span><span class="p">(</span><span class="s">&#39;variety:O&#39;</span><span class="p">,</span>
+        <span class="n">scale</span><span class="o">=</span><span class="n">Scale</span><span class="p">(</span>
+            <span class="n">bandSize</span><span class="o">=</span><span class="mf">12.0</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="n">sort</span><span class="o">=</span><span class="n">SortField</span><span class="p">(</span>
+            <span class="n">field</span><span class="o">=</span><span class="s">&#39;yield&#39;</span><span class="p">,</span>
+            <span class="n">op</span><span class="o">=</span><span class="s">&#39;mean&#39;</span><span class="p">,</span>
+        <span class="p">),</span>
+    <span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Example Gallery</a><ul>
+      <li>Previous: <a href="trellis_bar_histogram.html" title="previous chapter">Trellis Histograms</a></li>
+      <li>Next: <a href="stacked_bar_weather.html" title="next chapter">Stacked Bar Chart</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/gallery/trellis_barley.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Brian Granger and Jake VanderPlas.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+      |
+      <a href="../_sources/gallery/trellis_barley.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

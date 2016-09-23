@@ -1,0 +1,330 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Exploring Data: Seattle Weather &mdash; altair 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/altair-gallery.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
+    <script type="text/javascript" src="https://vega.github.io/vega/vega.js"></script>
+    <script type="text/javascript" src="https://vega.github.io/vega-lite/vega-lite.js"></script>
+    <script type="text/javascript" src="https://vega.github.io/vega-editor/vendor/vega-embed.js"></script>
+    <link rel="top" title="altair 1.0.0 documentation" href="../index.html" />
+    <link rel="up" title="Altair Tutorials" href="index.html" />
+    <link rel="next" title="Displaying and Saving Altair Visualizations" href="../displaying.html" />
+    <link rel="prev" title="Getting Started with Altair" href="getting-started.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="exploring-data-seattle-weather">
+<h1>Exploring Data: Seattle Weather<a class="headerlink" href="#exploring-data-seattle-weather" title="Permalink to this headline">¶</a></h1>
+<p>(This tutorial is adapted from <a class="reference external" href="http://vega.github.io/vega-lite/tutorials/explore.html">Vega-Lite&#8217;s documentation</a>)</p>
+<p>In this tutorial, you’ll learn a few more techniques for creating
+visualizations in Altair. If you are not familiar with Altair,
+please read <a class="reference internal" href="getting-started.html#tutorial-getting-started"><span class="std std-ref">Getting Started with Altair</span></a> first.</p>
+<p>For this tutorial, we will create visualizations to explore
+weather data for Seattle, taken from NOAA.
+The dataset is a CSV file with columns for the temperature
+(in Celsius), precipitation (in centimeters),
+wind speed (in meter/second), and weather type.
+We have one row for each day from January 1st, 2012 to December 31st, 2015.</p>
+<p>Altair is designed to work with data in the form of <a class="reference external" href="http://pandas.pydata.org/">Pandas</a>
+dataframes, and contains a loader for this and other built-in datasets:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">altair</span> <span class="k">import</span> <span class="n">load_dataset</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span><span class="s">&#39;seattle-weather&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+<div class="highlight-none"><div class="highlight"><pre>         date  precipitation  temp_max  temp_min  wind  weather
+0  2012/01/01            0.0      12.8       5.0   4.7  drizzle
+1  2012/01/02           10.9      10.6       2.8   4.5     rain
+2  2012/01/03            0.8      11.7       7.2   2.3     rain
+3  2012/01/04           20.3      12.2       5.6   4.7     rain
+4  2012/01/05            1.3       8.9       2.8   6.1     rain
+</pre></div>
+</div>
+<p>The data is loaded from the web and stored in a Pandas DataFrame, and from
+here we can explore it with Altair.</p>
+<p>Let’s start by looking at the precipitation, using tick marks to see the
+distribution of precipitation values:</p>
+<div class="highlight-python" id="exploring-weather-rst-altair-source-1"><span id="altair-plot-0"></span><div class="highlight"><pre><span class="kn">from</span> <span class="nn">altair</span> <span class="kn">import</span> <span class="n">Chart</span>
+<span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_tick</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s">&#39;precipitation&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="exploring-weather-rst-altair-plot-1">
+<script>
+  vg.embed("#exploring-weather-rst-altair-plot-1", "exploring-weather-rst-altair-plot-1.vl.json", function(error, result) {});
+</script>
+</div><p>It looks as though precipitation is skewed towards lower values;
+that is, when it rains in Seattle, it usually doesn’t rain very much.
+It is difficult to see patterns across continuous variables, and so to
+better see this, we can create a histogram of the precipitation data.
+For this we first discretize the precipitation values by adding a binning
+to <code class="docutils literal"><span class="pre">x</span></code>.
+Additionally, we set our encoding channel <code class="docutils literal"><span class="pre">y</span></code> with the special field <code class="docutils literal"><span class="pre">*</span></code>
+that is aggregated with <code class="docutils literal"><span class="pre">count</span></code>.
+The result is a histogram of precipitation values:</p>
+<div class="highlight-python" id="exploring-weather-rst-altair-source-2"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">altair</span> <span class="kn">import</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span>
+
+<span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">X</span><span class="p">(</span><span class="s">&#39;precipitation&#39;</span><span class="p">,</span> <span class="nb">bin</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span>
+    <span class="n">Y</span><span class="p">(</span><span class="s">&#39;count(*):Q&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="exploring-weather-rst-altair-plot-2">
+<script>
+  vg.embed("#exploring-weather-rst-altair-plot-2", "exploring-weather-rst-altair-plot-2.vl.json", function(error, result) {});
+</script>
+</div><p>Next, let’s look at how precipitation in Seattle changes throughout the year.
+Altair natively supports dates and discretization of dates when we set the
+type to <code class="docutils literal"><span class="pre">temporal</span></code> (shorthand <code class="docutils literal"><span class="pre">T</span></code>).
+For example, in the following plot, we compute the total precipitation for each month.
+To discretize the data into months, we set the keyword <code class="docutils literal"><span class="pre">timeUnit=&quot;month&quot;</span></code>:</p>
+<div class="highlight-python" id="exploring-weather-rst-altair-source-3"><div class="highlight"><pre><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">X</span><span class="p">(</span><span class="s">&#39;date:T&#39;</span><span class="p">,</span> <span class="n">timeUnit</span><span class="o">=</span><span class="s">&#39;month&#39;</span><span class="p">),</span>
+    <span class="n">Y</span><span class="p">(</span><span class="s">&#39;average(precipitation)&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="exploring-weather-rst-altair-plot-3">
+<script>
+  vg.embed("#exploring-weather-rst-altair-plot-3", "exploring-weather-rst-altair-plot-3.vl.json", function(error, result) {});
+</script>
+</div><p>This chart shows that in Seattle the precipitation in the winter is, on average,
+much higher than summer (an unsurprising observation to those who live there!).
+By changing the mapping of encoding channels to data features, you can begin
+to explore the relationships within the data.</p>
+<p>When looking at precipitation and temperature, we might want to aggregate by
+year <em>and</em> month (<code class="docutils literal"><span class="pre">yearmonth</span></code>) rather than just month.
+This allows us to see seasonal trends, with daily variation smoothed out.
+We might also wish to see the maximum and minimum temperature in each month:</p>
+<div class="highlight-python" id="exploring-weather-rst-altair-source-4"><div class="highlight"><pre><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">X</span><span class="p">(</span><span class="s">&#39;date:T&#39;</span><span class="p">,</span> <span class="n">timeUnit</span><span class="o">=</span><span class="s">&#39;yearmonth&#39;</span><span class="p">),</span>
+    <span class="n">Y</span><span class="p">(</span><span class="s">&#39;max(temp_max)&#39;</span><span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="exploring-weather-rst-altair-plot-4">
+<script>
+  vg.embed("#exploring-weather-rst-altair-plot-4", "exploring-weather-rst-altair-plot-4.vl.json", function(error, result) {});
+</script>
+</div><p>In this chart, it looks as though the maximum temperature is increasing from
+year to year over the course of this relatively short baseline.
+To look closer into this, let’s instead look at the mean of the
+maximum daily temperatures for each year:</p>
+<div class="highlight-python" id="exploring-weather-rst-altair-source-5"><div class="highlight"><pre><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">X</span><span class="p">(</span><span class="s">&#39;date:T&#39;</span><span class="p">,</span> <span class="n">timeUnit</span><span class="o">=</span><span class="s">&#39;year&#39;</span><span class="p">),</span>
+    <span class="n">Y</span><span class="p">(</span><span class="s">&#39;mean(temp_max)&#39;</span><span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="exploring-weather-rst-altair-plot-5">
+<script>
+  vg.embed("#exploring-weather-rst-altair-plot-5", "exploring-weather-rst-altair-plot-5.vl.json", function(error, result) {});
+</script>
+</div><p>And in fact, the chart indicates that yes, the annual average of the daily
+high temperatures increased over the course of these four years, a fact that
+you can confirm for minimum daily temperatures as well.</p>
+<p>You might also wonder how the variability of the temperatures changes
+throughout the year. For this, we have to add a computation to derive a new field.
+We&#8217;ll create a new field via a <a class="reference internal" href="../API.html#altair.Formula" title="altair.Formula"><code class="xref py py-class docutils literal"><span class="pre">Formula</span></code></a> object that defines
+this field using a Javascript string:</p>
+<div class="highlight-python" id="altair-plot-6"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">altair</span> <span class="kn">import</span> <span class="n">Formula</span>
+<span class="n">temp_range</span> <span class="o">=</span> <span class="n">Formula</span><span class="p">(</span><span class="n">field</span><span class="o">=</span><span class="s">&#39;temp_range&#39;</span><span class="p">,</span>
+                     <span class="n">expr</span><span class="o">=</span><span class="s">&#39;datum.temp_max - datum.temp_min&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now we can pass this formula object to the <code class="xref py py-meth docutils literal"><span class="pre">Chart.transform_data()</span></code> method,
+and refer to this new data by name as we would with any other column:</p>
+<div class="highlight-python" id="exploring-weather-rst-altair-source-7"><div class="highlight"><pre><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">X</span><span class="p">(</span><span class="s">&#39;date:T&#39;</span><span class="p">,</span> <span class="n">timeUnit</span><span class="o">=</span><span class="s">&#39;month&#39;</span><span class="p">),</span>
+    <span class="n">y</span><span class="o">=</span><span class="s">&#39;mean(temp_range):Q&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_data</span><span class="p">(</span>
+    <span class="n">calculate</span><span class="o">=</span><span class="p">[</span><span class="n">temp_range</span><span class="p">],</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="exploring-weather-rst-altair-plot-7">
+<script>
+  vg.embed("#exploring-weather-rst-altair-plot-7", "exploring-weather-rst-altair-plot-7.vl.json", function(error, result) {});
+</script>
+</div><p>Of course, the same calculation could be done by using Pandas manipulations to
+add a column to the dataframe; the disadvantage there is that the derived value
+would have to be explicitly stored in the plot specification rather than
+computed on-demand in the browser.</p>
+<p>Next we will explore the <code class="docutils literal"><span class="pre">weather</span></code> field, which encodes a categorical
+variable describing the weather on a given day.
+We might wish to know how different kinds of weather (e.g. sunny days or rainy days)
+are distributed throughout the year.
+To answer this, we can discretize the date by month and then count the number
+of records on the y-Axis.
+We then break down the bars by the weather type by mapping this column to
+a color channel.
+When a bar chart has a field mapped to color, Altair will automatically
+stack the bars atop each other:</p>
+<div class="highlight-python" id="exploring-weather-rst-altair-source-8"><div class="highlight"><pre><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">X</span><span class="p">(</span><span class="s">&#39;date:T&#39;</span><span class="p">,</span> <span class="n">timeUnit</span><span class="o">=</span><span class="s">&#39;month&#39;</span><span class="p">),</span>
+    <span class="n">y</span><span class="o">=</span><span class="s">&#39;count(*)&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s">&#39;weather&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="exploring-weather-rst-altair-plot-8">
+<script>
+  vg.embed("#exploring-weather-rst-altair-plot-8", "exploring-weather-rst-altair-plot-8.vl.json", function(error, result) {});
+</script>
+</div><p>The default color palette’s semantics might not match our expectation.
+For example, we probably do not expect “sun” (sunny) to be purple.
+We can tune the chart by providing a color scale range that maps the values
+from the weather field to meaningful colors, using standard hex color codes.
+In addition, we can customize the titles for the axis and legend to make the
+meaning of the plot more clear:</p>
+<div class="highlight-python" id="exploring-weather-rst-altair-source-9"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">altair</span> <span class="kn">import</span> <span class="n">Axis</span><span class="p">,</span> <span class="n">Scale</span>
+
+<span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">X</span><span class="p">(</span><span class="s">&#39;date:T&#39;</span><span class="p">,</span> <span class="n">timeUnit</span><span class="o">=</span><span class="s">&#39;month&#39;</span><span class="p">,</span>
+        <span class="n">axis</span><span class="o">=</span><span class="n">Axis</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s">&#39;Month of the year&#39;</span><span class="p">)),</span>
+    <span class="n">y</span><span class="o">=</span><span class="s">&#39;count(*):Q&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">Color</span><span class="p">(</span><span class="s">&#39;weather&#39;</span><span class="p">,</span>
+                <span class="n">legend</span><span class="o">=</span><span class="n">Legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s">&#39;Weather type&#39;</span><span class="p">),</span>
+                <span class="n">scale</span><span class="o">=</span><span class="n">Scale</span><span class="p">(</span>
+                    <span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;sun&#39;</span><span class="p">,</span> <span class="s">&#39;fog&#39;</span><span class="p">,</span> <span class="s">&#39;drizzle&#39;</span><span class="p">,</span> <span class="s">&#39;rain&#39;</span><span class="p">,</span> <span class="s">&#39;snow&#39;</span><span class="p">],</span>
+                    <span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;#e7ba52&#39;</span><span class="p">,</span> <span class="s">&#39;#c7c7c7&#39;</span><span class="p">,</span> <span class="s">&#39;#aec7e8&#39;</span><span class="p">,</span> <span class="s">&#39;#1f77b4&#39;</span><span class="p">,</span> <span class="s">&#39;#9467bd&#39;</span><span class="p">],</span>
+                <span class="p">),</span>
+    <span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="exploring-weather-rst-altair-plot-9">
+<script>
+  vg.embed("#exploring-weather-rst-altair-plot-9", "exploring-weather-rst-altair-plot-9.vl.json", function(error, result) {});
+</script>
+</div><p>Combining the above ideas lets us create any number of flexible visualizations
+of this dataset. For example, here is a plot that explores the relationship
+between weather, precipitation, maximum temperature, and temperature range,
+and is also configured to use a larger canvas:</p>
+<div class="highlight-python" id="exploring-weather-rst-altair-source-10"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">altair</span> <span class="kn">import</span> <span class="n">Chart</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Color</span><span class="p">,</span> <span class="n">Formula</span><span class="p">,</span> <span class="n">Axis</span><span class="p">,</span> <span class="n">Scale</span>
+
+<span class="n">temp_range</span> <span class="o">=</span> <span class="n">Formula</span><span class="p">(</span><span class="n">field</span><span class="o">=</span><span class="s">&#39;temp_range&#39;</span><span class="p">,</span>
+                     <span class="n">expr</span><span class="o">=</span><span class="s">&#39;datum.temp_max - datum.temp_min&#39;</span><span class="p">)</span>
+<span class="n">scale</span> <span class="o">=</span> <span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;sun&#39;</span><span class="p">,</span> <span class="s">&#39;fog&#39;</span><span class="p">,</span> <span class="s">&#39;drizzle&#39;</span><span class="p">,</span> <span class="s">&#39;rain&#39;</span><span class="p">,</span> <span class="s">&#39;snow&#39;</span><span class="p">],</span>
+              <span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;#e7ba52&#39;</span><span class="p">,</span> <span class="s">&#39;#c7c7c7&#39;</span><span class="p">,</span> <span class="s">&#39;#aec7e8&#39;</span><span class="p">,</span> <span class="s">&#39;#1f77b4&#39;</span><span class="p">,</span> <span class="s">&#39;#9467bd&#39;</span><span class="p">])</span>
+
+<span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">X</span><span class="p">(</span><span class="s">&#39;temp_max&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">Axis</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s">&#39;Maximum Daily Temperature (C)&#39;</span><span class="p">)),</span>
+    <span class="n">Y</span><span class="p">(</span><span class="s">&#39;temp_range&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">Axis</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s">&#39;Daily Temperature Range (C)&#39;</span><span class="p">)),</span>
+    <span class="n">Color</span><span class="p">(</span><span class="s">&#39;weather&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">),</span>
+    <span class="n">size</span><span class="o">=</span><span class="s">&#39;precipitation&#39;</span><span class="p">,</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_data</span><span class="p">(</span>
+    <span class="n">calculate</span><span class="o">=</span><span class="p">[</span><span class="n">temp_range</span><span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">configure_cell</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="exploring-weather-rst-altair-plot-10">
+<script>
+  vg.embed("#exploring-weather-rst-altair-plot-10", "exploring-weather-rst-altair-plot-10.vl.json", function(error, result) {});
+</script>
+</div><p>This gives us even more insight into the weather patterns in Seattle: rainy and
+foggy days tend to be cooler with a narrower range of temperatures, while warmer
+days tend to be dry and sunny, with a wider spread between low and high temperature.</p>
+<p>This is the end of this tutorial where you have seen various ways to discretize
+and aggregate data, derive new fields, and customize your charts.
+You can find more visualizations in the <a class="reference internal" href="../gallery/index.html#example-gallery"><span class="std std-ref">Example Gallery</span></a>.
+If you want to further customize your charts, you can refer to Altair&#8217;s
+<a class="reference internal" href="../documentation.html#api-documentation"><span class="std std-ref">Altair Documentation</span></a>.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Altair Tutorials</a><ul>
+      <li>Previous: <a href="getting-started.html" title="previous chapter">Getting Started with Altair</a></li>
+      <li>Next: <a href="../displaying.html" title="next chapter">Displaying and Saving Altair Visualizations</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/tutorials/exploring-weather.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Brian Granger and Jake VanderPlas.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+      |
+      <a href="../_sources/tutorials/exploring-weather.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
