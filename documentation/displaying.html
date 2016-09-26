@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Displaying and Saving Altair Visualizations &mdash; Altair 1.0.0 documentation</title>
+    <title>Displaying and Saving Altair Visualizations &#8212; Altair 1.0.0 documentation</title>
     
     <link rel="stylesheet" href="../_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -37,7 +37,7 @@
   </head>
   <body role="document">
       <div class="header" role="banner"><h1 class="heading"><a href="../index.html">
-          <span>Altair 1.0.0 documentation</span></a></h1>
+          <span>Altair</span></a></h1>
         <h2 class="heading"><span>Displaying and Saving Altair Visualizations</span></h2>
       </div>
       <div class="topnav" role="navigation" aria-label="top navigation">
@@ -183,12 +183,13 @@ the required command-line tools using:</p>
 environment with nodejs/npm and the required packages as follows
 (note that the canvas tool seems to require Python 2.7):</p>
 <blockquote>
-<div>$ conda create -n nodejs-env -c conda-forge python=2.7 nodejs altair
+<div>$ conda create -n nodejs-env -c conda-forge python=2.7 nodejs cairo altair
 $ source activate nodejs-env
 $ npm install canvas vega-lite</div></blockquote>
 <p>Once you have successfully installed these packages, you should have new binary
 files <code class="docutils literal"><span class="pre">vl2vg</span></code>, <code class="docutils literal"><span class="pre">vg2png</span></code>, and <code class="docutils literal"><span class="pre">vg2eps</span></code> within your node root directory.</p>
-<p>With this set-up, you can use the installed command-line utilities to save your chart:</p>
+<p>With these packages properly installed, you can use the <code class="docutils literal"><span class="pre">savechart</span></code> method
+to save a chart to file:</p>
 <div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">altair</span> <span class="k">import</span> <span class="n">Chart</span><span class="p">,</span> <span class="n">load_dataset</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span><span class="s">&#39;cars&#39;</span><span class="p">,</span> <span class="n">url_only</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">chart</span> <span class="o">=</span> <span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
@@ -196,23 +197,17 @@ files <code class="docutils literal"><span class="pre">vl2vg</span></code>, <cod
 <span class="gp">... </span>            <span class="n">y</span><span class="o">=</span><span class="s">&#39;Miles_per_Gallon:Q&#39;</span><span class="p">,</span>
 <span class="gp">... </span>            <span class="n">color</span><span class="o">=</span><span class="s">&#39;Origin:N&#39;</span><span class="p">,</span>
 <span class="gp">... </span>        <span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">altair.utils.node</span> <span class="k">import</span> <span class="n">savechart</span><span class="p">,</span> <span class="n">savechart_available</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c"># save as PNG</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">savechart</span><span class="p">(</span><span class="n">chart</span><span class="p">,</span> <span class="s">&#39;mychart.png&#39;</span><span class="p">)</span>  
+<span class="gp">&gt;&gt;&gt; </span><span class="n">chart</span><span class="o">.</span><span class="n">savechart</span><span class="p">(</span><span class="s">&#39;mychart.png&#39;</span><span class="p">)</span>  
 <span class="gp">&gt;&gt;&gt; </span><span class="c"># save as SVG</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">savechart</span><span class="p">(</span><span class="n">chart</span><span class="p">,</span> <span class="s">&#39;mychart.svg&#39;</span><span class="p">)</span>  
+<span class="gp">&gt;&gt;&gt; </span><span class="n">chart</span><span class="o">.</span><span class="n">savechart</span><span class="p">(</span><span class="s">&#39;mychart.svg&#39;</span><span class="p">)</span>  
 </pre></div>
 </div>
-<p>Internally, the code executes <code class="docutils literal"><span class="pre">npm</span> <span class="pre">root</span></code> to determine the installation directory,
-and calls the <code class="docutils literal"><span class="pre">vl2vg</span></code>, <code class="docutils literal"><span class="pre">vg2png</span></code>, and <code class="docutils literal"><span class="pre">vg2eps</span></code> executables within this root.
-If you want to manually specify the npm executable directory, you can use the
-<code class="docutils literal"><span class="pre">node_bin_dir</span></code> keyword:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">savechart</span><span class="p">(</span><span class="n">chart</span><span class="p">,</span> <span class="s">&#39;mychart.svg&#39;</span><span class="p">,</span> <span class="n">node_bin_dir</span><span class="o">=</span><span class="s">&#39;~/node_modules/.bin/&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>We hope to find a way to streamline this in the future, but creating transparent
+<p>Internally, this requires the <code class="docutils literal"><span class="pre">vl2png</span></code> or <code class="docutils literal"><span class="pre">vl2svg</span></code> executables, which
+must either be in the system <code class="docutils literal"><span class="pre">$PATH</span></code> variable, or within the node
+binary directory specified by the command <code class="docutils literal"><span class="pre">npm</span> <span class="pre">bin</span></code>.</p>
+<p>This extra installation step is straightforward, but admittedly a bit clunky.
+We hope to find a way to streamline this in the future, but creating transparent
 interactions between Python packages and NodeJS packages remains challenging.
 If you have ideas on how to improve this aspect of Altair&#8217;s user experience,
 please send comments or contributions via Altair&#8217;s
@@ -236,8 +231,8 @@ please send comments or contributions via Altair&#8217;s
       </div>
 
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2016, Brian Granger and Jake VanderPlas.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.1.
+        &#169; Copyright 2016, Brian Granger and Jake VanderPlas.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6.
     </div>
   </body>
 </html>
