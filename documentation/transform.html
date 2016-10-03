@@ -113,7 +113,7 @@ source.</p>
 <td>Calculate new field(s) using the provided expresssion(s).</td>
 </tr>
 <tr class="row-odd"><td>filter</td>
-<td>string</td>
+<td>string or an Expression</td>
 <td>A string containing the filter Vega expression.</td>
 </tr>
 <tr class="row-even"><td>filterNull</td>
@@ -150,9 +150,11 @@ source.</p>
 javascript code, referring to the data column name as an attribute of
 <code class="docutils literal"><span class="pre">datum</span></code>, which you can think of as the row within the dataset.
 The <cite>calculate`</cite> attribute accepts a list of <code class="xref py py-class docutils literal"><span class="pre">Formula</span></code> objects, which
-each define a new column using a javascript expression over existing columns.</p>
+each define a new column using an valid javascript expression over existing
+columns. For details on how this expression can be formed, see Vega&#8217;s
+<a class="reference external" href="https://github.com/vega/vega/wiki/Expressions">Expression Documentation</a>.</p>
 <p>The <a class="reference internal" href="../gallery/bar_grouped.html#gallery-bar-grouped"><span class="std std-ref">Grouped Bar Chart</span></a> example shows a more refined view of this dataset
-using these techniques.</p>
+using some of these techniques.</p>
 </div>
 
 
