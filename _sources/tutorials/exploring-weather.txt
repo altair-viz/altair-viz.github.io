@@ -137,7 +137,7 @@ and refer to this new data by name as we would with any other column:
 
     Chart(df).mark_line().encode(
         X('date:T', timeUnit='month'),
-        y='mean(temp_range):Q'
+        y='mean(temp_range)'
     ).transform_data(
         calculate=[temp_range],
     )
