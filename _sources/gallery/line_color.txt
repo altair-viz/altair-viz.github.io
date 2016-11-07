@@ -15,7 +15,9 @@ Multi Series Line Chart
     from altair import *
 
     Chart(Data(
-        formatType='csv',
+        format=DataFormat(
+            type='csv',
+        ),
         url='http://vega.github.io/vega-lite/data/stocks.csv',
     ),
         description='Stock prices of 5 Tech Companies Over Time.',

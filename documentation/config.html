@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Configuring Plots &#8212; Altair 1.0.0 documentation</title>
+    <title>Configuring Altair Visualizations &#8212; Altair 1.2.0 documentation</title>
     
     <link rel="stylesheet" href="../_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.0.0',
+        VERSION:     '1.2.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -30,7 +30,7 @@
     <script type="text/javascript" src="https://vega.github.io/vega-lite/vega-lite.js"></script>
     <script type="text/javascript" src="https://vega.github.io/vega-editor/vendor/vega-embed.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="top" title="Altair 1.0.0 documentation" href="../index.html" />
+    <link rel="top" title="Altair 1.2.0 documentation" href="../index.html" />
     <link rel="up" title="Altair Documentation" href="index.html" />
     <link rel="next" title="Displaying and Saving Altair Visualizations" href="displaying.html" />
     <link rel="prev" title="Data Transformations" href="transform.html" /> 
@@ -38,7 +38,7 @@
   <body role="document">
       <div class="header" role="banner"><h1 class="heading"><a href="../index.html">
           <span>Altair</span></a></h1>
-        <h2 class="heading"><span>Configuring Plots</span></h2>
+        <h2 class="heading"><span>Configuring Altair Visualizations</span></h2>
       </div>
       <div class="topnav" role="navigation" aria-label="top navigation">
       
@@ -54,9 +54,124 @@
       <div class="content">
         
         
-  <div class="section" id="configuring-plots">
-<span id="configuring-altair"></span><h1>Configuring Plots<a class="headerlink" href="#configuring-plots" title="Permalink to this headline">¶</a></h1>
-<p><em>Coming soon</em></p>
+  <div class="section" id="configuring-altair-visualizations">
+<span id="configuring-altair"></span><h1>Configuring Altair Visualizations<a class="headerlink" href="#configuring-altair-visualizations" title="Permalink to this headline">¶</a></h1>
+<p>Altair&#8217;s goal is to automatically choose useful plot settings and configurations
+so that the user is free to think about the data rather than the plotting
+machinery. That said, once you have a useful visualization, you will often want
+to adjust certain aspects of it. This section of the documentation outlines
+some of these adjustments.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This section is currently not complete; for more information on the adjustments
+available, see Vega-Lite&#8217;s <a class="reference external" href="https://vega.github.io/vega-lite/docs/config.html">Configuration Documentation</a></p>
+</div>
+<div class="section" id="adjusting-axis-limits">
+<h2>Adjusting Axis Limits<a class="headerlink" href="#adjusting-axis-limits" title="Permalink to this headline">¶</a></h2>
+<p>Axis limits can be adjusted using the <a class="reference internal" href="../API.html#altair.Scale" title="altair.Scale"><code class="xref py py-class docutils literal"><span class="pre">Scale</span></code></a> property of the axis
+encodings. For example, consider the following plot:</p>
+<div class="highlight-python" id="altair-plot-0"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">altair</span> <span class="kn">import</span> <span class="n">Chart</span><span class="p">,</span> <span class="n">load_dataset</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Scale</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span><span class="s">&#39;cars&#39;</span><span class="p">,</span> <span class="n">url_only</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python" id="config-rst-altair-source-1"><div class="highlight"><pre><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s">&#39;Acceleration:Q&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s">&#39;Horsepower:Q&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="config-rst-altair-plot-1">
+<script>
+  vg.embed("#config-rst-altair-plot-1", "config-rst-altair-plot-1.vl.json", function(error, result) {});
+</script>
+</div><p>Suppose you would like to adjust the limits of the x-axis. You can do this by
+adding a <a class="reference internal" href="../API.html#altair.Scale" title="altair.Scale"><code class="xref py py-class docutils literal"><span class="pre">Scale</span></code></a> property to the <a class="reference internal" href="../API.html#altair.X" title="altair.X"><code class="xref py py-class docutils literal"><span class="pre">X</span></code></a> encoding that specifies
+these limits:</p>
+<div class="highlight-python" id="config-rst-altair-source-2"><div class="highlight"><pre><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">X</span><span class="p">(</span><span class="s">&#39;Acceleration:Q&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">))),</span>
+    <span class="n">y</span><span class="o">=</span><span class="s">&#39;Horsepower:Q&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="config-rst-altair-plot-2">
+<script>
+  vg.embed("#config-rst-altair-plot-2", "config-rst-altair-plot-2.vl.json", function(error, result) {});
+</script>
+</div><p>The problem is that the data still exists beyond the scale, and we need to tell
+Altair what to do with this data. One option is to &#8220;clamp&#8221; the data; that is,
+to adjust it so that data beyond the limits are moved to the limit:</p>
+<div class="highlight-python" id="config-rst-altair-source-3"><div class="highlight"><pre><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">X</span><span class="p">(</span><span class="s">&#39;Acceleration:Q&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="n">clamp</span><span class="o">=</span><span class="bp">True</span><span class="p">)),</span>
+    <span class="n">y</span><span class="o">=</span><span class="s">&#39;Horsepower:Q&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="config-rst-altair-plot-3">
+<script>
+  vg.embed("#config-rst-altair-plot-3", "config-rst-altair-plot-3.vl.json", function(error, result) {});
+</script>
+</div><p>Another option is to <em>filter</em> the data, using the <a class="reference internal" href="../API.html#altair.Chart.transform_data" title="altair.Chart.transform_data"><code class="xref py py-meth docutils literal"><span class="pre">Chart.transform_data()</span></code></a>
+method, to remove these values from the dataset:</p>
+<div class="highlight-python" id="config-rst-altair-source-4"><div class="highlight"><pre><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">X</span><span class="p">(</span><span class="s">&#39;Acceleration:Q&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">))),</span>
+    <span class="n">y</span><span class="o">=</span><span class="s">&#39;Horsepower:Q&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_data</span><span class="p">(</span><span class="nb">filter</span><span class="o">=</span><span class="s">&#39;datum.Acceleration &lt; 15&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="config-rst-altair-plot-4">
+<script>
+  vg.embed("#config-rst-altair-plot-4", "config-rst-altair-plot-4.vl.json", function(error, result) {});
+</script>
+</div><p>Some combination of filtering and clamping is usually suitable for adjusting
+of axis limits.</p>
+</div>
+<div class="section" id="adjusting-axis-labels">
+<h2>Adjusting Axis Labels<a class="headerlink" href="#adjusting-axis-labels" title="Permalink to this headline">¶</a></h2>
+<p>Altair also gives you tool to easily configure the appearance of axis labels.
+For example consider this plot:</p>
+<div class="highlight-python" id="config-rst-altair-source-5"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">altair</span> <span class="kn">import</span> <span class="n">Chart</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s">&#39;x&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.03</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.12</span><span class="p">,</span> <span class="mf">0.07</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">],</span>
+                   <span class="s">&#39;y&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">39</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">35</span><span class="p">]})</span>
+
+<span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s">&#39;x&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s">&#39;y&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="config-rst-altair-plot-5">
+<script>
+  vg.embed("#config-rst-altair-plot-5", "config-rst-altair-plot-5.vl.json", function(error, result) {});
+</script>
+</div><p>The x labels are automatically rendered in SI prefix notation (i.e. 3m = 0.03)
+which may not be desirable.</p>
+<p>To fine-tune the formatting of the tick labels and to add a custom title to
+each axis, we can pass to the <a class="reference internal" href="../API.html#altair.X" title="altair.X"><code class="xref py py-class docutils literal"><span class="pre">X</span></code></a> and <a class="reference internal" href="../API.html#altair.Y" title="altair.Y"><code class="xref py py-class docutils literal"><span class="pre">Y</span></code></a> encoding a custom
+<a class="reference internal" href="../API.html#altair.Axis" title="altair.Axis"><code class="xref py py-class docutils literal"><span class="pre">Axis</span></code></a> definition.
+Here is an example of formatting the x labels as a percentage, and
+the y labels as a dollar value:</p>
+<div class="highlight-python" id="config-rst-altair-source-7"><span id="altair-plot-6"></span><div class="highlight"><pre><span class="kn">from</span> <span class="nn">altair</span> <span class="kn">import</span> <span class="n">Chart</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Axis</span>
+
+<span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">X</span><span class="p">(</span><span class="s">&#39;x&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">Axis</span><span class="p">(</span><span class="n">format</span><span class="o">=</span><span class="s">&#39;%&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s">&#39;percentage&#39;</span><span class="p">)),</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">Y</span><span class="p">(</span><span class="s">&#39;y&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">Axis</span><span class="p">(</span><span class="n">format</span><span class="o">=</span><span class="s">&#39;$&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s">&#39;dollar amount&#39;</span><span class="p">))</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="config-rst-altair-plot-7">
+<script>
+  vg.embed("#config-rst-altair-plot-7", "config-rst-altair-plot-7.vl.json", function(error, result) {});
+</script>
+</div><p>Additional formatting codes are available; for a listing of these see the
+<a class="reference external" href="https://github.com/d3/d3-format/blob/master/README.md#format">d3 Format Code Documentation</a>.</p>
+</div>
 </div>
 
 

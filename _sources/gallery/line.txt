@@ -15,7 +15,9 @@ Line Chart
     from altair import *
 
     Chart(Data(
-        formatType='csv',
+        format=DataFormat(
+            type='csv',
+        ),
         url='http://vega.github.io/vega-lite/data/stocks.csv',
     ),
         description="Google's stock price over time.",

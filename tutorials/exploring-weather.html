@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Exploring Data: Seattle Weather &#8212; Altair 1.0.0 documentation</title>
+    <title>Exploring Data: Seattle Weather &#8212; Altair 1.2.0 documentation</title>
     
     <link rel="stylesheet" href="../_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.0.0',
+        VERSION:     '1.2.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -30,9 +30,9 @@
     <script type="text/javascript" src="https://vega.github.io/vega-lite/vega-lite.js"></script>
     <script type="text/javascript" src="https://vega.github.io/vega-editor/vendor/vega-embed.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="top" title="Altair 1.0.0 documentation" href="../index.html" />
+    <link rel="top" title="Altair 1.2.0 documentation" href="../index.html" />
     <link rel="up" title="Altair Tutorials" href="index.html" />
-    <link rel="next" title="Altair Documentation" href="../documentation/index.html" />
+    <link rel="next" title="Altair Frequently Asked Questions" href="../faq.html" />
     <link rel="prev" title="Getting Started with Altair" href="getting-started.html" /> 
   </head>
   <body role="document">
@@ -47,7 +47,7 @@
         &#160;&#160;::&#160;&#160;
         <a class="uplink" href="../index.html">Contents</a>
         &#160;&#160;::&#160;&#160;
-        <a href="../documentation/index.html">Altair Documentation</a>&#160;&#160;»
+        <a href="../faq.html">Altair Frequently Asked Questions</a>&#160;&#160;»
         </p>
 
       </div>
@@ -173,20 +173,20 @@ high temperatures increased over the course of these four years, a fact that
 you can confirm for minimum daily temperatures as well.</p>
 <p>You might also wonder how the variability of the temperatures changes
 throughout the year. For this, we have to add a computation to derive a new field.
-We&#8217;ll create a new field via a <a class="reference internal" href="../API.html#altair.Formula" title="altair.Formula"><code class="xref py py-class docutils literal"><span class="pre">Formula</span></code></a> object that defines
-this field using a Javascript string:</p>
-<div class="highlight-python" id="altair-plot-6"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">altair</span> <span class="kn">import</span> <span class="n">Formula</span>
-<span class="n">temp_range</span> <span class="o">=</span> <span class="n">Formula</span><span class="p">(</span><span class="n">field</span><span class="o">=</span><span class="s">&#39;temp_range&#39;</span><span class="p">,</span>
-                     <span class="n">expr</span><span class="o">=</span><span class="s">&#39;datum.temp_max - datum.temp_min&#39;</span><span class="p">)</span>
+Altair provides a convenient syntax to express such transformations in a
+familiar Pandas-like syntax:</p>
+<div class="highlight-python" id="altair-plot-6"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">altair</span> <span class="kn">import</span> <span class="n">expr</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">expr</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s">&#39;temp_range&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">temp_max</span> <span class="o">-</span> <span class="n">df</span><span class="o">.</span><span class="n">temp_min</span>
 </pre></div>
 </div>
-<p>Now we can pass this formula object to the <code class="xref py py-meth docutils literal"><span class="pre">Chart.transform_data()</span></code> method,
-and refer to this new data by name as we would with any other column:</p>
+<p>Note that this calculation doesn&#8217;t actually do any data manipulation, but rather
+encodes and stores the operations within the plot specification, where they will
+be calculated by the renderer.</p>
 <div class="highlight-python" id="exploring-weather-rst-altair-source-7"><div class="highlight"><pre><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">X</span><span class="p">(</span><span class="s">&#39;date:T&#39;</span><span class="p">,</span> <span class="n">timeUnit</span><span class="o">=</span><span class="s">&#39;month&#39;</span><span class="p">),</span>
     <span class="n">y</span><span class="o">=</span><span class="s">&#39;mean(temp_range):Q&#39;</span>
-<span class="p">)</span><span class="o">.</span><span class="n">transform_data</span><span class="p">(</span>
-    <span class="n">calculate</span><span class="o">=</span><span class="p">[</span><span class="n">temp_range</span><span class="p">],</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -196,9 +196,10 @@ and refer to this new data by name as we would with any other column:</p>
   vg.embed("#exploring-weather-rst-altair-plot-7", "exploring-weather-rst-altair-plot-7.vl.json", function(error, result) {});
 </script>
 </div><p>Of course, the same calculation could be done by using Pandas manipulations to
-add a column to the dataframe; the disadvantage there is that the derived value
-would have to be explicitly stored in the plot specification rather than
-computed on-demand in the browser.</p>
+explicitly add a column to the dataframe; the disadvantage there is that the
+derived values would have to be stored in the plot specification
+rather than computed on-demand in the browser. For more information on these
+transformations, see <a class="reference internal" href="../documentation/transform.html#data-transformations"><span class="std std-ref">Data Transformations</span></a>.</p>
 <p>Next we will explore the <code class="docutils literal"><span class="pre">weather</span></code> field, which encodes a categorical
 variable describing the weather on a given day.
 We might wish to know how different kinds of weather (e.g. sunny days or rainy days)
@@ -224,49 +225,23 @@ stack the bars atop each other:</p>
 </div><p>The default color palette’s semantics might not match our expectation.
 For example, we probably do not expect “sun” (sunny) to be purple.
 We can tune the chart by providing a color scale range that maps the values
-from the weather field to meaningful colors, using standard hex color codes.
-In addition, we can customize the titles for the axis and legend to make the
-meaning of the plot more clear:</p>
-<div class="highlight-python" id="exploring-weather-rst-altair-source-9"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">altair</span> <span class="kn">import</span> <span class="n">Axis</span><span class="p">,</span> <span class="n">Scale</span>
+from the weather field to meaningful colors, using standard hex color codes:</p>
+<div class="highlight-python" id="altair-plot-9"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">altair</span> <span class="kn">import</span> <span class="n">Scale</span>
 
-<span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">X</span><span class="p">(</span><span class="s">&#39;date:T&#39;</span><span class="p">,</span> <span class="n">timeUnit</span><span class="o">=</span><span class="s">&#39;month&#39;</span><span class="p">,</span>
-        <span class="n">axis</span><span class="o">=</span><span class="n">Axis</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s">&#39;Month of the year&#39;</span><span class="p">)),</span>
-    <span class="n">y</span><span class="o">=</span><span class="s">&#39;count(*):Q&#39;</span><span class="p">,</span>
-    <span class="n">color</span><span class="o">=</span><span class="n">Color</span><span class="p">(</span><span class="s">&#39;weather&#39;</span><span class="p">,</span>
-                <span class="n">legend</span><span class="o">=</span><span class="n">Legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s">&#39;Weather type&#39;</span><span class="p">),</span>
-                <span class="n">scale</span><span class="o">=</span><span class="n">Scale</span><span class="p">(</span>
-                    <span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;sun&#39;</span><span class="p">,</span> <span class="s">&#39;fog&#39;</span><span class="p">,</span> <span class="s">&#39;drizzle&#39;</span><span class="p">,</span> <span class="s">&#39;rain&#39;</span><span class="p">,</span> <span class="s">&#39;snow&#39;</span><span class="p">],</span>
-                    <span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;#e7ba52&#39;</span><span class="p">,</span> <span class="s">&#39;#c7c7c7&#39;</span><span class="p">,</span> <span class="s">&#39;#aec7e8&#39;</span><span class="p">,</span> <span class="s">&#39;#1f77b4&#39;</span><span class="p">,</span> <span class="s">&#39;#9467bd&#39;</span><span class="p">],</span>
-                <span class="p">),</span>
-    <span class="p">),</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-
-<div id="exploring-weather-rst-altair-plot-9">
-<script>
-  vg.embed("#exploring-weather-rst-altair-plot-9", "exploring-weather-rst-altair-plot-9.vl.json", function(error, result) {});
-</script>
-</div><p>Combining the above ideas lets us create any number of flexible visualizations
-of this dataset. For example, here is a plot that explores the relationship
-between weather, precipitation, maximum temperature, and temperature range,
-and is also configured to use a larger canvas:</p>
-<div class="highlight-python" id="exploring-weather-rst-altair-source-10"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">altair</span> <span class="kn">import</span> <span class="n">Chart</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Color</span><span class="p">,</span> <span class="n">Formula</span><span class="p">,</span> <span class="n">Axis</span><span class="p">,</span> <span class="n">Scale</span>
-
-<span class="n">temp_range</span> <span class="o">=</span> <span class="n">Formula</span><span class="p">(</span><span class="n">field</span><span class="o">=</span><span class="s">&#39;temp_range&#39;</span><span class="p">,</span>
-                     <span class="n">expr</span><span class="o">=</span><span class="s">&#39;datum.temp_max - datum.temp_min&#39;</span><span class="p">)</span>
 <span class="n">scale</span> <span class="o">=</span> <span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;sun&#39;</span><span class="p">,</span> <span class="s">&#39;fog&#39;</span><span class="p">,</span> <span class="s">&#39;drizzle&#39;</span><span class="p">,</span> <span class="s">&#39;rain&#39;</span><span class="p">,</span> <span class="s">&#39;snow&#39;</span><span class="p">],</span>
               <span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;#e7ba52&#39;</span><span class="p">,</span> <span class="s">&#39;#c7c7c7&#39;</span><span class="p">,</span> <span class="s">&#39;#aec7e8&#39;</span><span class="p">,</span> <span class="s">&#39;#1f77b4&#39;</span><span class="p">,</span> <span class="s">&#39;#9467bd&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>This scale can be passed to the color encoding to be applied to the plot style.
+In addition, we can customize the titles for the axis and legend to make the
+meaning of the plot more clear:</p>
+<div class="highlight-python" id="exploring-weather-rst-altair-source-10"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">altair</span> <span class="kn">import</span> <span class="n">Axis</span><span class="p">,</span> <span class="n">Color</span><span class="p">,</span> <span class="n">Legend</span>
 
-<span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">X</span><span class="p">(</span><span class="s">&#39;temp_max&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">Axis</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s">&#39;Maximum Daily Temperature (C)&#39;</span><span class="p">)),</span>
-    <span class="n">Y</span><span class="p">(</span><span class="s">&#39;temp_range&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">Axis</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s">&#39;Daily Temperature Range (C)&#39;</span><span class="p">)),</span>
-    <span class="n">Color</span><span class="p">(</span><span class="s">&#39;weather&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">),</span>
-    <span class="n">size</span><span class="o">=</span><span class="s">&#39;precipitation&#39;</span><span class="p">,</span>
-<span class="p">)</span><span class="o">.</span><span class="n">transform_data</span><span class="p">(</span>
-    <span class="n">calculate</span><span class="o">=</span><span class="p">[</span><span class="n">temp_range</span><span class="p">]</span>
-<span class="p">)</span><span class="o">.</span><span class="n">configure_cell</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+<span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">X</span><span class="p">(</span><span class="s">&#39;date:T&#39;</span><span class="p">,</span> <span class="n">timeUnit</span><span class="o">=</span><span class="s">&#39;month&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">Axis</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s">&#39;Month of the year&#39;</span><span class="p">)),</span>
+    <span class="n">y</span><span class="o">=</span><span class="s">&#39;count(*):Q&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">Color</span><span class="p">(</span><span class="s">&#39;weather&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="n">Legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s">&#39;Weather type&#39;</span><span class="p">),</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">),</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 
@@ -274,10 +249,27 @@ and is also configured to use a larger canvas:</p>
 <script>
   vg.embed("#exploring-weather-rst-altair-plot-10", "exploring-weather-rst-altair-plot-10.vl.json", function(error, result) {});
 </script>
+</div><p>Combining the above ideas lets us create any number of flexible visualizations
+of this dataset. For example, here is a plot that uses the customizations we
+have developed above to explore the relationship between weather, precipitation,
+maximum temperature, and temperature range, configured to use a larger canvas:</p>
+<div class="highlight-python" id="exploring-weather-rst-altair-source-11"><div class="highlight"><pre><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">X</span><span class="p">(</span><span class="s">&#39;temp_max&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">Axis</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s">&#39;Maximum Daily Temperature (C)&#39;</span><span class="p">)),</span>
+    <span class="n">Y</span><span class="p">(</span><span class="s">&#39;temp_range&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">Axis</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s">&#39;Daily Temperature Range (C)&#39;</span><span class="p">)),</span>
+    <span class="n">Color</span><span class="p">(</span><span class="s">&#39;weather&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">),</span>
+    <span class="n">size</span><span class="o">=</span><span class="s">&#39;precipitation&#39;</span><span class="p">,</span>
+<span class="p">)</span><span class="o">.</span><span class="n">configure_cell</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="exploring-weather-rst-altair-plot-11">
+<script>
+  vg.embed("#exploring-weather-rst-altair-plot-11", "exploring-weather-rst-altair-plot-11.vl.json", function(error, result) {});
+</script>
 </div><p>This gives us even more insight into the weather patterns in Seattle: rainy and
 foggy days tend to be cooler with a narrower range of temperatures, while warmer
 days tend to be dry and sunny, with a wider spread between low and high temperature.</p>
-<p>This is the end of this tutorial where you have seen various ways to discretize
+<p>This is the end of this tutorial where you have seen various ways to bin
 and aggregate data, derive new fields, and customize your charts.
 You can find more visualizations in the <a class="reference internal" href="../gallery/index.html#example-gallery"><span class="std std-ref">Example Gallery</span></a>.
 If you want to further customize your charts, you can refer to Altair&#8217;s
@@ -293,7 +285,7 @@ If you want to further customize your charts, you can refer to Altair&#8217;s
         &#160;&#160;::&#160;&#160;
         <a class="uplink" href="../index.html">Contents</a>
         &#160;&#160;::&#160;&#160;
-        <a href="../documentation/index.html">Altair Documentation</a>&#160;&#160;»
+        <a href="../faq.html">Altair Frequently Asked Questions</a>&#160;&#160;»
         </p>
 
       </div>

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>API Reference &#8212; Altair 1.0.0 documentation</title>
+    <title>API Reference &#8212; Altair 1.2.0 documentation</title>
     
     <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.0.0',
+        VERSION:     '1.2.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -30,7 +30,7 @@
     <script type="text/javascript" src="https://vega.github.io/vega-lite/vega-lite.js"></script>
     <script type="text/javascript" src="https://vega.github.io/vega-editor/vendor/vega-embed.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="top" title="Altair 1.0.0 documentation" href="index.html" />
+    <link rel="top" title="Altair 1.2.0 documentation" href="index.html" />
     <link rel="prev" title="Altair Plot Recipes" href="recipes.html" /> 
   </head>
   <body role="document">
@@ -59,9 +59,9 @@
 <em class="property">class </em><code class="descclassname">altair.</code><code class="descname">Chart</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Chart" title="Permalink to this definition">¶</a></dt>
 <dd><table border="1" class="docutils">
 <colgroup>
-<col width="8%" />
-<col width="19%" />
-<col width="73%" />
+<col width="7%" />
+<col width="18%" />
+<col width="75%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Trait</th>
@@ -82,23 +82,31 @@
 <td><a class="reference internal" href="#altair.Encoding" title="altair.Encoding"><code class="xref py py-class docutils literal"><span class="pre">Encoding</span></code></a></td>
 <td>A key-value mapping between encoding channels and definition of fields.</td>
 </tr>
-<tr class="row-odd"><td>mark</td>
-<td>string</td>
-<td>The mark type. One of [&#8216;area&#8217;, &#8216;bar&#8217;, &#8216;line&#8217;, &#8216;point&#8217;, &#8216;text&#8217;, &#8216;tick&#8217;, &#8216;rule&#8217;, &#8216;circle&#8217;, &#8216;square&#8217;].</td>
+<tr class="row-odd"><td>height</td>
+<td>float</td>
+<td>&#8211;</td>
 </tr>
-<tr class="row-even"><td>name</td>
+<tr class="row-even"><td>mark</td>
+<td>string</td>
+<td>The mark type. One of [&#8216;area&#8217;, &#8216;bar&#8217;, &#8216;line&#8217;, &#8216;point&#8217;, &#8216;text&#8217;, &#8216;tick&#8217;, &#8216;rule&#8217;, &#8216;circle&#8217;, &#8216;square&#8217;, &#8216;errorBar&#8217;].</td>
+</tr>
+<tr class="row-odd"><td>name</td>
 <td>string</td>
 <td>Name of the visualization for later reference.</td>
 </tr>
-<tr class="row-odd"><td>transform</td>
+<tr class="row-even"><td>transform</td>
 <td><a class="reference internal" href="#altair.Transform" title="altair.Transform"><code class="xref py py-class docutils literal"><span class="pre">Transform</span></code></a></td>
 <td>An object describing filter and new field calculation.</td>
+</tr>
+<tr class="row-odd"><td>width</td>
+<td>float</td>
+<td>&#8211;</td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
 <dt id="altair.Chart.configure">
-<code class="descname">configure</code><span class="sig-paren">(</span><em>axis=None</em>, <em>background=None</em>, <em>cell=None</em>, <em>facet=None</em>, <em>legend=None</em>, <em>mark=None</em>, <em>numberFormat=None</em>, <em>scale=None</em>, <em>timeFormat=None</em>, <em>viewport=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Chart.configure" title="Permalink to this definition">¶</a></dt>
+<code class="descname">configure</code><span class="sig-paren">(</span><em>axis=None</em>, <em>background=None</em>, <em>cell=None</em>, <em>countTitle=None</em>, <em>facet=None</em>, <em>legend=None</em>, <em>mark=None</em>, <em>numberFormat=None</em>, <em>overlay=None</em>, <em>scale=None</em>, <em>timeFormat=None</em>, <em>viewport=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Chart.configure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set chart configuration</p>
 <p>Arguments are passed to <a class="reference internal" href="#altair.Config" title="altair.Config"><code class="xref py py-class docutils literal"><span class="pre">Config</span></code></a>.</p>
 </dd></dl>
@@ -167,6 +175,13 @@
 </dd></dl>
 
 <dl class="method">
+<dt id="altair.Chart.configure_overlay">
+<code class="descname">configure_overlay</code><span class="sig-paren">(</span><em>area=None</em>, <em>line=None</em>, <em>lineStyle=None</em>, <em>pointStyle=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Chart.configure_overlay" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configure the chart&#8217;s overlay by keyword args.</p>
+<p>Arguments are passed to <code class="xref py py-class docutils literal"><span class="pre">OverlayConfig</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="altair.Chart.configure_scale">
 <code class="descname">configure_scale</code><span class="sig-paren">(</span><em>bandSize=None</em>, <em>barSizeRange=None</em>, <em>fontSizeRange=None</em>, <em>nominalColorRange=None</em>, <em>opacity=None</em>, <em>padding=None</em>, <em>pointSizeRange=None</em>, <em>round=None</em>, <em>ruleSizeRange=None</em>, <em>sequentialColorRange=None</em>, <em>shapeRange=None</em>, <em>textBandWidth=None</em>, <em>tickSizeRange=None</em>, <em>useRawDomain=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Chart.configure_scale" title="Permalink to this definition">¶</a></dt>
 <dd><p>Configure the chart&#8217;s scales by keyword args.</p>
@@ -180,7 +195,7 @@
 
 <dl class="method">
 <dt id="altair.Chart.encode">
-<code class="descname">encode</code><span class="sig-paren">(</span><em>color=None</em>, <em>column=None</em>, <em>detail=None</em>, <em>label=None</em>, <em>opacity=None</em>, <em>order=None</em>, <em>path=None</em>, <em>row=None</em>, <em>shape=None</em>, <em>size=None</em>, <em>text=None</em>, <em>x=None</em>, <em>y=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Chart.encode" title="Permalink to this definition">¶</a></dt>
+<code class="descname">encode</code><span class="sig-paren">(</span><em>color=None</em>, <em>column=None</em>, <em>detail=None</em>, <em>label=None</em>, <em>opacity=None</em>, <em>order=None</em>, <em>path=None</em>, <em>row=None</em>, <em>shape=None</em>, <em>size=None</em>, <em>text=None</em>, <em>x=None</em>, <em>x2=None</em>, <em>y=None</em>, <em>y2=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Chart.encode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Define the encoding for the Chart.</p>
 <p>Arguments are passed to <a class="reference internal" href="#altair.Encoding" title="altair.Encoding"><code class="xref py py-class docutils literal"><span class="pre">Encoding</span></code></a>.</p>
 </dd></dl>
@@ -257,6 +272,13 @@
 <dt id="altair.Chart.mark_circle">
 <code class="descname">mark_circle</code><span class="sig-paren">(</span><em>align=None</em>, <em>angle=None</em>, <em>applyColorToBackground=None</em>, <em>barSize=None</em>, <em>barThinSize=None</em>, <em>baseline=None</em>, <em>color=None</em>, <em>dx=None</em>, <em>dy=None</em>, <em>fill=None</em>, <em>fillOpacity=None</em>, <em>filled=None</em>, <em>font=None</em>, <em>fontSize=None</em>, <em>fontStyle=None</em>, <em>fontWeight=None</em>, <em>format=None</em>, <em>interpolate=None</em>, <em>lineSize=None</em>, <em>opacity=None</em>, <em>orient=None</em>, <em>radius=None</em>, <em>ruleSize=None</em>, <em>shape=None</em>, <em>shortTimeLabels=None</em>, <em>size=None</em>, <em>stacked=None</em>, <em>stroke=None</em>, <em>strokeDash=None</em>, <em>strokeDashOffset=None</em>, <em>strokeOpacity=None</em>, <em>strokeWidth=None</em>, <em>tension=None</em>, <em>text=None</em>, <em>theta=None</em>, <em>tickSize=None</em>, <em>tickThickness=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Chart.mark_circle" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the mark to &#8216;circle&#8217; and optionally specify mark properties</p>
+<p>Arguments are passed to <a class="reference internal" href="#altair.MarkConfig" title="altair.MarkConfig"><code class="xref py py-class docutils literal"><span class="pre">MarkConfig</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="altair.Chart.mark_errorBar">
+<code class="descname">mark_errorBar</code><span class="sig-paren">(</span><em>align=None</em>, <em>angle=None</em>, <em>applyColorToBackground=None</em>, <em>barSize=None</em>, <em>barThinSize=None</em>, <em>baseline=None</em>, <em>color=None</em>, <em>dx=None</em>, <em>dy=None</em>, <em>fill=None</em>, <em>fillOpacity=None</em>, <em>filled=None</em>, <em>font=None</em>, <em>fontSize=None</em>, <em>fontStyle=None</em>, <em>fontWeight=None</em>, <em>format=None</em>, <em>interpolate=None</em>, <em>lineSize=None</em>, <em>opacity=None</em>, <em>orient=None</em>, <em>radius=None</em>, <em>ruleSize=None</em>, <em>shape=None</em>, <em>shortTimeLabels=None</em>, <em>size=None</em>, <em>stacked=None</em>, <em>stroke=None</em>, <em>strokeDash=None</em>, <em>strokeDashOffset=None</em>, <em>strokeOpacity=None</em>, <em>strokeWidth=None</em>, <em>tension=None</em>, <em>text=None</em>, <em>theta=None</em>, <em>tickSize=None</em>, <em>tickThickness=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Chart.mark_errorBar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the mark to &#8216;errorBar&#8217; and optionally specify mark properties</p>
 <p>Arguments are passed to <a class="reference internal" href="#altair.MarkConfig" title="altair.MarkConfig"><code class="xref py py-class docutils literal"><span class="pre">MarkConfig</span></code></a>.</p>
 </dd></dl>
 
@@ -485,7 +507,7 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 
 <dl class="method">
 <dt id="altair.Chart.transform_data">
-<code class="descname">transform_data</code><span class="sig-paren">(</span><em>calculate=None</em>, <em>filter=None</em>, <em>filterNull=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Chart.transform_data" title="Permalink to this definition">¶</a></dt>
+<code class="descname">transform_data</code><span class="sig-paren">(</span><em>calculate=None</em>, <em>filter=None</em>, <em>filterInvalid=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Chart.transform_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the data transform by keyword args.</p>
 <p>Arguments are passed to <a class="reference internal" href="#altair.Transform" title="altair.Transform"><code class="xref py py-class docutils literal"><span class="pre">Transform</span></code></a>.</p>
 </dd></dl>
@@ -516,23 +538,31 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 <td>string</td>
 <td>An optional description of this mark for commenting purpose.</td>
 </tr>
-<tr class="row-even"><td>layers</td>
+<tr class="row-even"><td>height</td>
+<td>float</td>
+<td>&#8211;</td>
+</tr>
+<tr class="row-odd"><td>layers</td>
 <td>list of <a class="reference internal" href="#altair.Chart" title="altair.Chart"><code class="xref py py-class docutils literal"><span class="pre">Chart</span></code></a></td>
 <td>Unit specs that will be layered.</td>
 </tr>
-<tr class="row-odd"><td>name</td>
+<tr class="row-even"><td>name</td>
 <td>string</td>
 <td>Name of the visualization for later reference.</td>
 </tr>
-<tr class="row-even"><td>transform</td>
+<tr class="row-odd"><td>transform</td>
 <td><a class="reference internal" href="#altair.Transform" title="altair.Transform"><code class="xref py py-class docutils literal"><span class="pre">Transform</span></code></a></td>
 <td>An object describing filter and new field calculation.</td>
+</tr>
+<tr class="row-even"><td>width</td>
+<td>float</td>
+<td>&#8211;</td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
 <dt id="altair.LayeredChart.configure">
-<code class="descname">configure</code><span class="sig-paren">(</span><em>axis=None</em>, <em>background=None</em>, <em>cell=None</em>, <em>facet=None</em>, <em>legend=None</em>, <em>mark=None</em>, <em>numberFormat=None</em>, <em>scale=None</em>, <em>timeFormat=None</em>, <em>viewport=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.LayeredChart.configure" title="Permalink to this definition">¶</a></dt>
+<code class="descname">configure</code><span class="sig-paren">(</span><em>axis=None</em>, <em>background=None</em>, <em>cell=None</em>, <em>countTitle=None</em>, <em>facet=None</em>, <em>legend=None</em>, <em>mark=None</em>, <em>numberFormat=None</em>, <em>overlay=None</em>, <em>scale=None</em>, <em>timeFormat=None</em>, <em>viewport=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.LayeredChart.configure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set chart configuration</p>
 <p>Arguments are passed to <a class="reference internal" href="#altair.Config" title="altair.Config"><code class="xref py py-class docutils literal"><span class="pre">Config</span></code></a>.</p>
 </dd></dl>
@@ -598,6 +628,13 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 <code class="descname">configure_mark</code><span class="sig-paren">(</span><em>align=None</em>, <em>angle=None</em>, <em>applyColorToBackground=None</em>, <em>barSize=None</em>, <em>barThinSize=None</em>, <em>baseline=None</em>, <em>color=None</em>, <em>dx=None</em>, <em>dy=None</em>, <em>fill=None</em>, <em>fillOpacity=None</em>, <em>filled=None</em>, <em>font=None</em>, <em>fontSize=None</em>, <em>fontStyle=None</em>, <em>fontWeight=None</em>, <em>format=None</em>, <em>interpolate=None</em>, <em>lineSize=None</em>, <em>opacity=None</em>, <em>orient=None</em>, <em>radius=None</em>, <em>ruleSize=None</em>, <em>shape=None</em>, <em>shortTimeLabels=None</em>, <em>size=None</em>, <em>stacked=None</em>, <em>stroke=None</em>, <em>strokeDash=None</em>, <em>strokeDashOffset=None</em>, <em>strokeOpacity=None</em>, <em>strokeWidth=None</em>, <em>tension=None</em>, <em>text=None</em>, <em>theta=None</em>, <em>tickSize=None</em>, <em>tickThickness=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.LayeredChart.configure_mark" title="Permalink to this definition">¶</a></dt>
 <dd><p>Configure the chart&#8217;s marks by keyword args.</p>
 <p>Arguments are passed to <a class="reference internal" href="#altair.MarkConfig" title="altair.MarkConfig"><code class="xref py py-class docutils literal"><span class="pre">MarkConfig</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="altair.LayeredChart.configure_overlay">
+<code class="descname">configure_overlay</code><span class="sig-paren">(</span><em>area=None</em>, <em>line=None</em>, <em>lineStyle=None</em>, <em>pointStyle=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.LayeredChart.configure_overlay" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configure the chart&#8217;s overlay by keyword args.</p>
+<p>Arguments are passed to <code class="xref py py-class docutils literal"><span class="pre">OverlayConfig</span></code>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -848,7 +885,7 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 
 <dl class="method">
 <dt id="altair.LayeredChart.transform_data">
-<code class="descname">transform_data</code><span class="sig-paren">(</span><em>calculate=None</em>, <em>filter=None</em>, <em>filterNull=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.LayeredChart.transform_data" title="Permalink to this definition">¶</a></dt>
+<code class="descname">transform_data</code><span class="sig-paren">(</span><em>calculate=None</em>, <em>filter=None</em>, <em>filterInvalid=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.LayeredChart.transform_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the data transform by keyword args.</p>
 <p>Arguments are passed to <a class="reference internal" href="#altair.Transform" title="altair.Transform"><code class="xref py py-class docutils literal"><span class="pre">Transform</span></code></a>.</p>
 </dd></dl>
@@ -899,7 +936,7 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </table>
 <dl class="method">
 <dt id="altair.FacetedChart.configure">
-<code class="descname">configure</code><span class="sig-paren">(</span><em>axis=None</em>, <em>background=None</em>, <em>cell=None</em>, <em>facet=None</em>, <em>legend=None</em>, <em>mark=None</em>, <em>numberFormat=None</em>, <em>scale=None</em>, <em>timeFormat=None</em>, <em>viewport=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.FacetedChart.configure" title="Permalink to this definition">¶</a></dt>
+<code class="descname">configure</code><span class="sig-paren">(</span><em>axis=None</em>, <em>background=None</em>, <em>cell=None</em>, <em>countTitle=None</em>, <em>facet=None</em>, <em>legend=None</em>, <em>mark=None</em>, <em>numberFormat=None</em>, <em>overlay=None</em>, <em>scale=None</em>, <em>timeFormat=None</em>, <em>viewport=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.FacetedChart.configure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set chart configuration</p>
 <p>Arguments are passed to <a class="reference internal" href="#altair.Config" title="altair.Config"><code class="xref py py-class docutils literal"><span class="pre">Config</span></code></a>.</p>
 </dd></dl>
@@ -965,6 +1002,13 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 <code class="descname">configure_mark</code><span class="sig-paren">(</span><em>align=None</em>, <em>angle=None</em>, <em>applyColorToBackground=None</em>, <em>barSize=None</em>, <em>barThinSize=None</em>, <em>baseline=None</em>, <em>color=None</em>, <em>dx=None</em>, <em>dy=None</em>, <em>fill=None</em>, <em>fillOpacity=None</em>, <em>filled=None</em>, <em>font=None</em>, <em>fontSize=None</em>, <em>fontStyle=None</em>, <em>fontWeight=None</em>, <em>format=None</em>, <em>interpolate=None</em>, <em>lineSize=None</em>, <em>opacity=None</em>, <em>orient=None</em>, <em>radius=None</em>, <em>ruleSize=None</em>, <em>shape=None</em>, <em>shortTimeLabels=None</em>, <em>size=None</em>, <em>stacked=None</em>, <em>stroke=None</em>, <em>strokeDash=None</em>, <em>strokeDashOffset=None</em>, <em>strokeOpacity=None</em>, <em>strokeWidth=None</em>, <em>tension=None</em>, <em>text=None</em>, <em>theta=None</em>, <em>tickSize=None</em>, <em>tickThickness=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.FacetedChart.configure_mark" title="Permalink to this definition">¶</a></dt>
 <dd><p>Configure the chart&#8217;s marks by keyword args.</p>
 <p>Arguments are passed to <a class="reference internal" href="#altair.MarkConfig" title="altair.MarkConfig"><code class="xref py py-class docutils literal"><span class="pre">MarkConfig</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="altair.FacetedChart.configure_overlay">
+<code class="descname">configure_overlay</code><span class="sig-paren">(</span><em>area=None</em>, <em>line=None</em>, <em>lineStyle=None</em>, <em>pointStyle=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.FacetedChart.configure_overlay" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configure the chart&#8217;s overlay by keyword args.</p>
+<p>Arguments are passed to <code class="xref py py-class docutils literal"><span class="pre">OverlayConfig</span></code>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1217,7 +1261,7 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 
 <dl class="method">
 <dt id="altair.FacetedChart.transform_data">
-<code class="descname">transform_data</code><span class="sig-paren">(</span><em>calculate=None</em>, <em>filter=None</em>, <em>filterNull=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.FacetedChart.transform_data" title="Permalink to this definition">¶</a></dt>
+<code class="descname">transform_data</code><span class="sig-paren">(</span><em>calculate=None</em>, <em>filter=None</em>, <em>filterInvalid=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.FacetedChart.transform_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the data transform by keyword args.</p>
 <p>Arguments are passed to <a class="reference internal" href="#altair.Transform" title="altair.Transform"><code class="xref py py-class docutils literal"><span class="pre">Transform</span></code></a>.</p>
 </dd></dl>
@@ -1255,7 +1299,7 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 <tr class="row-even"><td>detail</td>
 <td><a class="reference internal" href="#altair.Detail" title="altair.Detail"><code class="xref py py-class docutils literal"><span class="pre">Detail</span></code></a> or list of <a class="reference internal" href="#altair.Detail" title="altair.Detail"><code class="xref py py-class docutils literal"><span class="pre">Detail</span></code></a></td>
-<td>Interface for any kind of FieldDef.</td>
+<td>&#8211;</td>
 </tr>
 <tr class="row-odd"><td>label</td>
 <td><a class="reference internal" href="#altair.Label" title="altair.Label"><code class="xref py py-class docutils literal"><span class="pre">Label</span></code></a></td>
@@ -1293,9 +1337,17 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 <td><a class="reference internal" href="#altair.X" title="altair.X"><code class="xref py py-class docutils literal"><span class="pre">X</span></code></a></td>
 <td>X coordinates for <cite>point</cite>, <cite>circle</cite>, <cite>square</cite>, <cite>line</cite>, <cite>rule</cite>, <cite>text</cite>, and <cite>tick</cite> (or to width and height for <cite>bar</cite> and <cite>area</cite> marks).</td>
 </tr>
-<tr class="row-even"><td>y</td>
+<tr class="row-even"><td>x2</td>
+<td><code class="xref py py-class docutils literal"><span class="pre">X2</span></code></td>
+<td>X2 coordinates for ranged <cite>bar</cite>, <cite>rule</cite>, <cite>area</cite>.</td>
+</tr>
+<tr class="row-odd"><td>y</td>
 <td><a class="reference internal" href="#altair.Y" title="altair.Y"><code class="xref py py-class docutils literal"><span class="pre">Y</span></code></a></td>
 <td>Y coordinates for <cite>point</cite>, <cite>circle</cite>, <cite>square</cite>, <cite>line</cite>, <cite>rule</cite>, <cite>text</cite>, and <cite>tick</cite> (or to width and height for <cite>bar</cite> and <cite>area</cite> marks).</td>
+</tr>
+<tr class="row-even"><td>y2</td>
+<td><code class="xref py py-class docutils literal"><span class="pre">Y2</span></code></td>
+<td>Y2 coordinates for ranged <cite>bar</cite>, <cite>rule</cite>, <cite>area</cite>.</td>
 </tr>
 </tbody>
 </table>
@@ -1548,8 +1600,8 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="2%" />
-<col width="9%" />
-<col width="89%" />
+<col width="8%" />
+<col width="90%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Trait</th>
@@ -1564,7 +1616,7 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 <tr class="row-odd"><td>bin</td>
 <td>boolean or <a class="reference internal" href="#altair.Bin" title="altair.Bin"><code class="xref py py-class docutils literal"><span class="pre">Bin</span></code></a></td>
-<td>Binning properties or boolean flag for determining whether to bin data or not.</td>
+<td>&#8211;</td>
 </tr>
 <tr class="row-even"><td>field</td>
 <td>string</td>
@@ -1588,7 +1640,7 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 <tr class="row-odd"><td>timeUnit</td>
 <td>string</td>
-<td>Time unit for a <cite>temporal</cite> field . One of [&#8216;year&#8217;, &#8216;month&#8217;, &#8216;day&#8217;, &#8216;date&#8217;, &#8216;hours&#8217;, &#8216;minutes&#8217;, &#8216;seconds&#8217;, &#8216;milliseconds&#8217;, &#8216;yearmonth&#8217;, &#8216;yearmonthday&#8217;, &#8216;yearmonthdate&#8217;, &#8216;yearday&#8217;, &#8216;yeardate&#8217;, &#8216;yearmonthdayhours&#8217;, &#8216;yearmonthdayhoursminutes&#8217;, &#8216;yearmonthdayhoursminutesseconds&#8217;, &#8216;hoursminutes&#8217;, &#8216;hoursminutesseconds&#8217;, &#8216;minutesseconds&#8217;, &#8216;secondsmilliseconds&#8217;].</td>
+<td>Time unit for a <cite>temporal</cite> field . One of [&#8216;year&#8217;, &#8216;month&#8217;, &#8216;day&#8217;, &#8216;date&#8217;, &#8216;hours&#8217;, &#8216;minutes&#8217;, &#8216;seconds&#8217;, &#8216;milliseconds&#8217;, &#8216;yearmonth&#8217;, &#8216;yearmonthdate&#8217;, &#8216;yearmonthdatehours&#8217;, &#8216;yearmonthdatehoursminutes&#8217;, &#8216;yearmonthdatehoursminutesseconds&#8217;, &#8216;monthdate&#8217;, &#8216;hoursminutes&#8217;, &#8216;hoursminutesseconds&#8217;, &#8216;minutesseconds&#8217;, &#8216;secondsmilliseconds&#8217;, &#8216;quarter&#8217;, &#8216;yearquarter&#8217;, &#8216;quartermonth&#8217;, &#8216;yearquartermonth&#8217;].</td>
 </tr>
 <tr class="row-even"><td>title</td>
 <td>string</td>
@@ -1717,8 +1769,8 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="2%" />
-<col width="9%" />
-<col width="89%" />
+<col width="8%" />
+<col width="90%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Trait</th>
@@ -1737,7 +1789,7 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 <tr class="row-even"><td>bin</td>
 <td>boolean or <a class="reference internal" href="#altair.Bin" title="altair.Bin"><code class="xref py py-class docutils literal"><span class="pre">Bin</span></code></a></td>
-<td>Binning properties or boolean flag for determining whether to bin data or not.</td>
+<td>&#8211;</td>
 </tr>
 <tr class="row-odd"><td>field</td>
 <td>string</td>
@@ -1757,7 +1809,7 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 <tr class="row-odd"><td>timeUnit</td>
 <td>string</td>
-<td>Time unit for a <cite>temporal</cite> field . One of [&#8216;year&#8217;, &#8216;month&#8217;, &#8216;day&#8217;, &#8216;date&#8217;, &#8216;hours&#8217;, &#8216;minutes&#8217;, &#8216;seconds&#8217;, &#8216;milliseconds&#8217;, &#8216;yearmonth&#8217;, &#8216;yearmonthday&#8217;, &#8216;yearmonthdate&#8217;, &#8216;yearday&#8217;, &#8216;yeardate&#8217;, &#8216;yearmonthdayhours&#8217;, &#8216;yearmonthdayhoursminutes&#8217;, &#8216;yearmonthdayhoursminutesseconds&#8217;, &#8216;hoursminutes&#8217;, &#8216;hoursminutesseconds&#8217;, &#8216;minutesseconds&#8217;, &#8216;secondsmilliseconds&#8217;].</td>
+<td>Time unit for a <cite>temporal</cite> field . One of [&#8216;year&#8217;, &#8216;month&#8217;, &#8216;day&#8217;, &#8216;date&#8217;, &#8216;hours&#8217;, &#8216;minutes&#8217;, &#8216;seconds&#8217;, &#8216;milliseconds&#8217;, &#8216;yearmonth&#8217;, &#8216;yearmonthdate&#8217;, &#8216;yearmonthdatehours&#8217;, &#8216;yearmonthdatehoursminutes&#8217;, &#8216;yearmonthdatehoursminutesseconds&#8217;, &#8216;monthdate&#8217;, &#8216;hoursminutes&#8217;, &#8216;hoursminutesseconds&#8217;, &#8216;minutesseconds&#8217;, &#8216;secondsmilliseconds&#8217;, &#8216;quarter&#8217;, &#8216;yearquarter&#8217;, &#8216;quartermonth&#8217;, &#8216;yearquartermonth&#8217;].</td>
 </tr>
 <tr class="row-even"><td>title</td>
 <td>string</td>
@@ -1886,8 +1938,8 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="2%" />
-<col width="8%" />
-<col width="90%" />
+<col width="7%" />
+<col width="91%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Trait</th>
@@ -1902,7 +1954,7 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 <tr class="row-odd"><td>bin</td>
 <td>boolean or <a class="reference internal" href="#altair.Bin" title="altair.Bin"><code class="xref py py-class docutils literal"><span class="pre">Bin</span></code></a></td>
-<td>Binning properties or boolean flag for determining whether to bin data or not.</td>
+<td>&#8211;</td>
 </tr>
 <tr class="row-even"><td>field</td>
 <td>string</td>
@@ -1914,7 +1966,7 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 <tr class="row-even"><td>timeUnit</td>
 <td>string</td>
-<td>Time unit for a <cite>temporal</cite> field . One of [&#8216;year&#8217;, &#8216;month&#8217;, &#8216;day&#8217;, &#8216;date&#8217;, &#8216;hours&#8217;, &#8216;minutes&#8217;, &#8216;seconds&#8217;, &#8216;milliseconds&#8217;, &#8216;yearmonth&#8217;, &#8216;yearmonthday&#8217;, &#8216;yearmonthdate&#8217;, &#8216;yearday&#8217;, &#8216;yeardate&#8217;, &#8216;yearmonthdayhours&#8217;, &#8216;yearmonthdayhoursminutes&#8217;, &#8216;yearmonthdayhoursminutesseconds&#8217;, &#8216;hoursminutes&#8217;, &#8216;hoursminutesseconds&#8217;, &#8216;minutesseconds&#8217;, &#8216;secondsmilliseconds&#8217;].</td>
+<td>Time unit for a <cite>temporal</cite> field . One of [&#8216;year&#8217;, &#8216;month&#8217;, &#8216;day&#8217;, &#8216;date&#8217;, &#8216;hours&#8217;, &#8216;minutes&#8217;, &#8216;seconds&#8217;, &#8216;milliseconds&#8217;, &#8216;yearmonth&#8217;, &#8216;yearmonthdate&#8217;, &#8216;yearmonthdatehours&#8217;, &#8216;yearmonthdatehoursminutes&#8217;, &#8216;yearmonthdatehoursminutesseconds&#8217;, &#8216;monthdate&#8217;, &#8216;hoursminutes&#8217;, &#8216;hoursminutesseconds&#8217;, &#8216;minutesseconds&#8217;, &#8216;secondsmilliseconds&#8217;, &#8216;quarter&#8217;, &#8216;yearquarter&#8217;, &#8216;quartermonth&#8217;, &#8216;yearquartermonth&#8217;].</td>
 </tr>
 <tr class="row-odd"><td>title</td>
 <td>string</td>
@@ -2042,8 +2094,8 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 <dd><table border="1" class="docutils">
 <colgroup>
 <col width="2%" />
-<col width="8%" />
-<col width="90%" />
+<col width="7%" />
+<col width="91%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Trait</th>
@@ -2058,7 +2110,7 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 <tr class="row-odd"><td>bin</td>
 <td>boolean or <a class="reference internal" href="#altair.Bin" title="altair.Bin"><code class="xref py py-class docutils literal"><span class="pre">Bin</span></code></a></td>
-<td>Binning properties or boolean flag for determining whether to bin data or not.</td>
+<td>&#8211;</td>
 </tr>
 <tr class="row-even"><td>field</td>
 <td>string</td>
@@ -2070,7 +2122,7 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 <tr class="row-even"><td>timeUnit</td>
 <td>string</td>
-<td>Time unit for a <cite>temporal</cite> field . One of [&#8216;year&#8217;, &#8216;month&#8217;, &#8216;day&#8217;, &#8216;date&#8217;, &#8216;hours&#8217;, &#8216;minutes&#8217;, &#8216;seconds&#8217;, &#8216;milliseconds&#8217;, &#8216;yearmonth&#8217;, &#8216;yearmonthday&#8217;, &#8216;yearmonthdate&#8217;, &#8216;yearday&#8217;, &#8216;yeardate&#8217;, &#8216;yearmonthdayhours&#8217;, &#8216;yearmonthdayhoursminutes&#8217;, &#8216;yearmonthdayhoursminutesseconds&#8217;, &#8216;hoursminutes&#8217;, &#8216;hoursminutesseconds&#8217;, &#8216;minutesseconds&#8217;, &#8216;secondsmilliseconds&#8217;].</td>
+<td>Time unit for a <cite>temporal</cite> field . One of [&#8216;year&#8217;, &#8216;month&#8217;, &#8216;day&#8217;, &#8216;date&#8217;, &#8216;hours&#8217;, &#8216;minutes&#8217;, &#8216;seconds&#8217;, &#8216;milliseconds&#8217;, &#8216;yearmonth&#8217;, &#8216;yearmonthdate&#8217;, &#8216;yearmonthdatehours&#8217;, &#8216;yearmonthdatehoursminutes&#8217;, &#8216;yearmonthdatehoursminutesseconds&#8217;, &#8216;monthdate&#8217;, &#8216;hoursminutes&#8217;, &#8216;hoursminutesseconds&#8217;, &#8216;minutesseconds&#8217;, &#8216;secondsmilliseconds&#8217;, &#8216;quarter&#8217;, &#8216;yearquarter&#8217;, &#8216;quartermonth&#8217;, &#8216;yearquartermonth&#8217;].</td>
 </tr>
 <tr class="row-odd"><td>title</td>
 <td>string</td>
@@ -2199,8 +2251,8 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="2%" />
-<col width="9%" />
-<col width="89%" />
+<col width="8%" />
+<col width="90%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Trait</th>
@@ -2215,7 +2267,7 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 <tr class="row-odd"><td>bin</td>
 <td>boolean or <a class="reference internal" href="#altair.Bin" title="altair.Bin"><code class="xref py py-class docutils literal"><span class="pre">Bin</span></code></a></td>
-<td>Binning properties or boolean flag for determining whether to bin data or not.</td>
+<td>&#8211;</td>
 </tr>
 <tr class="row-even"><td>field</td>
 <td>string</td>
@@ -2239,7 +2291,7 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 <tr class="row-odd"><td>timeUnit</td>
 <td>string</td>
-<td>Time unit for a <cite>temporal</cite> field . One of [&#8216;year&#8217;, &#8216;month&#8217;, &#8216;day&#8217;, &#8216;date&#8217;, &#8216;hours&#8217;, &#8216;minutes&#8217;, &#8216;seconds&#8217;, &#8216;milliseconds&#8217;, &#8216;yearmonth&#8217;, &#8216;yearmonthday&#8217;, &#8216;yearmonthdate&#8217;, &#8216;yearday&#8217;, &#8216;yeardate&#8217;, &#8216;yearmonthdayhours&#8217;, &#8216;yearmonthdayhoursminutes&#8217;, &#8216;yearmonthdayhoursminutesseconds&#8217;, &#8216;hoursminutes&#8217;, &#8216;hoursminutesseconds&#8217;, &#8216;minutesseconds&#8217;, &#8216;secondsmilliseconds&#8217;].</td>
+<td>Time unit for a <cite>temporal</cite> field . One of [&#8216;year&#8217;, &#8216;month&#8217;, &#8216;day&#8217;, &#8216;date&#8217;, &#8216;hours&#8217;, &#8216;minutes&#8217;, &#8216;seconds&#8217;, &#8216;milliseconds&#8217;, &#8216;yearmonth&#8217;, &#8216;yearmonthdate&#8217;, &#8216;yearmonthdatehours&#8217;, &#8216;yearmonthdatehoursminutes&#8217;, &#8216;yearmonthdatehoursminutesseconds&#8217;, &#8216;monthdate&#8217;, &#8216;hoursminutes&#8217;, &#8216;hoursminutesseconds&#8217;, &#8216;minutesseconds&#8217;, &#8216;secondsmilliseconds&#8217;, &#8216;quarter&#8217;, &#8216;yearquarter&#8217;, &#8216;quartermonth&#8217;, &#8216;yearquartermonth&#8217;].</td>
 </tr>
 <tr class="row-even"><td>title</td>
 <td>string</td>
@@ -2368,8 +2420,8 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="2%" />
-<col width="8%" />
-<col width="90%" />
+<col width="7%" />
+<col width="91%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Trait</th>
@@ -2384,7 +2436,7 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 <tr class="row-odd"><td>bin</td>
 <td>boolean or <a class="reference internal" href="#altair.Bin" title="altair.Bin"><code class="xref py py-class docutils literal"><span class="pre">Bin</span></code></a></td>
-<td>Binning properties or boolean flag for determining whether to bin data or not.</td>
+<td>&#8211;</td>
 </tr>
 <tr class="row-even"><td>field</td>
 <td>string</td>
@@ -2400,7 +2452,7 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 <tr class="row-odd"><td>timeUnit</td>
 <td>string</td>
-<td>Time unit for a <cite>temporal</cite> field . One of [&#8216;year&#8217;, &#8216;month&#8217;, &#8216;day&#8217;, &#8216;date&#8217;, &#8216;hours&#8217;, &#8216;minutes&#8217;, &#8216;seconds&#8217;, &#8216;milliseconds&#8217;, &#8216;yearmonth&#8217;, &#8216;yearmonthday&#8217;, &#8216;yearmonthdate&#8217;, &#8216;yearday&#8217;, &#8216;yeardate&#8217;, &#8216;yearmonthdayhours&#8217;, &#8216;yearmonthdayhoursminutes&#8217;, &#8216;yearmonthdayhoursminutesseconds&#8217;, &#8216;hoursminutes&#8217;, &#8216;hoursminutesseconds&#8217;, &#8216;minutesseconds&#8217;, &#8216;secondsmilliseconds&#8217;].</td>
+<td>Time unit for a <cite>temporal</cite> field . One of [&#8216;year&#8217;, &#8216;month&#8217;, &#8216;day&#8217;, &#8216;date&#8217;, &#8216;hours&#8217;, &#8216;minutes&#8217;, &#8216;seconds&#8217;, &#8216;milliseconds&#8217;, &#8216;yearmonth&#8217;, &#8216;yearmonthdate&#8217;, &#8216;yearmonthdatehours&#8217;, &#8216;yearmonthdatehoursminutes&#8217;, &#8216;yearmonthdatehoursminutesseconds&#8217;, &#8216;monthdate&#8217;, &#8216;hoursminutes&#8217;, &#8216;hoursminutesseconds&#8217;, &#8216;minutesseconds&#8217;, &#8216;secondsmilliseconds&#8217;, &#8216;quarter&#8217;, &#8216;yearquarter&#8217;, &#8216;quartermonth&#8217;, &#8216;yearquartermonth&#8217;].</td>
 </tr>
 <tr class="row-even"><td>title</td>
 <td>string</td>
@@ -2529,8 +2581,8 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="2%" />
-<col width="8%" />
-<col width="90%" />
+<col width="7%" />
+<col width="91%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Trait</th>
@@ -2545,7 +2597,7 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 <tr class="row-odd"><td>bin</td>
 <td>boolean or <a class="reference internal" href="#altair.Bin" title="altair.Bin"><code class="xref py py-class docutils literal"><span class="pre">Bin</span></code></a></td>
-<td>Binning properties or boolean flag for determining whether to bin data or not.</td>
+<td>&#8211;</td>
 </tr>
 <tr class="row-even"><td>field</td>
 <td>string</td>
@@ -2561,7 +2613,7 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 <tr class="row-odd"><td>timeUnit</td>
 <td>string</td>
-<td>Time unit for a <cite>temporal</cite> field . One of [&#8216;year&#8217;, &#8216;month&#8217;, &#8216;day&#8217;, &#8216;date&#8217;, &#8216;hours&#8217;, &#8216;minutes&#8217;, &#8216;seconds&#8217;, &#8216;milliseconds&#8217;, &#8216;yearmonth&#8217;, &#8216;yearmonthday&#8217;, &#8216;yearmonthdate&#8217;, &#8216;yearday&#8217;, &#8216;yeardate&#8217;, &#8216;yearmonthdayhours&#8217;, &#8216;yearmonthdayhoursminutes&#8217;, &#8216;yearmonthdayhoursminutesseconds&#8217;, &#8216;hoursminutes&#8217;, &#8216;hoursminutesseconds&#8217;, &#8216;minutesseconds&#8217;, &#8216;secondsmilliseconds&#8217;].</td>
+<td>Time unit for a <cite>temporal</cite> field . One of [&#8216;year&#8217;, &#8216;month&#8217;, &#8216;day&#8217;, &#8216;date&#8217;, &#8216;hours&#8217;, &#8216;minutes&#8217;, &#8216;seconds&#8217;, &#8216;milliseconds&#8217;, &#8216;yearmonth&#8217;, &#8216;yearmonthdate&#8217;, &#8216;yearmonthdatehours&#8217;, &#8216;yearmonthdatehoursminutes&#8217;, &#8216;yearmonthdatehoursminutesseconds&#8217;, &#8216;monthdate&#8217;, &#8216;hoursminutes&#8217;, &#8216;hoursminutesseconds&#8217;, &#8216;minutesseconds&#8217;, &#8216;secondsmilliseconds&#8217;, &#8216;quarter&#8217;, &#8216;yearquarter&#8217;, &#8216;quartermonth&#8217;, &#8216;yearquartermonth&#8217;].</td>
 </tr>
 <tr class="row-even"><td>title</td>
 <td>string</td>
@@ -2690,8 +2742,8 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="2%" />
-<col width="9%" />
-<col width="89%" />
+<col width="8%" />
+<col width="90%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Trait</th>
@@ -2710,7 +2762,7 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 <tr class="row-even"><td>bin</td>
 <td>boolean or <a class="reference internal" href="#altair.Bin" title="altair.Bin"><code class="xref py py-class docutils literal"><span class="pre">Bin</span></code></a></td>
-<td>Binning properties or boolean flag for determining whether to bin data or not.</td>
+<td>&#8211;</td>
 </tr>
 <tr class="row-odd"><td>field</td>
 <td>string</td>
@@ -2730,7 +2782,7 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 <tr class="row-odd"><td>timeUnit</td>
 <td>string</td>
-<td>Time unit for a <cite>temporal</cite> field . One of [&#8216;year&#8217;, &#8216;month&#8217;, &#8216;day&#8217;, &#8216;date&#8217;, &#8216;hours&#8217;, &#8216;minutes&#8217;, &#8216;seconds&#8217;, &#8216;milliseconds&#8217;, &#8216;yearmonth&#8217;, &#8216;yearmonthday&#8217;, &#8216;yearmonthdate&#8217;, &#8216;yearday&#8217;, &#8216;yeardate&#8217;, &#8216;yearmonthdayhours&#8217;, &#8216;yearmonthdayhoursminutes&#8217;, &#8216;yearmonthdayhoursminutesseconds&#8217;, &#8216;hoursminutes&#8217;, &#8216;hoursminutesseconds&#8217;, &#8216;minutesseconds&#8217;, &#8216;secondsmilliseconds&#8217;].</td>
+<td>Time unit for a <cite>temporal</cite> field . One of [&#8216;year&#8217;, &#8216;month&#8217;, &#8216;day&#8217;, &#8216;date&#8217;, &#8216;hours&#8217;, &#8216;minutes&#8217;, &#8216;seconds&#8217;, &#8216;milliseconds&#8217;, &#8216;yearmonth&#8217;, &#8216;yearmonthdate&#8217;, &#8216;yearmonthdatehours&#8217;, &#8216;yearmonthdatehoursminutes&#8217;, &#8216;yearmonthdatehoursminutesseconds&#8217;, &#8216;monthdate&#8217;, &#8216;hoursminutes&#8217;, &#8216;hoursminutesseconds&#8217;, &#8216;minutesseconds&#8217;, &#8216;secondsmilliseconds&#8217;, &#8216;quarter&#8217;, &#8216;yearquarter&#8217;, &#8216;quartermonth&#8217;, &#8216;yearquartermonth&#8217;].</td>
 </tr>
 <tr class="row-even"><td>title</td>
 <td>string</td>
@@ -2859,8 +2911,8 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="2%" />
-<col width="9%" />
-<col width="89%" />
+<col width="8%" />
+<col width="90%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Trait</th>
@@ -2875,7 +2927,7 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 <tr class="row-odd"><td>bin</td>
 <td>boolean or <a class="reference internal" href="#altair.Bin" title="altair.Bin"><code class="xref py py-class docutils literal"><span class="pre">Bin</span></code></a></td>
-<td>Binning properties or boolean flag for determining whether to bin data or not.</td>
+<td>&#8211;</td>
 </tr>
 <tr class="row-even"><td>field</td>
 <td>string</td>
@@ -2899,7 +2951,7 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 <tr class="row-odd"><td>timeUnit</td>
 <td>string</td>
-<td>Time unit for a <cite>temporal</cite> field . One of [&#8216;year&#8217;, &#8216;month&#8217;, &#8216;day&#8217;, &#8216;date&#8217;, &#8216;hours&#8217;, &#8216;minutes&#8217;, &#8216;seconds&#8217;, &#8216;milliseconds&#8217;, &#8216;yearmonth&#8217;, &#8216;yearmonthday&#8217;, &#8216;yearmonthdate&#8217;, &#8216;yearday&#8217;, &#8216;yeardate&#8217;, &#8216;yearmonthdayhours&#8217;, &#8216;yearmonthdayhoursminutes&#8217;, &#8216;yearmonthdayhoursminutesseconds&#8217;, &#8216;hoursminutes&#8217;, &#8216;hoursminutesseconds&#8217;, &#8216;minutesseconds&#8217;, &#8216;secondsmilliseconds&#8217;].</td>
+<td>Time unit for a <cite>temporal</cite> field . One of [&#8216;year&#8217;, &#8216;month&#8217;, &#8216;day&#8217;, &#8216;date&#8217;, &#8216;hours&#8217;, &#8216;minutes&#8217;, &#8216;seconds&#8217;, &#8216;milliseconds&#8217;, &#8216;yearmonth&#8217;, &#8216;yearmonthdate&#8217;, &#8216;yearmonthdatehours&#8217;, &#8216;yearmonthdatehoursminutes&#8217;, &#8216;yearmonthdatehoursminutesseconds&#8217;, &#8216;monthdate&#8217;, &#8216;hoursminutes&#8217;, &#8216;hoursminutesseconds&#8217;, &#8216;minutesseconds&#8217;, &#8216;secondsmilliseconds&#8217;, &#8216;quarter&#8217;, &#8216;yearquarter&#8217;, &#8216;quartermonth&#8217;, &#8216;yearquartermonth&#8217;].</td>
 </tr>
 <tr class="row-even"><td>title</td>
 <td>string</td>
@@ -3028,8 +3080,8 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="2%" />
-<col width="9%" />
-<col width="89%" />
+<col width="8%" />
+<col width="90%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Trait</th>
@@ -3044,7 +3096,7 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 <tr class="row-odd"><td>bin</td>
 <td>boolean or <a class="reference internal" href="#altair.Bin" title="altair.Bin"><code class="xref py py-class docutils literal"><span class="pre">Bin</span></code></a></td>
-<td>Binning properties or boolean flag for determining whether to bin data or not.</td>
+<td>&#8211;</td>
 </tr>
 <tr class="row-even"><td>field</td>
 <td>string</td>
@@ -3068,7 +3120,7 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 <tr class="row-odd"><td>timeUnit</td>
 <td>string</td>
-<td>Time unit for a <cite>temporal</cite> field . One of [&#8216;year&#8217;, &#8216;month&#8217;, &#8216;day&#8217;, &#8216;date&#8217;, &#8216;hours&#8217;, &#8216;minutes&#8217;, &#8216;seconds&#8217;, &#8216;milliseconds&#8217;, &#8216;yearmonth&#8217;, &#8216;yearmonthday&#8217;, &#8216;yearmonthdate&#8217;, &#8216;yearday&#8217;, &#8216;yeardate&#8217;, &#8216;yearmonthdayhours&#8217;, &#8216;yearmonthdayhoursminutes&#8217;, &#8216;yearmonthdayhoursminutesseconds&#8217;, &#8216;hoursminutes&#8217;, &#8216;hoursminutesseconds&#8217;, &#8216;minutesseconds&#8217;, &#8216;secondsmilliseconds&#8217;].</td>
+<td>Time unit for a <cite>temporal</cite> field . One of [&#8216;year&#8217;, &#8216;month&#8217;, &#8216;day&#8217;, &#8216;date&#8217;, &#8216;hours&#8217;, &#8216;minutes&#8217;, &#8216;seconds&#8217;, &#8216;milliseconds&#8217;, &#8216;yearmonth&#8217;, &#8216;yearmonthdate&#8217;, &#8216;yearmonthdatehours&#8217;, &#8216;yearmonthdatehoursminutes&#8217;, &#8216;yearmonthdatehoursminutesseconds&#8217;, &#8216;monthdate&#8217;, &#8216;hoursminutes&#8217;, &#8216;hoursminutesseconds&#8217;, &#8216;minutesseconds&#8217;, &#8216;secondsmilliseconds&#8217;, &#8216;quarter&#8217;, &#8216;yearquarter&#8217;, &#8216;quartermonth&#8217;, &#8216;yearquartermonth&#8217;].</td>
 </tr>
 <tr class="row-even"><td>title</td>
 <td>string</td>
@@ -3197,8 +3249,8 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="2%" />
-<col width="8%" />
-<col width="90%" />
+<col width="7%" />
+<col width="91%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Trait</th>
@@ -3213,7 +3265,7 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 <tr class="row-odd"><td>bin</td>
 <td>boolean or <a class="reference internal" href="#altair.Bin" title="altair.Bin"><code class="xref py py-class docutils literal"><span class="pre">Bin</span></code></a></td>
-<td>Binning properties or boolean flag for determining whether to bin data or not.</td>
+<td>&#8211;</td>
 </tr>
 <tr class="row-even"><td>field</td>
 <td>string</td>
@@ -3225,7 +3277,7 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 <tr class="row-even"><td>timeUnit</td>
 <td>string</td>
-<td>Time unit for a <cite>temporal</cite> field . One of [&#8216;year&#8217;, &#8216;month&#8217;, &#8216;day&#8217;, &#8216;date&#8217;, &#8216;hours&#8217;, &#8216;minutes&#8217;, &#8216;seconds&#8217;, &#8216;milliseconds&#8217;, &#8216;yearmonth&#8217;, &#8216;yearmonthday&#8217;, &#8216;yearmonthdate&#8217;, &#8216;yearday&#8217;, &#8216;yeardate&#8217;, &#8216;yearmonthdayhours&#8217;, &#8216;yearmonthdayhoursminutes&#8217;, &#8216;yearmonthdayhoursminutesseconds&#8217;, &#8216;hoursminutes&#8217;, &#8216;hoursminutesseconds&#8217;, &#8216;minutesseconds&#8217;, &#8216;secondsmilliseconds&#8217;].</td>
+<td>Time unit for a <cite>temporal</cite> field . One of [&#8216;year&#8217;, &#8216;month&#8217;, &#8216;day&#8217;, &#8216;date&#8217;, &#8216;hours&#8217;, &#8216;minutes&#8217;, &#8216;seconds&#8217;, &#8216;milliseconds&#8217;, &#8216;yearmonth&#8217;, &#8216;yearmonthdate&#8217;, &#8216;yearmonthdatehours&#8217;, &#8216;yearmonthdatehoursminutes&#8217;, &#8216;yearmonthdatehoursminutesseconds&#8217;, &#8216;monthdate&#8217;, &#8216;hoursminutes&#8217;, &#8216;hoursminutesseconds&#8217;, &#8216;minutesseconds&#8217;, &#8216;secondsmilliseconds&#8217;, &#8216;quarter&#8217;, &#8216;yearquarter&#8217;, &#8216;quartermonth&#8217;, &#8216;yearquartermonth&#8217;].</td>
 </tr>
 <tr class="row-odd"><td>title</td>
 <td>string</td>
@@ -3354,8 +3406,8 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="2%" />
-<col width="9%" />
-<col width="89%" />
+<col width="8%" />
+<col width="90%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Trait</th>
@@ -3374,7 +3426,7 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 <tr class="row-even"><td>bin</td>
 <td>boolean or <a class="reference internal" href="#altair.Bin" title="altair.Bin"><code class="xref py py-class docutils literal"><span class="pre">Bin</span></code></a></td>
-<td>Binning properties or boolean flag for determining whether to bin data or not.</td>
+<td>&#8211;</td>
 </tr>
 <tr class="row-odd"><td>field</td>
 <td>string</td>
@@ -3394,7 +3446,7 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 <tr class="row-odd"><td>timeUnit</td>
 <td>string</td>
-<td>Time unit for a <cite>temporal</cite> field . One of [&#8216;year&#8217;, &#8216;month&#8217;, &#8216;day&#8217;, &#8216;date&#8217;, &#8216;hours&#8217;, &#8216;minutes&#8217;, &#8216;seconds&#8217;, &#8216;milliseconds&#8217;, &#8216;yearmonth&#8217;, &#8216;yearmonthday&#8217;, &#8216;yearmonthdate&#8217;, &#8216;yearday&#8217;, &#8216;yeardate&#8217;, &#8216;yearmonthdayhours&#8217;, &#8216;yearmonthdayhoursminutes&#8217;, &#8216;yearmonthdayhoursminutesseconds&#8217;, &#8216;hoursminutes&#8217;, &#8216;hoursminutesseconds&#8217;, &#8216;minutesseconds&#8217;, &#8216;secondsmilliseconds&#8217;].</td>
+<td>Time unit for a <cite>temporal</cite> field . One of [&#8216;year&#8217;, &#8216;month&#8217;, &#8216;day&#8217;, &#8216;date&#8217;, &#8216;hours&#8217;, &#8216;minutes&#8217;, &#8216;seconds&#8217;, &#8216;milliseconds&#8217;, &#8216;yearmonth&#8217;, &#8216;yearmonthdate&#8217;, &#8216;yearmonthdatehours&#8217;, &#8216;yearmonthdatehoursminutes&#8217;, &#8216;yearmonthdatehoursminutesseconds&#8217;, &#8216;monthdate&#8217;, &#8216;hoursminutes&#8217;, &#8216;hoursminutesseconds&#8217;, &#8216;minutesseconds&#8217;, &#8216;secondsmilliseconds&#8217;, &#8216;quarter&#8217;, &#8216;yearquarter&#8217;, &#8216;quartermonth&#8217;, &#8216;yearquartermonth&#8217;].</td>
 </tr>
 <tr class="row-even"><td>title</td>
 <td>string</td>
@@ -3523,8 +3575,8 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="2%" />
-<col width="9%" />
-<col width="89%" />
+<col width="8%" />
+<col width="90%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Trait</th>
@@ -3543,7 +3595,7 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 <tr class="row-even"><td>bin</td>
 <td>boolean or <a class="reference internal" href="#altair.Bin" title="altair.Bin"><code class="xref py py-class docutils literal"><span class="pre">Bin</span></code></a></td>
-<td>Binning properties or boolean flag for determining whether to bin data or not.</td>
+<td>&#8211;</td>
 </tr>
 <tr class="row-odd"><td>field</td>
 <td>string</td>
@@ -3563,7 +3615,7 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 <tr class="row-odd"><td>timeUnit</td>
 <td>string</td>
-<td>Time unit for a <cite>temporal</cite> field . One of [&#8216;year&#8217;, &#8216;month&#8217;, &#8216;day&#8217;, &#8216;date&#8217;, &#8216;hours&#8217;, &#8216;minutes&#8217;, &#8216;seconds&#8217;, &#8216;milliseconds&#8217;, &#8216;yearmonth&#8217;, &#8216;yearmonthday&#8217;, &#8216;yearmonthdate&#8217;, &#8216;yearday&#8217;, &#8216;yeardate&#8217;, &#8216;yearmonthdayhours&#8217;, &#8216;yearmonthdayhoursminutes&#8217;, &#8216;yearmonthdayhoursminutesseconds&#8217;, &#8216;hoursminutes&#8217;, &#8216;hoursminutesseconds&#8217;, &#8216;minutesseconds&#8217;, &#8216;secondsmilliseconds&#8217;].</td>
+<td>Time unit for a <cite>temporal</cite> field . One of [&#8216;year&#8217;, &#8216;month&#8217;, &#8216;day&#8217;, &#8216;date&#8217;, &#8216;hours&#8217;, &#8216;minutes&#8217;, &#8216;seconds&#8217;, &#8216;milliseconds&#8217;, &#8216;yearmonth&#8217;, &#8216;yearmonthdate&#8217;, &#8216;yearmonthdatehours&#8217;, &#8216;yearmonthdatehoursminutes&#8217;, &#8216;yearmonthdatehoursminutesseconds&#8217;, &#8216;monthdate&#8217;, &#8216;hoursminutes&#8217;, &#8216;hoursminutesseconds&#8217;, &#8216;minutesseconds&#8217;, &#8216;secondsmilliseconds&#8217;, &#8216;quarter&#8217;, &#8216;yearquarter&#8217;, &#8216;quartermonth&#8217;, &#8216;yearquartermonth&#8217;].</td>
 </tr>
 <tr class="row-even"><td>title</td>
 <td>string</td>
@@ -3695,9 +3747,9 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 <p>(See also Vega-Lite&#8217;s Documentation for <a class="reference external" href="http://vega.github.io/vega-lite/docs/axis.html">Axis</a>)</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="12%" />
-<col width="9%" />
-<col width="78%" />
+<col width="10%" />
+<col width="28%" />
+<col width="62%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Trait</th>
@@ -3859,7 +3911,7 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 <td>A title offset value for the axis.</td>
 </tr>
 <tr class="row-even"><td>values</td>
-<td>list of float</td>
+<td>list of float or list of <a class="reference internal" href="#altair.DateTime" title="altair.DateTime"><code class="xref py py-class docutils literal"><span class="pre">DateTime</span></code></a></td>
 <td>&#8211;</td>
 </tr>
 </tbody>
@@ -4568,8 +4620,8 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="12%" />
-<col width="29%" />
-<col width="59%" />
+<col width="30%" />
+<col width="58%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Trait</th>
@@ -4590,21 +4642,29 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 <td><a class="reference internal" href="#altair.CellConfig" title="altair.CellConfig"><code class="xref py py-class docutils literal"><span class="pre">CellConfig</span></code></a></td>
 <td>Cell Config.</td>
 </tr>
-<tr class="row-odd"><td>facet</td>
+<tr class="row-odd"><td>countTitle</td>
+<td>string</td>
+<td>Default axis and legend title for count fields.</td>
+</tr>
+<tr class="row-even"><td>facet</td>
 <td><a class="reference internal" href="#altair.FacetConfig" title="altair.FacetConfig"><code class="xref py py-class docutils literal"><span class="pre">FacetConfig</span></code></a></td>
 <td>Facet Config.</td>
 </tr>
-<tr class="row-even"><td>legend</td>
+<tr class="row-odd"><td>legend</td>
 <td><a class="reference internal" href="#altair.LegendConfig" title="altair.LegendConfig"><code class="xref py py-class docutils literal"><span class="pre">LegendConfig</span></code></a></td>
 <td>Legend Config.</td>
 </tr>
-<tr class="row-odd"><td>mark</td>
+<tr class="row-even"><td>mark</td>
 <td><a class="reference internal" href="#altair.MarkConfig" title="altair.MarkConfig"><code class="xref py py-class docutils literal"><span class="pre">MarkConfig</span></code></a></td>
 <td>Mark Config.</td>
 </tr>
-<tr class="row-even"><td>numberFormat</td>
+<tr class="row-odd"><td>numberFormat</td>
 <td>string</td>
 <td>D3 Number format for axis labels and text tables.</td>
+</tr>
+<tr class="row-even"><td>overlay</td>
+<td><code class="xref py py-class docutils literal"><span class="pre">OverlayConfig</span></code></td>
+<td>Mark Overlay Config.</td>
 </tr>
 <tr class="row-odd"><td>scale</td>
 <td><a class="reference internal" href="#altair.ScaleConfig" title="altair.ScaleConfig"><code class="xref py py-class docutils literal"><span class="pre">ScaleConfig</span></code></a></td>
@@ -4733,9 +4793,9 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 <p>(See also Vega-Lite&#8217;s Documentation for <a class="reference external" href="http://vega.github.io/vega-lite/docs/data.html">Data</a>)</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="13%" />
-<col width="22%" />
-<col width="64%" />
+<col width="6%" />
+<col width="28%" />
+<col width="66%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Trait</th>
@@ -4744,9 +4804,9 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>formatType</td>
-<td>string</td>
-<td>One of [&#8216;json&#8217;, &#8216;csv&#8217;, &#8216;tsv&#8217;].</td>
+<tr class="row-even"><td>format</td>
+<td><a class="reference internal" href="#altair.DataFormat" title="altair.DataFormat"><code class="xref py py-class docutils literal"><span class="pre">DataFormat</span></code></a></td>
+<td>An object that specifies the format for the data file or values.</td>
 </tr>
 <tr class="row-odd"><td>url</td>
 <td>string</td>
@@ -4833,6 +4893,449 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 <dl class="method">
 <dt id="altair.Data.to_json">
 <code class="descname">to_json</code><span class="sig-paren">(</span><em>data=True</em>, <em>sort_keys=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Data.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit the JSON representation for this object as a string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then include data in the representation.</p>
+</div></blockquote>
+<p><strong>sort_keys</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then sort the keys in the output</p>
+</div></blockquote>
+<p><strong>**kwargs</strong></p>
+<blockquote>
+<div><p>Additional keyword arguments are passed to <code class="docutils literal"><span class="pre">json.dumps()</span></code></p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>spec</strong> : string</p>
+<blockquote class="last">
+<div><p>The JSON specification of the chart object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="altair.DataFormat">
+<em class="property">class </em><code class="descclassname">altair.</code><code class="descname">DataFormat</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.DataFormat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrapper for Vega-Lite DataFormat definition.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="6%" />
+<col width="7%" />
+<col width="88%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Trait</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>feature</td>
+<td>string</td>
+<td>The name of the TopoJSON object set to convert to a GeoJSON feature collection.</td>
+</tr>
+<tr class="row-odd"><td>mesh</td>
+<td>string</td>
+<td>The name of the TopoJSON object set to convert to a mesh.</td>
+</tr>
+<tr class="row-even"><td>parse</td>
+<td>any value</td>
+<td>A collection of parsing instructions can be used to define the data types of string-valued attributes in the JSON file.</td>
+</tr>
+<tr class="row-odd"><td>property</td>
+<td>string</td>
+<td>JSON only) The JSON property containing the desired data.</td>
+</tr>
+<tr class="row-even"><td>type</td>
+<td>string</td>
+<td>Type of input data: <cite>&#8220;json&#8221;</cite>, <cite>&#8220;csv&#8221;</cite>, <cite>&#8220;tsv&#8221;</cite>. One of [&#8216;json&#8217;, &#8216;csv&#8217;, &#8216;tsv&#8217;, &#8216;topojson&#8217;].</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="altair.DataFormat.from_dict">
+<code class="descname">from_dict</code><span class="sig-paren">(</span><em>dct</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.DataFormat.from_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate the object from a valid JSON dictionary</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>dct</strong> : dict</p>
+<blockquote>
+<div><p>The dictionary containing a valid JSON chart specification.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>chart</strong> : Chart object</p>
+<blockquote class="last">
+<div><p>The altair Chart object built from the specification.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="altair.DataFormat.from_json">
+<code class="descname">from_json</code><span class="sig-paren">(</span><em>spec</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.DataFormat.from_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate the object from a valid JSON string</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>spec</strong> : string</p>
+<blockquote>
+<div><p>The string containing a valid JSON chart specification.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>chart</strong> : Chart object</p>
+<blockquote class="last">
+<div><p>The altair Chart object built from the specification.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="altair.DataFormat.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><em>data=True</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.DataFormat.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit the JSON representation for this object as as dict.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then include data in the representation.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>spec</strong> : dict</p>
+<blockquote class="last">
+<div><p>The JSON specification of the chart object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="altair.DataFormat.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>data=True</em>, <em>sort_keys=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.DataFormat.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit the JSON representation for this object as a string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then include data in the representation.</p>
+</div></blockquote>
+<p><strong>sort_keys</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then sort the keys in the output</p>
+</div></blockquote>
+<p><strong>**kwargs</strong></p>
+<blockquote>
+<div><p>Additional keyword arguments are passed to <code class="docutils literal"><span class="pre">json.dumps()</span></code></p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>spec</strong> : string</p>
+<blockquote class="last">
+<div><p>The JSON specification of the chart object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="altair.DateTime">
+<em class="property">class </em><code class="descclassname">altair.</code><code class="descname">DateTime</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.DateTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrapper for Vega-Lite DateTime definition.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="17%" />
+<col width="70%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Trait</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>date</td>
+<td>float</td>
+<td>Integer value representing the date from 1-31.</td>
+</tr>
+<tr class="row-odd"><td>day</td>
+<td>float or string</td>
+<td>&#8211;</td>
+</tr>
+<tr class="row-even"><td>hours</td>
+<td>float</td>
+<td>Integer value representing the hour of day from 0-23.</td>
+</tr>
+<tr class="row-odd"><td>milliseconds</td>
+<td>float</td>
+<td>Integer value representing millisecond segment of a time.</td>
+</tr>
+<tr class="row-even"><td>minutes</td>
+<td>float</td>
+<td>Integer value representing minute segment of a time from 0-59.</td>
+</tr>
+<tr class="row-odd"><td>month</td>
+<td>float or string</td>
+<td>&#8211;</td>
+</tr>
+<tr class="row-even"><td>quarter</td>
+<td>float</td>
+<td>Integer value representing the quarter of the year (from 1-4).</td>
+</tr>
+<tr class="row-odd"><td>seconds</td>
+<td>float</td>
+<td>Integer value representing second segment of a time from 0-59.</td>
+</tr>
+<tr class="row-even"><td>year</td>
+<td>float</td>
+<td>Integer value representing the year.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="altair.DateTime.from_dict">
+<code class="descname">from_dict</code><span class="sig-paren">(</span><em>dct</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.DateTime.from_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate the object from a valid JSON dictionary</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>dct</strong> : dict</p>
+<blockquote>
+<div><p>The dictionary containing a valid JSON chart specification.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>chart</strong> : Chart object</p>
+<blockquote class="last">
+<div><p>The altair Chart object built from the specification.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="altair.DateTime.from_json">
+<code class="descname">from_json</code><span class="sig-paren">(</span><em>spec</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.DateTime.from_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate the object from a valid JSON string</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>spec</strong> : string</p>
+<blockquote>
+<div><p>The string containing a valid JSON chart specification.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>chart</strong> : Chart object</p>
+<blockquote class="last">
+<div><p>The altair Chart object built from the specification.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="altair.DateTime.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><em>data=True</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.DateTime.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit the JSON representation for this object as as dict.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then include data in the representation.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>spec</strong> : dict</p>
+<blockquote class="last">
+<div><p>The JSON specification of the chart object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="altair.DateTime.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>data=True</em>, <em>sort_keys=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.DateTime.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit the JSON representation for this object as a string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then include data in the representation.</p>
+</div></blockquote>
+<p><strong>sort_keys</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then sort the keys in the output</p>
+</div></blockquote>
+<p><strong>**kwargs</strong></p>
+<blockquote>
+<div><p>Additional keyword arguments are passed to <code class="docutils literal"><span class="pre">json.dumps()</span></code></p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>spec</strong> : string</p>
+<blockquote class="last">
+<div><p>The JSON specification of the chart object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="altair.EqualFilter">
+<em class="property">class </em><code class="descclassname">altair.</code><code class="descname">EqualFilter</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.EqualFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrapper for Vega-Lite EqualFilter definition.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="2%" />
+<col width="12%" />
+<col width="86%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Trait</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>equal</td>
+<td>string or float or boolean or <a class="reference internal" href="#altair.DateTime" title="altair.DateTime"><code class="xref py py-class docutils literal"><span class="pre">DateTime</span></code></a></td>
+<td>&#8211;</td>
+</tr>
+<tr class="row-odd"><td>field</td>
+<td>string</td>
+<td>Field to be filtered.</td>
+</tr>
+<tr class="row-even"><td>timeUnit</td>
+<td>string</td>
+<td>Time unit for the field to be filtered. One of [&#8216;year&#8217;, &#8216;month&#8217;, &#8216;day&#8217;, &#8216;date&#8217;, &#8216;hours&#8217;, &#8216;minutes&#8217;, &#8216;seconds&#8217;, &#8216;milliseconds&#8217;, &#8216;yearmonth&#8217;, &#8216;yearmonthdate&#8217;, &#8216;yearmonthdatehours&#8217;, &#8216;yearmonthdatehoursminutes&#8217;, &#8216;yearmonthdatehoursminutesseconds&#8217;, &#8216;monthdate&#8217;, &#8216;hoursminutes&#8217;, &#8216;hoursminutesseconds&#8217;, &#8216;minutesseconds&#8217;, &#8216;secondsmilliseconds&#8217;, &#8216;quarter&#8217;, &#8216;yearquarter&#8217;, &#8216;quartermonth&#8217;, &#8216;yearquartermonth&#8217;].</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="altair.EqualFilter.from_dict">
+<code class="descname">from_dict</code><span class="sig-paren">(</span><em>dct</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.EqualFilter.from_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate the object from a valid JSON dictionary</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>dct</strong> : dict</p>
+<blockquote>
+<div><p>The dictionary containing a valid JSON chart specification.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>chart</strong> : Chart object</p>
+<blockquote class="last">
+<div><p>The altair Chart object built from the specification.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="altair.EqualFilter.from_json">
+<code class="descname">from_json</code><span class="sig-paren">(</span><em>spec</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.EqualFilter.from_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate the object from a valid JSON string</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>spec</strong> : string</p>
+<blockquote>
+<div><p>The string containing a valid JSON chart specification.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>chart</strong> : Chart object</p>
+<blockquote class="last">
+<div><p>The altair Chart object built from the specification.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="altair.EqualFilter.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><em>data=True</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.EqualFilter.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit the JSON representation for this object as as dict.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then include data in the representation.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>spec</strong> : dict</p>
+<blockquote class="last">
+<div><p>The JSON specification of the chart object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="altair.EqualFilter.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>data=True</em>, <em>sort_keys=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.EqualFilter.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Emit the JSON representation for this object as a string.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -5415,9 +5918,9 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 <p>(See also Vega-Lite&#8217;s Documentation for <a class="reference external" href="http://vega.github.io/vega-lite/docs/legend.html">Legend</a>)</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="13%" />
-<col width="11%" />
-<col width="76%" />
+<col width="8%" />
+<col width="29%" />
+<col width="63%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Trait</th>
@@ -5460,11 +5963,11 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 <tr class="row-even"><td>labelFont</td>
 <td>string</td>
-<td>The font of the lengend label.</td>
+<td>The font of the legend label.</td>
 </tr>
 <tr class="row-odd"><td>labelFontSize</td>
 <td>float</td>
-<td>The font size of lengend lable.</td>
+<td>The font size of legend label.</td>
 </tr>
 <tr class="row-even"><td>labelOffset</td>
 <td>float</td>
@@ -5484,7 +5987,7 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 <tr class="row-even"><td>padding</td>
 <td>float</td>
-<td>The padding, in pixels, between the lengend and axis.</td>
+<td>The padding, in pixels, between the legend and axis.</td>
 </tr>
 <tr class="row-odd"><td>properties</td>
 <td>any value</td>
@@ -5500,11 +6003,11 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 <tr class="row-even"><td>symbolShape</td>
 <td>string</td>
-<td>The shape of the legend symbol, can be the &#8216;circle&#8217;, &#8216;square&#8217;, &#8216;cross&#8217;, &#8216;diamond&#8217;, &#8216;triangle-up&#8217;, &#8216;triangle-down&#8217;.</td>
+<td>The shape of the legend symbol, can be the &#8216;circle&#8217;, &#8216;square&#8217;, &#8216;cross&#8217;, &#8216;diamond&#8217;, &#8216;triangle-up&#8217;, &#8216;triangle-down&#8217;, or else a custom SVG path string.</td>
 </tr>
 <tr class="row-odd"><td>symbolSize</td>
 <td>float</td>
-<td>The size of the lengend symbol, in pixels.</td>
+<td>The size of the legend symbol, in pixels.</td>
 </tr>
 <tr class="row-even"><td>symbolStrokeWidth</td>
 <td>float</td>
@@ -5531,8 +6034,8 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 <td>The font weight of the legend title.</td>
 </tr>
 <tr class="row-even"><td>values</td>
-<td>list of any value</td>
-<td>Explicitly set the visible legend values.</td>
+<td>list of float or list of string or list of <a class="reference internal" href="#altair.DateTime" title="altair.DateTime"><code class="xref py py-class docutils literal"><span class="pre">DateTime</span></code></a></td>
+<td>&#8211;</td>
 </tr>
 </tbody>
 </table>
@@ -5649,9 +6152,9 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 <p>(See also Vega-Lite&#8217;s Documentation for <a class="reference external" href="http://vega.github.io/vega-lite/docs/config.html#legend-config">LegendConfig</a>)</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="13%" />
-<col width="6%" />
-<col width="80%" />
+<col width="11%" />
+<col width="5%" />
+<col width="84%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Trait</th>
@@ -5690,11 +6193,11 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 <tr class="row-odd"><td>labelFont</td>
 <td>string</td>
-<td>The font of the lengend label.</td>
+<td>The font of the legend label.</td>
 </tr>
 <tr class="row-even"><td>labelFontSize</td>
 <td>float</td>
-<td>The font size of lengend lable.</td>
+<td>The font size of legend label.</td>
 </tr>
 <tr class="row-odd"><td>labelOffset</td>
 <td>float</td>
@@ -5714,7 +6217,7 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 <tr class="row-odd"><td>padding</td>
 <td>float</td>
-<td>The padding, in pixels, between the lengend and axis.</td>
+<td>The padding, in pixels, between the legend and axis.</td>
 </tr>
 <tr class="row-even"><td>properties</td>
 <td>any value</td>
@@ -5730,11 +6233,11 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 <tr class="row-odd"><td>symbolShape</td>
 <td>string</td>
-<td>The shape of the legend symbol, can be the &#8216;circle&#8217;, &#8216;square&#8217;, &#8216;cross&#8217;, &#8216;diamond&#8217;, &#8216;triangle-up&#8217;, &#8216;triangle-down&#8217;.</td>
+<td>The shape of the legend symbol, can be the &#8216;circle&#8217;, &#8216;square&#8217;, &#8216;cross&#8217;, &#8216;diamond&#8217;, &#8216;triangle-up&#8217;, &#8216;triangle-down&#8217;, or else a custom SVG path string.</td>
 </tr>
 <tr class="row-even"><td>symbolSize</td>
 <td>float</td>
-<td>The size of the lengend symbol, in pixels.</td>
+<td>The size of the legend symbol, in pixels.</td>
 </tr>
 <tr class="row-odd"><td>symbolStrokeWidth</td>
 <td>float</td>
@@ -5872,8 +6375,8 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="9%" />
-<col width="5%" />
-<col width="86%" />
+<col width="6%" />
+<col width="85%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Trait</th>
@@ -5964,7 +6467,7 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 <tr class="row-even"><td>orient</td>
 <td>string</td>
-<td>The orientation of a non-stacked bar, tick, area, and line charts.</td>
+<td>The orientation of a non-stacked bar, tick, area, and line charts. One of [&#8216;horizontal&#8217;, &#8216;vertical&#8217;].</td>
 </tr>
 <tr class="row-odd"><td>radius</td>
 <td>float</td>
@@ -5975,8 +6478,8 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 <td>Size of rule mark.</td>
 </tr>
 <tr class="row-odd"><td>shape</td>
-<td>string</td>
-<td>The symbol shape to use. One of [&#8216;circle&#8217;, &#8216;square&#8217;, &#8216;cross&#8217;, &#8216;diamond&#8217;, &#8216;triangle-up&#8217;, &#8216;triangle-down&#8217;].</td>
+<td>string or string</td>
+<td>One of [&#8216;circle&#8217;, &#8216;square&#8217;, &#8216;cross&#8217;, &#8216;diamond&#8217;, &#8216;triangle-up&#8217;, &#8216;triangle-down&#8217;].</td>
 </tr>
 <tr class="row-even"><td>shortTimeLabels</td>
 <td>boolean</td>
@@ -6139,15 +6642,289 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </dd></dl>
 
 <dl class="class">
+<dt id="altair.OneOfFilter">
+<em class="property">class </em><code class="descclassname">altair.</code><code class="descname">OneOfFilter</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.OneOfFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrapper for Vega-Lite OneOfFilter definition.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="2%" />
+<col width="13%" />
+<col width="85%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Trait</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>field</td>
+<td>string</td>
+<td>Field to be filtered.</td>
+</tr>
+<tr class="row-odd"><td>oneOf</td>
+<td>list of string or float or boolean or <a class="reference internal" href="#altair.DateTime" title="altair.DateTime"><code class="xref py py-class docutils literal"><span class="pre">DateTime</span></code></a></td>
+<td>A set of values that the <cite>field</cite>&#8216;s value should be a member of, for a data item included in the filtered data.</td>
+</tr>
+<tr class="row-even"><td>timeUnit</td>
+<td>string</td>
+<td>time unit for the field to be filtered. One of [&#8216;year&#8217;, &#8216;month&#8217;, &#8216;day&#8217;, &#8216;date&#8217;, &#8216;hours&#8217;, &#8216;minutes&#8217;, &#8216;seconds&#8217;, &#8216;milliseconds&#8217;, &#8216;yearmonth&#8217;, &#8216;yearmonthdate&#8217;, &#8216;yearmonthdatehours&#8217;, &#8216;yearmonthdatehoursminutes&#8217;, &#8216;yearmonthdatehoursminutesseconds&#8217;, &#8216;monthdate&#8217;, &#8216;hoursminutes&#8217;, &#8216;hoursminutesseconds&#8217;, &#8216;minutesseconds&#8217;, &#8216;secondsmilliseconds&#8217;, &#8216;quarter&#8217;, &#8216;yearquarter&#8217;, &#8216;quartermonth&#8217;, &#8216;yearquartermonth&#8217;].</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="altair.OneOfFilter.from_dict">
+<code class="descname">from_dict</code><span class="sig-paren">(</span><em>dct</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.OneOfFilter.from_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate the object from a valid JSON dictionary</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>dct</strong> : dict</p>
+<blockquote>
+<div><p>The dictionary containing a valid JSON chart specification.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>chart</strong> : Chart object</p>
+<blockquote class="last">
+<div><p>The altair Chart object built from the specification.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="altair.OneOfFilter.from_json">
+<code class="descname">from_json</code><span class="sig-paren">(</span><em>spec</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.OneOfFilter.from_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate the object from a valid JSON string</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>spec</strong> : string</p>
+<blockquote>
+<div><p>The string containing a valid JSON chart specification.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>chart</strong> : Chart object</p>
+<blockquote class="last">
+<div><p>The altair Chart object built from the specification.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="altair.OneOfFilter.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><em>data=True</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.OneOfFilter.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit the JSON representation for this object as as dict.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then include data in the representation.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>spec</strong> : dict</p>
+<blockquote class="last">
+<div><p>The JSON specification of the chart object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="altair.OneOfFilter.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>data=True</em>, <em>sort_keys=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.OneOfFilter.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit the JSON representation for this object as a string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then include data in the representation.</p>
+</div></blockquote>
+<p><strong>sort_keys</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then sort the keys in the output</p>
+</div></blockquote>
+<p><strong>**kwargs</strong></p>
+<blockquote>
+<div><p>Additional keyword arguments are passed to <code class="docutils literal"><span class="pre">json.dumps()</span></code></p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>spec</strong> : string</p>
+<blockquote class="last">
+<div><p>The JSON specification of the chart object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="altair.RangeFilter">
+<em class="property">class </em><code class="descclassname">altair.</code><code class="descname">RangeFilter</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.RangeFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrapper for Vega-Lite RangeFilter definition.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="2%" />
+<col width="9%" />
+<col width="89%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Trait</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>field</td>
+<td>string</td>
+<td>Field to be filtered.</td>
+</tr>
+<tr class="row-odd"><td>range</td>
+<td>list of float or <a class="reference internal" href="#altair.DateTime" title="altair.DateTime"><code class="xref py py-class docutils literal"><span class="pre">DateTime</span></code></a></td>
+<td>Array of inclusive minimum and maximum values for a field value of a data item to be included in the filtered data.</td>
+</tr>
+<tr class="row-even"><td>timeUnit</td>
+<td>string</td>
+<td>time unit for the field to be filtered. One of [&#8216;year&#8217;, &#8216;month&#8217;, &#8216;day&#8217;, &#8216;date&#8217;, &#8216;hours&#8217;, &#8216;minutes&#8217;, &#8216;seconds&#8217;, &#8216;milliseconds&#8217;, &#8216;yearmonth&#8217;, &#8216;yearmonthdate&#8217;, &#8216;yearmonthdatehours&#8217;, &#8216;yearmonthdatehoursminutes&#8217;, &#8216;yearmonthdatehoursminutesseconds&#8217;, &#8216;monthdate&#8217;, &#8216;hoursminutes&#8217;, &#8216;hoursminutesseconds&#8217;, &#8216;minutesseconds&#8217;, &#8216;secondsmilliseconds&#8217;, &#8216;quarter&#8217;, &#8216;yearquarter&#8217;, &#8216;quartermonth&#8217;, &#8216;yearquartermonth&#8217;].</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="altair.RangeFilter.from_dict">
+<code class="descname">from_dict</code><span class="sig-paren">(</span><em>dct</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.RangeFilter.from_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate the object from a valid JSON dictionary</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>dct</strong> : dict</p>
+<blockquote>
+<div><p>The dictionary containing a valid JSON chart specification.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>chart</strong> : Chart object</p>
+<blockquote class="last">
+<div><p>The altair Chart object built from the specification.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="altair.RangeFilter.from_json">
+<code class="descname">from_json</code><span class="sig-paren">(</span><em>spec</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.RangeFilter.from_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate the object from a valid JSON string</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>spec</strong> : string</p>
+<blockquote>
+<div><p>The string containing a valid JSON chart specification.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>chart</strong> : Chart object</p>
+<blockquote class="last">
+<div><p>The altair Chart object built from the specification.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="altair.RangeFilter.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><em>data=True</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.RangeFilter.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit the JSON representation for this object as as dict.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then include data in the representation.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>spec</strong> : dict</p>
+<blockquote class="last">
+<div><p>The JSON specification of the chart object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="altair.RangeFilter.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>data=True</em>, <em>sort_keys=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.RangeFilter.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit the JSON representation for this object as a string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then include data in the representation.</p>
+</div></blockquote>
+<p><strong>sort_keys</strong> : bool</p>
+<blockquote>
+<div><p>If True (default) then sort the keys in the output</p>
+</div></blockquote>
+<p><strong>**kwargs</strong></p>
+<blockquote>
+<div><p>Additional keyword arguments are passed to <code class="docutils literal"><span class="pre">json.dumps()</span></code></p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>spec</strong> : string</p>
+<blockquote class="last">
+<div><p>The JSON specification of the chart object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="altair.Scale">
 <em class="property">class </em><code class="descclassname">altair.</code><code class="descname">Scale</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Scale" title="Permalink to this definition">¶</a></dt>
 <dd><p>Wrapper for Vega-Lite Scale definition.</p>
 <p>(See also Vega-Lite&#8217;s Documentation for <a class="reference external" href="http://vega.github.io/vega-lite/docs/scale.html">Scale</a>)</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="8%" />
-<col width="27%" />
-<col width="66%" />
+<col width="7%" />
+<col width="38%" />
+<col width="56%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Trait</th>
@@ -6157,15 +6934,15 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>bandSize</td>
-<td>float</td>
-<td>&#8211;</td>
+<td>float or string</td>
+<td>One of [&#8216;fit&#8217;].</td>
 </tr>
 <tr class="row-odd"><td>clamp</td>
 <td>boolean</td>
 <td>If true, values that exceed the data domain are clamped to either the minimum or maximum range value.</td>
 </tr>
 <tr class="row-even"><td>domain</td>
-<td>string or list of float or list of string</td>
+<td>list of float or list of string or list of <a class="reference internal" href="#altair.DateTime" title="altair.DateTime"><code class="xref py py-class docutils literal"><span class="pre">DateTime</span></code></a></td>
 <td>&#8211;</td>
 </tr>
 <tr class="row-odd"><td>exponent</td>
@@ -6198,7 +6975,7 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </tr>
 <tr class="row-even"><td>zero</td>
 <td>boolean</td>
-<td>If true, ensures that a zero baseline value is included in the scale domain.</td>
+<td>If <cite>true</cite>, ensures that a zero baseline value is included in the scale domain.</td>
 </tr>
 </tbody>
 </table>
@@ -6315,9 +7092,9 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 <p>(See also Vega-Lite&#8217;s Documentation for <a class="reference external" href="http://vega.github.io/vega-lite/docs/config.html#scale-config">ScaleConfig</a>)</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="14%" />
-<col width="17%" />
-<col width="69%" />
+<col width="15%" />
+<col width="18%" />
+<col width="67%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Trait</th>
@@ -6327,8 +7104,8 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>bandSize</td>
-<td>float</td>
-<td>Default band size for (1) <cite>y</cite> ordinal scale, and (2) <cite>x</cite> ordinal scale when the mark is not <cite>text</cite>.</td>
+<td>float or string</td>
+<td>One of [&#8216;fit&#8217;].</td>
 </tr>
 <tr class="row-odd"><td>barSizeRange</td>
 <td>list of float</td>
@@ -6633,9 +7410,9 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 <dd><p>(See also Vega-Lite&#8217;s Documentation for <a class="reference external" href="http://vega.github.io/vega-lite/docs/transform.html">Transform</a>)</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="10%" />
-<col width="32%" />
-<col width="58%" />
+<col width="4%" />
+<col width="76%" />
+<col width="20%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Trait</th>
@@ -6649,12 +7426,12 @@ By default, uses altair.utils.html.DEFAULT_TEMPLATE.</p>
 <td>Calculate new field(s) using the provided expresssion(s).</td>
 </tr>
 <tr class="row-odd"><td>filter</td>
-<td>string or an Expression</td>
-<td>A string containing the filter Vega expression.</td>
+<td>string or an Expression or <a class="reference internal" href="#altair.EqualFilter" title="altair.EqualFilter"><code class="xref py py-class docutils literal"><span class="pre">EqualFilter</span></code></a> or <a class="reference internal" href="#altair.RangeFilter" title="altair.RangeFilter"><code class="xref py py-class docutils literal"><span class="pre">RangeFilter</span></code></a> or <a class="reference internal" href="#altair.OneOfFilter" title="altair.OneOfFilter"><code class="xref py py-class docutils literal"><span class="pre">OneOfFilter</span></code></a> or list of string or an Expression or <a class="reference internal" href="#altair.EqualFilter" title="altair.EqualFilter"><code class="xref py py-class docutils literal"><span class="pre">EqualFilter</span></code></a> or <a class="reference internal" href="#altair.RangeFilter" title="altair.RangeFilter"><code class="xref py py-class docutils literal"><span class="pre">RangeFilter</span></code></a> or <a class="reference internal" href="#altair.OneOfFilter" title="altair.OneOfFilter"><code class="xref py py-class docutils literal"><span class="pre">OneOfFilter</span></code></a></td>
+<td>&#8211;</td>
 </tr>
-<tr class="row-even"><td>filterNull</td>
+<tr class="row-even"><td>filterInvalid</td>
 <td>boolean</td>
-<td>Filter null values from the data.</td>
+<td>Whether to filter invalid values (<cite>null</cite> and <cite>NaN</cite>) from the data.</td>
 </tr>
 </tbody>
 </table>

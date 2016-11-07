@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Displaying and Saving Altair Visualizations &#8212; Altair 1.0.0 documentation</title>
+    <title>Displaying and Saving Altair Visualizations &#8212; Altair 1.2.0 documentation</title>
     
     <link rel="stylesheet" href="../_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.0.0',
+        VERSION:     '1.2.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -30,10 +30,10 @@
     <script type="text/javascript" src="https://vega.github.io/vega-lite/vega-lite.js"></script>
     <script type="text/javascript" src="https://vega.github.io/vega-editor/vendor/vega-embed.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="top" title="Altair 1.0.0 documentation" href="../index.html" />
+    <link rel="top" title="Altair 1.2.0 documentation" href="../index.html" />
     <link rel="up" title="Altair Documentation" href="index.html" />
     <link rel="next" title="Altair Datasets" href="datasets.html" />
-    <link rel="prev" title="Configuring Plots" href="config.html" /> 
+    <link rel="prev" title="Configuring Altair Visualizations" href="config.html" /> 
   </head>
   <body role="document">
       <div class="header" role="banner"><h1 class="heading"><a href="../index.html">
@@ -43,7 +43,7 @@
       <div class="topnav" role="navigation" aria-label="top navigation">
       
         <p>
-        «&#160;&#160;<a href="config.html">Configuring Plots</a>
+        «&#160;&#160;<a href="config.html">Configuring Altair Visualizations</a>
         &#160;&#160;::&#160;&#160;
         <a class="uplink" href="../index.html">Contents</a>
         &#160;&#160;::&#160;&#160;
@@ -156,40 +156,52 @@ of Vega-Lite specifications.</p>
 </div>
 <div class="section" id="saving-figures-as-png-and-svg">
 <h2>Saving Figures as PNG and SVG<a class="headerlink" href="#saving-figures-as-png-and-svg" title="Permalink to this headline">¶</a></h2>
-<p>The easiest way to export figures to PNG or EPS is to click the
+<p>The easiest way to export figures to PNG or SVG is to click the
 &#8220;Open In Vega Editor&#8221; link under any rendered figure, and then use the &#8220;Export&#8221;
 command to save the figure as either PNG format (With the Renderer set to
 &#8220;Canvas&#8221;) or SVG format (with the renderer set to &#8220;SVG&#8221;).</p>
-<div class="section" id="saving-figures-programatically">
-<h3>Saving Figures Programatically<a class="headerlink" href="#saving-figures-programatically" title="Permalink to this headline">¶</a></h3>
-<p>If you would like to save an Altair visualization as PNG or EPS <em>from a script</em>,
+<div class="section" id="saving-figures-programmatically">
+<h3>Saving Figures Programmatically<a class="headerlink" href="#saving-figures-programmatically" title="Permalink to this headline">¶</a></h3>
+<p>If you would like to save an Altair visualization as PNG or SVG <em>from a script</em>,
 Altair does provide an interface that allows this, though it requires some
 extra setup.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">This feature is experimental and relatively brittle; we are working on
-improving it and this API will likely change in the future.</p>
-</div>
 <p>The <a class="reference external" href="https://github.com/vega/vega-lite">Vega-Lite</a> javascript library provides a <a class="reference external" href="https://nodejs.org/en/">NodeJS</a> command-line tool to
 generate <code class="docutils literal"><span class="pre">png</span></code> and <code class="docutils literal"><span class="pre">svg</span></code> outputs from Altair/Vega-Lite specifications.
-The <code class="xref py py-func docutils literal"><span class="pre">altair.utils.node.savechart()</span></code> function provides an interface that
+The <a class="reference internal" href="../API.html#altair.Chart.savechart" title="altair.Chart.savechart"><code class="xref py py-meth docutils literal"><span class="pre">Chart.savechart()</span></code></a> method provides an interface that
 will use these command-line tools to output PNG or SVG outputs of a chart.</p>
 <p>If you have <code class="docutils literal"><span class="pre">nodejs</span></code> and <code class="docutils literal"><span class="pre">npm</span></code> available on your system, you can install
 the required command-line tools using:</p>
-<div class="highlight-default"><div class="highlight"><pre>$ npm install canvas vega-lite
+<div class="highlight-default"><div class="highlight"><pre>$ npm install canvas vega vega-lite
 </pre></div>
 </div>
 <p>If you don&#8217;t have <code class="docutils literal"><span class="pre">nodejs</span></code> and are using <code class="docutils literal"><span class="pre">conda</span></code>, you can create an
 environment with nodejs/npm and the required packages as follows
-(note that the canvas tool seems to require Python 2.7):</p>
-<blockquote>
-<div>$ conda create -n nodejs-env -c conda-forge python=2.7 nodejs cairo altair
+(note that the <code class="docutils literal"><span class="pre">node-gyp</span></code> tool related to canvas seems to require Python 2.7):</p>
+<div class="highlight-default"><div class="highlight"><pre>$ conda create -n nodejs-env -c conda-forge python=2.7 nodejs cairo altair
 $ source activate nodejs-env
-$ npm install canvas vega-lite</div></blockquote>
-<p>Once you have successfully installed these packages, you should have new binary
-files <code class="docutils literal"><span class="pre">vl2vg</span></code>, <code class="docutils literal"><span class="pre">vg2png</span></code>, and <code class="docutils literal"><span class="pre">vg2eps</span></code> within your node root directory.</p>
-<p>With these packages properly installed, you can use the <code class="docutils literal"><span class="pre">savechart</span></code> method
-to save a chart to file:</p>
+$ npm install canvas vega vega-lite
+</pre></div>
+</div>
+<p>On Linux systems, the required tools can be installed with <a class="reference external" href="https://wiki.debian.org/Apt">Apt</a>:</p>
+<div class="highlight-default"><div class="highlight"><pre>$ sudo apt-get install libcairo2-dev libjpeg8-dev libpango1.0-dev libgif-dev build-essential g++
+$ npm install canvas vega vega-lite
+</pre></div>
+</div>
+<p>As above, this appears to work only when using Python 2.7&nbsp;because of the <code class="docutils literal"><span class="pre">node-gyp</span></code> dependency.</p>
+<p>More information on installing node and associated packages can be found on the
+<a class="reference external" href="https://nodejs.org/en/download/">Node Installation Page</a>.</p>
+<p>If the installation was successful, you should have new executables called
+<code class="docutils literal"><span class="pre">vl2png</span></code> and <code class="docutils literal"><span class="pre">vl2svg</span></code> within your node root directory, which you can determine
+by running:</p>
+<div class="highlight-default"><div class="highlight"><pre>$ npm bin
+/Users/username/node_modules/.bin
+
+$ ls /Users/username/node_modules/.bin
+vg2png  vg2svg  vl2png  vl2svg  vl2vg
+</pre></div>
+</div>
+<p>With these packages properly installed, you can use the <a class="reference internal" href="../API.html#altair.Chart.savechart" title="altair.Chart.savechart"><code class="xref py py-meth docutils literal"><span class="pre">Chart.savechart()</span></code></a>
+method to save a chart to file:</p>
 <div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">altair</span> <span class="k">import</span> <span class="n">Chart</span><span class="p">,</span> <span class="n">load_dataset</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span><span class="s">&#39;cars&#39;</span><span class="p">,</span> <span class="n">url_only</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">chart</span> <span class="o">=</span> <span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
@@ -203,15 +215,16 @@ to save a chart to file:</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">chart</span><span class="o">.</span><span class="n">savechart</span><span class="p">(</span><span class="s">&#39;mychart.svg&#39;</span><span class="p">)</span>  
 </pre></div>
 </div>
-<p>Internally, this requires the <code class="docutils literal"><span class="pre">vl2png</span></code> or <code class="docutils literal"><span class="pre">vl2svg</span></code> executables, which
-must either be in the system <code class="docutils literal"><span class="pre">$PATH</span></code> variable, or within the node
-binary directory specified by the command <code class="docutils literal"><span class="pre">npm</span> <span class="pre">bin</span></code>.</p>
-<p>This extra installation step is straightforward, but admittedly a bit clunky.
+<p>This command searches for the <code class="docutils literal"><span class="pre">vl2png</span></code> or <code class="docutils literal"><span class="pre">vl2svg</span></code> executable either in
+the <code class="docutils literal"><span class="pre">npm</span> <span class="pre">bin</span></code> location or in the system <code class="docutils literal"><span class="pre">$PATH</span></code> variable.</p>
+<p>The extra requirements here are straightforward, but the manual installation
+process is admittedly a bit clunky.
 We hope to find a way to streamline this in the future, but creating transparent
-interactions between Python packages and NodeJS packages remains challenging.
+interactions between Python packages and NodeJS packages remains a
+challenging area in general.
 If you have ideas on how to improve this aspect of Altair&#8217;s user experience,
 please send comments or contributions via Altair&#8217;s
-<a class="reference external" href="https://github.com/altair-viz/altair/issues">Github Issue Tracker</a>.</p>
+<a class="reference external" href="https://github.com/altair-viz/altair/issues">GitHub Issue Tracker</a>.</p>
 </div>
 </div>
 </div>
@@ -221,7 +234,7 @@ please send comments or contributions via Altair&#8217;s
       <div class="bottomnav" role="navigation" aria-label="bottom navigation">
       
         <p>
-        «&#160;&#160;<a href="config.html">Configuring Plots</a>
+        «&#160;&#160;<a href="config.html">Configuring Altair Visualizations</a>
         &#160;&#160;::&#160;&#160;
         <a class="uplink" href="../index.html">Contents</a>
         &#160;&#160;::&#160;&#160;

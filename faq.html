@@ -1,0 +1,300 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Altair Frequently Asked Questions &#8212; Altair 1.2.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/altair-plot.css" type="text/css" />
+    <link rel="stylesheet" href="_static/altair-gallery.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
+    <script type="text/javascript" src="https://vega.github.io/vega/vega.js"></script>
+    <script type="text/javascript" src="https://vega.github.io/vega-lite/vega-lite.js"></script>
+    <script type="text/javascript" src="https://vega.github.io/vega-editor/vendor/vega-embed.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="Altair 1.2.0 documentation" href="index.html" />
+    <link rel="next" title="Altair Documentation" href="documentation/index.html" />
+    <link rel="prev" title="Exploring Data: Seattle Weather" href="tutorials/exploring-weather.html" /> 
+  </head>
+  <body role="document">
+      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
+          <span>Altair</span></a></h1>
+        <h2 class="heading"><span>Altair Frequently Asked Questions</span></h2>
+      </div>
+      <div class="topnav" role="navigation" aria-label="top navigation">
+      
+        <p>
+        «&#160;&#160;<a href="tutorials/exploring-weather.html">Exploring Data: Seattle Weather</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="documentation/index.html">Altair Documentation</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="altair-frequently-asked-questions">
+<span id="altair-faq"></span><h1>Altair Frequently Asked Questions<a class="headerlink" href="#altair-frequently-asked-questions" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#why-isn-t-my-plot-displaying-in-the-jupyter-notebook" id="id2">Why isn&#8217;t my plot displaying in the Jupyter Notebook?</a></li>
+<li><a class="reference internal" href="#why-do-altair-plots-lead-to-such-extremely-large-notebooks" id="id3">Why do Altair plots lead to such extremely large notebooks?</a></li>
+<li><a class="reference internal" href="#how-do-i-make-a-heatmap-violin-plot-histogram-regression-plot" id="id4">How do I make a heatmap / violin plot / histogram / regression plot?</a></li>
+<li><a class="reference internal" href="#how-can-i-configure-the-tick-marks-labels-size-appearance-of-my-plot" id="id5">How can I configure the tick marks / labels / size / appearance of my plot?</a></li>
+<li><a class="reference internal" href="#how-can-i-add-marks-to-my-line-plot" id="id6">How can I add marks to my line plot?</a></li>
+</ul>
+</div>
+<div class="section" id="why-isn-t-my-plot-displaying-in-the-jupyter-notebook">
+<span id="altair-faq-no-display"></span><h2><a class="toc-backref" href="#id2">Why isn&#8217;t my plot displaying in the Jupyter Notebook?</a><a class="headerlink" href="#why-isn-t-my-plot-displaying-in-the-jupyter-notebook" title="Permalink to this headline">¶</a></h2>
+<p>The most common cause of a non-displaying plot in the Jupyter Notebook is
+incorrect configuration of the ipyvega jupyter extension, which is what
+recognizes an Altair object and automatically renders the plot with the
+Vega-Lite library.</p>
+<p>If you install altair using <code class="docutils literal"><span class="pre">conda</span></code>, this nbextension setup step should be
+taken care of automatically.
+If you install altair using <code class="docutils literal"><span class="pre">pip</span></code>, there is an extra step to enable this
+extension; see the discussion at <a class="reference internal" href="installation.html#installation"><span class="std std-ref">Installation</span></a>.</p>
+<p>If this still is not addressing the problem, it may be due to having multiple
+incompatible versions of altair and vega on your system. Try updating both
+packages using, e.g. <code class="docutils literal"><span class="pre">conda</span> <span class="pre">update</span> <span class="pre">altair</span> <span class="pre">vega</span></code> or
+<code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">altair</span> <span class="pre">vega</span> <span class="pre">--update</span></code>.</p>
+<p>If this still doesn&#8217;t work, please open an issue in the Altair&#8217;s
+<a class="reference external" href="https://github.com/altair-viz/altair/issues">GitHub Issue Tracker</a>,
+and we will do our best to help. In the meantime, other means of displaying Altair
+plots are listed in <a class="reference internal" href="documentation/displaying.html#displaying-plots"><span class="std std-ref">Displaying and Saving Altair Visualizations</span></a>.</p>
+</div>
+<div class="section" id="why-do-altair-plots-lead-to-such-extremely-large-notebooks">
+<span id="altair-faq-large-notebook"></span><h2><a class="toc-backref" href="#id3">Why do Altair plots lead to such extremely large notebooks?</a><a class="headerlink" href="#why-do-altair-plots-lead-to-such-extremely-large-notebooks" title="Permalink to this headline">¶</a></h2>
+<p>By design, Altair does not produce plots consisting of pixels, but plots
+consisting of data plus a visualization specification. As discussed in
+<a class="reference internal" href="documentation/data.html#defining-data"><span class="std std-ref">Defining Data</span></a>, this data can be specified in one of several ways, either
+via a pandas DataFrame, a file or URL, or a JSON data object. When you specify
+the data as a pandas DataFrame, this data is converted to JSON and included
+in its entirety in the plot spec.</p>
+<p>For example, here is a simple chart made from a dataframe with three rows
+of data:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s">&#39;x&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s">&#39;y&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]})</span>
+
+<span class="kn">from</span> <span class="nn">altair</span> <span class="k">import</span> <span class="n">Chart</span>
+<span class="n">chart</span> <span class="o">=</span> <span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+             <span class="n">x</span><span class="o">=</span><span class="s">&#39;x&#39;</span><span class="p">,</span>
+             <span class="n">y</span><span class="o">=</span><span class="s">&#39;y&#39;</span>
+        <span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">chart</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-none"><div class="highlight"><pre>{
+  &quot;data&quot;: {
+    &quot;values&quot;: [
+      {
+        &quot;x&quot;: 1,
+        &quot;y&quot;: 2
+      },
+      {
+        &quot;x&quot;: 2,
+        &quot;y&quot;: 1
+      },
+      {
+        &quot;x&quot;: 3,
+        &quot;y&quot;: 2
+      }
+    ]
+  },
+  &quot;encoding&quot;: {
+    &quot;x&quot;: {
+      &quot;field&quot;: &quot;x&quot;,
+      &quot;type&quot;: &quot;quantitative&quot;
+    },
+    &quot;y&quot;: {
+      &quot;field&quot;: &quot;y&quot;,
+      &quot;type&quot;: &quot;quantitative&quot;
+    }
+  },
+  &quot;mark&quot;: &quot;line&quot;
+}
+</pre></div>
+</div>
+<p>The resulting specification includes a representation of the data converted
+to JSON format, and this specification is embedded in the notebook or web page
+where it can be used by Vega-Lite to render the plot.
+As the size of the data grows, this explicit data storage can lead to some
+very large specifications, and by extension, some very large notebooks or
+web pages.</p>
+<p>The best way around this is to specify the data not by value, but by URL.
+Vega-Lite can then load the data from the URL at the time that it renders
+the plot. For example, you can save your data in the appropriate format
+as follows:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">url</span> <span class="o">=</span> <span class="s">&#39;data.csv&#39;</span>
+<span class="n">data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s">&#39;records&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="k">False</span><span class="p">)</span>
+
+<span class="n">chart</span> <span class="o">=</span> <span class="n">Chart</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+             <span class="n">x</span><span class="o">=</span><span class="s">&#39;x:Q&#39;</span><span class="p">,</span>
+             <span class="n">y</span><span class="o">=</span><span class="s">&#39;y:Q&#39;</span>
+        <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">chart</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-none"><div class="highlight"><pre>{
+  &quot;data&quot;: {
+    &quot;url&quot;: &quot;data.csv&quot;
+  },
+  &quot;encoding&quot;: {
+    &quot;x&quot;: {
+      &quot;field&quot;: &quot;x&quot;,
+      &quot;type&quot;: &quot;quantitative&quot;
+    },
+    &quot;y&quot;: {
+      &quot;field&quot;: &quot;y&quot;,
+      &quot;type&quot;: &quot;quantitative&quot;
+    }
+  },
+  &quot;mark&quot;: &quot;line&quot;
+}
+</pre></div>
+</div>
+<p>The data is now stored in a separate CSV file rather than embedded in the
+notebook or web page, leading to much more compact plot specifications.
+The disadvantage, of course, is a loss of portability: if the notebook is
+ever moved, the data file must accompany it or the plot may not display.</p>
+<p>In the future, we hope to add a third option for the notebook: adding an
+option to rendering and embedd only the png or svg image.
+This feature will require an update to Altair&#8217;s dependencies, which currently
+implement the notebook rendering of Altair plots.</p>
+</div>
+<div class="section" id="how-do-i-make-a-heatmap-violin-plot-histogram-regression-plot">
+<span id="altair-faq-recipes"></span><h2><a class="toc-backref" href="#id4">How do I make a heatmap / violin plot / histogram / regression plot?</a><a class="headerlink" href="#how-do-i-make-a-heatmap-violin-plot-histogram-regression-plot" title="Permalink to this headline">¶</a></h2>
+<p>Altair currently provides the building blocks from which you can construct
+relatively sophisticated plots. In the future we may add an interface to
+construct some of the more common plot types, but for the time being some
+visualizations will require composition of more fundamental elements.</p>
+<p>The <a class="reference internal" href="recipes.html#plot-recipes"><span class="std std-ref">Altair Plot Recipes</span></a> section of the documentation contains a growing list
+of recipes for creating common plot types in Altair.</p>
+</div>
+<div class="section" id="how-can-i-configure-the-tick-marks-labels-size-appearance-of-my-plot">
+<span id="altair-faq-configuration"></span><h2><a class="toc-backref" href="#id5">How can I configure the tick marks / labels / size / appearance of my plot?</a><a class="headerlink" href="#how-can-i-configure-the-tick-marks-labels-size-appearance-of-my-plot" title="Permalink to this headline">¶</a></h2>
+<p>Altair, via Vega-Lite, includes an extensive array of customizations. Many of
+these are not yet well-documented in Altair&#8217;s documentation, but we are working
+on addressing that. You can find some information on this by using tab-completion
+of methods and method arguments within the IPython notebook; for example, typing
+<code class="docutils literal"><span class="pre">Chart.&lt;TAB&gt;</span></code> in the notebook will show a list of available methods, and typing
+<code class="docutils literal"><span class="pre">Chart.configure_&lt;TAB&gt;</span></code> will list all of the chart configuration options.</p>
+<p>It can be useful to peruse
+<a class="reference external" href="http://vega.github.io/vega-lite/docs/">Vega-Lite&#8217;s Documentation</a>.
+The structure of the traits within Altair&#8217;s <a class="reference internal" href="API.html#altair.Chart" title="altair.Chart"><code class="xref py py-class docutils literal"><span class="pre">Chart</span></code></a> object directly mirrors
+the JSON schema of Vega-Lite, so if you know how to do something in Vega-Lite you
+are only a step or two away from knowing how to do it in Altair. Additionally, if
+you find a Vega-Lite example specification and would like to know how to do the
+equivalent in Altair, the <a class="reference internal" href="API.html#altair.Chart" title="altair.Chart"><code class="xref py py-class docutils literal"><span class="pre">Chart</span></code></a> object includes the ability to generate
+Python code from a Vega-Lite JSON specification. For example, here we copied the
+spec from <a class="reference external" href="https://vega.github.io/vega-editor/?mode=vega-lite&amp;spec=scatter_bubble">Vega-Lite&#8217;s Bubble Plot Example</a>,
+and use it to create an Altair plot, changing only the data URL to make it absolute:</p>
+<div class="highlight-python" id="faq-rst-altair-source-0"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">altair</span> <span class="kn">import</span> <span class="n">Chart</span>
+
+<span class="n">spec</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;</span>
+<span class="s">{</span>
+<span class="s">  &quot;description&quot;: &quot;A bubbleplot showing horsepower on x, miles per gallons on y, and binned acceleration on size.&quot;,</span>
+<span class="s">  &quot;data&quot;: {&quot;url&quot;: &quot;http://vega.github.io/vega-datasets/data/cars.json&quot;},</span>
+<span class="s">  &quot;mark&quot;: &quot;point&quot;,</span>
+<span class="s">  &quot;encoding&quot;: {</span>
+<span class="s">    &quot;x&quot;: {&quot;field&quot;: &quot;Horsepower&quot;, &quot;type&quot;: &quot;quantitative&quot;},</span>
+<span class="s">    &quot;y&quot;: {&quot;field&quot;: &quot;Miles_per_Gallon&quot;, &quot;type&quot;: &quot;quantitative&quot;},</span>
+<span class="s">    &quot;size&quot;: {&quot;field&quot;: &quot;Acceleration&quot;, &quot;type&quot;: &quot;quantitative&quot;}</span>
+<span class="s">  }</span>
+<span class="s">}</span>
+<span class="s">&quot;&quot;&quot;</span>
+<span class="n">Chart</span><span class="o">.</span><span class="n">from_json</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="faq-rst-altair-plot-0">
+<script>
+  vg.embed("#faq-rst-altair-plot-0", "faq-rst-altair-plot-0.vl.json", function(error, result) {});
+</script>
+</div><p>The <a class="reference internal" href="API.html#altair.Chart.to_altair" title="altair.Chart.to_altair"><code class="xref py py-meth docutils literal"><span class="pre">Chart.to_altair()</span></code></a> method outputs Python code that will reconstruct this chart:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">chart</span> <span class="o">=</span> <span class="n">Chart</span><span class="o">.</span><span class="n">from_json</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">chart</span><span class="o">.</span><span class="n">to_altair</span><span class="p">())</span>
+</pre></div>
+</div>
+<div class="highlight-none"><div class="highlight"><pre>Chart(&#39;http://vega.github.io/vega-datasets/data/cars.json&#39;,
+    description=&#39;A bubbleplot showing horsepower on x, miles per gallons on y, and binned acceleration on size.&#39;,
+).mark_point().encode(
+    size=&#39;Acceleration:Q&#39;,
+    x=&#39;Horsepower:Q&#39;,
+    y=&#39;Miles_per_Gallon:Q&#39;,
+)
+</pre></div>
+</div>
+<p>In this way you can easily discover how Altair implements any Vega-Lite feature.</p>
+</div>
+<div class="section" id="how-can-i-add-marks-to-my-line-plot">
+<span id="id1"></span><h2><a class="toc-backref" href="#id6">How can I add marks to my line plot?</a><a class="headerlink" href="#how-can-i-add-marks-to-my-line-plot" title="Permalink to this headline">¶</a></h2>
+<p>Altair suports multiple plot markers through a layering API, accessed via
+<a class="reference internal" href="API.html#altair.LayeredChart" title="altair.LayeredChart"><code class="xref py py-class docutils literal"><span class="pre">LayeredChart</span></code></a>. So, for example, to create a plot where data is
+marked with both a line and points, you can do something like the following:</p>
+<div class="highlight-python" id="faq-rst-altair-source-1"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">altair</span> <span class="kn">import</span> <span class="n">Chart</span><span class="p">,</span> <span class="n">LayeredChart</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">50.</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s">&#39;x&#39;</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="s">&#39;y&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="mi">5</span><span class="p">)})</span>
+
+<span class="n">chart</span> <span class="o">=</span> <span class="n">LayeredChart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="n">chart</span> <span class="o">+=</span> <span class="n">Chart</span><span class="p">()</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s">&#39;x&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">chart</span> <span class="o">+=</span> <span class="n">Chart</span><span class="p">()</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s">&#39;x&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s">&#39;y&#39;</span><span class="p">)</span>
+
+<span class="n">chart</span>
+</pre></div>
+</div>
+
+<div id="faq-rst-altair-plot-1">
+<script>
+  vg.embed("#faq-rst-altair-plot-1", "faq-rst-altair-plot-1.vl.json", function(error, result) {});
+</script>
+</div><p>This layering API is considered experimental currently, and will be finalized
+in the 2.0 release.</p>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      
+        <p>
+        «&#160;&#160;<a href="tutorials/exploring-weather.html">Exploring Data: Seattle Weather</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="documentation/index.html">Altair Documentation</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016, Brian Granger and Jake VanderPlas.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6.
+    </div>
+  </body>
+</html>

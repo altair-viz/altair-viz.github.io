@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Data Transformations &#8212; Altair 1.0.0 documentation</title>
+    <title>Data Transformations &#8212; Altair 1.2.0 documentation</title>
     
     <link rel="stylesheet" href="../_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.0.0',
+        VERSION:     '1.2.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -30,9 +30,9 @@
     <script type="text/javascript" src="https://vega.github.io/vega-lite/vega-lite.js"></script>
     <script type="text/javascript" src="https://vega.github.io/vega-editor/vendor/vega-embed.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="top" title="Altair 1.0.0 documentation" href="../index.html" />
+    <link rel="top" title="Altair 1.2.0 documentation" href="../index.html" />
     <link rel="up" title="Altair Documentation" href="index.html" />
-    <link rel="next" title="Configuring Plots" href="config.html" />
+    <link rel="next" title="Configuring Altair Visualizations" href="config.html" />
     <link rel="prev" title="Marks" href="marks.html" /> 
   </head>
   <body role="document">
@@ -47,7 +47,7 @@
         &#160;&#160;::&#160;&#160;
         <a class="uplink" href="../index.html">Contents</a>
         &#160;&#160;::&#160;&#160;
-        <a href="config.html">Configuring Plots</a>&#160;&#160;»
+        <a href="config.html">Configuring Altair Visualizations</a>&#160;&#160;»
         </p>
 
       </div>
@@ -57,9 +57,14 @@
   <div class="section" id="data-transformations">
 <span id="id1"></span><h1>Data Transformations<a class="headerlink" href="#data-transformations" title="Permalink to this headline">¶</a></h1>
 <p>Altair provides a data transformation API that allows both <em>filtering</em> and
-<em>transformation</em> of values within the plot renderer. In both cases, the
-expressions are given in terms of <em>javascript strings</em> passed to the
-<code class="docutils literal"><span class="pre">transform_data</span></code> method.</p>
+<em>transformation</em> of values within the plot renderer. Within Vega-Lite, filter
+and transforms operations are specified in terms of <em>javascript strings</em> which
+make use of Vega&#8217;s
+<a class="reference external" href="https://github.com/vega/vega/wiki/Expressions">Expression Documentation</a>.
+Altair provides a Python-style interface to generate these expressions without
+having to create the strings manually; this can be done either via a direct
+functional expression interface, or via a Pandas-like dataframe interface.
+We will see examples of both of these below.</p>
 <p>For example, consider this visualization of the historical US population,
 split by age and gender:</p>
 <div class="highlight-python" id="transform-rst-altair-source-0"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">altair</span> <span class="kn">import</span> <span class="n">Chart</span><span class="p">,</span> <span class="n">Color</span><span class="p">,</span> <span class="n">Scale</span>
@@ -91,53 +96,30 @@ probably be change them to &#8220;Male&#8221; and &#8220;Female&#8221; for clari
 in, say, pandas, and building a chart using the result, but it would be nice to
 do this within the Altair spec itself so that we can use the original data
 source.</p>
-<p>What we&#8217;re looking for is a <code class="docutils literal"><span class="pre">filter</span></code> operation in the first case, and a
-<code class="docutils literal"><span class="pre">calculate</span></code> operation in the second. Altair exposes these via the
-<code class="xref py py-meth docutils literal"><span class="pre">Chart.transform_data()</span></code> method, which passes its arguments to the
-<code class="xref py py-class docutils literal"><span class="pre">Transform</span></code> class:</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="10%" />
-<col width="32%" />
-<col width="58%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Trait</th>
-<th class="head">Type</th>
-<th class="head">Description</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>calculate</td>
-<td>list of <a class="reference internal" href="../API.html#altair.Formula" title="altair.Formula"><code class="xref py py-class docutils literal"><span class="pre">Formula</span></code></a></td>
-<td>Calculate new field(s) using the provided expresssion(s).</td>
-</tr>
-<tr class="row-odd"><td>filter</td>
-<td>string or an Expression</td>
-<td>A string containing the filter Vega expression.</td>
-</tr>
-<tr class="row-even"><td>filterNull</td>
-<td>boolean</td>
-<td>Filter null values from the data.</td>
-</tr>
-</tbody>
-</table>
-<p>Let&#8217;s remake the plot, using these transformation operations: we&#8217;ll use
-<code class="docutils literal"><span class="pre">filter</span></code> to limit the year to 2000, and <code class="docutils literal"><span class="pre">calculate</span></code> to convert the
-<em>1/2</em> labels to <em>Male/Female</em>:</p>
-<div class="highlight-python" id="transform-rst-altair-source-1"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">altair</span> <span class="kn">import</span> <span class="n">Chart</span><span class="p">,</span> <span class="n">Color</span><span class="p">,</span> <span class="n">Scale</span><span class="p">,</span> <span class="n">Formula</span>
+<p>Vega-Lite allows for this via a <code class="docutils literal"><span class="pre">transform</span></code> field within the plot specification,
+and Atltair provides a Pandas-style interface by which these transform fields
+can be specified.</p>
+<p>To demonstrate this, let&#8217;s remake the plot using this interface to filter
+the data by year, and to create a new column which maps the <em>1/2</em> labels
+to &#8220;Male&#8221;/&#8221;Female&#8221;:</p>
+<div class="highlight-python" id="transform-rst-altair-source-1"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">altair</span> <span class="kn">import</span> <span class="n">Chart</span><span class="p">,</span> <span class="n">Color</span><span class="p">,</span> <span class="n">Scale</span><span class="p">,</span> <span class="n">expr</span>
 
-<span class="n">data</span> <span class="o">=</span> <span class="s">&#39;https://vega.github.io/vega-datasets/data/population.json&#39;</span>
 <span class="n">pink_blue</span> <span class="o">=</span> <span class="n">Scale</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;pink&quot;</span><span class="p">,</span> <span class="s">&quot;lightblue&quot;</span><span class="p">])</span>
 
-<span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+<span class="c"># this does not actually download data;</span>
+<span class="c"># just puts a dataframe-like interface around the URL reference</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">expr</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="s">&#39;https://vega.github.io/vega-datasets/data/population.json&#39;</span><span class="p">)</span>
+
+<span class="c"># Add a new column to the data</span>
+<span class="n">data</span><span class="p">[</span><span class="s">&#39;gender&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">expr</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">sex</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&quot;Male&quot;</span><span class="p">,</span> <span class="s">&quot;Female&quot;</span><span class="p">)</span>
+
+<span class="c"># Create a filtered version of the data</span>
+<span class="n">data2000</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2000</span><span class="p">]</span>
+
+<span class="n">Chart</span><span class="p">(</span><span class="n">data2000</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="s">&#39;age:O&#39;</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="s">&#39;mean(people):Q&#39;</span><span class="p">,</span>
     <span class="n">color</span><span class="o">=</span><span class="n">Color</span><span class="p">(</span><span class="s">&#39;gender:N&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">pink_blue</span><span class="p">)</span>
-<span class="p">)</span><span class="o">.</span><span class="n">transform_data</span><span class="p">(</span>
-    <span class="nb">filter</span><span class="o">=</span><span class="s">&#39;datum.year == 2000&#39;</span><span class="p">,</span>
-    <span class="n">calculate</span><span class="o">=</span><span class="p">[</span><span class="n">Formula</span><span class="p">(</span><span class="n">field</span><span class="o">=</span><span class="s">&#39;gender&#39;</span><span class="p">,</span>
-                       <span class="n">expr</span><span class="o">=</span><span class="s">&#39;datum.sex == 1 ? &quot;Male&quot; : &quot;Female&quot;&#39;</span><span class="p">)],</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -146,15 +128,78 @@ source.</p>
 <script>
   vg.embed("#transform-rst-altair-plot-1", "transform-rst-altair-plot-1.vl.json", function(error, result) {});
 </script>
-</div><p>The <code class="docutils literal"><span class="pre">filter</span></code> attribute of <code class="xref py py-meth docutils literal"><span class="pre">transform_data()</span></code> accepts a string of
-javascript code, referring to the data column name as an attribute of
-<code class="docutils literal"><span class="pre">datum</span></code>, which you can think of as the row within the dataset.
-The <cite>calculate`</cite> attribute accepts a list of <code class="xref py py-class docutils literal"><span class="pre">Formula</span></code> objects, which
-each define a new column using an valid javascript expression over existing
-columns. For details on how this expression can be formed, see Vega&#8217;s
-<a class="reference external" href="https://github.com/vega/vega/wiki/Expressions">Expression Documentation</a>.</p>
-<p>The <a class="reference internal" href="../gallery/bar_grouped.html#gallery-bar-grouped"><span class="std std-ref">Grouped Bar Chart</span></a> example shows a more refined view of this dataset
-using some of these techniques.</p>
+</div><p>Creating and manipulating the data this way generates appropriate code that
+is stored in the spec and then evaluated at the time the plot is generated.
+We can see this by printing the resulting specification:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">altair</span> <span class="k">import</span> <span class="n">Chart</span><span class="p">,</span> <span class="n">expr</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">expr</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="s">&#39;data.json&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span><span class="p">[</span><span class="s">&#39;gender&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">expr</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">sex</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&quot;Male&quot;</span><span class="p">,</span> <span class="s">&quot;Female&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data2000</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2000</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">Chart</span><span class="p">(</span><span class="n">data2000</span><span class="p">)</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+<span class="go">{</span>
+<span class="go">  &quot;data&quot;: {</span>
+<span class="go">    &quot;url&quot;: &quot;data.json&quot;</span>
+<span class="go">  },</span>
+<span class="go">  &quot;transform&quot;: {</span>
+<span class="go">    &quot;calculate&quot;: [</span>
+<span class="go">      {</span>
+<span class="go">        &quot;expr&quot;: &quot;if((datum.sex==1),&#39;Male&#39;,&#39;Female&#39;)&quot;,</span>
+<span class="go">        &quot;field&quot;: &quot;gender&quot;</span>
+<span class="go">      }</span>
+<span class="go">    ],</span>
+<span class="go">    &quot;filter&quot;: &quot;(datum.year==2000)&quot;</span>
+<span class="go">  }</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+<p>Notice that in the resulting specification the <code class="docutils literal"><span class="pre">data</span></code> field contains only the
+URL, and the additional information has been encoded within a <code class="docutils literal"><span class="pre">transform</span></code>
+field using the
+<a class="reference external" href="https://github.com/vega/vega/wiki/Expressions">Expression Interface</a> provided
+by the Vega package.</p>
+<p>If you would prefer to add these field manually rather than using the <code class="xref py py-class docutils literal"><span class="pre">expr.DataFrame</span></code>
+interface, the <a class="reference internal" href="../API.html#altair.Chart.transform_data" title="altair.Chart.transform_data"><code class="xref py py-meth docutils literal"><span class="pre">transform_data()</span></code></a> method and related <a class="reference internal" href="../API.html#altair.Transform" title="altair.Transform"><code class="xref py py-class docutils literal"><span class="pre">Transform</span></code></a>
+class gives you functional access to these attributes using the <code class="xref py py-mod docutils literal"><span class="pre">vega.expr</span></code> syntax:</p>
+<div class="highlight-python" id="transform-rst-altair-source-3"><span id="altair-plot-2"></span><div class="highlight"><pre><span class="n">data</span> <span class="o">=</span> <span class="s">&#39;https://vega.github.io/vega-datasets/data/population.json&#39;</span>
+
+<span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s">&#39;age:O&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s">&#39;mean(people):Q&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">Color</span><span class="p">(</span><span class="s">&#39;gender:N&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">pink_blue</span><span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_data</span><span class="p">(</span>
+    <span class="n">calculate</span><span class="o">=</span><span class="p">[</span><span class="n">Formula</span><span class="p">(</span><span class="s">&#39;gender&#39;</span><span class="p">,</span> <span class="n">expr</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">expr</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">sex</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span><span class="s">&#39;Male&#39;</span><span class="p">,</span><span class="s">&#39;Female&#39;</span><span class="p">))],</span>
+    <span class="nb">filter</span><span class="o">=</span><span class="p">(</span><span class="n">expr</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2000</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="transform-rst-altair-plot-3">
+<script>
+  vg.embed("#transform-rst-altair-plot-3", "transform-rst-altair-plot-3.vl.json", function(error, result) {});
+</script>
+</div><p>Or if you really like to do things by hand, the raw javascript strings can be
+passed instead:</p>
+<div class="highlight-python" id="transform-rst-altair-source-5"><span id="altair-plot-4"></span><div class="highlight"><pre><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s">&#39;age:O&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s">&#39;mean(people):Q&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">Color</span><span class="p">(</span><span class="s">&#39;gender:N&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">pink_blue</span><span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_data</span><span class="p">(</span>
+    <span class="n">calculate</span><span class="o">=</span><span class="p">[</span><span class="n">Formula</span><span class="p">(</span><span class="s">&#39;gender&#39;</span><span class="p">,</span> <span class="s">&#39;if(datum.sex == 1, &quot;M&quot;, &quot;F&quot;)&#39;</span><span class="p">)],</span>
+    <span class="nb">filter</span><span class="o">=</span><span class="p">(</span><span class="s">&#39;datum.year == 2000&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="transform-rst-altair-plot-5">
+<script>
+  vg.embed("#transform-rst-altair-plot-5", "transform-rst-altair-plot-5.vl.json", function(error, result) {});
+</script>
+</div><p>While in all these cases the data manipulation could be done as a preprocessing
+step, embedding the processed data directly in the URL, this sort of simple
+manipulation of an existing data source can lead to much more compact and efficient
+plot specifications.</p>
+<p>The <a class="reference internal" href="../gallery/bar_grouped.html#gallery-bar-grouped"><span class="std std-ref">Grouped Bar Chart</span></a> example shows a more refined view of this
+same dataset using some of these techniques.</p>
 </div>
 
 
@@ -166,7 +211,7 @@ using some of these techniques.</p>
         &#160;&#160;::&#160;&#160;
         <a class="uplink" href="../index.html">Contents</a>
         &#160;&#160;::&#160;&#160;
-        <a href="config.html">Configuring Plots</a>&#160;&#160;»
+        <a href="config.html">Configuring Altair Visualizations</a>&#160;&#160;»
         </p>
 
       </div>
