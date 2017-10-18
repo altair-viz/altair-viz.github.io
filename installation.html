@@ -1,73 +1,195 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Installation &#8212; Altair 1.2.0 documentation</title>
-    
-    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/altair-plot.css" type="text/css" />
-    <link rel="stylesheet" href="_static/altair-gallery.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '1.2.0',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vega/2.6.5/vega.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vega-lite/1.2.1/vega-lite.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vega-embed/2.2.0/vega-embed.min.js"></script>
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Installation &mdash; Altair 1.3.0.dev0 documentation</title>
+  
+
+  
+  
     <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="top" title="Altair 1.2.0 documentation" href="index.html" />
-    <link rel="next" title="Altair Tutorials" href="tutorials/index.html" />
-    <link rel="prev" title="Declarative Visualization in Python" href="index.html" /> 
-  </head>
-  <body role="document">
-      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
-          <span>Altair</span></a></h1>
-        <h2 class="heading"><span>Installation</span></h2>
-      </div>
-      <div class="topnav" role="navigation" aria-label="top navigation">
-      
-        <p>
-        «&#160;&#160;<a href="index.html">Declarative Visualization in Python</a>
-        &#160;&#160;::&#160;&#160;
-        <a class="uplink" href="index.html">Contents</a>
-        &#160;&#160;::&#160;&#160;
-        <a href="tutorials/index.html">Altair Tutorials</a>&#160;&#160;»
-        </p>
+  
+  
+  
 
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/altair-plot.css" type="text/css" />
+  
+    <link rel="stylesheet" href="_static/altair-gallery.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Altair 1.3.0.dev0 documentation" href="index.html"/>
+        <link rel="next" title="Tutorials" href="tutorials/index.html"/>
+        <link rel="prev" title="Declarative Visualization in Python" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Altair
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#development-install">Development Install</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation/index.html">Narrative Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gallery/index.html">Example Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes.html">Plot Recipes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a></li>
+</ul>
+
+            
+          
+        </div>
       </div>
-      <div class="content">
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Altair</a>
         
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Installation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/installation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
   <div class="section" id="installation">
 <span id="id1"></span><h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<p>Altair can be installed via the Python Package Index with the following:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>pip install altair
-<span class="nv">$ </span>pip install --upgrade notebook
-<span class="nv">$ </span>jupyter nbextension install --sys-prefix --py vega
+<p>Altair can be installed via <cite>pip</cite> with the following:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ pip install altair
+$ pip install --upgrade notebook
 </pre></div>
 </div>
-<p>The additional commands serve to set-up the <a class="reference external" href="http://github.com/vega/ipyvega">ipyvega</a> module to automatically
-render Altair plots within the Jupyter notebook (see <a class="reference internal" href="documentation/displaying.html#displaying-plots-jupyter"><span class="std std-ref">Displaying Plots in Jupyter Notebook</span></a>)
-Alternatively, you can install with <a class="reference external" href="http://conda.pydata.org">conda</a>, which handles the Jupyter notebook
-setup within the single install command:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>conda install altair --channel conda-forge
+<p>In addition, to render Altair visualizations in the classic Jupyter Notebook,
+you will need to enable the <a class="reference external" href="http://github.com/vega/ipyvega">ipyvega</a> nbextension:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ jupyter nbextension <span class="nb">enable</span> --sys-prefix --py vega
 </pre></div>
 </div>
+<p>This single step is <strong>not</strong> needed for usage with JupyterLab and nteract, which have built-in
+support for Vega-Lite.</p>
+<p>If you use conda to install Altair:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ conda install altair --channel conda-forge
+</pre></div>
+</div>
+<p>the nbextension is automatically enabled.</p>
 <div class="section" id="dependencies">
 <h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
 <p>Altair has the following dependencies, all of which are installed by default
@@ -76,11 +198,6 @@ with either of the above installation commands:</p>
 <li><a class="reference external" href="http://pandas.pydata.org">Pandas</a></li>
 <li><a class="reference external" href="https://github.com/ipython/traitlets">Traitlets</a></li>
 <li><a class="reference external" href="https://github.com/ipython/ipython">IPython</a></li>
-</ul>
-<p>Additionally, the following optional dependencies are required to use Altair
-within the Jupyter Notebook:</p>
-<ul class="simple">
-<li><a class="reference external" href="https://jupyter.readthedocs.io/en/latest/install.html">Jupyter Notebook</a></li>
 <li><a class="reference external" href="http://github.com/vega/ipyvega">ipyvega</a></li>
 </ul>
 </div>
@@ -90,34 +207,91 @@ within the Jupyter Notebook:</p>
 Once you have cloned the repository and installed all the above dependencies,
 run the following command from the root of the repository to install the
 master version of Altair:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>pip install -e .
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ pip install -e .
 </pre></div>
 </div>
 <p>If you do not wish to clone the source repository, you can install the development
 version directly from GitHub using:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>pip install git+https://github.com/altair-viz/altair
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ pip install git+https://github.com/altair-viz/altair
 </pre></div>
 </div>
 </div>
 </div>
 
 
-      </div>
-      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <p>
-        «&#160;&#160;<a href="index.html">Declarative Visualization in Python</a>
-        &#160;&#160;::&#160;&#160;
-        <a class="uplink" href="index.html">Contents</a>
-        &#160;&#160;::&#160;&#160;
-        <a href="tutorials/index.html">Altair Tutorials</a>&#160;&#160;»
-        </p>
+        <a href="tutorials/index.html" class="btn btn-neutral float-right" title="Tutorials" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Declarative Visualization in Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
 
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Brian Granger and Jake VanderPlas.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
       </div>
 
-    <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Brian Granger and Jake VanderPlas.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6.
-    </div>
-  </body>
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.3.0.dev0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
+      <script type="text/javascript" src="https://vega.github.io/vega/releases/v2.6.5/vega.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vega-lite/1.2.1/vega-lite.min.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vega-embed/2.2.0/vega-embed.min.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
 </html>
