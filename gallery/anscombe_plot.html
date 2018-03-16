@@ -1,0 +1,359 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Anscombe’s Quartet &mdash; Altair 2.0.0rc1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/altair-plot.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/altair-gallery.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Altair 2.0.0rc1 documentation" href="../index.html"/>
+        <link rel="up" title="Example Gallery" href="index.html"/>
+        <link rel="next" title="Bar Chart with Highlight" href="bar_chart_with_highlight.html"/>
+        <link rel="prev" title="Horizontal Aggregate Bar Chart" href="aggregate_bar_chart.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Altair
+          
+
+          
+            
+            <img src="../_static/altair-logo-light.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0.0rc1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/starting.html">Basic Statistical Visualization</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/importing.html">Importing Altair</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/display.html">Displaying Charts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/data.html">Specifying Data in Altair</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/encoding.html">Encodings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/marks.html">Marks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/config.html">Configuring Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/transform.html">Data Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/selections.html">Selections: Building Blocks of Interactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/saving_charts.html">Saving Altair Charts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/API.html">API Reference</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Case Studies</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../case_studies/exploring-weather.html">Exploring Seattle Weather</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Gallery</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Example Gallery</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#basic-charts">Basic Charts</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#general">General</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="aggregate_bar_chart.html">Horizontal Aggregate Bar Chart</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Anscombe’s Quartet</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bar_chart_with_highlight.html">Bar Chart with Highlight</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bar_chat_with_labels.html">Simple Bar Chart with Labels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="beckers_barley_trellis_plot.html">Becker’s Barley Trellis Plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="binned_scatterplot.html">Binned Scatterplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="boxplot_max_min.html">Box Plot with Min/Max Whiskers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="candlestick_chart.html">Candlestick Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connected_scatterplot.html">Connected Scatterplot (Lines with Custom Paths)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cumulative_wiki_donations.html">Cumulative Wikipedia Donations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="diverging_stacked_bar_chart.html">Diverging Stacked Bar Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dot_dash_plot.html">Dot Dash Plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="error_bars_with_ci.html">Error Bars showing Confidence Interval</a></li>
+<li class="toctree-l3"><a class="reference internal" href="falkensee.html">Falkensee</a></li>
+<li class="toctree-l3"><a class="reference internal" href="grouped_bar_chart.html">Grouped Bar Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="histogram_with_a_global_mean_overlay.html">Histogram with a Global Mean Overlay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="horizon_graph.html">Horizon Graph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layer_line_color_rule.html">Line Chart with Layered Aggregates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layered_bar_chart.html">Layered Bar Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layered_chart_bar_mark.html">LayerChart with Bar and Tick</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layered_heatmap_text.html">Layering text over a heatmap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layered_histogram.html">Layered Histogram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layered_plot_with_dual_axis.html">Layered Plot with Dual-Axis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="line_percent.html">Line Chart with Percent axis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="line_with_ci.html">Line chart with Confidence Interval Band</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mean_overlay_over_precipitiation_chart.html">Layered Bar Chart with Line as Mean</a></li>
+<li class="toctree-l3"><a class="reference internal" href="natural_disasters.html">Natural Disasters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="normalized_stacked_bar_chart.html">Normalized Stacked Bar Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="poly_fit.html">Ploynomial Fit Plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ranged_dot_plot.html">Ranged Dot Plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="slope_graph.html">Slope Graph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stacked_area_chart.html">Stacked Area Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stacked_bar_chart.html">Stacked Bar Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stem_and_leaf.html">Steam and Leaf Plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="streamgraph.html">Streamgraph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trellis_area.html">Trellis Area</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trellis_histogram.html">Trellis Histogram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trellis_stacked_bar_chart.html">Trellis Stacked Bar Chart</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#geographic">Geographic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#interactive">Interactive</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Altair</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Example Gallery</a> &raquo;</li>
+        
+      <li>Anscombe’s Quartet</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/gallery/anscombe_plot.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="anscombes-quartet">
+<span id="gallery-anscombe-plot"></span><h1>Anscombe’s Quartet<a class="headerlink" href="#anscombes-quartet" title="Permalink to this headline">¶</a></h1>
+<p>This example shows how to use the column channel to make a trellis plot. Anscombe’s Quartet is a famous dataset constructed by Francis Anscombe. Common summary statistics are identical for each subset of the data, despite the subsets having vastly different characteristics.</p>
+
+<div id="anscombe_plot-rst-altair-plot-0">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"values": [{"Series": "I", "X": 10, "Y": 8.04}, {"Series": "I", "X": 8, "Y": 6.95}, {"Series": "I", "X": 13, "Y": 7.58}, {"Series": "I", "X": 9, "Y": 8.81}, {"Series": "I", "X": 11, "Y": 8.33}, {"Series": "I", "X": 14, "Y": 9.96}, {"Series": "I", "X": 6, "Y": 7.24}, {"Series": "I", "X": 4, "Y": 4.26}, {"Series": "I", "X": 12, "Y": 10.84}, {"Series": "I", "X": 7, "Y": 4.8100000000000005}, {"Series": "I", "X": 5, "Y": 5.68}, {"Series": "II", "X": 10, "Y": 9.14}, {"Series": "II", "X": 8, "Y": 8.14}, {"Series": "II", "X": 13, "Y": 8.74}, {"Series": "II", "X": 9, "Y": 8.77}, {"Series": "II", "X": 11, "Y": 9.26}, {"Series": "II", "X": 14, "Y": 8.1}, {"Series": "II", "X": 6, "Y": 6.13}, {"Series": "II", "X": 4, "Y": 3.1}, {"Series": "II", "X": 12, "Y": 9.13}, {"Series": "II", "X": 7, "Y": 7.26}, {"Series": "II", "X": 5, "Y": 4.74}, {"Series": "III", "X": 10, "Y": 7.46}, {"Series": "III", "X": 8, "Y": 6.77}, {"Series": "III", "X": 13, "Y": 12.74}, {"Series": "III", "X": 9, "Y": 7.11}, {"Series": "III", "X": 11, "Y": 7.8100000000000005}, {"Series": "III", "X": 14, "Y": 8.84}, {"Series": "III", "X": 6, "Y": 6.08}, {"Series": "III", "X": 4, "Y": 5.39}, {"Series": "III", "X": 12, "Y": 8.15}, {"Series": "III", "X": 7, "Y": 6.42}, {"Series": "III", "X": 5, "Y": 5.73}, {"Series": "IV", "X": 8, "Y": 6.58}, {"Series": "IV", "X": 8, "Y": 5.76}, {"Series": "IV", "X": 8, "Y": 7.71}, {"Series": "IV", "X": 8, "Y": 8.84}, {"Series": "IV", "X": 8, "Y": 8.47}, {"Series": "IV", "X": 8, "Y": 7.04}, {"Series": "IV", "X": 8, "Y": 5.25}, {"Series": "IV", "X": 19, "Y": 12.5}, {"Series": "IV", "X": 8, "Y": 5.5600000000000005}, {"Series": "IV", "X": 8, "Y": 7.91}, {"Series": "IV", "X": 8, "Y": 6.89}]}, "mark": "circle", "encoding": {"column": {"type": "nominal", "field": "Series"}, "x": {"type": "quantitative", "field": "X", "scale": {"zero": false}}, "y": {"type": "quantitative", "field": "Y", "scale": {"zero": false}}}, "height": 150, "width": 150, "$schema": "https://vega.github.io/schema/vega-lite/v2.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#anscombe_plot-rst-altair-plot-0', {"config": {"view": {"width": 400, "height": 300}}, "data": {"values": [{"Series": "I", "X": 10, "Y": 8.04}, {"Series": "I", "X": 8, "Y": 6.95}, {"Series": "I", "X": 13, "Y": 7.58}, {"Series": "I", "X": 9, "Y": 8.81}, {"Series": "I", "X": 11, "Y": 8.33}, {"Series": "I", "X": 14, "Y": 9.96}, {"Series": "I", "X": 6, "Y": 7.24}, {"Series": "I", "X": 4, "Y": 4.26}, {"Series": "I", "X": 12, "Y": 10.84}, {"Series": "I", "X": 7, "Y": 4.8100000000000005}, {"Series": "I", "X": 5, "Y": 5.68}, {"Series": "II", "X": 10, "Y": 9.14}, {"Series": "II", "X": 8, "Y": 8.14}, {"Series": "II", "X": 13, "Y": 8.74}, {"Series": "II", "X": 9, "Y": 8.77}, {"Series": "II", "X": 11, "Y": 9.26}, {"Series": "II", "X": 14, "Y": 8.1}, {"Series": "II", "X": 6, "Y": 6.13}, {"Series": "II", "X": 4, "Y": 3.1}, {"Series": "II", "X": 12, "Y": 9.13}, {"Series": "II", "X": 7, "Y": 7.26}, {"Series": "II", "X": 5, "Y": 4.74}, {"Series": "III", "X": 10, "Y": 7.46}, {"Series": "III", "X": 8, "Y": 6.77}, {"Series": "III", "X": 13, "Y": 12.74}, {"Series": "III", "X": 9, "Y": 7.11}, {"Series": "III", "X": 11, "Y": 7.8100000000000005}, {"Series": "III", "X": 14, "Y": 8.84}, {"Series": "III", "X": 6, "Y": 6.08}, {"Series": "III", "X": 4, "Y": 5.39}, {"Series": "III", "X": 12, "Y": 8.15}, {"Series": "III", "X": 7, "Y": 6.42}, {"Series": "III", "X": 5, "Y": 5.73}, {"Series": "IV", "X": 8, "Y": 6.58}, {"Series": "IV", "X": 8, "Y": 5.76}, {"Series": "IV", "X": 8, "Y": 7.71}, {"Series": "IV", "X": 8, "Y": 8.84}, {"Series": "IV", "X": 8, "Y": 8.47}, {"Series": "IV", "X": 8, "Y": 7.04}, {"Series": "IV", "X": 8, "Y": 5.25}, {"Series": "IV", "X": 19, "Y": 12.5}, {"Series": "IV", "X": 8, "Y": 5.5600000000000005}, {"Series": "IV", "X": 8, "Y": 7.91}, {"Series": "IV", "X": 8, "Y": 6.89}]}, "mark": "circle", "encoding": {"column": {"type": "nominal", "field": "Series"}, "x": {"type": "quantitative", "field": "X", "scale": {"zero": false}}, "y": {"type": "quantitative", "field": "Y", "scale": {"zero": false}}}, "height": 150, "width": 150, "$schema": "https://vega.github.io/schema/vega-lite/v2.json"}).catch(console.err);
+  });
+</script>
+</div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+
+<span class="n">anscombe</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">anscombe</span><span class="p">()</span>
+
+<span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">anscombe</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">zero</span><span class="o">=</span><span class="bp">False</span><span class="p">)),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">zero</span><span class="o">=</span><span class="bp">False</span><span class="p">)),</span>
+    <span class="n">column</span><span class="o">=</span><span class="s1">&#39;Series&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">150</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="bar_chart_with_highlight.html" class="btn btn-neutral float-right" title="Bar Chart with Highlight" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="aggregate_bar_chart.html" class="btn btn-neutral" title="Horizontal Aggregate Bar Chart" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016-2018, Altair Developers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.0.0rc1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@3.2"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@2.3"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@3"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

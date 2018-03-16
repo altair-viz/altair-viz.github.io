@@ -1,0 +1,369 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Seattle Weather Interactive &mdash; Altair 2.0.0rc1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/altair-plot.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/altair-gallery.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Altair 2.0.0rc1 documentation" href="../index.html"/>
+        <link rel="up" title="Example Gallery" href="index.html"/>
+        <link rel="next" title="Selection Histogram" href="selection_histogram.html"/>
+        <link rel="prev" title="Scatter Matrix" href="scatter_matrix.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Altair
+          
+
+          
+            
+            <img src="../_static/altair-logo-light.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0.0rc1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/starting.html">Basic Statistical Visualization</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/importing.html">Importing Altair</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/display.html">Displaying Charts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/data.html">Specifying Data in Altair</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/encoding.html">Encodings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/marks.html">Marks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/config.html">Configuring Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/transform.html">Data Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/selections.html">Selections: Building Blocks of Interactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/saving_charts.html">Saving Altair Charts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/API.html">API Reference</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Case Studies</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../case_studies/exploring-weather.html">Exploring Seattle Weather</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Gallery</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Example Gallery</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#basic-charts">Basic Charts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#general">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#geographic">Geographic</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#interactive">Interactive</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="interactive_brush.html">Rectangular Brush</a></li>
+<li class="toctree-l3"><a class="reference internal" href="interactive_cross_highlight.html">Interactive Chart with Cross-Highlight</a></li>
+<li class="toctree-l3"><a class="reference internal" href="interactive_layered_crossfilter.html">Crossfilter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="interactive_scatter_plot.html">Simple Interactive Colored Scatterplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="interval_selection.html">Interval Selection Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multiline_highlight.html">Multi-Line Highlight</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multiline_tooltip.html">Multi-Lite Tooltip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scatter_linked_brush.html">Faceted Scatter Plot with Linked Brushing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scatter_matrix.html">Scatter Matrix</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Seattle Weather Interactive</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="selection_histogram.html">Selection Histogram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="selection_layer_bar_month.html">Interactive Average</a></li>
+<li class="toctree-l3"><a class="reference internal" href="us_population_over_time.html">US Population Over Time</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Altair</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Example Gallery</a> &raquo;</li>
+        
+      <li>Seattle Weather Interactive</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/gallery/seattle_weather_interactive.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="seattle-weather-interactive">
+<span id="gallery-seattle-weather-interactive"></span><h1>Seattle Weather Interactive<a class="headerlink" href="#seattle-weather-interactive" title="Permalink to this headline">¶</a></h1>
+<p>This chart provides an interactive exploration of Seattle weather over the
+course of the year. It includes a one-axis brush selection to easily
+see the distribution of weather types in a particular date range.</p>
+
+<div id="seattle_weather_interactive-rst-altair-plot-0">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "vconcat": [{"mark": "point", "encoding": {"color": {"condition": {"type": "nominal", "field": "weather", "scale": {"domain": ["sun", "fog", "drizzle", "rain", "snow"], "range": ["#e7ba52", "#a7a7a7", "#aec7e8", "#1f77b4", "#9467bd"]}, "selection": "selector014"}, "value": "lightgray"}, "size": {"type": "quantitative", "field": "precipitation", "scale": {"range": [5, 200]}}, "x": {"type": "temporal", "axis": {"title": "Date"}, "field": "date", "timeUnit": "monthdate"}, "y": {"type": "quantitative", "axis": {"title": "Maximum Daily Temperature (C)"}, "field": "temp_max", "scale": {"domain": [-5, 40]}}}, "height": 300, "selection": {"selector014": {"type": "interval", "encodings": ["x"]}}, "transform": [{"filter": {"selection": "selector015"}}], "width": 600}, {"mark": "bar", "encoding": {"color": {"condition": {"type": "nominal", "field": "weather", "scale": {"domain": ["sun", "fog", "drizzle", "rain", "snow"], "range": ["#e7ba52", "#a7a7a7", "#aec7e8", "#1f77b4", "#9467bd"]}, "selection": "selector015"}, "value": "lightgray"}, "x": {"type": "quantitative", "aggregate": "count", "field": "*"}, "y": {"type": "nominal", "field": "weather"}}, "selection": {"selector015": {"type": "multi", "encodings": ["color"]}}, "transform": [{"filter": {"selection": "selector014"}}], "width": 600}], "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-weather.csv"}, "title": "Seattle Weather: 2012-2015", "$schema": "https://vega.github.io/schema/vega-lite/v2.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#seattle_weather_interactive-rst-altair-plot-0', {"config": {"view": {"width": 400, "height": 300}}, "vconcat": [{"mark": "point", "encoding": {"color": {"condition": {"type": "nominal", "field": "weather", "scale": {"domain": ["sun", "fog", "drizzle", "rain", "snow"], "range": ["#e7ba52", "#a7a7a7", "#aec7e8", "#1f77b4", "#9467bd"]}, "selection": "selector014"}, "value": "lightgray"}, "size": {"type": "quantitative", "field": "precipitation", "scale": {"range": [5, 200]}}, "x": {"type": "temporal", "axis": {"title": "Date"}, "field": "date", "timeUnit": "monthdate"}, "y": {"type": "quantitative", "axis": {"title": "Maximum Daily Temperature (C)"}, "field": "temp_max", "scale": {"domain": [-5, 40]}}}, "height": 300, "selection": {"selector014": {"type": "interval", "encodings": ["x"]}}, "transform": [{"filter": {"selection": "selector015"}}], "width": 600}, {"mark": "bar", "encoding": {"color": {"condition": {"type": "nominal", "field": "weather", "scale": {"domain": ["sun", "fog", "drizzle", "rain", "snow"], "range": ["#e7ba52", "#a7a7a7", "#aec7e8", "#1f77b4", "#9467bd"]}, "selection": "selector015"}, "value": "lightgray"}, "x": {"type": "quantitative", "aggregate": "count", "field": "*"}, "y": {"type": "nominal", "field": "weather"}}, "selection": {"selector015": {"type": "multi", "encodings": ["color"]}}, "transform": [{"filter": {"selection": "selector014"}}], "width": 600}], "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-weather.csv"}, "title": "Seattle Weather: 2012-2015", "$schema": "https://vega.github.io/schema/vega-lite/v2.json"}).catch(console.err);
+  });
+</script>
+</div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+
+<span class="n">scale</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sun&#39;</span><span class="p">,</span> <span class="s1">&#39;fog&#39;</span><span class="p">,</span> <span class="s1">&#39;drizzle&#39;</span><span class="p">,</span> <span class="s1">&#39;rain&#39;</span><span class="p">,</span> <span class="s1">&#39;snow&#39;</span><span class="p">],</span>
+                  <span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;#e7ba52&#39;</span><span class="p">,</span> <span class="s1">&#39;#a7a7a7&#39;</span><span class="p">,</span> <span class="s1">&#39;#aec7e8&#39;</span><span class="p">,</span> <span class="s1">&#39;#1f77b4&#39;</span><span class="p">,</span> <span class="s1">&#39;#9467bd&#39;</span><span class="p">])</span>
+<span class="n">color</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;weather:N&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">)</span>
+
+<span class="c1"># We create two selections:</span>
+<span class="c1"># - a brush that is active on the top panel</span>
+<span class="c1"># - a multi-click that is active on the bottom panel</span>
+<span class="n">brush</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection_interval</span><span class="p">(</span><span class="n">encodings</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">])</span>
+<span class="n">click</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection_multi</span><span class="p">(</span><span class="n">encodings</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">])</span>
+
+<span class="c1"># Top panel is scatter plot of temperature vs time</span>
+<span class="n">points</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">()</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;date:T&#39;</span><span class="p">,</span> <span class="n">timeUnit</span><span class="o">=</span><span class="s1">&#39;monthdate&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Date&#39;</span><span class="p">)),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;temp_max:Q&#39;</span><span class="p">,</span>
+        <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Maximum Daily Temperature (C)&#39;</span><span class="p">),</span>
+        <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">40</span><span class="p">])</span>
+    <span class="p">),</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span><span class="n">brush</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;lightgray&#39;</span><span class="p">)),</span>
+    <span class="n">size</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span><span class="s1">&#39;precipitation:Q&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">200</span><span class="p">]))</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+    <span class="n">selection</span><span class="o">=</span><span class="n">brush</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span>
+    <span class="n">click</span><span class="o">.</span><span class="n">ref</span><span class="p">()</span>
+<span class="p">)</span>
+
+<span class="c1"># Bottom panel is a bar chart of weather type</span>
+<span class="n">bars</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">()</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;count(*):Q&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;weather:N&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span><span class="n">click</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;lightgray&#39;</span><span class="p">)),</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span>
+    <span class="n">brush</span><span class="o">.</span><span class="n">ref</span><span class="p">()</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span>
+    <span class="n">selection</span><span class="o">=</span><span class="n">click</span>
+<span class="p">)</span>
+
+<span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">vconcat</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">bars</span><span class="p">,</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">seattle_weather</span><span class="o">.</span><span class="n">url</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Seattle Weather: 2012-2015&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="selection_histogram.html" class="btn btn-neutral float-right" title="Selection Histogram" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="scatter_matrix.html" class="btn btn-neutral" title="Scatter Matrix" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016-2018, Altair Developers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.0.0rc1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@3.2"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@2.3"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@3"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,855 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Compound Charts: Layer, HConcat, VConcat, Repeat, Facet &mdash; Altair 2.0.0rc1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/altair-plot.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/altair-gallery.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Altair 2.0.0rc1 documentation" href="../index.html"/>
+        <link rel="next" title="Saving Altair Charts" href="saving_charts.html"/>
+        <link rel="prev" title="Selections: Building Blocks of Interactions" href="selections.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Altair
+          
+
+          
+            
+            <img src="../_static/altair-logo-light.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0.0rc1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/starting.html">Basic Statistical Visualization</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="importing.html">Importing Altair</a></li>
+<li class="toctree-l1"><a class="reference internal" href="display.html">Displaying Charts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data.html">Specifying Data in Altair</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoding.html">Encodings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="marks.html">Marks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuring Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transform.html">Data Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="selections.html">Selections: Building Blocks of Interactions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#layered-charts">Layered Charts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#horizontal-concatenation">Horizontal Concatenation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#vertical-concatenation">Vertical Concatenation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#repeated-charts">Repeated Charts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#faceted-charts">Faceted Charts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#advanced-compound-charts-and-data-specification">Advanced: Compound Charts and Data Specification</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="saving_charts.html">Saving Altair Charts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html">API Reference</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Case Studies</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../case_studies/exploring-weather.html">Exploring Seattle Weather</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Gallery</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Example Gallery</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Altair</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/user_guide/compound_charts.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="compound-charts-layer-hconcat-vconcat-repeat-facet">
+<span id="user-guide-compound"></span><h1>Compound Charts: Layer, HConcat, VConcat, Repeat, Facet<a class="headerlink" href="#compound-charts-layer-hconcat-vconcat-repeat-facet" title="Permalink to this headline">¶</a></h1>
+<p>Along with the basic <a class="reference internal" href="API.html#altair.Chart" title="altair.Chart"><code class="xref py py-class docutils literal"><span class="pre">Chart</span></code></a> object, Altair provides a number of
+compound plot types that can be used to create stacked, layered, faceted,
+and repeated charts. They are summarized in the following tables:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="33%" />
+<col width="20%" />
+<col width="23%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">class</th>
+<th class="head">functional form</th>
+<th class="head">operator form</th>
+<th class="head">reference</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference internal" href="API.html#altair.LayerChart" title="altair.LayerChart"><code class="xref py py-class docutils literal"><span class="pre">LayerChart</span></code></a></td>
+<td><code class="docutils literal"><span class="pre">alt.layer(chart1,</span> <span class="pre">chart2)</span></code></td>
+<td><code class="docutils literal"><span class="pre">chart1</span> <span class="pre">+</span> <span class="pre">chart2</span></code></td>
+<td><a class="reference internal" href="#layer-chart"><span class="std std-ref">Layered Charts</span></a></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="API.html#altair.HConcatChart" title="altair.HConcatChart"><code class="xref py py-class docutils literal"><span class="pre">HConcatChart</span></code></a></td>
+<td><code class="docutils literal"><span class="pre">alt.hconcat(chart1,</span> <span class="pre">chart2)</span></code></td>
+<td><code class="docutils literal"><span class="pre">chart1</span> <span class="pre">|</span> <span class="pre">chart2</span></code></td>
+<td><a class="reference internal" href="#hconcat-chart"><span class="std std-ref">Horizontal Concatenation</span></a></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="API.html#altair.VConcatChart" title="altair.VConcatChart"><code class="xref py py-class docutils literal"><span class="pre">VConcatChart</span></code></a></td>
+<td><code class="docutils literal"><span class="pre">alt.vconcat(chart1,</span> <span class="pre">chart2)</span></code></td>
+<td><code class="docutils literal"><span class="pre">chart1</span> <span class="pre">&amp;</span> <span class="pre">chart2</span></code></td>
+<td><a class="reference internal" href="#vconcat-chart"><span class="std std-ref">Vertical Concatenation</span></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="30%" />
+<col width="40%" />
+<col width="30%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">class</th>
+<th class="head">method form</th>
+<th class="head">reference</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference internal" href="API.html#altair.RepeatChart" title="altair.RepeatChart"><code class="xref py py-class docutils literal"><span class="pre">RepeatChart</span></code></a></td>
+<td><code class="docutils literal"><span class="pre">chart.repeat(row,</span> <span class="pre">column)</span></code></td>
+<td><a class="reference internal" href="#repeat-chart"><span class="std std-ref">Repeated Charts</span></a></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="API.html#altair.FacetChart" title="altair.FacetChart"><code class="xref py py-class docutils literal"><span class="pre">FacetChart</span></code></a></td>
+<td><code class="docutils literal"><span class="pre">chart.facet(row,</span> <span class="pre">column)</span></code></td>
+<td><a class="reference internal" href="#facet-chart"><span class="std std-ref">Faceted Charts</span></a></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="layered-charts">
+<span id="layer-chart"></span><h2>Layered Charts<a class="headerlink" href="#layered-charts" title="Permalink to this headline">¶</a></h2>
+<p>Layered charts allow you to overlay two different charts on the same set of axes.
+They can be useful, for example, when you wish to draw multiple marks for the
+same data; for example:</p>
+<div class="highlight-python" id="compound_charts-rst-altair-source-0"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">altair.expr</span> <span class="kn">import</span> <span class="n">datum</span>
+
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+<span class="n">stocks</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">stocks</span><span class="o">.</span><span class="n">url</span>
+
+<span class="n">base</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">stocks</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;date:T&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price:Q&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;symbol:N&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span>
+    <span class="n">datum</span><span class="o">.</span><span class="n">symbol</span> <span class="o">==</span> <span class="s1">&#39;GOOG&#39;</span>
+<span class="p">)</span>
+
+<span class="n">base</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span> <span class="o">+</span> <span class="n">base</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span>
+</pre></div>
+</div>
+
+<div id="compound_charts-rst-altair-plot-0">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "layer": [{"data": {"url": "https://vega.github.io/vega-datasets/data/stocks.csv"}, "mark": "line", "encoding": {"color": {"type": "nominal", "field": "symbol"}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "price"}}, "transform": [{"filter": "(datum.symbol === 'GOOG')"}]}, {"data": {"url": "https://vega.github.io/vega-datasets/data/stocks.csv"}, "mark": "point", "encoding": {"color": {"type": "nominal", "field": "symbol"}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "price"}}, "transform": [{"filter": "(datum.symbol === 'GOOG')"}]}], "$schema": "https://vega.github.io/schema/vega-lite/v2.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#compound_charts-rst-altair-plot-0', {"config": {"view": {"width": 400, "height": 300}}, "layer": [{"data": {"url": "https://vega.github.io/vega-datasets/data/stocks.csv"}, "mark": "line", "encoding": {"color": {"type": "nominal", "field": "symbol"}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "price"}}, "transform": [{"filter": "(datum.symbol === 'GOOG')"}]}, {"data": {"url": "https://vega.github.io/vega-datasets/data/stocks.csv"}, "mark": "point", "encoding": {"color": {"type": "nominal", "field": "symbol"}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "price"}}, "transform": [{"filter": "(datum.symbol === 'GOOG')"}]}], "$schema": "https://vega.github.io/schema/vega-lite/v2.json"}).catch(console.err);
+  });
+</script>
+</div><p>Here we have used the <code class="docutils literal"><span class="pre">+</span></code> operator to create a layered chart; alternatively
+we could use the <code class="docutils literal"><span class="pre">alt.layer</span></code> function, which accepts as its arguments any
+number of charts:</p>
+<div class="highlight-python" id="compound_charts-rst-altair-source-1"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">layer</span><span class="p">(</span>
+  <span class="n">base</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(),</span>
+  <span class="n">base</span><span class="o">.</span><span class="n">mark_point</span><span class="p">(),</span>
+  <span class="n">base</span><span class="o">.</span><span class="n">mark_rule</span><span class="p">()</span>
+<span class="p">)</span><span class="o">.</span><span class="n">interactive</span><span class="p">()</span>
+</pre></div>
+</div>
+
+<div id="compound_charts-rst-altair-plot-1">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "layer": [{"data": {"url": "https://vega.github.io/vega-datasets/data/stocks.csv"}, "mark": "line", "encoding": {"color": {"type": "nominal", "field": "symbol"}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "price"}}, "selection": {"selector024": {"type": "interval", "bind": "scales", "encodings": ["x", "y"]}}, "transform": [{"filter": "(datum.symbol === 'GOOG')"}]}, {"data": {"url": "https://vega.github.io/vega-datasets/data/stocks.csv"}, "mark": "point", "encoding": {"color": {"type": "nominal", "field": "symbol"}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "price"}}, "transform": [{"filter": "(datum.symbol === 'GOOG')"}]}, {"data": {"url": "https://vega.github.io/vega-datasets/data/stocks.csv"}, "mark": "rule", "encoding": {"color": {"type": "nominal", "field": "symbol"}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "price"}}, "transform": [{"filter": "(datum.symbol === 'GOOG')"}]}], "$schema": "https://vega.github.io/schema/vega-lite/v2.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#compound_charts-rst-altair-plot-1', {"config": {"view": {"width": 400, "height": 300}}, "layer": [{"data": {"url": "https://vega.github.io/vega-datasets/data/stocks.csv"}, "mark": "line", "encoding": {"color": {"type": "nominal", "field": "symbol"}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "price"}}, "selection": {"selector024": {"type": "interval", "bind": "scales", "encodings": ["x", "y"]}}, "transform": [{"filter": "(datum.symbol === 'GOOG')"}]}, {"data": {"url": "https://vega.github.io/vega-datasets/data/stocks.csv"}, "mark": "point", "encoding": {"color": {"type": "nominal", "field": "symbol"}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "price"}}, "transform": [{"filter": "(datum.symbol === 'GOOG')"}]}, {"data": {"url": "https://vega.github.io/vega-datasets/data/stocks.csv"}, "mark": "rule", "encoding": {"color": {"type": "nominal", "field": "symbol"}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "price"}}, "transform": [{"filter": "(datum.symbol === 'GOOG')"}]}], "$schema": "https://vega.github.io/schema/vega-lite/v2.json"}).catch(console.err);
+  });
+</script>
+</div><p>The output of both of these patterns is a <a class="reference internal" href="API.html#altair.LayerChart" title="altair.LayerChart"><code class="xref py py-class docutils literal"><span class="pre">LayerChart</span></code></a> object, which
+can has properties and methods similar to the <a class="reference internal" href="API.html#altair.Chart" title="altair.Chart"><code class="xref py py-class docutils literal"><span class="pre">Chart</span></code></a> object.</p>
+</div>
+<div class="section" id="horizontal-concatenation">
+<span id="hconcat-chart"></span><h2>Horizontal Concatenation<a class="headerlink" href="#horizontal-concatenation" title="Permalink to this headline">¶</a></h2>
+<p>Displaying two plots side-by-side is most generally accomplished with the
+<a class="reference internal" href="API.html#altair.HConcatChart" title="altair.HConcatChart"><code class="xref py py-class docutils literal"><span class="pre">HConcatChart</span></code></a> object, which can be created using the <a class="reference internal" href="API.html#altair.hconcat" title="altair.hconcat"><code class="xref py py-class docutils literal"><span class="pre">hconcat</span></code></a>
+function or the <code class="docutils literal"><span class="pre">|</span></code> operator.</p>
+<p>For example, here is a scatter-plot concatenated with a histogram showing the
+distribution of its points:</p>
+<div class="highlight-python" id="compound_charts-rst-altair-source-2"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+
+<span class="n">iris</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">iris</span><span class="o">.</span><span class="n">url</span>
+
+<span class="n">chart1</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;petalLength:Q&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;petalWidth:Q&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;species:N&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">300</span>
+<span class="p">)</span>
+
+<span class="n">chart2</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;count(*):Q&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;petalWidth:Q&#39;</span><span class="p">,</span> <span class="nb">bin</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Bin</span><span class="p">(</span><span class="n">maxbins</span><span class="o">=</span><span class="mi">30</span><span class="p">)),</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;species:N&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">100</span>
+<span class="p">)</span>
+
+<span class="n">chart1</span> <span class="o">|</span> <span class="n">chart2</span>
+</pre></div>
+</div>
+
+<div id="compound_charts-rst-altair-plot-2">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "hconcat": [{"data": {"url": "https://vega.github.io/vega-datasets/data/iris.json"}, "mark": "point", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": "petalLength"}, "y": {"type": "quantitative", "field": "petalWidth"}}, "height": 300, "width": 300}, {"data": {"url": "https://vega.github.io/vega-datasets/data/iris.json"}, "mark": "bar", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "aggregate": "count", "field": "*"}, "y": {"type": "quantitative", "bin": {"maxbins": 30}, "field": "petalWidth"}}, "height": 300, "width": 100}], "$schema": "https://vega.github.io/schema/vega-lite/v2.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#compound_charts-rst-altair-plot-2', {"config": {"view": {"width": 400, "height": 300}}, "hconcat": [{"data": {"url": "https://vega.github.io/vega-datasets/data/iris.json"}, "mark": "point", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": "petalLength"}, "y": {"type": "quantitative", "field": "petalWidth"}}, "height": 300, "width": 300}, {"data": {"url": "https://vega.github.io/vega-datasets/data/iris.json"}, "mark": "bar", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "aggregate": "count", "field": "*"}, "y": {"type": "quantitative", "bin": {"maxbins": 30}, "field": "petalWidth"}}, "height": 300, "width": 100}], "$schema": "https://vega.github.io/schema/vega-lite/v2.json"}).catch(console.err);
+  });
+</script>
+</div><p>This example uses the <code class="docutils literal"><span class="pre">|</span></code> operator, but could similarly have been created
+with the <a class="reference internal" href="API.html#altair.hconcat" title="altair.hconcat"><code class="xref py py-func docutils literal"><span class="pre">hconcat()</span></code></a> function:</p>
+<div class="highlight-python" id="compound_charts-rst-altair-source-3"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">hconcat</span><span class="p">(</span><span class="n">chart1</span><span class="p">,</span> <span class="n">chart2</span><span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="compound_charts-rst-altair-plot-3">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "hconcat": [{"data": {"url": "https://vega.github.io/vega-datasets/data/iris.json"}, "mark": "point", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": "petalLength"}, "y": {"type": "quantitative", "field": "petalWidth"}}, "height": 300, "width": 300}, {"data": {"url": "https://vega.github.io/vega-datasets/data/iris.json"}, "mark": "bar", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "aggregate": "count", "field": "*"}, "y": {"type": "quantitative", "bin": {"maxbins": 30}, "field": "petalWidth"}}, "height": 300, "width": 100}], "$schema": "https://vega.github.io/schema/vega-lite/v2.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#compound_charts-rst-altair-plot-3', {"config": {"view": {"width": 400, "height": 300}}, "hconcat": [{"data": {"url": "https://vega.github.io/vega-datasets/data/iris.json"}, "mark": "point", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": "petalLength"}, "y": {"type": "quantitative", "field": "petalWidth"}}, "height": 300, "width": 300}, {"data": {"url": "https://vega.github.io/vega-datasets/data/iris.json"}, "mark": "bar", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "aggregate": "count", "field": "*"}, "y": {"type": "quantitative", "bin": {"maxbins": 30}, "field": "petalWidth"}}, "height": 300, "width": 100}], "$schema": "https://vega.github.io/schema/vega-lite/v2.json"}).catch(console.err);
+  });
+</script>
+</div><p>The output of both of these is an <a class="reference internal" href="API.html#altair.HConcatChart" title="altair.HConcatChart"><code class="xref py py-class docutils literal"><span class="pre">HConcatChart</span></code></a> object, which has
+many of the same top-level methods and attributes as the <a class="reference internal" href="API.html#altair.Chart" title="altair.Chart"><code class="xref py py-class docutils literal"><span class="pre">Chart</span></code></a>
+object.</p>
+<p>Finally, keep in mind that for certain types of horizontally-concatenated
+charts, where each panel modifies just one aspect of the visualization,
+repeated and faceted charts are more convenient (see <a class="reference internal" href="#repeat-chart"><span class="std std-ref">Repeated Charts</span></a>
+and <a class="reference internal" href="#facet-chart"><span class="std std-ref">Faceted Charts</span></a> for more explanation).</p>
+</div>
+<div class="section" id="vertical-concatenation">
+<span id="vconcat-chart"></span><h2>Vertical Concatenation<a class="headerlink" href="#vertical-concatenation" title="Permalink to this headline">¶</a></h2>
+<p>Similarly to <a class="reference internal" href="#hconcat-chart"><span class="std std-ref">Horizontal Concatenation</span></a> above, Altair offers vertical concatenation
+via the <a class="reference internal" href="API.html#altair.vconcat" title="altair.vconcat"><code class="xref py py-func docutils literal"><span class="pre">vconcat()</span></code></a> function or the <code class="docutils literal"><span class="pre">&amp;</span></code> operator.</p>
+<p>For example, here we vertically-concatenate two views of the same data,
+with a <code class="docutils literal"><span class="pre">brush</span></code> selection to add interaction:</p>
+<div class="highlight-python" id="compound_charts-rst-altair-source-4"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+<span class="n">sp500</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">sp500</span><span class="o">.</span><span class="n">url</span>
+
+<span class="n">brush</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;interval&#39;</span><span class="p">,</span> <span class="n">encodings</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">])</span>
+
+<span class="n">upper</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">sp500</span><span class="p">)</span><span class="o">.</span><span class="n">mark_area</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;date:T&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;domain&#39;</span><span class="p">:</span> <span class="n">brush</span><span class="o">.</span><span class="n">ref</span><span class="p">()}),</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price:Q&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">200</span>
+<span class="p">)</span>
+
+<span class="n">lower</span> <span class="o">=</span> <span class="n">upper</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">selection</span><span class="o">=</span><span class="n">brush</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">60</span>
+<span class="p">)</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">vconcat</span><span class="p">(</span><span class="n">upper</span><span class="p">,</span> <span class="n">lower</span><span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="compound_charts-rst-altair-plot-4">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "vconcat": [{"data": {"url": "https://vega.github.io/vega-datasets/data/sp500.csv"}, "mark": "area", "encoding": {"x": {"type": "temporal", "field": "date", "scale": {"domain": {"selection": "selector025"}}}, "y": {"type": "quantitative", "field": "price"}}, "height": 200, "width": 600}, {"data": {"url": "https://vega.github.io/vega-datasets/data/sp500.csv"}, "mark": "area", "encoding": {"x": {"type": "temporal", "field": "date", "scale": {"domain": {"selection": "selector025"}}}, "y": {"type": "quantitative", "field": "price"}}, "height": 60, "selection": {"selector025": {"type": "interval", "encodings": ["x"]}}, "width": 600}], "$schema": "https://vega.github.io/schema/vega-lite/v2.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#compound_charts-rst-altair-plot-4', {"config": {"view": {"width": 400, "height": 300}}, "vconcat": [{"data": {"url": "https://vega.github.io/vega-datasets/data/sp500.csv"}, "mark": "area", "encoding": {"x": {"type": "temporal", "field": "date", "scale": {"domain": {"selection": "selector025"}}}, "y": {"type": "quantitative", "field": "price"}}, "height": 200, "width": 600}, {"data": {"url": "https://vega.github.io/vega-datasets/data/sp500.csv"}, "mark": "area", "encoding": {"x": {"type": "temporal", "field": "date", "scale": {"domain": {"selection": "selector025"}}}, "y": {"type": "quantitative", "field": "price"}}, "height": 60, "selection": {"selector025": {"type": "interval", "encodings": ["x"]}}, "width": 600}], "$schema": "https://vega.github.io/schema/vega-lite/v2.json"}).catch(console.err);
+  });
+</script>
+</div><p>Note that we could just as well have used <code class="docutils literal"><span class="pre">upper</span> <span class="pre">&amp;</span> <span class="pre">lower</span></code> rather than the
+more verbose <code class="docutils literal"><span class="pre">alt.vconcat(upper,</span> <span class="pre">lower)</span></code>.</p>
+<p>As with horizontally-concatenated charts, keep in mind that for concatenations
+where only one data grouping or encoding is changing in each panel, using
+<a class="reference internal" href="#repeat-chart"><span class="std std-ref">Repeated Charts</span></a> or <a class="reference internal" href="#facet-chart"><span class="std std-ref">Faceted Charts</span></a> can be more efficient.</p>
+</div>
+<div class="section" id="repeated-charts">
+<span id="repeat-chart"></span><h2>Repeated Charts<a class="headerlink" href="#repeated-charts" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference internal" href="API.html#altair.RepeatChart" title="altair.RepeatChart"><code class="xref py py-class docutils literal"><span class="pre">RepeatChart</span></code></a> object provides a convenient interface for a particular
+type of horizontal or vertical concatenation, in which the only difference between
+the concatenated panels is modification of <em>one or more encodings</em>.</p>
+<p>For example, suppose you would like to create a multi-panel scatter-plot to show
+different projections of a multi-dimensional dataset.
+Let’s first create sucha chart manually using <code class="docutils literal"><span class="pre">hconcat</span></code> and <code class="docutils literal"><span class="pre">vconcat</span></code>, before
+showing how <code class="docutils literal"><span class="pre">repeat</span></code> can be used to build the chart more efficiently:</p>
+<div class="highlight-python" id="compound_charts-rst-altair-source-5"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+
+<span class="n">iris</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">iris</span><span class="o">.</span><span class="n">url</span>
+
+<span class="n">base</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">()</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;species:N&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">200</span>
+<span class="p">)</span><span class="o">.</span><span class="n">interactive</span><span class="p">()</span>
+
+<span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">vconcat</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">iris</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">y_encoding</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;petalLength:Q&#39;</span><span class="p">,</span> <span class="s1">&#39;petalWidth:Q&#39;</span><span class="p">]:</span>
+    <span class="n">row</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">hconcat</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">x_encoding</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;sepalLength:Q&#39;</span><span class="p">,</span> <span class="s1">&#39;sepalWidth:Q&#39;</span><span class="p">]:</span>
+        <span class="n">row</span> <span class="o">|=</span> <span class="n">base</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x_encoding</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y_encoding</span><span class="p">)</span>
+    <span class="n">chart</span> <span class="o">&amp;=</span> <span class="n">row</span>
+<span class="n">chart</span>
+</pre></div>
+</div>
+
+<div id="compound_charts-rst-altair-plot-5">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "vconcat": [{"hconcat": [{"mark": "point", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": "sepalLength"}, "y": {"type": "quantitative", "field": "petalLength"}}, "height": 200, "selection": {"selector026": {"type": "interval", "bind": "scales", "encodings": ["x", "y"]}}, "width": 200}, {"mark": "point", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": "sepalWidth"}, "y": {"type": "quantitative", "field": "petalLength"}}, "height": 200, "selection": {"selector026": {"type": "interval", "bind": "scales", "encodings": ["x", "y"]}}, "width": 200}]}, {"hconcat": [{"mark": "point", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": "sepalLength"}, "y": {"type": "quantitative", "field": "petalWidth"}}, "height": 200, "selection": {"selector026": {"type": "interval", "bind": "scales", "encodings": ["x", "y"]}}, "width": 200}, {"mark": "point", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": "sepalWidth"}, "y": {"type": "quantitative", "field": "petalWidth"}}, "height": 200, "selection": {"selector026": {"type": "interval", "bind": "scales", "encodings": ["x", "y"]}}, "width": 200}]}], "data": {"url": "https://vega.github.io/vega-datasets/data/iris.json"}, "$schema": "https://vega.github.io/schema/vega-lite/v2.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#compound_charts-rst-altair-plot-5', {"config": {"view": {"width": 400, "height": 300}}, "vconcat": [{"hconcat": [{"mark": "point", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": "sepalLength"}, "y": {"type": "quantitative", "field": "petalLength"}}, "height": 200, "selection": {"selector026": {"type": "interval", "bind": "scales", "encodings": ["x", "y"]}}, "width": 200}, {"mark": "point", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": "sepalWidth"}, "y": {"type": "quantitative", "field": "petalLength"}}, "height": 200, "selection": {"selector026": {"type": "interval", "bind": "scales", "encodings": ["x", "y"]}}, "width": 200}]}, {"hconcat": [{"mark": "point", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": "sepalLength"}, "y": {"type": "quantitative", "field": "petalWidth"}}, "height": 200, "selection": {"selector026": {"type": "interval", "bind": "scales", "encodings": ["x", "y"]}}, "width": 200}, {"mark": "point", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": "sepalWidth"}, "y": {"type": "quantitative", "field": "petalWidth"}}, "height": 200, "selection": {"selector026": {"type": "interval", "bind": "scales", "encodings": ["x", "y"]}}, "width": 200}]}], "data": {"url": "https://vega.github.io/vega-datasets/data/iris.json"}, "$schema": "https://vega.github.io/schema/vega-lite/v2.json"}).catch(console.err);
+  });
+</script>
+</div><p>In this example, we explicitly loop over different x and y encodings
+to create a 2 x 2 grid of charts showing different views of the data.
+The code is straightforward, if a bit verbose.</p>
+<p>The <a class="reference internal" href="API.html#altair.RepeatChart" title="altair.RepeatChart"><code class="xref py py-class docutils literal"><span class="pre">RepeatChart</span></code></a> pattern makes this type of chart a bit easier
+to produce:</p>
+<div class="highlight-python" id="compound_charts-rst-altair-source-6"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+<span class="n">iris</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">iris</span><span class="o">.</span><span class="n">url</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="n">alt</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="s2">&quot;column&quot;</span><span class="p">),</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;quantitative&#39;</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="n">alt</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="s2">&quot;row&quot;</span><span class="p">),</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;quantitative&#39;</span><span class="p">),</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;species:N&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">200</span>
+<span class="p">)</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span>
+    <span class="n">row</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;petalLength&#39;</span><span class="p">,</span> <span class="s1">&#39;petalWidth&#39;</span><span class="p">],</span>
+    <span class="n">column</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sepalLength&#39;</span><span class="p">,</span> <span class="s1">&#39;sepalWidth&#39;</span><span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">interactive</span><span class="p">()</span>
+</pre></div>
+</div>
+
+<div id="compound_charts-rst-altair-plot-6">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "repeat": {"column": ["sepalLength", "sepalWidth"], "row": ["petalLength", "petalWidth"]}, "spec": {"data": {"url": "https://vega.github.io/vega-datasets/data/iris.json"}, "mark": "point", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": {"repeat": "column"}}, "y": {"type": "quantitative", "field": {"repeat": "row"}}}, "height": 200, "selection": {"selector027": {"type": "interval", "bind": "scales", "encodings": ["x", "y"]}}, "width": 200}, "$schema": "https://vega.github.io/schema/vega-lite/v2.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#compound_charts-rst-altair-plot-6', {"config": {"view": {"width": 400, "height": 300}}, "repeat": {"column": ["sepalLength", "sepalWidth"], "row": ["petalLength", "petalWidth"]}, "spec": {"data": {"url": "https://vega.github.io/vega-datasets/data/iris.json"}, "mark": "point", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": {"repeat": "column"}}, "y": {"type": "quantitative", "field": {"repeat": "row"}}}, "height": 200, "selection": {"selector027": {"type": "interval", "bind": "scales", "encodings": ["x", "y"]}}, "width": 200}, "$schema": "https://vega.github.io/schema/vega-lite/v2.json"}).catch(console.err);
+  });
+</script>
+</div><p>The <code class="xref py py-meth docutils literal"><span class="pre">Chart.repeat()</span></code> method is the key here: it lets you specify a set of
+encodings for the row and/or column which can be referred to in the chart’s
+encoding specification using <code class="docutils literal"><span class="pre">alt.repeat('row')</span></code> or <code class="docutils literal"><span class="pre">alt.repeat('column')</span></code>.</p>
+<p>Currently <code class="docutils literal"><span class="pre">repeat</span></code> can only be specified for rows and column (not, e.g., for
+layers) and the target can only be encodings (not, e.g., data transforms)
+but there is discussion within the Vega-Lite community about making this pattern
+more general in the future.</p>
+</div>
+<div class="section" id="faceted-charts">
+<span id="facet-chart"></span><h2>Faceted Charts<a class="headerlink" href="#faceted-charts" title="Permalink to this headline">¶</a></h2>
+<p>Like repeated charts, Faceted charts provide a more convenient API for creating
+multiple views of a dataset for a specific type of chart: one where each panel
+contains a different subset of data.</p>
+<p>We could do this manually using a filter transform along with a horizontal
+concatenation:</p>
+<div class="highlight-python" id="compound_charts-rst-altair-source-7"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">altair.expr</span> <span class="kn">import</span> <span class="n">datum</span>
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+<span class="n">iris</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">iris</span><span class="o">.</span><span class="n">url</span>
+
+<span class="n">base</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;petalLength:Q&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;petalWidth:Q&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;species:N&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">160</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">160</span>
+<span class="p">)</span>
+
+<span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">hconcat</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">species</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;setosa&#39;</span><span class="p">,</span> <span class="s1">&#39;versicolor&#39;</span><span class="p">,</span> <span class="s1">&#39;virginica&#39;</span><span class="p">]:</span>
+    <span class="n">chart</span> <span class="o">|=</span> <span class="n">base</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span><span class="n">datum</span><span class="o">.</span><span class="n">species</span> <span class="o">==</span> <span class="n">species</span><span class="p">)</span>
+<span class="n">chart</span>
+</pre></div>
+</div>
+
+<div id="compound_charts-rst-altair-plot-7">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "hconcat": [{"data": {"url": "https://vega.github.io/vega-datasets/data/iris.json"}, "mark": "point", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": "petalLength"}, "y": {"type": "quantitative", "field": "petalWidth"}}, "height": 160, "transform": [{"filter": "(datum.species === 'setosa')"}], "width": 160}, {"data": {"url": "https://vega.github.io/vega-datasets/data/iris.json"}, "mark": "point", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": "petalLength"}, "y": {"type": "quantitative", "field": "petalWidth"}}, "height": 160, "transform": [{"filter": "(datum.species === 'versicolor')"}], "width": 160}, {"data": {"url": "https://vega.github.io/vega-datasets/data/iris.json"}, "mark": "point", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": "petalLength"}, "y": {"type": "quantitative", "field": "petalWidth"}}, "height": 160, "transform": [{"filter": "(datum.species === 'virginica')"}], "width": 160}], "$schema": "https://vega.github.io/schema/vega-lite/v2.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#compound_charts-rst-altair-plot-7', {"config": {"view": {"width": 400, "height": 300}}, "hconcat": [{"data": {"url": "https://vega.github.io/vega-datasets/data/iris.json"}, "mark": "point", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": "petalLength"}, "y": {"type": "quantitative", "field": "petalWidth"}}, "height": 160, "transform": [{"filter": "(datum.species === 'setosa')"}], "width": 160}, {"data": {"url": "https://vega.github.io/vega-datasets/data/iris.json"}, "mark": "point", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": "petalLength"}, "y": {"type": "quantitative", "field": "petalWidth"}}, "height": 160, "transform": [{"filter": "(datum.species === 'versicolor')"}], "width": 160}, {"data": {"url": "https://vega.github.io/vega-datasets/data/iris.json"}, "mark": "point", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": "petalLength"}, "y": {"type": "quantitative", "field": "petalWidth"}}, "height": 160, "transform": [{"filter": "(datum.species === 'virginica')"}], "width": 160}], "$schema": "https://vega.github.io/schema/vega-lite/v2.json"}).catch(console.err);
+  });
+</script>
+</div><p>As with the manual approach to <a class="reference internal" href="#repeat-chart"><span class="std std-ref">Repeated Charts</span></a>, this is straightforward,
+if a bit verbose.</p>
+<p>Using <code class="docutils literal"><span class="pre">alt.facet</span></code> it becomes a bit cleaner:</p>
+<div class="highlight-python" id="compound_charts-rst-altair-source-8"><div class="highlight"><pre><span></span><span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;petalLength:Q&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;petalWidth:Q&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;species:N&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">180</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">180</span>
+<span class="p">)</span><span class="o">.</span><span class="n">facet</span><span class="p">(</span>
+    <span class="n">column</span><span class="o">=</span><span class="s1">&#39;species:N&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>For simple charts like this, there is also a <code class="docutils literal"><span class="pre">column</span></code> encoding channel that
+can give the same results:</p>
+<div class="highlight-python" id="compound_charts-rst-altair-source-9"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;petalLength:Q&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;petalWidth:Q&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;species:N&#39;</span><span class="p">,</span>
+    <span class="n">column</span><span class="o">=</span><span class="s1">&#39;species:N&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">180</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">180</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="compound_charts-rst-altair-plot-9">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/iris.json"}, "mark": "point", "encoding": {"color": {"type": "nominal", "field": "species"}, "column": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": "petalLength"}, "y": {"type": "quantitative", "field": "petalWidth"}}, "height": 180, "width": 180, "$schema": "https://vega.github.io/schema/vega-lite/v2.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#compound_charts-rst-altair-plot-9', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/iris.json"}, "mark": "point", "encoding": {"color": {"type": "nominal", "field": "species"}, "column": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": "petalLength"}, "y": {"type": "quantitative", "field": "petalWidth"}}, "height": 180, "width": 180, "$schema": "https://vega.github.io/schema/vega-lite/v2.json"}).catch(console.err);
+  });
+</script>
+</div><p>The advantage of using <code class="docutils literal"><span class="pre">alt.facet</span></code> is that it can create faceted views of
+more complicated compound charts. For example, here is a faceted view of a
+layered chart with a hover selection:</p>
+<div class="highlight-python" id="compound_charts-rst-altair-source-10"><div class="highlight"><pre><span></span><span class="n">hover</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection_single</span><span class="p">(</span><span class="n">on</span><span class="o">=</span><span class="s1">&#39;mouseover&#39;</span><span class="p">,</span> <span class="n">nearest</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">empty</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+
+<span class="n">base</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;petalLength:Q&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;petalWidth:Q&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span><span class="n">hover</span><span class="p">,</span> <span class="s1">&#39;species:N&#39;</span><span class="p">,</span> <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;lightgray&#39;</span><span class="p">))</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">180</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">180</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">chart</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">selection</span><span class="o">=</span><span class="n">hover</span>
+<span class="p">)</span>
+
+<span class="n">chart</span> <span class="o">+=</span> <span class="n">base</span><span class="o">.</span><span class="n">mark_text</span><span class="p">(</span><span class="n">dy</span><span class="o">=-</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;species:N&#39;</span><span class="p">,</span>
+    <span class="n">opacity</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span><span class="n">hover</span><span class="p">,</span> <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="p">)</span>
+
+<span class="n">chart</span><span class="o">.</span><span class="n">facet</span><span class="p">(</span>
+    <span class="n">column</span><span class="o">=</span><span class="s1">&#39;species:N&#39;</span><span class="p">,</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">iris</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="compound_charts-rst-altair-plot-10">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/iris.json"}, "facet": {"column": {"type": "nominal", "field": "species"}}, "spec": {"layer": [{"mark": "point", "encoding": {"color": {"condition": {"type": "nominal", "field": "species", "selection": "selector028"}, "value": "lightgray"}, "x": {"type": "quantitative", "field": "petalLength"}, "y": {"type": "quantitative", "field": "petalWidth"}}, "height": 180, "selection": {"selector028": {"type": "single", "on": "mouseover", "nearest": true, "empty": "none"}}, "width": 180}, {"mark": {"type": "text", "dy": -5}, "encoding": {"color": {"condition": {"type": "nominal", "field": "species", "selection": "selector028"}, "value": "lightgray"}, "opacity": {"condition": {"selection": "selector028", "value": 1}, "value": 0}, "text": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": "petalLength"}, "y": {"type": "quantitative", "field": "petalWidth"}}, "height": 180, "width": 180}]}, "$schema": "https://vega.github.io/schema/vega-lite/v2.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#compound_charts-rst-altair-plot-10', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/iris.json"}, "facet": {"column": {"type": "nominal", "field": "species"}}, "spec": {"layer": [{"mark": "point", "encoding": {"color": {"condition": {"type": "nominal", "field": "species", "selection": "selector028"}, "value": "lightgray"}, "x": {"type": "quantitative", "field": "petalLength"}, "y": {"type": "quantitative", "field": "petalWidth"}}, "height": 180, "selection": {"selector028": {"type": "single", "on": "mouseover", "nearest": true, "empty": "none"}}, "width": 180}, {"mark": {"type": "text", "dy": -5}, "encoding": {"color": {"condition": {"type": "nominal", "field": "species", "selection": "selector028"}, "value": "lightgray"}, "opacity": {"condition": {"selection": "selector028", "value": 1}, "value": 0}, "text": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": "petalLength"}, "y": {"type": "quantitative", "field": "petalWidth"}}, "height": 180, "width": 180}]}, "$schema": "https://vega.github.io/schema/vega-lite/v2.json"}).catch(console.err);
+  });
+</script>
+</div><p>Though each of the above examples have faceted the data across columns,
+faceting across rows (or across rows <em>and</em> columns) is supported as
+well.</p>
+</div>
+<div class="section" id="advanced-compound-charts-and-data-specification">
+<span id="compound-charts-data"></span><h2>Advanced: Compound Charts and Data Specification<a class="headerlink" href="#advanced-compound-charts-and-data-specification" title="Permalink to this headline">¶</a></h2>
+<p>When using compound charts, it is possible to specify data in multiple places,
+and if you are using large datasets it can be pertinent to think about where
+you specify data.</p>
+<p>For example, suppose you are creating a layered plot with a dataset marked by
+both points and lines:</p>
+<div class="highlight-python" id="compound_charts-rst-altair-source-11"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]})</span>
+
+<span class="n">base</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+
+<span class="n">chart</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span> <span class="o">+</span> <span class="n">base</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span>
+</pre></div>
+</div>
+
+<div id="compound_charts-rst-altair-plot-11">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "layer": [{"data": {"values": [{"x": 0, "y": 0}, {"x": 1, "y": 1}, {"x": 2, "y": 0}]}, "mark": "point", "encoding": {"x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "y"}}}, {"data": {"values": [{"x": 0, "y": 0}, {"x": 1, "y": 1}, {"x": 2, "y": 0}]}, "mark": "line", "encoding": {"x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "y"}}}], "$schema": "https://vega.github.io/schema/vega-lite/v2.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#compound_charts-rst-altair-plot-11', {"config": {"view": {"width": 400, "height": 300}}, "layer": [{"data": {"values": [{"x": 0, "y": 0}, {"x": 1, "y": 1}, {"x": 2, "y": 0}]}, "mark": "point", "encoding": {"x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "y"}}}, {"data": {"values": [{"x": 0, "y": 0}, {"x": 1, "y": 1}, {"x": 2, "y": 0}]}, "mark": "line", "encoding": {"x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "y"}}}], "$schema": "https://vega.github.io/schema/vega-lite/v2.json"}).catch(console.err);
+  });
+</script>
+</div><p>The visualization turns out as expected, but if you examine the JSON specification
+generated by this chart, you see that the data is specified twice – one time
+for each layer:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pprint</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">chart</span><span class="o">.</span><span class="n">to_dict</span><span class="p">())</span>
+<span class="go">{&#39;$schema&#39;: &#39;https://vega.github.io/schema/vega-lite/v2.json&#39;,</span>
+<span class="go"> &#39;config&#39;: {&#39;view&#39;: {&#39;height&#39;: 300, &#39;width&#39;: 400}},</span>
+<span class="go"> &#39;layer&#39;: [{&#39;data&#39;: {&#39;values&#39;: [{&#39;x&#39;: 0, &#39;y&#39;: 0},</span>
+<span class="go">                                {&#39;x&#39;: 1, &#39;y&#39;: 1},</span>
+<span class="go">                                {&#39;x&#39;: 2, &#39;y&#39;: 0}]},</span>
+<span class="go">            &#39;encoding&#39;: {&#39;x&#39;: {&#39;field&#39;: &#39;x&#39;, &#39;type&#39;: &#39;quantitative&#39;},</span>
+<span class="go">                         &#39;y&#39;: {&#39;field&#39;: &#39;y&#39;, &#39;type&#39;: &#39;quantitative&#39;}},</span>
+<span class="go">            &#39;mark&#39;: &#39;point&#39;},</span>
+<span class="go">           {&#39;data&#39;: {&#39;values&#39;: [{&#39;x&#39;: 0, &#39;y&#39;: 0},</span>
+<span class="go">                                {&#39;x&#39;: 1, &#39;y&#39;: 1},</span>
+<span class="go">                                {&#39;x&#39;: 2, &#39;y&#39;: 0}]},</span>
+<span class="go">            &#39;encoding&#39;: {&#39;x&#39;: {&#39;field&#39;: &#39;x&#39;, &#39;type&#39;: &#39;quantitative&#39;},</span>
+<span class="go">                         &#39;y&#39;: {&#39;field&#39;: &#39;y&#39;, &#39;type&#39;: &#39;quantitative&#39;}},</span>
+<span class="go">            &#39;mark&#39;: &#39;line&#39;}]}</span>
+</pre></div>
+</div>
+<p>This happens because our top chart contains two layers, each with its own
+data explicitly specified.</p>
+<p>In the compound charts created by methods in this section, sub-charts are aware
+of the data defined in their parents, and so you can make certain the data is
+defined only once by leaving it out of the individual layers, and instead defining
+it once the compound chart is created:</p>
+<div class="highlight-python" id="compound_charts-rst-altair-source-12"><div class="highlight"><pre><span></span><span class="n">base</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+
+<span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">layer</span><span class="p">(</span>
+    <span class="n">base</span><span class="o">.</span><span class="n">mark_point</span><span class="p">(),</span>
+    <span class="n">base</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(),</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">data</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="compound_charts-rst-altair-plot-12">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "layer": [{"mark": "point", "encoding": {"x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "y"}}}, {"mark": "line", "encoding": {"x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "y"}}}], "data": {"values": [{"x": 0, "y": 0}, {"x": 1, "y": 1}, {"x": 2, "y": 0}]}, "$schema": "https://vega.github.io/schema/vega-lite/v2.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#compound_charts-rst-altair-plot-12', {"config": {"view": {"width": 400, "height": 300}}, "layer": [{"mark": "point", "encoding": {"x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "y"}}}, {"mark": "line", "encoding": {"x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "y"}}}], "data": {"values": [{"x": 0, "y": 0}, {"x": 1, "y": 1}, {"x": 2, "y": 0}]}, "$schema": "https://vega.github.io/schema/vega-lite/v2.json"}).catch(console.err);
+  });
+</script>
+</div><p>When the cart is created this way, the spec contains only one copy of the data,
+at the top level:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">chart</span><span class="o">.</span><span class="n">to_dict</span><span class="p">())</span>
+<span class="go">{&#39;$schema&#39;: &#39;https://vega.github.io/schema/vega-lite/v2.json&#39;,</span>
+<span class="go"> &#39;config&#39;: {&#39;view&#39;: {&#39;height&#39;: 300, &#39;width&#39;: 400}},</span>
+<span class="go"> &#39;data&#39;: {&#39;values&#39;: [{&#39;x&#39;: 0, &#39;y&#39;: 0}, {&#39;x&#39;: 1, &#39;y&#39;: 1}, {&#39;x&#39;: 2, &#39;y&#39;: 0}]},</span>
+<span class="go"> &#39;layer&#39;: [{&#39;encoding&#39;: {&#39;x&#39;: {&#39;field&#39;: &#39;x&#39;, &#39;type&#39;: &#39;quantitative&#39;},</span>
+<span class="go">                         &#39;y&#39;: {&#39;field&#39;: &#39;y&#39;, &#39;type&#39;: &#39;quantitative&#39;}},</span>
+<span class="go">            &#39;mark&#39;: &#39;point&#39;},</span>
+<span class="go">           {&#39;encoding&#39;: {&#39;x&#39;: {&#39;field&#39;: &#39;x&#39;, &#39;type&#39;: &#39;quantitative&#39;},</span>
+<span class="go">                         &#39;y&#39;: {&#39;field&#39;: &#39;y&#39;, &#39;type&#39;: &#39;quantitative&#39;}},</span>
+<span class="go">            &#39;mark&#39;: &#39;line&#39;}]}</span>
+</pre></div>
+</div>
+<p>For small datasets, this kind of consideration is not particularly important.
+But as datasets grow larger, thinking about how your data is defined can lead
+to much more efficient plot specifications.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="saving_charts.html" class="btn btn-neutral float-right" title="Saving Altair Charts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="selections.html" class="btn btn-neutral" title="Selections: Building Blocks of Interactions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016-2018, Altair Developers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.0.0rc1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@3.2"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@2.3"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@3"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

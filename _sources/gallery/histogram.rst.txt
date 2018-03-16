@@ -3,23 +3,26 @@
 
 .. _gallery_histogram:
 
-Histogram
----------
 
-< :ref:`gallery_github_punchcard` 
-| :ref:`example-gallery` | :ref:`gallery_line` >
+Histogram
+-----------------
+This example shows how to make a basic histogram, based on the vega-lite docs
+https://vega.github.io/vega-lite/examples/histogram.html
+
 
 .. altair-plot::
+    :chart-var-name: chart
     :code-below:
 
-    from altair import *
-
-    Chart('https://vega.github.io/vega-lite/data/movies.json').mark_bar().encode(
-        x=X('IMDB_Rating:Q',
-            bin=Bin(
-                maxbins=10.0,
-            ),
-        ),
+    
+    
+    import altair as alt
+    from vega_datasets import data
+    
+    movies = data.movies.url
+    
+    chart = alt.Chart(movies).mark_bar().encode(
+        alt.X("IMDB_Rating:Q", bin=True),
         y='count(*):Q',
     )
 

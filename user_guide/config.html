@@ -1,0 +1,631 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Configuring Visualizations &mdash; Altair 2.0.0rc1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/altair-plot.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/altair-gallery.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Altair 2.0.0rc1 documentation" href="../index.html"/>
+        <link rel="next" title="Data Transformations" href="transform.html"/>
+        <link rel="prev" title="Marks" href="marks.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Altair
+          
+
+          
+            
+            <img src="../_static/altair-logo-light.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0.0rc1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/starting.html">Basic Statistical Visualization</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="importing.html">Importing Altair</a></li>
+<li class="toctree-l1"><a class="reference internal" href="display.html">Displaying Charts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data.html">Specifying Data in Altair</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoding.html">Encodings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="marks.html">Marks</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Configuring Visualizations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#global-config-vs-local-config-vs-encoding">Global Config vs. Local Config vs. Encoding</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#global-config">Global Config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#local-config">Local Config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#encoding">Encoding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#which-to-use">Which to Use?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#adjusting-axis-limits">Adjusting Axis Limits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adjusting-axis-labels">Adjusting Axis Labels</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="transform.html">Data Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="selections.html">Selections: Building Blocks of Interactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="saving_charts.html">Saving Altair Charts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html">API Reference</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Case Studies</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../case_studies/exploring-weather.html">Exploring Seattle Weather</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Gallery</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Example Gallery</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Altair</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Configuring Visualizations</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/user_guide/config.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="configuring-visualizations">
+<span id="user-guide-config"></span><h1>Configuring Visualizations<a class="headerlink" href="#configuring-visualizations" title="Permalink to this headline">¶</a></h1>
+<p>Altair’s goal is to automatically choose useful plot settings and configurations
+so that the user is free to think about the data rather than the mechanics
+of plotting. That said, once you have a useful visualization, you will often
+want to adjust certain aspects of it. This section of the documentation
+outlines some of these adjustments.</p>
+<div class="section" id="global-config-vs-local-config-vs-encoding">
+<h2>Global Config vs. Local Config vs. Encoding<a class="headerlink" href="#global-config-vs-local-config-vs-encoding" title="Permalink to this headline">¶</a></h2>
+<p>There are often two or three different ways to specify the look of your plots
+depending on the situation.
+For example, suppose we are creating a scatter plot of the <code class="docutils literal"><span class="pre">cars</span></code> dataset:</p>
+<div class="highlight-python" id="config-rst-altair-source-0"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+<span class="n">cars</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">cars</span><span class="o">.</span><span class="n">url</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">cars</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Acceleration:Q&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Horsepower:Q&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="config-rst-altair-plot-0">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"x": {"type": "quantitative", "field": "Acceleration"}, "y": {"type": "quantitative", "field": "Horsepower"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#config-rst-altair-plot-0', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"x": {"type": "quantitative", "field": "Acceleration"}, "y": {"type": "quantitative", "field": "Horsepower"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.json"}).catch(console.err);
+  });
+</script>
+</div><p>Suppose you wish to change the color of the points to red, and the opacity
+of the points to 20%. There are three possible approaches to these:</p>
+<div class="section" id="global-config">
+<h3>Global Config<a class="headerlink" href="#global-config" title="Permalink to this headline">¶</a></h3>
+<p>First, every chart type has a <code class="docutils literal"><span class="pre">&quot;config&quot;</span></code> property at the top level that acts
+as a sort of theme for the whole chart and all of its sub-charts.
+Here you can specify things like axes properties, mark properties, selection
+properties, and more.</p>
+<p>Altair allows you to access these through the <code class="docutils literal"><span class="pre">configure_*</span></code> methods of the
+chart. Here we will use the <code class="xref py py-meth docutils literal"><span class="pre">configure_mark()</span></code> property:</p>
+<div class="highlight-python" id="config-rst-altair-source-1"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">cars</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Acceleration:Q&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Horsepower:Q&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">configure_mark</span><span class="p">(</span>
+    <span class="n">opacity</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="config-rst-altair-plot-1">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"color": "red", "opacity": 0.2}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"x": {"type": "quantitative", "field": "Acceleration"}, "y": {"type": "quantitative", "field": "Horsepower"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#config-rst-altair-plot-1', {"config": {"view": {"width": 400, "height": 300}, "mark": {"color": "red", "opacity": 0.2}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"x": {"type": "quantitative", "field": "Acceleration"}, "y": {"type": "quantitative", "field": "Horsepower"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.json"}).catch(console.err);
+  });
+</script>
+</div><p>There are a couple things to be aware of when using this kind of global configuration:</p>
+<ol class="arabic simple">
+<li>By design configurations will affect <em>every mark</em> used within the chart</li>
+<li>The global configuration is only permissible at the top-level; so, for example,
+if you tried to layer the above chart with another, it would result in an error.</li>
+</ol>
+</div>
+<div class="section" id="local-config">
+<h3>Local Config<a class="headerlink" href="#local-config" title="Permalink to this headline">¶</a></h3>
+<p>If you would like to configure the look of the mark locally, such that the setting
+only affects the particular chart property you reference, this can be done via a
+local configuration setting.</p>
+<p>In the case of mark properties, the best approach is to set the property as an
+argument to the <code class="docutils literal"><span class="pre">mark_*</span></code> method. Here we will use <code class="xref py py-meth docutils literal"><span class="pre">mark_point()</span></code>:</p>
+<div class="highlight-python" id="config-rst-altair-source-2"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">cars</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">(</span><span class="n">opacity</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Acceleration:Q&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Horsepower:Q&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="config-rst-altair-plot-2">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": {"type": "point", "color": "red", "opacity": 0.2}, "encoding": {"x": {"type": "quantitative", "field": "Acceleration"}, "y": {"type": "quantitative", "field": "Horsepower"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#config-rst-altair-plot-2', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": {"type": "point", "color": "red", "opacity": 0.2}, "encoding": {"x": {"type": "quantitative", "field": "Acceleration"}, "y": {"type": "quantitative", "field": "Horsepower"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.json"}).catch(console.err);
+  });
+</script>
+</div><p>Unlike when using the global configuration, here it is possible to use the resulting
+chart as a layer or facet in a compound chart.</p>
+<p>Local config settings like this one will always override global settings.</p>
+</div>
+<div class="section" id="encoding">
+<h3>Encoding<a class="headerlink" href="#encoding" title="Permalink to this headline">¶</a></h3>
+<p>Finally, it is possible to set chart properties via the encoding channel
+(see <a class="reference internal" href="encoding.html#user-guide-encoding"><span class="std std-ref">Encodings</span></a>). Rather than mapping a property to a data column,
+you can map a property directly to a value using the <a class="reference internal" href="API.html#altair.value" title="altair.value"><code class="xref py py-func docutils literal"><span class="pre">value()</span></code></a> function:</p>
+<div class="highlight-python" id="config-rst-altair-source-3"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">cars</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Acceleration:Q&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Horsepower:Q&#39;</span><span class="p">,</span>
+    <span class="n">opacity</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mf">0.2</span><span class="p">),</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="config-rst-altair-plot-3">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"value": "red"}, "opacity": {"value": 0.2}, "x": {"type": "quantitative", "field": "Acceleration"}, "y": {"type": "quantitative", "field": "Horsepower"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#config-rst-altair-plot-3', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"value": "red"}, "opacity": {"value": 0.2}, "x": {"type": "quantitative", "field": "Acceleration"}, "y": {"type": "quantitative", "field": "Horsepower"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.json"}).catch(console.err);
+  });
+</script>
+</div><p>Note that only a limited set of mark properties can be bound to encodings, so
+for some (e.g. <code class="docutils literal"><span class="pre">fillOpacity</span></code>, <code class="docutils literal"><span class="pre">strokeOpacity</span></code>, etc.) the encoding approach
+is not available.</p>
+<p>Encoding settings will always override local or global configuration settings.</p>
+</div>
+<div class="section" id="which-to-use">
+<h3>Which to Use?<a class="headerlink" href="#which-to-use" title="Permalink to this headline">¶</a></h3>
+<p>The precedence order for the three approaches is (from lowest to highest)
+<em>global config</em>, <em>local config</em>, <em>encoding</em>. That is, if a chart property is
+set both globally and locally, the local setting will win-out. If a property
+is set both via a configuration and an encoding, the encoding will win-out.</p>
+<p>In most usage, we recommend always using the highest-precedence means of
+setting properties; i.e. an encoding, or a local configuration for properties
+that are not tied to an encoding.
+Global configurations should be reserved for creating themes that are applied
+just before the chart is rendered.</p>
+</div>
+</div>
+<div class="section" id="adjusting-axis-limits">
+<h2>Adjusting Axis Limits<a class="headerlink" href="#adjusting-axis-limits" title="Permalink to this headline">¶</a></h2>
+<p>Axis limits can be adjusted using the <a class="reference internal" href="API.html#altair.Scale" title="altair.Scale"><code class="xref py py-class docutils literal"><span class="pre">Scale</span></code></a> property of the axis
+encodings. For example, consider the following plot:</p>
+<div class="highlight-python" id="config-rst-altair-source-4"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+
+<span class="n">cars</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">cars</span><span class="o">.</span><span class="n">url</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">cars</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Acceleration:Q&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Horsepower:Q&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="config-rst-altair-plot-4">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"x": {"type": "quantitative", "field": "Acceleration"}, "y": {"type": "quantitative", "field": "Horsepower"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#config-rst-altair-plot-4', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"x": {"type": "quantitative", "field": "Acceleration"}, "y": {"type": "quantitative", "field": "Horsepower"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.json"}).catch(console.err);
+  });
+</script>
+</div><p>Suppose you would like to adjust the limits of the x-axis. You can do this by
+adding a <a class="reference internal" href="API.html#altair.Scale" title="altair.Scale"><code class="xref py py-class docutils literal"><span class="pre">Scale</span></code></a> property to the <a class="reference internal" href="API.html#altair.X" title="altair.X"><code class="xref py py-class docutils literal"><span class="pre">X</span></code></a> encoding that specifies
+these limits:</p>
+<div class="highlight-python" id="config-rst-altair-source-5"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">cars</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Acceleration:Q&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">20</span><span class="p">))),</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Horsepower:Q&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="config-rst-altair-plot-5">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"x": {"type": "quantitative", "field": "Acceleration", "scale": {"domain": [5, 20]}}, "y": {"type": "quantitative", "field": "Horsepower"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#config-rst-altair-plot-5', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"x": {"type": "quantitative", "field": "Acceleration", "scale": {"domain": [5, 20]}}, "y": {"type": "quantitative", "field": "Horsepower"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.json"}).catch(console.err);
+  });
+</script>
+</div><p>The problem is that the data still exists beyond the scale, and we need to tell
+Altair what to do with this data. One option is to “clip” the data by setting
+the <code class="docutils literal"><span class="pre">&quot;clip&quot;</span></code> property of the mark to True:</p>
+<div class="highlight-python" id="config-rst-altair-source-6"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">cars</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">(</span><span class="n">clip</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Acceleration:Q&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">20</span><span class="p">))),</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Horsepower:Q&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="config-rst-altair-plot-6">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": {"type": "point", "clip": true}, "encoding": {"x": {"type": "quantitative", "field": "Acceleration", "scale": {"domain": [5, 20]}}, "y": {"type": "quantitative", "field": "Horsepower"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#config-rst-altair-plot-6', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": {"type": "point", "clip": true}, "encoding": {"x": {"type": "quantitative", "field": "Acceleration", "scale": {"domain": [5, 20]}}, "y": {"type": "quantitative", "field": "Horsepower"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.json"}).catch(console.err);
+  });
+</script>
+</div><p>Another option is to “clamp” the data; that is, to move points beyond the
+limit to the edge of the domain:</p>
+<div class="highlight-python" id="config-rst-altair-source-7"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">cars</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Acceleration:Q&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="n">clamp</span><span class="o">=</span><span class="bp">True</span><span class="p">)),</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Horsepower:Q&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="config-rst-altair-plot-7">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"x": {"type": "quantitative", "field": "Acceleration", "scale": {"clamp": true, "domain": [5, 20]}}, "y": {"type": "quantitative", "field": "Horsepower"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#config-rst-altair-plot-7', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"x": {"type": "quantitative", "field": "Acceleration", "scale": {"clamp": true, "domain": [5, 20]}}, "y": {"type": "quantitative", "field": "Horsepower"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.json"}).catch(console.err);
+  });
+</script>
+</div><p>Finally, you can address this by filtering the data itself, using the
+<code class="xref py py-meth docutils literal"><span class="pre">Chart.transform_filter()</span></code> method, to remove these points from the
+dataset altogether:</p>
+<div class="highlight-python" id="config-rst-altair-source-8"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">altair.expr</span> <span class="kn">import</span> <span class="n">datum</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">cars</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Acceleration:Q&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">20</span><span class="p">))),</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Horsepower:Q&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span><span class="n">datum</span><span class="o">.</span><span class="n">Acceleration</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="config-rst-altair-plot-8">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"x": {"type": "quantitative", "field": "Acceleration", "scale": {"domain": [5, 20]}}, "y": {"type": "quantitative", "field": "Horsepower"}}, "transform": [{"filter": "(datum.Acceleration < 20)"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#config-rst-altair-plot-8', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"x": {"type": "quantitative", "field": "Acceleration", "scale": {"domain": [5, 20]}}, "y": {"type": "quantitative", "field": "Horsepower"}}, "transform": [{"filter": "(datum.Acceleration < 20)"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.json"}).catch(console.err);
+  });
+</script>
+</div><p>Some combination of these approaches is usually suitable for adjusting
+of axis limits.</p>
+</div>
+<div class="section" id="adjusting-axis-labels">
+<h2>Adjusting Axis Labels<a class="headerlink" href="#adjusting-axis-labels" title="Permalink to this headline">¶</a></h2>
+<p>Altair also gives you tool to easily configure the appearance of axis labels.
+For example consider this plot:</p>
+<div class="highlight-python" id="config-rst-altair-source-9"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.03</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.12</span><span class="p">,</span> <span class="mf">0.07</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">],</span>
+                   <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">39</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">35</span><span class="p">]})</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="config-rst-altair-plot-9">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"values": [{"x": 0.03, "y": 10}, {"x": 0.04, "y": 35}, {"x": 0.05, "y": 39}, {"x": 0.12, "y": 50}, {"x": 0.07, "y": 24}, {"x": 0.15, "y": 35}]}, "mark": "circle", "encoding": {"x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "y"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#config-rst-altair-plot-9', {"config": {"view": {"width": 400, "height": 300}}, "data": {"values": [{"x": 0.03, "y": 10}, {"x": 0.04, "y": 35}, {"x": 0.05, "y": 39}, {"x": 0.12, "y": 50}, {"x": 0.07, "y": 24}, {"x": 0.15, "y": 35}]}, "mark": "circle", "encoding": {"x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "y"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.json"}).catch(console.err);
+  });
+</script>
+</div><p>The x labels are automatically rendered in SI prefix notation (i.e. 3m = 0.03)
+which may not be desirable.</p>
+<p>To fine-tune the formatting of the tick labels and to add a custom title to
+each axis, we can pass to the <a class="reference internal" href="API.html#altair.X" title="altair.X"><code class="xref py py-class docutils literal"><span class="pre">X</span></code></a> and <a class="reference internal" href="API.html#altair.Y" title="altair.Y"><code class="xref py py-class docutils literal"><span class="pre">Y</span></code></a> encoding a custom
+<a class="reference internal" href="API.html#altair.Axis" title="altair.Axis"><code class="xref py py-class docutils literal"><span class="pre">Axis</span></code></a> definition.
+Here is an example of formatting the x labels as a percentage, and
+the y labels as a dollar value:</p>
+<div class="highlight-python" id="config-rst-altair-source-10"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">format</span><span class="o">=</span><span class="s1">&#39;%&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;percentage&#39;</span><span class="p">)),</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">format</span><span class="o">=</span><span class="s1">&#39;$&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;dollar amount&#39;</span><span class="p">))</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="config-rst-altair-plot-10">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"values": [{"x": 0.03, "y": 10}, {"x": 0.04, "y": 35}, {"x": 0.05, "y": 39}, {"x": 0.12, "y": 50}, {"x": 0.07, "y": 24}, {"x": 0.15, "y": 35}]}, "mark": "circle", "encoding": {"x": {"type": "quantitative", "axis": {"format": "%", "title": "percentage"}, "field": "x"}, "y": {"type": "quantitative", "axis": {"format": "$", "title": "dollar amount"}, "field": "y"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#config-rst-altair-plot-10', {"config": {"view": {"width": 400, "height": 300}}, "data": {"values": [{"x": 0.03, "y": 10}, {"x": 0.04, "y": 35}, {"x": 0.05, "y": 39}, {"x": 0.12, "y": 50}, {"x": 0.07, "y": 24}, {"x": 0.15, "y": 35}]}, "mark": "circle", "encoding": {"x": {"type": "quantitative", "axis": {"format": "%", "title": "percentage"}, "field": "x"}, "y": {"type": "quantitative", "axis": {"format": "$", "title": "dollar amount"}, "field": "y"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.json"}).catch(console.err);
+  });
+</script>
+</div><p>Additional formatting codes are available; for a listing of these see the
+<a class="reference external" href="https://github.com/d3/d3-format/blob/master/README.md#format">d3 Format Code Documentation</a>.</p>
+<p><em>TODO: more config options</em></p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="transform.html" class="btn btn-neutral float-right" title="Data Transformations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="marks.html" class="btn btn-neutral" title="Marks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016-2018, Altair Developers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.0.0rc1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@3.2"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@2.3"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@3"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

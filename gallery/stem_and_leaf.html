@@ -1,0 +1,384 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Steam and Leaf Plot &mdash; Altair 2.0.0rc1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/altair-plot.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/altair-gallery.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Altair 2.0.0rc1 documentation" href="../index.html"/>
+        <link rel="up" title="Example Gallery" href="index.html"/>
+        <link rel="next" title="Streamgraph" href="streamgraph.html"/>
+        <link rel="prev" title="Stacked Bar Chart" href="stacked_bar_chart.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Altair
+          
+
+          
+            
+            <img src="../_static/altair-logo-light.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0.0rc1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/starting.html">Basic Statistical Visualization</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/importing.html">Importing Altair</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/display.html">Displaying Charts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/data.html">Specifying Data in Altair</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/encoding.html">Encodings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/marks.html">Marks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/config.html">Configuring Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/transform.html">Data Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/selections.html">Selections: Building Blocks of Interactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/saving_charts.html">Saving Altair Charts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/API.html">API Reference</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Case Studies</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../case_studies/exploring-weather.html">Exploring Seattle Weather</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Gallery</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Example Gallery</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#basic-charts">Basic Charts</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#general">General</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="aggregate_bar_chart.html">Horizontal Aggregate Bar Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="anscombe_plot.html">Anscombe’s Quartet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bar_chart_with_highlight.html">Bar Chart with Highlight</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bar_chat_with_labels.html">Simple Bar Chart with Labels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="beckers_barley_trellis_plot.html">Becker’s Barley Trellis Plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="binned_scatterplot.html">Binned Scatterplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="boxplot_max_min.html">Box Plot with Min/Max Whiskers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="candlestick_chart.html">Candlestick Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connected_scatterplot.html">Connected Scatterplot (Lines with Custom Paths)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cumulative_wiki_donations.html">Cumulative Wikipedia Donations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="diverging_stacked_bar_chart.html">Diverging Stacked Bar Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dot_dash_plot.html">Dot Dash Plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="error_bars_with_ci.html">Error Bars showing Confidence Interval</a></li>
+<li class="toctree-l3"><a class="reference internal" href="falkensee.html">Falkensee</a></li>
+<li class="toctree-l3"><a class="reference internal" href="grouped_bar_chart.html">Grouped Bar Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="histogram_with_a_global_mean_overlay.html">Histogram with a Global Mean Overlay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="horizon_graph.html">Horizon Graph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layer_line_color_rule.html">Line Chart with Layered Aggregates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layered_bar_chart.html">Layered Bar Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layered_chart_bar_mark.html">LayerChart with Bar and Tick</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layered_heatmap_text.html">Layering text over a heatmap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layered_histogram.html">Layered Histogram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layered_plot_with_dual_axis.html">Layered Plot with Dual-Axis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="line_percent.html">Line Chart with Percent axis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="line_with_ci.html">Line chart with Confidence Interval Band</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mean_overlay_over_precipitiation_chart.html">Layered Bar Chart with Line as Mean</a></li>
+<li class="toctree-l3"><a class="reference internal" href="natural_disasters.html">Natural Disasters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="normalized_stacked_bar_chart.html">Normalized Stacked Bar Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="poly_fit.html">Ploynomial Fit Plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ranged_dot_plot.html">Ranged Dot Plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="slope_graph.html">Slope Graph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stacked_area_chart.html">Stacked Area Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stacked_bar_chart.html">Stacked Bar Chart</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Steam and Leaf Plot</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="streamgraph.html">Streamgraph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trellis_area.html">Trellis Area</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trellis_histogram.html">Trellis Histogram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trellis_stacked_bar_chart.html">Trellis Stacked Bar Chart</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#geographic">Geographic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#interactive">Interactive</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Altair</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Example Gallery</a> &raquo;</li>
+        
+      <li>Steam and Leaf Plot</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/gallery/stem_and_leaf.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="steam-and-leaf-plot">
+<span id="gallery-stem-and-leaf"></span><h1>Steam and Leaf Plot<a class="headerlink" href="#steam-and-leaf-plot" title="Permalink to this headline">¶</a></h1>
+<p>This example shows how to make a steam and leaf plot.</p>
+
+<div id="stem_and_leaf-rst-altair-plot-0">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "axis": {"labelFontSize": 20}, "text": {"fontSize": 20}}, "data": {"values": [{"samples": 10, "stem": "1", "leaf": "0", "position": 1}, {"samples": 20, "stem": "2", "leaf": "0", "position": 1}, {"samples": 20, "stem": "2", "leaf": "0", "position": 2}, {"samples": 21, "stem": "2", "leaf": "1", "position": 3}, {"samples": 23, "stem": "2", "leaf": "3", "position": 4}, {"samples": 24, "stem": "2", "leaf": "4", "position": 5}, {"samples": 27, "stem": "2", "leaf": "7", "position": 6}, {"samples": 28, "stem": "2", "leaf": "8", "position": 7}, {"samples": 28, "stem": "2", "leaf": "8", "position": 8}, {"samples": 28, "stem": "2", "leaf": "8", "position": 9}, {"samples": 30, "stem": "3", "leaf": "0", "position": 1}, {"samples": 31, "stem": "3", "leaf": "1", "position": 2}, {"samples": 32, "stem": "3", "leaf": "2", "position": 3}, {"samples": 32, "stem": "3", "leaf": "2", "position": 4}, {"samples": 33, "stem": "3", "leaf": "3", "position": 5}, {"samples": 34, "stem": "3", "leaf": "4", "position": 6}, {"samples": 34, "stem": "3", "leaf": "4", "position": 7}, {"samples": 36, "stem": "3", "leaf": "6", "position": 8}, {"samples": 37, "stem": "3", "leaf": "7", "position": 9}, {"samples": 37, "stem": "3", "leaf": "7", "position": 10}, {"samples": 39, "stem": "3", "leaf": "9", "position": 11}, {"samples": 39, "stem": "3", "leaf": "9", "position": 12}, {"samples": 39, "stem": "3", "leaf": "9", "position": 13}, {"samples": 40, "stem": "4", "leaf": "0", "position": 1}, {"samples": 40, "stem": "4", "leaf": "0", "position": 2}, {"samples": 40, "stem": "4", "leaf": "0", "position": 3}, {"samples": 41, "stem": "4", "leaf": "1", "position": 4}, {"samples": 41, "stem": "4", "leaf": "1", "position": 5}, {"samples": 42, "stem": "4", "leaf": "2", "position": 6}, {"samples": 42, "stem": "4", "leaf": "2", "position": 7}, {"samples": 42, "stem": "4", "leaf": "2", "position": 8}, {"samples": 42, "stem": "4", "leaf": "2", "position": 9}, {"samples": 42, "stem": "4", "leaf": "2", "position": 10}, {"samples": 43, "stem": "4", "leaf": "3", "position": 11}, {"samples": 43, "stem": "4", "leaf": "3", "position": 12}, {"samples": 43, "stem": "4", "leaf": "3", "position": 13}, {"samples": 44, "stem": "4", "leaf": "4", "position": 14}, {"samples": 44, "stem": "4", "leaf": "4", "position": 15}, {"samples": 45, "stem": "4", "leaf": "5", "position": 16}, {"samples": 45, "stem": "4", "leaf": "5", "position": 17}, {"samples": 45, "stem": "4", "leaf": "5", "position": 18}, {"samples": 45, "stem": "4", "leaf": "5", "position": 19}, {"samples": 45, "stem": "4", "leaf": "5", "position": 20}, {"samples": 46, "stem": "4", "leaf": "6", "position": 21}, {"samples": 46, "stem": "4", "leaf": "6", "position": 22}, {"samples": 46, "stem": "4", "leaf": "6", "position": 23}, {"samples": 46, "stem": "4", "leaf": "6", "position": 24}, {"samples": 46, "stem": "4", "leaf": "6", "position": 25}, {"samples": 47, "stem": "4", "leaf": "7", "position": 26}, {"samples": 47, "stem": "4", "leaf": "7", "position": 27}, {"samples": 48, "stem": "4", "leaf": "8", "position": 28}, {"samples": 48, "stem": "4", "leaf": "8", "position": 29}, {"samples": 49, "stem": "4", "leaf": "9", "position": 30}, {"samples": 49, "stem": "4", "leaf": "9", "position": 31}, {"samples": 50, "stem": "5", "leaf": "0", "position": 1}, {"samples": 51, "stem": "5", "leaf": "1", "position": 2}, {"samples": 51, "stem": "5", "leaf": "1", "position": 3}, {"samples": 51, "stem": "5", "leaf": "1", "position": 4}, {"samples": 51, "stem": "5", "leaf": "1", "position": 5}, {"samples": 51, "stem": "5", "leaf": "1", "position": 6}, {"samples": 52, "stem": "5", "leaf": "2", "position": 7}, {"samples": 52, "stem": "5", "leaf": "2", "position": 8}, {"samples": 53, "stem": "5", "leaf": "3", "position": 9}, {"samples": 53, "stem": "5", "leaf": "3", "position": 10}, {"samples": 53, "stem": "5", "leaf": "3", "position": 11}, {"samples": 54, "stem": "5", "leaf": "4", "position": 12}, {"samples": 54, "stem": "5", "leaf": "4", "position": 13}, {"samples": 54, "stem": "5", "leaf": "4", "position": 14}, {"samples": 54, "stem": "5", "leaf": "4", "position": 15}, {"samples": 54, "stem": "5", "leaf": "4", "position": 16}, {"samples": 55, "stem": "5", "leaf": "5", "position": 17}, {"samples": 55, "stem": "5", "leaf": "5", "position": 18}, {"samples": 55, "stem": "5", "leaf": "5", "position": 19}, {"samples": 55, "stem": "5", "leaf": "5", "position": 20}, {"samples": 55, "stem": "5", "leaf": "5", "position": 21}, {"samples": 57, "stem": "5", "leaf": "7", "position": 22}, {"samples": 57, "stem": "5", "leaf": "7", "position": 23}, {"samples": 58, "stem": "5", "leaf": "8", "position": 24}, {"samples": 59, "stem": "5", "leaf": "9", "position": 25}, {"samples": 59, "stem": "5", "leaf": "9", "position": 26}, {"samples": 61, "stem": "6", "leaf": "1", "position": 1}, {"samples": 61, "stem": "6", "leaf": "1", "position": 2}, {"samples": 62, "stem": "6", "leaf": "2", "position": 3}, {"samples": 62, "stem": "6", "leaf": "2", "position": 4}, {"samples": 62, "stem": "6", "leaf": "2", "position": 5}, {"samples": 63, "stem": "6", "leaf": "3", "position": 6}, {"samples": 63, "stem": "6", "leaf": "3", "position": 7}, {"samples": 64, "stem": "6", "leaf": "4", "position": 8}, {"samples": 64, "stem": "6", "leaf": "4", "position": 9}, {"samples": 65, "stem": "6", "leaf": "5", "position": 10}, {"samples": 65, "stem": "6", "leaf": "5", "position": 11}, {"samples": 65, "stem": "6", "leaf": "5", "position": 12}, {"samples": 70, "stem": "7", "leaf": "0", "position": 1}, {"samples": 71, "stem": "7", "leaf": "1", "position": 2}, {"samples": 72, "stem": "7", "leaf": "2", "position": 3}, {"samples": 72, "stem": "7", "leaf": "2", "position": 4}, {"samples": 73, "stem": "7", "leaf": "3", "position": 5}, {"samples": 73, "stem": "7", "leaf": "3", "position": 6}, {"samples": 73, "stem": "7", "leaf": "3", "position": 7}, {"samples": 77, "stem": "7", "leaf": "7", "position": 8}]}, "mark": {"type": "text", "align": "left", "baseline": "middle", "dx": -5}, "encoding": {"text": {"type": "nominal", "field": "leaf"}, "x": {"type": "quantitative", "axis": {"grid": false, "labels": false, "ticks": false, "title": ""}, "field": "position"}, "y": {"type": "nominal", "axis": {"tickSize": 0, "title": ""}, "field": "stem"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#stem_and_leaf-rst-altair-plot-0', {"config": {"view": {"width": 400, "height": 300}, "axis": {"labelFontSize": 20}, "text": {"fontSize": 20}}, "data": {"values": [{"samples": 10, "stem": "1", "leaf": "0", "position": 1}, {"samples": 20, "stem": "2", "leaf": "0", "position": 1}, {"samples": 20, "stem": "2", "leaf": "0", "position": 2}, {"samples": 21, "stem": "2", "leaf": "1", "position": 3}, {"samples": 23, "stem": "2", "leaf": "3", "position": 4}, {"samples": 24, "stem": "2", "leaf": "4", "position": 5}, {"samples": 27, "stem": "2", "leaf": "7", "position": 6}, {"samples": 28, "stem": "2", "leaf": "8", "position": 7}, {"samples": 28, "stem": "2", "leaf": "8", "position": 8}, {"samples": 28, "stem": "2", "leaf": "8", "position": 9}, {"samples": 30, "stem": "3", "leaf": "0", "position": 1}, {"samples": 31, "stem": "3", "leaf": "1", "position": 2}, {"samples": 32, "stem": "3", "leaf": "2", "position": 3}, {"samples": 32, "stem": "3", "leaf": "2", "position": 4}, {"samples": 33, "stem": "3", "leaf": "3", "position": 5}, {"samples": 34, "stem": "3", "leaf": "4", "position": 6}, {"samples": 34, "stem": "3", "leaf": "4", "position": 7}, {"samples": 36, "stem": "3", "leaf": "6", "position": 8}, {"samples": 37, "stem": "3", "leaf": "7", "position": 9}, {"samples": 37, "stem": "3", "leaf": "7", "position": 10}, {"samples": 39, "stem": "3", "leaf": "9", "position": 11}, {"samples": 39, "stem": "3", "leaf": "9", "position": 12}, {"samples": 39, "stem": "3", "leaf": "9", "position": 13}, {"samples": 40, "stem": "4", "leaf": "0", "position": 1}, {"samples": 40, "stem": "4", "leaf": "0", "position": 2}, {"samples": 40, "stem": "4", "leaf": "0", "position": 3}, {"samples": 41, "stem": "4", "leaf": "1", "position": 4}, {"samples": 41, "stem": "4", "leaf": "1", "position": 5}, {"samples": 42, "stem": "4", "leaf": "2", "position": 6}, {"samples": 42, "stem": "4", "leaf": "2", "position": 7}, {"samples": 42, "stem": "4", "leaf": "2", "position": 8}, {"samples": 42, "stem": "4", "leaf": "2", "position": 9}, {"samples": 42, "stem": "4", "leaf": "2", "position": 10}, {"samples": 43, "stem": "4", "leaf": "3", "position": 11}, {"samples": 43, "stem": "4", "leaf": "3", "position": 12}, {"samples": 43, "stem": "4", "leaf": "3", "position": 13}, {"samples": 44, "stem": "4", "leaf": "4", "position": 14}, {"samples": 44, "stem": "4", "leaf": "4", "position": 15}, {"samples": 45, "stem": "4", "leaf": "5", "position": 16}, {"samples": 45, "stem": "4", "leaf": "5", "position": 17}, {"samples": 45, "stem": "4", "leaf": "5", "position": 18}, {"samples": 45, "stem": "4", "leaf": "5", "position": 19}, {"samples": 45, "stem": "4", "leaf": "5", "position": 20}, {"samples": 46, "stem": "4", "leaf": "6", "position": 21}, {"samples": 46, "stem": "4", "leaf": "6", "position": 22}, {"samples": 46, "stem": "4", "leaf": "6", "position": 23}, {"samples": 46, "stem": "4", "leaf": "6", "position": 24}, {"samples": 46, "stem": "4", "leaf": "6", "position": 25}, {"samples": 47, "stem": "4", "leaf": "7", "position": 26}, {"samples": 47, "stem": "4", "leaf": "7", "position": 27}, {"samples": 48, "stem": "4", "leaf": "8", "position": 28}, {"samples": 48, "stem": "4", "leaf": "8", "position": 29}, {"samples": 49, "stem": "4", "leaf": "9", "position": 30}, {"samples": 49, "stem": "4", "leaf": "9", "position": 31}, {"samples": 50, "stem": "5", "leaf": "0", "position": 1}, {"samples": 51, "stem": "5", "leaf": "1", "position": 2}, {"samples": 51, "stem": "5", "leaf": "1", "position": 3}, {"samples": 51, "stem": "5", "leaf": "1", "position": 4}, {"samples": 51, "stem": "5", "leaf": "1", "position": 5}, {"samples": 51, "stem": "5", "leaf": "1", "position": 6}, {"samples": 52, "stem": "5", "leaf": "2", "position": 7}, {"samples": 52, "stem": "5", "leaf": "2", "position": 8}, {"samples": 53, "stem": "5", "leaf": "3", "position": 9}, {"samples": 53, "stem": "5", "leaf": "3", "position": 10}, {"samples": 53, "stem": "5", "leaf": "3", "position": 11}, {"samples": 54, "stem": "5", "leaf": "4", "position": 12}, {"samples": 54, "stem": "5", "leaf": "4", "position": 13}, {"samples": 54, "stem": "5", "leaf": "4", "position": 14}, {"samples": 54, "stem": "5", "leaf": "4", "position": 15}, {"samples": 54, "stem": "5", "leaf": "4", "position": 16}, {"samples": 55, "stem": "5", "leaf": "5", "position": 17}, {"samples": 55, "stem": "5", "leaf": "5", "position": 18}, {"samples": 55, "stem": "5", "leaf": "5", "position": 19}, {"samples": 55, "stem": "5", "leaf": "5", "position": 20}, {"samples": 55, "stem": "5", "leaf": "5", "position": 21}, {"samples": 57, "stem": "5", "leaf": "7", "position": 22}, {"samples": 57, "stem": "5", "leaf": "7", "position": 23}, {"samples": 58, "stem": "5", "leaf": "8", "position": 24}, {"samples": 59, "stem": "5", "leaf": "9", "position": 25}, {"samples": 59, "stem": "5", "leaf": "9", "position": 26}, {"samples": 61, "stem": "6", "leaf": "1", "position": 1}, {"samples": 61, "stem": "6", "leaf": "1", "position": 2}, {"samples": 62, "stem": "6", "leaf": "2", "position": 3}, {"samples": 62, "stem": "6", "leaf": "2", "position": 4}, {"samples": 62, "stem": "6", "leaf": "2", "position": 5}, {"samples": 63, "stem": "6", "leaf": "3", "position": 6}, {"samples": 63, "stem": "6", "leaf": "3", "position": 7}, {"samples": 64, "stem": "6", "leaf": "4", "position": 8}, {"samples": 64, "stem": "6", "leaf": "4", "position": 9}, {"samples": 65, "stem": "6", "leaf": "5", "position": 10}, {"samples": 65, "stem": "6", "leaf": "5", "position": 11}, {"samples": 65, "stem": "6", "leaf": "5", "position": 12}, {"samples": 70, "stem": "7", "leaf": "0", "position": 1}, {"samples": 71, "stem": "7", "leaf": "1", "position": 2}, {"samples": 72, "stem": "7", "leaf": "2", "position": 3}, {"samples": 72, "stem": "7", "leaf": "2", "position": 4}, {"samples": 73, "stem": "7", "leaf": "3", "position": 5}, {"samples": 73, "stem": "7", "leaf": "3", "position": 6}, {"samples": 73, "stem": "7", "leaf": "3", "position": 7}, {"samples": 77, "stem": "7", "leaf": "7", "position": 8}]}, "mark": {"type": "text", "align": "left", "baseline": "middle", "dx": -5}, "encoding": {"text": {"type": "nominal", "field": "leaf"}, "x": {"type": "quantitative", "axis": {"grid": false, "labels": false, "ticks": false, "title": ""}, "field": "position"}, "y": {"type": "nominal", "axis": {"tickSize": 0, "title": ""}, "field": "stem"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.json"}).catch(console.err);
+  });
+</script>
+</div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># Generating random data</span>
+<span class="n">original_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;samples&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int</span><span class="p">)})</span>
+
+<span class="c1"># Splitting steam and leaf</span>
+<span class="n">original_data</span><span class="p">[</span><span class="s1">&#39;stem&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">original_data</span><span class="p">[</span><span class="s1">&#39;samples&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">original_data</span><span class="p">[</span><span class="s1">&#39;leaf&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">original_data</span><span class="p">[</span><span class="s1">&#39;samples&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="n">original_data</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;stem&#39;</span><span class="p">,</span> <span class="s1">&#39;leaf&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">original_data</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="c1"># Determining leaf position</span>
+<span class="n">get_position</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+
+<span class="n">original_data</span><span class="p">[</span><span class="s1">&#39;position&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">original_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;stem&#39;</span><span class="p">)</span>\
+                                         <span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">get_position</span><span class="p">)</span>\
+                                         <span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="c1"># Creating stem and leaf plot</span>
+<span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">original_data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_text</span><span class="p">(</span>
+    <span class="n">align</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span>
+    <span class="n">baseline</span><span class="o">=</span><span class="s1">&#39;middle&#39;</span><span class="p">,</span>
+    <span class="n">dx</span><span class="o">=-</span><span class="mi">5</span>
+<span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;position:Q&#39;</span><span class="p">,</span>
+        <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">ticks</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="n">labels</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="n">grid</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;stem:N&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">tickSize</span><span class="o">=</span><span class="mi">0</span><span class="p">)),</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;leaf:N&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">configure_axis</span><span class="p">(</span>
+    <span class="n">labelFontSize</span><span class="o">=</span><span class="mi">20</span>
+<span class="p">)</span><span class="o">.</span><span class="n">configure_text</span><span class="p">(</span>
+    <span class="n">fontSize</span><span class="o">=</span><span class="mi">20</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="streamgraph.html" class="btn btn-neutral float-right" title="Streamgraph" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="stacked_bar_chart.html" class="btn btn-neutral" title="Stacked Bar Chart" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016-2018, Altair Developers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.0.0rc1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@3.2"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@2.3"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@3"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

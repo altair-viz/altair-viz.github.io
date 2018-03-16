@@ -1,0 +1,366 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>London Tube Lines &mdash; Altair 2.0.0rc1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/altair-plot.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/altair-gallery.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Altair 2.0.0rc1 documentation" href="../index.html"/>
+        <link rel="up" title="Example Gallery" href="index.html"/>
+        <link rel="next" title="One Dot Per Zipcode" href="one_dot_per_zipcode.html"/>
+        <link rel="prev" title="Repeated Choropleth Map" href="choropleth_repeat.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Altair
+          
+
+          
+            
+            <img src="../_static/altair-logo-light.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0.0rc1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/starting.html">Basic Statistical Visualization</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/importing.html">Importing Altair</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/display.html">Displaying Charts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/data.html">Specifying Data in Altair</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/encoding.html">Encodings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/marks.html">Marks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/config.html">Configuring Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/transform.html">Data Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/selections.html">Selections: Building Blocks of Interactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/saving_charts.html">Saving Altair Charts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/API.html">API Reference</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Case Studies</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../case_studies/exploring-weather.html">Exploring Seattle Weather</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Gallery</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Example Gallery</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#basic-charts">Basic Charts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#general">General</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#geographic">Geographic</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="airports.html">Locations of US Airports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="choropleth.html">Choropleth Map</a></li>
+<li class="toctree-l3"><a class="reference internal" href="choropleth_repeat.html">Repeated Choropleth Map</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">London Tube Lines</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="one_dot_per_zipcode.html">One Dot Per Zipcode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="us_state_capitals.html">U.S. state capitals overlayed on a map of the U.S</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#interactive">Interactive</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Altair</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Example Gallery</a> &raquo;</li>
+        
+      <li>London Tube Lines</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/gallery/london_tube.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="london-tube-lines">
+<span id="gallery-london-tube"></span><h1>London Tube Lines<a class="headerlink" href="#london-tube-lines" title="Permalink to this headline">¶</a></h1>
+<p>This example shows the London tube lines against the background of the
+borough boundaries. It is based on the vega-lite example at
+<a class="reference external" href="https://vega.github.io/vega-lite/examples/geo_layer_line_london.html">https://vega.github.io/vega-lite/examples/geo_layer_line_london.html</a>.</p>
+
+<div id="london_tube-rst-altair-plot-0">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "layer": [{"data": {"url": "https://vega.github.io/vega-datasets/data/londonBoroughs.json", "format": {"feature": "boroughs", "type": "topojson"}}, "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 2}, "encoding": {"color": {"value": "#eee"}}, "height": 500, "width": 700}, {"data": {"url": "https://vega.github.io/vega-datasets/data/londonCentroids.json"}, "mark": "text", "encoding": {"latitude": {"type": "quantitative", "field": "cy"}, "longitude": {"type": "quantitative", "field": "cx"}, "opacity": {"value": 0.6}, "size": {"value": 8}, "text": {"type": "nominal", "field": "bLabel"}}, "transform": [{"calculate": "indexof (datum.name,' ') > 0  ? substring(datum.name,0,indexof(datum.name, ' ')) : datum.name", "as": "bLabel"}]}, {"data": {"url": "https://vega.github.io/vega-datasets/data/londonTubeLines.json", "format": {"feature": "line", "type": "topojson"}}, "mark": {"type": "geoshape", "filled": false, "strokeWidth": 2}, "encoding": {"color": {"type": "nominal", "field": "id", "legend": {"offset": 0, "orient": "bottom-right", "title": null}}}}], "$schema": "https://vega.github.io/schema/vega-lite/v2.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#london_tube-rst-altair-plot-0', {"config": {"view": {"width": 400, "height": 300}}, "layer": [{"data": {"url": "https://vega.github.io/vega-datasets/data/londonBoroughs.json", "format": {"feature": "boroughs", "type": "topojson"}}, "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 2}, "encoding": {"color": {"value": "#eee"}}, "height": 500, "width": 700}, {"data": {"url": "https://vega.github.io/vega-datasets/data/londonCentroids.json"}, "mark": "text", "encoding": {"latitude": {"type": "quantitative", "field": "cy"}, "longitude": {"type": "quantitative", "field": "cx"}, "opacity": {"value": 0.6}, "size": {"value": 8}, "text": {"type": "nominal", "field": "bLabel"}}, "transform": [{"calculate": "indexof (datum.name,' ') > 0  ? substring(datum.name,0,indexof(datum.name, ' ')) : datum.name", "as": "bLabel"}]}, {"data": {"url": "https://vega.github.io/vega-datasets/data/londonTubeLines.json", "format": {"feature": "line", "type": "topojson"}}, "mark": {"type": "geoshape", "filled": false, "strokeWidth": 2}, "encoding": {"color": {"type": "nominal", "field": "id", "legend": {"offset": 0, "orient": "bottom-right", "title": null}}}}], "$schema": "https://vega.github.io/schema/vega-lite/v2.json"}).catch(console.err);
+  });
+</script>
+</div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+
+<span class="n">boroughs</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">topo_feature</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">londonBoroughs</span><span class="o">.</span><span class="n">url</span><span class="p">,</span><span class="s1">&#39;boroughs&#39;</span><span class="p">)</span>
+<span class="n">tubelines</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">topo_feature</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">londonTubeLines</span><span class="o">.</span><span class="n">url</span><span class="p">,</span><span class="s1">&#39;line&#39;</span><span class="p">)</span>
+<span class="n">centroids</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">londonCentroids</span><span class="o">.</span><span class="n">url</span>
+
+<span class="n">background</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">boroughs</span><span class="p">)</span><span class="o">.</span><span class="n">mark_geoshape</span><span class="p">(</span>
+    <span class="n">stroke</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span>
+    <span class="n">strokeWidth</span><span class="o">=</span><span class="mi">2</span>
+<span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;#eee&#39;</span><span class="p">),</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">700</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">500</span>
+<span class="p">)</span>
+
+<span class="n">labels</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">centroids</span><span class="p">)</span><span class="o">.</span><span class="n">mark_text</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">longitude</span><span class="o">=</span><span class="s1">&#39;cx:Q&#39;</span><span class="p">,</span>
+    <span class="n">latitude</span><span class="o">=</span><span class="s1">&#39;cy:Q&#39;</span><span class="p">,</span>
+    <span class="n">text</span><span class="o">=</span><span class="s1">&#39;bLabel:N&#39;</span><span class="p">,</span>
+    <span class="n">size</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span>
+    <span class="n">opacity</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_calculate</span><span class="p">(</span>
+    <span class="s2">&quot;bLabel&quot;</span><span class="p">,</span> <span class="s2">&quot;indexof (datum.name,&#39; &#39;) &gt; 0  ? substring(datum.name,0,indexof(datum.name, &#39; &#39;)) : datum.name&quot;</span>
+<span class="p">)</span>
+
+<span class="n">line_scale</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Bakerloo&quot;</span><span class="p">,</span> <span class="s2">&quot;Central&quot;</span><span class="p">,</span> <span class="s2">&quot;Circle&quot;</span><span class="p">,</span> <span class="s2">&quot;District&quot;</span><span class="p">,</span> <span class="s2">&quot;DLR&quot;</span><span class="p">,</span>
+                               <span class="s2">&quot;Hammersmith &amp; City&quot;</span><span class="p">,</span> <span class="s2">&quot;Jubilee&quot;</span><span class="p">,</span> <span class="s2">&quot;Metropolitan&quot;</span><span class="p">,</span> <span class="s2">&quot;Northern&quot;</span><span class="p">,</span>
+                               <span class="s2">&quot;Piccadilly&quot;</span><span class="p">,</span> <span class="s2">&quot;Victoria&quot;</span><span class="p">,</span> <span class="s2">&quot;Waterloo &amp; City&quot;</span> <span class="p">],</span>
+                       <span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;rgb(137,78,36)&quot;</span><span class="p">,</span> <span class="s2">&quot;rgb(220,36,30)&quot;</span><span class="p">,</span> <span class="s2">&quot;rgb(255,206,0)&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;rgb(1,114,41)&quot;</span><span class="p">,</span> <span class="s2">&quot;rgb(0,175,173)&quot;</span><span class="p">,</span> <span class="s2">&quot;rgb(215,153,175)&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;rgb(106,114,120)&quot;</span><span class="p">,</span> <span class="s2">&quot;rgb(114,17,84)&quot;</span><span class="p">,</span> <span class="s2">&quot;rgb(0,0,0)&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;rgb(0,24,168)&quot;</span><span class="p">,</span> <span class="s2">&quot;rgb(0,160,226)&quot;</span><span class="p">,</span> <span class="s2">&quot;rgb(106,187,170)&quot;</span><span class="p">])</span>
+
+<span class="n">lines</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">tubelines</span><span class="p">)</span><span class="o">.</span><span class="n">mark_geoshape</span><span class="p">(</span>
+    <span class="n">filled</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+    <span class="n">strokeWidth</span><span class="o">=</span><span class="mi">2</span>
+<span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span>
+        <span class="s1">&#39;id:N&#39;</span><span class="p">,</span>
+        <span class="n">legend</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Legend</span><span class="p">(</span>
+            <span class="n">title</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+            <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;bottom-right&#39;</span><span class="p">,</span>
+            <span class="n">offset</span><span class="o">=</span><span class="mi">0</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">chart</span> <span class="o">=</span> <span class="n">background</span> <span class="o">+</span> <span class="n">labels</span> <span class="o">+</span> <span class="n">lines</span>
+</pre></div>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="one_dot_per_zipcode.html" class="btn btn-neutral float-right" title="One Dot Per Zipcode" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="choropleth_repeat.html" class="btn btn-neutral" title="Repeated Choropleth Map" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016-2018, Altair Developers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.0.0rc1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@3.2"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@2.3"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@3"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
