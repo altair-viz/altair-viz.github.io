@@ -163,7 +163,7 @@
 <li class="toctree-l3"><a class="reference internal" href="mean_overlay_over_precipitiation_chart.html">Layered Bar Chart with Line as Mean</a></li>
 <li class="toctree-l3"><a class="reference internal" href="natural_disasters.html">Natural Disasters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="normalized_stacked_bar_chart.html">Normalized Stacked Bar Chart</a></li>
-<li class="toctree-l3"><a class="reference internal" href="poly_fit.html">Ploynomial Fit Plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="poly_fit.html">Polynomial Fit Plot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ranged_dot_plot.html">Ranged Dot Plot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="slope_graph.html">Slope Graph</a></li>
 <li class="toctree-l3"><a class="reference internal" href="stacked_area_chart.html">Stacked Area Chart</a></li>
@@ -253,16 +253,17 @@
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "layer": [{"data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "rect", "encoding": {"color": {"type": "quantitative", "aggregate": "count", "field": "*"}, "x": {"type": "ordinal", "field": "Cylinders", "scale": {"paddingInner": 0}}, "y": {"type": "ordinal", "field": "Origin", "scale": {"paddingInner": 0}}}}, {"data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": {"type": "text", "baseline": "middle"}, "encoding": {"color": {"condition": {"test": "datum['count_*'] > 100", "value": "black"}, "value": "white"}, "text": {"type": "quantitative", "aggregate": "count", "field": "*"}, "x": {"type": "ordinal", "field": "Cylinders"}, "y": {"type": "ordinal", "field": "Origin"}}}], "$schema": "https://vega.github.io/schema/vega-lite/v2.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "layer": [{"data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "rect", "encoding": {"color": {"type": "quantitative", "aggregate": "count", "field": "*"}, "x": {"type": "ordinal", "field": "Cylinders", "scale": {"paddingInner": 0}}, "y": {"type": "ordinal", "field": "Origin", "scale": {"paddingInner": 0}}}}, {"data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": {"type": "text", "baseline": "middle"}, "encoding": {"color": {"condition": {"test": "(datum['count_*'] > 100)", "value": "black"}, "value": "white"}, "text": {"type": "quantitative", "aggregate": "count", "field": "*"}, "x": {"type": "ordinal", "field": "Cylinders"}, "y": {"type": "ordinal", "field": "Origin"}}}], "$schema": "https://vega.github.io/schema/vega-lite/v2.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#layered_heatmap_text-rst-altair-plot-0', {"config": {"view": {"width": 400, "height": 300}}, "layer": [{"data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "rect", "encoding": {"color": {"type": "quantitative", "aggregate": "count", "field": "*"}, "x": {"type": "ordinal", "field": "Cylinders", "scale": {"paddingInner": 0}}, "y": {"type": "ordinal", "field": "Origin", "scale": {"paddingInner": 0}}}}, {"data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": {"type": "text", "baseline": "middle"}, "encoding": {"color": {"condition": {"test": "datum['count_*'] > 100", "value": "black"}, "value": "white"}, "text": {"type": "quantitative", "aggregate": "count", "field": "*"}, "x": {"type": "ordinal", "field": "Cylinders"}, "y": {"type": "ordinal", "field": "Origin"}}}], "$schema": "https://vega.github.io/schema/vega-lite/v2.json"}).catch(console.err);
+      vegaEmbed('#layered_heatmap_text-rst-altair-plot-0', {"config": {"view": {"width": 400, "height": 300}}, "layer": [{"data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "rect", "encoding": {"color": {"type": "quantitative", "aggregate": "count", "field": "*"}, "x": {"type": "ordinal", "field": "Cylinders", "scale": {"paddingInner": 0}}, "y": {"type": "ordinal", "field": "Origin", "scale": {"paddingInner": 0}}}}, {"data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": {"type": "text", "baseline": "middle"}, "encoding": {"color": {"condition": {"test": "(datum['count_*'] > 100)", "value": "black"}, "value": "white"}, "text": {"type": "quantitative", "aggregate": "count", "field": "*"}, "x": {"type": "ordinal", "field": "Cylinders"}, "y": {"type": "ordinal", "field": "Origin"}}}], "$schema": "https://vega.github.io/schema/vega-lite/v2.json"}).catch(console.err);
   });
 </script>
 </div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">altair.expr</span> <span class="kn">import</span> <span class="n">datum</span>
 <span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
 
 <span class="n">cars</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">cars</span><span class="o">.</span><span class="n">url</span>
@@ -270,16 +271,14 @@
 <span class="n">heatmap</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">cars</span><span class="p">)</span><span class="o">.</span><span class="n">mark_rect</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Cylinders:O&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">paddingInner</span><span class="o">=</span><span class="mi">0</span><span class="p">)),</span>
     <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;Origin:O&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">paddingInner</span><span class="o">=</span><span class="mi">0</span><span class="p">)),</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;count(*):Q&#39;</span><span class="p">)</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;count(*):Q&#39;</span>
 <span class="p">)</span>
 
-<span class="n">text</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">cars</span><span class="p">)</span><span class="o">.</span><span class="n">mark_text</span><span class="p">(</span>
-    <span class="n">baseline</span><span class="o">=</span><span class="s1">&#39;middle&#39;</span>
-<span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Cylinders:O&#39;</span><span class="p">),</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;Origin:O&#39;</span><span class="p">),</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="s1">&#39;count(*):Q&#39;</span><span class="p">),</span>
-    <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span><span class="s2">&quot;datum[&#39;count_*&#39;] &gt; 100&quot;</span><span class="p">,</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">cars</span><span class="p">)</span><span class="o">.</span><span class="n">mark_text</span><span class="p">(</span><span class="n">baseline</span><span class="o">=</span><span class="s1">&#39;middle&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Cylinders:O&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Origin:O&#39;</span><span class="p">,</span>
+    <span class="n">text</span><span class="o">=</span><span class="s1">&#39;count(*):Q&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span><span class="n">datum</span><span class="p">[</span><span class="s1">&#39;count_*&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">,</span>
                         <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">),</span>
                         <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;white&#39;</span><span class="p">))</span>
 <span class="p">)</span>

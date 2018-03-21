@@ -131,6 +131,11 @@ To render Vega-Lite 2.x or Vega 3.x in the Jupyter Notebook (as mentioned above
 we recommend these versions), you will need to install and enable the
 `ipyvega3`_ Python package using conda:
 
+.. warning::
+
+   conda installation is not yet available for vega3.
+   Please install vega3 with pip.
+
 .. code-block:: bash
 
     $ conda install vega3 --channel conda-forge

@@ -4989,6 +4989,20 @@ value: …,</div></blockquote>
 </dd></dl>
 
 <dl class="class">
+<dt id="altair.NamedSelection">
+<em class="property">class </em><code class="descclassname">altair.</code><code class="descname">NamedSelection</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.NamedSelection" title="Permalink to this definition">¶</a></dt>
+<dd><p>A SelectionMapping with a single named selection item</p>
+<dl class="method">
+<dt id="altair.NamedSelection.ref">
+<code class="descname">ref</code><span class="sig-paren">(</span><em>name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.NamedSelection.ref" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a named selection reference.</p>
+<p>If the mapping contains only one selection, then the name need not
+be specified.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="altair.NiceTime">
 <em class="property">class </em><code class="descclassname">altair.</code><code class="descname">NiceTime</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.NiceTime" title="Permalink to this definition">¶</a></dt>
 <dd><p>NiceTime schema wrapper</p>
@@ -6134,14 +6148,6 @@ rootschema.</p>
 <dt id="altair.SelectionMapping">
 <em class="property">class </em><code class="descclassname">altair.</code><code class="descname">SelectionMapping</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.SelectionMapping" title="Permalink to this definition">¶</a></dt>
 <dd><p>A mapping of selection names to selection definitions</p>
-<dl class="method">
-<dt id="altair.SelectionMapping.ref">
-<code class="descname">ref</code><span class="sig-paren">(</span><em>name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.SelectionMapping.ref" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a named selection reference.</p>
-<p>If the mapping contains only one selection, then the name need not
-be specified.</p>
-</dd></dl>
-
 </dd></dl>
 
 <dl class="class">
@@ -7671,7 +7677,7 @@ associated with the specified format.</p>
 
 <dl class="method">
 <dt id="altair.TopLevelMixin.transform_lookup">
-<code class="descname">transform_lookup</code><span class="sig-paren">(</span><em>from_=Undefined</em>, <em>lookup=Undefined</em>, <em>default=Undefined</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.TopLevelMixin.transform_lookup" title="Permalink to this definition">¶</a></dt>
+<code class="descname">transform_lookup</code><span class="sig-paren">(</span><em>as_=Undefined</em>, <em>from_=Undefined</em>, <em>lookup=Undefined</em>, <em>default=Undefined</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.TopLevelMixin.transform_lookup" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a LookupTransform to the schema</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -7695,17 +7701,20 @@ associated with the specified format.</p>
 <p class="rubric">Attributes</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="18%" />
-<col width="82%" />
+<col width="4%" />
+<col width="96%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><strong>from_</strong></td>
+<tr class="row-odd"><td><strong>as_</strong></td>
+<td>(string or List(string)) The field or fields for storing the computed formula value. If <cite>from.fields</cite> is specified, the transform will use the same names for <cite>as</cite>. If <cite>from.fields</cite> is not specified, <cite>as</cite> has to be a string and we put the whole object into the data under the specified name.</td>
+</tr>
+<tr class="row-even"><td><strong>from_</strong></td>
 <td>(LookupData) Secondary data reference.</td>
 </tr>
-<tr class="row-even"><td><strong>lookup</strong></td>
+<tr class="row-odd"><td><strong>lookup</strong></td>
 <td>(string) Key in primary data source.</td>
 </tr>
-<tr class="row-odd"><td><strong>default</strong></td>
+<tr class="row-even"><td><strong>default</strong></td>
 <td>(string) The default value to use if lookup fails</td>
 </tr>
 </tbody>
@@ -8995,7 +9004,7 @@ Mapping(required=[input, options])</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>predicate: SelectionMapping, LogicalOperandPredicate, dict, or string</strong></p>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>predicate: NamedSelection, LogicalOperandPredicate, expr.Expression, dict, or string</strong></p>
 <blockquote>
 <div><p>the selection predicate or test predicate for the condition.
 if a string is passed, it will be treated as a test operand.</p>
@@ -9182,7 +9191,7 @@ a channel.</p>
 
 <dl class="function">
 <dt id="altair.selection">
-<code class="descclassname">altair.</code><code class="descname">selection</code><span class="sig-paren">(</span><em>name=None</em>, <em>**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.selection" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">altair.</code><code class="descname">selection</code><span class="sig-paren">(</span><em>name=None</em>, <em>type=Undefined</em>, <em>**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.selection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a named selection.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -9193,6 +9202,10 @@ a channel.</p>
 <div><p>The name of the selection. If not specified, a unique name will be
 created.</p>
 </div></blockquote>
+<p><strong>type</strong> : string</p>
+<blockquote>
+<div><p>The type of the selection: one of [“interval”, “single”, or “multi”]</p>
+</div></blockquote>
 <p><strong>**kwds :</strong></p>
 <blockquote>
 <div><p>additional keywords will be used to construct a SelectionDef instance
@@ -9200,9 +9213,9 @@ that controls the selection.</p>
 </div></blockquote>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">selection: SelectionMapping</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">selection: NamedSelection</p>
 <blockquote class="last">
-<div><p>The SelectionMapping object that can be used in chart creation.</p>
+<div><p>The selection object that can be used in chart creation.</p>
 </div></blockquote>
 </td>
 </tr>
@@ -9213,7 +9226,7 @@ that controls the selection.</p>
 <dl class="function">
 <dt id="altair.selection_interval">
 <code class="descclassname">altair.</code><code class="descname">selection_interval</code><span class="sig-paren">(</span><em>self</em>, <em>type=Undefined</em>, <em>bind=Undefined</em>, <em>empty=Undefined</em>, <em>encodings=Undefined</em>, <em>fields=Undefined</em>, <em>mark=Undefined</em>, <em>on=Undefined</em>, <em>resolve=Undefined</em>, <em>translate=Undefined</em>, <em>zoom=Undefined</em>, <em>**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.selection_interval" title="Permalink to this definition">¶</a></dt>
-<dd><p>A selection with type=’interval’    
+<dd><p>Create a selection with type=’interval’    
 Mapping(required=[type])</p>
 <p class="rubric">Attributes</p>
 <table border="1" class="docutils">
@@ -9259,7 +9272,7 @@ Mapping(required=[type])</p>
 <dl class="function">
 <dt id="altair.selection_multi">
 <code class="descclassname">altair.</code><code class="descname">selection_multi</code><span class="sig-paren">(</span><em>self</em>, <em>type=Undefined</em>, <em>empty=Undefined</em>, <em>encodings=Undefined</em>, <em>fields=Undefined</em>, <em>nearest=Undefined</em>, <em>on=Undefined</em>, <em>resolve=Undefined</em>, <em>toggle=Undefined</em>, <em>**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.selection_multi" title="Permalink to this definition">¶</a></dt>
-<dd><p>A selection with type=’multi’    
+<dd><p>Create a selection with type=’multi’    
 Mapping(required=[type])</p>
 <p class="rubric">Attributes</p>
 <table border="1" class="docutils">
@@ -9299,7 +9312,7 @@ Mapping(required=[type])</p>
 <dl class="function">
 <dt id="altair.selection_single">
 <code class="descclassname">altair.</code><code class="descname">selection_single</code><span class="sig-paren">(</span><em>self</em>, <em>type=Undefined</em>, <em>bind=Undefined</em>, <em>empty=Undefined</em>, <em>encodings=Undefined</em>, <em>fields=Undefined</em>, <em>nearest=Undefined</em>, <em>on=Undefined</em>, <em>resolve=Undefined</em>, <em>**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.selection_single" title="Permalink to this definition">¶</a></dt>
-<dd><p>A selection with type=’single’    
+<dd><p>Create a selection with type=’single’    
 Mapping(required=[type])</p>
 <p class="rubric">Attributes</p>
 <table border="1" class="docutils">

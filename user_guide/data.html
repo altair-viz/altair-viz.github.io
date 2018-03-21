@@ -114,7 +114,10 @@
 <li class="toctree-l1"><a class="reference internal" href="importing.html">Importing Altair</a></li>
 <li class="toctree-l1"><a class="reference internal" href="display.html">Displaying Charts</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Specifying Data in Altair</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#long-form-vs-wide-form-data">Long-form vs. Wide-form Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#long-form-vs-wide-form-data">Long-form vs. Wide-form Data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#converting-between-long-form-and-wide-form">Converting Between Long-form and Wide-form</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="encoding.html">Encodings</a></li>
@@ -299,8 +302,136 @@ and <em>quantitative</em> (<code class="docutils literal"><span class="pre">Q</s
 </script>
 </div><p>We will further discuss encodings and associated types in <a class="reference internal" href="encoding.html#user-guide-encoding"><span class="std std-ref">Encodings</span></a>, next.</p>
 <div class="section" id="long-form-vs-wide-form-data">
-<h2>Long-form vs. Wide-form Data<a class="headerlink" href="#long-form-vs-wide-form-data" title="Permalink to this headline">¶</a></h2>
-<p><em>TODO</em></p>
+<span id="data-long-vs-wide"></span><h2>Long-form vs. Wide-form Data<a class="headerlink" href="#long-form-vs-wide-form-data" title="Permalink to this headline">¶</a></h2>
+<p>There are two common conventions for storing data in a dataframe, sometimes called
+<em>long-form</em> and <em>wide-form</em>. Both are sensible patterns for storing data in
+a tabular format; briefly, the difference is this:</p>
+<ul class="simple">
+<li><strong>wide-form data</strong> has one row per <em>independent variable</em>, with metadata
+recorded in the <em>row and column labels</em>.</li>
+<li><strong>long-form data</strong> has one row per <em>observation</em>, with metadata recorded
+within the table as <em>values</em>.</li>
+</ul>
+<p>Altair’s grammar works best with <strong>long-form</strong> data, in which each row
+corresponds to a single observation along with its metadata.</p>
+<p>A concrete example will help in making this distinction more clear.
+Consider a dataset consisting of stock prices of several companies over time.
+The wide-form version of the data might be arranged as follows:</p>
+<div class="highlight-python" id="data-rst-altair-source-3"><div class="highlight"><pre><span></span><span class="n">wide_form</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;AAPL&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">189.95</span><span class="p">,</span> <span class="mf">182.22</span><span class="p">,</span> <span class="mf">198.08</span><span class="p">],</span>
+                          <span class="s1">&#39;AMZN&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">89.15</span><span class="p">,</span> <span class="mf">90.56</span><span class="p">,</span> <span class="mf">92.64</span><span class="p">],</span>
+                          <span class="s1">&#39;GOOG&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">707.00</span><span class="p">,</span> <span class="mf">693.00</span><span class="p">,</span> <span class="mf">691.48</span><span class="p">]},</span>
+                         <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;2007-10-01&#39;</span><span class="p">,</span> <span class="s1">&#39;2007-11-01&#39;</span><span class="p">,</span> <span class="s1">&#39;2007-12-01&#39;</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">wide_form</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition">
+<div class="first last highlight-none"><div class="highlight"><pre><span></span>                  AAPL   AMZN    GOOG
+    2007-10-01  189.95  89.15  707.00
+    2007-11-01  182.22  90.56  693.00
+    2007-12-01  198.08  92.64  691.48
+</pre></div>
+</div>
+<p>Notice that each row corresponds to a single time-stamp (here time is the
+independent variable), while metadata for each observation
+(i.e. date and company name) is stored within the row and column labels.</p>
+<p>The long-form version of the same data might look like this:</p>
+<div class="highlight-python" id="data-rst-altair-source-4"><div class="highlight"><pre><span></span><span class="n">long_form</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Date&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;2007-10-01&#39;</span><span class="p">,</span> <span class="s1">&#39;2007-11-01&#39;</span><span class="p">,</span> <span class="s1">&#39;2007-12-01&#39;</span><span class="p">,</span>
+                                   <span class="s1">&#39;2007-10-01&#39;</span><span class="p">,</span> <span class="s1">&#39;2007-11-01&#39;</span><span class="p">,</span> <span class="s1">&#39;2007-12-01&#39;</span><span class="p">,</span>
+                                   <span class="s1">&#39;2007-10-01&#39;</span><span class="p">,</span> <span class="s1">&#39;2007-11-01&#39;</span><span class="p">,</span> <span class="s1">&#39;2007-12-01&#39;</span><span class="p">],</span>
+                          <span class="s1">&#39;company&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;AAPL&#39;</span><span class="p">,</span> <span class="s1">&#39;AAPL&#39;</span><span class="p">,</span> <span class="s1">&#39;AAPL&#39;</span><span class="p">,</span>
+                                      <span class="s1">&#39;AMZN&#39;</span><span class="p">,</span> <span class="s1">&#39;AMZN&#39;</span><span class="p">,</span> <span class="s1">&#39;AMZN&#39;</span><span class="p">,</span>
+                                      <span class="s1">&#39;GOOG&#39;</span><span class="p">,</span> <span class="s1">&#39;GOOG&#39;</span><span class="p">,</span> <span class="s1">&#39;GOOG&#39;</span><span class="p">],</span>
+                          <span class="s1">&#39;price&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">189.95</span><span class="p">,</span> <span class="mf">182.22</span><span class="p">,</span> <span class="mf">198.08</span><span class="p">,</span>
+                                     <span class="mf">89.15</span><span class="p">,</span>  <span class="mf">90.56</span><span class="p">,</span>  <span class="mf">92.64</span><span class="p">,</span>
+                                    <span class="mf">707.00</span><span class="p">,</span> <span class="mf">693.00</span><span class="p">,</span> <span class="mf">691.48</span><span class="p">]})</span>
+<span class="k">print</span><span class="p">(</span><span class="n">long_form</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition">
+<div class="first last highlight-none"><div class="highlight"><pre><span></span>             Date company   price
+    0  2007-10-01    AAPL  189.95
+    1  2007-11-01    AAPL  182.22
+    2  2007-12-01    AAPL  198.08
+    3  2007-10-01    AMZN   89.15
+    4  2007-11-01    AMZN   90.56
+    5  2007-12-01    AMZN   92.64
+    6  2007-10-01    GOOG  707.00
+    7  2007-11-01    GOOG  693.00
+    8  2007-12-01    GOOG  691.48
+</pre></div>
+</div>
+<p>Notice here that each row contains a single observation (i.e. price), along
+with the metadata for this observation (the date and company name).
+Importantly, the column and index labels no longer contain any useful metadata.</p>
+<p>As mentioned above, Altair works best with this long-form data, because relevant
+data and metadata are stored within the table itself, rather than within the
+labels of rows and columns:</p>
+<div class="highlight-python" id="data-rst-altair-source-5"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">long_form</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+  <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Date:T&#39;</span><span class="p">,</span>
+  <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price:Q&#39;</span><span class="p">,</span>
+  <span class="n">color</span><span class="o">=</span><span class="s1">&#39;company:N&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="data-rst-altair-plot-5">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"values": [{"Date": "2007-10-01", "company": "AAPL", "price": 189.95}, {"Date": "2007-11-01", "company": "AAPL", "price": 182.22}, {"Date": "2007-12-01", "company": "AAPL", "price": 198.08}, {"Date": "2007-10-01", "company": "AMZN", "price": 89.15}, {"Date": "2007-11-01", "company": "AMZN", "price": 90.56}, {"Date": "2007-12-01", "company": "AMZN", "price": 92.64}, {"Date": "2007-10-01", "company": "GOOG", "price": 707.0}, {"Date": "2007-11-01", "company": "GOOG", "price": 693.0}, {"Date": "2007-12-01", "company": "GOOG", "price": 691.48}]}, "mark": "line", "encoding": {"color": {"type": "nominal", "field": "company"}, "x": {"type": "temporal", "field": "Date"}, "y": {"type": "quantitative", "field": "price"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#data-rst-altair-plot-5', {"config": {"view": {"width": 400, "height": 300}}, "data": {"values": [{"Date": "2007-10-01", "company": "AAPL", "price": 189.95}, {"Date": "2007-11-01", "company": "AAPL", "price": 182.22}, {"Date": "2007-12-01", "company": "AAPL", "price": 198.08}, {"Date": "2007-10-01", "company": "AMZN", "price": 89.15}, {"Date": "2007-11-01", "company": "AMZN", "price": 90.56}, {"Date": "2007-12-01", "company": "AMZN", "price": 92.64}, {"Date": "2007-10-01", "company": "GOOG", "price": 707.0}, {"Date": "2007-11-01", "company": "GOOG", "price": 693.0}, {"Date": "2007-12-01", "company": "GOOG", "price": 691.48}]}, "mark": "line", "encoding": {"color": {"type": "nominal", "field": "company"}, "x": {"type": "temporal", "field": "Date"}, "y": {"type": "quantitative", "field": "price"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.json"}).catch(console.err);
+  });
+</script>
+</div><p>Wide-form data can be similarly visualized using e.g. layering
+(see <a class="reference internal" href="compound_charts.html#layer-chart"><span class="std std-ref">Layered Charts</span></a>), but it is far less convenient within Altiar’s grammar.</p>
+<div class="section" id="converting-between-long-form-and-wide-form">
+<span id="data-converting-long-form"></span><h3>Converting Between Long-form and Wide-form<a class="headerlink" href="#converting-between-long-form-and-wide-form" title="Permalink to this headline">¶</a></h3>
+<p>Conversion between wide-form and long-form data is not part of the Altair schema,
+and must be done with an external tool.
+In Python, this kind of data manipulation can be done using <a class="reference external" href="http://pandas.pydata.org/">Pandas</a>, as discussed
+in detail in the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reshaping.html">Reshaping and Pivot Tables</a> section of the Pandas documentation.</p>
+<p>Briefly, for converting long-form data to wide-form data, the <code class="docutils literal"><span class="pre">pivot</span></code> method of
+dataframes can be used:</p>
+<div class="highlight-python" id="data-rst-altair-source-6"><div class="highlight"><pre><span></span><span class="n">wide_form</span> <span class="o">=</span> <span class="n">long_form</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;company&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">wide_form</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition">
+<div class="first last highlight-none"><div class="highlight"><pre><span></span>    company       AAPL   AMZN    GOOG
+    Date                             
+    2007-10-01  189.95  89.15  707.00
+    2007-11-01  182.22  90.56  693.00
+    2007-12-01  198.08  92.64  691.48
+</pre></div>
+</div>
+<p>For more information on the <code class="docutils literal"><span class="pre">pivot</span></code> method, see the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.pivot.html">Pandas pivot documentation</a>.</p>
+<p>For converting wide-form data to the long-form data used by Altair, the <code class="docutils literal"><span class="pre">melt</span></code>
+method of dataframes can be used, after first turning the index into a column
+using the <code class="docutils literal"><span class="pre">reset_index</span></code> method:</p>
+<div class="highlight-python" id="data-rst-altair-source-7"><div class="highlight"><pre><span></span><span class="n">wide_form</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition">
+<div class="first last highlight-none"><div class="highlight"><pre><span></span>             Date company   value
+    0  2007-10-01    AAPL  189.95
+    1  2007-11-01    AAPL  182.22
+    2  2007-12-01    AAPL  198.08
+    3  2007-10-01    AMZN   89.15
+    4  2007-11-01    AMZN   90.56
+    5  2007-12-01    AMZN   92.64
+    6  2007-10-01    GOOG  707.00
+    7  2007-11-01    GOOG  693.00
+    8  2007-12-01    GOOG  691.48
+</pre></div>
+</div>
+<p>For more information on the <code class="docutils literal"><span class="pre">melt</span></code> method, see the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.melt.html#pandas.DataFrame.melt">Pandas melt documentation</a>.</p>
+</div>
 </div>
 </div>
 
