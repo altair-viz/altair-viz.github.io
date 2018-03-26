@@ -417,7 +417,7 @@ swap the <code class="docutils literal"><span class="pre">x</span></code> and <c
 <h3>Aside: Examining the JSON Output<a class="headerlink" href="#aside-examining-the-json-output" title="Permalink to this headline">¶</a></h3>
 <p>Recall that Altair’s main purpose is to convert plot specifications to a JSON
 string that conforms to the Vega-Lite schema.
-It is instructive here to use the <code class="xref py py-meth docutils literal"><span class="pre">to_dict()</span></code> method to inspect the
+It is instructive here to use the <code class="xref py py-meth docutils literal"><span class="pre">to_json()</span></code> method to inspect the
 JSON specification that Altair is exporting and sending as JSON to Vega-Lite.
 For clarity, we’ll leave out the data and make a nicely-formatted output:</p>
 <div class="highlight-python" id="starting-rst-altair-source-8"><div class="highlight"><pre><span></span><span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
@@ -429,7 +429,7 @@ For clarity, we’ll leave out the data and make a nicely-formatted output:</p>
 </div>
 <p>Notice here that <code class="docutils literal"><span class="pre">encode(x='a')</span></code> has been expanded to a JSON structure with
 a <code class="docutils literal"><span class="pre">field</span></code> name, and a <code class="docutils literal"><span class="pre">type</span></code> for the data.
-The <code class="docutils literal"><span class="pre">encode(y='b')</span></code> has been expanded similarly and includes an <code class="docutils literal"><span class="pre">aggregate</span></code>
+The <code class="docutils literal"><span class="pre">encode(y='average(b)')</span></code> has been expanded similarly and includes an <code class="docutils literal"><span class="pre">aggregate</span></code>
 field.</p>
 <p>Altair’s full shorthand syntax includes a way to specify the type of the
 column as well:</p>
@@ -445,7 +445,7 @@ column as well:</p>
 }
 </pre></div>
 </div>
-<p>This short-hand is equivalent to spelling-out the attributes by name:</p>
+<p>This shorthand is equivalent to spelling-out the attributes by name:</p>
 <div class="highlight-python" id="starting-rst-altair-source-10"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="n">field</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;quantitative&#39;</span><span class="p">,</span> <span class="n">aggregate</span><span class="o">=</span><span class="s1">&#39;average&#39;</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">to_json</span><span class="p">())</span>
 </pre></div>
