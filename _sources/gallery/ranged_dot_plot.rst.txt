@@ -10,7 +10,6 @@ This example shows a ranged dot plot that uses 'layer' to convey changing life e
 
 
 .. altair-plot::
-    :chart-var-name: chart
     :code-below:
 
     
@@ -35,9 +34,9 @@ This example shows a ranged dot plot that uses 'layer' to convey changing life e
     )
     # Add points for life expectancy in 1955 & 2000
     chart += alt.Chart().mark_point(
-        size = 100,
-        opacity = 1,
-        filled = True
+        size=100,
+        opacity=1,
+        filled=True
     ).encode(
         x='life_expect:Q',
         y='country:N',
@@ -48,6 +47,8 @@ This example shows a ranged dot plot that uses 'layer' to convey changing life e
             )
         )
     ).interactive()
+    
+    chart
 
 .. toctree::
    :hidden:

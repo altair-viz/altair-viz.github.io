@@ -10,7 +10,6 @@ This example shows the relationship between horsepower and the numbver of cylind
 
 
 .. altair-plot::
-    :chart-var-name: chart
     :code-below:
 
     
@@ -20,7 +19,7 @@ This example shows the relationship between horsepower and the numbver of cylind
     
     source = data.cars()
     
-    chart = alt.Chart(source).mark_tick().encode(
+    alt.Chart(source).mark_tick().encode(
         x='Horsepower:Q',
         y='Cylinders:O'
     )

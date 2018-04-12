@@ -10,7 +10,6 @@ This example shows how to make a bubble plot.
 
 
 .. altair-plot::
-    :chart-var-name: chart
     :code-below:
 
     
@@ -20,7 +19,7 @@ This example shows how to make a bubble plot.
     
     source = data.cars()
     
-    chart = alt.Chart(source).mark_point().encode(
+    alt.Chart(source).mark_point().encode(
         x='Horsepower',
         y='Miles_per_Gallon',
         size='Acceleration'

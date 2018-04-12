@@ -1,0 +1,1320 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Top-Level Chart Configuration &mdash; Altair 2.0.0rc2 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/altair-plot.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/altair-gallery.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Altair 2.0.0rc2 documentation" href="../index.html"/>
+        <link rel="next" title="Compound Charts: Layer, HConcat, VConcat, Repeat, Facet" href="compound_charts.html"/>
+        <link rel="prev" title="Selections: Building Blocks of Interactions" href="selections.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Altair
+          
+
+          
+            
+            <img src="../_static/altair-logo-light.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0.0rc2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/starting.html">Basic Statistical Visualization</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Gallery</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Example Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="renderers.html">Altair Renderers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data.html">Specifying Data in Altair</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoding.html">Encodings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="marks.html">Marks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transform.html">Data Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="selections.html">Selections: Building Blocks of Interactions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Top-Level Chart Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#chart-configuration">Chart Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#axis-configuration">Axis Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#legend-configuration">Legend Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mark-and-mark-style-configuration">Mark and Mark Style Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scale-configuration">Scale Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scale-range-configuration">Scale Range Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#projection-configuration">Projection Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#selection-configuration">Selection Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#view-configuration">View Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="saving_charts.html">Saving Altair Charts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuring Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Display Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html">API Reference</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Case Studies</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../case_studies/exploring-weather.html">Exploring Seattle Weather</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="importing.html">Importing Vega &amp; Vega-Lite Versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="display_frontends.html">Displaying Charts in Various Frontends</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_renderers.html">Customizing Renderers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_transformers.html">Data transformers</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Altair</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Top-Level Chart Configuration</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/user_guide/configuration.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="top-level-chart-configuration">
+<span id="user-guide-configuration"></span><h1>Top-Level Chart Configuration<a class="headerlink" href="#top-level-chart-configuration" title="Permalink to this headline">¶</a></h1>
+<p>Many aspects of a chart’s appearance can be configured at the top level using
+the <code class="docutils literal"><span class="pre">configure_*()</span></code> methods.
+These methods and the properties that they set are only valid at the top level
+of a chart, and can be thought of as a way of setting a chart theme: that is,
+they set the default styles for the entire chart, and these defaults can be
+overridden by specific style settings associated with chart elements.</p>
+<p>These methods and their arguments will be outlined below:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#config-chart"><span class="std std-ref">Chart Configuration</span></a> <code class="xref py py-meth docutils literal"><span class="pre">Chart.configure()</span></code></li>
+<li><a class="reference internal" href="#config-axis"><span class="std std-ref">Axis Configuration</span></a> <code class="xref py py-meth docutils literal"><span class="pre">Chart.configure_axis()</span></code></li>
+<li><a class="reference internal" href="#config-legend"><span class="std std-ref">Legend Configuration</span></a> <code class="xref py py-meth docutils literal"><span class="pre">Chart.configure_legend()</span></code></li>
+<li><a class="reference internal" href="#config-scale"><span class="std std-ref">Scale Configuration</span></a> <code class="xref py py-meth docutils literal"><span class="pre">Chart.configure_scale()</span></code></li>
+<li><a class="reference internal" href="#config-range"><span class="std std-ref">Scale Range Configuration</span></a> <code class="xref py py-meth docutils literal"><span class="pre">Chart.configure_range()</span></code></li>
+<li><a class="reference internal" href="#config-projection"><span class="std std-ref">Projection Configuration</span></a> <code class="xref py py-meth docutils literal"><span class="pre">Chart.configure_projection()</span></code></li>
+<li><a class="reference internal" href="#config-selection"><span class="std std-ref">Selection Configuration</span></a> <code class="xref py py-meth docutils literal"><span class="pre">Chart.configure_selection()</span></code></li>
+<li><a class="reference internal" href="#config-view"><span class="std std-ref">View Configuration</span></a> <code class="xref py py-meth docutils literal"><span class="pre">Chart.configure_view()</span></code></li>
+</ul>
+<div class="section" id="chart-configuration">
+<span id="config-chart"></span><h2>Chart Configuration<a class="headerlink" href="#chart-configuration" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="xref py py-meth docutils literal"><span class="pre">Chart.configure()</span></code> method adds a <a class="reference internal" href="API.html#altair.Config" title="altair.Config"><code class="xref py py-class docutils literal"><span class="pre">Config</span></code></a> instance to the chart,
+and has the following attributes:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="3%" />
+<col width="10%" />
+<col width="87%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Property</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>area</td>
+<td><a class="reference internal" href="API.html#altair.MarkConfig" title="altair.MarkConfig"><code class="xref py py-class docutils literal"><span class="pre">MarkConfig</span></code></a></td>
+<td>Area-Specific Config</td>
+</tr>
+<tr class="row-odd"><td>autosize</td>
+<td>anyOf(<a class="reference internal" href="API.html#altair.AutosizeType" title="altair.AutosizeType"><code class="xref py py-class docutils literal"><span class="pre">AutosizeType</span></code></a>, <a class="reference internal" href="API.html#altair.AutoSizeParams" title="altair.AutoSizeParams"><code class="xref py py-class docutils literal"><span class="pre">AutoSizeParams</span></code></a>)</td>
+<td>Sets how the visualization size should be determined. If a string, should be one of <code class="docutils literal"><span class="pre">&quot;pad&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;fit&quot;</span></code> or <code class="docutils literal"><span class="pre">&quot;none&quot;</span></code>. Object values can additionally specify parameters for content sizing and automatic resizing. <code class="docutils literal"><span class="pre">&quot;fit&quot;</span></code> is only supported for single and layered views that don’t use <code class="docutils literal"><span class="pre">rangeStep</span></code>.  <strong>Default value</strong>: <code class="docutils literal"><span class="pre">pad</span></code></td>
+</tr>
+<tr class="row-even"><td>axis</td>
+<td><a class="reference internal" href="API.html#altair.AxisConfig" title="altair.AxisConfig"><code class="xref py py-class docutils literal"><span class="pre">AxisConfig</span></code></a></td>
+<td>Axis configuration, which determines default properties for all <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code> <a class="reference external" href="axis.html">axes</a>. For a full list of axis configuration options, please see the <a class="reference external" href="axis.html#config">corresponding section of the axis documentation</a>.</td>
+</tr>
+<tr class="row-odd"><td>axisBand</td>
+<td><a class="reference internal" href="API.html#altair.VgAxisConfig" title="altair.VgAxisConfig"><code class="xref py py-class docutils literal"><span class="pre">VgAxisConfig</span></code></a></td>
+<td>Specific axis config for axes with “band” scales.</td>
+</tr>
+<tr class="row-even"><td>axisBottom</td>
+<td><a class="reference internal" href="API.html#altair.VgAxisConfig" title="altair.VgAxisConfig"><code class="xref py py-class docutils literal"><span class="pre">VgAxisConfig</span></code></a></td>
+<td>Specific axis config for x-axis along the bottom edge of the chart.</td>
+</tr>
+<tr class="row-odd"><td>axisLeft</td>
+<td><a class="reference internal" href="API.html#altair.VgAxisConfig" title="altair.VgAxisConfig"><code class="xref py py-class docutils literal"><span class="pre">VgAxisConfig</span></code></a></td>
+<td>Specific axis config for y-axis along the left edge of the chart.</td>
+</tr>
+<tr class="row-even"><td>axisRight</td>
+<td><a class="reference internal" href="API.html#altair.VgAxisConfig" title="altair.VgAxisConfig"><code class="xref py py-class docutils literal"><span class="pre">VgAxisConfig</span></code></a></td>
+<td>Specific axis config for y-axis along the right edge of the chart.</td>
+</tr>
+<tr class="row-odd"><td>axisTop</td>
+<td><a class="reference internal" href="API.html#altair.VgAxisConfig" title="altair.VgAxisConfig"><code class="xref py py-class docutils literal"><span class="pre">VgAxisConfig</span></code></a></td>
+<td>Specific axis config for x-axis along the top edge of the chart.</td>
+</tr>
+<tr class="row-even"><td>axisX</td>
+<td><a class="reference internal" href="API.html#altair.VgAxisConfig" title="altair.VgAxisConfig"><code class="xref py py-class docutils literal"><span class="pre">VgAxisConfig</span></code></a></td>
+<td>X-axis specific config.</td>
+</tr>
+<tr class="row-odd"><td>axisY</td>
+<td><a class="reference internal" href="API.html#altair.VgAxisConfig" title="altair.VgAxisConfig"><code class="xref py py-class docutils literal"><span class="pre">VgAxisConfig</span></code></a></td>
+<td>Y-axis specific config.</td>
+</tr>
+<tr class="row-even"><td>background</td>
+<td>string</td>
+<td>CSS color property to use as the background of visualization.  <strong>Default value:</strong> none (transparent)</td>
+</tr>
+<tr class="row-odd"><td>bar</td>
+<td><a class="reference internal" href="API.html#altair.BarConfig" title="altair.BarConfig"><code class="xref py py-class docutils literal"><span class="pre">BarConfig</span></code></a></td>
+<td>Bar-Specific Config</td>
+</tr>
+<tr class="row-even"><td>circle</td>
+<td><a class="reference internal" href="API.html#altair.MarkConfig" title="altair.MarkConfig"><code class="xref py py-class docutils literal"><span class="pre">MarkConfig</span></code></a></td>
+<td>Circle-Specific Config</td>
+</tr>
+<tr class="row-odd"><td>countTitle</td>
+<td>string</td>
+<td>Default axis and legend title for count fields.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">'Number</span> <span class="pre">of</span> <span class="pre">Records'</span></code>.</td>
+</tr>
+<tr class="row-even"><td>datasets</td>
+<td><a class="reference internal" href="API.html#altair.Datasets" title="altair.Datasets"><code class="xref py py-class docutils literal"><span class="pre">Datasets</span></code></a></td>
+<td>A global data store for named datasets. This is a mapping from names to inline datasets. This can be an array of objects or primitive values or a string. Arrays of primitive values are ingested as objects with a <code class="docutils literal"><span class="pre">data</span></code> property.</td>
+</tr>
+<tr class="row-odd"><td>fieldTitle</td>
+<td>[‘verbal’, ‘functional’, ‘plain’]</td>
+<td>Defines how Vega-Lite generates title for fields.  There are three possible styles:   * <code class="docutils literal"><span class="pre">&quot;verbal&quot;</span></code> (Default) - displays function in a verbal style (e.g., “Sum of field”, “Year-month of date”, “field (binned)”). * <code class="docutils literal"><span class="pre">&quot;function&quot;</span></code> - displays function using parentheses and capitalized texts (e.g., “SUM(field)”, “YEARMONTH(date)”, “BIN(field)”). * <code class="docutils literal"><span class="pre">&quot;plain&quot;</span></code> - displays only the field name without functions (e.g., “field”, “date”, “field”).</td>
+</tr>
+<tr class="row-even"><td>geoshape</td>
+<td><a class="reference internal" href="API.html#altair.MarkConfig" title="altair.MarkConfig"><code class="xref py py-class docutils literal"><span class="pre">MarkConfig</span></code></a></td>
+<td>Geoshape-Specific Config</td>
+</tr>
+<tr class="row-odd"><td>invalidValues</td>
+<td>[‘filter’, None]</td>
+<td>Defines how Vega-Lite should handle invalid values (<code class="docutils literal"><span class="pre">null</span></code> and <code class="docutils literal"><span class="pre">NaN</span></code>).   * If set to <code class="docutils literal"><span class="pre">&quot;filter&quot;</span></code> (default), all data items with null values are filtered. * If <code class="docutils literal"><span class="pre">null</span></code>, all data items are included. In this case, invalid values will be interpreted as zeroes.</td>
+</tr>
+<tr class="row-even"><td>legend</td>
+<td><a class="reference internal" href="API.html#altair.LegendConfig" title="altair.LegendConfig"><code class="xref py py-class docutils literal"><span class="pre">LegendConfig</span></code></a></td>
+<td>Legend configuration, which determines default properties for all <a class="reference external" href="legend.html">legends</a>. For a full list of legend configuration options, please see the <a class="reference external" href="legend.html#config">corresponding section of in the legend documentation</a>.</td>
+</tr>
+<tr class="row-odd"><td>line</td>
+<td><a class="reference internal" href="API.html#altair.MarkConfig" title="altair.MarkConfig"><code class="xref py py-class docutils literal"><span class="pre">MarkConfig</span></code></a></td>
+<td>Line-Specific Config</td>
+</tr>
+<tr class="row-even"><td>mark</td>
+<td><a class="reference internal" href="API.html#altair.MarkConfig" title="altair.MarkConfig"><code class="xref py py-class docutils literal"><span class="pre">MarkConfig</span></code></a></td>
+<td>Mark Config</td>
+</tr>
+<tr class="row-odd"><td>numberFormat</td>
+<td>string</td>
+<td>D3 Number format for axis labels and text tables. For example “s” for SI units. Use <a class="reference external" href="https://github.com/d3/d3-format#locale_format">D3’s number format pattern</a>.</td>
+</tr>
+<tr class="row-even"><td>padding</td>
+<td><a class="reference internal" href="API.html#altair.Padding" title="altair.Padding"><code class="xref py py-class docutils literal"><span class="pre">Padding</span></code></a></td>
+<td>The default visualization padding, in pixels, from the edge of the visualization canvas to the data rectangle.  If a number, specifies padding for all sides. If an object, the value should have the format <code class="docutils literal"><span class="pre">{&quot;left&quot;:</span> <span class="pre">5,</span> <span class="pre">&quot;top&quot;:</span> <span class="pre">5,</span> <span class="pre">&quot;right&quot;:</span> <span class="pre">5,</span> <span class="pre">&quot;bottom&quot;:</span> <span class="pre">5}</span></code> to specify padding for each side of the visualization.  <strong>Default value</strong>: <code class="docutils literal"><span class="pre">5</span></code></td>
+</tr>
+<tr class="row-odd"><td>point</td>
+<td><a class="reference internal" href="API.html#altair.MarkConfig" title="altair.MarkConfig"><code class="xref py py-class docutils literal"><span class="pre">MarkConfig</span></code></a></td>
+<td>Point-Specific Config</td>
+</tr>
+<tr class="row-even"><td>projection</td>
+<td><a class="reference internal" href="API.html#altair.ProjectionConfig" title="altair.ProjectionConfig"><code class="xref py py-class docutils literal"><span class="pre">ProjectionConfig</span></code></a></td>
+<td>Projection configuration, which determines default properties for all <a class="reference external" href="projection.html">projections</a>. For a full list of projection configuration options, please see the <a class="reference external" href="projection.html#config">corresponding section of the projection documentation</a>.</td>
+</tr>
+<tr class="row-odd"><td>range</td>
+<td><a class="reference internal" href="API.html#altair.RangeConfig" title="altair.RangeConfig"><code class="xref py py-class docutils literal"><span class="pre">RangeConfig</span></code></a></td>
+<td>An object hash that defines default range arrays or schemes for using with scales. For a full list of scale range configuration options, please see the <a class="reference external" href="scale.html#config">corresponding section of the scale documentation</a>.</td>
+</tr>
+<tr class="row-even"><td>rect</td>
+<td><a class="reference internal" href="API.html#altair.MarkConfig" title="altair.MarkConfig"><code class="xref py py-class docutils literal"><span class="pre">MarkConfig</span></code></a></td>
+<td>Rect-Specific Config</td>
+</tr>
+<tr class="row-odd"><td>rule</td>
+<td><a class="reference internal" href="API.html#altair.MarkConfig" title="altair.MarkConfig"><code class="xref py py-class docutils literal"><span class="pre">MarkConfig</span></code></a></td>
+<td>Rule-Specific Config</td>
+</tr>
+<tr class="row-even"><td>scale</td>
+<td><a class="reference internal" href="API.html#altair.ScaleConfig" title="altair.ScaleConfig"><code class="xref py py-class docutils literal"><span class="pre">ScaleConfig</span></code></a></td>
+<td>Scale configuration determines default properties for all <a class="reference external" href="scale.html">scales</a>. For a full list of scale configuration options, please see the <a class="reference external" href="scale.html#config">corresponding section of the scale documentation</a>.</td>
+</tr>
+<tr class="row-odd"><td>selection</td>
+<td><a class="reference internal" href="API.html#altair.SelectionConfig" title="altair.SelectionConfig"><code class="xref py py-class docutils literal"><span class="pre">SelectionConfig</span></code></a></td>
+<td>An object hash for defining default properties for each type of selections.</td>
+</tr>
+<tr class="row-even"><td>square</td>
+<td><a class="reference internal" href="API.html#altair.MarkConfig" title="altair.MarkConfig"><code class="xref py py-class docutils literal"><span class="pre">MarkConfig</span></code></a></td>
+<td>Square-Specific Config</td>
+</tr>
+<tr class="row-odd"><td>stack</td>
+<td><a class="reference internal" href="API.html#altair.StackOffset" title="altair.StackOffset"><code class="xref py py-class docutils literal"><span class="pre">StackOffset</span></code></a></td>
+<td>Default stack offset for stackable mark.</td>
+</tr>
+<tr class="row-even"><td>style</td>
+<td><a class="reference internal" href="API.html#altair.StyleConfigIndex" title="altair.StyleConfigIndex"><code class="xref py py-class docutils literal"><span class="pre">StyleConfigIndex</span></code></a></td>
+<td>An object hash that defines key-value mappings to determine default properties for marks with a given <a class="reference external" href="mark.html#mark-def">style</a>.  The keys represent styles names; the value are valid <a class="reference external" href="mark.html#config">mark configuration objects</a>.</td>
+</tr>
+<tr class="row-odd"><td>text</td>
+<td><a class="reference internal" href="API.html#altair.TextConfig" title="altair.TextConfig"><code class="xref py py-class docutils literal"><span class="pre">TextConfig</span></code></a></td>
+<td>Text-Specific Config</td>
+</tr>
+<tr class="row-even"><td>tick</td>
+<td><a class="reference internal" href="API.html#altair.TickConfig" title="altair.TickConfig"><code class="xref py py-class docutils literal"><span class="pre">TickConfig</span></code></a></td>
+<td>Tick-Specific Config</td>
+</tr>
+<tr class="row-odd"><td>timeFormat</td>
+<td>string</td>
+<td>Default datetime format for axis and legend labels. The format can be set directly on each axis and legend. Use <a class="reference external" href="https://github.com/d3/d3-time-format#locale_format">D3’s time format pattern</a>.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">'%b</span> <span class="pre">%d,</span> <span class="pre">%Y'</span></code>.</td>
+</tr>
+<tr class="row-even"><td>title</td>
+<td><a class="reference internal" href="API.html#altair.VgTitleConfig" title="altair.VgTitleConfig"><code class="xref py py-class docutils literal"><span class="pre">VgTitleConfig</span></code></a></td>
+<td>Title configuration, which determines default properties for all <a class="reference external" href="title.html">titles</a>. For a full list of title configuration options, please see the <a class="reference external" href="title.html#config">corresponding section of the title documentation</a>.</td>
+</tr>
+<tr class="row-odd"><td>view</td>
+<td><a class="reference internal" href="API.html#altair.ViewConfig" title="altair.ViewConfig"><code class="xref py py-class docutils literal"><span class="pre">ViewConfig</span></code></a></td>
+<td>Default properties for <a class="reference external" href="spec.html#single">single view plots</a>.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="axis-configuration">
+<span id="config-axis"></span><h2>Axis Configuration<a class="headerlink" href="#axis-configuration" title="Permalink to this headline">¶</a></h2>
+<p>Axis configuration defines default settings for axes, and can be set using
+the <code class="xref py py-meth docutils literal"><span class="pre">Chart.configure_axis()</span></code> method.
+Properties defined here are applied to all axes in the figure.</p>
+<p>Additional property blocks can target more specific axis types based on the
+orientation (“axisX”, “axisY”, “axisLeft”, “axisTop”, etc.) or band scale
+type (“axisBand”).
+For example, properties defined under the “axisBand”
+property will only apply to axes visualizing “band” scales.
+If multiple axis config blocks apply to a single axis, type-based options
+take precedence over orientation-based options, which in turn take precedence
+over general options.</p>
+<p>The methods are the following:</p>
+<ul class="simple">
+<li><code class="xref py py-meth docutils literal"><span class="pre">Chart.configure_axis()</span></code></li>
+<li><code class="xref py py-meth docutils literal"><span class="pre">Chart.configure_axisBand()</span></code></li>
+<li><code class="xref py py-meth docutils literal"><span class="pre">Chart.configure_axisBottom()</span></code></li>
+<li><code class="xref py py-meth docutils literal"><span class="pre">Chart.configure_axisLeft()</span></code></li>
+<li><code class="xref py py-meth docutils literal"><span class="pre">Chart.configure_axisRight()</span></code></li>
+<li><code class="xref py py-meth docutils literal"><span class="pre">Chart.configure_axisTop()</span></code></li>
+<li><code class="xref py py-meth docutils literal"><span class="pre">Chart.configure_axisX()</span></code></li>
+<li><code class="xref py py-meth docutils literal"><span class="pre">Chart.configure_axisY()</span></code></li>
+</ul>
+<p>They have the following properties:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="2%" />
+<col width="5%" />
+<col width="93%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Property</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>bandPosition</td>
+<td>number</td>
+<td>An interpolation fraction indicating where, for <code class="docutils literal"><span class="pre">band</span></code> scales, axis ticks should be positioned. A value of <code class="docutils literal"><span class="pre">0</span></code> places ticks at the left edge of their bands. A value of <code class="docutils literal"><span class="pre">0.5</span></code> places ticks in the middle of their bands.</td>
+</tr>
+<tr class="row-odd"><td>domain</td>
+<td>boolean</td>
+<td>A boolean flag indicating if the domain (the axis baseline) should be included as part of the axis.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">true</span></code></td>
+</tr>
+<tr class="row-even"><td>domainColor</td>
+<td>string</td>
+<td>Color of axis domain line.  <strong>Default value:</strong>  (none, using Vega default).</td>
+</tr>
+<tr class="row-odd"><td>domainWidth</td>
+<td>number</td>
+<td>Stroke width of axis domain line  <strong>Default value:</strong>  (none, using Vega default).</td>
+</tr>
+<tr class="row-even"><td>grid</td>
+<td>boolean</td>
+<td>A boolean flag indicating if grid lines should be included as part of the axis  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">true</span></code> for <a class="reference external" href="scale.html#continuous">continuous scales</a> that are not binned; otherwise, <code class="docutils literal"><span class="pre">false</span></code>.</td>
+</tr>
+<tr class="row-odd"><td>gridColor</td>
+<td>string</td>
+<td>Color of gridlines.</td>
+</tr>
+<tr class="row-even"><td>gridDash</td>
+<td>array(number)</td>
+<td>The offset (in pixels) into which to begin drawing with the grid dash array.</td>
+</tr>
+<tr class="row-odd"><td>gridOpacity</td>
+<td>number</td>
+<td>The stroke opacity of grid (value between [0,1])  <strong>Default value:</strong> (<code class="docutils literal"><span class="pre">1</span></code> by default)</td>
+</tr>
+<tr class="row-even"><td>gridWidth</td>
+<td>number</td>
+<td>The grid width, in pixels.</td>
+</tr>
+<tr class="row-odd"><td>labelAngle</td>
+<td>number</td>
+<td>The rotation angle of the axis labels.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">-90</span></code> for nominal and ordinal fields; <code class="docutils literal"><span class="pre">0</span></code> otherwise.</td>
+</tr>
+<tr class="row-even"><td>labelBound</td>
+<td>[boolean, number]</td>
+<td>Indicates if labels should be hidden if they exceed the axis range. If <code class="docutils literal"><span class="pre">false</span></code>(the default) no bounds overlap analysis is performed. If <code class="docutils literal"><span class="pre">true</span></code>, labels will be hidden if they exceed the axis range by more than 1 pixel. If this property is a number, it specifies the pixel tolerance: the maximum amount by which a label bounding box may exceed the axis range.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">false</span></code>.</td>
+</tr>
+<tr class="row-odd"><td>labelColor</td>
+<td>string</td>
+<td>The color of the tick label, can be in hex color code or regular color name.</td>
+</tr>
+<tr class="row-even"><td>labelFlush</td>
+<td>[boolean, number]</td>
+<td>Indicates if the first and last axis labels should be aligned flush with the scale range. Flush alignment for a horizontal axis will left-align the first label and right-align the last label. For vertical axes, bottom and top text baselines are applied instead. If this property is a number, it also indicates the number of pixels by which to offset the first and last labels; for example, a value of 2 will flush-align the first and last labels and also push them 2 pixels outward from the center of the axis. The additional adjustment can sometimes help the labels better visually group with corresponding axis ticks.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">true</span></code> for axis of a continuous x-scale. Otherwise, <code class="docutils literal"><span class="pre">false</span></code>.</td>
+</tr>
+<tr class="row-odd"><td>labelFont</td>
+<td>string</td>
+<td>The font of the tick label.</td>
+</tr>
+<tr class="row-even"><td>labelFontSize</td>
+<td>number</td>
+<td>The font size of the label, in pixels.</td>
+</tr>
+<tr class="row-odd"><td>labelLimit</td>
+<td>number</td>
+<td>Maximum allowed pixel width of axis tick labels.</td>
+</tr>
+<tr class="row-even"><td>labelOverlap</td>
+<td>anyOf(boolean, [‘parity’], [‘greedy’])</td>
+<td>The strategy to use for resolving overlap of axis labels. If <code class="docutils literal"><span class="pre">false</span></code> (the default), no overlap reduction is attempted. If set to <code class="docutils literal"><span class="pre">true</span></code> or <code class="docutils literal"><span class="pre">&quot;parity&quot;</span></code>, a strategy of removing every other label is used (this works well for standard linear axes). If set to <code class="docutils literal"><span class="pre">&quot;greedy&quot;</span></code>, a linear scan of the labels is performed, removing any labels that overlaps with the last visible label (this often works better for log-scaled axes).  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">true</span></code> for non-nominal fields with non-log scales; <code class="docutils literal"><span class="pre">&quot;greedy&quot;</span></code> for log scales; otherwise <code class="docutils literal"><span class="pre">false</span></code>.</td>
+</tr>
+<tr class="row-odd"><td>labelPadding</td>
+<td>number</td>
+<td>The padding, in pixels, between axis and text labels.</td>
+</tr>
+<tr class="row-even"><td>labels</td>
+<td>boolean</td>
+<td>A boolean flag indicating if labels should be included as part of the axis.  <strong>Default value:</strong>  <code class="docutils literal"><span class="pre">true</span></code>.</td>
+</tr>
+<tr class="row-odd"><td>maxExtent</td>
+<td>number</td>
+<td>The maximum extent in pixels that axis ticks and labels should use. This determines a maximum offset value for axis titles.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">undefined</span></code>.</td>
+</tr>
+<tr class="row-even"><td>minExtent</td>
+<td>number</td>
+<td>The minimum extent in pixels that axis ticks and labels should use. This determines a minimum offset value for axis titles.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">30</span></code> for y-axis; <code class="docutils literal"><span class="pre">undefined</span></code> for x-axis.</td>
+</tr>
+<tr class="row-odd"><td>shortTimeLabels</td>
+<td>boolean</td>
+<td>Whether month names and weekday names should be abbreviated.  <strong>Default value:</strong>  <code class="docutils literal"><span class="pre">false</span></code></td>
+</tr>
+<tr class="row-even"><td>tickColor</td>
+<td>string</td>
+<td>The color of the axis’s tick.</td>
+</tr>
+<tr class="row-odd"><td>tickRound</td>
+<td>boolean</td>
+<td>Boolean flag indicating if pixel position values should be rounded to the nearest integer.</td>
+</tr>
+<tr class="row-even"><td>tickSize</td>
+<td>number</td>
+<td>The size in pixels of axis ticks.</td>
+</tr>
+<tr class="row-odd"><td>tickWidth</td>
+<td>number</td>
+<td>The width, in pixels, of ticks.</td>
+</tr>
+<tr class="row-even"><td>ticks</td>
+<td>boolean</td>
+<td>Boolean value that determines whether the axis should include ticks.</td>
+</tr>
+<tr class="row-odd"><td>titleAlign</td>
+<td>string</td>
+<td>Horizontal text alignment of axis titles.</td>
+</tr>
+<tr class="row-even"><td>titleAngle</td>
+<td>number</td>
+<td>Angle in degrees of axis titles.</td>
+</tr>
+<tr class="row-odd"><td>titleBaseline</td>
+<td>string</td>
+<td>Vertical text baseline for axis titles.</td>
+</tr>
+<tr class="row-even"><td>titleColor</td>
+<td>string</td>
+<td>Color of the title, can be in hex color code or regular color name.</td>
+</tr>
+<tr class="row-odd"><td>titleFont</td>
+<td>string</td>
+<td>Font of the title. (e.g., <code class="docutils literal"><span class="pre">&quot;Helvetica</span> <span class="pre">Neue&quot;</span></code>).</td>
+</tr>
+<tr class="row-even"><td>titleFontSize</td>
+<td>number</td>
+<td>Font size of the title.</td>
+</tr>
+<tr class="row-odd"><td>titleFontWeight</td>
+<td><a class="reference internal" href="API.html#altair.FontWeight" title="altair.FontWeight"><code class="xref py py-class docutils literal"><span class="pre">FontWeight</span></code></a></td>
+<td>Font weight of the title. This can be either a string (e.g <code class="docutils literal"><span class="pre">&quot;bold&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;normal&quot;</span></code>) or a number (<code class="docutils literal"><span class="pre">100</span></code>, <code class="docutils literal"><span class="pre">200</span></code>, <code class="docutils literal"><span class="pre">300</span></code>, …, <code class="docutils literal"><span class="pre">900</span></code> where <code class="docutils literal"><span class="pre">&quot;normal&quot;</span></code> = <code class="docutils literal"><span class="pre">400</span></code> and <code class="docutils literal"><span class="pre">&quot;bold&quot;</span></code> = <code class="docutils literal"><span class="pre">700</span></code>).</td>
+</tr>
+<tr class="row-even"><td>titleLimit</td>
+<td>number</td>
+<td>Maximum allowed pixel width of axis titles.</td>
+</tr>
+<tr class="row-odd"><td>titleMaxLength</td>
+<td>number</td>
+<td>Max length for axis title if the title is automatically generated from the field’s description.</td>
+</tr>
+<tr class="row-even"><td>titlePadding</td>
+<td>number</td>
+<td>The padding, in pixels, between title and axis.</td>
+</tr>
+<tr class="row-odd"><td>titleX</td>
+<td>number</td>
+<td>X-coordinate of the axis title relative to the axis group.</td>
+</tr>
+<tr class="row-even"><td>titleY</td>
+<td>number</td>
+<td>Y-coordinate of the axis title relative to the axis group.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="legend-configuration">
+<span id="config-legend"></span><h2>Legend Configuration<a class="headerlink" href="#legend-configuration" title="Permalink to this headline">¶</a></h2>
+<p>Legend properties can be configured using <code class="xref py py-meth docutils literal"><span class="pre">Chart.configure_legend()</span></code>,
+which has the following properties:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="84%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Property</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>cornerRadius</td>
+<td>number</td>
+<td>Corner radius for the full legend.</td>
+</tr>
+<tr class="row-odd"><td>entryPadding</td>
+<td>number</td>
+<td>Padding (in pixels) between legend entries in a symbol legend.</td>
+</tr>
+<tr class="row-even"><td>fillColor</td>
+<td>string</td>
+<td>Background fill color for the full legend.</td>
+</tr>
+<tr class="row-odd"><td>gradientHeight</td>
+<td>number</td>
+<td>The height of the gradient, in pixels.</td>
+</tr>
+<tr class="row-even"><td>gradientLabelBaseline</td>
+<td>string</td>
+<td>Text baseline for color ramp gradient labels.</td>
+</tr>
+<tr class="row-odd"><td>gradientLabelLimit</td>
+<td>number</td>
+<td>The maximum allowed length in pixels of color ramp gradient labels.</td>
+</tr>
+<tr class="row-even"><td>gradientLabelOffset</td>
+<td>number</td>
+<td>Vertical offset in pixels for color ramp gradient labels.</td>
+</tr>
+<tr class="row-odd"><td>gradientStrokeColor</td>
+<td>string</td>
+<td>The color of the gradient stroke, can be in hex color code or regular color name.</td>
+</tr>
+<tr class="row-even"><td>gradientStrokeWidth</td>
+<td>number</td>
+<td>The width of the gradient stroke, in pixels.</td>
+</tr>
+<tr class="row-odd"><td>gradientWidth</td>
+<td>number</td>
+<td>The width of the gradient, in pixels.</td>
+</tr>
+<tr class="row-even"><td>labelAlign</td>
+<td>string</td>
+<td>The alignment of the legend label, can be left, middle or right.</td>
+</tr>
+<tr class="row-odd"><td>labelBaseline</td>
+<td>string</td>
+<td>The position of the baseline of legend label, can be top, middle or bottom.</td>
+</tr>
+<tr class="row-even"><td>labelColor</td>
+<td>string</td>
+<td>The color of the legend label, can be in hex color code or regular color name.</td>
+</tr>
+<tr class="row-odd"><td>labelFont</td>
+<td>string</td>
+<td>The font of the legend label.</td>
+</tr>
+<tr class="row-even"><td>labelFontSize</td>
+<td>number</td>
+<td>The font size of legend label.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">10</span></code>.</td>
+</tr>
+<tr class="row-odd"><td>labelLimit</td>
+<td>number</td>
+<td>Maximum allowed pixel width of axis tick labels.</td>
+</tr>
+<tr class="row-even"><td>labelOffset</td>
+<td>number</td>
+<td>The offset of the legend label.</td>
+</tr>
+<tr class="row-odd"><td>offset</td>
+<td>number</td>
+<td>The offset, in pixels, by which to displace the legend from the edge of the enclosing group or data rectangle.  <strong>Default value:</strong>  <code class="docutils literal"><span class="pre">0</span></code></td>
+</tr>
+<tr class="row-even"><td>orient</td>
+<td><a class="reference internal" href="API.html#altair.LegendOrient" title="altair.LegendOrient"><code class="xref py py-class docutils literal"><span class="pre">LegendOrient</span></code></a></td>
+<td>The orientation of the legend, which determines how the legend is positioned within the scene. One of “left”, “right”, “top-left”, “top-right”, “bottom-left”, “bottom-right”, “none”.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">&quot;right&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>padding</td>
+<td>number</td>
+<td>The padding, in pixels, between the legend and axis.</td>
+</tr>
+<tr class="row-even"><td>shortTimeLabels</td>
+<td>boolean</td>
+<td>Whether month names and weekday names should be abbreviated.  <strong>Default value:</strong>  <code class="docutils literal"><span class="pre">false</span></code></td>
+</tr>
+<tr class="row-odd"><td>strokeColor</td>
+<td>string</td>
+<td>Border stroke color for the full legend.</td>
+</tr>
+<tr class="row-even"><td>strokeDash</td>
+<td>array(number)</td>
+<td>Border stroke dash pattern for the full legend.</td>
+</tr>
+<tr class="row-odd"><td>strokeWidth</td>
+<td>number</td>
+<td>Border stroke width for the full legend.</td>
+</tr>
+<tr class="row-even"><td>symbolColor</td>
+<td>string</td>
+<td>The color of the legend symbol,</td>
+</tr>
+<tr class="row-odd"><td>symbolSize</td>
+<td>number</td>
+<td>The size of the legend symbol, in pixels.</td>
+</tr>
+<tr class="row-even"><td>symbolStrokeWidth</td>
+<td>number</td>
+<td>The width of the symbol’s stroke.</td>
+</tr>
+<tr class="row-odd"><td>symbolType</td>
+<td>string</td>
+<td>Default shape type (such as “circle”) for legend symbols.</td>
+</tr>
+<tr class="row-even"><td>titleAlign</td>
+<td>string</td>
+<td>Horizontal text alignment for legend titles.</td>
+</tr>
+<tr class="row-odd"><td>titleBaseline</td>
+<td>string</td>
+<td>Vertical text baseline for legend titles.</td>
+</tr>
+<tr class="row-even"><td>titleColor</td>
+<td>string</td>
+<td>The color of the legend title, can be in hex color code or regular color name.</td>
+</tr>
+<tr class="row-odd"><td>titleFont</td>
+<td>string</td>
+<td>The font of the legend title.</td>
+</tr>
+<tr class="row-even"><td>titleFontSize</td>
+<td>number</td>
+<td>The font size of the legend title.</td>
+</tr>
+<tr class="row-odd"><td>titleFontWeight</td>
+<td><a class="reference internal" href="API.html#altair.FontWeight" title="altair.FontWeight"><code class="xref py py-class docutils literal"><span class="pre">FontWeight</span></code></a></td>
+<td>The font weight of the legend title. This can be either a string (e.g <code class="docutils literal"><span class="pre">&quot;bold&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;normal&quot;</span></code>) or a number (<code class="docutils literal"><span class="pre">100</span></code>, <code class="docutils literal"><span class="pre">200</span></code>, <code class="docutils literal"><span class="pre">300</span></code>, …, <code class="docutils literal"><span class="pre">900</span></code> where <code class="docutils literal"><span class="pre">&quot;normal&quot;</span></code> = <code class="docutils literal"><span class="pre">400</span></code> and <code class="docutils literal"><span class="pre">&quot;bold&quot;</span></code> = <code class="docutils literal"><span class="pre">700</span></code>).</td>
+</tr>
+<tr class="row-even"><td>titleLimit</td>
+<td>number</td>
+<td>Maximum allowed pixel width of axis titles.</td>
+</tr>
+<tr class="row-odd"><td>titlePadding</td>
+<td>number</td>
+<td>The padding, in pixels, between title and legend.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="mark-and-mark-style-configuration">
+<span id="config-mark"></span><h2>Mark and Mark Style Configuration<a class="headerlink" href="#mark-and-mark-style-configuration" title="Permalink to this headline">¶</a></h2>
+<p>The mark configuration can be set using the <code class="xref py py-meth docutils literal"><span class="pre">Chart.configure_mark()</span></code>
+method, which sets the default properties for all marks in the chart.
+In addition, the config object also provides mark-specific configuration
+using the mark type (e.g. <code class="xref py py-meth docutils literal"><span class="pre">Chart.configure_area()</span></code>) for
+defining default properties for each mark.</p>
+<p>For general configuration of all mark types, use:</p>
+<ul class="simple">
+<li><code class="xref py py-meth docutils literal"><span class="pre">Chart.configure_mark()</span></code></li>
+</ul>
+<p>For configurations specific to particular mark types, use:</p>
+<ul class="simple">
+<li><code class="xref py py-meth docutils literal"><span class="pre">Chart.configure_area()</span></code></li>
+<li><code class="xref py py-meth docutils literal"><span class="pre">Chart.configure_bar()</span></code></li>
+<li><code class="xref py py-meth docutils literal"><span class="pre">Chart.configure_circle()</span></code></li>
+<li><code class="xref py py-meth docutils literal"><span class="pre">Chart.configure_geoshape()</span></code></li>
+<li><code class="xref py py-meth docutils literal"><span class="pre">Chart.configure_line()</span></code></li>
+<li><code class="xref py py-meth docutils literal"><span class="pre">Chart.configure_point()</span></code></li>
+<li><code class="xref py py-meth docutils literal"><span class="pre">Chart.configure_rect()</span></code></li>
+<li><code class="xref py py-meth docutils literal"><span class="pre">Chart.configure_rule()</span></code></li>
+<li><code class="xref py py-meth docutils literal"><span class="pre">Chart.configure_square()</span></code></li>
+<li><code class="xref py py-meth docutils literal"><span class="pre">Chart.configure_text()</span></code></li>
+<li><code class="xref py py-meth docutils literal"><span class="pre">Chart.configure_tick()</span></code></li>
+</ul>
+<p>Each of the above methods accepts the following properties:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="1%" />
+<col width="26%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Property</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>align</td>
+<td><a class="reference internal" href="API.html#altair.HorizontalAlign" title="altair.HorizontalAlign"><code class="xref py py-class docutils literal"><span class="pre">HorizontalAlign</span></code></a></td>
+<td>The horizontal alignment of the text. One of <code class="docutils literal"><span class="pre">&quot;left&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;right&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;center&quot;</span></code>.</td>
+</tr>
+<tr class="row-odd"><td>angle</td>
+<td>number</td>
+<td>The rotation angle of the text, in degrees.</td>
+</tr>
+<tr class="row-even"><td>baseline</td>
+<td><a class="reference internal" href="API.html#altair.VerticalAlign" title="altair.VerticalAlign"><code class="xref py py-class docutils literal"><span class="pre">VerticalAlign</span></code></a></td>
+<td>The vertical alignment of the text. One of <code class="docutils literal"><span class="pre">&quot;top&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;middle&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;bottom&quot;</span></code>.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">&quot;middle&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>color</td>
+<td>string</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>cursor</td>
+<td>[‘auto’, ‘default’, ‘none’, ‘context-menu’, ‘help’, ‘pointer’, ‘progress’, ‘wait’, ‘cell’, ‘crosshair’, ‘text’, ‘vertical-text’, ‘alias’, ‘copy’, ‘move’, ‘no-drop’, ‘not-allowed’, ‘e-resize’, ‘n-resize’, ‘ne-resize’, ‘nw-resize’, ‘s-resize’, ‘se-resize’, ‘sw-resize’, ‘w-resize’, ‘ew-resize’, ‘ns-resize’, ‘nesw-resize’, ‘nwse-resize’, ‘col-resize’, ‘row-resize’, ‘all-scroll’, ‘zoom-in’, ‘zoom-out’, ‘grab’, ‘grabbing’]</td>
+<td>The mouse cursor used over the mark. Any valid <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/CSS/cursor#Values">CSS cursor type</a> can be used.</td>
+</tr>
+<tr class="row-odd"><td>dx</td>
+<td>number</td>
+<td>The horizontal offset, in pixels, between the text label and its anchor point. The offset is applied after rotation by the <em>angle</em> property.</td>
+</tr>
+<tr class="row-even"><td>dy</td>
+<td>number</td>
+<td>The vertical offset, in pixels, between the text label and its anchor point. The offset is applied after rotation by the <em>angle</em> property.</td>
+</tr>
+<tr class="row-odd"><td>fill</td>
+<td>string</td>
+<td>Default Fill Color.  This has higher precedence than config.color  <strong>Default value:</strong> (None)</td>
+</tr>
+<tr class="row-even"><td>fillOpacity</td>
+<td>number</td>
+<td>The fill opacity (value between [0,1]).  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">1</span></code></td>
+</tr>
+<tr class="row-odd"><td>filled</td>
+<td>boolean</td>
+<td>Whether the mark’s color should be used as fill color instead of stroke color.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">true</span></code> for all marks except <code class="docutils literal"><span class="pre">point</span></code> and <code class="docutils literal"><span class="pre">false</span></code> for <code class="docutils literal"><span class="pre">point</span></code>.  <strong>Applicable for:</strong> <code class="docutils literal"><span class="pre">bar</span></code>, <code class="docutils literal"><span class="pre">point</span></code>, <code class="docutils literal"><span class="pre">circle</span></code>, <code class="docutils literal"><span class="pre">square</span></code>, and <code class="docutils literal"><span class="pre">area</span></code> marks.  <strong>Note:</strong> This property cannot be used in a <a class="reference external" href="mark.html#style-config">style config</a>.</td>
+</tr>
+<tr class="row-even"><td>font</td>
+<td>string</td>
+<td>The typeface to set the text in (e.g., <code class="docutils literal"><span class="pre">&quot;Helvetica</span> <span class="pre">Neue&quot;</span></code>).</td>
+</tr>
+<tr class="row-odd"><td>fontSize</td>
+<td>number</td>
+<td>The font size, in pixels.</td>
+</tr>
+<tr class="row-even"><td>fontStyle</td>
+<td><a class="reference internal" href="API.html#altair.FontStyle" title="altair.FontStyle"><code class="xref py py-class docutils literal"><span class="pre">FontStyle</span></code></a></td>
+<td>The font style (e.g., <code class="docutils literal"><span class="pre">&quot;italic&quot;</span></code>).</td>
+</tr>
+<tr class="row-odd"><td>fontWeight</td>
+<td><a class="reference internal" href="API.html#altair.FontWeight" title="altair.FontWeight"><code class="xref py py-class docutils literal"><span class="pre">FontWeight</span></code></a></td>
+<td>The font weight. This can be either a string (e.g <code class="docutils literal"><span class="pre">&quot;bold&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;normal&quot;</span></code>) or a number (<code class="docutils literal"><span class="pre">100</span></code>, <code class="docutils literal"><span class="pre">200</span></code>, <code class="docutils literal"><span class="pre">300</span></code>, …, <code class="docutils literal"><span class="pre">900</span></code> where <code class="docutils literal"><span class="pre">&quot;normal&quot;</span></code> = <code class="docutils literal"><span class="pre">400</span></code> and <code class="docutils literal"><span class="pre">&quot;bold&quot;</span></code> = <code class="docutils literal"><span class="pre">700</span></code>).</td>
+</tr>
+<tr class="row-even"><td>href</td>
+<td>string</td>
+<td>A URL to load upon mouse click. If defined, the mark acts as a hyperlink.</td>
+</tr>
+<tr class="row-odd"><td>interpolate</td>
+<td><a class="reference internal" href="API.html#altair.Interpolate" title="altair.Interpolate"><code class="xref py py-class docutils literal"><span class="pre">Interpolate</span></code></a></td>
+<td>The line interpolation method to use for line and area marks. One of the following:   * <code class="docutils literal"><span class="pre">&quot;linear&quot;</span></code>: piecewise linear segments, as in a polyline. * <code class="docutils literal"><span class="pre">&quot;linear-closed&quot;</span></code>: close the linear segments to form a polygon. * <code class="docutils literal"><span class="pre">&quot;step&quot;</span></code>: alternate between horizontal and vertical segments, as in a step function. * <code class="docutils literal"><span class="pre">&quot;step-before&quot;</span></code>: alternate between vertical and horizontal segments, as in a step function. * <code class="docutils literal"><span class="pre">&quot;step-after&quot;</span></code>: alternate between horizontal and vertical segments, as in a step function. * <code class="docutils literal"><span class="pre">&quot;basis&quot;</span></code>: a B-spline, with control point duplication on the ends. * <code class="docutils literal"><span class="pre">&quot;basis-open&quot;</span></code>: an open B-spline; may not intersect the start or end. * <code class="docutils literal"><span class="pre">&quot;basis-closed&quot;</span></code>: a closed B-spline, as in a loop. * <code class="docutils literal"><span class="pre">&quot;cardinal&quot;</span></code>: a Cardinal spline, with control point duplication on the ends. * <code class="docutils literal"><span class="pre">&quot;cardinal-open&quot;</span></code>: an open Cardinal spline; may not intersect the start or end, but will intersect other control points. * <code class="docutils literal"><span class="pre">&quot;cardinal-closed&quot;</span></code>: a closed Cardinal spline, as in a loop. * <code class="docutils literal"><span class="pre">&quot;bundle&quot;</span></code>: equivalent to basis, except the tension parameter is used to straighten the spline. * <code class="docutils literal"><span class="pre">&quot;monotone&quot;</span></code>: cubic interpolation that preserves monotonicity in y.</td>
+</tr>
+<tr class="row-even"><td>limit</td>
+<td>number</td>
+<td>The maximum length of the text mark in pixels (default 0, indicating no limit). The text value will be automatically truncated if the rendered size exceeds the limit.</td>
+</tr>
+<tr class="row-odd"><td>opacity</td>
+<td>number</td>
+<td>The overall opacity (value between [0,1]).  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">0.7</span></code> for non-aggregate plots with <code class="docutils literal"><span class="pre">point</span></code>, <code class="docutils literal"><span class="pre">tick</span></code>, <code class="docutils literal"><span class="pre">circle</span></code>, or <code class="docutils literal"><span class="pre">square</span></code> marks or layered <code class="docutils literal"><span class="pre">bar</span></code> charts and <code class="docutils literal"><span class="pre">1</span></code> otherwise.</td>
+</tr>
+<tr class="row-even"><td>orient</td>
+<td><a class="reference internal" href="API.html#altair.Orient" title="altair.Orient"><code class="xref py py-class docutils literal"><span class="pre">Orient</span></code></a></td>
+<td>The orientation of a non-stacked bar, tick, area, and line charts. The value is either horizontal (default) or vertical.   * For bar, rule and tick, this determines whether the size of the bar and tick   should be applied to x or y dimension. * For area, this property determines the orient property of the Vega output. * For line, this property determines the sort order of the points in the line   if <code class="docutils literal"><span class="pre">config.sortLineBy</span></code> is not specified.   For stacked charts, this is always determined by the orientation of the stack;   therefore explicitly specified value will be ignored.</td>
+</tr>
+<tr class="row-odd"><td>radius</td>
+<td>number</td>
+<td>Polar coordinate radial offset, in pixels, of the text label from the origin determined by the <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code> properties.</td>
+</tr>
+<tr class="row-even"><td>shape</td>
+<td>string</td>
+<td>The default symbol shape to use. One of: <code class="docutils literal"><span class="pre">&quot;circle&quot;</span></code> (default), <code class="docutils literal"><span class="pre">&quot;square&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;cross&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;diamond&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;triangle-up&quot;</span></code>, or <code class="docutils literal"><span class="pre">&quot;triangle-down&quot;</span></code>, or a custom SVG path.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">&quot;circle&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>size</td>
+<td>number</td>
+<td>The pixel area each the point/circle/square. For example: in the case of circles, the radius is determined in part by the square root of the size value.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">30</span></code></td>
+</tr>
+<tr class="row-even"><td>stroke</td>
+<td>string</td>
+<td>Default Stroke Color.  This has higher precedence than config.color  <strong>Default value:</strong> (None)</td>
+</tr>
+<tr class="row-odd"><td>strokeDash</td>
+<td>array(number)</td>
+<td>An array of alternating stroke, space lengths for creating dashed or dotted lines.</td>
+</tr>
+<tr class="row-even"><td>strokeDashOffset</td>
+<td>number</td>
+<td>The offset (in pixels) into which to begin drawing with the stroke dash array.</td>
+</tr>
+<tr class="row-odd"><td>strokeOpacity</td>
+<td>number</td>
+<td>The stroke opacity (value between [0,1]).  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">1</span></code></td>
+</tr>
+<tr class="row-even"><td>strokeWidth</td>
+<td>number</td>
+<td>The stroke width, in pixels.</td>
+</tr>
+<tr class="row-odd"><td>tension</td>
+<td>number</td>
+<td>Depending on the interpolation type, sets the tension parameter (for line and area marks).</td>
+</tr>
+<tr class="row-even"><td>text</td>
+<td>string</td>
+<td>Placeholder text if the <code class="docutils literal"><span class="pre">text</span></code> channel is not specified</td>
+</tr>
+<tr class="row-odd"><td>theta</td>
+<td>number</td>
+<td>Polar coordinate angle, in radians, of the text label from the origin determined by the <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code> properties. Values for <code class="docutils literal"><span class="pre">theta</span></code> follow the same convention of <code class="docutils literal"><span class="pre">arc</span></code> mark <code class="docutils literal"><span class="pre">startAngle</span></code> and <code class="docutils literal"><span class="pre">endAngle</span></code> properties: angles are measured in radians, with <code class="docutils literal"><span class="pre">0</span></code> indicating “north”.</td>
+</tr>
+</tbody>
+</table>
+<p>In addition to the default mark properties above, default values can be
+further customized using named styles defined as keyword arguments to
+the <code class="xref py py-meth docutils literal"><span class="pre">Chart.configure_style()</span></code> method.
+Styles can then be invoked by including a style property within a mark
+definition object.</p>
+</div>
+<div class="section" id="scale-configuration">
+<span id="config-scale"></span><h2>Scale Configuration<a class="headerlink" href="#scale-configuration" title="Permalink to this headline">¶</a></h2>
+<p>Scales can be configured using <code class="xref py py-meth docutils literal"><span class="pre">Chart.configure_scale()</span></code>, which has
+the following properties:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="3%" />
+<col width="2%" />
+<col width="94%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Property</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>bandPaddingInner</td>
+<td>number</td>
+<td>Default inner padding for <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code> band-ordinal scales.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">0.1</span></code></td>
+</tr>
+<tr class="row-odd"><td>bandPaddingOuter</td>
+<td>number</td>
+<td>Default outer padding for <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code> band-ordinal scales. If not specified, by default, band scale’s paddingOuter is paddingInner/2.</td>
+</tr>
+<tr class="row-even"><td>clamp</td>
+<td>boolean</td>
+<td>If true, values that exceed the data domain are clamped to either the minimum or maximum range value</td>
+</tr>
+<tr class="row-odd"><td>continuousPadding</td>
+<td>number</td>
+<td>Default padding for continuous scales.  <strong>Default:</strong> <code class="docutils literal"><span class="pre">5</span></code> for continuous x-scale of a vertical bar and continuous y-scale of a horizontal bar.; <code class="docutils literal"><span class="pre">0</span></code> otherwise.</td>
+</tr>
+<tr class="row-even"><td>maxBandSize</td>
+<td>number</td>
+<td>The default max value for mapping quantitative fields to bar’s size/bandSize.  If undefined (default), we will use the scale’s <code class="docutils literal"><span class="pre">rangeStep</span></code> - 1.</td>
+</tr>
+<tr class="row-odd"><td>maxFontSize</td>
+<td>number</td>
+<td>The default max value for mapping quantitative fields to text’s size/fontSize.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">40</span></code></td>
+</tr>
+<tr class="row-even"><td>maxOpacity</td>
+<td>number</td>
+<td>Default max opacity for mapping a field to opacity.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">0.8</span></code></td>
+</tr>
+<tr class="row-odd"><td>maxSize</td>
+<td>number</td>
+<td>Default max value for point size scale.</td>
+</tr>
+<tr class="row-even"><td>maxStrokeWidth</td>
+<td>number</td>
+<td>Default max strokeWidth for strokeWidth  (or rule/line’s size) scale.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">4</span></code></td>
+</tr>
+<tr class="row-odd"><td>minBandSize</td>
+<td>number</td>
+<td>The default min value for mapping quantitative fields to bar and tick’s size/bandSize scale with zero=false.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">2</span></code></td>
+</tr>
+<tr class="row-even"><td>minFontSize</td>
+<td>number</td>
+<td>The default min value for mapping quantitative fields to tick’s size/fontSize scale with zero=false  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">8</span></code></td>
+</tr>
+<tr class="row-odd"><td>minOpacity</td>
+<td>number</td>
+<td>Default minimum opacity for mapping a field to opacity.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">0.3</span></code></td>
+</tr>
+<tr class="row-even"><td>minSize</td>
+<td>number</td>
+<td>Default minimum value for point size scale with zero=false.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">9</span></code></td>
+</tr>
+<tr class="row-odd"><td>minStrokeWidth</td>
+<td>number</td>
+<td>Default minimum strokeWidth for strokeWidth (or rule/line’s size) scale with zero=false.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">1</span></code></td>
+</tr>
+<tr class="row-even"><td>pointPadding</td>
+<td>number</td>
+<td>Default outer padding for <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code> point-ordinal scales.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">0.5</span></code></td>
+</tr>
+<tr class="row-odd"><td>rangeStep</td>
+<td>[number, null]</td>
+<td>Default range step for band and point scales of (1) the <code class="docutils literal"><span class="pre">y</span></code> channel and (2) the <code class="docutils literal"><span class="pre">x</span></code> channel when the mark is not <code class="docutils literal"><span class="pre">text</span></code>.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">21</span></code></td>
+</tr>
+<tr class="row-even"><td>round</td>
+<td>boolean</td>
+<td>If true, rounds numeric output values to integers. This can be helpful for snapping to the pixel grid. (Only available for <code class="docutils literal"><span class="pre">x</span></code>, <code class="docutils literal"><span class="pre">y</span></code>, and <code class="docutils literal"><span class="pre">size</span></code> scales.)</td>
+</tr>
+<tr class="row-odd"><td>textXRangeStep</td>
+<td>number</td>
+<td>Default range step for <code class="docutils literal"><span class="pre">x</span></code> band and point scales of text marks.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">90</span></code></td>
+</tr>
+<tr class="row-even"><td>useUnaggregatedDomain</td>
+<td>boolean</td>
+<td>Use the source data range before aggregation as scale domain instead of aggregated data for aggregate axis.  This is equivalent to setting <code class="docutils literal"><span class="pre">domain</span></code> to <code class="docutils literal"><span class="pre">&quot;unaggregate&quot;</span></code> for aggregated <em>quantitative</em> fields by default.  This property only works with aggregate functions that produce values within the raw data domain (<code class="docutils literal"><span class="pre">&quot;mean&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;average&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;median&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;q1&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;q3&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;min&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;max&quot;</span></code>). For other aggregations that produce values outside of the raw data domain (e.g. <code class="docutils literal"><span class="pre">&quot;count&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;sum&quot;</span></code>), this property is ignored.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">false</span></code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="scale-range-configuration">
+<span id="config-range"></span><h2>Scale Range Configuration<a class="headerlink" href="#scale-range-configuration" title="Permalink to this headline">¶</a></h2>
+<p>Scale ranges can be configured using <code class="xref py py-meth docutils literal"><span class="pre">Chart.configure_range()</span></code>, which has
+the following properties:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="9%" />
+<col width="37%" />
+<col width="54%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Property</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>category</td>
+<td>anyOf(array(string), <a class="reference internal" href="API.html#altair.VgScheme" title="altair.VgScheme"><code class="xref py py-class docutils literal"><span class="pre">VgScheme</span></code></a>)</td>
+<td>Default range for <em>nominal</em> (categorical) fields.</td>
+</tr>
+<tr class="row-odd"><td>diverging</td>
+<td>anyOf(array(string), <a class="reference internal" href="API.html#altair.VgScheme" title="altair.VgScheme"><code class="xref py py-class docutils literal"><span class="pre">VgScheme</span></code></a>)</td>
+<td>Default range for diverging <em>quantitative</em> fields.</td>
+</tr>
+<tr class="row-even"><td>heatmap</td>
+<td>anyOf(array(string), <a class="reference internal" href="API.html#altair.VgScheme" title="altair.VgScheme"><code class="xref py py-class docutils literal"><span class="pre">VgScheme</span></code></a>)</td>
+<td>Default range for <em>quantitative</em> heatmaps.</td>
+</tr>
+<tr class="row-odd"><td>ordinal</td>
+<td>anyOf(array(string), <a class="reference internal" href="API.html#altair.VgScheme" title="altair.VgScheme"><code class="xref py py-class docutils literal"><span class="pre">VgScheme</span></code></a>)</td>
+<td>Default range for <em>ordinal</em> fields.</td>
+</tr>
+<tr class="row-even"><td>ramp</td>
+<td>anyOf(array(string), <a class="reference internal" href="API.html#altair.VgScheme" title="altair.VgScheme"><code class="xref py py-class docutils literal"><span class="pre">VgScheme</span></code></a>)</td>
+<td>Default range for <em>quantitative</em> and <em>temporal</em> fields.</td>
+</tr>
+<tr class="row-odd"><td>symbol</td>
+<td>array(string)</td>
+<td>Default range palette for the <code class="docutils literal"><span class="pre">shape</span></code> channel.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="projection-configuration">
+<span id="config-projection"></span><h2>Projection Configuration<a class="headerlink" href="#projection-configuration" title="Permalink to this headline">¶</a></h2>
+<p><code class="xref py py-meth docutils literal"><span class="pre">Chart.configure_projection()</span></code></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="3%" />
+<col width="5%" />
+<col width="92%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Property</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>center</td>
+<td>array(number)</td>
+<td>Sets the projection’s center to the specified center, a two-element array of longitude and latitude in degrees.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">0]</span></code></td>
+</tr>
+<tr class="row-odd"><td>clipAngle</td>
+<td>number</td>
+<td>Sets the projection’s clipping circle radius to the specified angle in degrees. If <code class="docutils literal"><span class="pre">null</span></code>, switches to <a class="reference external" href="http://bl.ocks.org/mbostock/3788999">antimeridian</a> cutting rather than small-circle clipping.</td>
+</tr>
+<tr class="row-even"><td>clipExtent</td>
+<td>array(array(number))</td>
+<td>Sets the projection’s viewport clip extent to the specified bounds in pixels. The extent bounds are specified as an array <code class="docutils literal"><span class="pre">[[x0,</span> <span class="pre">y0],</span> <span class="pre">[x1,</span> <span class="pre">y1]]</span></code>, where <code class="docutils literal"><span class="pre">x0</span></code> is the left-side of the viewport, <code class="docutils literal"><span class="pre">y0</span></code> is the top, <code class="docutils literal"><span class="pre">x1</span></code> is the right and <code class="docutils literal"><span class="pre">y1</span></code> is the bottom. If <code class="docutils literal"><span class="pre">null</span></code>, no viewport clipping is performed.</td>
+</tr>
+<tr class="row-odd"><td>coefficient</td>
+<td>number</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>distance</td>
+<td>number</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>fraction</td>
+<td>number</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>lobes</td>
+<td>number</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>parallel</td>
+<td>number</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>precision</td>
+<td>dict</td>
+<td>Sets the threshold for the projection’s <a class="reference external" href="http://bl.ocks.org/mbostock/3795544">adaptive resampling</a> to the specified value in pixels. This value corresponds to the <a class="reference external" href="http://en.wikipedia.org/wiki/Ramer%E2%80%93Douglas%E2%80%93Peucker_algorithm">Douglas–Peucker distance</a>. If precision is not specified, returns the projection’s current resampling precision which defaults to <code class="docutils literal"><span class="pre">√0.5</span> <span class="pre">≅</span> <span class="pre">0.70710…</span></code>.</td>
+</tr>
+<tr class="row-odd"><td>radius</td>
+<td>number</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>ratio</td>
+<td>number</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>rotate</td>
+<td>array(number)</td>
+<td>Sets the projection’s three-axis rotation to the specified angles, which must be a two- or three-element array of numbers [<code class="docutils literal"><span class="pre">lambda</span></code>, <code class="docutils literal"><span class="pre">phi</span></code>, <code class="docutils literal"><span class="pre">gamma</span></code>] specifying the rotation angles in degrees about each spherical axis. (These correspond to yaw, pitch and roll.)  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></td>
+</tr>
+<tr class="row-even"><td>spacing</td>
+<td>number</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>tilt</td>
+<td>number</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>type</td>
+<td><a class="reference internal" href="API.html#altair.ProjectionType" title="altair.ProjectionType"><code class="xref py py-class docutils literal"><span class="pre">ProjectionType</span></code></a></td>
+<td>The cartographic projection to use. This value is case-insensitive, for example <code class="docutils literal"><span class="pre">&quot;albers&quot;</span></code> and <code class="docutils literal"><span class="pre">&quot;Albers&quot;</span></code> indicate the same projection type. You can find all valid projection types <a class="reference external" href="https://vega.github.io/vega-lite/docs/projection.html#projection-types">in the documentation</a>.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">mercator</span></code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="selection-configuration">
+<span id="config-selection"></span><h2>Selection Configuration<a class="headerlink" href="#selection-configuration" title="Permalink to this headline">¶</a></h2>
+<p><code class="xref py py-meth docutils literal"><span class="pre">Chart.configure_selection()</span></code></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="2%" />
+<col width="8%" />
+<col width="90%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Property</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>interval</td>
+<td><a class="reference internal" href="API.html#altair.IntervalSelectionConfig" title="altair.IntervalSelectionConfig"><code class="xref py py-class docutils literal"><span class="pre">IntervalSelectionConfig</span></code></a></td>
+<td>The default definition for an <cite>``interval`</cite> &lt;selection.html#type&gt;`_ selection. All properties and transformations for an interval selection definition (except <code class="docutils literal"><span class="pre">type</span></code>) may be specified here.  For instance, setting <code class="docutils literal"><span class="pre">interval</span></code> to <code class="docutils literal"><span class="pre">{&quot;translate&quot;:</span> <span class="pre">false}</span></code> disables the ability to move interval selections by default.</td>
+</tr>
+<tr class="row-odd"><td>multi</td>
+<td><a class="reference internal" href="API.html#altair.MultiSelectionConfig" title="altair.MultiSelectionConfig"><code class="xref py py-class docutils literal"><span class="pre">MultiSelectionConfig</span></code></a></td>
+<td>The default definition for a <cite>``multi`</cite> &lt;selection.html#type&gt;`_ selection. All properties and transformations for a multi selection definition (except <code class="docutils literal"><span class="pre">type</span></code>) may be specified here.  For instance, setting <code class="docutils literal"><span class="pre">multi</span></code> to <code class="docutils literal"><span class="pre">{&quot;toggle&quot;:</span> <span class="pre">&quot;event.altKey&quot;}</span></code> adds additional values to multi selections when clicking with the alt-key pressed by default.</td>
+</tr>
+<tr class="row-even"><td>single</td>
+<td><a class="reference internal" href="API.html#altair.SingleSelectionConfig" title="altair.SingleSelectionConfig"><code class="xref py py-class docutils literal"><span class="pre">SingleSelectionConfig</span></code></a></td>
+<td>The default definition for a <cite>``single`</cite> &lt;selection.html#type&gt;`_ selection. All properties and transformations   for a single selection definition (except <code class="docutils literal"><span class="pre">type</span></code>) may be specified here.  For instance, setting <code class="docutils literal"><span class="pre">single</span></code> to <code class="docutils literal"><span class="pre">{&quot;on&quot;:</span> <span class="pre">&quot;dblclick&quot;}</span></code> populates single selections on double-click by default.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="view-configuration">
+<span id="config-view"></span><h2>View Configuration<a class="headerlink" href="#view-configuration" title="Permalink to this headline">¶</a></h2>
+<p><code class="xref py py-meth docutils literal"><span class="pre">Chart.configure_view()</span></code></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="7%" />
+<col width="5%" />
+<col width="88%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Property</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>clip</td>
+<td>boolean</td>
+<td>Whether the view should be clipped.</td>
+</tr>
+<tr class="row-odd"><td>fill</td>
+<td>string</td>
+<td>The fill color.  <strong>Default value:</strong> (none)</td>
+</tr>
+<tr class="row-even"><td>fillOpacity</td>
+<td>number</td>
+<td>The fill opacity (value between [0,1]).  <strong>Default value:</strong> (none)</td>
+</tr>
+<tr class="row-odd"><td>height</td>
+<td>number</td>
+<td>The default height of the single plot or each plot in a trellis plot when the visualization has a continuous (non-ordinal) y-scale with <code class="docutils literal"><span class="pre">rangeStep</span></code> = <code class="docutils literal"><span class="pre">null</span></code>.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">200</span></code></td>
+</tr>
+<tr class="row-even"><td>stroke</td>
+<td>string</td>
+<td>The stroke color.  <strong>Default value:</strong> (none)</td>
+</tr>
+<tr class="row-odd"><td>strokeDash</td>
+<td>array(number)</td>
+<td>An array of alternating stroke, space lengths for creating dashed or dotted lines.  <strong>Default value:</strong> (none)</td>
+</tr>
+<tr class="row-even"><td>strokeDashOffset</td>
+<td>number</td>
+<td>The offset (in pixels) into which to begin drawing with the stroke dash array.  <strong>Default value:</strong> (none)</td>
+</tr>
+<tr class="row-odd"><td>strokeOpacity</td>
+<td>number</td>
+<td>The stroke opacity (value between [0,1]).  <strong>Default value:</strong> (none)</td>
+</tr>
+<tr class="row-even"><td>strokeWidth</td>
+<td>number</td>
+<td>The stroke width, in pixels.  <strong>Default value:</strong> (none)</td>
+</tr>
+<tr class="row-odd"><td>width</td>
+<td>number</td>
+<td>The default width of the single plot or each plot in a trellis plot when the visualization has a continuous (non-ordinal) x-scale or ordinal x-scale with <code class="docutils literal"><span class="pre">rangeStep</span></code> = <code class="docutils literal"><span class="pre">null</span></code>.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">200</span></code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="compound_charts.html" class="btn btn-neutral float-right" title="Compound Charts: Layer, HConcat, VConcat, Repeat, Facet" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="selections.html" class="btn btn-neutral" title="Selections: Building Blocks of Interactions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016-2018, Altair Developers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.0.0rc2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@3.2"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@2.3"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@3"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

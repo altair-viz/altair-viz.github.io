@@ -11,7 +11,6 @@ overlayed on a map.
 
 
 .. altair-plot::
-    :chart-var-name: chart
     :code-below:
 
     
@@ -19,7 +18,7 @@ overlayed on a map.
     import altair as alt
     from vega_datasets import data
     
-    states = alt.topo_feature(data.us_10m.url,'states')
+    states = alt.topo_feature(data.us_10m.url, 'states')
     capitals = data.us_state_capitals.url
     
     # US states background
@@ -54,7 +53,7 @@ overlayed on a map.
         selection=hover
     )
     
-    chart = background + points + text
+    background + points + text
 
 .. toctree::
    :hidden:

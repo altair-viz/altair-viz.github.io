@@ -98,7 +98,7 @@ Order Channels:
 =======  ================  ============================================  =================
 Channel  Altair Class      Description                                   Example
 =======  ================  ============================================  =================
-order    :class:`Order`    --
+order    :class:`Order`    Sets the order of the marks
 =======  ================  ============================================  =================
 
 Facet Channels:
@@ -106,8 +106,8 @@ Facet Channels:
 =======  ================  ============================  ===================================
 Channel  Altair Class      Description                   Example
 =======  ================  ============================  ===================================
-column   :class:`Column`   The column of a faceted plot  
-row      :class:`Row`      The row of a faceted plot     
+column   :class:`Column`   The column of a faceted plot
+row      :class:`Row`      The row of a faceted plot
 =======  ================  ============================  ===================================
 
 
@@ -128,7 +128,12 @@ nominal       ``N``           a discrete unordered category
 temporal      ``T``           a time or date value
 ============  ==============  ================================================
 
-These types can either be expressed in a long-form using the channel encoding
+If types are not specified for data input as a DataFrame, Altair defaults to
+``quantitative`` for any numeric data, ``temporal`` for date/time data, and
+``nominal`` for string data, but be aware that these defaults are by no means
+always the correct choice!
+
+The types can either be expressed in a long-form using the channel encoding
 classes such as :class:`X` and :class:`Y`, or in short-form using the
 :ref:`Shorthand Syntax <shorthand-description>` discussed below.
 For example, the following two methods of specifying the type will lead to
@@ -158,6 +163,11 @@ or more.
 
 Specifying the correct type for your data is important, as it affects the
 way Altair represents your encoding in the resulting plot.
+
+.. _type-legend-scale:
+
+Effect of Data Type on Color Scales
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 As an example of this, here we will represent the same data three different ways,
 with the color encoded as a *quantitative*, *ordinal*, and *nominal* type,
 using three vertically-concatenated charts (see :ref:`vconcat`):
@@ -182,6 +192,57 @@ The type specification influences the way Altair, via Vega-Lite, decides on
 the color scale to represent the value, and influences whether a discrete
 or continuous legend is used.
 
+.. _type-axis-scale:
+
+Effect of Data Type on Axis Scales
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Similarly, for x and y axis encodings, the type used for the data will affect
+the scales used and the characteristics of the mark. For example, here is the
+difference between a ``quantitative`` and ``ordinal`` scale for an column
+that contains integers specifying a year:
+
+.. altair-plot::
+
+    pop = data.population.url
+
+    base = alt.Chart(pop).mark_bar().encode(
+        alt.Y('mean(people):Q', axis=alt.Axis(title='total population'))
+    ).properties(
+        width=200,
+        height=200
+    )
+
+    alt.hconcat(
+        base.encode(x='year:Q').properties(title='year=quantitative'),
+        base.encode(x='year:O').properties(title='year=ordinal')
+    )
+
+In altair, quantitative scales always start at zero unless otherwise
+specified, while ordinal scales are limited to the values within the data.
+
+Overriding the behavior of including zero in the axis, we see that even then
+the precise appearance of the marks representing the data are affected by
+the data type:
+
+.. altair-plot::
+
+    base.encode(
+        alt.X('year:Q',
+            scale=alt.Scale(zero=False)
+        )
+    )
+
+Because quantitative values do not have an inherent width, the bars do not
+fill the entire space between the values.
+This view also makes clear the missing year of data that was not immediately
+apparent when we treated the years as categories.
+
+This kind of behavior is sometimes surprising to new users, but it emphasizes
+the importance of thinking carefully about your data types when visualizing
+data: a visual encoding that is suitable for categorical data may not be
+suitable for quantitative data, and vice versa.
+
+
 .. _encoding-aggregates:
 
 Binning and Aggregation
@@ -203,14 +264,14 @@ In Altair, such an operation looks like this:
 
    alt.Chart(cars).mark_bar().encode(
        alt.X('Horsepower', bin=True),
-       y='count(*):Q'
+       y='count()'
        # could also use alt.Y(aggregate='count', type='quantitative')
    )
 
 Notice here we use the shorthand version of expressing an encoding channel
 (see :ref:`shorthand-description`) with the ``count`` aggregation,
-the special ``*`` wild-card identifier often used with counts,
-and ``Q`` for quantitative type.
+which is the one aggregation that does not require a field to be
+specified.
 
 Similarly, we can create a two-dimensional histogram using, for example, the
 size of points to indicate counts within the grid (sometimes called
@@ -221,7 +282,7 @@ a "Bubble Plot"):
    alt.Chart(cars).mark_point().encode(
        alt.X('Horsepower', bin=True),
        alt.Y('Miles_per_Gallon', bin=True),
-       size='count(*):Q',
+       size='count()',
    )
 
 There is no need, however, to limit aggregations to counts alone. For example,
@@ -233,7 +294,7 @@ represents the mean of a third quantity, such as acceleration:
    alt.Chart(cars).mark_circle().encode(
        alt.X('Horsepower', bin=True),
        alt.Y('Miles_per_Gallon', bin=True),
-       size='count(*):Q',
+       size='count()',
        color='average(Acceleration):Q'
    )
 
@@ -287,5 +348,83 @@ Shorthand            Equivalent long-form
 ``x='name:Q'``       ``alt.X('name', type='quantitative')``
 ``x='sum(name)'``    ``alt.X('name', aggregate='sum')``
 ``x='sum(name):Q'``  ``alt.X('name', aggregate='sum', type='quantitative')``
-``x='sum(*):Q'``     ``alt.X(aggregate='sum', type='quantitative')``
+``x='count():Q'``    ``alt.X(aggregate='count', type='quantitative')``
 ===================  =======================================================
+
+
+.. _ordering-channels:
+
+Ordering marks
+~~~~~~~~~~~~~~
+
+The `order` option and :class:`Order` channel can sort how marks are drawn on the chart.
+
+For stacked marks, this controls the order of components of the stack. Here, the elements of each bar are sorted alphabetically by the name of the nominal data in the color channel.
+
+.. altair-plot::
+
+    import altair as alt
+    from vega_datasets import data
+
+    barley = data.barley()
+
+    alt.Chart(barley).mark_bar().encode(
+        x='variety:N',
+        y='sum(yield):Q',
+        color='site:N',
+        order=alt.Order("site", sort="ascending")
+    )
+
+The order can be reversed by changing the sort option to `descending`.
+
+.. altair-plot::
+
+    import altair as alt
+    from vega_datasets import data
+
+    barley = data.barley()
+
+    alt.Chart(barley).mark_bar().encode(
+        x='variety:N',
+        y='sum(yield):Q',
+        color='site:N',
+        order=alt.Order("site", sort="descending")
+    )
+
+The same approach works for other mark types, like stacked areas charts.
+
+.. altair-plot::
+
+    import altair as alt
+    from vega_datasets import data
+
+    barley = data.barley()
+
+    alt.Chart(barley).mark_area().encode(
+        x='variety:N',
+        y='sum(yield):Q',
+        color='site:N',
+        order=alt.Order("site", sort="ascending")
+    )
+
+For line marks, the `order` channel encodes the order in which data points are connected. This can be useful for creating a scatterplot that draws lines between the dots using a different field than the x and y axes.
+
+.. altair-plot::
+
+    import altair as alt
+    from vega_datasets import data
+
+    driving = data.driving()
+
+    points = alt.Chart(driving).mark_circle().encode(
+        alt.X('miles', scale=alt.Scale(zero=False)),
+        alt.Y('gas', scale=alt.Scale(zero=False))
+    )
+
+    lines = alt.Chart(driving).mark_line().encode(
+        alt.X('miles', scale=alt.Scale(zero=False)),
+        alt.Y('gas', scale=alt.Scale(zero=False)),
+        order='year'
+    )
+
+    points + lines

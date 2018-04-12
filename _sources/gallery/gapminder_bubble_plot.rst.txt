@@ -12,7 +12,6 @@ in Lisa Charlotte Rost's blog post ('One Chart, Twelve Charting Libraries')[http
 
 
 .. altair-plot::
-    :chart-var-name: chart
     :code-below:
 
     
@@ -22,7 +21,7 @@ in Lisa Charlotte Rost's blog post ('One Chart, Twelve Charting Libraries')[http
     
     gapminder = data.gapminder_health_income.url
     
-    chart = alt.Chart(gapminder).mark_circle().encode(
+    alt.Chart(gapminder).mark_circle().encode(
         alt.X('income:Q', scale=alt.Scale(type='log')),
         alt.Y('health:Q', scale=alt.Scale(zero=False)),
         size='population:Q'

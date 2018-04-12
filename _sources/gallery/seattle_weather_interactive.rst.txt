@@ -12,7 +12,6 @@ see the distribution of weather types in a particular date range.
 
 
 .. altair-plot::
-    :chart-var-name: chart
     :code-below:
 
     
@@ -49,7 +48,7 @@ see the distribution of weather types in a particular date range.
     
     # Bottom panel is a bar chart of weather type
     bars = alt.Chart().mark_bar().encode(
-        x='count(*):Q',
+        x='count()',
         y='weather:N',
         color=alt.condition(click, color, alt.value('lightgray')),
     ).transform_filter(
@@ -59,7 +58,7 @@ see the distribution of weather types in a particular date range.
         selection=click
     )
     
-    chart = alt.vconcat(points, bars,
+    alt.vconcat(points, bars,
         data=data.seattle_weather.url,
         title="Seattle Weather: 2012-2015"
     )

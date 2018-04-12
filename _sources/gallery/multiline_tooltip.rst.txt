@@ -4,14 +4,13 @@
 .. _gallery_multiline_tooltip:
 
 
-Multi-Lite Tooltip
+Multi-Line Tooltip
 ==================
 This example shows how you can use selections and layers to create a multi-line tooltip
 that tracks the x position of the cursor.
 
 
 .. altair-plot::
-    :chart-var-name: chart
     :code-below:
 
     
@@ -63,8 +62,8 @@ that tracks the x position of the cursor.
     )
     
     # Put the five layers into a chart and bind the data
-    chart = alt.layer(line, selectors, points, rules, text,
-                      data=data, width=600, height=300)
+    alt.layer(line, selectors, points, rules, text,
+              data=data, width=600, height=300)
 
 .. toctree::
    :hidden:

@@ -12,7 +12,6 @@ value within the selected interval.
 
 
 .. altair-plot::
-    :chart-var-name: chart
     :code-below:
 
     
@@ -36,7 +35,7 @@ value within the selected interval.
         size=alt.SizeValue(3)
     ).transform_filter(brush.ref())
     
-    chart = alt.layer(bars + line, data=weather)
+    alt.layer(bars, line, data=weather)
 
 .. toctree::
    :hidden:

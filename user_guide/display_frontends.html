@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Displaying Charts &mdash; Altair 2.0.0rc1 documentation</title>
+  <title>Displaying Charts in Various Frontends &mdash; Altair 2.0.0rc2 documentation</title>
   
 
   
@@ -45,9 +45,9 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Altair 2.0.0rc1 documentation" href="../index.html"/>
-        <link rel="next" title="Specifying Data in Altair" href="data.html"/>
-        <link rel="prev" title="Importing Altair" href="importing.html"/> 
+    <link rel="top" title="Altair 2.0.0rc2 documentation" href="../index.html"/>
+        <link rel="next" title="Customizing Renderers" href="custom_renderers.html"/>
+        <link rel="prev" title="Importing Vega &amp; Vega-Lite Versions" href="importing.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -79,7 +79,7 @@
             
             
               <div class="version">
-                2.0.0rc1
+                2.0.0rc2
               </div>
             
           
@@ -109,47 +109,50 @@
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/starting.html">Basic Statistical Visualization</a></li>
 </ul>
+<p class="caption"><span class="caption-text">Gallery</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Example Gallery</a></li>
+</ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="importing.html">Importing Altair</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Displaying Charts</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#vega-lite-vega-versions">Vega-Lite/Vega versions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#renderers">Renderers</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#renderer-api">Renderer API</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#jupyter-notebook">Jupyter Notebook</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#jupyterlab">JupyterLab</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#jupyterlab-0-31">JupyterLab 0.31</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#jupyterlab-0-32-and-later">JupyterLab 0.32 and later</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#nteract">nteract</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#data-transformers">Data transformers</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#built-in-data-transformers">Built-in data transformers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#piping">Piping</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#managing-data-transformers">Managing data transformers</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="renderers.html">Altair Renderers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data.html">Specifying Data in Altair</a></li>
 <li class="toctree-l1"><a class="reference internal" href="encoding.html">Encodings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="marks.html">Marks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="config.html">Configuring Visualizations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transform.html">Data Transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="selections.html">Selections: Building Blocks of Interactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Top-Level Chart Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="saving_charts.html">Saving Altair Charts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuring Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Display Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="API.html">API Reference</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Case Studies</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../case_studies/exploring-weather.html">Exploring Seattle Weather</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Gallery</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Example Gallery</a></li>
+<p class="caption"><span class="caption-text">Advanced Usage</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="importing.html">Importing Vega &amp; Vega-Lite Versions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Displaying Charts in Various Frontends</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#vega-lite-vega-versions">Vega-Lite/Vega versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#renderers">Renderers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#renderer-api">Renderer API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#displaying-in-the-jupyter-notebook">Displaying in the Jupyter Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#displaying-in-jupyterlab">Displaying in JupyterLab</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#jupyterlab-0-31">JupyterLab 0.31</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#jupyterlab-0-32-and-later">JupyterLab 0.32 and later</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#displaying-in-nteract">Displaying in nteract</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#displaying-in-colab">Displaying in Colab</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="custom_renderers.html">Customizing Renderers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_transformers.html">Data transformers</a></li>
 </ul>
 
             
@@ -194,13 +197,13 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Displaying Charts</li>
+      <li>Displaying Charts in Various Frontends</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/user_guide/display.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/user_guide/display_frontends.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -213,17 +216,18 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="displaying-charts">
-<span id="id1"></span><h1>Displaying Charts<a class="headerlink" href="#displaying-charts" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="displaying-charts-in-various-frontends">
+<span id="displaying-charts"></span><h1>Displaying Charts in Various Frontends<a class="headerlink" href="#displaying-charts-in-various-frontends" title="Permalink to this headline">¶</a></h1>
 <p>Altair provides a high-level API for creating visualizations that are
 encoded as declarative JSON objects. To display a visualization, those JSON
-objects must be diplayed using the <a class="reference external" href="http://vega.github.io/vega-lite">Vega-Lite</a> and <a class="reference external" href="https://vega.github.io/vega/">Vega</a> JavaScript packages.
+objects must be displayed using the <a class="reference external" href="http://vega.github.io/vega-lite">Vega-Lite</a> and <a class="reference external" href="https://vega.github.io/vega/">Vega</a> JavaScript packages.
 This step of displaying a Vega-Lite or Vega JSON object is encoding in a renderer
 abstraction. This section of the documentation describes renderers and how you
 can use them to display Altair visualizations.</p>
 <p>You may need to install an additional Python/npm package to display Altair
 charts for a given frontend user-interface. See instructions for:
-<a class="reference internal" href="#display-notebook"><span class="std std-ref">Jupyter Notebook</span></a>, <a class="reference internal" href="#display-jupyterlab"><span class="std std-ref">JupyterLab</span></a> and <a class="reference internal" href="#display-nteract"><span class="std std-ref">nteract</span></a>.</p>
+<a class="reference internal" href="#display-notebook"><span class="std std-ref">Displaying in the Jupyter Notebook</span></a>, <a class="reference internal" href="#display-jupyterlab"><span class="std std-ref">Displaying in JupyterLab</span></a>, <a class="reference internal" href="#display-nteract"><span class="std std-ref">Displaying in nteract</span></a>
+and <a class="reference internal" href="#display-colab"><span class="std std-ref">Displaying in Colab</span></a>.</p>
 <div class="section" id="vega-lite-vega-versions">
 <span id="altair-vega-versions"></span><h2>Vega-Lite/Vega versions<a class="headerlink" href="#vega-lite-vega-versions" title="Permalink to this headline">¶</a></h2>
 <p>As of version 2.0, Altair includes support for multiple version of both
@@ -236,7 +240,7 @@ the newest available versions (Vega-Lite 2.X and Vega 3.X).</p>
 <span class="go">&#39;v2.3.0&#39;</span>
 </pre></div>
 </div>
-<p>If you wish to use an older version of these libraries, see <a class="reference internal" href="importing.html#importing"><span class="std std-ref">Importing Altair</span></a>
+<p>If you wish to use an older version of these libraries, see <a class="reference internal" href="importing.html#importing"><span class="std std-ref">Importing Vega &amp; Vega-Lite Versions</span></a>
 for more information. We strongly recommend all users transition to
 Vega-Lite 2.x and Vega 3.x. These versions support many new features, are more
 stable, and Altair 2.0 works best with them.</p>
@@ -244,21 +248,22 @@ stable, and Altair 2.0 works best with them.</p>
 installed that works with the appropriate version.</p>
 </div>
 <div class="section" id="renderers">
-<span id="id2"></span><h2>Renderers<a class="headerlink" href="#renderers" title="Permalink to this headline">¶</a></h2>
+<span id="id1"></span><h2>Renderers<a class="headerlink" href="#renderers" title="Permalink to this headline">¶</a></h2>
 <p>Altair displays visualizations using renderers. There are two aspects of renderers:</p>
 <ul class="simple">
 <li>The Python side <a class="reference internal" href="#renderer-api"><span class="std std-ref">Renderer API</span></a> that sends display data to various frontend
 user-interfaces.</li>
-<li>Frontend user-interfaces that interpret that display data and render a visualiztion.
+<li>Frontend user-interfaces that interpret that display data and render a visualization.
 See relevant instructions for:<ul>
-<li><a class="reference internal" href="#display-notebook"><span class="std std-ref">Jupyter Notebook</span></a></li>
-<li><a class="reference internal" href="#display-jupyterlab"><span class="std std-ref">JupyterLab</span></a></li>
-<li><a class="reference internal" href="#display-nteract"><span class="std std-ref">nteract</span></a></li>
+<li><a class="reference internal" href="#display-notebook"><span class="std std-ref">Displaying in the Jupyter Notebook</span></a></li>
+<li><a class="reference internal" href="#display-jupyterlab"><span class="std std-ref">Displaying in JupyterLab</span></a></li>
+<li><a class="reference internal" href="#display-nteract"><span class="std std-ref">Displaying in nteract</span></a></li>
+<li><a class="reference internal" href="#display-colab"><span class="std std-ref">Displaying in Colab</span></a></li>
 </ul>
 </li>
 </ul>
 <div class="section" id="renderer-api">
-<span id="id3"></span><h3>Renderer API<a class="headerlink" href="#renderer-api" title="Permalink to this headline">¶</a></h3>
+<span id="id2"></span><h3>Renderer API<a class="headerlink" href="#renderer-api" title="Permalink to this headline">¶</a></h3>
 <p>In Altair, a renderer is any function that accepts a Vega-Lite or Vega
 visualization specification as a Python <code class="docutils literal"><span class="pre">dict</span></code>, and returns a Python <code class="docutils literal"><span class="pre">dict</span></code>
 in Jupyter’s <a class="reference external" href="https://jupyter-client.readthedocs.io/en/stable/messaging.html#display-data">MIME Bundle format</a>.
@@ -316,18 +321,13 @@ in JupyterLab/nteract:</p>
 <p>Renderers can also be registered using the <a class="reference external" href="https://github.com/takluyver/entrypoints">entrypoints</a> API of Python packages.
 For an example, see <a class="reference external" href="https://github.com/vega/ipyvega/tree/vega3">ipyvega3</a>.</p>
 <p>This same <code class="docutils literal"><span class="pre">renderer</span></code> objects exists separately on all of the Python APIs
-for Vega-Lite/Vega described in <a class="reference internal" href="importing.html#importing"><span class="std std-ref">Importing Altair</span></a>.</p>
+for Vega-Lite/Vega described in <a class="reference internal" href="importing.html#importing"><span class="std std-ref">Importing Vega &amp; Vega-Lite Versions</span></a>.</p>
 </div>
-<div class="section" id="jupyter-notebook">
-<span id="display-notebook"></span><h3>Jupyter Notebook<a class="headerlink" href="#jupyter-notebook" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="displaying-in-the-jupyter-notebook">
+<span id="display-notebook"></span><h3>Displaying in the Jupyter Notebook<a class="headerlink" href="#displaying-in-the-jupyter-notebook" title="Permalink to this headline">¶</a></h3>
 <p>To render Vega-Lite 2.x or Vega 3.x in the Jupyter Notebook (as mentioned above
 we recommend these versions), you will need to install and enable the
 <a class="reference external" href="https://github.com/vega/ipyvega/tree/vega3">ipyvega3</a> Python package using conda:</p>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">conda installation is not yet available for vega3.
-Please install vega3 with pip.</p>
-</div>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ conda install vega3 --channel conda-forge
 </pre></div>
 </div>
@@ -351,8 +351,8 @@ $ jupyter nbextension install --sys-prefix --py vega <span class="c1"># not need
 </pre></div>
 </div>
 </div>
-<div class="section" id="jupyterlab">
-<span id="display-jupyterlab"></span><h3>JupyterLab<a class="headerlink" href="#jupyterlab" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="displaying-in-jupyterlab">
+<span id="display-jupyterlab"></span><h3>Displaying in JupyterLab<a class="headerlink" href="#displaying-in-jupyterlab" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="jupyterlab-0-31">
 <h4>JupyterLab 0.31<a class="headerlink" href="#jupyterlab-0-31" title="Permalink to this headline">¶</a></h4>
 <p>Version 0.31 of JupyterLab includes built-in support for VegaLite 1.x and Vega
@@ -361,8 +361,9 @@ $ jupyter nbextension install --sys-prefix --py vega <span class="c1"># not need
 </pre></div>
 </div>
 <p>To add support for Vega-Lite 2.x and Vega 3.x install the following JupyterLab
-extension:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">jupyter</span> <span class="n">labextension</span> <span class="n">install</span> <span class="nd">@jupyterlab</span><span class="o">/</span><span class="n">vega3</span><span class="o">-</span><span class="n">extension</span>
+extension (which requires nodejs):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">nodejs</span>  <span class="c1"># if you do not already have nodejs installed</span>
+<span class="n">jupyter</span> <span class="n">labextension</span> <span class="n">install</span> <span class="nd">@jupyterlab</span><span class="o">/</span><span class="n">vega3</span><span class="o">-</span><span class="n">extension</span>
 </pre></div>
 </div>
 <p>and then import Altair as:</p>
@@ -377,118 +378,31 @@ Vega 3.x. These will work out of the box with Altair imported as:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
 </pre></div>
 </div>
-<p>An extension is available with the older Vega-Lite 1.x and Vega 2.x renderers:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">jupyter</span> <span class="n">labextension</span> <span class="n">install</span> <span class="nd">@jupyterlab</span><span class="o">/</span><span class="n">vega2</span><span class="o">-</span><span class="n">extension</span>
+<p>An extension is available with the older Vega-Lite 1.x and Vega 2.x renderers
+(labextension install requires nodejs):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">nodejs</span>  <span class="c1"># if you do not already have nodejs installed</span>
+<span class="n">jupyter</span> <span class="n">labextension</span> <span class="n">install</span> <span class="nd">@jupyterlab</span><span class="o">/</span><span class="n">vega2</span><span class="o">-</span><span class="n">extension</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="section" id="nteract">
-<span id="display-nteract"></span><h3>nteract<a class="headerlink" href="#nteract" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="displaying-in-nteract">
+<span id="display-nteract"></span><h3>Displaying in nteract<a class="headerlink" href="#displaying-in-nteract" title="Permalink to this headline">¶</a></h3>
 <p>nteract will render Vega-Lite 1.x and Vega out of the box. Support for Vega-Lite 2.x
 and Vega 3.x will likely be released soon.</p>
 </div>
-</div>
-<div class="section" id="data-transformers">
-<span id="id4"></span><h2>Data transformers<a class="headerlink" href="#data-transformers" title="Permalink to this headline">¶</a></h2>
-<p>Before a Vega-Lite or Vega specification can be passed to a renderer, it typically
-has to be transformed in a number of ways:</p>
-<ul class="simple">
-<li>Pandas Dataframe has to be sanitized and serialized to JSON.</li>
-<li>The rows of a Dataframe might need to be sampled or limited to a maximum number.</li>
-<li>The Dataframe might be written to a <code class="docutils literal"><span class="pre">.csv</span></code> of <code class="docutils literal"><span class="pre">.json</span></code> file for performance
-reasons.</li>
-</ul>
-<p>These data transformations are managed by the data transformation API of Altair.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">The data transformation API of Altair should not be confused with the <code class="docutils literal"><span class="pre">transform</span></code>
-API of Vega and Vega-Lite.</p>
-</div>
-<p>A data transformer is a Python function that takes a Vega-Lite data <code class="docutils literal"><span class="pre">dict</span></code> or
-Pandas <code class="docutils literal"><span class="pre">DataFrame</span></code> and returns a transformed version of either of these types:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="k">import</span> <span class="n">Union</span>
-<span class="n">Data</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]</span>
-
-<span class="k">def</span> <span class="nf">data_transformer</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">Data</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Data</span><span class="p">:</span>
-    <span class="c1"># Transform and return the data</span>
-    <span class="k">return</span> <span class="n">transformed_data</span>
+<div class="section" id="displaying-in-colab">
+<span id="display-colab"></span><h3>Displaying in Colab<a class="headerlink" href="#displaying-in-colab" title="Permalink to this headline">¶</a></h3>
+<p>Google’s Colab is a cloud-based notebook backed by Google Drive. Altair works
+with the public version of Colab once the package is installed and <code class="docutils literal"><span class="pre">'colab'</span></code>
+renderer is enabled.</p>
+<p>At the top of your Colab session, run the following:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>!pip install altair==2.0.0rc2
+import altair as alt
+alt.renderers.enable(&#39;colab&#39;)
 </pre></div>
 </div>
-<div class="section" id="built-in-data-transformers">
-<h3>Built-in data transformers<a class="headerlink" href="#built-in-data-transformers" title="Permalink to this headline">¶</a></h3>
-<p>Altair includes a default set of data transformers with the following signatures.</p>
-<p>Raise a <code class="docutils literal"><span class="pre">MaxRowsError</span></code> if a Dataframe has more than <code class="docutils literal"><span class="pre">max_rows</span></code> rows:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">limit_rows</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">max_rows</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Randomly sample a DataFrame (without replacement) before visualizing:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sample</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">frac</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Convert a Dataframe to a separate <code class="docutils literal"><span class="pre">.json</span></code> file before visualization:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">to_json</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;altair-data&#39;</span><span class="p">,</span> <span class="n">base_url</span><span class="o">=</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="n">nbserver_cwd</span><span class="o">=</span><span class="s1">&#39;~&#39;</span><span class="p">):</span>
-</pre></div>
-</div>
-<p>Convert a Dataframe to a separate <code class="docutils literal"><span class="pre">.csv</span></code> file before visualiztion:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">to_csv</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;altair-data&#39;</span><span class="p">,</span> <span class="n">base_url</span><span class="o">=</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="n">nbserver_cwd</span><span class="o">=</span><span class="s1">&#39;~&#39;</span><span class="p">):</span>
-</pre></div>
-</div>
-<p>Convert a Dataframe to inline JSON values before visualization:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">to_values</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="piping">
-<h3>Piping<a class="headerlink" href="#piping" title="Permalink to this headline">¶</a></h3>
-<p>Multiple data transformers can be piped together using <code class="docutils literal"><span class="pre">pipe</span></code>:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">altair</span> <span class="k">import</span> <span class="n">pipe</span><span class="p">,</span> <span class="n">limit_rows</span><span class="p">,</span> <span class="n">to_values</span>
-<span class="n">pipe</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">limit_rows</span><span class="p">(</span><span class="mi">10000</span><span class="p">),</span> <span class="n">to_values</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="managing-data-transformers">
-<h3>Managing data transformers<a class="headerlink" href="#managing-data-transformers" title="Permalink to this headline">¶</a></h3>
-<p>Altair maintains a registry of data transformers, which includes a default
-data transformer that is automatically applied to all Dataframes before rendering.</p>
-<p>To see the registered transformers:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">alt</span><span class="o">.</span><span class="n">data_transformers</span><span class="o">.</span><span class="n">names</span><span class="p">()</span>
-<span class="go">[&#39;default&#39;, &#39;json&#39;, &#39;csv&#39;]</span>
-</pre></div>
-</div>
-<p>The default data transformer is the following:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">default_data_transformer</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">pipe</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">limit_rows</span><span class="p">,</span> <span class="n">to_values</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>The <code class="docutils literal"><span class="pre">json</span></code> and <code class="docutils literal"><span class="pre">csv</span></code> data transformers will save a Dataframe to a temporary
-<code class="docutils literal"><span class="pre">.json</span></code> or <code class="docutils literal"><span class="pre">.csv</span></code> file before rendering. There are a number of performance
-advantages to these two data transformers:</p>
-<ul class="simple">
-<li>The full dataset will not be saved in the notebook document.</li>
-<li>The performance of the Vega-Lite/Vega JavaScript appears to be better
-for standalone JSON/CSV files than for inline values.</li>
-</ul>
-<p>There is are disadvantages of the JSON/CSV data transformers:</p>
-<ul class="simple">
-<li>The Dataframe will be exported to a temporary <code class="docutils literal"><span class="pre">.json</span></code> or <code class="docutils literal"><span class="pre">.csv</span></code>
-file that sits next to the notebook.</li>
-<li>That notebook will not be able to re-render the visualization without
-that temporary file (or re-running the cell).</li>
-</ul>
-<p>In our experience, the performance improvement is significant enough that
-we recommend using the <code class="docutils literal"><span class="pre">json</span></code> data transformer for any large datasets:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">data_transformers</span><span class="o">.</span><span class="n">enable</span><span class="p">(</span><span class="s1">&#39;json&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>We hope that others will write additional data transformers - imagine a
-transformer which saves the dataset to a JSON file on S3, which could
-be registered and enabled as:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">data_transformers</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">data</span><span class="p">:</span> <span class="n">pipe</span><span class="p">(</span><span class="n">sample</span><span class="p">,</span> <span class="n">to_s3</span><span class="p">(</span><span class="s1">&#39;mybucket&#39;</span><span class="p">)))</span>
-<span class="n">alt</span><span class="o">.</span><span class="n">data_transformers</span><span class="o">.</span><span class="n">enable</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
+<p>And then you can create Altair plots normally within the notebook.</p>
 </div>
 </div>
 </div>
@@ -503,10 +417,10 @@ be registered and enabled as:</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="data.html" class="btn btn-neutral float-right" title="Specifying Data in Altair" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="custom_renderers.html" class="btn btn-neutral float-right" title="Customizing Renderers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="importing.html" class="btn btn-neutral" title="Importing Altair" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="importing.html" class="btn btn-neutral" title="Importing Vega &amp; Vega-Lite Versions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -537,7 +451,7 @@ be registered and enabled as:</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.0.0rc1',
+            VERSION:'2.0.0rc2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

@@ -10,7 +10,6 @@ This example shows a geographical plot with one dot per zipcode.
 
 
 .. altair-plot::
-    :chart-var-name: chart
     :code-below:
 
     
@@ -21,7 +20,7 @@ This example shows a geographical plot with one dot per zipcode.
     
     zipcodes = data.zipcodes.url
     
-    chart = alt.Chart(zipcodes).mark_circle(size = 3).encode(
+    alt.Chart(zipcodes).mark_circle(size=3).encode(
         longitude='longitude:Q',
         latitude='latitude:Q',
         color='digit:N'

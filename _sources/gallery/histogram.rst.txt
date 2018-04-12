@@ -11,7 +11,6 @@ https://vega.github.io/vega-lite/examples/histogram.html
 
 
 .. altair-plot::
-    :chart-var-name: chart
     :code-below:
 
     
@@ -21,9 +20,9 @@ https://vega.github.io/vega-lite/examples/histogram.html
     
     movies = data.movies.url
     
-    chart = alt.Chart(movies).mark_bar().encode(
+    alt.Chart(movies).mark_bar().encode(
         alt.X("IMDB_Rating:Q", bin=True),
-        y='count(*):Q',
+        y='count()',
     )
 
 .. toctree::

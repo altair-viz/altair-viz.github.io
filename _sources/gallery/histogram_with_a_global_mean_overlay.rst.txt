@@ -10,7 +10,6 @@ This example shows a histogram with a global mean overlay.
 
 
 .. altair-plot::
-    :chart-var-name: chart
     :code-below:
 
     
@@ -21,7 +20,7 @@ This example shows a histogram with a global mean overlay.
     
     bar = alt.Chart(source).mark_bar().encode(
         alt.X('IMDB_Rating:Q', bin=True, axis=None),
-        alt.Y('count(*):Q')
+        alt.Y('count()')
     )
     
     rule = alt.Chart(source).mark_rule(color='red').encode(
@@ -29,7 +28,7 @@ This example shows a histogram with a global mean overlay.
         size=alt.value(5)
     )
     
-    chart = bar + rule
+    bar + rule
 
 .. toctree::
    :hidden:

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Data Transformations &mdash; Altair 2.0.0rc1 documentation</title>
+  <title>Data Transformations &mdash; Altair 2.0.0rc2 documentation</title>
   
 
   
@@ -45,9 +45,9 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Altair 2.0.0rc1 documentation" href="../index.html"/>
+    <link rel="top" title="Altair 2.0.0rc2 documentation" href="../index.html"/>
         <link rel="next" title="Selections: Building Blocks of Interactions" href="selections.html"/>
-        <link rel="prev" title="Configuring Visualizations" href="config.html"/> 
+        <link rel="prev" title="Marks" href="marks.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -79,7 +79,7 @@
             
             
               <div class="version">
-                2.0.0rc1
+                2.0.0rc2
               </div>
             
           
@@ -109,30 +109,58 @@
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/starting.html">Basic Statistical Visualization</a></li>
 </ul>
+<p class="caption"><span class="caption-text">Gallery</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Example Gallery</a></li>
+</ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="importing.html">Importing Altair</a></li>
-<li class="toctree-l1"><a class="reference internal" href="display.html">Displaying Charts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="renderers.html">Altair Renderers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data.html">Specifying Data in Altair</a></li>
 <li class="toctree-l1"><a class="reference internal" href="encoding.html">Encodings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="marks.html">Marks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="config.html">Configuring Visualizations</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Data Transformations</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#altair-expressions">Altair Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#aggregate-transforms">Aggregate Transforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bin-transforms">Bin transforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#calculate-transform">Calculate Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#filter-transform">Filter Transform</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#filter-expression">Filter Expression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#field-predicates">Field Predicates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#selection-predicates">Selection Predicates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#logical-operands">Logical Operands</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#lookup-transform">Lookup Transform</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#combining-datasets-with-pandas-merge">Combining Datasets with pandas.merge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#combining-datasets-with-a-lookup-transform">Combining Datasets with a Lookup Transform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-lookup-transforms-for-geographical-visualization">Example: Lookup Transforms for Geographical Visualization</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#timeunit-transform">TimeUnit Transform</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#timeunit-within-encoding">TimeUnit Within Encoding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timeunit-as-a-transform">TimeUnit as a Transform</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="selections.html">Selections: Building Blocks of Interactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Top-Level Chart Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="saving_charts.html">Saving Altair Charts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuring Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Display Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="API.html">API Reference</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Case Studies</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../case_studies/exploring-weather.html">Exploring Seattle Weather</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Gallery</span></p>
+<p class="caption"><span class="caption-text">Advanced Usage</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Example Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="importing.html">Importing Vega &amp; Vega-Lite Versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="display_frontends.html">Displaying Charts in Various Frontends</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_renderers.html">Customizing Renderers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_transformers.html">Data transformers</a></li>
 </ul>
 
             
@@ -212,8 +240,9 @@ available data manipulations.</p>
 for example, a URL pointer to a JSON or CSV file. It can also be useful in a
 compound chart where different views of the dataset require different
 transformations.</p>
-<p>This second approach – specifying data transformations within the chart itself
-– can be accomplished using the <code class="docutils literal"><span class="pre">transform_*</span></code> methods of top-level objects:</p>
+<p>This second approach – specifying data transformations within the chart
+specification itself – can be accomplished using the <code class="docutils literal"><span class="pre">transform_*</span></code>
+methods of top-level objects:</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="34%" />
@@ -249,28 +278,881 @@ transformations.</p>
 </tbody>
 </table>
 <p>We will see some examples of these transforms in the following sections.</p>
-<div class="section" id="altair-expressions">
-<span id="user-guide-expressions"></span><h2>Altair Expressions<a class="headerlink" href="#altair-expressions" title="Permalink to this headline">¶</a></h2>
-<p>Transformation expressions in Vega-Lite are specified as strings of javascript
-code, with a well-defined set of functions and constants available
-(see Vega’s <a class="reference external" href="https://github.com/vega/vega/wiki/Expressions">Expression Documentation</a>).
-For convenience when when working from Python, Altair provides an API
-in the <code class="xref py py-mod docutils literal"><span class="pre">altair.expr</span></code> module to allow users to build these expressions
-more idiomatically within Python.</p>
-<p>So, for example, if you want to perform the following data filtration:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">chart</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span><span class="s2">&quot;datum.y &lt; sin(datum.t + PI)&quot;</span><span class="p">)</span>
+<div class="section" id="aggregate-transforms">
+<span id="user-guide-aggregate-transform"></span><h2>Aggregate Transforms<a class="headerlink" href="#aggregate-transforms" title="Permalink to this headline">¶</a></h2>
+<p>There are two ways to aggregate data within Altair: within the encoding itself,
+or using a top level aggregate transform.</p>
+<p>The aggregate property of a field definition can be used to compute aggregate
+summary statistics (e.g., median, min, max) over groups of data.</p>
+<p>If at least one fields in the specified encoding channels contain aggregate,
+the resulting visualization will show aggregate data. In this case, all
+fields without aggregation function specified are treated as group-by fields
+in the aggregation process.</p>
+<p>For example, the following bar chart aggregates mean of <code class="docutils literal"><span class="pre">acceleration</span></code>,
+grouped by the number of Cylinders.</p>
+<div class="highlight-python" id="transform-rst-altair-source-0"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+
+<span class="n">cars</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">cars</span><span class="o">.</span><span class="n">url</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">cars</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Cylinders:O&#39;</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;mean(Acceleration):Q&#39;</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
 </div>
-<p>You can instead write the following:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">altair.expr</span> <span class="kn">import</span> <span class="n">datum</span><span class="p">,</span> <span class="n">sin</span><span class="p">,</span> <span class="n">PI</span>
-<span class="n">chart</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span><span class="n">datum</span><span class="o">.</span><span class="n">y</span> <span class="o">&lt;</span> <span class="n">sin</span><span class="p">(</span><span class="n">datum</span><span class="o">.</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="n">PI</span><span class="p">)</span>
+
+<div id="transform-rst-altair-plot-0">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "aggregate": "mean", "field": "Acceleration"}, "y": {"type": "ordinal", "field": "Cylinders"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#transform-rst-altair-plot-0', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "aggregate": "mean", "field": "Acceleration"}, "y": {"type": "ordinal", "field": "Cylinders"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"}).catch(console.err);
+  });
+</script>
+</div><p>The Altair shorthand string:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># ...</span>
+<span class="n">y</span><span class="o">=</span><span class="s1">&#39;mean(acceleration):Q&#39;</span><span class="p">,</span>
+<span class="c1"># ...</span>
 </pre></div>
 </div>
-<p>This approach has the benefit that syntax errors in the formula will be caught
-in Python rather than in the chart renderer; you can also use Jupyter
-tab-completion on the <code class="xref py py-mod docutils literal"><span class="pre">expr</span></code> module to see what functions and constants
-are available.</p>
-<p><em>TODO: section detailing each type of transform</em></p>
+<p>is made available for convenience, and is equivalent to the longer form:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># ...</span>
+<span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="n">field</span><span class="o">=</span><span class="s1">&#39;acceleration&#39;</span><span class="p">,</span> <span class="n">aggregate</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;quantitative&#39;</span><span class="p">),</span>
+<span class="c1"># ...</span>
+</pre></div>
+</div>
+<p>For more information on shorthand encodings specifications, see
+<a class="reference internal" href="encoding.html#encoding-aggregates"><span class="std std-ref">Binning and Aggregation</span></a>.</p>
+<p>The same plot can be shown using an explicitly computed aggregation, using the
+<code class="xref py py-meth docutils literal"><span class="pre">transform_aggregate()</span></code> method:</p>
+<div class="highlight-python" id="transform-rst-altair-source-1"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">cars</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Cylinders:O&#39;</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;mean_acc:Q&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_aggregate</span><span class="p">(</span>
+    <span class="n">mean_acc</span><span class="o">=</span><span class="s1">&#39;mean(Acceleration)&#39;</span><span class="p">,</span>
+    <span class="n">groupby</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Cylinders&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="transform-rst-altair-plot-1">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "field": "mean_acc"}, "y": {"type": "ordinal", "field": "Cylinders"}}, "transform": [{"aggregate": [{"field": "Acceleration", "op": "mean", "as": "mean_acc"}], "groupby": ["Cylinders"]}], "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#transform-rst-altair-plot-1', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "field": "mean_acc"}, "y": {"type": "ordinal", "field": "Cylinders"}}, "transform": [{"aggregate": [{"field": "Acceleration", "op": "mean", "as": "mean_acc"}], "groupby": ["Cylinders"]}], "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"}).catch(console.err);
+  });
+</script>
+</div><p>For a list of available aggregates, see <a class="reference internal" href="encoding.html#encoding-aggregates"><span class="std std-ref">Binning and Aggregation</span></a>.</p>
+</div>
+<div class="section" id="bin-transforms">
+<span id="user-guide-bin-transform"></span><h2>Bin transforms<a class="headerlink" href="#bin-transforms" title="Permalink to this headline">¶</a></h2>
+<p>As with <a class="reference internal" href="#user-guide-aggregate-transform"><span class="std std-ref">Aggregate Transforms</span></a>, there are two ways to apply
+a bin transform in Altair: within the encoding itself, or using a top-level
+bin transform.</p>
+<p>An common application of a bin transform is when creating a histogram:</p>
+<div class="highlight-python" id="transform-rst-altair-source-2"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+
+<span class="n">movies</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">movies</span><span class="o">.</span><span class="n">url</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">movies</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;IMDB_Rating:Q&quot;</span><span class="p">,</span> <span class="nb">bin</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;count()&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="transform-rst-altair-plot-2">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/movies.json"}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "bin": true, "field": "IMDB_Rating"}, "y": {"type": "quantitative", "aggregate": "count"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#transform-rst-altair-plot-2', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/movies.json"}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "bin": true, "field": "IMDB_Rating"}, "y": {"type": "quantitative", "aggregate": "count"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"}).catch(console.err);
+  });
+</script>
+</div><p>But a bin transform can be useful in other applications; for example, here we
+bin a continuous field to create a discrete color map:</p>
+<div class="highlight-python" id="transform-rst-altair-source-3"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+
+<span class="n">cars</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">cars</span><span class="o">.</span><span class="n">url</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">cars</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Horsepower:Q&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Miles_per_Gallon:Q&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;Acceleration:Q&#39;</span><span class="p">,</span> <span class="nb">bin</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Bin</span><span class="p">(</span><span class="n">maxbins</span><span class="o">=</span><span class="mi">5</span><span class="p">))</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="transform-rst-altair-plot-3">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"type": "quantitative", "bin": {"maxbins": 5}, "field": "Acceleration"}, "x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#transform-rst-altair-plot-3', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"type": "quantitative", "bin": {"maxbins": 5}, "field": "Acceleration"}, "x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"}).catch(console.err);
+  });
+</script>
+</div><p>In the first case we set <code class="docutils literal"><span class="pre">bin</span> <span class="pre">=</span> <span class="pre">True</span></code>, which uses the default bin settings.
+In the second case, we exercise more fine-tuned control over the bin parameters
+by passing a <a class="reference internal" href="API.html#altair.Bin" title="altair.Bin"><code class="xref py py-class docutils literal"><span class="pre">Bin</span></code></a> object.</p>
+<p>If you are using the same binnings in multiple chart components, it can be useful
+to instead define the binning at the top level, using <code class="xref py py-meth docutils literal"><span class="pre">transform_bin()</span></code>
+method.</p>
+<p>Here is the above histogram created using a top-level bin transform:</p>
+<div class="highlight-python" id="transform-rst-altair-source-4"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+
+<span class="n">movies</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">movies</span><span class="o">.</span><span class="n">url</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">movies</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;binned_rating:O&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;count()&#39;</span><span class="p">,</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_bin</span><span class="p">(</span>
+    <span class="s1">&#39;binned_rating&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;IMDB_Rating&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="transform-rst-altair-plot-4">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/movies.json"}, "mark": "bar", "encoding": {"x": {"type": "ordinal", "field": "binned_rating"}, "y": {"type": "quantitative", "aggregate": "count"}}, "transform": [{"bin": true, "field": "IMDB_Rating", "as": "binned_rating"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#transform-rst-altair-plot-4', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/movies.json"}, "mark": "bar", "encoding": {"x": {"type": "ordinal", "field": "binned_rating"}, "y": {"type": "quantitative", "aggregate": "count"}}, "transform": [{"bin": true, "field": "IMDB_Rating", "as": "binned_rating"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"}).catch(console.err);
+  });
+</script>
+</div><p>And here is the transformed color scale using a top-level bin transform:</p>
+<div class="highlight-python" id="transform-rst-altair-source-5"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+
+<span class="n">cars</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">cars</span><span class="o">.</span><span class="n">url</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">cars</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Horsepower:Q&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Miles_per_Gallon:Q&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;binned_acc:O&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_bin</span><span class="p">(</span>
+    <span class="s1">&#39;binned_acc&#39;</span><span class="p">,</span> <span class="s1">&#39;Acceleration&#39;</span><span class="p">,</span> <span class="nb">bin</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Bin</span><span class="p">(</span><span class="n">maxbins</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="transform-rst-altair-plot-5">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"type": "ordinal", "field": "binned_acc"}, "x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "transform": [{"bin": {"maxbins": 5}, "field": "Acceleration", "as": "binned_acc"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#transform-rst-altair-plot-5', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"type": "ordinal", "field": "binned_acc"}, "x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "transform": [{"bin": {"maxbins": 5}, "field": "Acceleration", "as": "binned_acc"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"}).catch(console.err);
+  });
+</script>
+</div><p>The advantage of the top-level transform is that the same named field can be
+used in multiple places in the chart if desired.
+Note the slight difference in binning behavior between the encoding-based binnings
+(which preserve the range of the bins) and the transform-based binnings (which
+collapse each bin to a single representative value.</p>
+</div>
+<div class="section" id="calculate-transform">
+<span id="user-guide-calculate-transform"></span><h2>Calculate Transform<a class="headerlink" href="#calculate-transform" title="Permalink to this headline">¶</a></h2>
+<p>The calculate transform allows the user to define new fields in the dataset
+which are calculated from other fields using an expression syntax.</p>
+<p>As a simple example, here we take data with a simple input sequence, and compute
+a some trigonometric quantities:</p>
+<div class="highlight-python" id="transform-rst-altair-source-6"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;t&#39;</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">101</span><span class="p">)})</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;x:Q&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y:Q&#39;</span><span class="p">,</span>
+    <span class="n">order</span><span class="o">=</span><span class="s1">&#39;t:Q&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_calculate</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;cos(datum.t * PI / 50)&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;sin(datum.t * PI / 25)&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="transform-rst-altair-plot-6">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"values": [{"t": 0}, {"t": 1}, {"t": 2}, {"t": 3}, {"t": 4}, {"t": 5}, {"t": 6}, {"t": 7}, {"t": 8}, {"t": 9}, {"t": 10}, {"t": 11}, {"t": 12}, {"t": 13}, {"t": 14}, {"t": 15}, {"t": 16}, {"t": 17}, {"t": 18}, {"t": 19}, {"t": 20}, {"t": 21}, {"t": 22}, {"t": 23}, {"t": 24}, {"t": 25}, {"t": 26}, {"t": 27}, {"t": 28}, {"t": 29}, {"t": 30}, {"t": 31}, {"t": 32}, {"t": 33}, {"t": 34}, {"t": 35}, {"t": 36}, {"t": 37}, {"t": 38}, {"t": 39}, {"t": 40}, {"t": 41}, {"t": 42}, {"t": 43}, {"t": 44}, {"t": 45}, {"t": 46}, {"t": 47}, {"t": 48}, {"t": 49}, {"t": 50}, {"t": 51}, {"t": 52}, {"t": 53}, {"t": 54}, {"t": 55}, {"t": 56}, {"t": 57}, {"t": 58}, {"t": 59}, {"t": 60}, {"t": 61}, {"t": 62}, {"t": 63}, {"t": 64}, {"t": 65}, {"t": 66}, {"t": 67}, {"t": 68}, {"t": 69}, {"t": 70}, {"t": 71}, {"t": 72}, {"t": 73}, {"t": 74}, {"t": 75}, {"t": 76}, {"t": 77}, {"t": 78}, {"t": 79}, {"t": 80}, {"t": 81}, {"t": 82}, {"t": 83}, {"t": 84}, {"t": 85}, {"t": 86}, {"t": 87}, {"t": 88}, {"t": 89}, {"t": 90}, {"t": 91}, {"t": 92}, {"t": 93}, {"t": 94}, {"t": 95}, {"t": 96}, {"t": 97}, {"t": 98}, {"t": 99}, {"t": 100}]}, "mark": "line", "encoding": {"order": {"type": "quantitative", "field": "t"}, "x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "y"}}, "transform": [{"calculate": "cos(datum.t * PI / 50)", "as": "x"}, {"calculate": "sin(datum.t * PI / 25)", "as": "y"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#transform-rst-altair-plot-6', {"config": {"view": {"width": 400, "height": 300}}, "data": {"values": [{"t": 0}, {"t": 1}, {"t": 2}, {"t": 3}, {"t": 4}, {"t": 5}, {"t": 6}, {"t": 7}, {"t": 8}, {"t": 9}, {"t": 10}, {"t": 11}, {"t": 12}, {"t": 13}, {"t": 14}, {"t": 15}, {"t": 16}, {"t": 17}, {"t": 18}, {"t": 19}, {"t": 20}, {"t": 21}, {"t": 22}, {"t": 23}, {"t": 24}, {"t": 25}, {"t": 26}, {"t": 27}, {"t": 28}, {"t": 29}, {"t": 30}, {"t": 31}, {"t": 32}, {"t": 33}, {"t": 34}, {"t": 35}, {"t": 36}, {"t": 37}, {"t": 38}, {"t": 39}, {"t": 40}, {"t": 41}, {"t": 42}, {"t": 43}, {"t": 44}, {"t": 45}, {"t": 46}, {"t": 47}, {"t": 48}, {"t": 49}, {"t": 50}, {"t": 51}, {"t": 52}, {"t": 53}, {"t": 54}, {"t": 55}, {"t": 56}, {"t": 57}, {"t": 58}, {"t": 59}, {"t": 60}, {"t": 61}, {"t": 62}, {"t": 63}, {"t": 64}, {"t": 65}, {"t": 66}, {"t": 67}, {"t": 68}, {"t": 69}, {"t": 70}, {"t": 71}, {"t": 72}, {"t": 73}, {"t": 74}, {"t": 75}, {"t": 76}, {"t": 77}, {"t": 78}, {"t": 79}, {"t": 80}, {"t": 81}, {"t": 82}, {"t": 83}, {"t": 84}, {"t": 85}, {"t": 86}, {"t": 87}, {"t": 88}, {"t": 89}, {"t": 90}, {"t": 91}, {"t": 92}, {"t": 93}, {"t": 94}, {"t": 95}, {"t": 96}, {"t": 97}, {"t": 98}, {"t": 99}, {"t": 100}]}, "mark": "line", "encoding": {"order": {"type": "quantitative", "field": "t"}, "x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "y"}}, "transform": [{"calculate": "cos(datum.t * PI / 50)", "as": "x"}, {"calculate": "sin(datum.t * PI / 25)", "as": "y"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"}).catch(console.err);
+  });
+</script>
+</div><p>Each argument within <code class="docutils literal"><span class="pre">transform_calculate</span></code> is a <a class="reference external" href="https://vega.github.io/vega/docs/expressions/">Vega expression</a> string,
+which is a well-defined set of javascript-style operations that can be used
+to calculate a new field from an existing one.</p>
+<p>To streamline building these vega expressions in Python, Altair provides the
+<a class="reference internal" href="API.html#module-altair.expr" title="altair.expr"><code class="xref py py-mod docutils literal"><span class="pre">altair.expr</span></code></a> module which provides constants and functions to allow
+these expressions to be constructed with Python syntax; for example:</p>
+<div class="highlight-python" id="transform-rst-altair-source-7"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">altair</span> <span class="kn">import</span> <span class="n">expr</span><span class="p">,</span> <span class="n">datum</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;x:Q&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y:Q&#39;</span><span class="p">,</span>
+    <span class="n">order</span><span class="o">=</span><span class="s1">&#39;t:Q&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_calculate</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">expr</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">datum</span><span class="o">.</span><span class="n">t</span> <span class="o">*</span> <span class="n">expr</span><span class="o">.</span><span class="n">PI</span> <span class="o">/</span> <span class="mi">50</span><span class="p">),</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">expr</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">datum</span><span class="o">.</span><span class="n">t</span> <span class="o">*</span> <span class="n">expr</span><span class="o">.</span><span class="n">PI</span> <span class="o">/</span> <span class="mi">25</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="transform-rst-altair-plot-7">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"values": [{"t": 0}, {"t": 1}, {"t": 2}, {"t": 3}, {"t": 4}, {"t": 5}, {"t": 6}, {"t": 7}, {"t": 8}, {"t": 9}, {"t": 10}, {"t": 11}, {"t": 12}, {"t": 13}, {"t": 14}, {"t": 15}, {"t": 16}, {"t": 17}, {"t": 18}, {"t": 19}, {"t": 20}, {"t": 21}, {"t": 22}, {"t": 23}, {"t": 24}, {"t": 25}, {"t": 26}, {"t": 27}, {"t": 28}, {"t": 29}, {"t": 30}, {"t": 31}, {"t": 32}, {"t": 33}, {"t": 34}, {"t": 35}, {"t": 36}, {"t": 37}, {"t": 38}, {"t": 39}, {"t": 40}, {"t": 41}, {"t": 42}, {"t": 43}, {"t": 44}, {"t": 45}, {"t": 46}, {"t": 47}, {"t": 48}, {"t": 49}, {"t": 50}, {"t": 51}, {"t": 52}, {"t": 53}, {"t": 54}, {"t": 55}, {"t": 56}, {"t": 57}, {"t": 58}, {"t": 59}, {"t": 60}, {"t": 61}, {"t": 62}, {"t": 63}, {"t": 64}, {"t": 65}, {"t": 66}, {"t": 67}, {"t": 68}, {"t": 69}, {"t": 70}, {"t": 71}, {"t": 72}, {"t": 73}, {"t": 74}, {"t": 75}, {"t": 76}, {"t": 77}, {"t": 78}, {"t": 79}, {"t": 80}, {"t": 81}, {"t": 82}, {"t": 83}, {"t": 84}, {"t": 85}, {"t": 86}, {"t": 87}, {"t": 88}, {"t": 89}, {"t": 90}, {"t": 91}, {"t": 92}, {"t": 93}, {"t": 94}, {"t": 95}, {"t": 96}, {"t": 97}, {"t": 98}, {"t": 99}, {"t": 100}]}, "mark": "line", "encoding": {"order": {"type": "quantitative", "field": "t"}, "x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "y"}}, "transform": [{"calculate": "cos(((datum.t * PI) / 50))", "as": "x"}, {"calculate": "sin(((datum.t * PI) / 25))", "as": "y"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#transform-rst-altair-plot-7', {"config": {"view": {"width": 400, "height": 300}}, "data": {"values": [{"t": 0}, {"t": 1}, {"t": 2}, {"t": 3}, {"t": 4}, {"t": 5}, {"t": 6}, {"t": 7}, {"t": 8}, {"t": 9}, {"t": 10}, {"t": 11}, {"t": 12}, {"t": 13}, {"t": 14}, {"t": 15}, {"t": 16}, {"t": 17}, {"t": 18}, {"t": 19}, {"t": 20}, {"t": 21}, {"t": 22}, {"t": 23}, {"t": 24}, {"t": 25}, {"t": 26}, {"t": 27}, {"t": 28}, {"t": 29}, {"t": 30}, {"t": 31}, {"t": 32}, {"t": 33}, {"t": 34}, {"t": 35}, {"t": 36}, {"t": 37}, {"t": 38}, {"t": 39}, {"t": 40}, {"t": 41}, {"t": 42}, {"t": 43}, {"t": 44}, {"t": 45}, {"t": 46}, {"t": 47}, {"t": 48}, {"t": 49}, {"t": 50}, {"t": 51}, {"t": 52}, {"t": 53}, {"t": 54}, {"t": 55}, {"t": 56}, {"t": 57}, {"t": 58}, {"t": 59}, {"t": 60}, {"t": 61}, {"t": 62}, {"t": 63}, {"t": 64}, {"t": 65}, {"t": 66}, {"t": 67}, {"t": 68}, {"t": 69}, {"t": 70}, {"t": 71}, {"t": 72}, {"t": 73}, {"t": 74}, {"t": 75}, {"t": 76}, {"t": 77}, {"t": 78}, {"t": 79}, {"t": 80}, {"t": 81}, {"t": 82}, {"t": 83}, {"t": 84}, {"t": 85}, {"t": 86}, {"t": 87}, {"t": 88}, {"t": 89}, {"t": 90}, {"t": 91}, {"t": 92}, {"t": 93}, {"t": 94}, {"t": 95}, {"t": 96}, {"t": 97}, {"t": 98}, {"t": 99}, {"t": 100}]}, "mark": "line", "encoding": {"order": {"type": "quantitative", "field": "t"}, "x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "y"}}, "transform": [{"calculate": "cos(((datum.t * PI) / 50))", "as": "x"}, {"calculate": "sin(((datum.t * PI) / 25))", "as": "y"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"}).catch(console.err);
+  });
+</script>
+</div><p>Altair expressions are designed to output valid Vega expressions. The benefit of
+using them is that proper syntax is ensured by the Python interpreter, and tab
+completion of the <code class="xref py py-mod docutils literal"><span class="pre">expr</span></code> submodule can be used to explore the
+available functions and constants.</p>
+<p>These expressions can also be used when constructing a
+<a class="reference internal" href="#user-guide-filter-transform"><span class="std std-ref">Filter Transform</span></a>, as we shall see next.</p>
+</div>
+<div class="section" id="filter-transform">
+<span id="user-guide-filter-transform"></span><h2>Filter Transform<a class="headerlink" href="#filter-transform" title="Permalink to this headline">¶</a></h2>
+<p>The filter transform removes objects from a data stream based on a provided
+filter expression, selection, or other filter predicate. A filter can be
+added at the top level of a chart using the <code class="xref py py-meth docutils literal"><span class="pre">Chart.transform_filter()</span></code>
+method. The argument to <code class="docutils literal"><span class="pre">transform_filter</span></code> can be one of a number of
+expressions and objects:</p>
+<ol class="arabic simple">
+<li>A <a class="reference external" href="https://vega.github.io/vega/docs/expressions/">Vega expression</a> expressed as a string or built using the <code class="xref py py-mod docutils literal"><span class="pre">expr</span></code> module</li>
+<li>A Field predicate, such as <a class="reference internal" href="API.html#altair.FieldOneOfPredicate" title="altair.FieldOneOfPredicate"><code class="xref py py-class docutils literal"><span class="pre">FieldOneOfPredicate</span></code></a>,
+<a class="reference internal" href="API.html#altair.FieldRangePredicate" title="altair.FieldRangePredicate"><code class="xref py py-class docutils literal"><span class="pre">FieldRangePredicate</span></code></a>, or <a class="reference internal" href="API.html#altair.FieldEqualPredicate" title="altair.FieldEqualPredicate"><code class="xref py py-class docutils literal"><span class="pre">FieldEqualPredicate</span></code></a></li>
+<li>A Selection predicate or object created by <a class="reference internal" href="API.html#altair.selection" title="altair.selection"><code class="xref py py-func docutils literal"><span class="pre">selection()</span></code></a></li>
+<li>A Logical operand that combines any of the above</li>
+</ol>
+<p>We’ll show a brief example of each of these in the following sections</p>
+<div class="section" id="filter-expression">
+<h3>Filter Expression<a class="headerlink" href="#filter-expression" title="Permalink to this headline">¶</a></h3>
+<p>A filter expression uses the <a class="reference external" href="https://vega.github.io/vega/docs/expressions/">Vega expression</a> language, either specified
+directly as a string, or built using the <code class="xref py py-mod docutils literal"><span class="pre">expr</span></code> module.
+This can be useful when, for example, selecting only a subset of data.</p>
+<p>For example:</p>
+<div class="highlight-python" id="transform-rst-altair-source-8"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">altair</span> <span class="kn">import</span> <span class="n">datum</span>
+
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+<span class="n">pop</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">population</span><span class="o">.</span><span class="n">url</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">pop</span><span class="p">)</span><span class="o">.</span><span class="n">mark_area</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;age:O&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;people:Q&#39;</span><span class="p">,</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span>
+    <span class="p">(</span><span class="n">datum</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2000</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">datum</span><span class="o">.</span><span class="n">sex</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="transform-rst-altair-plot-8">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "area", "encoding": {"x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "field": "people"}}, "transform": [{"filter": "((datum.year === 2000) && (datum.sex === 1))"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#transform-rst-altair-plot-8', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "area", "encoding": {"x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "field": "people"}}, "transform": [{"filter": "((datum.year === 2000) && (datum.sex === 1))"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"}).catch(console.err);
+  });
+</script>
+</div><p>Notice that, like in the <a class="reference internal" href="#user-guide-filter-transform"><span class="std std-ref">Filter Transform</span></a>, data values are
+referenced via the name <code class="docutils literal"><span class="pre">datum</span></code>.</p>
+</div>
+<div class="section" id="field-predicates">
+<h3>Field Predicates<a class="headerlink" href="#field-predicates" title="Permalink to this headline">¶</a></h3>
+<p>Field predicates overlap somewhat in function with expression predicates, but
+have the advantage that their contents are validated by the schema. Examples
+are:</p>
+<ul class="simple">
+<li><a class="reference internal" href="API.html#altair.FieldEqualPredicate" title="altair.FieldEqualPredicate"><code class="xref py py-class docutils literal"><span class="pre">FieldEqualPredicate</span></code></a> evaluates whether a field is equal to
+a particular value</li>
+<li><a class="reference internal" href="API.html#altair.FieldOneOfPredicate" title="altair.FieldOneOfPredicate"><code class="xref py py-class docutils literal"><span class="pre">FieldOneOfPredicate</span></code></a> evaluates whether a field is among a list of
+specified values.</li>
+<li><a class="reference internal" href="API.html#altair.FieldRangePredicate" title="altair.FieldRangePredicate"><code class="xref py py-class docutils literal"><span class="pre">FieldRangePredicate</span></code></a> evaluates whether a continuous field is within
+a range of values.</li>
+</ul>
+<p>Here is an examaple of a <a class="reference internal" href="API.html#altair.FieldEqualPredicate" title="altair.FieldEqualPredicate"><code class="xref py py-class docutils literal"><span class="pre">FieldEqualPredicate</span></code></a> used to select just the
+values from year 2000 as in the above chart:</p>
+<div class="highlight-python" id="transform-rst-altair-source-9"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+<span class="n">pop</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">population</span><span class="o">.</span><span class="n">url</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">pop</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;age:O&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;sum(people):Q&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;year:O&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">FieldEqualPredicate</span><span class="p">(</span><span class="n">field</span><span class="o">=</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="n">equal</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="transform-rst-altair-plot-9">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "transform": [{"filter": {"equal": 2000, "field": "year"}}], "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#transform-rst-altair-plot-9', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "transform": [{"filter": {"equal": 2000, "field": "year"}}], "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"}).catch(console.err);
+  });
+</script>
+</div><p>A <a class="reference internal" href="API.html#altair.FieldOneOfPredicate" title="altair.FieldOneOfPredicate"><code class="xref py py-class docutils literal"><span class="pre">FieldOneOfPredicate</span></code></a> is similar, but allows selection of any number
+of specific values:</p>
+<div class="highlight-python" id="transform-rst-altair-source-10"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+<span class="n">pop</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">population</span><span class="o">.</span><span class="n">url</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">pop</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;age:O&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;sum(people):Q&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;year:O&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">FieldOneOfPredicate</span><span class="p">(</span><span class="n">field</span><span class="o">=</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="n">oneOf</span><span class="o">=</span><span class="p">[</span><span class="mi">1900</span><span class="p">,</span> <span class="mi">1950</span><span class="p">,</span> <span class="mi">2000</span><span class="p">])</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="transform-rst-altair-plot-10">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "transform": [{"filter": {"field": "year", "oneOf": [1900, 1950, 2000]}}], "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#transform-rst-altair-plot-10', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "transform": [{"filter": {"field": "year", "oneOf": [1900, 1950, 2000]}}], "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"}).catch(console.err);
+  });
+</script>
+</div><p>Finally, a <a class="reference internal" href="API.html#altair.FieldRangePredicate" title="altair.FieldRangePredicate"><code class="xref py py-meth docutils literal"><span class="pre">FieldRangePredicate()</span></code></a> allows selecting values within a
+particular continuous range:</p>
+<div class="highlight-python" id="transform-rst-altair-source-11"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+<span class="n">pop</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">population</span><span class="o">.</span><span class="n">url</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">pop</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;age:O&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;sum(people):Q&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;year:O&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">FieldRangePredicate</span><span class="p">(</span><span class="n">field</span><span class="o">=</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="mi">1960</span><span class="p">,</span> <span class="mi">2000</span><span class="p">])</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="transform-rst-altair-plot-11">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "transform": [{"filter": {"field": "year", "range": [1960, 2000]}}], "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#transform-rst-altair-plot-11', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "transform": [{"filter": {"field": "year", "range": [1960, 2000]}}], "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"}).catch(console.err);
+  });
+</script>
+</div></div>
+<div class="section" id="selection-predicates">
+<h3>Selection Predicates<a class="headerlink" href="#selection-predicates" title="Permalink to this headline">¶</a></h3>
+<p>Selection predicates can be used to filter data based on a selection. While
+these can be constructed directly using a <a class="reference internal" href="API.html#altair.SelectionPredicate" title="altair.SelectionPredicate"><code class="xref py py-class docutils literal"><span class="pre">SelectionPredicate</span></code></a> class,
+in Altair it is often more convenient to construct them using the
+<a class="reference internal" href="API.html#altair.selection" title="altair.selection"><code class="xref py py-func docutils literal"><span class="pre">selection()</span></code></a> function. For example, this chart uses a multi-selection
+that allows the user to click or shift-click on the bars in the bottom chart
+to select the data to be shown in the top chart:</p>
+<div class="highlight-python" id="transform-rst-altair-source-12"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+<span class="n">pop</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">population</span><span class="o">.</span><span class="n">url</span>
+
+<span class="n">selection</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection_multi</span><span class="p">(</span><span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">])</span>
+
+<span class="n">top</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">()</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;age:O&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;sum(people):Q&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;year:O&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">200</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span>
+    <span class="n">selection</span>
+<span class="p">)</span>
+
+<span class="n">bottom</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">()</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;year:O&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;sum(people):Q&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span><span class="n">selection</span><span class="p">,</span> <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;steelblue&#39;</span><span class="p">),</span> <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;lightgray&#39;</span><span class="p">))</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">selection</span><span class="o">=</span><span class="n">selection</span>
+<span class="p">)</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">vconcat</span><span class="p">(</span>
+    <span class="n">top</span><span class="p">,</span> <span class="n">bottom</span><span class="p">,</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">pop</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="transform-rst-altair-plot-12">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "vconcat": [{"mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "height": 200, "transform": [{"filter": {"selection": "selector041"}}], "width": 600}, {"mark": "bar", "encoding": {"color": {"condition": {"value": "steelblue", "selection": "selector041"}, "value": "lightgray"}, "x": {"type": "ordinal", "field": "year"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "height": 100, "selection": {"selector041": {"type": "multi", "fields": ["year"]}}, "width": 600}], "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#transform-rst-altair-plot-12', {"config": {"view": {"width": 400, "height": 300}}, "vconcat": [{"mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "height": 200, "transform": [{"filter": {"selection": "selector041"}}], "width": 600}, {"mark": "bar", "encoding": {"color": {"condition": {"value": "steelblue", "selection": "selector041"}, "value": "lightgray"}, "x": {"type": "ordinal", "field": "year"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "height": 100, "selection": {"selector041": {"type": "multi", "fields": ["year"]}}, "width": 600}], "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"}).catch(console.err);
+  });
+</script>
+</div></div>
+<div class="section" id="logical-operands">
+<h3>Logical Operands<a class="headerlink" href="#logical-operands" title="Permalink to this headline">¶</a></h3>
+<p>At times it is useful to combine several types of predicates into a single
+selection. This can be accomplished using the various logical operand classes:</p>
+<ul class="simple">
+<li><a class="reference internal" href="API.html#altair.LogicalOrPredicate" title="altair.LogicalOrPredicate"><code class="xref py py-class docutils literal"><span class="pre">LogicalOrPredicate</span></code></a></li>
+<li><a class="reference internal" href="API.html#altair.LogicalAndPredicate" title="altair.LogicalAndPredicate"><code class="xref py py-class docutils literal"><span class="pre">LogicalAndPredicate</span></code></a></li>
+<li><a class="reference internal" href="API.html#altair.LogicalNotPredicate" title="altair.LogicalNotPredicate"><code class="xref py py-class docutils literal"><span class="pre">LogicalNotPredicate</span></code></a></li>
+</ul>
+<p>These are not yet part of the Altair interface
+(see <a class="reference external" href="https://github.com/altair-viz/altair/pull/693">Issue 693</a>)
+but can be constructed explicitly; for example, here we plot US population
+distributions for all data <em>except</em> the years 1950-1960,
+by applying a <code class="docutils literal"><span class="pre">LogicalNotPredicate</span></code> schema to a <code class="docutils literal"><span class="pre">FieldRangePredicate</span></code>:</p>
+<div class="highlight-python" id="transform-rst-altair-source-13"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+
+<span class="n">pop</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">population</span><span class="o">.</span><span class="n">url</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">pop</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;age:O&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;sum(people):Q&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;year:O&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">200</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span>
+    <span class="p">{</span><span class="s1">&#39;not&#39;</span><span class="p">:</span> <span class="n">alt</span><span class="o">.</span><span class="n">FieldRangePredicate</span><span class="p">(</span><span class="n">field</span><span class="o">=</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="mi">1900</span><span class="p">,</span> <span class="mi">1950</span><span class="p">])}</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="transform-rst-altair-plot-13">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "height": 200, "transform": [{"filter": {"not": {"field": "year", "range": [1900, 1950]}}}], "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#transform-rst-altair-plot-13', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "height": 200, "transform": [{"filter": {"not": {"field": "year", "range": [1900, 1950]}}}], "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"}).catch(console.err);
+  });
+</script>
+</div></div>
+</div>
+<div class="section" id="lookup-transform">
+<span id="user-guide-lookup-transform"></span><h2>Lookup Transform<a class="headerlink" href="#lookup-transform" title="Permalink to this headline">¶</a></h2>
+<p>The lookup transform extends a primary data source by looking up values from
+another data source; it is similar to a one-sided join. A lookup can be added
+at the top level of a chart using the <code class="xref py py-meth docutils literal"><span class="pre">Chart.transform_lookup()</span></code> method.</p>
+<p>By way of example, imagine you have two sources of data that you would like
+to combine and plot: one is a list of names of people along with their height
+and weight, and the other is some information about which groups they belong
+to. This example data is available in <code class="docutils literal"><span class="pre">vega_datasets</span></code>:</p>
+<div class="highlight-python" id="transform-rst-altair-source-14"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+<span class="n">people</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">lookup_people</span><span class="p">()</span>
+<span class="n">groups</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">lookup_groups</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>We know how to visualize each of these datasets separately; for example:</p>
+<div class="highlight-python" id="transform-rst-altair-source-15"><div class="highlight"><pre><span></span><span class="n">top</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">people</span><span class="p">)</span><span class="o">.</span><span class="n">mark_square</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;age:Q&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">zero</span><span class="o">=</span><span class="bp">False</span><span class="p">)),</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;height:Q&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">zero</span><span class="o">=</span><span class="bp">False</span><span class="p">)),</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;name:N&#39;</span><span class="p">,</span>
+    <span class="n">tooltip</span><span class="o">=</span><span class="s1">&#39;name:N&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">200</span>
+<span class="p">)</span>
+
+<span class="n">bottom</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">groups</span><span class="p">)</span><span class="o">.</span><span class="n">mark_rect</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;person:N&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;group:O&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">100</span>
+<span class="p">)</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">vconcat</span><span class="p">(</span><span class="n">top</span><span class="p">,</span> <span class="n">bottom</span><span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="transform-rst-altair-plot-15">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "vconcat": [{"data": {"values": [{"name": "Alan", "age": 25, "height": 180}, {"name": "George", "age": 32, "height": 174}, {"name": "Fred", "age": 39, "height": 182}, {"name": "Steve", "age": 42, "height": 161}, {"name": "Nick", "age": 23, "height": 180}, {"name": "Will", "age": 21, "height": 168}, {"name": "Cole", "age": 51, "height": 160}, {"name": "Rick", "age": 63, "height": 181}, {"name": "Tom", "age": 54, "height": 179}]}, "mark": {"type": "square", "size": 200}, "encoding": {"color": {"type": "nominal", "field": "name"}, "tooltip": {"type": "nominal", "field": "name"}, "x": {"type": "quantitative", "field": "age", "scale": {"zero": false}}, "y": {"type": "quantitative", "field": "height", "scale": {"zero": false}}}, "height": 200, "width": 400}, {"data": {"values": [{"group": 1, "person": "Alan"}, {"group": 1, "person": "George"}, {"group": 1, "person": "Fred"}, {"group": 2, "person": "Steve"}, {"group": 2, "person": "Nick"}, {"group": 2, "person": "Will"}, {"group": 3, "person": "Cole"}, {"group": 3, "person": "Rick"}, {"group": 3, "person": "Tom"}]}, "mark": "rect", "encoding": {"x": {"type": "nominal", "field": "person"}, "y": {"type": "ordinal", "field": "group"}}, "height": 100, "width": 400}], "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#transform-rst-altair-plot-15', {"config": {"view": {"width": 400, "height": 300}}, "vconcat": [{"data": {"values": [{"name": "Alan", "age": 25, "height": 180}, {"name": "George", "age": 32, "height": 174}, {"name": "Fred", "age": 39, "height": 182}, {"name": "Steve", "age": 42, "height": 161}, {"name": "Nick", "age": 23, "height": 180}, {"name": "Will", "age": 21, "height": 168}, {"name": "Cole", "age": 51, "height": 160}, {"name": "Rick", "age": 63, "height": 181}, {"name": "Tom", "age": 54, "height": 179}]}, "mark": {"type": "square", "size": 200}, "encoding": {"color": {"type": "nominal", "field": "name"}, "tooltip": {"type": "nominal", "field": "name"}, "x": {"type": "quantitative", "field": "age", "scale": {"zero": false}}, "y": {"type": "quantitative", "field": "height", "scale": {"zero": false}}}, "height": 200, "width": 400}, {"data": {"values": [{"group": 1, "person": "Alan"}, {"group": 1, "person": "George"}, {"group": 1, "person": "Fred"}, {"group": 2, "person": "Steve"}, {"group": 2, "person": "Nick"}, {"group": 2, "person": "Will"}, {"group": 3, "person": "Cole"}, {"group": 3, "person": "Rick"}, {"group": 3, "person": "Tom"}]}, "mark": "rect", "encoding": {"x": {"type": "nominal", "field": "person"}, "y": {"type": "ordinal", "field": "group"}}, "height": 100, "width": 400}], "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"}).catch(console.err);
+  });
+</script>
+</div><p>If we would like to plot features that reference both datasets (for example, the
+average age within each group), we need to combine the two datasets.
+This can be done either as a data preprocessing step, using tools available
+in Pandas, or as part of the visualization using a <a class="reference internal" href="API.html#altair.LookupTransform" title="altair.LookupTransform"><code class="xref py py-class docutils literal"><span class="pre">LookupTransform</span></code></a>
+in Altair.</p>
+<div class="section" id="combining-datasets-with-pandas-merge">
+<h3>Combining Datasets with pandas.merge<a class="headerlink" href="#combining-datasets-with-pandas-merge" title="Permalink to this headline">¶</a></h3>
+<p>Pandas provides a wide range of tools for merging and joining datasets; see
+<a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/merging.html">Merge, Join, and Concatenate</a>
+for some detailed examples.
+For the above data, we can merge the data and create a combined chart as follows:</p>
+<div class="highlight-python" id="transform-rst-altair-source-16"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="n">merged</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">groups</span><span class="p">,</span> <span class="n">people</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span>
+                  <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;person&#39;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">merged</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;mean(age):Q&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;group:O&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="transform-rst-altair-plot-16">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"values": [{"group": 1, "person": "Alan", "name": "Alan", "age": 25, "height": 180}, {"group": 1, "person": "George", "name": "George", "age": 32, "height": 174}, {"group": 1, "person": "Fred", "name": "Fred", "age": 39, "height": 182}, {"group": 2, "person": "Steve", "name": "Steve", "age": 42, "height": 161}, {"group": 2, "person": "Nick", "name": "Nick", "age": 23, "height": 180}, {"group": 2, "person": "Will", "name": "Will", "age": 21, "height": 168}, {"group": 3, "person": "Cole", "name": "Cole", "age": 51, "height": 160}, {"group": 3, "person": "Rick", "name": "Rick", "age": 63, "height": 181}, {"group": 3, "person": "Tom", "name": "Tom", "age": 54, "height": 179}]}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "aggregate": "mean", "field": "age"}, "y": {"type": "ordinal", "field": "group"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#transform-rst-altair-plot-16', {"config": {"view": {"width": 400, "height": 300}}, "data": {"values": [{"group": 1, "person": "Alan", "name": "Alan", "age": 25, "height": 180}, {"group": 1, "person": "George", "name": "George", "age": 32, "height": 174}, {"group": 1, "person": "Fred", "name": "Fred", "age": 39, "height": 182}, {"group": 2, "person": "Steve", "name": "Steve", "age": 42, "height": 161}, {"group": 2, "person": "Nick", "name": "Nick", "age": 23, "height": 180}, {"group": 2, "person": "Will", "name": "Will", "age": 21, "height": 168}, {"group": 3, "person": "Cole", "name": "Cole", "age": 51, "height": 160}, {"group": 3, "person": "Rick", "name": "Rick", "age": 63, "height": 181}, {"group": 3, "person": "Tom", "name": "Tom", "age": 54, "height": 179}]}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "aggregate": "mean", "field": "age"}, "y": {"type": "ordinal", "field": "group"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"}).catch(console.err);
+  });
+</script>
+</div><p>We specify a left join, meaning that for each entry of the “person” column in
+the groups, we seek the “name” column in people and add the entry to the data.
+From this, we can easily create a bar chart representing the mean age in each group.</p>
+</div>
+<div class="section" id="combining-datasets-with-a-lookup-transform">
+<h3>Combining Datasets with a Lookup Transform<a class="headerlink" href="#combining-datasets-with-a-lookup-transform" title="Permalink to this headline">¶</a></h3>
+<p>For some data sources (e.g. data available at a URL, or data that is streaming),
+it is desirable to have a means of joining data without having to download
+it for pre-processing in Pandas.
+This is where Altair’s <code class="xref py py-meth docutils literal"><span class="pre">transform_lookup()</span></code> comes in.
+To reproduce the above combined plot by combining datasets within the
+chart specification itself, we can do the following:</p>
+<div class="highlight-python" id="transform-rst-altair-source-17"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">groups</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;mean(age):Q&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;group:O&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_lookup</span><span class="p">(</span>
+    <span class="n">lookup</span><span class="o">=</span><span class="s1">&#39;person&#39;</span><span class="p">,</span>
+    <span class="n">from_</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">LookupData</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">people</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">&#39;name&#39;</span><span class="p">,</span>
+                         <span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;height&#39;</span><span class="p">])</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="transform-rst-altair-plot-17">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"values": [{"group": 1, "person": "Alan"}, {"group": 1, "person": "George"}, {"group": 1, "person": "Fred"}, {"group": 2, "person": "Steve"}, {"group": 2, "person": "Nick"}, {"group": 2, "person": "Will"}, {"group": 3, "person": "Cole"}, {"group": 3, "person": "Rick"}, {"group": 3, "person": "Tom"}]}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "aggregate": "mean", "field": "age"}, "y": {"type": "ordinal", "field": "group"}}, "transform": [{"lookup": "person", "from": {"data": {"values": [{"name": "Alan", "age": 25, "height": 180}, {"name": "George", "age": 32, "height": 174}, {"name": "Fred", "age": 39, "height": 182}, {"name": "Steve", "age": 42, "height": 161}, {"name": "Nick", "age": 23, "height": 180}, {"name": "Will", "age": 21, "height": 168}, {"name": "Cole", "age": 51, "height": 160}, {"name": "Rick", "age": 63, "height": 181}, {"name": "Tom", "age": 54, "height": 179}]}, "key": "name", "fields": ["age", "height"]}}], "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#transform-rst-altair-plot-17', {"config": {"view": {"width": 400, "height": 300}}, "data": {"values": [{"group": 1, "person": "Alan"}, {"group": 1, "person": "George"}, {"group": 1, "person": "Fred"}, {"group": 2, "person": "Steve"}, {"group": 2, "person": "Nick"}, {"group": 2, "person": "Will"}, {"group": 3, "person": "Cole"}, {"group": 3, "person": "Rick"}, {"group": 3, "person": "Tom"}]}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "aggregate": "mean", "field": "age"}, "y": {"type": "ordinal", "field": "group"}}, "transform": [{"lookup": "person", "from": {"data": {"values": [{"name": "Alan", "age": 25, "height": 180}, {"name": "George", "age": 32, "height": 174}, {"name": "Fred", "age": 39, "height": 182}, {"name": "Steve", "age": 42, "height": 161}, {"name": "Nick", "age": 23, "height": 180}, {"name": "Will", "age": 21, "height": 168}, {"name": "Cole", "age": 51, "height": 160}, {"name": "Rick", "age": 63, "height": 181}, {"name": "Tom", "age": 54, "height": 179}]}, "key": "name", "fields": ["age", "height"]}}], "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"}).catch(console.err);
+  });
+</script>
+</div><p>Here <code class="docutils literal"><span class="pre">lookup</span></code> names the field in the groups dataset on which we will match,
+and the <code class="docutils literal"><span class="pre">from_</span></code> argument specifies a <a class="reference internal" href="API.html#altair.LookupData" title="altair.LookupData"><code class="xref py py-class docutils literal"><span class="pre">LookupData</span></code></a> structure where
+we supply the second dataset, the lookup key, and the fields we would like to
+extract.</p>
+</div>
+<div class="section" id="example-lookup-transforms-for-geographical-visualization">
+<h3>Example: Lookup Transforms for Geographical Visualization<a class="headerlink" href="#example-lookup-transforms-for-geographical-visualization" title="Permalink to this headline">¶</a></h3>
+<p>Lookup transforms are often particularly important for geographic visualization,
+where it is common to combine tabular datasets with datasets that specify
+geographic boundaries to be visualized; for example, here is a visualization
+of unemployment rates per county in the US:</p>
+<div class="highlight-python" id="transform-rst-altair-source-18"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+
+<span class="n">counties</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">topo_feature</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">us_10m</span><span class="o">.</span><span class="n">url</span><span class="p">,</span> <span class="s1">&#39;counties&#39;</span><span class="p">)</span>
+<span class="n">unemp_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">unemployment</span><span class="o">.</span><span class="n">url</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">counties</span><span class="p">)</span><span class="o">.</span><span class="n">mark_geoshape</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;rate:Q&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_lookup</span><span class="p">(</span>
+    <span class="n">lookup</span><span class="o">=</span><span class="s1">&#39;id&#39;</span><span class="p">,</span>
+    <span class="n">from_</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">LookupData</span><span class="p">(</span><span class="n">unemp_data</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;rate&#39;</span><span class="p">])</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">projection</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;albersUsa&#39;</span><span class="p">},</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">300</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="transform-rst-altair-plot-18">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/us-10m.json", "format": {"feature": "counties", "type": "topojson"}}, "mark": "geoshape", "encoding": {"color": {"type": "quantitative", "field": "rate"}}, "height": 300, "projection": {"type": "albersUsa"}, "transform": [{"lookup": "id", "from": {"data": {"url": "https://vega.github.io/vega-datasets/data/unemployment.tsv"}, "key": "id", "fields": ["rate"]}}], "width": 500, "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#transform-rst-altair-plot-18', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/us-10m.json", "format": {"feature": "counties", "type": "topojson"}}, "mark": "geoshape", "encoding": {"color": {"type": "quantitative", "field": "rate"}}, "height": 300, "projection": {"type": "albersUsa"}, "transform": [{"lookup": "id", "from": {"data": {"url": "https://vega.github.io/vega-datasets/data/unemployment.tsv"}, "key": "id", "fields": ["rate"]}}], "width": 500, "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"}).catch(console.err);
+  });
+</script>
+</div></div>
+</div>
+<div class="section" id="timeunit-transform">
+<span id="user-guide-timeunit-transform"></span><h2>TimeUnit Transform<a class="headerlink" href="#timeunit-transform" title="Permalink to this headline">¶</a></h2>
+<p>TimeUnit transforms are used to discretize dates and times within Altair.
+As with the <a class="reference internal" href="#user-guide-aggregate-transform"><span class="std std-ref">Aggregate Transforms</span></a> and <a class="reference internal" href="#user-guide-bin-transform"><span class="std std-ref">Bin transforms</span></a>
+discussed above, they can be defined either as part of the encoding, or as a
+top-level transform.</p>
+<p>These are the available time units:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">&quot;year&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;yearquarter&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;yearquartermonth&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;yearmonth&quot;</span></code>,
+<code class="docutils literal"><span class="pre">&quot;yearmonthdate&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;yearmonthdatehours&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;yearmonthdatehoursminutes&quot;</span></code>,
+<code class="docutils literal"><span class="pre">&quot;yearmonthdatehoursseconds&quot;</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">&quot;quarter&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;quartermonth&quot;</span></code></li>
+<li><code class="docutils literal"><span class="pre">&quot;month&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;monthdate&quot;</span></code></li>
+<li><code class="docutils literal"><span class="pre">&quot;date&quot;</span></code> (Day of month, i.e., 1 - 31)</li>
+<li><code class="docutils literal"><span class="pre">&quot;day&quot;</span></code> (Day of week, i.e., Monday - Friday)</li>
+<li><code class="docutils literal"><span class="pre">&quot;hours&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;hoursminutes&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;hoursminutesseconds&quot;</span></code></li>
+<li><code class="docutils literal"><span class="pre">&quot;minutes&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;minutesseconds&quot;</span></code></li>
+<li><code class="docutils literal"><span class="pre">&quot;seconds&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;secondsmilliseconds&quot;</span></code></li>
+<li><code class="docutils literal"><span class="pre">&quot;milliseconds&quot;</span></code></li>
+</ul>
+<div class="section" id="timeunit-within-encoding">
+<h3>TimeUnit Within Encoding<a class="headerlink" href="#timeunit-within-encoding" title="Permalink to this headline">¶</a></h3>
+<p>Any temporal field definition can include a <code class="docutils literal"><span class="pre">timeUnit</span></code> argument to discretize
+the temporal data.</p>
+<p>For example, here we plot a dataset that consists of hourly temperature
+measurements in Seattle during the year 2010:</p>
+<div class="highlight-python" id="transform-rst-altair-source-19"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+
+<span class="n">temps</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">seattle_temps</span><span class="o">.</span><span class="n">url</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">temps</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;date:T&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;temp:Q&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="transform-rst-altair-plot-19">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-temps.csv"}, "mark": "line", "encoding": {"x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "temp"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#transform-rst-altair-plot-19', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-temps.csv"}, "mark": "line", "encoding": {"x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "temp"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"}).catch(console.err);
+  });
+</script>
+</div><p>The plot is too busy due to the amount of data points squeezed into the short
+time; we can make it a bit cleaner by discretizing it, for example, by month
+(<code class="docutils literal"><span class="pre">timeUnit=&quot;month&quot;</span></code>) and plotting only the mean monthly temperature:</p>
+<div class="highlight-python" id="transform-rst-altair-source-20"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">temps</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;date:T&#39;</span><span class="p">,</span> <span class="n">timeUnit</span><span class="o">=</span><span class="s1">&#39;month&#39;</span><span class="p">),</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;mean(temp):Q&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="transform-rst-altair-plot-20">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-temps.csv"}, "mark": "line", "encoding": {"x": {"type": "temporal", "field": "date", "timeUnit": "month"}, "y": {"type": "quantitative", "aggregate": "mean", "field": "temp"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#transform-rst-altair-plot-20', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-temps.csv"}, "mark": "line", "encoding": {"x": {"type": "temporal", "field": "date", "timeUnit": "month"}, "y": {"type": "quantitative", "aggregate": "mean", "field": "temp"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"}).catch(console.err);
+  });
+</script>
+</div><p>Notice that by default timeUnit output is a continuous quantity; if you would
+instead like it to be a categorical, you can specify the ordinal type.
+This can be useful when plotting a bar chart or other discrete chart type:</p>
+<div class="highlight-python" id="transform-rst-altair-source-21"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">temps</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;date:O&#39;</span><span class="p">,</span> <span class="n">timeUnit</span><span class="o">=</span><span class="s1">&#39;month&#39;</span><span class="p">),</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;mean(temp):Q&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="transform-rst-altair-plot-21">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-temps.csv"}, "mark": "bar", "encoding": {"x": {"type": "ordinal", "field": "date", "timeUnit": "month"}, "y": {"type": "quantitative", "aggregate": "mean", "field": "temp"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#transform-rst-altair-plot-21', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-temps.csv"}, "mark": "bar", "encoding": {"x": {"type": "ordinal", "field": "date", "timeUnit": "month"}, "y": {"type": "quantitative", "aggregate": "mean", "field": "temp"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"}).catch(console.err);
+  });
+</script>
+</div><p>Multiple time units can be combined within a single plot to yield interesting
+views of your data; for example, here we extract both the month and the day
+to give a profile of Seattle temperatures through the year:</p>
+<div class="highlight-python" id="transform-rst-altair-source-22"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">temps</span><span class="p">)</span><span class="o">.</span><span class="n">mark_rect</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;date:O&#39;</span><span class="p">,</span> <span class="n">timeUnit</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;day&#39;</span><span class="p">)),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;date:O&#39;</span><span class="p">,</span> <span class="n">timeUnit</span><span class="o">=</span><span class="s1">&#39;month&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;month&#39;</span><span class="p">)),</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;max(temp):Q&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;2010 Daily High Temperatures in Seattle (F)&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="transform-rst-altair-plot-22">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-temps.csv"}, "mark": "rect", "encoding": {"color": {"type": "quantitative", "aggregate": "max", "field": "temp"}, "x": {"type": "ordinal", "axis": {"title": "day"}, "field": "date", "timeUnit": "date"}, "y": {"type": "ordinal", "axis": {"title": "month"}, "field": "date", "timeUnit": "month"}}, "title": "2010 Daily High Temperatures in Seattle (F)", "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#transform-rst-altair-plot-22', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-temps.csv"}, "mark": "rect", "encoding": {"color": {"type": "quantitative", "aggregate": "max", "field": "temp"}, "x": {"type": "ordinal", "axis": {"title": "day"}, "field": "date", "timeUnit": "date"}, "y": {"type": "ordinal", "axis": {"title": "month"}, "field": "date", "timeUnit": "month"}}, "title": "2010 Daily High Temperatures in Seattle (F)", "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"}).catch(console.err);
+  });
+</script>
+</div></div>
+<div class="section" id="timeunit-as-a-transform">
+<h3>TimeUnit as a Transform<a class="headerlink" href="#timeunit-as-a-transform" title="Permalink to this headline">¶</a></h3>
+<p>Other times it is convenient to specify a timeUnit as a top-level transform,
+particularly when the value may be reused.
+This can be done most conveniently using the <code class="xref py py-meth docutils literal"><span class="pre">Chart.transform_timeunit()</span></code>
+method. For example:</p>
+<div class="highlight-python" id="transform-rst-altair-source-23"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">temps</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;month:T&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">format</span><span class="o">=</span><span class="s1">&#39;%b&#39;</span><span class="p">)),</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;mean(temp):Q&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_timeunit</span><span class="p">(</span>
+    <span class="s2">&quot;month&quot;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s2">&quot;date&quot;</span><span class="p">,</span> <span class="n">timeUnit</span><span class="o">=</span><span class="s2">&quot;month&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="transform-rst-altair-plot-23">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-temps.csv"}, "mark": "line", "encoding": {"x": {"type": "temporal", "axis": {"format": "%b"}, "field": "month"}, "y": {"type": "quantitative", "aggregate": "mean", "field": "temp"}}, "transform": [{"field": "date", "timeUnit": "month", "as": "month"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#transform-rst-altair-plot-23', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-temps.csv"}, "mark": "line", "encoding": {"x": {"type": "temporal", "axis": {"format": "%b"}, "field": "month"}, "y": {"type": "quantitative", "aggregate": "mean", "field": "temp"}}, "transform": [{"field": "date", "timeUnit": "month", "as": "month"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"}).catch(console.err);
+  });
+</script>
+</div><p>Notice that because the <code class="docutils literal"><span class="pre">timeUnit</span></code> is not part of the encoding channel here,
+it is often necessary to add an axis formatter to ensure appropriate axis
+labels.</p>
+</div>
 </div>
 </div>
 
@@ -287,7 +1169,7 @@ are available.</p>
         <a href="selections.html" class="btn btn-neutral float-right" title="Selections: Building Blocks of Interactions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="config.html" class="btn btn-neutral" title="Configuring Visualizations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="marks.html" class="btn btn-neutral" title="Marks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -318,7 +1200,7 @@ are available.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.0.0rc1',
+            VERSION:'2.0.0rc2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

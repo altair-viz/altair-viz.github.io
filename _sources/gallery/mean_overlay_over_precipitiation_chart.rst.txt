@@ -10,7 +10,6 @@ This example shows mean overlay over precipitation chart.
 
 
 .. altair-plot::
-    :chart-var-name: chart
     :code-below:
 
     
@@ -24,12 +23,12 @@ This example shows mean overlay over precipitation chart.
         alt.Y('mean(precipitation):Q')
     )
     
-    rule = alt.Chart(source).mark_rule(color = 'red').encode(
+    rule = alt.Chart(source).mark_rule(color='red').encode(
         y='mean(precipitation)',
         size=alt.value(3)
     )
     
-    chart = bar + rule
+    bar + rule
 
 .. toctree::
    :hidden:

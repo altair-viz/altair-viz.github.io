@@ -10,7 +10,6 @@ This example shows how to combine two plots and keep their axes.
 
 
 .. altair-plot::
-    :chart-var-name: chart
     :code-below:
 
     
@@ -36,7 +35,12 @@ This example shows how to combine two plots and keep their axes.
         y='mean(temp_max)',
     )
     
-    chart = (bar + line).resolve_scale(y='independent')
+    alt.layer(
+        bar,
+        line
+    ).resolve_scale(
+        y='independent'
+    )
 
 .. toctree::
    :hidden:

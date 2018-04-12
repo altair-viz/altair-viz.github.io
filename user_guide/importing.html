@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Importing Altair &mdash; Altair 2.0.0rc1 documentation</title>
+  <title>Importing Vega &amp; Vega-Lite Versions &mdash; Altair 2.0.0rc2 documentation</title>
   
 
   
@@ -45,9 +45,9 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Altair 2.0.0rc1 documentation" href="../index.html"/>
-        <link rel="next" title="Displaying Charts" href="display.html"/>
-        <link rel="prev" title="Basic Statistical Visualization" href="../getting_started/starting.html"/> 
+    <link rel="top" title="Altair 2.0.0rc2 documentation" href="../index.html"/>
+        <link rel="next" title="Displaying Charts in Various Frontends" href="display_frontends.html"/>
+        <link rel="prev" title="Exploring Seattle Weather" href="../case_studies/exploring-weather.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -79,7 +79,7 @@
             
             
               <div class="version">
-                2.0.0rc1
+                2.0.0rc2
               </div>
             
           
@@ -109,31 +109,35 @@
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/starting.html">Basic Statistical Visualization</a></li>
 </ul>
-<p class="caption"><span class="caption-text">User Guide</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Importing Altair</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#vega-lite">Vega-Lite</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#vega">Vega</a></li>
+<p class="caption"><span class="caption-text">Gallery</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Example Gallery</a></li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="display.html">Displaying Charts</a></li>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="renderers.html">Altair Renderers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data.html">Specifying Data in Altair</a></li>
 <li class="toctree-l1"><a class="reference internal" href="encoding.html">Encodings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="marks.html">Marks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="config.html">Configuring Visualizations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transform.html">Data Transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="selections.html">Selections: Building Blocks of Interactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Top-Level Chart Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="saving_charts.html">Saving Altair Charts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuring Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Display Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="API.html">API Reference</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Case Studies</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../case_studies/exploring-weather.html">Exploring Seattle Weather</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Gallery</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Example Gallery</a></li>
+<p class="caption"><span class="caption-text">Advanced Usage</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Importing Vega &amp; Vega-Lite Versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="display_frontends.html">Displaying Charts in Various Frontends</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_renderers.html">Customizing Renderers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_transformers.html">Data transformers</a></li>
 </ul>
 
             
@@ -178,7 +182,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Importing Altair</li>
+      <li>Importing Vega &amp; Vega-Lite Versions</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -197,46 +201,33 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="importing-altair">
-<span id="importing"></span><h1>Importing Altair<a class="headerlink" href="#importing-altair" title="Permalink to this headline">¶</a></h1>
-<p>As of Altair 2.0, we are including support for multiple version of both
-Vega-Lite (1.x and 2.x) and Vega (2.x and 3.x) in a single Python package.
-This section of the documentation describe how you can import the different
-versions of the Python APIs.</p>
+  <div class="section" id="importing-vega-vega-lite-versions">
+<span id="importing"></span><h1>Importing Vega &amp; Vega-Lite Versions<a class="headerlink" href="#importing-vega-vega-lite-versions" title="Permalink to this headline">¶</a></h1>
+<p>The main Altair API is based on version 2.X of <a href="#id1"><span class="problematic" id="id2">`Vega-Lite`_</span></a>. The core of the API,
+found in the <code class="docutils literal"><span class="pre">altair.vegalite.v2.schema</span></code> module, is programmatically generated
+from the Vega-Lite schema.</p>
+<p>Altair additionally provides wrappers for several other schemas:</p>
+<ul class="simple">
+<li>Vega-Lite 1.X in <code class="docutils literal"><span class="pre">altair.vegalite.v1</span></code></li>
+<li>Vega 2.X in <code class="docutils literal"><span class="pre">altair.vega.v2</span></code></li>
+<li>Vega 3.X in <code class="docutils literal"><span class="pre">altair.vega.v3</span></code></li>
+</ul>
+<p>So, for example, if you would like to create Altair plots targeting Vega-Lite
+version 1, you can use:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair.vegalite.v1</span> <span class="k">as</span> <span class="nn">alt</span>
+</pre></div>
+</div>
+<p>and then proceed to use the Altair version 1 API.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">We strongly recommend all users transition to Vega-Lite 2.x and Vega 3.x.
 These versions support many new features, are more stable, and Altair 2.0
 works best with them.</p>
 </div>
-<div class="section" id="vega-lite">
-<h2>Vega-Lite<a class="headerlink" href="#vega-lite" title="Permalink to this headline">¶</a></h2>
-<p>To import the latest version of the Python API for Vega-Lite:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
-</pre></div>
-</div>
-<p><strong>This is the Python API recommended for most users.</strong></p>
-<p>Currently, this points to the Vega-Lite 2.x API, which can be imported
-explicitly as:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair.vegalite.v2</span> <span class="k">as</span> <span class="nn">alt</span>
-</pre></div>
-</div>
-<p>The older, Vega-Lite 1.x Python API is available as:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair.vegalite.v1</span> <span class="k">as</span> <span class="nn">alt</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="vega">
-<h2>Vega<a class="headerlink" href="#vega" title="Permalink to this headline">¶</a></h2>
-<p>To import the Python API for Vega 3.x, use:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair.vega.v3</span> <span class="k">as</span> <span class="nn">vega</span>
-</pre></div>
-</div>
-<p>To import the Python API for Vega 2.x, use:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair.vega.v2</span> <span class="k">as</span> <span class="nn">vega</span>
-</pre></div>
-</div>
-</div>
+<p>Because Altair has focused primarily on the vega-lite API, the vega wrappers are
+far less developed than the vega-lite wrappers, though it is possible to
+create Vega plots using a very low-level Python interface that mirrors the
+schema itself.</p>
 </div>
 
 
@@ -249,10 +240,10 @@ explicitly as:</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="display.html" class="btn btn-neutral float-right" title="Displaying Charts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="display_frontends.html" class="btn btn-neutral float-right" title="Displaying Charts in Various Frontends" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../getting_started/starting.html" class="btn btn-neutral" title="Basic Statistical Visualization" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../case_studies/exploring-weather.html" class="btn btn-neutral" title="Exploring Seattle Weather" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -283,7 +274,7 @@ explicitly as:</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.0.0rc1',
+            VERSION:'2.0.0rc2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
