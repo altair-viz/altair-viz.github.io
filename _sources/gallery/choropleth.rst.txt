@@ -13,14 +13,14 @@ A choropleth map of unemployment rate per county in the US
     :code-below:
 
     
-    
+
     import altair as alt
     from vega_datasets import data
-    
+
     counties = alt.topo_feature(data.us_10m.url, 'counties')
     unemp_data = data.unemployment.url
-    
-    
+
+
     alt.Chart(counties).mark_geoshape().properties(
         projection={'type': 'albersUsa'},
         width=500,
@@ -31,6 +31,7 @@ A choropleth map of unemployment rate per county in the US
         lookup='id',
         from_=alt.LookupData(unemp_data, 'id', ['rate'])
     )
+
 
 .. toctree::
    :hidden:

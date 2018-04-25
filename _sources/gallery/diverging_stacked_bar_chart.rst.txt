@@ -14,7 +14,7 @@ This example shows a diverging stacked bar chart for sentiments towards a set of
 
     
     import altair as alt
-    
+
     data =     [
           {
             "question": "Question 1",
@@ -56,7 +56,7 @@ This example shows a diverging stacked bar chart for sentiments towards a set of
             "percentage_start": 69.2,
             "percentage_end": 80.9
           },
-    
+
           {
             "question": "Question 2",
             "type": "Strongly disagree",
@@ -97,7 +97,7 @@ This example shows a diverging stacked bar chart for sentiments towards a set of
             "percentage_start": 63.6,
             "percentage_end": 63.6
           },
-    
+
           {
             "question": "Question 3",
             "type": "Strongly disagree",
@@ -138,7 +138,7 @@ This example shows a diverging stacked bar chart for sentiments towards a set of
             "percentage_start": 50,
             "percentage_end": 70
           },
-    
+
           {
             "question": "Question 4",
             "type": "Strongly disagree",
@@ -179,7 +179,7 @@ This example shows a diverging stacked bar chart for sentiments towards a set of
             "percentage_start": 46.9,
             "percentage_end": 84.4
           },
-    
+
           {
             "question": "Question 5",
             "type": "Strongly disagree",
@@ -220,7 +220,7 @@ This example shows a diverging stacked bar chart for sentiments towards a set of
             "percentage_start": 72.9,
             "percentage_end": 89.6
           },
-    
+
           {
             "question": "Question 6",
             "type": "Strongly disagree",
@@ -261,7 +261,7 @@ This example shows a diverging stacked bar chart for sentiments towards a set of
             "percentage_start": 62.5,
             "percentage_end": 81.3
           },
-    
+
           {
             "question": "Question 7",
             "type": "Strongly disagree",
@@ -302,7 +302,7 @@ This example shows a diverging stacked bar chart for sentiments towards a set of
             "percentage_start": 90,
             "percentage_end": 90
           },
-    
+
           {
             "question": "Question 8",
             "type": "Strongly disagree",
@@ -344,8 +344,8 @@ This example shows a diverging stacked bar chart for sentiments towards a set of
             "percentage_end": 100
           }
         ]
-    
-    
+
+
     color_scale = alt.Scale(
                 domain=["Strongly disagree",
                 "Disagree",
@@ -354,15 +354,15 @@ This example shows a diverging stacked bar chart for sentiments towards a set of
                 "Strongly agree"],
                 range=["#c30d24", "#f3a583", "#cccccc", "#94c6da", "#1770ab"]
             )
-    
+
     y_axis = alt.Axis(title='Question',
                       offset=5,
                       ticks=False,
                       minExtent=60,
                       domain=False)
-    
+
     source = alt.pd.DataFrame(data)
-    
+
     alt.Chart(source).mark_bar().encode(
         x='percentage_start:Q',
         x2='percentage_end:Q',
@@ -373,6 +373,7 @@ This example shows a diverging stacked bar chart for sentiments towards a set of
             scale=color_scale,
         )
     )
+
 
 .. toctree::
    :hidden:

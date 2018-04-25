@@ -16,21 +16,22 @@ This example shows how layering can be used to build a plot. This dataset tracks
     
     import altair as alt
     from vega_datasets import data
-    
+
     driving = data.driving()
-    
+
     lines = alt.Chart(driving).mark_line().encode(
         alt.X('miles', scale=alt.Scale(zero=False)),
         alt.Y('gas', scale=alt.Scale(zero=False)),
         order='year'
     )
-    
+
     points = alt.Chart(driving).mark_circle().encode(
         alt.X('miles', scale=alt.Scale(zero=False)),
         alt.Y('gas', scale=alt.Scale(zero=False))
     )
-    
+
     lines + points
+
 
 .. toctree::
    :hidden:

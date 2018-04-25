@@ -15,7 +15,7 @@ A candlestick chart inspired from Protovis(http://mbostock.github.io/protovis/ex
     
     import altair as alt
     import pandas as pd
-    
+
     df = pd.DataFrame(
     [
           {
@@ -221,7 +221,7 @@ A candlestick chart inspired from Protovis(http://mbostock.github.io/protovis/ex
     open_close_color = alt.condition("datum.open < datum.close",
                                      alt.value("#06982d"),
                                      alt.value("#ae1325"))
-    
+
     rule = alt.Chart(df).mark_rule().encode(
         alt.X(
             'date:T',
@@ -238,15 +238,16 @@ A candlestick chart inspired from Protovis(http://mbostock.github.io/protovis/ex
         alt.Y2('high'),
         color=open_close_color
     )
-    
+
     bar = alt.Chart(df).mark_bar().encode(
         alt.X('date:T', timeUnit='yearmonthdate'),
         y='open',
         y2='close',
         color=open_close_color
     )
-    
+
     rule + bar
+
 
 .. toctree::
    :hidden:

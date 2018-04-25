@@ -15,12 +15,12 @@ see a detail of the distribution in the upper panel.
     :code-below:
 
     
-    
+
     import altair as alt
     from vega_datasets import data
-    
+
     pts = alt.selection(type="single", encodings=['x'])
-    
+
     rect = alt.Chart(data.movies.url).mark_rect().encode(
         alt.X('IMDB_Rating:Q', bin=True),
         alt.Y('Rotten_Tomatoes_Rating:Q', bin=True),
@@ -29,7 +29,7 @@ see a detail of the distribution in the upper panel.
             legend=alt.Legend(title='Total Records')
         )
     )
-    
+
     circ = rect.mark_point().encode(
         alt.ColorValue('grey'),
         alt.Size('count()',
@@ -38,7 +38,7 @@ see a detail of the distribution in the upper panel.
     ).transform_filter(
         pts.ref()
     )
-    
+
     bar = alt.Chart(data.movies.url).mark_bar().encode(
         x='Major_Genre:N',
         y='count()',
@@ -48,7 +48,7 @@ see a detail of the distribution in the upper panel.
         width=550,
         height=200
     )
-    
+
     alt.vconcat(
         rect + circ,
         bar
@@ -56,6 +56,7 @@ see a detail of the distribution in the upper panel.
         color="independent",
         size="independent"
     )
+
 
 .. toctree::
    :hidden:

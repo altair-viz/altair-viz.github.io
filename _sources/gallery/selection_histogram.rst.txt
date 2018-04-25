@@ -15,14 +15,14 @@ of items in each category within the selection.
     :code-below:
 
     
-    
+
     import altair as alt
     from vega_datasets import data
-    
+
     cars = data.cars.url
-    
+
     brush = alt.selection(type='interval')
-    
+
     points = alt.Chart().mark_point().encode(
         x='Horsepower:Q',
         y='Miles_per_Gallon:Q',
@@ -30,7 +30,7 @@ of items in each category within the selection.
     ).properties(
         selection=brush
     )
-    
+
     bars = alt.Chart().mark_bar().encode(
         y='Origin:N',
         color='Origin:N',
@@ -38,8 +38,9 @@ of items in each category within the selection.
     ).transform_filter(
         brush.ref()
     )
-    
+
     alt.vconcat(points, bars, data=cars)
+
 
 .. toctree::
    :hidden:

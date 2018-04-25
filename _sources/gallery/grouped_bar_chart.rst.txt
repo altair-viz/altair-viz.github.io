@@ -18,9 +18,9 @@ encoded on the age groups and x-axes encoded on gender.
     import altair as alt
     from altair.expr import datum, if_
     from vega_datasets import data
-    
+
     source = data.population.url
-    
+
     alt.Chart(source).mark_bar(stroke='transparent').encode(
         alt.X('gender:N', scale=alt.Scale(rangeStep=12), axis=alt.Axis(title='')),
         alt.Y('sum(people):Q', axis=alt.Axis(title='population', grid=False)),
@@ -35,6 +35,7 @@ encoded on the age groups and x-axes encoded on gender.
     ).transform_calculate(
         'gender', if_(datum.sex == 2, 'Female', 'Male')
     )
+
 
 .. toctree::
    :hidden:

@@ -17,9 +17,9 @@ Data comes from https://frdata.wikimedia.org/.
 
     
     import altair as alt
-    
+
     data = "https://frdata.wikimedia.org/donationdata-vs-day.csv"
-    
+
     alt.Chart(data).mark_line().encode(
         alt.X(
             'date:T', timeUnit='monthdate',
@@ -32,6 +32,7 @@ Data comes from https://frdata.wikimedia.org/.
         alt.Color('date:O', timeUnit='year', legend=alt.Legend(title='Year')),
         alt.Order('data:O', timeUnit='year')
     )
+
 
 .. toctree::
    :hidden:

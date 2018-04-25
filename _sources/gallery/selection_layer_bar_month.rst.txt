@@ -15,13 +15,13 @@ value within the selected interval.
     :code-below:
 
     
-    
+
     import altair as alt
     from vega_datasets import data
-    
+
     weather = data.seattle_weather.url
     brush = alt.selection(type='interval', encodings=['x'])
-    
+
     bars = alt.Chart().mark_bar().encode(
         alt.X('date:O', timeUnit='month'),
         y='mean(precipitation):Q',
@@ -29,13 +29,14 @@ value within the selected interval.
     ).properties(
         selection=brush
     )
-    
+
     line = alt.Chart().mark_rule(color='firebrick').encode(
         y='mean(precipitation):Q',
         size=alt.SizeValue(3)
     ).transform_filter(brush.ref())
-    
+
     alt.layer(bars, line, data=weather)
+
 
 .. toctree::
    :hidden:

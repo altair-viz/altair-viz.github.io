@@ -17,9 +17,9 @@ y-axis of a chart as percentages.
     import altair as alt
     from altair.expr import datum
     from vega_datasets import data
-    
+
     source = data.jobs.url
-    
+
     alt.Chart(source).mark_line().encode(
         alt.X('year:O'),
         alt.Y('perc:Q', axis=alt.Axis(format='%')),
@@ -29,6 +29,7 @@ y-axis of a chart as percentages.
     ).transform_filter(
         datum.job == 'Welder'
     )
+
 
 .. toctree::
    :hidden:

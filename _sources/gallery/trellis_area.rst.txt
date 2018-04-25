@@ -16,9 +16,9 @@ This example shows stock prices of four large companies as a small multiples of 
     import altair as alt
     from altair.expr import datum
     from vega_datasets import data
-    
+
     source = data.stocks()
-    
+
     alt.Chart(source).mark_area().encode(
         alt.X('date:T', axis=alt.Axis(format='%Y', title='Time', grid=False)),
         alt.Y('price:Q', axis=alt.Axis(title='Price', grid=False)),
@@ -30,6 +30,7 @@ This example shows stock prices of four large companies as a small multiples of 
     ).transform_filter(
         datum.symbol != 'GOOG'
     )
+
 
 .. toctree::
    :hidden:

@@ -16,7 +16,7 @@ This example shows how to make a Horizon Graph with 2 layers. (See https://idl.c
     import altair as alt
     from altair.expr import datum
     import pandas as pd
-    
+
     df = pd.DataFrame([
           {"x": 1,  "y": 28}, {"x": 2,  "y": 55},
           {"x": 3,  "y": 43}, {"x": 4,  "y": 91},
@@ -29,7 +29,7 @@ This example shows how to make a Horizon Graph with 2 layers. (See https://idl.c
           {"x": 17, "y": 68}, {"x": 18, "y": 16},
           {"x": 19, "y": 49}, {"x": 20, "y": 15}
         ])
-    
+
     area1 = alt.Chart(df).mark_area(
         clip=True,
         interpolate='monotone'
@@ -41,14 +41,15 @@ This example shows how to make a Horizon Graph with 2 layers. (See https://idl.c
         width=500,
         height=75
     )
-    
+
     area2 = area1.encode(
         alt.Y('ny:Q', scale=alt.Scale(domain=[0, 50]))
     ).transform_calculate(
         "ny", datum.y - 50
     )
-    
+
     area1 + area2
+
 
 .. toctree::
    :hidden:

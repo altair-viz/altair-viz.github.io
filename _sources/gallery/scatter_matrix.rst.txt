@@ -14,10 +14,10 @@ with linked panning and zooming.
     :code-below:
 
     
-    
+
     import altair as alt
     from vega_datasets import data
-    
+
     alt.Chart(data.cars.url).mark_circle().encode(
         alt.X(alt.repeat("column"), type='quantitative'),
         alt.Y(alt.repeat("row"), type='quantitative'),
@@ -29,6 +29,7 @@ with linked panning and zooming.
         row=['Horsepower', 'Acceleration', 'Miles_per_Gallon'],
         column=['Miles_per_Gallon', 'Acceleration', 'Horsepower']
     ).interactive()
+
 
 .. toctree::
    :hidden:

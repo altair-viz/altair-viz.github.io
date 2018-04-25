@@ -16,9 +16,9 @@ This example shows how to make a normalized stacked bar chart.
     import altair as alt
     from altair.expr import datum, if_
     from vega_datasets import data
-    
+
     source = data.population.url
-    
+
     alt.Chart(source).mark_bar().encode(
         alt.X('age:O', scale=alt.Scale(rangeStep=17)),
         alt.Y('sum(people):Q',
@@ -33,6 +33,7 @@ This example shows how to make a normalized stacked bar chart.
     ).transform_calculate(
         "gender", if_(datum.sex == 2, 'Female', 'Male')
     )
+
 
 .. toctree::
    :hidden:

@@ -239,13 +239,13 @@ of items in each category within the selection.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "vconcat": [{"mark": "point", "encoding": {"color": {"condition": {"type": "nominal", "field": "Origin", "selection": "selector018"}, "value": "lightgray"}, "x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "selection": {"selector018": {"type": "interval"}}}, {"mark": "bar", "encoding": {"color": {"type": "nominal", "field": "Origin"}, "x": {"type": "quantitative", "aggregate": "count", "field": "Origin"}, "y": {"type": "nominal", "field": "Origin"}}, "transform": [{"filter": {"selection": "selector018"}}]}], "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "vconcat": [{"mark": "point", "encoding": {"color": {"condition": {"type": "nominal", "field": "Origin", "selection": "selector021"}, "value": "lightgray"}, "x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "selection": {"selector021": {"type": "interval"}}}, {"mark": "bar", "encoding": {"color": {"type": "nominal", "field": "Origin"}, "x": {"type": "quantitative", "aggregate": "count", "field": "Origin"}, "y": {"type": "nominal", "field": "Origin"}}, "transform": [{"filter": {"selection": "selector021"}}]}], "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#selection_histogram-rst-altair-plot-0', {"config": {"view": {"width": 400, "height": 300}}, "vconcat": [{"mark": "point", "encoding": {"color": {"condition": {"type": "nominal", "field": "Origin", "selection": "selector018"}, "value": "lightgray"}, "x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "selection": {"selector018": {"type": "interval"}}}, {"mark": "bar", "encoding": {"color": {"type": "nominal", "field": "Origin"}, "x": {"type": "quantitative", "aggregate": "count", "field": "Origin"}, "y": {"type": "nominal", "field": "Origin"}}, "transform": [{"filter": {"selection": "selector018"}}]}], "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"}).catch(console.err);
+      vegaEmbed('#selection_histogram-rst-altair-plot-0', {"config": {"view": {"width": 400, "height": 300}}, "vconcat": [{"mark": "point", "encoding": {"color": {"condition": {"type": "nominal", "field": "Origin", "selection": "selector021"}, "value": "lightgray"}, "x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "selection": {"selector021": {"type": "interval"}}}, {"mark": "bar", "encoding": {"color": {"type": "nominal", "field": "Origin"}, "x": {"type": "quantitative", "aggregate": "count", "field": "Origin"}, "y": {"type": "nominal", "field": "Origin"}}, "transform": [{"filter": {"selection": "selector021"}}]}], "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"}).catch(console.err);
   });
 </script>
 </div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
@@ -334,7 +334,7 @@ of items in each category within the selection.</p>
       <script type="text/javascript" src="../_static/doctools.js"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@3.2"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@2.3"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@3"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@3.6"></script>
 
   
 

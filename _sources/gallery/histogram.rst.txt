@@ -14,16 +14,17 @@ https://vega.github.io/vega-lite/examples/histogram.html
     :code-below:
 
     
-    
+
     import altair as alt
     from vega_datasets import data
-    
+
     movies = data.movies.url
-    
+
     alt.Chart(movies).mark_bar().encode(
         alt.X("IMDB_Rating:Q", bin=True),
         y='count()',
     )
+
 
 .. toctree::
    :hidden:

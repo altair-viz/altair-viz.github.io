@@ -14,14 +14,15 @@ https://vega.github.io/vega-lite/examples/trellis_bar_histogram.html
     :code-below:
 
     import altair as alt
-    
+
     cars = alt.load_dataset('cars')
-    
+
     alt.Chart(cars).mark_bar().encode(
         alt.X("Horsepower:Q", bin=True),
         y='count()',
         row='Origin'
     )
+
 
 .. toctree::
    :hidden:

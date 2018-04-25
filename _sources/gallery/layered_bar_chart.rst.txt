@@ -16,9 +16,9 @@ This example shows a bar chart showing the US population distribution of age gro
     import altair as alt
     from altair.expr import datum, if_
     from vega_datasets import data
-    
+
     source = data.population.url
-    
+
     alt.Chart(source).mark_bar(opacity=0.7).encode(
         alt.X('age:O', scale=alt.Scale(rangeStep=17)),
         alt.Y('sum(people):Q', axis=alt.Axis(title='population'), stack=None),
@@ -28,6 +28,7 @@ This example shows a bar chart showing the US population distribution of age gro
     ).transform_calculate(
         "gender", if_(datum.sex == 2, 'Female', 'Male')
     )
+
 
 .. toctree::
    :hidden:

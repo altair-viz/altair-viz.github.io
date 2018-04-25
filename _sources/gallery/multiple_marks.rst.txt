@@ -15,9 +15,9 @@ representing the same data.
 
     import altair as alt
     from vega_datasets import data
-    
+
     stocks = data.stocks()
-    
+
     alt.LayerChart(stocks).encode(
         x='date:T',
         y='price:Q',
@@ -26,6 +26,7 @@ representing the same data.
         alt.Chart().mark_point(),
         alt.Chart().mark_line()
     )
+
 
 .. toctree::
    :hidden:

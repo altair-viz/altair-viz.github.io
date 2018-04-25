@@ -16,10 +16,10 @@ airports on a background of US states.
     
     import altair as alt
     from vega_datasets import data
-    
+
     states = alt.topo_feature(data.us_10m.url, feature='states')
     airports = data.airports.url
-    
+
     # US states background
     background = alt.Chart(states).mark_geoshape(
         fill='lightgray',
@@ -29,7 +29,7 @@ airports on a background of US states.
         width=500,
         height=300
     )
-    
+
     # airport positions on background
     points = alt.Chart(airports).mark_circle().encode(
         longitude='longitude:Q',
@@ -37,8 +37,9 @@ airports on a background of US states.
         size=alt.value(10),
         color=alt.value('steelblue')
     )
-    
+
     background + points
+
 
 .. toctree::
    :hidden:
