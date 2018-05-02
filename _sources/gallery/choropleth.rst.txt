@@ -13,7 +13,6 @@ A choropleth map of unemployment rate per county in the US
     :code-below:
 
     
-
     import altair as alt
     from vega_datasets import data
 
@@ -21,15 +20,16 @@ A choropleth map of unemployment rate per county in the US
     unemp_data = data.unemployment.url
 
 
-    alt.Chart(counties).mark_geoshape().properties(
-        projection={'type': 'albersUsa'},
-        width=500,
-        height=300
-    ).encode(
+    alt.Chart(counties).mark_geoshape().encode(
         color='rate:Q'
     ).transform_lookup(
         lookup='id',
         from_=alt.LookupData(unemp_data, 'id', ['rate'])
+    ).project(
+        type='albersUsa'
+    ).properties(
+        width=500,
+        height=300
     )
 
 

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Rectangular Brush &mdash; Altair 2.0.0rc2 documentation</title>
+  <title>Interactive Rectangular Brush &mdash; Altair 2.0.0 documentation</title>
   
 
   
@@ -45,10 +45,10 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Altair 2.0.0rc2 documentation" href="../index.html"/>
+    <link rel="top" title="Altair 2.0.0 documentation" href="../index.html"/>
         <link rel="up" title="Example Gallery" href="index.html"/>
-        <link rel="next" title="Interactive Chart with Cross-Highlight" href="interactive_cross_highlight.html"/>
-        <link rel="prev" title="U.S. state capitals overlayed on a map of the U.S" href="us_state_capitals.html"/> 
+        <link rel="next" title="Multi-Line Highlight" href="multiline_highlight.html"/>
+        <link rel="prev" title="Interactive Crossfilter" href="interactive_layered_crossfilter.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -80,7 +80,7 @@
             
             
               <div class="version">
-                2.0.0rc2
+                2.0
               </div>
             
           
@@ -113,34 +113,36 @@
 <p class="caption"><span class="caption-text">Gallery</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Example Gallery</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="index.html#basic-charts">Basic Charts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#general">General</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#geographic">Geographic</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="index.html#interactive">Interactive</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Rectangular Brush</a><ul class="simple">
+<li class="toctree-l2"><a class="reference internal" href="index.html#simple-charts">Simple Charts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#bar-charts">Bar Charts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#line-charts">Line Charts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#area-charts">Area Charts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#scatter-plots">Scatter Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#histograms">Histograms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#maps">Maps</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#interactive-charts">Interactive Charts</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="scatter_linked_brush.html">Faceted Scatter Plot with Linked Brushing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="selection_layer_bar_month.html">Interactive Average</a></li>
+<li class="toctree-l3"><a class="reference internal" href="interactive_cross_highlight.html">Interactive Chart with Cross-Highlight</a></li>
+<li class="toctree-l3"><a class="reference internal" href="interactive_layered_crossfilter.html">Interactive Crossfilter</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Interactive Rectangular Brush</a><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="interactive_cross_highlight.html">Interactive Chart with Cross-Highlight</a></li>
-<li class="toctree-l3"><a class="reference internal" href="interactive_layered_crossfilter.html">Crossfilter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="interactive_scatter_plot.html">Simple Interactive Colored Scatterplot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="interval_selection.html">Interval Selection Example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="multiline_highlight.html">Multi-Line Highlight</a></li>
 <li class="toctree-l3"><a class="reference internal" href="multiline_tooltip.html">Multi-Line Tooltip</a></li>
-<li class="toctree-l3"><a class="reference internal" href="scatter_linked_brush.html">Faceted Scatter Plot with Linked Brushing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="scatter_matrix.html">Scatter Matrix</a></li>
 <li class="toctree-l3"><a class="reference internal" href="seattle_weather_interactive.html">Seattle Weather Interactive</a></li>
 <li class="toctree-l3"><a class="reference internal" href="select_detail.html">Selection Detail Example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="selection_histogram.html">Selection Histogram</a></li>
-<li class="toctree-l3"><a class="reference internal" href="selection_layer_bar_month.html">Interactive Average</a></li>
+<li class="toctree-l3"><a class="reference internal" href="interactive_scatter_plot.html">Simple Interactive Colored Scatterplot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="us_population_over_time.html">US Population Over Time</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#other-charts">Other Charts</a></li>
 </ul>
 </li>
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/renderers.html">Altair Renderers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/data.html">Specifying Data in Altair</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/encoding.html">Encodings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/marks.html">Marks</a></li>
@@ -149,8 +151,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/configuration.html">Top-Level Chart Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/saving_charts.html">Saving Altair Charts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/config.html">Configuring Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/customization.html">Customizing Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/troubleshooting.html">Display Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/renderers.html">Altair Renderers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/API.html">API Reference</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Case Studies</span></p>
@@ -209,7 +213,7 @@
         
           <li><a href="index.html">Example Gallery</a> &raquo;</li>
         
-      <li>Rectangular Brush</li>
+      <li>Interactive Rectangular Brush</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -228,8 +232,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="rectangular-brush">
-<span id="gallery-interactive-brush"></span><h1>Rectangular Brush<a class="headerlink" href="#rectangular-brush" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="interactive-rectangular-brush">
+<span id="gallery-interactive-brush"></span><h1>Interactive Rectangular Brush<a class="headerlink" href="#interactive-rectangular-brush" title="Permalink to this headline">¶</a></h1>
 <p>This example shows how to add a simple rectangular brush to a scatter plot.
 By clicking and dragging on the plot, you can highlight points within the
 range.</p>
@@ -239,13 +243,13 @@ range.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"condition": {"type": "ordinal", "field": "Cylinders", "selection": "selector005"}, "value": "grey"}, "x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "selection": {"selector005": {"type": "interval"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"condition": {"type": "ordinal", "field": "Cylinders", "selection": "selector002"}, "value": "grey"}, "x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "selection": {"selector002": {"type": "interval"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#interactive_brush-rst-altair-plot-0', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"condition": {"type": "ordinal", "field": "Cylinders", "selection": "selector005"}, "value": "grey"}, "x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "selection": {"selector005": {"type": "interval"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.3.0.json"}).catch(console.err);
+      vegaEmbed('#interactive_brush-rst-altair-plot-0', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"condition": {"type": "ordinal", "field": "Cylinders", "selection": "selector002"}, "value": "grey"}, "x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "selection": {"selector002": {"type": "interval"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"}).catch(console.err);
   });
 </script>
 </div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
@@ -277,10 +281,10 @@ range.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="interactive_cross_highlight.html" class="btn btn-neutral float-right" title="Interactive Chart with Cross-Highlight" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="multiline_highlight.html" class="btn btn-neutral float-right" title="Multi-Line Highlight" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="us_state_capitals.html" class="btn btn-neutral" title="U.S. state capitals overlayed on a map of the U.S" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="interactive_layered_crossfilter.html" class="btn btn-neutral" title="Interactive Crossfilter" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -311,7 +315,7 @@ range.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.0.0rc2',
+            VERSION:'2.0.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -321,8 +325,8 @@ range.</p>
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@3.2"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@2.3"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@3.3"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@2.4"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@3.6"></script>
 
   

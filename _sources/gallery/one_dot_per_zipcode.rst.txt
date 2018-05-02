@@ -13,7 +13,6 @@ This example shows a geographical plot with one dot per zipcode.
     :code-below:
 
     
-
     import altair as alt
     from altair.expr import datum, substring
     from vega_datasets import data
@@ -24,8 +23,9 @@ This example shows a geographical plot with one dot per zipcode.
         longitude='longitude:Q',
         latitude='latitude:Q',
         color='digit:N'
+    ).project(
+        type='albersUsa'
     ).properties(
-        projection={'type': 'albersUsa'},
         width=650,
         height=400
     ).transform_calculate(

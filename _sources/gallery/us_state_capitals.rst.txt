@@ -14,7 +14,6 @@ overlayed on a map.
     :code-below:
 
     
-
     import altair as alt
     from vega_datasets import data
 
@@ -27,10 +26,9 @@ overlayed on a map.
         stroke='white'
     ).properties(
         title='US State Capitols',
-        projection={'type': 'albersUsa'},
         width=700,
         height=400
-    )
+    ).project('albersUsa')
 
     # Points and text
     hover = alt.selection(type='single', on='mouseover', nearest=True,
