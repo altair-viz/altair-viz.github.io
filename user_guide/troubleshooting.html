@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Display Troubleshooting &mdash; Altair 2.0.0 documentation</title>
+  <title>Display Troubleshooting &mdash; Altair 2.0 documentation</title>
   
 
   
@@ -45,7 +45,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Altair 2.0.0 documentation" href="../index.html"/>
+    <link rel="top" title="Altair 2.0 documentation" href="../index.html"/>
         <link rel="next" title="Altair Renderers" href="renderers.html"/>
         <link rel="prev" title="Frequently Asked Questions" href="faq.html"/> 
 
@@ -79,7 +79,7 @@
             
             
               <div class="version">
-                2.0
+                2.0.1
               </div>
             
           
@@ -129,10 +129,12 @@
 <li class="toctree-l2"><a class="reference internal" href="#trouble-shooting-altair-with-jupyterlab">Trouble-shooting Altair with JupyterLab</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#jupyterlab-vegalite-2-object">JupyterLab: VegaLite 2 Object</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#javascript-output-is-disabled-in-jupyterlab">JavaScript output is disabled in JupyterLab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#jupyterlab-textual-chart-representation">JupyterLab: Textual Chart Representation</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#trouble-shooting-altair-with-notebook">Trouble-shooting Altair with Notebook</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#notebook-vegalite-2-object">Notebook: VegaLite 2 object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#notebook-textual-chart-representation">Notebook: Textual Chart Representation</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#general-trouble-shooting">General Trouble-shooting</a><ul>
@@ -235,32 +237,15 @@ into strange states where things don’t immediately work as expected.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">VegaLite</span> <span class="mi">2</span> <span class="nb">object</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-<p>it can mean one of several things is wrong:</p>
-<ol class="arabic">
-<li><p class="first">You are using too old a version of JupyterLab. Altair requires JupyterLab version
-0.31 or later; check the version with:</p>
+<p>This most likely means that you are using too old a version of JupyterLab.
+Altair works best with JupyterLab version 0.32 or later; check the version with:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>$ jupyter lab --version
-0.31.10
+0.32.1
 </pre></div>
 </div>
 <p>If this is the problem, then use <code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-U</span> <span class="pre">jupyterlab</span></code> or
 <code class="docutils literal"><span class="pre">conda</span> <span class="pre">update</span> <span class="pre">jupyterlab</span></code> to update JupyterLab, depending on how you
 first installed it.</p>
-</li>
-<li><p class="first">You have not correctly installed the <code class="docutils literal"><span class="pre">vega3</span></code> lab extension mentioned
-in the installation steps above. You can list currently installed lab
-extensions with:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ jupyter labextension list
-</pre></div>
-</div>
-<p>if <code class="docutils literal"><span class="pre">&#64;jupyterlab/vega3-extension</span></code> does not appear in that list, then run
-the following to install it:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ jupyter labextension install @jupyterlab/vega3-extension
-</pre></div>
-</div>
-<p>Once this is installed, re-launch JupyterLab and your charts should render.</p>
-</li>
-</ol>
 </div>
 <div class="section" id="javascript-output-is-disabled-in-jupyterlab">
 <h3>JavaScript output is disabled in JupyterLab<a class="headerlink" href="#javascript-output-is-disabled-in-jupyterlab" title="Permalink to this headline">¶</a></h3>
@@ -271,7 +256,8 @@ the following to install it:</p>
 <p>it can mean one of two things is wrong</p>
 <ol class="arabic">
 <li><p class="first">You are using an old version of Altair. JupyterLab only works with Altair
-version 2.0 or newer; you can check the altair version by running:</p>
+version 2.0 or newer; you can check the altair version by executing the
+following in a notebook code cell:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
 <span class="n">alt</span><span class="o">.</span><span class="n">__version__</span>
 </pre></div>
@@ -280,8 +266,8 @@ version 2.0 or newer; you can check the altair version by running:</p>
 installation instructions at <a class="reference internal" href="../getting_started/installation.html#installation-jupyterlab"><span class="std std-ref">Quick Start: Altair + JupyterLab</span></a>.</p>
 </li>
 <li><p class="first">You have enabled the wrong renderer. JupyterLab works with the default
-renderer, but if you have used <code class="docutils literal"><span class="pre">alt.renderers.enable(xxx)</span></code> to enable
-another renderer, JupyterLab will no longer work.
+renderer, but if you have used <code class="docutils literal"><span class="pre">alt.renderers.enable()</span></code> to enable
+another renderer, charts will no longer render correctly in JupyterLab.
 You can check which renderer is active by running:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">alt</span><span class="o">.</span><span class="n">renderers</span><span class="o">.</span><span class="n">active</span><span class="p">)</span>
@@ -298,6 +284,33 @@ is only necessary if you’ve somewhere changed the renderer explicitly).</p>
 </li>
 </ol>
 </div>
+<div class="section" id="jupyterlab-textual-chart-representation">
+<span id="id2"></span><h3>JupyterLab: Textual Chart Representation<a class="headerlink" href="#jupyterlab-textual-chart-representation" title="Permalink to this headline">¶</a></h3>
+<p><em>If you are using the Notebook rather than the JupyterLab, then refer to</em>
+<a class="reference internal" href="#notebook-textual-chart-representation"><span class="std std-ref">Notebook: Textual Chart Representation</span></a></p>
+<p>If you are using JupyterLab and see a textual representation of the Chart object
+similar to this:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Chart</span><span class="p">({</span>
+  <span class="n">data</span><span class="p">:</span> <span class="s1">&#39;https://vega.github.io/vega-datasets/data/cars.json&#39;</span><span class="p">,</span>
+  <span class="n">encoding</span><span class="p">:</span> <span class="n">EncodingWithFacet</span><span class="p">({</span>
+    <span class="n">x</span><span class="p">:</span> <span class="n">X</span><span class="p">({</span>
+      <span class="n">shorthand</span><span class="p">:</span> <span class="s1">&#39;Horsepower&#39;</span>
+    <span class="p">})</span>
+  <span class="p">}),</span>
+  <span class="n">mark</span><span class="p">:</span> <span class="s1">&#39;point&#39;</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+<p>it probably means that you are using an older Jupyter kernel.
+You can confirm this by running:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">IPython</span><span class="p">;</span> <span class="n">IPython</span><span class="o">.</span><span class="n">__version__</span>
+<span class="c1"># 6.2.1</span>
+</pre></div>
+</div>
+<p>Altair will not display correctly if using a kernel with IPython version 4.X or older.</p>
+<p>The easiest way to address this is to change your kernel: choose “Kernel”-&gt;”Change Kernel”
+and then use the first kernel that appears.</p>
+</div>
 </div>
 <div class="section" id="trouble-shooting-altair-with-notebook">
 <span id="troubleshooting-notebook"></span><h2>Trouble-shooting Altair with Notebook<a class="headerlink" href="#trouble-shooting-altair-with-notebook" title="Permalink to this headline">¶</a></h2>
@@ -309,7 +322,9 @@ is only necessary if you’ve somewhere changed the renderer explicitly).</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">Vegalite</span> <span class="mi">2</span> <span class="nb">object</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-<p>it usually means that you have not enabled the notebook renderer. As mentioned
+<p>it means that either:</p>
+<ol class="arabic">
+<li><p class="first">You have forgotten to enable the notebook renderer. As mentioned
 in <a class="reference internal" href="../getting_started/installation.html#installation-notebook"><span class="std std-ref">Quick Start: Altair + Notebook</span></a>, you need to install the <code class="docutils literal"><span class="pre">vega3</span></code> package and
 Jupyter extension, and then enable it using:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
@@ -324,9 +339,47 @@ Jupyter extension, and then enable it using:</p>
 <p>This means that you have not installed the vega3 package. If you see this error,
 please make sure to follow the standard installation instructions at
 <a class="reference internal" href="../getting_started/installation.html#installation-notebook"><span class="std std-ref">Quick Start: Altair + Notebook</span></a>.</p>
+</li>
+<li><p class="first">Have too old a version of Jupyter notebook. Run:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ jupyter notebook --version
+</pre></div>
+</div>
+<p>and make certain you have version 5.3 or newer. If not, then update the notebook
+using either <code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-U</span> <span class="pre">jupyter</span> <span class="pre">notebook</span></code> or <code class="docutils literal"><span class="pre">conda</span> <span class="pre">update</span> <span class="pre">jupyter</span> <span class="pre">notebook</span></code>
+depending on how you first installed the packages.</p>
+</li>
+</ol>
 <p>If you have done the above steps and charts still do not render, it likely means
 that you are using a different <em>Kernel</em> within your notebook. Switch to the kernel
 named <em>Python 2</em> if you are using Python 2, or <em>Python 3</em> if you are using Python 3.</p>
+</div>
+<div class="section" id="notebook-textual-chart-representation">
+<span id="id3"></span><h3>Notebook: Textual Chart Representation<a class="headerlink" href="#notebook-textual-chart-representation" title="Permalink to this headline">¶</a></h3>
+<p><em>If you are using the Notebook rather than the JupyterLab, then refer to</em>
+<a class="reference internal" href="#jupyterlab-textual-chart-representation"><span class="std std-ref">JupyterLab: Textual Chart Representation</span></a></p>
+<p>If you are using Jupyter notebook and see a textual representation of the Chart
+object similar to this:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Chart</span><span class="p">({</span>
+  <span class="n">data</span><span class="p">:</span> <span class="s1">&#39;https://vega.github.io/vega-datasets/data/cars.json&#39;</span><span class="p">,</span>
+  <span class="n">encoding</span><span class="p">:</span> <span class="n">EncodingWithFacet</span><span class="p">({</span>
+    <span class="n">x</span><span class="p">:</span> <span class="n">X</span><span class="p">({</span>
+      <span class="n">shorthand</span><span class="p">:</span> <span class="s1">&#39;Horsepower&#39;</span>
+    <span class="p">})</span>
+  <span class="p">}),</span>
+  <span class="n">mark</span><span class="p">:</span> <span class="s1">&#39;point&#39;</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+<p>it probably means that you are using an older Jupyter kernel.
+You can confirm this by running:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">IPython</span><span class="p">;</span> <span class="n">IPython</span><span class="o">.</span><span class="n">__version__</span>
+<span class="c1"># 6.2.1</span>
+</pre></div>
+</div>
+<p>Altair will not display correctly if using a kernel with IPython version 4.X or older.</p>
+<p>The easiest way to address this is to change your kernel:
+choose “Kernel”-&gt;”Change Kernel” and then select “Python 2” or “Python 3”,
+depending on what version of Python you used when installing Altair.</p>
 </div>
 </div>
 <div class="section" id="general-trouble-shooting">
@@ -518,7 +571,7 @@ displayed as an output:</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.0.0',
+            VERSION:'2.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

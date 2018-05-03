@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Seattle Weather Interactive &mdash; Altair 2.0.0 documentation</title>
+  <title>Seattle Weather Interactive &mdash; Altair 2.0 documentation</title>
   
 
   
@@ -45,7 +45,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Altair 2.0.0 documentation" href="../index.html"/>
+    <link rel="top" title="Altair 2.0 documentation" href="../index.html"/>
         <link rel="up" title="Example Gallery" href="index.html"/>
         <link rel="next" title="Selection Detail Example" href="select_detail.html"/>
         <link rel="prev" title="Multi-Line Tooltip" href="multiline_tooltip.html"/> 
@@ -80,7 +80,7 @@
             
             
               <div class="version">
-                2.0
+                2.0.1
               </div>
             
           
@@ -243,13 +243,13 @@ see the distribution of weather types in a particular date range.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "vconcat": [{"mark": "point", "encoding": {"color": {"condition": {"type": "nominal", "field": "weather", "scale": {"domain": ["sun", "fog", "drizzle", "rain", "snow"], "range": ["#e7ba52", "#a7a7a7", "#aec7e8", "#1f77b4", "#9467bd"]}, "selection": "selector014"}, "value": "lightgray"}, "size": {"type": "quantitative", "field": "precipitation", "scale": {"range": [5, 200]}}, "x": {"type": "temporal", "axis": {"title": "Date"}, "field": "date", "timeUnit": "monthdate"}, "y": {"type": "quantitative", "axis": {"title": "Maximum Daily Temperature (C)"}, "field": "temp_max", "scale": {"domain": [-5, 40]}}}, "height": 300, "selection": {"selector014": {"type": "interval", "encodings": ["x"]}}, "transform": [{"filter": {"selection": "selector015"}}], "width": 600}, {"mark": "bar", "encoding": {"color": {"condition": {"type": "nominal", "field": "weather", "scale": {"domain": ["sun", "fog", "drizzle", "rain", "snow"], "range": ["#e7ba52", "#a7a7a7", "#aec7e8", "#1f77b4", "#9467bd"]}, "selection": "selector015"}, "value": "lightgray"}, "x": {"type": "quantitative", "aggregate": "count"}, "y": {"type": "nominal", "field": "weather"}}, "selection": {"selector015": {"type": "multi", "encodings": ["color"]}}, "transform": [{"filter": {"selection": "selector014"}}], "width": 600}], "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-weather.csv"}, "title": "Seattle Weather: 2012-2015", "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "vconcat": [{"mark": "point", "encoding": {"color": {"condition": {"type": "nominal", "field": "weather", "scale": {"domain": ["sun", "fog", "drizzle", "rain", "snow"], "range": ["#e7ba52", "#a7a7a7", "#aec7e8", "#1f77b4", "#9467bd"]}, "selection": "selector016"}, "value": "lightgray"}, "size": {"type": "quantitative", "field": "precipitation", "scale": {"range": [5, 200]}}, "x": {"type": "temporal", "axis": {"title": "Date"}, "field": "date", "timeUnit": "monthdate"}, "y": {"type": "quantitative", "axis": {"title": "Maximum Daily Temperature (C)"}, "field": "temp_max", "scale": {"domain": [-5, 40]}}}, "height": 300, "selection": {"selector016": {"type": "interval", "encodings": ["x"]}}, "transform": [{"filter": {"selection": "selector017"}}], "width": 600}, {"mark": "bar", "encoding": {"color": {"condition": {"type": "nominal", "field": "weather", "scale": {"domain": ["sun", "fog", "drizzle", "rain", "snow"], "range": ["#e7ba52", "#a7a7a7", "#aec7e8", "#1f77b4", "#9467bd"]}, "selection": "selector017"}, "value": "lightgray"}, "x": {"type": "quantitative", "aggregate": "count"}, "y": {"type": "nominal", "field": "weather"}}, "selection": {"selector017": {"type": "multi", "encodings": ["color"]}}, "transform": [{"filter": {"selection": "selector016"}}], "width": 600}], "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-weather.csv"}, "title": "Seattle Weather: 2012-2015", "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#seattle_weather_interactive-rst-altair-plot-0', {"config": {"view": {"width": 400, "height": 300}}, "vconcat": [{"mark": "point", "encoding": {"color": {"condition": {"type": "nominal", "field": "weather", "scale": {"domain": ["sun", "fog", "drizzle", "rain", "snow"], "range": ["#e7ba52", "#a7a7a7", "#aec7e8", "#1f77b4", "#9467bd"]}, "selection": "selector014"}, "value": "lightgray"}, "size": {"type": "quantitative", "field": "precipitation", "scale": {"range": [5, 200]}}, "x": {"type": "temporal", "axis": {"title": "Date"}, "field": "date", "timeUnit": "monthdate"}, "y": {"type": "quantitative", "axis": {"title": "Maximum Daily Temperature (C)"}, "field": "temp_max", "scale": {"domain": [-5, 40]}}}, "height": 300, "selection": {"selector014": {"type": "interval", "encodings": ["x"]}}, "transform": [{"filter": {"selection": "selector015"}}], "width": 600}, {"mark": "bar", "encoding": {"color": {"condition": {"type": "nominal", "field": "weather", "scale": {"domain": ["sun", "fog", "drizzle", "rain", "snow"], "range": ["#e7ba52", "#a7a7a7", "#aec7e8", "#1f77b4", "#9467bd"]}, "selection": "selector015"}, "value": "lightgray"}, "x": {"type": "quantitative", "aggregate": "count"}, "y": {"type": "nominal", "field": "weather"}}, "selection": {"selector015": {"type": "multi", "encodings": ["color"]}}, "transform": [{"filter": {"selection": "selector014"}}], "width": 600}], "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-weather.csv"}, "title": "Seattle Weather: 2012-2015", "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"}).catch(console.err);
+      vegaEmbed('#seattle_weather_interactive-rst-altair-plot-0', {"config": {"view": {"width": 400, "height": 300}}, "vconcat": [{"mark": "point", "encoding": {"color": {"condition": {"type": "nominal", "field": "weather", "scale": {"domain": ["sun", "fog", "drizzle", "rain", "snow"], "range": ["#e7ba52", "#a7a7a7", "#aec7e8", "#1f77b4", "#9467bd"]}, "selection": "selector016"}, "value": "lightgray"}, "size": {"type": "quantitative", "field": "precipitation", "scale": {"range": [5, 200]}}, "x": {"type": "temporal", "axis": {"title": "Date"}, "field": "date", "timeUnit": "monthdate"}, "y": {"type": "quantitative", "axis": {"title": "Maximum Daily Temperature (C)"}, "field": "temp_max", "scale": {"domain": [-5, 40]}}}, "height": 300, "selection": {"selector016": {"type": "interval", "encodings": ["x"]}}, "transform": [{"filter": {"selection": "selector017"}}], "width": 600}, {"mark": "bar", "encoding": {"color": {"condition": {"type": "nominal", "field": "weather", "scale": {"domain": ["sun", "fog", "drizzle", "rain", "snow"], "range": ["#e7ba52", "#a7a7a7", "#aec7e8", "#1f77b4", "#9467bd"]}, "selection": "selector017"}, "value": "lightgray"}, "x": {"type": "quantitative", "aggregate": "count"}, "y": {"type": "nominal", "field": "weather"}}, "selection": {"selector017": {"type": "multi", "encodings": ["color"]}}, "transform": [{"filter": {"selection": "selector016"}}], "width": 600}], "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-weather.csv"}, "title": "Seattle Weather: 2012-2015", "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"}).catch(console.err);
   });
 </script>
 </div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
@@ -348,7 +348,7 @@ see the distribution of weather types in a particular date range.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.0.0',
+            VERSION:'2.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

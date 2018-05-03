@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Installation &mdash; Altair 2.0.0 documentation</title>
+  <title>Installation &mdash; Altair 2.0 documentation</title>
   
 
   
@@ -45,7 +45,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Altair 2.0.0 documentation" href="../index.html"/>
+    <link rel="top" title="Altair 2.0 documentation" href="../index.html"/>
         <link rel="next" title="Basic Statistical Visualization" href="starting.html"/>
         <link rel="prev" title="Overview" href="overview.html"/> 
 
@@ -79,7 +79,7 @@
             
             
               <div class="version">
-                2.0
+                2.0.1
               </div>
             
           
@@ -110,7 +110,6 @@
 <li class="toctree-l2"><a class="reference internal" href="#quick-start-altair-jupyterlab">Quick Start: Altair + JupyterLab</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#quick-start-altair-notebook">Quick Start: Altair + Notebook</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#quick-start-altair-colab">Quick Start: Altair + Colab</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#installation-with-conda">Installation with Conda</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#dependencies">Dependencies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#development-install">Development Install</a></li>
 </ul>
@@ -217,8 +216,11 @@
 <li>The core Altair Package and its dependencies</li>
 <li>The renderer for the frontend you wish to use (i.e. <a class="reference external" href="https://jupyter-notebook.readthedocs.io/en/stable/">Jupyter Notebook</a>,
 <a class="reference external" href="http://jupyterlab.readthedocs.io/en/stable/">JupyterLab</a>, <a class="reference external" href="https://colab.research.google.com">Colab</a>, or <a class="reference external" href="https://nteract.io">nteract</a>)</li>
+<li>Additionally, Altair’s documentation makes use of the <a class="reference external" href="https://github.com/altair-viz/vega_datasets">vega_datasets</a> package,
+and so it is included in the installation instructions below.</li>
 </ol>
-<p>See the following instructions for your chosen frontend:</p>
+<p>Depending on the frontend you would like to use, the instructions differ slightly.
+See the following instructions for your chosen frontend:</p>
 <ul class="simple">
 <li><a class="reference internal" href="#installation-jupyterlab"><span class="std std-ref">Quick Start: Altair + JupyterLab</span></a></li>
 <li><a class="reference internal" href="#installation-notebook"><span class="std std-ref">Quick Start: Altair + Notebook</span></a></li>
@@ -228,18 +230,22 @@
 <span id="installation-jupyterlab"></span><h2>Quick Start: Altair + JupyterLab<a class="headerlink" href="#quick-start-altair-jupyterlab" title="Permalink to this headline">¶</a></h2>
 <p>We recommend installing Altair with JupyterLab. If you would like to use it
 with the classic notebook, see <a class="reference internal" href="#installation-notebook"><span class="std std-ref">Quick Start: Altair + Notebook</span></a>.</p>
-<p>To install JupyterLab and Altair with pip, run the following commands:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ pip install jupyterlab altair
-$ jupyter labextension install @jupyterlab/vega3-extension  # not needed for JupyterLab 0.32 or newer
+<p>Altair works best with JupyterLab version 0.32 or later.</p>
+<p>To install JupyterLab and Altair with conda, run the following command:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ conda install -c conda-forge altair vega_datasets jupyterlab
+</pre></div>
+</div>
+<p>To install JupyterLab and Altair with pip, run the following command:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ pip install -U altair vega_datasets jupyterlab
 </pre></div>
 </div>
 <p>Once this is finished, run:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>$ jupyter lab
 </pre></div>
 </div>
-<p>In the browser window that launches, under “Notebook” click the first available
-kernel (it should say “Python 2” or “Python 3” depending on which Python version
-you are running).</p>
+<p>In the browser window that launches, select “File”-&gt;”New”-&gt;”Notebook” and then
+click “Select” without changing the kernel  (it should say “Python 2” or
+“Python 3” depending on which Python version you are running).</p>
 <p>In the notebook that opens, you can run the following code to ensure everything
 is properly set up:</p>
 <div class="highlight-python" id="installation-rst-altair-source-0"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
@@ -269,8 +275,8 @@ is properly set up:</p>
       vegaEmbed('#installation-rst-altair-plot-0', {"config": {"view": {"width": 400, "height": 300}}, "data": {"values": [{"petalLength": 1.4, "petalWidth": 0.2, "sepalLength": 5.1, "sepalWidth": 3.5, "species": "setosa"}, {"petalLength": 1.4, "petalWidth": 0.2, "sepalLength": 4.9, "sepalWidth": 3.0, "species": "setosa"}, {"petalLength": 1.3, "petalWidth": 0.2, "sepalLength": 4.7, "sepalWidth": 3.2, "species": "setosa"}, {"petalLength": 1.5, "petalWidth": 0.2, "sepalLength": 4.6, "sepalWidth": 3.1, "species": "setosa"}, {"petalLength": 1.4, "petalWidth": 0.2, "sepalLength": 5.0, "sepalWidth": 3.6, "species": "setosa"}, {"petalLength": 1.7000000000000002, "petalWidth": 0.4, "sepalLength": 5.4, "sepalWidth": 3.9, "species": "setosa"}, {"petalLength": 1.4, "petalWidth": 0.30000000000000004, "sepalLength": 4.6, "sepalWidth": 3.4, "species": "setosa"}, {"petalLength": 1.5, "petalWidth": 0.2, "sepalLength": 5.0, "sepalWidth": 3.4, "species": "setosa"}, {"petalLength": 1.4, "petalWidth": 0.2, "sepalLength": 4.4, "sepalWidth": 2.9, "species": "setosa"}, {"petalLength": 1.5, "petalWidth": 0.1, "sepalLength": 4.9, "sepalWidth": 3.1, "species": "setosa"}, {"petalLength": 1.5, "petalWidth": 0.2, "sepalLength": 5.4, "sepalWidth": 3.7, "species": "setosa"}, {"petalLength": 1.6, "petalWidth": 0.2, "sepalLength": 4.8, "sepalWidth": 3.4, "species": "setosa"}, {"petalLength": 1.4, "petalWidth": 0.1, "sepalLength": 4.8, "sepalWidth": 3.0, "species": "setosa"}, {"petalLength": 1.1, "petalWidth": 0.1, "sepalLength": 4.3, "sepalWidth": 3.0, "species": "setosa"}, {"petalLength": 1.2, "petalWidth": 0.2, "sepalLength": 5.8, "sepalWidth": 4.0, "species": "setosa"}, {"petalLength": 1.5, "petalWidth": 0.4, "sepalLength": 5.7, "sepalWidth": 4.4, "species": "setosa"}, {"petalLength": 1.3, "petalWidth": 0.4, "sepalLength": 5.4, "sepalWidth": 3.9, "species": "setosa"}, {"petalLength": 1.4, "petalWidth": 0.30000000000000004, "sepalLength": 5.1, "sepalWidth": 3.5, "species": "setosa"}, {"petalLength": 1.7000000000000002, "petalWidth": 0.30000000000000004, "sepalLength": 5.7, "sepalWidth": 3.8, "species": "setosa"}, {"petalLength": 1.5, "petalWidth": 0.30000000000000004, "sepalLength": 5.1, "sepalWidth": 3.8, "species": "setosa"}, {"petalLength": 1.7000000000000002, "petalWidth": 0.2, "sepalLength": 5.4, "sepalWidth": 3.4, "species": "setosa"}, {"petalLength": 1.5, "petalWidth": 0.4, "sepalLength": 5.1, "sepalWidth": 3.7, "species": "setosa"}, {"petalLength": 1.0, "petalWidth": 0.2, "sepalLength": 4.6, "sepalWidth": 3.6, "species": "setosa"}, {"petalLength": 1.7000000000000002, "petalWidth": 0.5, "sepalLength": 5.1, "sepalWidth": 3.3, "species": "setosa"}, {"petalLength": 1.9, "petalWidth": 0.2, "sepalLength": 4.8, "sepalWidth": 3.4, "species": "setosa"}, {"petalLength": 1.6, "petalWidth": 0.2, "sepalLength": 5.0, "sepalWidth": 3.0, "species": "setosa"}, {"petalLength": 1.6, "petalWidth": 0.4, "sepalLength": 5.0, "sepalWidth": 3.4, "species": "setosa"}, {"petalLength": 1.5, "petalWidth": 0.2, "sepalLength": 5.2, "sepalWidth": 3.5, "species": "setosa"}, {"petalLength": 1.4, "petalWidth": 0.2, "sepalLength": 5.2, "sepalWidth": 3.4, "species": "setosa"}, {"petalLength": 1.6, "petalWidth": 0.2, "sepalLength": 4.7, "sepalWidth": 3.2, "species": "setosa"}, {"petalLength": 1.6, "petalWidth": 0.2, "sepalLength": 4.8, "sepalWidth": 3.1, "species": "setosa"}, {"petalLength": 1.5, "petalWidth": 0.4, "sepalLength": 5.4, "sepalWidth": 3.4, "species": "setosa"}, {"petalLength": 1.5, "petalWidth": 0.1, "sepalLength": 5.2, "sepalWidth": 4.1, "species": "setosa"}, {"petalLength": 1.4, "petalWidth": 0.2, "sepalLength": 5.5, "sepalWidth": 4.2, "species": "setosa"}, {"petalLength": 1.5, "petalWidth": 0.2, "sepalLength": 4.9, "sepalWidth": 3.1, "species": "setosa"}, {"petalLength": 1.2, "petalWidth": 0.2, "sepalLength": 5.0, "sepalWidth": 3.2, "species": "setosa"}, {"petalLength": 1.3, "petalWidth": 0.2, "sepalLength": 5.5, "sepalWidth": 3.5, "species": "setosa"}, {"petalLength": 1.4, "petalWidth": 0.1, "sepalLength": 4.9, "sepalWidth": 3.6, "species": "setosa"}, {"petalLength": 1.3, "petalWidth": 0.2, "sepalLength": 4.4, "sepalWidth": 3.0, "species": "setosa"}, {"petalLength": 1.5, "petalWidth": 0.2, "sepalLength": 5.1, "sepalWidth": 3.4, "species": "setosa"}, {"petalLength": 1.3, "petalWidth": 0.30000000000000004, "sepalLength": 5.0, "sepalWidth": 3.5, "species": "setosa"}, {"petalLength": 1.3, "petalWidth": 0.30000000000000004, "sepalLength": 4.5, "sepalWidth": 2.3, "species": "setosa"}, {"petalLength": 1.3, "petalWidth": 0.2, "sepalLength": 4.4, "sepalWidth": 3.2, "species": "setosa"}, {"petalLength": 1.6, "petalWidth": 0.6000000000000001, "sepalLength": 5.0, "sepalWidth": 3.5, "species": "setosa"}, {"petalLength": 1.9, "petalWidth": 0.4, "sepalLength": 5.1, "sepalWidth": 3.8, "species": "setosa"}, {"petalLength": 1.4, "petalWidth": 0.30000000000000004, "sepalLength": 4.8, "sepalWidth": 3.0, "species": "setosa"}, {"petalLength": 1.6, "petalWidth": 0.2, "sepalLength": 5.1, "sepalWidth": 3.8, "species": "setosa"}, {"petalLength": 1.4, "petalWidth": 0.2, "sepalLength": 4.6, "sepalWidth": 3.2, "species": "setosa"}, {"petalLength": 1.5, "petalWidth": 0.2, "sepalLength": 5.3, "sepalWidth": 3.7, "species": "setosa"}, {"petalLength": 1.4, "petalWidth": 0.2, "sepalLength": 5.0, "sepalWidth": 3.3, "species": "setosa"}, {"petalLength": 4.7, "petalWidth": 1.4, "sepalLength": 7.0, "sepalWidth": 3.2, "species": "versicolor"}, {"petalLength": 4.5, "petalWidth": 1.5, "sepalLength": 6.4, "sepalWidth": 3.2, "species": "versicolor"}, {"petalLength": 4.9, "petalWidth": 1.5, "sepalLength": 6.9, "sepalWidth": 3.1, "species": "versicolor"}, {"petalLength": 4.0, "petalWidth": 1.3, "sepalLength": 5.5, "sepalWidth": 2.3, "species": "versicolor"}, {"petalLength": 4.6, "petalWidth": 1.5, "sepalLength": 6.5, "sepalWidth": 2.8, "species": "versicolor"}, {"petalLength": 4.5, "petalWidth": 1.3, "sepalLength": 5.7, "sepalWidth": 2.8, "species": "versicolor"}, {"petalLength": 4.7, "petalWidth": 1.6, "sepalLength": 6.3, "sepalWidth": 3.3, "species": "versicolor"}, {"petalLength": 3.3, "petalWidth": 1.0, "sepalLength": 4.9, "sepalWidth": 2.4, "species": "versicolor"}, {"petalLength": 4.6, "petalWidth": 1.3, "sepalLength": 6.6, "sepalWidth": 2.9, "species": "versicolor"}, {"petalLength": 3.9, "petalWidth": 1.4, "sepalLength": 5.2, "sepalWidth": 2.7, "species": "versicolor"}, {"petalLength": 3.5, "petalWidth": 1.0, "sepalLength": 5.0, "sepalWidth": 2.0, "species": "versicolor"}, {"petalLength": 4.2, "petalWidth": 1.5, "sepalLength": 5.9, "sepalWidth": 3.0, "species": "versicolor"}, {"petalLength": 4.0, "petalWidth": 1.0, "sepalLength": 6.0, "sepalWidth": 2.2, "species": "versicolor"}, {"petalLength": 4.7, "petalWidth": 1.4, "sepalLength": 6.1, "sepalWidth": 2.9, "species": "versicolor"}, {"petalLength": 3.6, "petalWidth": 1.3, "sepalLength": 5.6, "sepalWidth": 2.9, "species": "versicolor"}, {"petalLength": 4.4, "petalWidth": 1.4, "sepalLength": 6.7, "sepalWidth": 3.1, "species": "versicolor"}, {"petalLength": 4.5, "petalWidth": 1.5, "sepalLength": 5.6, "sepalWidth": 3.0, "species": "versicolor"}, {"petalLength": 4.1, "petalWidth": 1.0, "sepalLength": 5.8, "sepalWidth": 2.7, "species": "versicolor"}, {"petalLength": 4.5, "petalWidth": 1.5, "sepalLength": 6.2, "sepalWidth": 2.2, "species": "versicolor"}, {"petalLength": 3.9, "petalWidth": 1.1, "sepalLength": 5.6, "sepalWidth": 2.5, "species": "versicolor"}, {"petalLength": 4.8, "petalWidth": 1.8, "sepalLength": 5.9, "sepalWidth": 3.2, "species": "versicolor"}, {"petalLength": 4.0, "petalWidth": 1.3, "sepalLength": 6.1, "sepalWidth": 2.8, "species": "versicolor"}, {"petalLength": 4.9, "petalWidth": 1.5, "sepalLength": 6.3, "sepalWidth": 2.5, "species": "versicolor"}, {"petalLength": 4.7, "petalWidth": 1.2, "sepalLength": 6.1, "sepalWidth": 2.8, "species": "versicolor"}, {"petalLength": 4.3, "petalWidth": 1.3, "sepalLength": 6.4, "sepalWidth": 2.9, "species": "versicolor"}, {"petalLength": 4.4, "petalWidth": 1.4, "sepalLength": 6.6, "sepalWidth": 3.0, "species": "versicolor"}, {"petalLength": 4.8, "petalWidth": 1.4, "sepalLength": 6.8, "sepalWidth": 2.8, "species": "versicolor"}, {"petalLength": 5.0, "petalWidth": 1.7000000000000002, "sepalLength": 6.7, "sepalWidth": 3.0, "species": "versicolor"}, {"petalLength": 4.5, "petalWidth": 1.5, "sepalLength": 6.0, "sepalWidth": 2.9, "species": "versicolor"}, {"petalLength": 3.5, "petalWidth": 1.0, "sepalLength": 5.7, "sepalWidth": 2.6, "species": "versicolor"}, {"petalLength": 3.8, "petalWidth": 1.1, "sepalLength": 5.5, "sepalWidth": 2.4, "species": "versicolor"}, {"petalLength": 3.7, "petalWidth": 1.0, "sepalLength": 5.5, "sepalWidth": 2.4, "species": "versicolor"}, {"petalLength": 3.9, "petalWidth": 1.2, "sepalLength": 5.8, "sepalWidth": 2.7, "species": "versicolor"}, {"petalLength": 5.1, "petalWidth": 1.6, "sepalLength": 6.0, "sepalWidth": 2.7, "species": "versicolor"}, {"petalLength": 4.5, "petalWidth": 1.5, "sepalLength": 5.4, "sepalWidth": 3.0, "species": "versicolor"}, {"petalLength": 4.5, "petalWidth": 1.6, "sepalLength": 6.0, "sepalWidth": 3.4, "species": "versicolor"}, {"petalLength": 4.7, "petalWidth": 1.5, "sepalLength": 6.7, "sepalWidth": 3.1, "species": "versicolor"}, {"petalLength": 4.4, "petalWidth": 1.3, "sepalLength": 6.3, "sepalWidth": 2.3, "species": "versicolor"}, {"petalLength": 4.1, "petalWidth": 1.3, "sepalLength": 5.6, "sepalWidth": 3.0, "species": "versicolor"}, {"petalLength": 4.0, "petalWidth": 1.3, "sepalLength": 5.5, "sepalWidth": 2.5, "species": "versicolor"}, {"petalLength": 4.4, "petalWidth": 1.2, "sepalLength": 5.5, "sepalWidth": 2.6, "species": "versicolor"}, {"petalLength": 4.6, "petalWidth": 1.4, "sepalLength": 6.1, "sepalWidth": 3.0, "species": "versicolor"}, {"petalLength": 4.0, "petalWidth": 1.2, "sepalLength": 5.8, "sepalWidth": 2.6, "species": "versicolor"}, {"petalLength": 3.3, "petalWidth": 1.0, "sepalLength": 5.0, "sepalWidth": 2.3, "species": "versicolor"}, {"petalLength": 4.2, "petalWidth": 1.3, "sepalLength": 5.6, "sepalWidth": 2.7, "species": "versicolor"}, {"petalLength": 4.2, "petalWidth": 1.2, "sepalLength": 5.7, "sepalWidth": 3.0, "species": "versicolor"}, {"petalLength": 4.2, "petalWidth": 1.3, "sepalLength": 5.7, "sepalWidth": 2.9, "species": "versicolor"}, {"petalLength": 4.3, "petalWidth": 1.3, "sepalLength": 6.2, "sepalWidth": 2.9, "species": "versicolor"}, {"petalLength": 3.0, "petalWidth": 1.1, "sepalLength": 5.1, "sepalWidth": 2.5, "species": "versicolor"}, {"petalLength": 4.1, "petalWidth": 1.3, "sepalLength": 5.7, "sepalWidth": 2.8, "species": "versicolor"}, {"petalLength": 6.0, "petalWidth": 2.5, "sepalLength": 6.3, "sepalWidth": 3.3, "species": "virginica"}, {"petalLength": 5.1, "petalWidth": 1.9, "sepalLength": 5.8, "sepalWidth": 2.7, "species": "virginica"}, {"petalLength": 5.9, "petalWidth": 2.1, "sepalLength": 7.1, "sepalWidth": 3.0, "species": "virginica"}, {"petalLength": 5.6, "petalWidth": 1.8, "sepalLength": 6.3, "sepalWidth": 2.9, "species": "virginica"}, {"petalLength": 5.8, "petalWidth": 2.2, "sepalLength": 6.5, "sepalWidth": 3.0, "species": "virginica"}, {"petalLength": 6.6, "petalWidth": 2.1, "sepalLength": 7.6, "sepalWidth": 3.0, "species": "virginica"}, {"petalLength": 4.5, "petalWidth": 1.7000000000000002, "sepalLength": 4.9, "sepalWidth": 2.5, "species": "virginica"}, {"petalLength": 6.3, "petalWidth": 1.8, "sepalLength": 7.3, "sepalWidth": 2.9, "species": "virginica"}, {"petalLength": 5.8, "petalWidth": 1.8, "sepalLength": 6.7, "sepalWidth": 2.5, "species": "virginica"}, {"petalLength": 6.1, "petalWidth": 2.5, "sepalLength": 7.2, "sepalWidth": 3.6, "species": "virginica"}, {"petalLength": 5.1, "petalWidth": 2.0, "sepalLength": 6.5, "sepalWidth": 3.2, "species": "virginica"}, {"petalLength": 5.3, "petalWidth": 1.9, "sepalLength": 6.4, "sepalWidth": 2.7, "species": "virginica"}, {"petalLength": 5.5, "petalWidth": 2.1, "sepalLength": 6.8, "sepalWidth": 3.0, "species": "virginica"}, {"petalLength": 5.0, "petalWidth": 2.0, "sepalLength": 5.7, "sepalWidth": 2.5, "species": "virginica"}, {"petalLength": 5.1, "petalWidth": 2.4, "sepalLength": 5.8, "sepalWidth": 2.8, "species": "virginica"}, {"petalLength": 5.3, "petalWidth": 2.3, "sepalLength": 6.4, "sepalWidth": 3.2, "species": "virginica"}, {"petalLength": 5.5, "petalWidth": 1.8, "sepalLength": 6.5, "sepalWidth": 3.0, "species": "virginica"}, {"petalLength": 6.7, "petalWidth": 2.2, "sepalLength": 7.7, "sepalWidth": 3.8, "species": "virginica"}, {"petalLength": 6.9, "petalWidth": 2.3, "sepalLength": 7.7, "sepalWidth": 2.6, "species": "virginica"}, {"petalLength": 5.0, "petalWidth": 1.5, "sepalLength": 6.0, "sepalWidth": 2.2, "species": "virginica"}, {"petalLength": 5.7, "petalWidth": 2.3, "sepalLength": 6.9, "sepalWidth": 3.2, "species": "virginica"}, {"petalLength": 4.9, "petalWidth": 2.0, "sepalLength": 5.6, "sepalWidth": 2.8, "species": "virginica"}, {"petalLength": 6.7, "petalWidth": 2.0, "sepalLength": 7.7, "sepalWidth": 2.8, "species": "virginica"}, {"petalLength": 4.9, "petalWidth": 1.8, "sepalLength": 6.3, "sepalWidth": 2.7, "species": "virginica"}, {"petalLength": 5.7, "petalWidth": 2.1, "sepalLength": 6.7, "sepalWidth": 3.3, "species": "virginica"}, {"petalLength": 6.0, "petalWidth": 1.8, "sepalLength": 7.2, "sepalWidth": 3.2, "species": "virginica"}, {"petalLength": 4.8, "petalWidth": 1.8, "sepalLength": 6.2, "sepalWidth": 2.8, "species": "virginica"}, {"petalLength": 4.9, "petalWidth": 1.8, "sepalLength": 6.1, "sepalWidth": 3.0, "species": "virginica"}, {"petalLength": 5.6, "petalWidth": 2.1, "sepalLength": 6.4, "sepalWidth": 2.8, "species": "virginica"}, {"petalLength": 5.8, "petalWidth": 1.6, "sepalLength": 7.2, "sepalWidth": 3.0, "species": "virginica"}, {"petalLength": 6.1, "petalWidth": 1.9, "sepalLength": 7.4, "sepalWidth": 2.8, "species": "virginica"}, {"petalLength": 6.4, "petalWidth": 2.0, "sepalLength": 7.9, "sepalWidth": 3.8, "species": "virginica"}, {"petalLength": 5.6, "petalWidth": 2.2, "sepalLength": 6.4, "sepalWidth": 2.8, "species": "virginica"}, {"petalLength": 5.1, "petalWidth": 1.5, "sepalLength": 6.3, "sepalWidth": 2.8, "species": "virginica"}, {"petalLength": 5.6, "petalWidth": 1.4, "sepalLength": 6.1, "sepalWidth": 2.6, "species": "virginica"}, {"petalLength": 6.1, "petalWidth": 2.3, "sepalLength": 7.7, "sepalWidth": 3.0, "species": "virginica"}, {"petalLength": 5.6, "petalWidth": 2.4, "sepalLength": 6.3, "sepalWidth": 3.4, "species": "virginica"}, {"petalLength": 5.5, "petalWidth": 1.8, "sepalLength": 6.4, "sepalWidth": 3.1, "species": "virginica"}, {"petalLength": 4.8, "petalWidth": 1.8, "sepalLength": 6.0, "sepalWidth": 3.0, "species": "virginica"}, {"petalLength": 5.4, "petalWidth": 2.1, "sepalLength": 6.9, "sepalWidth": 3.1, "species": "virginica"}, {"petalLength": 5.6, "petalWidth": 2.4, "sepalLength": 6.7, "sepalWidth": 3.1, "species": "virginica"}, {"petalLength": 5.1, "petalWidth": 2.3, "sepalLength": 6.9, "sepalWidth": 3.1, "species": "virginica"}, {"petalLength": 5.1, "petalWidth": 1.9, "sepalLength": 5.8, "sepalWidth": 2.7, "species": "virginica"}, {"petalLength": 5.9, "petalWidth": 2.3, "sepalLength": 6.8, "sepalWidth": 3.2, "species": "virginica"}, {"petalLength": 5.7, "petalWidth": 2.5, "sepalLength": 6.7, "sepalWidth": 3.3, "species": "virginica"}, {"petalLength": 5.2, "petalWidth": 2.3, "sepalLength": 6.7, "sepalWidth": 3.0, "species": "virginica"}, {"petalLength": 5.0, "petalWidth": 1.9, "sepalLength": 6.3, "sepalWidth": 2.5, "species": "virginica"}, {"petalLength": 5.2, "petalWidth": 2.0, "sepalLength": 6.5, "sepalWidth": 3.0, "species": "virginica"}, {"petalLength": 5.4, "petalWidth": 2.3, "sepalLength": 6.2, "sepalWidth": 3.4, "species": "virginica"}, {"petalLength": 5.1, "petalWidth": 1.8, "sepalLength": 5.9, "sepalWidth": 3.0, "species": "virginica"}]}, "mark": "point", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": "petalLength"}, "y": {"type": "quantitative", "field": "petalWidth"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"}).catch(console.err);
   });
 </script>
-</div><p>If the plot does not render, ensure you have installed the exact versions
-mentioned above, and if it still does not work see
+</div><p>If the plot does not render, make certain you have installed the most recent
+versions of the packages above, and if it still does not work see
 <a class="reference internal" href="../user_guide/troubleshooting.html#troubleshooting-jupyterlab"><span class="std std-ref">Trouble-shooting Altair with JupyterLab</span></a> for help.</p>
 <p>Once things are up and running, you may wish to go through the tutorials at
 <a class="reference internal" href="starting.html#starting"><span class="std std-ref">Basic Statistical Visualization</span></a> and <a class="reference internal" href="../case_studies/exploring-weather.html#exploring-weather"><span class="std std-ref">Exploring Seattle Weather</span></a>, read through the User Guide
@@ -278,11 +284,17 @@ indexed in the left panel, or check out the <a class="reference internal" href="
 </div>
 <div class="section" id="quick-start-altair-notebook">
 <span id="installation-notebook"></span><h2>Quick Start: Altair + Notebook<a class="headerlink" href="#quick-start-altair-notebook" title="Permalink to this headline">¶</a></h2>
-<p>Altair, the jupyter notebook, and their dependencies can be installed with <code class="docutils literal"><span class="pre">pip</span></code>.
-Note that rendering Altair plots in the notebook also requires the <a class="reference external" href="https://pypi.python.org/pypi/vega3/">vega3</a> package
-to be installed and configured:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ pip install altair notebook vega3
-$ jupyter nbextension install --sys-prefix --py vega3 # not needed in notebook &gt;= 5.3
+<p>Altair works in the Jupyter notebook, though we recommend using it in JupyterLab
+if available (see <a class="reference internal" href="#installation-jupyterlab"><span class="std std-ref">Quick Start: Altair + JupyterLab</span></a>).</p>
+<p>If using the notebook, Altair works best with notebook version 5.3 or newer.
+Note that using Altair in the notebook also requires the <a class="reference external" href="https://pypi.python.org/pypi/vega3/">vega3</a> package
+to be installed and configured.</p>
+<p>To install the notebook and Altair with conda, run the following command:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ conda install -c conda-forge altair vega_datasets notebook vega3
+</pre></div>
+</div>
+<p>To install the notebook and Altair with pip, run the following command:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ pip install -U altair vega_datasets notebook vega3
 </pre></div>
 </div>
 <p>Once the packages and extensions are installed, launch the notebook by running:</p>
@@ -335,8 +347,8 @@ notebook you must explicitly enable Altair rendering by running:</p>
 <p class="last">If you neglect this step, charts will not be rendered, but instead
 displayed as a textual representation.</p>
 </div>
-<p>If the plot does not render, ensure you have installed the exact versions
-mentioned above, and if it still does not work see
+<p>If the plot does not render, ensure you have installed the most recent versions
+of the above packages, and if it still does not work see
 <a class="reference internal" href="../user_guide/troubleshooting.html#troubleshooting-notebook"><span class="std std-ref">Trouble-shooting Altair with Notebook</span></a> for help.</p>
 <p>Once things are up and running, you may wish to go through the tutorials at
 <a class="reference internal" href="starting.html#starting"><span class="std std-ref">Basic Statistical Visualization</span></a> and <a class="reference internal" href="../case_studies/exploring-weather.html#exploring-weather"><span class="std std-ref">Exploring Seattle Weather</span></a>, read through the User Guide
@@ -346,7 +358,7 @@ indexed in the left panel, or check out the <a class="reference internal" href="
 <span id="installation-colab"></span><h2>Quick Start: Altair + Colab<a class="headerlink" href="#quick-start-altair-colab" title="Permalink to this headline">¶</a></h2>
 <p>Altair can be used directly in Google’s <a class="reference external" href="https://colab.research.google.com">Colab</a>. Open a notebook, and run the
 following in a notebook cell:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>!pip install altair
+<div class="highlight-none"><div class="highlight"><pre><span></span>!pip install altair vega_datasets
 import altair as alt
 # for colab only run this command once per session
 alt.renderers.enable(&#39;colab&#39;)
@@ -388,15 +400,6 @@ mentioned above, and if it still does not work see
 <a class="reference internal" href="starting.html#starting"><span class="std std-ref">Basic Statistical Visualization</span></a> and <a class="reference internal" href="../case_studies/exploring-weather.html#exploring-weather"><span class="std std-ref">Exploring Seattle Weather</span></a>, read through the User Guide
 indexed in the left panel, or check out the <a class="reference internal" href="../gallery/index.html#example-gallery"><span class="std std-ref">Example Gallery</span></a> for more ideas.</p>
 </div>
-<div class="section" id="installation-with-conda">
-<span id="id2"></span><h2>Installation with Conda<a class="headerlink" href="#installation-with-conda" title="Permalink to this headline">¶</a></h2>
-<p>If you wish to use conda instead of pip to install Altair and related packages,
-the <code class="docutils literal"><span class="pre">conda-forge</span></code> channel is the best option. Simply the above <code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span></code>
-commands with the equivalent <code class="docutils literal"><span class="pre">conda</span> <span class="pre">install</span></code> commands; for example:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ conda install --channel conda-forge altair jupyterlab
-</pre></div>
-</div>
-</div>
 <div class="section" id="dependencies">
 <span id="install-dependencies"></span><h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
 <p>Altair has the following dependencies, all of which are installed automatically
@@ -409,7 +412,18 @@ with the above installation commands:</p>
 <li><a class="reference external" href="http://pandas.pydata.org">Pandas</a></li>
 <li><a class="reference external" href="http://six.readthedocs.io/">Six</a></li>
 <li><a class="reference external" href="https://github.com/pytoolz/toolz">Toolz</a></li>
+</ul>
+<p>To run altair’s full test suite and build Altair’s documentation requires a few
+additional dependencies:</p>
+<ul class="simple">
+<li>flake8</li>
+<li>pytest</li>
+<li>jinja2</li>
+<li>sphinx</li>
+<li>m2r</li>
+<li>docutils</li>
 <li><a class="reference external" href="https://github.com/altair-viz/vega_datasets">vega_datasets</a></li>
+<li>ipython</li>
 </ul>
 </div>
 <div class="section" id="development-install">
@@ -418,6 +432,10 @@ with the above installation commands:</p>
 repository and installed all the above dependencies, run the following command
 from the root of the repository to install the master version of Altair:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ pip install -e .
+</pre></div>
+</div>
+<p>To install development dependencies as well, run</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ pip install -e .<span class="o">[</span>dev<span class="o">]</span>
 </pre></div>
 </div>
 <p>If you do not wish to clone the source repository, you can install the
@@ -472,7 +490,7 @@ development version directly from GitHub using:</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.0.0',
+            VERSION:'2.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
