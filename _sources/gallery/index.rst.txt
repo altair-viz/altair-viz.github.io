@@ -10,6 +10,12 @@ This gallery contains a selection of examples of the plots Altair can create.
 
 Some may seem fairly complicated at first glance, but they are built by combining a simple set of declarative building blocks.
 
+Many draw upon sample datasets compiled by the `Vega <https://vega.github.io/vega/>`_ project. To access them yourself, install `vega_datasets <https://github.com/altair-viz/vega_datasets>`_.
+
+.. code-block:: none
+
+   $ pip install vega_datasets
+
 
 
 .. _gallery-category-Simple Charts:
@@ -20,6 +26,11 @@ Simple Charts
 .. raw:: html
 
    <span class="gallery">
+   
+   <a class="imagegroup" href="scatter_tooltips.html">
+     <span class="image" alt="Scatter Plot with Tooltips" style="background-image: url(/_static/scatter_tooltips-thumb.png);"></span>
+     <span class="image-title">Scatter Plot with Tooltips</span>
+   </a>
    
    <a class="imagegroup" href="simple_bar_chart.html">
      <span class="image" alt="Simple Bar Chart" style="background-image: url(/_static/simple_bar_chart-thumb.png);"></span>
@@ -39,6 +50,11 @@ Simple Charts
    <a class="imagegroup" href="simple_line_chart.html">
      <span class="image" alt="Simple Line Chart" style="background-image: url(/_static/simple_line_chart-thumb.png);"></span>
      <span class="image-title">Simple Line Chart</span>
+   </a>
+   
+   <a class="imagegroup" href="simple_line_chart_with_markers.html">
+     <span class="image" alt="Simple Line Chart with Markers" style="background-image: url(/_static/simple_line_chart_with_markers-thumb.png);"></span>
+     <span class="image-title">Simple Line Chart with Markers</span>
    </a>
    
    <a class="imagegroup" href="simple_scatter.html">
@@ -63,10 +79,12 @@ Simple Charts
 .. toctree::
   :hidden:
 
+  scatter_tooltips
   simple_bar_chart
   simple_heatmap
   simple_histogram
   simple_line_chart
+  simple_line_chart_with_markers
   simple_scatter
   simple_stacked_area_chart
   strip_plot
@@ -162,6 +180,11 @@ Bar Charts
      <span class="image-title">Simple Bar Chart with Labels</span>
    </a>
    
+   <a class="imagegroup" href="simple_highlighted_bar_chart.html">
+     <span class="image" alt="Simple Highlighted Bar Chart" style="background-image: url(/_static/simple_highlighted_bar_chart-thumb.png);"></span>
+     <span class="image-title">Simple Highlighted Bar Chart</span>
+   </a>
+   
    <a class="imagegroup" href="stacked_bar_chart.html">
      <span class="image" alt="Stacked Bar Chart" style="background-image: url(/_static/stacked_bar_chart-thumb.png);"></span>
      <span class="image-title">Stacked Bar Chart</span>
@@ -195,6 +218,7 @@ Bar Charts
   layered_plot_with_dual_axis
   normalized_stacked_bar_chart
   bar_chart_with_labels
+  simple_highlighted_bar_chart
   stacked_bar_chart
   trellis_stacked_bar_chart
 
@@ -208,16 +232,6 @@ Line Charts
 .. raw:: html
 
    <span class="gallery">
-   
-   <a class="imagegroup" href="cumulative_wiki_donations.html">
-     <span class="image" alt="Cumulative Wikipedia Donations" style="background-image: url(/_static/cumulative_wiki_donations-thumb.png);"></span>
-     <span class="image-title">Cumulative Wikipedia Donations</span>
-   </a>
-   
-   <a class="imagegroup" href="falkensee.html">
-     <span class="image" alt="Falkensee" style="background-image: url(/_static/falkensee-thumb.png);"></span>
-     <span class="image-title">Falkensee</span>
-   </a>
    
    <a class="imagegroup" href="layer_line_color_rule.html">
      <span class="image" alt="Line Chart with Layered Aggregates" style="background-image: url(/_static/layer_line_color_rule-thumb.png);"></span>
@@ -256,8 +270,6 @@ Line Charts
 .. toctree::
   :hidden:
 
-  cumulative_wiki_donations
-  falkensee
   layer_line_color_rule
   line_percent
   line_with_ci
@@ -286,14 +298,24 @@ Area Charts
      <span class="image-title">Interval Selection Example</span>
    </a>
    
+   <a class="imagegroup" href="layered_area_chart.html">
+     <span class="image" alt="Layered Area Chart" style="background-image: url(/_static/layered_area_chart-thumb.png);"></span>
+     <span class="image-title">Layered Area Chart</span>
+   </a>
+   
+   <a class="imagegroup" href="normalized_stacked_area_chart.html">
+     <span class="image" alt="Normalized Stacked Area Chart" style="background-image: url(/_static/normalized_stacked_area_chart-thumb.png);"></span>
+     <span class="image-title">Normalized Stacked Area Chart</span>
+   </a>
+   
    <a class="imagegroup" href="streamgraph.html">
      <span class="image" alt="Streamgraph" style="background-image: url(/_static/streamgraph-thumb.png);"></span>
      <span class="image-title">Streamgraph</span>
    </a>
    
    <a class="imagegroup" href="trellis_area.html">
-     <span class="image" alt="Trellis Area" style="background-image: url(/_static/trellis_area-thumb.png);"></span>
-     <span class="image-title">Trellis Area</span>
+     <span class="image" alt="Trellis Area Chart" style="background-image: url(/_static/trellis_area-thumb.png);"></span>
+     <span class="image-title">Trellis Area Chart</span>
    </a>
    
    </span>
@@ -305,6 +327,8 @@ Area Charts
 
   horizon_graph
   interval_selection
+  layered_area_chart
+  normalized_stacked_area_chart
   streamgraph
   trellis_area
 
@@ -318,16 +342,6 @@ Scatter Plots
 .. raw:: html
 
    <span class="gallery">
-   
-   <a class="imagegroup" href="anscombe_plot.html">
-     <span class="image" alt="Anscombe's Quartet" style="background-image: url(/_static/anscombe_plot-thumb.png);"></span>
-     <span class="image-title">Anscombe's Quartet</span>
-   </a>
-   
-   <a class="imagegroup" href="beckers_barley_trellis_plot.html">
-     <span class="image" alt="Becker's Barley Trellis Plot" style="background-image: url(/_static/beckers_barley_trellis_plot-thumb.png);"></span>
-     <span class="image-title">Becker's Barley Trellis Plot</span>
-   </a>
    
    <a class="imagegroup" href="binned_scatterplot.html">
      <span class="image" alt="Binned Scatterplot" style="background-image: url(/_static/binned_scatterplot-thumb.png);"></span>
@@ -349,19 +363,9 @@ Scatter Plots
      <span class="image-title">Dot Dash Plot</span>
    </a>
    
-   <a class="imagegroup" href="gapminder_bubble_plot.html">
-     <span class="image" alt="Gapminder Bubble Plot" style="background-image: url(/_static/gapminder_bubble_plot-thumb.png);"></span>
-     <span class="image-title">Gapminder Bubble Plot</span>
-   </a>
-   
    <a class="imagegroup" href="multifeature_scatter_plot.html">
      <span class="image" alt="Multifeature Scatter Plot" style="background-image: url(/_static/multifeature_scatter_plot-thumb.png);"></span>
      <span class="image-title">Multifeature Scatter Plot</span>
-   </a>
-   
-   <a class="imagegroup" href="natural_disasters.html">
-     <span class="image" alt="Natural Disasters" style="background-image: url(/_static/natural_disasters-thumb.png);"></span>
-     <span class="image-title">Natural Disasters</span>
    </a>
    
    <a class="imagegroup" href="poly_fit.html">
@@ -372,6 +376,11 @@ Scatter Plots
    <a class="imagegroup" href="scatter_matrix.html">
      <span class="image" alt="Scatter Matrix" style="background-image: url(/_static/scatter_matrix-thumb.png);"></span>
      <span class="image-title">Scatter Matrix</span>
+   </a>
+   
+   <a class="imagegroup" href="simple_scatter_with_errorbars.html">
+     <span class="image" alt="Simple Scatter Plot with Errorbars" style="background-image: url(/_static/simple_scatter_with_errorbars-thumb.png);"></span>
+     <span class="image-title">Simple Scatter Plot with Errorbars</span>
    </a>
    
    <a class="imagegroup" href="scatter_with_labels.html">
@@ -396,17 +405,14 @@ Scatter Plots
 .. toctree::
   :hidden:
 
-  anscombe_plot
-  beckers_barley_trellis_plot
   binned_scatterplot
   bubble_plot
   connected_scatterplot
   dot_dash_plot
-  gapminder_bubble_plot
   multifeature_scatter_plot
-  natural_disasters
   poly_fit
   scatter_matrix
+  simple_scatter_with_errorbars
   scatter_with_labels
   table_bubble_plot_github
   trellis_scatter_plot
@@ -464,29 +470,9 @@ Maps
      <span class="image-title">Choropleth Map</span>
    </a>
    
-   <a class="imagegroup" href="airports.html">
-     <span class="image" alt="Locations of US Airports" style="background-image: url(/_static/airports-thumb.png);"></span>
-     <span class="image-title">Locations of US Airports</span>
-   </a>
-   
-   <a class="imagegroup" href="london_tube.html">
-     <span class="image" alt="London Tube Lines" style="background-image: url(/_static/london_tube-thumb.png);"></span>
-     <span class="image-title">London Tube Lines</span>
-   </a>
-   
-   <a class="imagegroup" href="one_dot_per_zipcode.html">
-     <span class="image" alt="One Dot Per Zipcode" style="background-image: url(/_static/one_dot_per_zipcode-thumb.png);"></span>
-     <span class="image-title">One Dot Per Zipcode</span>
-   </a>
-   
    <a class="imagegroup" href="choropleth_repeat.html">
      <span class="image" alt="Repeated Choropleth Map" style="background-image: url(/_static/choropleth_repeat-thumb.png);"></span>
      <span class="image-title">Repeated Choropleth Map</span>
-   </a>
-   
-   <a class="imagegroup" href="us_state_capitals.html">
-     <span class="image" alt="U.S. state capitals overlayed on a map of the U.S" style="background-image: url(/_static/us_state_capitals-thumb.png);"></span>
-     <span class="image-title">U.S. state capitals overlayed on a map of the U.S</span>
    </a>
    
    <a class="imagegroup" href="world_projections.html">
@@ -502,11 +488,7 @@ Maps
   :hidden:
 
   choropleth
-  airports
-  london_tube
-  one_dot_per_zipcode
   choropleth_repeat
-  us_state_capitals
   world_projections
 
 
@@ -555,9 +537,9 @@ Interactive Charts
      <span class="image-title">Multi-Line Tooltip</span>
    </a>
    
-   <a class="imagegroup" href="seattle_weather_interactive.html">
-     <span class="image" alt="Seattle Weather Interactive" style="background-image: url(/_static/seattle_weather_interactive-thumb.png);"></span>
-     <span class="image-title">Seattle Weather Interactive</span>
+   <a class="imagegroup" href="scatter_with_histogram.html">
+     <span class="image" alt="Scatter Plot and Histogram with Interval Selection" style="background-image: url(/_static/scatter_with_histogram-thumb.png);"></span>
+     <span class="image-title">Scatter Plot and Histogram with Interval Selection</span>
    </a>
    
    <a class="imagegroup" href="select_detail.html">
@@ -575,11 +557,6 @@ Interactive Charts
      <span class="image-title">Simple Interactive Colored Scatterplot</span>
    </a>
    
-   <a class="imagegroup" href="us_population_over_time.html">
-     <span class="image" alt="US Population Over Time" style="background-image: url(/_static/us_population_over_time-thumb.png);"></span>
-     <span class="image-title">US Population Over Time</span>
-   </a>
-   
    </span>
 
    <div style='clear:both;'></div>
@@ -594,10 +571,100 @@ Interactive Charts
   interactive_brush
   multiline_highlight
   multiline_tooltip
-  seattle_weather_interactive
+  scatter_with_histogram
   select_detail
   selection_histogram
   interactive_scatter_plot
+
+
+
+.. _gallery-category-Case Studies:
+
+Case Studies
+~~~~~~~~~~~~
+
+.. raw:: html
+
+   <span class="gallery">
+   
+   <a class="imagegroup" href="anscombe_plot.html">
+     <span class="image" alt="Anscombe's Quartet" style="background-image: url(/_static/anscombe_plot-thumb.png);"></span>
+     <span class="image-title">Anscombe's Quartet</span>
+   </a>
+   
+   <a class="imagegroup" href="beckers_barley_trellis_plot.html">
+     <span class="image" alt="Becker's Barley Trellis Plot" style="background-image: url(/_static/beckers_barley_trellis_plot-thumb.png);"></span>
+     <span class="image-title">Becker's Barley Trellis Plot</span>
+   </a>
+   
+   <a class="imagegroup" href="cumulative_wiki_donations.html">
+     <span class="image" alt="Cumulative Wikipedia Donations" style="background-image: url(/_static/cumulative_wiki_donations-thumb.png);"></span>
+     <span class="image-title">Cumulative Wikipedia Donations</span>
+   </a>
+   
+   <a class="imagegroup" href="falkensee.html">
+     <span class="image" alt="Falkensee" style="background-image: url(/_static/falkensee-thumb.png);"></span>
+     <span class="image-title">Falkensee</span>
+   </a>
+   
+   <a class="imagegroup" href="gapminder_bubble_plot.html">
+     <span class="image" alt="Gapminder Bubble Plot" style="background-image: url(/_static/gapminder_bubble_plot-thumb.png);"></span>
+     <span class="image-title">Gapminder Bubble Plot</span>
+   </a>
+   
+   <a class="imagegroup" href="airports.html">
+     <span class="image" alt="Locations of US Airports" style="background-image: url(/_static/airports-thumb.png);"></span>
+     <span class="image-title">Locations of US Airports</span>
+   </a>
+   
+   <a class="imagegroup" href="london_tube.html">
+     <span class="image" alt="London Tube Lines" style="background-image: url(/_static/london_tube-thumb.png);"></span>
+     <span class="image-title">London Tube Lines</span>
+   </a>
+   
+   <a class="imagegroup" href="natural_disasters.html">
+     <span class="image" alt="Natural Disasters" style="background-image: url(/_static/natural_disasters-thumb.png);"></span>
+     <span class="image-title">Natural Disasters</span>
+   </a>
+   
+   <a class="imagegroup" href="one_dot_per_zipcode.html">
+     <span class="image" alt="One Dot Per Zipcode" style="background-image: url(/_static/one_dot_per_zipcode-thumb.png);"></span>
+     <span class="image-title">One Dot Per Zipcode</span>
+   </a>
+   
+   <a class="imagegroup" href="seattle_weather_interactive.html">
+     <span class="image" alt="Seattle Weather Interactive" style="background-image: url(/_static/seattle_weather_interactive-thumb.png);"></span>
+     <span class="image-title">Seattle Weather Interactive</span>
+   </a>
+   
+   <a class="imagegroup" href="us_state_capitals.html">
+     <span class="image" alt="U.S. state capitals overlayed on a map of the U.S" style="background-image: url(/_static/us_state_capitals-thumb.png);"></span>
+     <span class="image-title">U.S. state capitals overlayed on a map of the U.S</span>
+   </a>
+   
+   <a class="imagegroup" href="us_population_over_time.html">
+     <span class="image" alt="US Population Over Time" style="background-image: url(/_static/us_population_over_time-thumb.png);"></span>
+     <span class="image-title">US Population Over Time</span>
+   </a>
+   
+   </span>
+
+   <div style='clear:both;'></div>
+
+.. toctree::
+  :hidden:
+
+  anscombe_plot
+  beckers_barley_trellis_plot
+  cumulative_wiki_donations
+  falkensee
+  gapminder_bubble_plot
+  airports
+  london_tube
+  natural_disasters
+  one_dot_per_zipcode
+  seattle_weather_interactive
+  us_state_capitals
   us_population_over_time
 
 
@@ -612,8 +679,8 @@ Other Charts
    <span class="gallery">
    
    <a class="imagegroup" href="binned_heatmap.html">
-     <span class="image" alt="Binned Movie Rating Heatmap" style="background-image: url(/_static/binned_heatmap-thumb.png);"></span>
-     <span class="image-title">Binned Movie Rating Heatmap</span>
+     <span class="image" alt="Binned Heatmap" style="background-image: url(/_static/binned_heatmap-thumb.png);"></span>
+     <span class="image-title">Binned Heatmap</span>
    </a>
    
    <a class="imagegroup" href="scatter_marginal_hist.html">
@@ -631,14 +698,19 @@ Other Charts
      <span class="image-title">Multiple Marks</span>
    </a>
    
+   <a class="imagegroup" href="parallel_coordinates.html">
+     <span class="image" alt="Parallel Coordinates Example" style="background-image: url(/_static/parallel_coordinates-thumb.png);"></span>
+     <span class="image-title">Parallel Coordinates Example</span>
+   </a>
+   
    <a class="imagegroup" href="ranged_dot_plot.html">
      <span class="image" alt="Ranged Dot Plot" style="background-image: url(/_static/ranged_dot_plot-thumb.png);"></span>
      <span class="image-title">Ranged Dot Plot</span>
    </a>
    
    <a class="imagegroup" href="stem_and_leaf.html">
-     <span class="image" alt="Steam and Leaf Plot" style="background-image: url(/_static/stem_and_leaf-thumb.png);"></span>
-     <span class="image-title">Steam and Leaf Plot</span>
+     <span class="image" alt="Stem and Leaf Plot" style="background-image: url(/_static/stem_and_leaf-thumb.png);"></span>
+     <span class="image-title">Stem and Leaf Plot</span>
    </a>
    
    <a class="imagegroup" href="trail_marker.html">
@@ -657,6 +729,7 @@ Other Charts
   scatter_marginal_hist
   layered_heatmap_text
   multiple_marks
+  parallel_coordinates
   ranged_dot_plot
   stem_and_leaf
   trail_marker

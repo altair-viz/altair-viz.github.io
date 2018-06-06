@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Calculating Percentage of Total &mdash; Altair 2.0 documentation</title>
+  <title>Calculating Percentage of Total &mdash; Altair 2.1.0 documentation</title>
   
 
   
@@ -45,7 +45,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Altair 2.0 documentation" href="../index.html"/>
+    <link rel="top" title="Altair 2.1.0 documentation" href="../index.html"/>
         <link rel="up" title="Example Gallery" href="index.html"/>
         <link rel="next" title="Candlestick Chart" href="candlestick_chart.html"/>
         <link rel="prev" title="Box Plot with Min/Max Whiskers" href="boxplot_max_min.html"/> 
@@ -80,7 +80,7 @@
             
             
               <div class="version">
-                2.0.1
+                2.1
               </div>
             
           
@@ -133,6 +133,7 @@
 <li class="toctree-l3"><a class="reference internal" href="layered_plot_with_dual_axis.html">Layered Plot with Dual-Axis</a></li>
 <li class="toctree-l3"><a class="reference internal" href="normalized_stacked_bar_chart.html">Normalized Stacked Bar Chart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bar_chart_with_labels.html">Simple Bar Chart with Labels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simple_highlighted_bar_chart.html">Simple Highlighted Bar Chart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="stacked_bar_chart.html">Stacked Bar Chart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="trellis_stacked_bar_chart.html">Trellis Stacked Bar Chart</a></li>
 </ul>
@@ -143,6 +144,7 @@
 <li class="toctree-l2"><a class="reference internal" href="index.html#histograms">Histograms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#maps">Maps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#interactive-charts">Interactive Charts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#case-studies">Case Studies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#other-charts">Other Charts</a></li>
 </ul>
 </li>
@@ -248,13 +250,13 @@ as a percentage of total values.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"values": [{"Activity": "Sleeping", "Time": 8}, {"Activity": "Eating", "Time": 2}, {"Activity": "TV", "Time": 4}, {"Activity": "Work", "Time": 8}, {"Activity": "Exercise", "Time": 2}]}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "axis": {"format": ".0%"}, "field": "PercentOfTotal"}, "y": {"type": "nominal", "field": "Activity"}}, "transform": [{"window": [{"op": "sum", "field": "Time", "as": "TotalTime"}], "frame": [null, null]}, {"calculate": "datum.Time / datum.TotalTime", "as": "PercentOfTotal"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"values": [{"Activity": "Sleeping", "Time": 8}, {"Activity": "Eating", "Time": 2}, {"Activity": "TV", "Time": 4}, {"Activity": "Work", "Time": 8}, {"Activity": "Exercise", "Time": 2}]}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "axis": {"format": ".0%"}, "field": "PercentOfTotal"}, "y": {"type": "nominal", "field": "Activity"}}, "transform": [{"window": [{"op": "sum", "field": "Time", "as": "TotalTime"}], "frame": [null, null]}, {"calculate": "datum.Time / datum.TotalTime", "as": "PercentOfTotal"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#percentage_of_total-rst-altair-plot-0', {"config": {"view": {"width": 400, "height": 300}}, "data": {"values": [{"Activity": "Sleeping", "Time": 8}, {"Activity": "Eating", "Time": 2}, {"Activity": "TV", "Time": 4}, {"Activity": "Work", "Time": 8}, {"Activity": "Exercise", "Time": 2}]}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "axis": {"format": ".0%"}, "field": "PercentOfTotal"}, "y": {"type": "nominal", "field": "Activity"}}, "transform": [{"window": [{"op": "sum", "field": "Time", "as": "TotalTime"}], "frame": [null, null]}, {"calculate": "datum.Time / datum.TotalTime", "as": "PercentOfTotal"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"}).catch(console.err);
+      vegaEmbed('#percentage_of_total-rst-altair-plot-0', {"config": {"view": {"width": 400, "height": 300}}, "data": {"values": [{"Activity": "Sleeping", "Time": 8}, {"Activity": "Eating", "Time": 2}, {"Activity": "TV", "Time": 4}, {"Activity": "Work", "Time": 8}, {"Activity": "Exercise", "Time": 2}]}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "axis": {"format": ".0%"}, "field": "PercentOfTotal"}, "y": {"type": "nominal", "field": "Activity"}}, "transform": [{"window": [{"op": "sum", "field": "Time", "as": "TotalTime"}], "frame": [null, null]}, {"calculate": "datum.Time / datum.TotalTime", "as": "PercentOfTotal"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
   });
 </script>
 </div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
@@ -322,7 +324,7 @@ as a percentage of total values.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.0',
+            VERSION:'2.1.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

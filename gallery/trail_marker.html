@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Trail Marker &mdash; Altair 2.0 documentation</title>
+  <title>Trail Marker &mdash; Altair 2.1.0 documentation</title>
   
 
   
@@ -45,10 +45,10 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Altair 2.0 documentation" href="../index.html"/>
+    <link rel="top" title="Altair 2.1.0 documentation" href="../index.html"/>
         <link rel="up" title="Example Gallery" href="index.html"/>
         <link rel="next" title="Specifying Data in Altair" href="../user_guide/data.html"/>
-        <link rel="prev" title="Steam and Leaf Plot" href="stem_and_leaf.html"/> 
+        <link rel="prev" title="Stem and Leaf Plot" href="stem_and_leaf.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -80,7 +80,7 @@
             
             
               <div class="version">
-                2.0.1
+                2.1
               </div>
             
           
@@ -121,13 +121,15 @@
 <li class="toctree-l2"><a class="reference internal" href="index.html#histograms">Histograms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#maps">Maps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#interactive-charts">Interactive Charts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#case-studies">Case Studies</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html#other-charts">Other Charts</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="binned_heatmap.html">Binned Movie Rating Heatmap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="binned_heatmap.html">Binned Heatmap</a></li>
 <li class="toctree-l3"><a class="reference internal" href="scatter_marginal_hist.html">Facetted Scatterplot with marginal histograms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="layered_heatmap_text.html">Layering text over a heatmap</a></li>
 <li class="toctree-l3"><a class="reference internal" href="multiple_marks.html">Multiple Marks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="parallel_coordinates.html">Parallel Coordinates Example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ranged_dot_plot.html">Ranged Dot Plot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="stem_and_leaf.html">Steam and Leaf Plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stem_and_leaf.html">Stem and Leaf Plot</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Trail Marker</a><ul class="simple">
 </ul>
 </li>
@@ -238,13 +240,13 @@ This shows a simple example of the trail mark using stock prices.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/stocks.csv"}, "mark": "trail", "encoding": {"color": {"type": "nominal", "field": "symbol"}, "size": {"type": "quantitative", "field": "price"}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "price"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/stocks.csv"}, "mark": "trail", "encoding": {"color": {"type": "nominal", "field": "symbol"}, "size": {"type": "quantitative", "field": "price"}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "price"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#trail_marker-rst-altair-plot-0', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/stocks.csv"}, "mark": "trail", "encoding": {"color": {"type": "nominal", "field": "symbol"}, "size": {"type": "quantitative", "field": "price"}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "price"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"}).catch(console.err);
+      vegaEmbed('#trail_marker-rst-altair-plot-0', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/stocks.csv"}, "mark": "trail", "encoding": {"color": {"type": "nominal", "field": "symbol"}, "size": {"type": "quantitative", "field": "price"}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "price"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
   });
 </script>
 </div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
@@ -277,7 +279,7 @@ This shows a simple example of the trail mark using stock prices.</p>
         <a href="../user_guide/data.html" class="btn btn-neutral float-right" title="Specifying Data in Altair" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="stem_and_leaf.html" class="btn btn-neutral" title="Steam and Leaf Plot" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="stem_and_leaf.html" class="btn btn-neutral" title="Stem and Leaf Plot" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -308,7 +310,7 @@ This shows a simple example of the trail mark using stock prices.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.0',
+            VERSION:'2.1.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

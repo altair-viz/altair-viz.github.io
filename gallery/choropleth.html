@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Choropleth Map &mdash; Altair 2.0 documentation</title>
+  <title>Choropleth Map &mdash; Altair 2.1.0 documentation</title>
   
 
   
@@ -45,9 +45,9 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Altair 2.0 documentation" href="../index.html"/>
+    <link rel="top" title="Altair 2.1.0 documentation" href="../index.html"/>
         <link rel="up" title="Example Gallery" href="index.html"/>
-        <link rel="next" title="Locations of US Airports" href="airports.html"/>
+        <link rel="next" title="Repeated Choropleth Map" href="choropleth_repeat.html"/>
         <link rel="prev" title="Trellis Histogram" href="trellis_histogram.html"/> 
 
   
@@ -80,7 +80,7 @@
             
             
               <div class="version">
-                2.0.1
+                2.1
               </div>
             
           
@@ -123,15 +123,12 @@
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Choropleth Map</a><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="airports.html">Locations of US Airports</a></li>
-<li class="toctree-l3"><a class="reference internal" href="london_tube.html">London Tube Lines</a></li>
-<li class="toctree-l3"><a class="reference internal" href="one_dot_per_zipcode.html">One Dot Per Zipcode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="choropleth_repeat.html">Repeated Choropleth Map</a></li>
-<li class="toctree-l3"><a class="reference internal" href="us_state_capitals.html">U.S. state capitals overlayed on a map of the U.S</a></li>
 <li class="toctree-l3"><a class="reference internal" href="world_projections.html">World Projections</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#interactive-charts">Interactive Charts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#case-studies">Case Studies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#other-charts">Other Charts</a></li>
 </ul>
 </li>
@@ -236,13 +233,13 @@
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/us-10m.json", "format": {"feature": "counties", "type": "topojson"}}, "mark": "geoshape", "encoding": {"color": {"type": "quantitative", "field": "rate"}}, "height": 300, "projection": {"type": "albersUsa"}, "transform": [{"lookup": "id", "from": {"data": {"url": "https://vega.github.io/vega-datasets/data/unemployment.tsv"}, "key": "id", "fields": ["rate"]}}], "width": 500, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/us-10m.json", "format": {"feature": "counties", "type": "topojson"}}, "mark": "geoshape", "encoding": {"color": {"type": "quantitative", "field": "rate"}}, "height": 300, "projection": {"type": "albersUsa"}, "transform": [{"lookup": "id", "from": {"data": {"url": "https://vega.github.io/vega-datasets/data/unemployment.tsv"}, "key": "id", "fields": ["rate"]}}], "width": 500, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#choropleth-rst-altair-plot-0', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/us-10m.json", "format": {"feature": "counties", "type": "topojson"}}, "mark": "geoshape", "encoding": {"color": {"type": "quantitative", "field": "rate"}}, "height": 300, "projection": {"type": "albersUsa"}, "transform": [{"lookup": "id", "from": {"data": {"url": "https://vega.github.io/vega-datasets/data/unemployment.tsv"}, "key": "id", "fields": ["rate"]}}], "width": 500, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"}).catch(console.err);
+      vegaEmbed('#choropleth-rst-altair-plot-0', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/us-10m.json", "format": {"feature": "counties", "type": "topojson"}}, "mark": "geoshape", "encoding": {"color": {"type": "quantitative", "field": "rate"}}, "height": 300, "projection": {"type": "albersUsa"}, "transform": [{"lookup": "id", "from": {"data": {"url": "https://vega.github.io/vega-datasets/data/unemployment.tsv"}, "key": "id", "fields": ["rate"]}}], "width": 500, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
   });
 </script>
 </div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
@@ -279,7 +276,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="airports.html" class="btn btn-neutral float-right" title="Locations of US Airports" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="choropleth_repeat.html" class="btn btn-neutral float-right" title="Repeated Choropleth Map" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="trellis_histogram.html" class="btn btn-neutral" title="Trellis Histogram" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -313,7 +310,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.0',
+            VERSION:'2.1.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

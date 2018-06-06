@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>API Reference &mdash; Altair 2.0 documentation</title>
+  <title>API Reference &mdash; Altair 2.1.0 documentation</title>
   
 
   
@@ -45,7 +45,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Altair 2.0 documentation" href="../index.html"/>
+    <link rel="top" title="Altair 2.1.0 documentation" href="../index.html"/>
         <link rel="prev" title="Altair Renderers" href="renderers.html"/> 
 
   
@@ -78,7 +78,7 @@
             
             
               <div class="version">
-                2.0.1
+                2.1
               </div>
             
           
@@ -240,7 +240,7 @@ for details and examples: <a class="reference external" href="http://altair-viz.
 <td>(EncodingWithFacet) A key-value mapping between encoding channels and definition of fields.</td>
 </tr>
 <tr class="row-even"><td><strong>autosize</strong></td>
-<td>(anyOf(AutosizeType, AutoSizeParams)) Sets how the visualization size should be determined. If a string, should be one of <cite>“pad”</cite>, <cite>“fit”</cite> or <cite>“none”</cite>. Object values can additionally specify parameters for content sizing and automatic resizing. <cite>“fit”</cite> is only supported for single and layered views that don’t use <cite>rangeStep</cite>.  __Default <a href="#id672"><span class="problematic" id="id673">value__</span></a>: <cite>pad</cite></td>
+<td>(anyOf(AutosizeType, AutoSizeParams)) Sets how the visualization size should be determined. If a string, should be one of <cite>“pad”</cite>, <cite>“fit”</cite> or <cite>“none”</cite>. Object values can additionally specify parameters for content sizing and automatic resizing. <cite>“fit”</cite> is only supported for single and layered views that don’t use <cite>rangeStep</cite>.  __Default <a href="#id665"><span class="problematic" id="id666">value__</span></a>: <cite>pad</cite></td>
 </tr>
 <tr class="row-odd"><td><strong>background</strong></td>
 <td>(string) CSS color property to use as the background of visualization.  __Default value:__ none (transparent)</td>
@@ -258,7 +258,7 @@ for details and examples: <a class="reference external" href="http://altair-viz.
 <td>(string) Name of the visualization for later reference.</td>
 </tr>
 <tr class="row-even"><td><strong>padding</strong></td>
-<td>(Padding) The default visualization padding, in pixels, from the edge of the visualization canvas to the data rectangle.  If a number, specifies padding for all sides. If an object, the value should have the format <cite>{“left”: 5, “top”: 5, “right”: 5, “bottom”: 5}</cite> to specify padding for each side of the visualization.  __Default <a href="#id672"><span class="problematic" id="id674">value__</span></a>: <cite>5</cite></td>
+<td>(Padding) The default visualization padding, in pixels, from the edge of the visualization canvas to the data rectangle.  If a number, specifies padding for all sides. If an object, the value should have the format <cite>{“left”: 5, “top”: 5, “right”: 5, “bottom”: 5}</cite> to specify padding for each side of the visualization.  __Default <a href="#id665"><span class="problematic" id="id667">value__</span></a>: <cite>5</cite></td>
 </tr>
 <tr class="row-odd"><td><strong>projection</strong></td>
 <td>(Projection) An object defining properties of geographic projection.  Works with <cite>“geoshape”</cite> marks and <cite>“point”</cite> or <cite>“line”</cite> marks that have a channel (one or more of <cite>“X”</cite>, <cite>“X2”</cite>, <cite>“Y”</cite>, <cite>“Y2”</cite>) with type <cite>“latitude”</cite>, or <cite>“longitude”</cite>.</td>
@@ -432,7 +432,7 @@ unique among all selections within the chart.</p>
 
 <dl class="class">
 <dt id="altair.HConcatChart">
-<em class="property">class </em><code class="descclassname">altair.</code><code class="descname">HConcatChart</code><span class="sig-paren">(</span><em>hconcat=()</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.HConcatChart" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">altair.</code><code class="descname">HConcatChart</code><span class="sig-paren">(</span><em>data=Undefined</em>, <em>hconcat=()</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.HConcatChart" title="Permalink to this definition">¶</a></dt>
 <dd><p>A chart with horizontally-concatenated facets
 Mapping(required=[hconcat])</p>
 <p class="rubric">Attributes</p>
@@ -487,7 +487,7 @@ Mapping(required=[hconcat])</p>
 
 <dl class="class">
 <dt id="altair.VConcatChart">
-<em class="property">class </em><code class="descclassname">altair.</code><code class="descname">VConcatChart</code><span class="sig-paren">(</span><em>vconcat=()</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.VConcatChart" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">altair.</code><code class="descname">VConcatChart</code><span class="sig-paren">(</span><em>data=Undefined</em>, <em>vconcat=()</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.VConcatChart" title="Permalink to this definition">¶</a></dt>
 <dd><p>A chart with vertically-concatenated facets
 Mapping(required=[vconcat])</p>
 <p class="rubric">Attributes</p>
@@ -542,7 +542,7 @@ Mapping(required=[vconcat])</p>
 
 <dl class="class">
 <dt id="altair.FacetChart">
-<em class="property">class </em><code class="descclassname">altair.</code><code class="descname">FacetChart</code><span class="sig-paren">(</span><em>spec</em>, <em>facet=Undefined</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.FacetChart" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">altair.</code><code class="descname">FacetChart</code><span class="sig-paren">(</span><em>data=Undefined</em>, <em>spec=Undefined</em>, <em>facet=Undefined</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.FacetChart" title="Permalink to this definition">¶</a></dt>
 <dd><p>A Chart with layers within a single panel
 Mapping(required=[data, facet, spec])</p>
 <p class="rubric">Attributes</p>
@@ -633,7 +633,7 @@ unique among all selections within the chart.</p>
 
 <dl class="class">
 <dt id="altair.RepeatChart">
-<em class="property">class </em><code class="descclassname">altair.</code><code class="descname">RepeatChart</code><span class="sig-paren">(</span><em>spec=Undefined</em>, <em>data=Undefined</em>, <em>repeat=Undefined</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.RepeatChart" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">altair.</code><code class="descname">RepeatChart</code><span class="sig-paren">(</span><em>data=Undefined</em>, <em>spec=Undefined</em>, <em>repeat=Undefined</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.RepeatChart" title="Permalink to this definition">¶</a></dt>
 <dd><p>A chart repeated across rows and columns with small changes
 Mapping(required=[repeat, spec])</p>
 <p class="rubric">Attributes</p>
@@ -1894,7 +1894,7 @@ Definition object for a constant value of an encoding channel.</p>
 <td>(float) The maximum length of the text mark in pixels (default 0, indicating no limit). The text value will be automatically truncated if the rendered size exceeds the limit.</td>
 </tr>
 <tr class="row-even"><td><strong>line</strong></td>
-<td>(anyOf(boolean, MarkProperties)) A flag for overlaying line on top of area marks, or an object defining the properties of the overlayed lines.   *    If this value is an empty object ( <code class="docutils literal"><span class="pre">{}</span></code> ) or <code class="docutils literal"><span class="pre">true</span></code>, lines with default properties will be used.  *    If this value is <code class="docutils literal"><span class="pre">false</span></code>, no lines would be automatically added to area marks.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">false</span></code>.</td>
+<td>(anyOf(boolean, MarkConfig)) A flag for overlaying line on top of area marks, or an object defining the properties of the overlayed lines.   *    If this value is an empty object ( <code class="docutils literal"><span class="pre">{}</span></code> ) or <code class="docutils literal"><span class="pre">true</span></code>, lines with default properties will be used.  *    If this value is <code class="docutils literal"><span class="pre">false</span></code>, no lines would be automatically added to area marks.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">false</span></code>.</td>
 </tr>
 <tr class="row-odd"><td><strong>opacity</strong></td>
 <td>(float) The overall opacity (value between [0,1]).  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">0.7</span></code> for non-aggregate plots with <code class="docutils literal"><span class="pre">point</span></code>, <code class="docutils literal"><span class="pre">tick</span></code>, <code class="docutils literal"><span class="pre">circle</span></code>, or <code class="docutils literal"><span class="pre">square</span></code> marks or layered <code class="docutils literal"><span class="pre">bar</span></code> charts and <code class="docutils literal"><span class="pre">1</span></code> otherwise.</td>
@@ -1903,7 +1903,7 @@ Definition object for a constant value of an encoding channel.</p>
 <td>(Orient) The orientation of a non-stacked bar, tick, area, and line charts. The value is either horizontal (default) or vertical.   * For bar, rule and tick, this determines whether the size of the bar and tick   should be applied to x or y dimension. * For area, this property determines the orient property of the Vega output. * For line and trail marks, this property determines the sort order of the points in the line if <code class="docutils literal"><span class="pre">config.sortLineBy</span></code> is not specified.   For stacked charts, this is always determined by the orientation of the stack;   therefore explicitly specified value will be ignored.</td>
 </tr>
 <tr class="row-odd"><td><strong>point</strong></td>
-<td>(anyOf(boolean, MarkProperties, enum(‘transparent’))) A flag for overlaying points on top of line or area marks, or an object defining the properties of the overlayed points.   *    If this property is <code class="docutils literal"><span class="pre">&quot;transparent&quot;</span></code>, transparent points will be used (for enhancing tooltips and selections).  *    If this property is an empty object ( <code class="docutils literal"><span class="pre">{}</span></code> ) or <code class="docutils literal"><span class="pre">true</span></code>, filled points with default properties will be used.  *    If this property is <code class="docutils literal"><span class="pre">false</span></code>, no points would be automatically added to line or area marks.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">false</span></code>.</td>
+<td>(anyOf(boolean, MarkConfig, enum(‘transparent’))) A flag for overlaying points on top of line or area marks, or an object defining the properties of the overlayed points.   *    If this property is <code class="docutils literal"><span class="pre">&quot;transparent&quot;</span></code>, transparent points will be used (for enhancing tooltips and selections).  *    If this property is an empty object ( <code class="docutils literal"><span class="pre">{}</span></code> ) or <code class="docutils literal"><span class="pre">true</span></code>, filled points with default properties will be used.  *    If this property is <code class="docutils literal"><span class="pre">false</span></code>, no points would be automatically added to line or area marks.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">false</span></code>.</td>
 </tr>
 <tr class="row-even"><td><strong>radius</strong></td>
 <td>(float) Polar coordinate radial offset, in pixels, of the text label from the origin determined by the <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code> properties.</td>
@@ -3356,7 +3356,7 @@ Definition object for a data field, its type and transformation of an encoding c
 <td>(anyOf(MarkPropFieldDefWithCondition, MarkPropValueDefWithCondition)) Opacity of the marks – either can be a value or a range.  <strong>Default value:</strong> If undefined, the default opacity depends on <a class="reference external" href="config.html#mark">mark config</a> ‘s <code class="docutils literal"><span class="pre">opacity</span></code> property.</td>
 </tr>
 <tr class="row-odd"><td><strong>order</strong></td>
-<td>(anyOf(OrderFieldDef, List(OrderFieldDef))) Order of the marks.   * For stacked marks, this <code class="docutils literal"><span class="pre">order</span></code> channel encodes <a class="reference external" href="https://vega.github.io/vega-lite/docs/stack.html#order">stack order</a>. * For line and trail marks, this <code class="docutils literal"><span class="pre">order</span></code> channel encodes order of data points in the lines. This can be useful for creating <a class="reference external" href="https://vega.github.io/vega-lite/examples/connected_scatterplot.html">a connected scatterplot</a>. * Otherwise, this <code class="docutils literal"><span class="pre">order</span></code> channel encodes layer order of the marks.  <strong>Note</strong> : In aggregate plots, <code class="docutils literal"><span class="pre">order</span></code> field should be <code class="docutils literal"><span class="pre">aggregate</span></code> d to avoid creating additional aggregation grouping.</td>
+<td>(anyOf(OrderFieldDef, List(OrderFieldDef), ValueDef)) Order of the marks.   * For stacked marks, this <code class="docutils literal"><span class="pre">order</span></code> channel encodes <a class="reference external" href="https://vega.github.io/vega-lite/docs/stack.html#order">stack order</a>. * For line and trail marks, this <code class="docutils literal"><span class="pre">order</span></code> channel encodes order of data points in the lines. This can be useful for creating <a class="reference external" href="https://vega.github.io/vega-lite/examples/connected_scatterplot.html">a connected scatterplot</a>.  Setting <code class="docutils literal"><span class="pre">order</span></code> to <code class="docutils literal"><span class="pre">{&quot;value&quot;:</span> <span class="pre">null}</span></code> makes the line marks use the original order in the data sources. * Otherwise, this <code class="docutils literal"><span class="pre">order</span></code> channel encodes layer order of the marks. <strong>Note</strong> : In aggregate plots, <code class="docutils literal"><span class="pre">order</span></code> field should be <code class="docutils literal"><span class="pre">aggregate</span></code> d to avoid creating additional aggregation grouping.</td>
 </tr>
 <tr class="row-even"><td><strong>shape</strong></td>
 <td>(anyOf(MarkPropFieldDefWithCondition, MarkPropValueDefWithCondition)) For <code class="docutils literal"><span class="pre">point</span></code> marks the supported values are <code class="docutils literal"><span class="pre">&quot;circle&quot;</span></code> (default), <code class="docutils literal"><span class="pre">&quot;square&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;cross&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;diamond&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;triangle-up&quot;</span></code>, or <code class="docutils literal"><span class="pre">&quot;triangle-down&quot;</span></code>, or else a custom SVG path string. For <code class="docutils literal"><span class="pre">geoshape</span></code> marks it should be a field definition of the geojson data  <strong>Default value:</strong> If undefined, the default shape depends on <a class="reference external" href="config.html#point-config">mark config</a> ‘s <code class="docutils literal"><span class="pre">shape</span></code> property.</td>
@@ -3435,7 +3435,7 @@ Definition object for a data field, its type and transformation of an encoding c
 <td>(anyOf(MarkPropFieldDefWithCondition, MarkPropValueDefWithCondition)) Opacity of the marks – either can be a value or a range.  <strong>Default value:</strong> If undefined, the default opacity depends on <a class="reference external" href="config.html#mark">mark config</a> ‘s <code class="docutils literal"><span class="pre">opacity</span></code> property.</td>
 </tr>
 <tr class="row-even"><td><strong>order</strong></td>
-<td>(anyOf(OrderFieldDef, List(OrderFieldDef))) Order of the marks.   * For stacked marks, this <code class="docutils literal"><span class="pre">order</span></code> channel encodes <a class="reference external" href="https://vega.github.io/vega-lite/docs/stack.html#order">stack order</a>. * For line and trail marks, this <code class="docutils literal"><span class="pre">order</span></code> channel encodes order of data points in the lines. This can be useful for creating <a class="reference external" href="https://vega.github.io/vega-lite/examples/connected_scatterplot.html">a connected scatterplot</a>. * Otherwise, this <code class="docutils literal"><span class="pre">order</span></code> channel encodes layer order of the marks.  <strong>Note</strong> : In aggregate plots, <code class="docutils literal"><span class="pre">order</span></code> field should be <code class="docutils literal"><span class="pre">aggregate</span></code> d to avoid creating additional aggregation grouping.</td>
+<td>(anyOf(OrderFieldDef, List(OrderFieldDef), ValueDef)) Order of the marks.   * For stacked marks, this <code class="docutils literal"><span class="pre">order</span></code> channel encodes <a class="reference external" href="https://vega.github.io/vega-lite/docs/stack.html#order">stack order</a>. * For line and trail marks, this <code class="docutils literal"><span class="pre">order</span></code> channel encodes order of data points in the lines. This can be useful for creating <a class="reference external" href="https://vega.github.io/vega-lite/examples/connected_scatterplot.html">a connected scatterplot</a>.  Setting <code class="docutils literal"><span class="pre">order</span></code> to <code class="docutils literal"><span class="pre">{&quot;value&quot;:</span> <span class="pre">null}</span></code> makes the line marks use the original order in the data sources. * Otherwise, this <code class="docutils literal"><span class="pre">order</span></code> channel encodes layer order of the marks. <strong>Note</strong> : In aggregate plots, <code class="docutils literal"><span class="pre">order</span></code> field should be <code class="docutils literal"><span class="pre">aggregate</span></code> d to avoid creating additional aggregation grouping.</td>
 </tr>
 <tr class="row-odd"><td><strong>row</strong></td>
 <td>(FacetFieldDef) Vertical facets for trellis plots.</td>
@@ -3919,7 +3919,7 @@ value: …,</div></blockquote>
 
 <dl class="class">
 <dt>
-<em class="property">class </em><code class="descclassname">altair.</code><code class="descname">HConcatChart</code><span class="sig-paren">(</span><em>hconcat=()</em>, <em>**kwargs</em><span class="sig-paren">)</span></dt>
+<em class="property">class </em><code class="descclassname">altair.</code><code class="descname">HConcatChart</code><span class="sig-paren">(</span><em>data=Undefined</em>, <em>hconcat=()</em>, <em>**kwargs</em><span class="sig-paren">)</span></dt>
 <dd><p>A chart with horizontally-concatenated facets
 Mapping(required=[hconcat])</p>
 <p class="rubric">Attributes</p>
@@ -4727,7 +4727,7 @@ Properties of a legend or boolean flag for determining whether to show it.</p>
 <td>(Orient) The orientation of a non-stacked bar, tick, area, and line charts. The value is either horizontal (default) or vertical.   * For bar, rule and tick, this determines whether the size of the bar and tick   should be applied to x or y dimension. * For area, this property determines the orient property of the Vega output. * For line and trail marks, this property determines the sort order of the points in the line if <code class="docutils literal"><span class="pre">config.sortLineBy</span></code> is not specified.   For stacked charts, this is always determined by the orientation of the stack;   therefore explicitly specified value will be ignored.</td>
 </tr>
 <tr class="row-even"><td><strong>point</strong></td>
-<td>(anyOf(boolean, MarkProperties, enum(‘transparent’))) A flag for overlaying points on top of line or area marks, or an object defining the properties of the overlayed points.   *    If this property is <code class="docutils literal"><span class="pre">&quot;transparent&quot;</span></code>, transparent points will be used (for enhancing tooltips and selections).  *    If this property is an empty object ( <code class="docutils literal"><span class="pre">{}</span></code> ) or <code class="docutils literal"><span class="pre">true</span></code>, filled points with default properties will be used.  *    If this property is <code class="docutils literal"><span class="pre">false</span></code>, no points would be automatically added to line or area marks.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">false</span></code>.</td>
+<td>(anyOf(boolean, MarkConfig, enum(‘transparent’))) A flag for overlaying points on top of line or area marks, or an object defining the properties of the overlayed points.   *    If this property is <code class="docutils literal"><span class="pre">&quot;transparent&quot;</span></code>, transparent points will be used (for enhancing tooltips and selections).  *    If this property is an empty object ( <code class="docutils literal"><span class="pre">{}</span></code> ) or <code class="docutils literal"><span class="pre">true</span></code>, filled points with default properties will be used.  *    If this property is <code class="docutils literal"><span class="pre">false</span></code>, no points would be automatically added to line or area marks.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">false</span></code>.</td>
 </tr>
 <tr class="row-odd"><td><strong>radius</strong></td>
 <td>(float) Polar coordinate radial offset, in pixels, of the text label from the origin determined by the <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code> properties.</td>
@@ -5200,7 +5200,7 @@ All types of primitive marks.</p>
 <td>(float) The maximum length of the text mark in pixels (default 0, indicating no limit). The text value will be automatically truncated if the rendered size exceeds the limit.</td>
 </tr>
 <tr class="row-odd"><td><strong>line</strong></td>
-<td>(anyOf(boolean, MarkProperties)) A flag for overlaying line on top of area marks, or an object defining the properties of the overlayed lines.   *    If this value is an empty object ( <code class="docutils literal"><span class="pre">{}</span></code> ) or <code class="docutils literal"><span class="pre">true</span></code>, lines with default properties will be used.  *    If this value is <code class="docutils literal"><span class="pre">false</span></code>, no lines would be automatically added to area marks.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">false</span></code>.</td>
+<td>(anyOf(boolean, MarkConfig)) A flag for overlaying line on top of area marks, or an object defining the properties of the overlayed lines.   *    If this value is an empty object ( <code class="docutils literal"><span class="pre">{}</span></code> ) or <code class="docutils literal"><span class="pre">true</span></code>, lines with default properties will be used.  *    If this value is <code class="docutils literal"><span class="pre">false</span></code>, no lines would be automatically added to area marks.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">false</span></code>.</td>
 </tr>
 <tr class="row-even"><td><strong>opacity</strong></td>
 <td>(float) The overall opacity (value between [0,1]).  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">0.7</span></code> for non-aggregate plots with <code class="docutils literal"><span class="pre">point</span></code>, <code class="docutils literal"><span class="pre">tick</span></code>, <code class="docutils literal"><span class="pre">circle</span></code>, or <code class="docutils literal"><span class="pre">square</span></code> marks or layered <code class="docutils literal"><span class="pre">bar</span></code> charts and <code class="docutils literal"><span class="pre">1</span></code> otherwise.</td>
@@ -5209,7 +5209,7 @@ All types of primitive marks.</p>
 <td>(Orient) The orientation of a non-stacked bar, tick, area, and line charts. The value is either horizontal (default) or vertical.   * For bar, rule and tick, this determines whether the size of the bar and tick   should be applied to x or y dimension. * For area, this property determines the orient property of the Vega output. * For line and trail marks, this property determines the sort order of the points in the line if <code class="docutils literal"><span class="pre">config.sortLineBy</span></code> is not specified.   For stacked charts, this is always determined by the orientation of the stack;   therefore explicitly specified value will be ignored.</td>
 </tr>
 <tr class="row-even"><td><strong>point</strong></td>
-<td>(anyOf(boolean, MarkProperties, enum(‘transparent’))) A flag for overlaying points on top of line or area marks, or an object defining the properties of the overlayed points.   *    If this property is <code class="docutils literal"><span class="pre">&quot;transparent&quot;</span></code>, transparent points will be used (for enhancing tooltips and selections).  *    If this property is an empty object ( <code class="docutils literal"><span class="pre">{}</span></code> ) or <code class="docutils literal"><span class="pre">true</span></code>, filled points with default properties will be used.  *    If this property is <code class="docutils literal"><span class="pre">false</span></code>, no points would be automatically added to line or area marks.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">false</span></code>.</td>
+<td>(anyOf(boolean, MarkConfig, enum(‘transparent’))) A flag for overlaying points on top of line or area marks, or an object defining the properties of the overlayed points.   *    If this property is <code class="docutils literal"><span class="pre">&quot;transparent&quot;</span></code>, transparent points will be used (for enhancing tooltips and selections).  *    If this property is an empty object ( <code class="docutils literal"><span class="pre">{}</span></code> ) or <code class="docutils literal"><span class="pre">true</span></code>, filled points with default properties will be used.  *    If this property is <code class="docutils literal"><span class="pre">false</span></code>, no points would be automatically added to line or area marks.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">false</span></code>.</td>
 </tr>
 <tr class="row-odd"><td><strong>radius</strong></td>
 <td>(float) Polar coordinate radial offset, in pixels, of the text label from the origin determined by the <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code> properties.</td>
@@ -5333,136 +5333,6 @@ value: …,</div></blockquote>
 </tr>
 <tr class="row-odd"><td><strong>value</strong></td>
 <td>(anyOf(float, string, boolean)) A constant value in visual domain.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="class">
-<dt id="altair.MarkProperties">
-<em class="property">class </em><code class="descclassname">altair.</code><code class="descname">MarkProperties</code><span class="sig-paren">(</span><em>align=Undefined</em>, <em>angle=Undefined</em>, <em>baseline=Undefined</em>, <em>binSpacing=Undefined</em>, <em>clip=Undefined</em>, <em>color=Undefined</em>, <em>cursor=Undefined</em>, <em>dx=Undefined</em>, <em>dy=Undefined</em>, <em>fill=Undefined</em>, <em>fillOpacity=Undefined</em>, <em>filled=Undefined</em>, <em>font=Undefined</em>, <em>fontSize=Undefined</em>, <em>fontStyle=Undefined</em>, <em>fontWeight=Undefined</em>, <em>href=Undefined</em>, <em>interpolate=Undefined</em>, <em>limit=Undefined</em>, <em>opacity=Undefined</em>, <em>orient=Undefined</em>, <em>radius=Undefined</em>, <em>shape=Undefined</em>, <em>size=Undefined</em>, <em>stroke=Undefined</em>, <em>strokeCap=Undefined</em>, <em>strokeDash=Undefined</em>, <em>strokeDashOffset=Undefined</em>, <em>strokeOpacity=Undefined</em>, <em>strokeWidth=Undefined</em>, <em>style=Undefined</em>, <em>tension=Undefined</em>, <em>text=Undefined</em>, <em>theta=Undefined</em>, <em>**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.MarkProperties" title="Permalink to this definition">¶</a></dt>
-<dd><p>MarkProperties schema wrapper</p>
-<p>Mapping(required=[])</p>
-<p class="rubric">Attributes</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="7%" />
-<col width="93%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><strong>align</strong></td>
-<td>(HorizontalAlign) The horizontal alignment of the text. One of <code class="docutils literal"><span class="pre">&quot;left&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;right&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;center&quot;</span></code>.</td>
-</tr>
-<tr class="row-even"><td><strong>angle</strong></td>
-<td>(float) The rotation angle of the text, in degrees.</td>
-</tr>
-<tr class="row-odd"><td><strong>baseline</strong></td>
-<td>(VerticalAlign) The vertical alignment of the text. One of <code class="docutils literal"><span class="pre">&quot;top&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;middle&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;bottom&quot;</span></code>. <strong>Default value:</strong> <code class="docutils literal"><span class="pre">&quot;middle&quot;</span></code></td>
-</tr>
-<tr class="row-even"><td><strong>binSpacing</strong></td>
-<td>(float) Offset between bars for binned field.  Ideal value for this is either 0 (Preferred by statisticians) or 1 (Vega-Lite Default, D3 example style).  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">1</span></code></td>
-</tr>
-<tr class="row-odd"><td><strong>clip</strong></td>
-<td>(boolean) Whether a mark be clipped to the enclosing group’s width and height.</td>
-</tr>
-<tr class="row-even"><td><strong>color</strong></td>
-<td>(string) Default color.  Note that <code class="docutils literal"><span class="pre">fill</span></code> and <code class="docutils literal"><span class="pre">stroke</span></code> have higher precedence than <code class="docutils literal"><span class="pre">color</span></code> and will override <code class="docutils literal"><span class="pre">color</span></code>.  <strong>Default value:</strong> <a href="#id399"><span class="problematic" id="id400">:raw-html:`&lt;span style=&quot;color: #4682b4;&quot;&gt;&amp;#9632;&lt;/span&gt;`</span></a> <code class="docutils literal"><span class="pre">&quot;#4682b4&quot;</span></code>  <strong>Note:</strong> This property cannot be used in a <a class="reference external" href="mark.html#style-config">style config</a>.</td>
-</tr>
-<tr class="row-odd"><td><strong>cursor</strong></td>
-<td>(enum(‘auto’, ‘default’, ‘none’, ‘context-menu’, ‘help’, ‘pointer’, ‘progress’,)</td>
-</tr>
-<tr class="row-even"><td><strong>‘wait’, ‘cell’, ‘crosshair’, ‘text’, ‘vertical-text’, ‘alias’, ‘copy’, ‘move’, ‘no-drop’,</strong></td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td><strong>‘not-allowed’, ‘e-resize’, ‘n-resize’, ‘ne-resize’, ‘nw-resize’, ‘s-resize’, ‘se-resize’,</strong></td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td><strong>‘sw-resize’, ‘w-resize’, ‘ew-resize’, ‘ns-resize’, ‘nesw-resize’, ‘nwse-resize’,</strong></td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td><strong>‘col-resize’, ‘row-resize’, ‘all-scroll’, ‘zoom-in’, ‘zoom-out’, ‘grab’, ‘grabbing’)</strong></td>
-<td>The mouse cursor used over the mark. Any valid <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/CSS/cursor#Values">CSS cursor type</a> can be used.</td>
-</tr>
-<tr class="row-even"><td><strong>dx</strong></td>
-<td>(float) The horizontal offset, in pixels, between the text label and its anchor point. The offset is applied after rotation by the <em>angle</em> property.</td>
-</tr>
-<tr class="row-odd"><td><strong>dy</strong></td>
-<td>(float) The vertical offset, in pixels, between the text label and its anchor point. The offset is applied after rotation by the <em>angle</em> property.</td>
-</tr>
-<tr class="row-even"><td><strong>fill</strong></td>
-<td>(string) Default Fill Color.  This has higher precedence than <code class="docutils literal"><span class="pre">config.color</span></code>  <strong>Default value:</strong> (None)</td>
-</tr>
-<tr class="row-odd"><td><strong>fillOpacity</strong></td>
-<td>(float) The fill opacity (value between [0,1]).  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">1</span></code></td>
-</tr>
-<tr class="row-even"><td><strong>filled</strong></td>
-<td>(boolean) Whether the mark’s color should be used as fill color instead of stroke color. <strong>Default value:</strong> <code class="docutils literal"><span class="pre">true</span></code> for all marks except <code class="docutils literal"><span class="pre">point</span></code> and <code class="docutils literal"><span class="pre">false</span></code> for <code class="docutils literal"><span class="pre">point</span></code>.  <strong>Applicable for:</strong> <code class="docutils literal"><span class="pre">bar</span></code>, <code class="docutils literal"><span class="pre">point</span></code>, <code class="docutils literal"><span class="pre">circle</span></code>, <code class="docutils literal"><span class="pre">square</span></code>, and <code class="docutils literal"><span class="pre">area</span></code> marks.  <strong>Note:</strong> This property cannot be used in a <a class="reference external" href="mark.html#style-config">style config</a>.</td>
-</tr>
-<tr class="row-odd"><td><strong>font</strong></td>
-<td>(string) The typeface to set the text in (e.g., <code class="docutils literal"><span class="pre">&quot;Helvetica</span> <span class="pre">Neue&quot;</span></code> ).</td>
-</tr>
-<tr class="row-even"><td><strong>fontSize</strong></td>
-<td>(float) The font size, in pixels.</td>
-</tr>
-<tr class="row-odd"><td><strong>fontStyle</strong></td>
-<td>(FontStyle) The font style (e.g., <code class="docutils literal"><span class="pre">&quot;italic&quot;</span></code> ).</td>
-</tr>
-<tr class="row-even"><td><strong>fontWeight</strong></td>
-<td>(FontWeight) The font weight. This can be either a string (e.g <code class="docutils literal"><span class="pre">&quot;bold&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;normal&quot;</span></code> ) or a number ( <code class="docutils literal"><span class="pre">100</span></code>, <code class="docutils literal"><span class="pre">200</span></code>, <code class="docutils literal"><span class="pre">300</span></code>, …, <code class="docutils literal"><span class="pre">900</span></code> where <code class="docutils literal"><span class="pre">&quot;normal&quot;</span></code> = <code class="docutils literal"><span class="pre">400</span></code> and <code class="docutils literal"><span class="pre">&quot;bold&quot;</span></code> = <code class="docutils literal"><span class="pre">700</span></code> ).</td>
-</tr>
-<tr class="row-odd"><td><strong>href</strong></td>
-<td>(string) A URL to load upon mouse click. If defined, the mark acts as a hyperlink.</td>
-</tr>
-<tr class="row-even"><td><strong>interpolate</strong></td>
-<td>(Interpolate) The line interpolation method to use for line and area marks. One of the following: * <code class="docutils literal"><span class="pre">&quot;linear&quot;</span></code> : piecewise linear segments, as in a polyline. * <code class="docutils literal"><span class="pre">&quot;linear-closed&quot;</span></code> : close the linear segments to form a polygon. * <code class="docutils literal"><span class="pre">&quot;step&quot;</span></code> : alternate between horizontal and vertical segments, as in a step function. * <code class="docutils literal"><span class="pre">&quot;step-before&quot;</span></code> : alternate between vertical and horizontal segments, as in a step function. * <code class="docutils literal"><span class="pre">&quot;step-after&quot;</span></code> : alternate between horizontal and vertical segments, as in a step function. * <code class="docutils literal"><span class="pre">&quot;basis&quot;</span></code> : a B-spline, with control point duplication on the ends. * <code class="docutils literal"><span class="pre">&quot;basis-open&quot;</span></code> : an open B-spline; may not intersect the start or end. * <code class="docutils literal"><span class="pre">&quot;basis-closed&quot;</span></code> : a closed B-spline, as in a loop. * <code class="docutils literal"><span class="pre">&quot;cardinal&quot;</span></code> : a Cardinal spline, with control point duplication on the ends. * <code class="docutils literal"><span class="pre">&quot;cardinal-open&quot;</span></code> : an open Cardinal spline; may not intersect the start or end, but will intersect other control points. * <code class="docutils literal"><span class="pre">&quot;cardinal-closed&quot;</span></code> : a closed Cardinal spline, as in a loop. * <code class="docutils literal"><span class="pre">&quot;bundle&quot;</span></code> : equivalent to basis, except the tension parameter is used to straighten the spline. * <code class="docutils literal"><span class="pre">&quot;monotone&quot;</span></code> : cubic interpolation that preserves monotonicity in y.</td>
-</tr>
-<tr class="row-odd"><td><strong>limit</strong></td>
-<td>(float) The maximum length of the text mark in pixels (default 0, indicating no limit). The text value will be automatically truncated if the rendered size exceeds the limit.</td>
-</tr>
-<tr class="row-even"><td><strong>opacity</strong></td>
-<td>(float) The overall opacity (value between [0,1]).  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">0.7</span></code> for non-aggregate plots with <code class="docutils literal"><span class="pre">point</span></code>, <code class="docutils literal"><span class="pre">tick</span></code>, <code class="docutils literal"><span class="pre">circle</span></code>, or <code class="docutils literal"><span class="pre">square</span></code> marks or layered <code class="docutils literal"><span class="pre">bar</span></code> charts and <code class="docutils literal"><span class="pre">1</span></code> otherwise.</td>
-</tr>
-<tr class="row-odd"><td><strong>orient</strong></td>
-<td>(Orient) The orientation of a non-stacked bar, tick, area, and line charts. The value is either horizontal (default) or vertical.   * For bar, rule and tick, this determines whether the size of the bar and tick   should be applied to x or y dimension. * For area, this property determines the orient property of the Vega output. * For line and trail marks, this property determines the sort order of the points in the line if <code class="docutils literal"><span class="pre">config.sortLineBy</span></code> is not specified.   For stacked charts, this is always determined by the orientation of the stack;   therefore explicitly specified value will be ignored.</td>
-</tr>
-<tr class="row-even"><td><strong>radius</strong></td>
-<td>(float) Polar coordinate radial offset, in pixels, of the text label from the origin determined by the <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code> properties.</td>
-</tr>
-<tr class="row-odd"><td><strong>shape</strong></td>
-<td>(string) The default symbol shape to use. One of: <code class="docutils literal"><span class="pre">&quot;circle&quot;</span></code> (default), <code class="docutils literal"><span class="pre">&quot;square&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;cross&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;diamond&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;triangle-up&quot;</span></code>, or <code class="docutils literal"><span class="pre">&quot;triangle-down&quot;</span></code>, or a custom SVG path.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">&quot;circle&quot;</span></code></td>
-</tr>
-<tr class="row-even"><td><strong>size</strong></td>
-<td>(float) The pixel area each the point/circle/square. For example: in the case of circles, the radius is determined in part by the square root of the size value.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">30</span></code></td>
-</tr>
-<tr class="row-odd"><td><strong>stroke</strong></td>
-<td>(string) Default Stroke Color.  This has higher precedence than <code class="docutils literal"><span class="pre">config.color</span></code>  <strong>Default value:</strong> (None)</td>
-</tr>
-<tr class="row-even"><td><strong>strokeCap</strong></td>
-<td>(enum(‘butt’, ‘round’, ‘square’)) The stroke cap for line ending style. One of <code class="docutils literal"><span class="pre">&quot;butt&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;round&quot;</span></code>, or <code class="docutils literal"><span class="pre">&quot;square&quot;</span></code>.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">&quot;square&quot;</span></code></td>
-</tr>
-<tr class="row-odd"><td><strong>strokeDash</strong></td>
-<td>(List(float)) An array of alternating stroke, space lengths for creating dashed or dotted lines.</td>
-</tr>
-<tr class="row-even"><td><strong>strokeDashOffset</strong></td>
-<td>(float) The offset (in pixels) into which to begin drawing with the stroke dash array.</td>
-</tr>
-<tr class="row-odd"><td><strong>strokeOpacity</strong></td>
-<td>(float) The stroke opacity (value between [0,1]).  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">1</span></code></td>
-</tr>
-<tr class="row-even"><td><strong>strokeWidth</strong></td>
-<td>(float) The stroke width, in pixels.</td>
-</tr>
-<tr class="row-odd"><td><strong>style</strong></td>
-<td>(anyOf(string, List(string))) A string or array of strings indicating the name of custom styles to apply to the mark. A style is a named collection of mark property defaults defined within the <a class="reference external" href="mark.html#style-config">style configuration</a>. If style is an array, later styles will override earlier styles. Any <a class="reference external" href="encoding.html#mark-prop">mark properties</a> explicitly defined within the <code class="docutils literal"><span class="pre">encoding</span></code> will override a style default.  <strong>Default value:</strong> The mark’s name.  For example, a bar mark will have style <code class="docutils literal"><span class="pre">&quot;bar&quot;</span></code> by default. <strong>Note:</strong> Any specified style will augment the default style. For example, a bar mark with <code class="docutils literal"><span class="pre">&quot;style&quot;:</span> <span class="pre">&quot;foo&quot;</span></code> will receive from <code class="docutils literal"><span class="pre">config.style.bar</span></code> and <code class="docutils literal"><span class="pre">config.style.foo</span></code> (the specified style <code class="docutils literal"><span class="pre">&quot;foo&quot;</span></code> has higher precedence).</td>
-</tr>
-<tr class="row-even"><td><strong>tension</strong></td>
-<td>(float) Depending on the interpolation type, sets the tension parameter (for line and area marks).</td>
-</tr>
-<tr class="row-odd"><td><strong>text</strong></td>
-<td>(string) Placeholder text if the <code class="docutils literal"><span class="pre">text</span></code> channel is not specified</td>
-</tr>
-<tr class="row-even"><td><strong>theta</strong></td>
-<td>(float) Polar coordinate angle, in radians, of the text label from the origin determined by the <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code> properties. Values for <code class="docutils literal"><span class="pre">theta</span></code> follow the same convention of <code class="docutils literal"><span class="pre">arc</span></code> mark <code class="docutils literal"><span class="pre">startAngle</span></code> and <code class="docutils literal"><span class="pre">endAngle</span></code> properties: angles are measured in radians, with <code class="docutils literal"><span class="pre">0</span></code> indicating “north”.</td>
 </tr>
 </tbody>
 </table>
@@ -5612,7 +5482,7 @@ value: …,</div></blockquote>
 <em class="property">class </em><code class="descclassname">altair.</code><code class="descname">Opacity</code><span class="sig-paren">(</span><em>shorthand=Undefined</em>, <em>aggregate=Undefined</em>, <em>bin=Undefined</em>, <em>condition=Undefined</em>, <em>field=Undefined</em>, <em>legend=Undefined</em>, <em>scale=Undefined</em>, <em>sort=Undefined</em>, <em>timeUnit=Undefined</em>, <em>title=Undefined</em>, <em>type=Undefined</em>, <em>**kwds</em><span class="sig-paren">)</span></dt>
 <dd><p>Opacity schema wrapper</p>
 <p>Mapping(required=[shorthand])
-A FieldDef with Condition <a href="#id413"><span class="problematic" id="id414">:raw-html:`&lt;ValueDef&gt;`</span></a>
+A FieldDef with Condition <a href="#id406"><span class="problematic" id="id407">:raw-html:`&lt;ValueDef&gt;`</span></a>
 {</p>
 <blockquote>
 <div>condition: {value: …},
@@ -5772,6 +5642,26 @@ value: …,</div></blockquote>
 </dd></dl>
 
 <dl class="class">
+<dt id="altair.OrderValue">
+<em class="property">class </em><code class="descclassname">altair.</code><code class="descname">OrderValue</code><span class="sig-paren">(</span><em>value</em>, <em>**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.OrderValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>OrderValue schema wrapper</p>
+<p>Mapping(required=[value])
+Definition object for a constant value of an encoding channel.</p>
+<p class="rubric">Attributes</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="6%" />
+<col width="94%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>value</strong></td>
+<td>(anyOf(float, string, boolean)) A constant value in visual domain (e.g., <code class="docutils literal"><span class="pre">&quot;red&quot;</span></code> / “#0099ff” for color, values between <code class="docutils literal"><span class="pre">0</span></code> to <code class="docutils literal"><span class="pre">1</span></code> for opacity).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
 <dt id="altair.Orient">
 <em class="property">class </em><code class="descclassname">altair.</code><code class="descname">Orient</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Orient" title="Permalink to this definition">¶</a></dt>
 <dd><p>Orient schema wrapper</p>
@@ -5819,7 +5709,7 @@ value: …,</div></blockquote>
 <td>(anyOf(List(string), SortOrder, SortField, None)) Sort order for the encoded field. Supported <code class="docutils literal"><span class="pre">sort</span></code> values include <code class="docutils literal"><span class="pre">&quot;ascending&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;descending&quot;</span></code>, <code class="docutils literal"><span class="pre">null</span></code> (no sorting), or an array specifying the preferred order of values. For fields with discrete domains, <code class="docutils literal"><span class="pre">sort</span></code> can also be a <a class="reference external" href="https://vega.github.io/vega-lite/docs/sort.html#sort-field">sort field definition object</a>. For <code class="docutils literal"><span class="pre">sort</span></code> as an <a class="reference external" href="https://vega.github.io/vega-lite/docs/sort.html#sort-array">array specifying the preferred order of values</a>, the sort order will obey the values in the array, followed by any unspecified values in their original order.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">&quot;ascending&quot;</span></code></td>
 </tr>
 <tr class="row-even"><td><strong>stack</strong></td>
-<td>(anyOf(StackOffset, None)) Type of stacking offset if the field should be stacked. <code class="docutils literal"><span class="pre">stack</span></code> is only applicable for <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code> channels with continuous domains. For example, <code class="docutils literal"><span class="pre">stack</span></code> of <code class="docutils literal"><span class="pre">y</span></code> can be used to customize stacking for a vertical bar chart.  <code class="docutils literal"><span class="pre">stack</span></code> can be one of the following values:   * <cite>“zero”</cite>: stacking with baseline offset at zero value of the scale (for creating typical stacked [bar](<a class="reference external" href="https://vega.github.io/vega-lite/docs/stack.html#bar">https://vega.github.io/vega-lite/docs/stack.html#bar</a>) and <a class="reference external" href="https://vega.github.io/vega-lite/docs/stack.html#area">area</a> chart). * <code class="docutils literal"><span class="pre">&quot;normalize&quot;</span></code> - stacking with normalized domain (for creating <a class="reference external" href="https://vega.github.io/vega-lite/docs/stack.html#normalized">normalized stacked bar and area charts</a>. <a href="#id450"><span class="problematic" id="id451">:raw-html:`&lt;br/&gt;`</span></a>   - <code class="docutils literal"><span class="pre">&quot;center&quot;</span></code> - stacking with center baseline (for <a class="reference external" href="https://vega.github.io/vega-lite/docs/stack.html#streamgraph">streamgraph</a> ). * <code class="docutils literal"><span class="pre">null</span></code> - No-stacking. This will produce layered <a class="reference external" href="https://vega.github.io/vega-lite/docs/stack.html#layered-bar-chart">bar</a> and area chart.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">zero</span></code> for plots with all of the following conditions are true: (1) the mark is <code class="docutils literal"><span class="pre">bar</span></code> or <code class="docutils literal"><span class="pre">area</span></code> ; (2) the stacked measure channel (x or y) has a linear scale; (3) At least one of non-position channels mapped to an unaggregated field that is different from x and y.  Otherwise, <code class="docutils literal"><span class="pre">null</span></code> by default.</td>
+<td>(anyOf(StackOffset, None)) Type of stacking offset if the field should be stacked. <code class="docutils literal"><span class="pre">stack</span></code> is only applicable for <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code> channels with continuous domains. For example, <code class="docutils literal"><span class="pre">stack</span></code> of <code class="docutils literal"><span class="pre">y</span></code> can be used to customize stacking for a vertical bar chart.  <code class="docutils literal"><span class="pre">stack</span></code> can be one of the following values:   * <cite>“zero”</cite>: stacking with baseline offset at zero value of the scale (for creating typical stacked [bar](<a class="reference external" href="https://vega.github.io/vega-lite/docs/stack.html#bar">https://vega.github.io/vega-lite/docs/stack.html#bar</a>) and <a class="reference external" href="https://vega.github.io/vega-lite/docs/stack.html#area">area</a> chart). * <code class="docutils literal"><span class="pre">&quot;normalize&quot;</span></code> - stacking with normalized domain (for creating <a class="reference external" href="https://vega.github.io/vega-lite/docs/stack.html#normalized">normalized stacked bar and area charts</a>. <a href="#id443"><span class="problematic" id="id444">:raw-html:`&lt;br/&gt;`</span></a>   - <code class="docutils literal"><span class="pre">&quot;center&quot;</span></code> - stacking with center baseline (for <a class="reference external" href="https://vega.github.io/vega-lite/docs/stack.html#streamgraph">streamgraph</a> ). * <code class="docutils literal"><span class="pre">null</span></code> - No-stacking. This will produce layered <a class="reference external" href="https://vega.github.io/vega-lite/docs/stack.html#layered-bar-chart">bar</a> and area chart.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">zero</span></code> for plots with all of the following conditions are true: (1) the mark is <code class="docutils literal"><span class="pre">bar</span></code> or <code class="docutils literal"><span class="pre">area</span></code> ; (2) the stacked measure channel (x or y) has a linear scale; (3) At least one of non-position channels mapped to an unaggregated field that is different from x and y.  Otherwise, <code class="docutils literal"><span class="pre">null</span></code> by default.</td>
 </tr>
 <tr class="row-odd"><td><strong>timeUnit</strong></td>
 <td>(TimeUnit) Time unit (e.g., <code class="docutils literal"><span class="pre">year</span></code>, <code class="docutils literal"><span class="pre">yearmonth</span></code>, <code class="docutils literal"><span class="pre">month</span></code>, <code class="docutils literal"><span class="pre">hours</span></code> ) for a temporal field. or <a class="reference external" href="https://vega.github.io/vega-lite/docs/type.html#cast">a temporal field that gets casted as ordinal</a>.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">undefined</span></code> (None)</td>
@@ -6036,7 +5926,7 @@ Any property of Projection can be in config</p>
 
 <dl class="class">
 <dt>
-<em class="property">class </em><code class="descclassname">altair.</code><code class="descname">RepeatChart</code><span class="sig-paren">(</span><em>spec=Undefined</em>, <em>data=Undefined</em>, <em>repeat=Undefined</em>, <em>**kwargs</em><span class="sig-paren">)</span></dt>
+<em class="property">class </em><code class="descclassname">altair.</code><code class="descname">RepeatChart</code><span class="sig-paren">(</span><em>data=Undefined</em>, <em>spec=Undefined</em>, <em>repeat=Undefined</em>, <em>**kwargs</em><span class="sig-paren">)</span></dt>
 <dd><p>A chart repeated across rows and columns with small changes
 Mapping(required=[repeat, spec])</p>
 <p class="rubric">Attributes</p>
@@ -6865,7 +6755,7 @@ top-level objects.</p>
 <em class="property">class </em><code class="descclassname">altair.</code><code class="descname">Shape</code><span class="sig-paren">(</span><em>shorthand=Undefined</em>, <em>aggregate=Undefined</em>, <em>bin=Undefined</em>, <em>condition=Undefined</em>, <em>field=Undefined</em>, <em>legend=Undefined</em>, <em>scale=Undefined</em>, <em>sort=Undefined</em>, <em>timeUnit=Undefined</em>, <em>title=Undefined</em>, <em>type=Undefined</em>, <em>**kwds</em><span class="sig-paren">)</span></dt>
 <dd><p>Shape schema wrapper</p>
 <p>Mapping(required=[shorthand])
-A FieldDef with Condition <a href="#id481"><span class="problematic" id="id482">:raw-html:`&lt;ValueDef&gt;`</span></a>
+A FieldDef with Condition <a href="#id474"><span class="problematic" id="id475">:raw-html:`&lt;ValueDef&gt;`</span></a>
 {</p>
 <blockquote>
 <div>condition: {value: …},
@@ -7045,7 +6935,7 @@ value: …,</div></blockquote>
 <em class="property">class </em><code class="descclassname">altair.</code><code class="descname">Size</code><span class="sig-paren">(</span><em>shorthand=Undefined</em>, <em>aggregate=Undefined</em>, <em>bin=Undefined</em>, <em>condition=Undefined</em>, <em>field=Undefined</em>, <em>legend=Undefined</em>, <em>scale=Undefined</em>, <em>sort=Undefined</em>, <em>timeUnit=Undefined</em>, <em>title=Undefined</em>, <em>type=Undefined</em>, <em>**kwds</em><span class="sig-paren">)</span></dt>
 <dd><p>Size schema wrapper</p>
 <p>Mapping(required=[shorthand])
-A FieldDef with Condition <a href="#id503"><span class="problematic" id="id504">:raw-html:`&lt;ValueDef&gt;`</span></a>
+A FieldDef with Condition <a href="#id496"><span class="problematic" id="id497">:raw-html:`&lt;ValueDef&gt;`</span></a>
 {</p>
 <blockquote>
 <div>condition: {value: …},
@@ -7178,7 +7068,7 @@ value: …,</div></blockquote>
 <em class="property">class </em><code class="descclassname">altair.</code><code class="descname">Stroke</code><span class="sig-paren">(</span><em>shorthand=Undefined</em>, <em>aggregate=Undefined</em>, <em>bin=Undefined</em>, <em>condition=Undefined</em>, <em>field=Undefined</em>, <em>legend=Undefined</em>, <em>scale=Undefined</em>, <em>sort=Undefined</em>, <em>timeUnit=Undefined</em>, <em>title=Undefined</em>, <em>type=Undefined</em>, <em>**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Stroke" title="Permalink to this definition">¶</a></dt>
 <dd><p>Stroke schema wrapper</p>
 <p>Mapping(required=[shorthand])
-A FieldDef with Condition <a href="#id517"><span class="problematic" id="id518">:raw-html:`&lt;ValueDef&gt;`</span></a>
+A FieldDef with Condition <a href="#id510"><span class="problematic" id="id511">:raw-html:`&lt;ValueDef&gt;`</span></a>
 {</p>
 <blockquote>
 <div>condition: {value: …},
@@ -7272,7 +7162,7 @@ value: …,</div></blockquote>
 <em class="property">class </em><code class="descclassname">altair.</code><code class="descname">Text</code><span class="sig-paren">(</span><em>shorthand=Undefined</em>, <em>aggregate=Undefined</em>, <em>bin=Undefined</em>, <em>condition=Undefined</em>, <em>field=Undefined</em>, <em>format=Undefined</em>, <em>timeUnit=Undefined</em>, <em>title=Undefined</em>, <em>type=Undefined</em>, <em>**kwds</em><span class="sig-paren">)</span></dt>
 <dd><p>Text schema wrapper</p>
 <p>Mapping(required=[shorthand])
-A FieldDef with Condition <a href="#id531"><span class="problematic" id="id532">:raw-html:`&lt;ValueDef&gt;`</span></a>
+A FieldDef with Condition <a href="#id524"><span class="problematic" id="id525">:raw-html:`&lt;ValueDef&gt;`</span></a>
 {</p>
 <blockquote>
 <div>condition: {value: …},
@@ -7339,7 +7229,7 @@ field: …,
 <td>(VerticalAlign) The vertical alignment of the text. One of <code class="docutils literal"><span class="pre">&quot;top&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;middle&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;bottom&quot;</span></code>. <strong>Default value:</strong> <code class="docutils literal"><span class="pre">&quot;middle&quot;</span></code></td>
 </tr>
 <tr class="row-even"><td><strong>color</strong></td>
-<td>(string) Default color.  Note that <code class="docutils literal"><span class="pre">fill</span></code> and <code class="docutils literal"><span class="pre">stroke</span></code> have higher precedence than <code class="docutils literal"><span class="pre">color</span></code> and will override <code class="docutils literal"><span class="pre">color</span></code>.  <strong>Default value:</strong> <a href="#id541"><span class="problematic" id="id542">:raw-html:`&lt;span style=&quot;color: #4682b4;&quot;&gt;&amp;#9632;&lt;/span&gt;`</span></a> <code class="docutils literal"><span class="pre">&quot;#4682b4&quot;</span></code>  <strong>Note:</strong> This property cannot be used in a <a class="reference external" href="mark.html#style-config">style config</a>.</td>
+<td>(string) Default color.  Note that <code class="docutils literal"><span class="pre">fill</span></code> and <code class="docutils literal"><span class="pre">stroke</span></code> have higher precedence than <code class="docutils literal"><span class="pre">color</span></code> and will override <code class="docutils literal"><span class="pre">color</span></code>.  <strong>Default value:</strong> <a href="#id534"><span class="problematic" id="id535">:raw-html:`&lt;span style=&quot;color: #4682b4;&quot;&gt;&amp;#9632;&lt;/span&gt;`</span></a> <code class="docutils literal"><span class="pre">&quot;#4682b4&quot;</span></code>  <strong>Note:</strong> This property cannot be used in a <a class="reference external" href="mark.html#style-config">style config</a>.</td>
 </tr>
 <tr class="row-odd"><td><strong>cursor</strong></td>
 <td>(enum(‘auto’, ‘default’, ‘none’, ‘context-menu’, ‘help’, ‘pointer’, ‘progress’,)</td>
@@ -7483,7 +7373,7 @@ field: …,
 <em class="property">class </em><code class="descclassname">altair.</code><code class="descname">TextFieldDefWithCondition</code><span class="sig-paren">(</span><em>type=Undefined</em>, <em>aggregate=Undefined</em>, <em>bin=Undefined</em>, <em>condition=Undefined</em>, <em>field=Undefined</em>, <em>format=Undefined</em>, <em>timeUnit=Undefined</em>, <em>title=Undefined</em>, <em>**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.TextFieldDefWithCondition" title="Permalink to this definition">¶</a></dt>
 <dd><p>TextFieldDefWithCondition schema wrapper</p>
 <p>Mapping(required=[type])
-A FieldDef with Condition <a href="#id553"><span class="problematic" id="id554">:raw-html:`&lt;ValueDef&gt;`</span></a>
+A FieldDef with Condition <a href="#id546"><span class="problematic" id="id547">:raw-html:`&lt;ValueDef&gt;`</span></a>
 {</p>
 <blockquote>
 <div>condition: {value: …},
@@ -7606,7 +7496,7 @@ value: …,</div></blockquote>
 <td>(VerticalAlign) The vertical alignment of the text. One of <code class="docutils literal"><span class="pre">&quot;top&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;middle&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;bottom&quot;</span></code>. <strong>Default value:</strong> <code class="docutils literal"><span class="pre">&quot;middle&quot;</span></code></td>
 </tr>
 <tr class="row-odd"><td><strong>color</strong></td>
-<td>(string) Default color.  Note that <code class="docutils literal"><span class="pre">fill</span></code> and <code class="docutils literal"><span class="pre">stroke</span></code> have higher precedence than <code class="docutils literal"><span class="pre">color</span></code> and will override <code class="docutils literal"><span class="pre">color</span></code>.  <strong>Default value:</strong> <a href="#id563"><span class="problematic" id="id564">:raw-html:`&lt;span style=&quot;color: #4682b4;&quot;&gt;&amp;#9632;&lt;/span&gt;`</span></a> <code class="docutils literal"><span class="pre">&quot;#4682b4&quot;</span></code>  <strong>Note:</strong> This property cannot be used in a <a class="reference external" href="mark.html#style-config">style config</a>.</td>
+<td>(string) Default color.  Note that <code class="docutils literal"><span class="pre">fill</span></code> and <code class="docutils literal"><span class="pre">stroke</span></code> have higher precedence than <code class="docutils literal"><span class="pre">color</span></code> and will override <code class="docutils literal"><span class="pre">color</span></code>.  <strong>Default value:</strong> <a href="#id556"><span class="problematic" id="id557">:raw-html:`&lt;span style=&quot;color: #4682b4;&quot;&gt;&amp;#9632;&lt;/span&gt;`</span></a> <code class="docutils literal"><span class="pre">&quot;#4682b4&quot;</span></code>  <strong>Note:</strong> This property cannot be used in a <a class="reference external" href="mark.html#style-config">style config</a>.</td>
 </tr>
 <tr class="row-even"><td><strong>cursor</strong></td>
 <td>(enum(‘auto’, ‘default’, ‘none’, ‘context-menu’, ‘help’, ‘pointer’, ‘progress’,)</td>
@@ -7783,7 +7673,7 @@ value: …,</div></blockquote>
 <em class="property">class </em><code class="descclassname">altair.</code><code class="descname">Tooltip</code><span class="sig-paren">(</span><em>shorthand=Undefined</em>, <em>aggregate=Undefined</em>, <em>bin=Undefined</em>, <em>condition=Undefined</em>, <em>field=Undefined</em>, <em>format=Undefined</em>, <em>timeUnit=Undefined</em>, <em>title=Undefined</em>, <em>type=Undefined</em>, <em>**kwds</em><span class="sig-paren">)</span></dt>
 <dd><p>Tooltip schema wrapper</p>
 <p>Mapping(required=[shorthand])
-A FieldDef with Condition <a href="#id570"><span class="problematic" id="id571">:raw-html:`&lt;ValueDef&gt;`</span></a>
+A FieldDef with Condition <a href="#id563"><span class="problematic" id="id564">:raw-html:`&lt;ValueDef&gt;`</span></a>
 {</p>
 <blockquote>
 <div>condition: {value: …},
@@ -8108,6 +7998,18 @@ value: …,</div></blockquote>
 <em class="property">class </em><code class="descclassname">altair.</code><code class="descname">TopLevelMixin</code><a class="headerlink" href="#altair.TopLevelMixin" title="Permalink to this definition">¶</a></dt>
 <dd><p>Mixin for top-level chart objects such as Chart, LayeredChart, etc.</p>
 <dl class="method">
+<dt id="altair.TopLevelMixin.add_selection">
+<code class="descname">add_selection</code><span class="sig-paren">(</span><em>*selections</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.TopLevelMixin.add_selection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add one or more selections to the chart</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="altair.TopLevelMixin.display">
+<code class="descname">display</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#altair.TopLevelMixin.display" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display chart in Jupyter notebook or JupyterLab</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="altair.TopLevelMixin.project">
 <code class="descname">project</code><span class="sig-paren">(</span><em>type='mercator'</em>, <em>center=Undefined</em>, <em>clipAngle=Undefined</em>, <em>clipExtent=Undefined</em>, <em>coefficient=Undefined</em>, <em>distance=Undefined</em>, <em>fraction=Undefined</em>, <em>lobes=Undefined</em>, <em>parallel=Undefined</em>, <em>precision=Undefined</em>, <em>radius=Undefined</em>, <em>ratio=Undefined</em>, <em>rotate=Undefined</em>, <em>spacing=Undefined</em>, <em>tilt=Undefined</em>, <em>**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.TopLevelMixin.project" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a geographic projection to the chartself.</p>
@@ -8309,7 +8211,7 @@ column using <cite>alt.repeat(‘row’)</cite> and <cite>alt.repeat(‘column�
 
 <dl class="method">
 <dt id="altair.TopLevelMixin.save">
-<code class="descname">save</code><span class="sig-paren">(</span><em>fp</em>, <em>format=None</em>, <em>override_data_transformer=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.TopLevelMixin.save" title="Permalink to this definition">¶</a></dt>
+<code class="descname">save</code><span class="sig-paren">(</span><em>fp</em>, <em>format=None</em>, <em>override_data_transformer=True</em>, <em>scale_factor=1.0</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.TopLevelMixin.save" title="Permalink to this definition">¶</a></dt>
 <dd><p>Save a chart to file in a variety of formats</p>
 <p>Supported formats are json, html, png, svg</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -8330,6 +8232,12 @@ If not specified, the format will be determined from the filename.</p>
 <div><p>If True (default), then the save action will be done with the
 default data_transformer with max_rows set to None. If False,
 then use the currently active data transformer.</p>
+</div></blockquote>
+<p><strong>scale_factor</strong> : float</p>
+<blockquote>
+<div><p>For svg or png formats, scale the image by this factor when saving.
+This can be used to control the size or resolution of the output.
+Default is 1.0</p>
 </div></blockquote>
 <p><strong>**kwargs :</strong></p>
 <blockquote class="last">
@@ -8364,6 +8272,59 @@ If not specified, the format will be determined from the filename.</p>
 <blockquote class="last">
 <div><p>Additional keyword arguments are passed to the output method
 associated with the specified format.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="altair.TopLevelMixin.serve">
+<code class="descname">serve</code><span class="sig-paren">(</span><em>ip='127.0.0.1'</em>, <em>port=8888</em>, <em>n_retries=50</em>, <em>files=None</em>, <em>jupyter_warning=True</em>, <em>open_browser=True</em>, <em>http_server=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.TopLevelMixin.serve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Open a browser window and display a rendering of the chart</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>html</strong> : string</p>
+<blockquote>
+<div><p>HTML to serve</p>
+</div></blockquote>
+<p><strong>ip</strong> : string (default = ‘127.0.0.1’)</p>
+<blockquote>
+<div><p>ip address at which the HTML will be served.</p>
+</div></blockquote>
+<p><strong>port</strong> : int (default = 8888)</p>
+<blockquote>
+<div><p>the port at which to serve the HTML</p>
+</div></blockquote>
+<p><strong>n_retries</strong> : int (default = 50)</p>
+<blockquote>
+<div><p>the number of nearby ports to search if the specified port
+is already in use.</p>
+</div></blockquote>
+<p><strong>files</strong> : dictionary (optional)</p>
+<blockquote>
+<div><p>dictionary of extra content to serve</p>
+</div></blockquote>
+<p><strong>jupyter_warning</strong> : bool (optional)</p>
+<blockquote>
+<div><p>if True (default), then print a warning if this is used
+within the Jupyter notebook</p>
+</div></blockquote>
+<p><strong>open_browser</strong> : bool (optional)</p>
+<blockquote>
+<div><p>if True (default), then open a web browser to the given HTML</p>
+</div></blockquote>
+<p><strong>http_server</strong> : class (optional)</p>
+<blockquote>
+<div><p>optionally specify an HTTPServer class to use for showing the
+figure. The default is Python’s basic HTTPServer.</p>
+</div></blockquote>
+<p><strong>**kwargs :</strong></p>
+<blockquote class="last">
+<div><p>additional keyword arguments passed to the save() method</p>
 </div></blockquote>
 </td>
 </tr>
@@ -8692,6 +8653,35 @@ recommended method.</p>
 <dd>underlying transform object</dd>
 </dl>
 </div>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">altair</span> <span class="k">import</span> <span class="n">datum</span><span class="p">,</span> <span class="n">expr</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">()</span><span class="o">.</span><span class="n">transform_timeunit</span><span class="p">(</span><span class="n">month</span><span class="o">=</span><span class="s1">&#39;month(date)&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">chart</span><span class="o">.</span><span class="n">transform</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">TimeUnitTransform({</span>
+<span class="go">  as: &#39;month&#39;,</span>
+<span class="go">  field: &#39;date&#39;,</span>
+<span class="go">  timeUnit: &#39;month&#39;</span>
+<span class="go">})</span>
+</pre></div>
+</div>
+<p>It’s also possible to pass the <code class="docutils literal"><span class="pre">TimeUnitTransform</span></code> arguments directly;
+this is most useful in cases where the desired field name is not a
+valid python identifier:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">kwds</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;as&#39;</span><span class="p">:</span> <span class="s1">&#39;month&#39;</span><span class="p">,</span> <span class="s1">&#39;timeUnit&#39;</span><span class="p">:</span> <span class="s1">&#39;month&#39;</span><span class="p">,</span> <span class="s1">&#39;field&#39;</span><span class="p">:</span> <span class="s1">&#39;The Month&#39;</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">()</span><span class="o">.</span><span class="n">transform_timeunit</span><span class="p">(</span><span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">chart</span><span class="o">.</span><span class="n">transform</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">TimeUnitTransform({</span>
+<span class="go">  as: &#39;month&#39;,</span>
+<span class="go">  field: &#39;The Month&#39;,</span>
+<span class="go">  timeUnit: &#39;month&#39;</span>
+<span class="go">})</span>
+</pre></div>
+</div>
+<p>As the first form is easier to write and understand, that is the
+recommended method.</p>
 <p class="rubric">Attributes</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -8707,6 +8697,9 @@ recommended method.</p>
 </tr>
 <tr class="row-odd"><td><strong>timeUnit</strong></td>
 <td>(TimeUnit) The timeUnit.</td>
+</tr>
+<tr class="row-even"><td><strong>**kwargs</strong></td>
+<td>transforms can also be passed by keyword argument; see Examples</td>
 </tr>
 </tbody>
 </table>
@@ -8909,7 +8902,7 @@ TopLevelVConcatSpec, TopLevelHConcatSpec)</p>
 <em class="property">class </em><code class="descclassname">altair.</code><code class="descname">Type</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Type" title="Permalink to this definition">¶</a></dt>
 <dd><p>Type schema wrapper</p>
 <p>anyOf(BasicType, GeoType)
-Constants and utilities for data type <a href="#id601"><span class="problematic" id="id602">:raw-html:`&lt;br&gt;`</span></a></p>
+Constants and utilities for data type <a href="#id594"><span class="problematic" id="id595">:raw-html:`&lt;br&gt;`</span></a></p>
 <blockquote>
 <div>Data type based on level of measurement</div></blockquote>
 </dd></dl>
@@ -8957,7 +8950,7 @@ Constants and utilities for data type <a href="#id601"><span class="problematic"
 
 <dl class="class">
 <dt>
-<em class="property">class </em><code class="descclassname">altair.</code><code class="descname">VConcatChart</code><span class="sig-paren">(</span><em>vconcat=()</em>, <em>**kwargs</em><span class="sig-paren">)</span></dt>
+<em class="property">class </em><code class="descclassname">altair.</code><code class="descname">VConcatChart</code><span class="sig-paren">(</span><em>data=Undefined</em>, <em>vconcat=()</em>, <em>**kwargs</em><span class="sig-paren">)</span></dt>
 <dd><p>A chart with vertically-concatenated facets
 Mapping(required=[vconcat])</p>
 <p class="rubric">Attributes</p>
@@ -9749,7 +9742,7 @@ A compartor for fields within the window transform</p>
 <td>(anyOf(List(string), SortOrder, SortField, None)) Sort order for the encoded field. Supported <code class="docutils literal"><span class="pre">sort</span></code> values include <code class="docutils literal"><span class="pre">&quot;ascending&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;descending&quot;</span></code>, <code class="docutils literal"><span class="pre">null</span></code> (no sorting), or an array specifying the preferred order of values. For fields with discrete domains, <code class="docutils literal"><span class="pre">sort</span></code> can also be a <a class="reference external" href="https://vega.github.io/vega-lite/docs/sort.html#sort-field">sort field definition object</a>. For <code class="docutils literal"><span class="pre">sort</span></code> as an <a class="reference external" href="https://vega.github.io/vega-lite/docs/sort.html#sort-array">array specifying the preferred order of values</a>, the sort order will obey the values in the array, followed by any unspecified values in their original order.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">&quot;ascending&quot;</span></code></td>
 </tr>
 <tr class="row-even"><td><strong>stack</strong></td>
-<td>(anyOf(StackOffset, None)) Type of stacking offset if the field should be stacked. <code class="docutils literal"><span class="pre">stack</span></code> is only applicable for <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code> channels with continuous domains. For example, <code class="docutils literal"><span class="pre">stack</span></code> of <code class="docutils literal"><span class="pre">y</span></code> can be used to customize stacking for a vertical bar chart.  <code class="docutils literal"><span class="pre">stack</span></code> can be one of the following values:   * <cite>“zero”</cite>: stacking with baseline offset at zero value of the scale (for creating typical stacked [bar](<a class="reference external" href="https://vega.github.io/vega-lite/docs/stack.html#bar">https://vega.github.io/vega-lite/docs/stack.html#bar</a>) and <a class="reference external" href="https://vega.github.io/vega-lite/docs/stack.html#area">area</a> chart). * <code class="docutils literal"><span class="pre">&quot;normalize&quot;</span></code> - stacking with normalized domain (for creating <a class="reference external" href="https://vega.github.io/vega-lite/docs/stack.html#normalized">normalized stacked bar and area charts</a>. <a href="#id622"><span class="problematic" id="id623">:raw-html:`&lt;br/&gt;`</span></a>   - <code class="docutils literal"><span class="pre">&quot;center&quot;</span></code> - stacking with center baseline (for <a class="reference external" href="https://vega.github.io/vega-lite/docs/stack.html#streamgraph">streamgraph</a> ). * <code class="docutils literal"><span class="pre">null</span></code> - No-stacking. This will produce layered <a class="reference external" href="https://vega.github.io/vega-lite/docs/stack.html#layered-bar-chart">bar</a> and area chart.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">zero</span></code> for plots with all of the following conditions are true: (1) the mark is <code class="docutils literal"><span class="pre">bar</span></code> or <code class="docutils literal"><span class="pre">area</span></code> ; (2) the stacked measure channel (x or y) has a linear scale; (3) At least one of non-position channels mapped to an unaggregated field that is different from x and y.  Otherwise, <code class="docutils literal"><span class="pre">null</span></code> by default.</td>
+<td>(anyOf(StackOffset, None)) Type of stacking offset if the field should be stacked. <code class="docutils literal"><span class="pre">stack</span></code> is only applicable for <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code> channels with continuous domains. For example, <code class="docutils literal"><span class="pre">stack</span></code> of <code class="docutils literal"><span class="pre">y</span></code> can be used to customize stacking for a vertical bar chart.  <code class="docutils literal"><span class="pre">stack</span></code> can be one of the following values:   * <cite>“zero”</cite>: stacking with baseline offset at zero value of the scale (for creating typical stacked [bar](<a class="reference external" href="https://vega.github.io/vega-lite/docs/stack.html#bar">https://vega.github.io/vega-lite/docs/stack.html#bar</a>) and <a class="reference external" href="https://vega.github.io/vega-lite/docs/stack.html#area">area</a> chart). * <code class="docutils literal"><span class="pre">&quot;normalize&quot;</span></code> - stacking with normalized domain (for creating <a class="reference external" href="https://vega.github.io/vega-lite/docs/stack.html#normalized">normalized stacked bar and area charts</a>. <a href="#id615"><span class="problematic" id="id616">:raw-html:`&lt;br/&gt;`</span></a>   - <code class="docutils literal"><span class="pre">&quot;center&quot;</span></code> - stacking with center baseline (for <a class="reference external" href="https://vega.github.io/vega-lite/docs/stack.html#streamgraph">streamgraph</a> ). * <code class="docutils literal"><span class="pre">null</span></code> - No-stacking. This will produce layered <a class="reference external" href="https://vega.github.io/vega-lite/docs/stack.html#layered-bar-chart">bar</a> and area chart.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">zero</span></code> for plots with all of the following conditions are true: (1) the mark is <code class="docutils literal"><span class="pre">bar</span></code> or <code class="docutils literal"><span class="pre">area</span></code> ; (2) the stacked measure channel (x or y) has a linear scale; (3) At least one of non-position channels mapped to an unaggregated field that is different from x and y.  Otherwise, <code class="docutils literal"><span class="pre">null</span></code> by default.</td>
 </tr>
 <tr class="row-odd"><td><strong>timeUnit</strong></td>
 <td>(TimeUnit) Time unit (e.g., <code class="docutils literal"><span class="pre">year</span></code>, <code class="docutils literal"><span class="pre">yearmonth</span></code>, <code class="docutils literal"><span class="pre">month</span></code>, <code class="docutils literal"><span class="pre">hours</span></code> ) for a temporal field. or <a class="reference external" href="https://vega.github.io/vega-lite/docs/type.html#cast">a temporal field that gets casted as ordinal</a>.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">undefined</span></code> (None)</td>
@@ -9876,7 +9869,7 @@ Definition object for a constant value of an encoding channel.</p>
 <td>(anyOf(List(string), SortOrder, SortField, None)) Sort order for the encoded field. Supported <code class="docutils literal"><span class="pre">sort</span></code> values include <code class="docutils literal"><span class="pre">&quot;ascending&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;descending&quot;</span></code>, <code class="docutils literal"><span class="pre">null</span></code> (no sorting), or an array specifying the preferred order of values. For fields with discrete domains, <code class="docutils literal"><span class="pre">sort</span></code> can also be a <a class="reference external" href="https://vega.github.io/vega-lite/docs/sort.html#sort-field">sort field definition object</a>. For <code class="docutils literal"><span class="pre">sort</span></code> as an <a class="reference external" href="https://vega.github.io/vega-lite/docs/sort.html#sort-array">array specifying the preferred order of values</a>, the sort order will obey the values in the array, followed by any unspecified values in their original order.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">&quot;ascending&quot;</span></code></td>
 </tr>
 <tr class="row-even"><td><strong>stack</strong></td>
-<td>(anyOf(StackOffset, None)) Type of stacking offset if the field should be stacked. <code class="docutils literal"><span class="pre">stack</span></code> is only applicable for <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code> channels with continuous domains. For example, <code class="docutils literal"><span class="pre">stack</span></code> of <code class="docutils literal"><span class="pre">y</span></code> can be used to customize stacking for a vertical bar chart.  <code class="docutils literal"><span class="pre">stack</span></code> can be one of the following values:   * <cite>“zero”</cite>: stacking with baseline offset at zero value of the scale (for creating typical stacked [bar](<a class="reference external" href="https://vega.github.io/vega-lite/docs/stack.html#bar">https://vega.github.io/vega-lite/docs/stack.html#bar</a>) and <a class="reference external" href="https://vega.github.io/vega-lite/docs/stack.html#area">area</a> chart). * <code class="docutils literal"><span class="pre">&quot;normalize&quot;</span></code> - stacking with normalized domain (for creating <a class="reference external" href="https://vega.github.io/vega-lite/docs/stack.html#normalized">normalized stacked bar and area charts</a>. <a href="#id645"><span class="problematic" id="id646">:raw-html:`&lt;br/&gt;`</span></a>   - <code class="docutils literal"><span class="pre">&quot;center&quot;</span></code> - stacking with center baseline (for <a class="reference external" href="https://vega.github.io/vega-lite/docs/stack.html#streamgraph">streamgraph</a> ). * <code class="docutils literal"><span class="pre">null</span></code> - No-stacking. This will produce layered <a class="reference external" href="https://vega.github.io/vega-lite/docs/stack.html#layered-bar-chart">bar</a> and area chart.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">zero</span></code> for plots with all of the following conditions are true: (1) the mark is <code class="docutils literal"><span class="pre">bar</span></code> or <code class="docutils literal"><span class="pre">area</span></code> ; (2) the stacked measure channel (x or y) has a linear scale; (3) At least one of non-position channels mapped to an unaggregated field that is different from x and y.  Otherwise, <code class="docutils literal"><span class="pre">null</span></code> by default.</td>
+<td>(anyOf(StackOffset, None)) Type of stacking offset if the field should be stacked. <code class="docutils literal"><span class="pre">stack</span></code> is only applicable for <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code> channels with continuous domains. For example, <code class="docutils literal"><span class="pre">stack</span></code> of <code class="docutils literal"><span class="pre">y</span></code> can be used to customize stacking for a vertical bar chart.  <code class="docutils literal"><span class="pre">stack</span></code> can be one of the following values:   * <cite>“zero”</cite>: stacking with baseline offset at zero value of the scale (for creating typical stacked [bar](<a class="reference external" href="https://vega.github.io/vega-lite/docs/stack.html#bar">https://vega.github.io/vega-lite/docs/stack.html#bar</a>) and <a class="reference external" href="https://vega.github.io/vega-lite/docs/stack.html#area">area</a> chart). * <code class="docutils literal"><span class="pre">&quot;normalize&quot;</span></code> - stacking with normalized domain (for creating <a class="reference external" href="https://vega.github.io/vega-lite/docs/stack.html#normalized">normalized stacked bar and area charts</a>. <a href="#id638"><span class="problematic" id="id639">:raw-html:`&lt;br/&gt;`</span></a>   - <code class="docutils literal"><span class="pre">&quot;center&quot;</span></code> - stacking with center baseline (for <a class="reference external" href="https://vega.github.io/vega-lite/docs/stack.html#streamgraph">streamgraph</a> ). * <code class="docutils literal"><span class="pre">null</span></code> - No-stacking. This will produce layered <a class="reference external" href="https://vega.github.io/vega-lite/docs/stack.html#layered-bar-chart">bar</a> and area chart.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">zero</span></code> for plots with all of the following conditions are true: (1) the mark is <code class="docutils literal"><span class="pre">bar</span></code> or <code class="docutils literal"><span class="pre">area</span></code> ; (2) the stacked measure channel (x or y) has a linear scale; (3) At least one of non-position channels mapped to an unaggregated field that is different from x and y.  Otherwise, <code class="docutils literal"><span class="pre">null</span></code> by default.</td>
 </tr>
 <tr class="row-odd"><td><strong>timeUnit</strong></td>
 <td>(TimeUnit) Time unit (e.g., <code class="docutils literal"><span class="pre">year</span></code>, <code class="docutils literal"><span class="pre">yearmonth</span></code>, <code class="docutils literal"><span class="pre">month</span></code>, <code class="docutils literal"><span class="pre">hours</span></code> ) for a temporal field. or <a class="reference external" href="https://vega.github.io/vega-lite/docs/type.html#cast">a temporal field that gets casted as ordinal</a>.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">undefined</span></code> (None)</td>
@@ -10185,8 +10178,8 @@ if a string is passed, it will be treated as a test operand.</p>
 
 <dl class="function">
 <dt id="altair.parse_shorthand">
-<code class="descclassname">altair.</code><code class="descname">parse_shorthand</code><span class="sig-paren">(</span><em>shorthand</em>, <em>data=None</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.parse_shorthand" title="Permalink to this definition">¶</a></dt>
-<dd><p>Parse the shorthand expression for aggregation, field, and type.</p>
+<code class="descclassname">altair.</code><code class="descname">parse_shorthand</code><span class="sig-paren">(</span><em>shorthand</em>, <em>data=None</em>, <em>parse_aggregates=True</em>, <em>parse_timeunits=True</em>, <em>parse_types=True</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.parse_shorthand" title="Permalink to this definition">¶</a></dt>
+<dd><p>General tool to parse shorthand values</p>
 <p>These are of the form:</p>
 <ul class="simple">
 <li>“col_name”</li>
@@ -10200,20 +10193,32 @@ will be inferred if not specified in the shorthand.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>shorthand: str</strong></p>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>shorthand</strong> : dict or string</p>
 <blockquote>
-<div><p>Shorthand string of the form “agg(col):typ”</p>
+<div><p>The shorthand representation to be parsed</p>
 </div></blockquote>
-<p><strong>data</strong> : pd.DataFrame (optional)</p>
+<p><strong>data</strong> : DataFrame, optional</p>
 <blockquote>
-<div><p>Dataframe from which to infer types</p>
+<div><p>If specified and of type DataFrame, then use these values to infer the
+column type if not provided by the shorthand.</p>
+</div></blockquote>
+<p><strong>parse_aggregates</strong> : boolean</p>
+<blockquote>
+<div><p>If True (default), then parse aggregate functions within the shorthand.</p>
+</div></blockquote>
+<p><strong>parse_timeunits</strong> : boolean</p>
+<blockquote>
+<div><p>If True (default), then parse timeUnits from within the shorthand</p>
+</div></blockquote>
+<p><strong>parse_types</strong> : boolean</p>
+<blockquote>
+<div><p>If True (default), then parse typecodes within the shorthand</p>
 </div></blockquote>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>D</strong> : dict</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>attrs</strong> : dict</p>
 <blockquote class="last">
-<div><p>Dictionary which always contains a ‘field’ key, and additionally
-contains an ‘aggregate’ and ‘type’ key depending on the input.</p>
+<div><p>a dictionary of attributes extracted from the shorthand</p>
 </div></blockquote>
 </td>
 </tr>
@@ -10224,40 +10229,50 @@ contains an ‘aggregate’ and ‘type’ key depending on the input.</p>
 <span class="gp">... </span>                     <span class="s1">&#39;bar&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]})</span>
 </pre></div>
 </div>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">parse_shorthand</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
-<span class="go">{&#39;field&#39;: &#39;name&#39;}</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">parse_shorthand</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;field&#39;</span><span class="p">:</span> <span class="s1">&#39;name&#39;</span><span class="p">}</span>
+<span class="go">True</span>
 </pre></div>
 </div>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">parse_shorthand</span><span class="p">(</span><span class="s1">&#39;average(col)&#39;</span><span class="p">)</span>  
-<span class="go">{&#39;aggregate&#39;: &#39;average&#39;, &#39;field&#39;: &#39;col&#39;}</span>
+<p>&gt;&gt; parse_shorthand(‘name:Q’) == {‘field’: ‘name’, ‘type’: ‘quantitative’}
+True</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">parse_shorthand</span><span class="p">(</span><span class="s1">&#39;average(col)&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;aggregate&#39;</span><span class="p">:</span> <span class="s1">&#39;average&#39;</span><span class="p">,</span> <span class="s1">&#39;field&#39;</span><span class="p">:</span> <span class="s1">&#39;col&#39;</span><span class="p">}</span>
+<span class="go">True</span>
 </pre></div>
 </div>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">parse_shorthand</span><span class="p">(</span><span class="s1">&#39;foo:O&#39;</span><span class="p">)</span>  
-<span class="go">{&#39;field&#39;: &#39;foo&#39;, &#39;type&#39;: &#39;ordinal&#39;}</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">parse_shorthand</span><span class="p">(</span><span class="s1">&#39;foo:O&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;field&#39;</span><span class="p">:</span> <span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;ordinal&#39;</span><span class="p">}</span>
+<span class="go">True</span>
 </pre></div>
 </div>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">parse_shorthand</span><span class="p">(</span><span class="s1">&#39;min(foo):Q&#39;</span><span class="p">)</span>  
-<span class="go">{&#39;aggregate&#39;: &#39;min&#39;, &#39;field&#39;: &#39;foo&#39;, &#39;type&#39;: &#39;quantitative&#39;}</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">parse_shorthand</span><span class="p">(</span><span class="s1">&#39;min(foo):Q&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;aggregate&#39;</span><span class="p">:</span> <span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="s1">&#39;field&#39;</span><span class="p">:</span> <span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;quantitative&#39;</span><span class="p">}</span>
+<span class="go">True</span>
 </pre></div>
 </div>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">parse_shorthand</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>  
-<span class="go">{&#39;field&#39;: &#39;foo&#39;, &#39;type&#39;: &#39;nominal&#39;}</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">parse_shorthand</span><span class="p">(</span><span class="s1">&#39;month(col)&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;field&#39;</span><span class="p">:</span> <span class="s1">&#39;col&#39;</span><span class="p">,</span> <span class="s1">&#39;timeUnit&#39;</span><span class="p">:</span> <span class="s1">&#39;month&#39;</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;temporal&#39;</span><span class="p">}</span>
+<span class="go">True</span>
 </pre></div>
 </div>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">parse_shorthand</span><span class="p">(</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>  
-<span class="go">{&#39;field&#39;: &#39;bar&#39;, &#39;type&#39;: &#39;quantitative&#39;}</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">parse_shorthand</span><span class="p">(</span><span class="s1">&#39;year(col):O&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;field&#39;</span><span class="p">:</span> <span class="s1">&#39;col&#39;</span><span class="p">,</span> <span class="s1">&#39;timeUnit&#39;</span><span class="p">:</span> <span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;ordinal&#39;</span><span class="p">}</span>
+<span class="go">True</span>
 </pre></div>
 </div>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">parse_shorthand</span><span class="p">(</span><span class="s1">&#39;bar:O&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>  
-<span class="go">{&#39;field&#39;: &#39;bar&#39;, &#39;type&#39;: &#39;ordinal&#39;}</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">parse_shorthand</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;field&#39;</span><span class="p">:</span> <span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;nominal&#39;</span><span class="p">}</span>
+<span class="go">True</span>
 </pre></div>
 </div>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">parse_shorthand</span><span class="p">(</span><span class="s1">&#39;sum(bar)&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>  
-<span class="go">{&#39;aggregate&#39;: &#39;sum&#39;, &#39;field&#39;: &#39;bar&#39;, &#39;type&#39;: &#39;quantitative&#39;}</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">parse_shorthand</span><span class="p">(</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;field&#39;</span><span class="p">:</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;quantitative&#39;</span><span class="p">}</span>
+<span class="go">True</span>
 </pre></div>
 </div>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">parse_shorthand</span><span class="p">(</span><span class="s1">&#39;count()&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>  
-<span class="go">{&#39;aggregate&#39;: &#39;count&#39;, &#39;type&#39;: &#39;quantitative&#39;}</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">parse_shorthand</span><span class="p">(</span><span class="s1">&#39;bar:O&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;field&#39;</span><span class="p">:</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;ordinal&#39;</span><span class="p">}</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">parse_shorthand</span><span class="p">(</span><span class="s1">&#39;sum(bar)&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;aggregate&#39;</span><span class="p">:</span> <span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="s1">&#39;field&#39;</span><span class="p">:</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;quantitative&#39;</span><span class="p">}</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">parse_shorthand</span><span class="p">(</span><span class="s1">&#39;count()&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;aggregate&#39;</span><span class="p">:</span> <span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;quantitative&#39;</span><span class="p">}</span>
+<span class="go">True</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -10595,7 +10610,7 @@ representation of the object and the operations it encodes.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.0',
+            VERSION:'2.1.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Interval Selection Example &mdash; Altair 2.0 documentation</title>
+  <title>Interval Selection Example &mdash; Altair 2.1.0 documentation</title>
   
 
   
@@ -45,9 +45,9 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Altair 2.0 documentation" href="../index.html"/>
+    <link rel="top" title="Altair 2.1.0 documentation" href="../index.html"/>
         <link rel="up" title="Example Gallery" href="index.html"/>
-        <link rel="next" title="Streamgraph" href="streamgraph.html"/>
+        <link rel="next" title="Layered Area Chart" href="layered_area_chart.html"/>
         <link rel="prev" title="Horizon Graph" href="horizon_graph.html"/> 
 
   
@@ -80,7 +80,7 @@
             
             
               <div class="version">
-                2.0.1
+                2.1
               </div>
             
           
@@ -121,14 +121,17 @@
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Interval Selection Example</a><ul class="simple">
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="layered_area_chart.html">Layered Area Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="normalized_stacked_area_chart.html">Normalized Stacked Area Chart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="streamgraph.html">Streamgraph</a></li>
-<li class="toctree-l3"><a class="reference internal" href="trellis_area.html">Trellis Area</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trellis_area.html">Trellis Area Chart</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#scatter-plots">Scatter Plots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#histograms">Histograms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#maps">Maps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#interactive-charts">Interactive Charts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#case-studies">Case Studies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#other-charts">Other Charts</a></li>
 </ul>
 </li>
@@ -234,13 +237,13 @@ top chart can be selected by interacting with the bottom chart.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "vconcat": [{"mark": "area", "encoding": {"x": {"type": "temporal", "field": "date", "scale": {"domain": {"selection": "selector008"}}}, "y": {"type": "quantitative", "field": "price"}}, "height": 200, "width": 600}, {"mark": "area", "encoding": {"x": {"type": "temporal", "field": "date", "scale": {"domain": {"selection": "selector008"}}}, "y": {"type": "quantitative", "field": "price"}}, "height": 60, "selection": {"selector008": {"type": "interval", "encodings": ["x"]}}, "width": 600}], "data": {"url": "https://vega.github.io/vega-datasets/data/sp500.csv"}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "vconcat": [{"mark": "area", "encoding": {"x": {"type": "temporal", "field": "date", "scale": {"domain": {"selection": "selector008"}}}, "y": {"type": "quantitative", "field": "price"}}, "height": 200, "width": 600}, {"mark": "area", "encoding": {"x": {"type": "temporal", "field": "date", "scale": {"domain": {"selection": "selector008"}}}, "y": {"type": "quantitative", "field": "price"}}, "height": 60, "selection": {"selector008": {"type": "interval", "encodings": ["x"]}}, "width": 600}], "data": {"url": "https://vega.github.io/vega-datasets/data/sp500.csv"}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#interval_selection-rst-altair-plot-0', {"config": {"view": {"width": 400, "height": 300}}, "vconcat": [{"mark": "area", "encoding": {"x": {"type": "temporal", "field": "date", "scale": {"domain": {"selection": "selector008"}}}, "y": {"type": "quantitative", "field": "price"}}, "height": 200, "width": 600}, {"mark": "area", "encoding": {"x": {"type": "temporal", "field": "date", "scale": {"domain": {"selection": "selector008"}}}, "y": {"type": "quantitative", "field": "price"}}, "height": 60, "selection": {"selector008": {"type": "interval", "encodings": ["x"]}}, "width": 600}], "data": {"url": "https://vega.github.io/vega-datasets/data/sp500.csv"}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"}).catch(console.err);
+      vegaEmbed('#interval_selection-rst-altair-plot-0', {"config": {"view": {"width": 400, "height": 300}}, "vconcat": [{"mark": "area", "encoding": {"x": {"type": "temporal", "field": "date", "scale": {"domain": {"selection": "selector008"}}}, "y": {"type": "quantitative", "field": "price"}}, "height": 200, "width": 600}, {"mark": "area", "encoding": {"x": {"type": "temporal", "field": "date", "scale": {"domain": {"selection": "selector008"}}}, "y": {"type": "quantitative", "field": "price"}}, "height": 60, "selection": {"selector008": {"type": "interval", "encodings": ["x"]}}, "width": 600}], "data": {"url": "https://vega.github.io/vega-datasets/data/sp500.csv"}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
   });
 </script>
 </div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
@@ -258,8 +261,9 @@ top chart can be selected by interacting with the bottom chart.</p>
 <span class="p">)</span>
 
 <span class="n">lower</span> <span class="o">=</span> <span class="n">upper</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
-    <span class="n">selection</span><span class="o">=</span><span class="n">brush</span><span class="p">,</span>
     <span class="n">height</span><span class="o">=</span><span class="mi">60</span>
+<span class="p">)</span><span class="o">.</span><span class="n">add_selection</span><span class="p">(</span>
+    <span class="n">brush</span>
 <span class="p">)</span>
 
 <span class="n">alt</span><span class="o">.</span><span class="n">vconcat</span><span class="p">(</span><span class="n">upper</span><span class="p">,</span> <span class="n">lower</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">sp500</span><span class="p">)</span>
@@ -279,7 +283,7 @@ top chart can be selected by interacting with the bottom chart.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="streamgraph.html" class="btn btn-neutral float-right" title="Streamgraph" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="layered_area_chart.html" class="btn btn-neutral float-right" title="Layered Area Chart" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="horizon_graph.html" class="btn btn-neutral" title="Horizon Graph" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -313,7 +317,7 @@ top chart can be selected by interacting with the bottom chart.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.0',
+            VERSION:'2.1.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

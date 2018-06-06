@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>London Tube Lines &mdash; Altair 2.0 documentation</title>
+  <title>London Tube Lines &mdash; Altair 2.1.0 documentation</title>
   
 
   
@@ -45,9 +45,9 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Altair 2.0 documentation" href="../index.html"/>
+    <link rel="top" title="Altair 2.1.0 documentation" href="../index.html"/>
         <link rel="up" title="Example Gallery" href="index.html"/>
-        <link rel="next" title="One Dot Per Zipcode" href="one_dot_per_zipcode.html"/>
+        <link rel="next" title="Natural Disasters" href="natural_disasters.html"/>
         <link rel="prev" title="Locations of US Airports" href="airports.html"/> 
 
   
@@ -80,7 +80,7 @@
             
             
               <div class="version">
-                2.0.1
+                2.1
               </div>
             
           
@@ -119,19 +119,25 @@
 <li class="toctree-l2"><a class="reference internal" href="index.html#area-charts">Area Charts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#scatter-plots">Scatter Plots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#histograms">Histograms</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="index.html#maps">Maps</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="choropleth.html">Choropleth Map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#maps">Maps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#interactive-charts">Interactive Charts</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#case-studies">Case Studies</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="anscombe_plot.html">Anscombe’s Quartet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="beckers_barley_trellis_plot.html">Becker’s Barley Trellis Plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cumulative_wiki_donations.html">Cumulative Wikipedia Donations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="falkensee.html">Falkensee</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gapminder_bubble_plot.html">Gapminder Bubble Plot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="airports.html">Locations of US Airports</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">London Tube Lines</a><ul class="simple">
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="natural_disasters.html">Natural Disasters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="one_dot_per_zipcode.html">One Dot Per Zipcode</a></li>
-<li class="toctree-l3"><a class="reference internal" href="choropleth_repeat.html">Repeated Choropleth Map</a></li>
+<li class="toctree-l3"><a class="reference internal" href="seattle_weather_interactive.html">Seattle Weather Interactive</a></li>
 <li class="toctree-l3"><a class="reference internal" href="us_state_capitals.html">U.S. state capitals overlayed on a map of the U.S</a></li>
-<li class="toctree-l3"><a class="reference internal" href="world_projections.html">World Projections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="us_population_over_time.html">US Population Over Time</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#interactive-charts">Interactive Charts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#other-charts">Other Charts</a></li>
 </ul>
 </li>
@@ -238,13 +244,13 @@ borough boundaries. It is based on the vega-lite example at
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "layer": [{"data": {"url": "https://vega.github.io/vega-datasets/data/londonBoroughs.json", "format": {"feature": "boroughs", "type": "topojson"}}, "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 2}, "encoding": {"color": {"value": "#eee"}}, "height": 500, "width": 700}, {"data": {"url": "https://vega.github.io/vega-datasets/data/londonCentroids.json"}, "mark": "text", "encoding": {"latitude": {"type": "quantitative", "field": "cy"}, "longitude": {"type": "quantitative", "field": "cx"}, "opacity": {"value": 0.6}, "size": {"value": 8}, "text": {"type": "nominal", "field": "bLabel"}}, "transform": [{"calculate": "indexof (datum.name,' ') > 0  ? substring(datum.name,0,indexof(datum.name, ' ')) : datum.name", "as": "bLabel"}]}, {"data": {"url": "https://vega.github.io/vega-datasets/data/londonTubeLines.json", "format": {"feature": "line", "type": "topojson"}}, "mark": {"type": "geoshape", "filled": false, "strokeWidth": 2}, "encoding": {"color": {"type": "nominal", "field": "id", "legend": {"offset": 0, "orient": "bottom-right", "title": null}}}}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "layer": [{"data": {"url": "https://vega.github.io/vega-datasets/data/londonBoroughs.json", "format": {"feature": "boroughs", "type": "topojson"}}, "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 2}, "encoding": {"color": {"value": "#eee"}}, "height": 500, "width": 700}, {"data": {"url": "https://vega.github.io/vega-datasets/data/londonCentroids.json"}, "mark": "text", "encoding": {"latitude": {"type": "quantitative", "field": "cy"}, "longitude": {"type": "quantitative", "field": "cx"}, "opacity": {"value": 0.6}, "size": {"value": 8}, "text": {"type": "nominal", "field": "bLabel"}}, "transform": [{"calculate": "indexof (datum.name,' ') > 0  ? substring(datum.name,0,indexof(datum.name, ' ')) : datum.name", "as": "bLabel"}]}, {"data": {"url": "https://vega.github.io/vega-datasets/data/londonTubeLines.json", "format": {"feature": "line", "type": "topojson"}}, "mark": {"type": "geoshape", "filled": false, "strokeWidth": 2}, "encoding": {"color": {"type": "nominal", "field": "id", "legend": {"offset": 0, "orient": "bottom-right", "title": null}}}}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#london_tube-rst-altair-plot-0', {"config": {"view": {"width": 400, "height": 300}}, "layer": [{"data": {"url": "https://vega.github.io/vega-datasets/data/londonBoroughs.json", "format": {"feature": "boroughs", "type": "topojson"}}, "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 2}, "encoding": {"color": {"value": "#eee"}}, "height": 500, "width": 700}, {"data": {"url": "https://vega.github.io/vega-datasets/data/londonCentroids.json"}, "mark": "text", "encoding": {"latitude": {"type": "quantitative", "field": "cy"}, "longitude": {"type": "quantitative", "field": "cx"}, "opacity": {"value": 0.6}, "size": {"value": 8}, "text": {"type": "nominal", "field": "bLabel"}}, "transform": [{"calculate": "indexof (datum.name,' ') > 0  ? substring(datum.name,0,indexof(datum.name, ' ')) : datum.name", "as": "bLabel"}]}, {"data": {"url": "https://vega.github.io/vega-datasets/data/londonTubeLines.json", "format": {"feature": "line", "type": "topojson"}}, "mark": {"type": "geoshape", "filled": false, "strokeWidth": 2}, "encoding": {"color": {"type": "nominal", "field": "id", "legend": {"offset": 0, "orient": "bottom-right", "title": null}}}}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"}).catch(console.err);
+      vegaEmbed('#london_tube-rst-altair-plot-0', {"config": {"view": {"width": 400, "height": 300}}, "layer": [{"data": {"url": "https://vega.github.io/vega-datasets/data/londonBoroughs.json", "format": {"feature": "boroughs", "type": "topojson"}}, "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 2}, "encoding": {"color": {"value": "#eee"}}, "height": 500, "width": 700}, {"data": {"url": "https://vega.github.io/vega-datasets/data/londonCentroids.json"}, "mark": "text", "encoding": {"latitude": {"type": "quantitative", "field": "cy"}, "longitude": {"type": "quantitative", "field": "cx"}, "opacity": {"value": 0.6}, "size": {"value": 8}, "text": {"type": "nominal", "field": "bLabel"}}, "transform": [{"calculate": "indexof (datum.name,' ') > 0  ? substring(datum.name,0,indexof(datum.name, ' ')) : datum.name", "as": "bLabel"}]}, {"data": {"url": "https://vega.github.io/vega-datasets/data/londonTubeLines.json", "format": {"feature": "line", "type": "topojson"}}, "mark": {"type": "geoshape", "filled": false, "strokeWidth": 2}, "encoding": {"color": {"type": "nominal", "field": "id", "legend": {"offset": 0, "orient": "bottom-right", "title": null}}}}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
   });
 </script>
 </div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
@@ -313,7 +319,7 @@ borough boundaries. It is based on the vega-lite example at
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="one_dot_per_zipcode.html" class="btn btn-neutral float-right" title="One Dot Per Zipcode" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="natural_disasters.html" class="btn btn-neutral float-right" title="Natural Disasters" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="airports.html" class="btn btn-neutral" title="Locations of US Airports" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -347,7 +353,7 @@ borough boundaries. It is based on the vega-lite example at
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.0',
+            VERSION:'2.1.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

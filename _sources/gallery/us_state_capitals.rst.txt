@@ -47,9 +47,7 @@ overlayed on a map.
     points = base.mark_point().encode(
         color=alt.value('black'),
         size=alt.condition(~hover, alt.value(30), alt.value(100))
-    ).properties(
-        selection=hover
-    )
+    ).add_selection(hover)
 
     background + points + text
 

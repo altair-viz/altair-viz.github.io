@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Line Chart with Percent axis &mdash; Altair 2.0 documentation</title>
+  <title>Line Chart with Percent axis &mdash; Altair 2.1.0 documentation</title>
   
 
   
@@ -45,7 +45,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Altair 2.0 documentation" href="../index.html"/>
+    <link rel="top" title="Altair 2.1.0 documentation" href="../index.html"/>
         <link rel="up" title="Example Gallery" href="index.html"/>
         <link rel="next" title="Line chart with Confidence Interval Band" href="line_with_ci.html"/>
         <link rel="prev" title="Line Chart with Layered Aggregates" href="layer_line_color_rule.html"/> 
@@ -80,7 +80,7 @@
             
             
               <div class="version">
-                2.0.1
+                2.1
               </div>
             
           
@@ -116,8 +116,6 @@
 <li class="toctree-l2"><a class="reference internal" href="index.html#simple-charts">Simple Charts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#bar-charts">Bar Charts</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html#line-charts">Line Charts</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="cumulative_wiki_donations.html">Cumulative Wikipedia Donations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="falkensee.html">Falkensee</a></li>
 <li class="toctree-l3"><a class="reference internal" href="layer_line_color_rule.html">Line Chart with Layered Aggregates</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Line Chart with Percent axis</a><ul class="simple">
 </ul>
@@ -133,6 +131,7 @@
 <li class="toctree-l2"><a class="reference internal" href="index.html#histograms">Histograms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#maps">Maps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#interactive-charts">Interactive Charts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#case-studies">Case Studies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#other-charts">Other Charts</a></li>
 </ul>
 </li>
@@ -238,13 +237,13 @@ y-axis of a chart as percentages.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/jobs.json"}, "mark": "line", "encoding": {"color": {"type": "nominal", "field": "sex"}, "x": {"type": "ordinal", "field": "year"}, "y": {"type": "quantitative", "axis": {"format": "%"}, "field": "perc"}}, "title": "Percent of work-force working as Welders", "transform": [{"filter": "(datum.job === 'Welder')"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/jobs.json"}, "mark": "line", "encoding": {"color": {"type": "nominal", "field": "sex"}, "x": {"type": "ordinal", "field": "year"}, "y": {"type": "quantitative", "axis": {"format": "%"}, "field": "perc"}}, "title": "Percent of work-force working as Welders", "transform": [{"filter": "(datum.job === 'Welder')"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#line_percent-rst-altair-plot-0', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/jobs.json"}, "mark": "line", "encoding": {"color": {"type": "nominal", "field": "sex"}, "x": {"type": "ordinal", "field": "year"}, "y": {"type": "quantitative", "axis": {"format": "%"}, "field": "perc"}}, "title": "Percent of work-force working as Welders", "transform": [{"filter": "(datum.job === 'Welder')"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"}).catch(console.err);
+      vegaEmbed('#line_percent-rst-altair-plot-0', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/jobs.json"}, "mark": "line", "encoding": {"color": {"type": "nominal", "field": "sex"}, "x": {"type": "ordinal", "field": "year"}, "y": {"type": "quantitative", "axis": {"format": "%"}, "field": "perc"}}, "title": "Percent of work-force working as Welders", "transform": [{"filter": "(datum.job === 'Welder')"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
   });
 </script>
 </div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
@@ -312,7 +311,7 @@ y-axis of a chart as percentages.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.0',
+            VERSION:'2.1.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

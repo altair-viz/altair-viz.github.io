@@ -43,8 +43,8 @@ transparent points with only an x encoding (no y encoding) and tie a
     selectors = alt.Chart().mark_point().encode(
         x='x:Q',
         opacity=alt.value(0),
-    ).properties(
-        selection=nearest
+    ).add_selection(
+        nearest
     )
 
     # Draw points on the line, and highlight based on selection
@@ -61,7 +61,7 @@ transparent points with only an x encoding (no y encoding) and tie a
     rules = alt.Chart().mark_rule(color='gray').encode(
         x='x:Q',
     ).transform_filter(
-        nearest.ref()
+        nearest
     )
 
     # Put the five layers into a chart and bind the data

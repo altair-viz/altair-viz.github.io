@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Data Transformations &mdash; Altair 2.0 documentation</title>
+  <title>Data Transformations &mdash; Altair 2.1.0 documentation</title>
   
 
   
@@ -45,7 +45,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Altair 2.0 documentation" href="../index.html"/>
+    <link rel="top" title="Altair 2.1.0 documentation" href="../index.html"/>
         <link rel="next" title="Selections: Building Blocks of Interactions" href="selections.html"/>
         <link rel="prev" title="Marks" href="marks.html"/> 
 
@@ -79,7 +79,7 @@
             
             
               <div class="version">
-                2.0.1
+                2.1
               </div>
             
           
@@ -312,13 +312,13 @@ grouped by the number of Cylinders.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "aggregate": "mean", "field": "Acceleration"}, "y": {"type": "ordinal", "field": "Cylinders"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"};
+      var spec = {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "aggregate": "mean", "field": "Acceleration"}, "y": {"type": "ordinal", "field": "Cylinders"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#transform-rst-altair-plot-0', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "aggregate": "mean", "field": "Acceleration"}, "y": {"type": "ordinal", "field": "Cylinders"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"}).catch(console.err);
+      vegaEmbed('#transform-rst-altair-plot-0', {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "aggregate": "mean", "field": "Acceleration"}, "y": {"type": "ordinal", "field": "Cylinders"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
   });
 </script>
 </div><p>The Altair shorthand string:</p>
@@ -352,13 +352,13 @@ grouped by the number of Cylinders.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "field": "mean_acc"}, "y": {"type": "ordinal", "field": "Cylinders"}}, "transform": [{"aggregate": [{"op": "mean", "field": "Acceleration", "as": "mean_acc"}], "groupby": ["Cylinders"]}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"};
+      var spec = {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "field": "mean_acc"}, "y": {"type": "ordinal", "field": "Cylinders"}}, "transform": [{"aggregate": [{"op": "mean", "field": "Acceleration", "as": "mean_acc"}], "groupby": ["Cylinders"]}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#transform-rst-altair-plot-1', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "field": "mean_acc"}, "y": {"type": "ordinal", "field": "Cylinders"}}, "transform": [{"aggregate": [{"op": "mean", "field": "Acceleration", "as": "mean_acc"}], "groupby": ["Cylinders"]}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"}).catch(console.err);
+      vegaEmbed('#transform-rst-altair-plot-1', {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "field": "mean_acc"}, "y": {"type": "ordinal", "field": "Cylinders"}}, "transform": [{"aggregate": [{"op": "mean", "field": "Acceleration", "as": "mean_acc"}], "groupby": ["Cylinders"]}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
   });
 </script>
 </div><p>For a list of available aggregates, see <a class="reference internal" href="encoding.html#encoding-aggregates"><span class="std std-ref">Binning and Aggregation</span></a>.</p>
@@ -386,13 +386,13 @@ bin transform.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/movies.json"}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "bin": true, "field": "IMDB_Rating"}, "y": {"type": "quantitative", "aggregate": "count"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"};
+      var spec = {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"url": "https://vega.github.io/vega-datasets/data/movies.json"}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "bin": true, "field": "IMDB_Rating"}, "y": {"type": "quantitative", "aggregate": "count"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#transform-rst-altair-plot-2', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/movies.json"}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "bin": true, "field": "IMDB_Rating"}, "y": {"type": "quantitative", "aggregate": "count"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"}).catch(console.err);
+      vegaEmbed('#transform-rst-altair-plot-2', {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"url": "https://vega.github.io/vega-datasets/data/movies.json"}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "bin": true, "field": "IMDB_Rating"}, "y": {"type": "quantitative", "aggregate": "count"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
   });
 </script>
 </div><p>But a bin transform can be useful in other applications; for example, here we
@@ -415,13 +415,13 @@ bin a continuous field to create a discrete color map:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"type": "quantitative", "bin": {"maxbins": 5}, "field": "Acceleration"}, "x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"};
+      var spec = {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"type": "quantitative", "bin": {"maxbins": 5}, "field": "Acceleration"}, "x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#transform-rst-altair-plot-3', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"type": "quantitative", "bin": {"maxbins": 5}, "field": "Acceleration"}, "x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"}).catch(console.err);
+      vegaEmbed('#transform-rst-altair-plot-3', {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"type": "quantitative", "bin": {"maxbins": 5}, "field": "Acceleration"}, "x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
   });
 </script>
 </div><p>In the first case we set <code class="docutils literal"><span class="pre">bin</span> <span class="pre">=</span> <span class="pre">True</span></code>, which uses the default bin settings.
@@ -450,13 +450,13 @@ method.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/movies.json"}, "mark": "bar", "encoding": {"x": {"type": "ordinal", "field": "binned_rating"}, "y": {"type": "quantitative", "aggregate": "count"}}, "transform": [{"bin": true, "field": "IMDB_Rating", "as": "binned_rating"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"};
+      var spec = {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"url": "https://vega.github.io/vega-datasets/data/movies.json"}, "mark": "bar", "encoding": {"x": {"type": "ordinal", "field": "binned_rating"}, "y": {"type": "quantitative", "aggregate": "count"}}, "transform": [{"bin": true, "field": "IMDB_Rating", "as": "binned_rating"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#transform-rst-altair-plot-4', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/movies.json"}, "mark": "bar", "encoding": {"x": {"type": "ordinal", "field": "binned_rating"}, "y": {"type": "quantitative", "aggregate": "count"}}, "transform": [{"bin": true, "field": "IMDB_Rating", "as": "binned_rating"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"}).catch(console.err);
+      vegaEmbed('#transform-rst-altair-plot-4', {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"url": "https://vega.github.io/vega-datasets/data/movies.json"}, "mark": "bar", "encoding": {"x": {"type": "ordinal", "field": "binned_rating"}, "y": {"type": "quantitative", "aggregate": "count"}}, "transform": [{"bin": true, "field": "IMDB_Rating", "as": "binned_rating"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
   });
 </script>
 </div><p>And here is the transformed color scale using a top-level bin transform:</p>
@@ -480,13 +480,13 @@ method.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"type": "ordinal", "field": "binned_acc"}, "x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "transform": [{"bin": {"maxbins": 5}, "field": "Acceleration", "as": "binned_acc"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"};
+      var spec = {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"type": "ordinal", "field": "binned_acc"}, "x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "transform": [{"bin": {"maxbins": 5}, "field": "Acceleration", "as": "binned_acc"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#transform-rst-altair-plot-5', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"type": "ordinal", "field": "binned_acc"}, "x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "transform": [{"bin": {"maxbins": 5}, "field": "Acceleration", "as": "binned_acc"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"}).catch(console.err);
+      vegaEmbed('#transform-rst-altair-plot-5', {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"type": "ordinal", "field": "binned_acc"}, "x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "transform": [{"bin": {"maxbins": 5}, "field": "Acceleration", "as": "binned_acc"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
   });
 </script>
 </div><p>The advantage of the top-level transform is that the same named field can be
@@ -522,13 +522,13 @@ a some trigonometric quantities:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"values": [{"t": 0}, {"t": 1}, {"t": 2}, {"t": 3}, {"t": 4}, {"t": 5}, {"t": 6}, {"t": 7}, {"t": 8}, {"t": 9}, {"t": 10}, {"t": 11}, {"t": 12}, {"t": 13}, {"t": 14}, {"t": 15}, {"t": 16}, {"t": 17}, {"t": 18}, {"t": 19}, {"t": 20}, {"t": 21}, {"t": 22}, {"t": 23}, {"t": 24}, {"t": 25}, {"t": 26}, {"t": 27}, {"t": 28}, {"t": 29}, {"t": 30}, {"t": 31}, {"t": 32}, {"t": 33}, {"t": 34}, {"t": 35}, {"t": 36}, {"t": 37}, {"t": 38}, {"t": 39}, {"t": 40}, {"t": 41}, {"t": 42}, {"t": 43}, {"t": 44}, {"t": 45}, {"t": 46}, {"t": 47}, {"t": 48}, {"t": 49}, {"t": 50}, {"t": 51}, {"t": 52}, {"t": 53}, {"t": 54}, {"t": 55}, {"t": 56}, {"t": 57}, {"t": 58}, {"t": 59}, {"t": 60}, {"t": 61}, {"t": 62}, {"t": 63}, {"t": 64}, {"t": 65}, {"t": 66}, {"t": 67}, {"t": 68}, {"t": 69}, {"t": 70}, {"t": 71}, {"t": 72}, {"t": 73}, {"t": 74}, {"t": 75}, {"t": 76}, {"t": 77}, {"t": 78}, {"t": 79}, {"t": 80}, {"t": 81}, {"t": 82}, {"t": 83}, {"t": 84}, {"t": 85}, {"t": 86}, {"t": 87}, {"t": 88}, {"t": 89}, {"t": 90}, {"t": 91}, {"t": 92}, {"t": 93}, {"t": 94}, {"t": 95}, {"t": 96}, {"t": 97}, {"t": 98}, {"t": 99}, {"t": 100}]}, "mark": "line", "encoding": {"order": {"type": "quantitative", "field": "t"}, "x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "y"}}, "transform": [{"calculate": "cos(datum.t * PI / 50)", "as": "x"}, {"calculate": "sin(datum.t * PI / 25)", "as": "y"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"};
+      var spec = {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"values": [{"t": 0}, {"t": 1}, {"t": 2}, {"t": 3}, {"t": 4}, {"t": 5}, {"t": 6}, {"t": 7}, {"t": 8}, {"t": 9}, {"t": 10}, {"t": 11}, {"t": 12}, {"t": 13}, {"t": 14}, {"t": 15}, {"t": 16}, {"t": 17}, {"t": 18}, {"t": 19}, {"t": 20}, {"t": 21}, {"t": 22}, {"t": 23}, {"t": 24}, {"t": 25}, {"t": 26}, {"t": 27}, {"t": 28}, {"t": 29}, {"t": 30}, {"t": 31}, {"t": 32}, {"t": 33}, {"t": 34}, {"t": 35}, {"t": 36}, {"t": 37}, {"t": 38}, {"t": 39}, {"t": 40}, {"t": 41}, {"t": 42}, {"t": 43}, {"t": 44}, {"t": 45}, {"t": 46}, {"t": 47}, {"t": 48}, {"t": 49}, {"t": 50}, {"t": 51}, {"t": 52}, {"t": 53}, {"t": 54}, {"t": 55}, {"t": 56}, {"t": 57}, {"t": 58}, {"t": 59}, {"t": 60}, {"t": 61}, {"t": 62}, {"t": 63}, {"t": 64}, {"t": 65}, {"t": 66}, {"t": 67}, {"t": 68}, {"t": 69}, {"t": 70}, {"t": 71}, {"t": 72}, {"t": 73}, {"t": 74}, {"t": 75}, {"t": 76}, {"t": 77}, {"t": 78}, {"t": 79}, {"t": 80}, {"t": 81}, {"t": 82}, {"t": 83}, {"t": 84}, {"t": 85}, {"t": 86}, {"t": 87}, {"t": 88}, {"t": 89}, {"t": 90}, {"t": 91}, {"t": 92}, {"t": 93}, {"t": 94}, {"t": 95}, {"t": 96}, {"t": 97}, {"t": 98}, {"t": 99}, {"t": 100}]}, "mark": "line", "encoding": {"order": {"type": "quantitative", "field": "t"}, "x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "y"}}, "transform": [{"calculate": "cos(datum.t * PI / 50)", "as": "x"}, {"calculate": "sin(datum.t * PI / 25)", "as": "y"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#transform-rst-altair-plot-6', {"config": {"view": {"width": 400, "height": 300}}, "data": {"values": [{"t": 0}, {"t": 1}, {"t": 2}, {"t": 3}, {"t": 4}, {"t": 5}, {"t": 6}, {"t": 7}, {"t": 8}, {"t": 9}, {"t": 10}, {"t": 11}, {"t": 12}, {"t": 13}, {"t": 14}, {"t": 15}, {"t": 16}, {"t": 17}, {"t": 18}, {"t": 19}, {"t": 20}, {"t": 21}, {"t": 22}, {"t": 23}, {"t": 24}, {"t": 25}, {"t": 26}, {"t": 27}, {"t": 28}, {"t": 29}, {"t": 30}, {"t": 31}, {"t": 32}, {"t": 33}, {"t": 34}, {"t": 35}, {"t": 36}, {"t": 37}, {"t": 38}, {"t": 39}, {"t": 40}, {"t": 41}, {"t": 42}, {"t": 43}, {"t": 44}, {"t": 45}, {"t": 46}, {"t": 47}, {"t": 48}, {"t": 49}, {"t": 50}, {"t": 51}, {"t": 52}, {"t": 53}, {"t": 54}, {"t": 55}, {"t": 56}, {"t": 57}, {"t": 58}, {"t": 59}, {"t": 60}, {"t": 61}, {"t": 62}, {"t": 63}, {"t": 64}, {"t": 65}, {"t": 66}, {"t": 67}, {"t": 68}, {"t": 69}, {"t": 70}, {"t": 71}, {"t": 72}, {"t": 73}, {"t": 74}, {"t": 75}, {"t": 76}, {"t": 77}, {"t": 78}, {"t": 79}, {"t": 80}, {"t": 81}, {"t": 82}, {"t": 83}, {"t": 84}, {"t": 85}, {"t": 86}, {"t": 87}, {"t": 88}, {"t": 89}, {"t": 90}, {"t": 91}, {"t": 92}, {"t": 93}, {"t": 94}, {"t": 95}, {"t": 96}, {"t": 97}, {"t": 98}, {"t": 99}, {"t": 100}]}, "mark": "line", "encoding": {"order": {"type": "quantitative", "field": "t"}, "x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "y"}}, "transform": [{"calculate": "cos(datum.t * PI / 50)", "as": "x"}, {"calculate": "sin(datum.t * PI / 25)", "as": "y"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"}).catch(console.err);
+      vegaEmbed('#transform-rst-altair-plot-6', {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"values": [{"t": 0}, {"t": 1}, {"t": 2}, {"t": 3}, {"t": 4}, {"t": 5}, {"t": 6}, {"t": 7}, {"t": 8}, {"t": 9}, {"t": 10}, {"t": 11}, {"t": 12}, {"t": 13}, {"t": 14}, {"t": 15}, {"t": 16}, {"t": 17}, {"t": 18}, {"t": 19}, {"t": 20}, {"t": 21}, {"t": 22}, {"t": 23}, {"t": 24}, {"t": 25}, {"t": 26}, {"t": 27}, {"t": 28}, {"t": 29}, {"t": 30}, {"t": 31}, {"t": 32}, {"t": 33}, {"t": 34}, {"t": 35}, {"t": 36}, {"t": 37}, {"t": 38}, {"t": 39}, {"t": 40}, {"t": 41}, {"t": 42}, {"t": 43}, {"t": 44}, {"t": 45}, {"t": 46}, {"t": 47}, {"t": 48}, {"t": 49}, {"t": 50}, {"t": 51}, {"t": 52}, {"t": 53}, {"t": 54}, {"t": 55}, {"t": 56}, {"t": 57}, {"t": 58}, {"t": 59}, {"t": 60}, {"t": 61}, {"t": 62}, {"t": 63}, {"t": 64}, {"t": 65}, {"t": 66}, {"t": 67}, {"t": 68}, {"t": 69}, {"t": 70}, {"t": 71}, {"t": 72}, {"t": 73}, {"t": 74}, {"t": 75}, {"t": 76}, {"t": 77}, {"t": 78}, {"t": 79}, {"t": 80}, {"t": 81}, {"t": 82}, {"t": 83}, {"t": 84}, {"t": 85}, {"t": 86}, {"t": 87}, {"t": 88}, {"t": 89}, {"t": 90}, {"t": 91}, {"t": 92}, {"t": 93}, {"t": 94}, {"t": 95}, {"t": 96}, {"t": 97}, {"t": 98}, {"t": 99}, {"t": 100}]}, "mark": "line", "encoding": {"order": {"type": "quantitative", "field": "t"}, "x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "y"}}, "transform": [{"calculate": "cos(datum.t * PI / 50)", "as": "x"}, {"calculate": "sin(datum.t * PI / 25)", "as": "y"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
   });
 </script>
 </div><p>Each argument within <code class="docutils literal"><span class="pre">transform_calculate</span></code> is a <a class="reference external" href="https://vega.github.io/vega/docs/expressions/">Vega expression</a> string,
@@ -555,13 +555,13 @@ these expressions to be constructed with Python syntax; for example:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"values": [{"t": 0}, {"t": 1}, {"t": 2}, {"t": 3}, {"t": 4}, {"t": 5}, {"t": 6}, {"t": 7}, {"t": 8}, {"t": 9}, {"t": 10}, {"t": 11}, {"t": 12}, {"t": 13}, {"t": 14}, {"t": 15}, {"t": 16}, {"t": 17}, {"t": 18}, {"t": 19}, {"t": 20}, {"t": 21}, {"t": 22}, {"t": 23}, {"t": 24}, {"t": 25}, {"t": 26}, {"t": 27}, {"t": 28}, {"t": 29}, {"t": 30}, {"t": 31}, {"t": 32}, {"t": 33}, {"t": 34}, {"t": 35}, {"t": 36}, {"t": 37}, {"t": 38}, {"t": 39}, {"t": 40}, {"t": 41}, {"t": 42}, {"t": 43}, {"t": 44}, {"t": 45}, {"t": 46}, {"t": 47}, {"t": 48}, {"t": 49}, {"t": 50}, {"t": 51}, {"t": 52}, {"t": 53}, {"t": 54}, {"t": 55}, {"t": 56}, {"t": 57}, {"t": 58}, {"t": 59}, {"t": 60}, {"t": 61}, {"t": 62}, {"t": 63}, {"t": 64}, {"t": 65}, {"t": 66}, {"t": 67}, {"t": 68}, {"t": 69}, {"t": 70}, {"t": 71}, {"t": 72}, {"t": 73}, {"t": 74}, {"t": 75}, {"t": 76}, {"t": 77}, {"t": 78}, {"t": 79}, {"t": 80}, {"t": 81}, {"t": 82}, {"t": 83}, {"t": 84}, {"t": 85}, {"t": 86}, {"t": 87}, {"t": 88}, {"t": 89}, {"t": 90}, {"t": 91}, {"t": 92}, {"t": 93}, {"t": 94}, {"t": 95}, {"t": 96}, {"t": 97}, {"t": 98}, {"t": 99}, {"t": 100}]}, "mark": "line", "encoding": {"order": {"type": "quantitative", "field": "t"}, "x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "y"}}, "transform": [{"calculate": "cos(((datum.t * PI) / 50))", "as": "x"}, {"calculate": "sin(((datum.t * PI) / 25))", "as": "y"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"};
+      var spec = {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"values": [{"t": 0}, {"t": 1}, {"t": 2}, {"t": 3}, {"t": 4}, {"t": 5}, {"t": 6}, {"t": 7}, {"t": 8}, {"t": 9}, {"t": 10}, {"t": 11}, {"t": 12}, {"t": 13}, {"t": 14}, {"t": 15}, {"t": 16}, {"t": 17}, {"t": 18}, {"t": 19}, {"t": 20}, {"t": 21}, {"t": 22}, {"t": 23}, {"t": 24}, {"t": 25}, {"t": 26}, {"t": 27}, {"t": 28}, {"t": 29}, {"t": 30}, {"t": 31}, {"t": 32}, {"t": 33}, {"t": 34}, {"t": 35}, {"t": 36}, {"t": 37}, {"t": 38}, {"t": 39}, {"t": 40}, {"t": 41}, {"t": 42}, {"t": 43}, {"t": 44}, {"t": 45}, {"t": 46}, {"t": 47}, {"t": 48}, {"t": 49}, {"t": 50}, {"t": 51}, {"t": 52}, {"t": 53}, {"t": 54}, {"t": 55}, {"t": 56}, {"t": 57}, {"t": 58}, {"t": 59}, {"t": 60}, {"t": 61}, {"t": 62}, {"t": 63}, {"t": 64}, {"t": 65}, {"t": 66}, {"t": 67}, {"t": 68}, {"t": 69}, {"t": 70}, {"t": 71}, {"t": 72}, {"t": 73}, {"t": 74}, {"t": 75}, {"t": 76}, {"t": 77}, {"t": 78}, {"t": 79}, {"t": 80}, {"t": 81}, {"t": 82}, {"t": 83}, {"t": 84}, {"t": 85}, {"t": 86}, {"t": 87}, {"t": 88}, {"t": 89}, {"t": 90}, {"t": 91}, {"t": 92}, {"t": 93}, {"t": 94}, {"t": 95}, {"t": 96}, {"t": 97}, {"t": 98}, {"t": 99}, {"t": 100}]}, "mark": "line", "encoding": {"order": {"type": "quantitative", "field": "t"}, "x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "y"}}, "transform": [{"calculate": "cos(((datum.t * PI) / 50))", "as": "x"}, {"calculate": "sin(((datum.t * PI) / 25))", "as": "y"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#transform-rst-altair-plot-7', {"config": {"view": {"width": 400, "height": 300}}, "data": {"values": [{"t": 0}, {"t": 1}, {"t": 2}, {"t": 3}, {"t": 4}, {"t": 5}, {"t": 6}, {"t": 7}, {"t": 8}, {"t": 9}, {"t": 10}, {"t": 11}, {"t": 12}, {"t": 13}, {"t": 14}, {"t": 15}, {"t": 16}, {"t": 17}, {"t": 18}, {"t": 19}, {"t": 20}, {"t": 21}, {"t": 22}, {"t": 23}, {"t": 24}, {"t": 25}, {"t": 26}, {"t": 27}, {"t": 28}, {"t": 29}, {"t": 30}, {"t": 31}, {"t": 32}, {"t": 33}, {"t": 34}, {"t": 35}, {"t": 36}, {"t": 37}, {"t": 38}, {"t": 39}, {"t": 40}, {"t": 41}, {"t": 42}, {"t": 43}, {"t": 44}, {"t": 45}, {"t": 46}, {"t": 47}, {"t": 48}, {"t": 49}, {"t": 50}, {"t": 51}, {"t": 52}, {"t": 53}, {"t": 54}, {"t": 55}, {"t": 56}, {"t": 57}, {"t": 58}, {"t": 59}, {"t": 60}, {"t": 61}, {"t": 62}, {"t": 63}, {"t": 64}, {"t": 65}, {"t": 66}, {"t": 67}, {"t": 68}, {"t": 69}, {"t": 70}, {"t": 71}, {"t": 72}, {"t": 73}, {"t": 74}, {"t": 75}, {"t": 76}, {"t": 77}, {"t": 78}, {"t": 79}, {"t": 80}, {"t": 81}, {"t": 82}, {"t": 83}, {"t": 84}, {"t": 85}, {"t": 86}, {"t": 87}, {"t": 88}, {"t": 89}, {"t": 90}, {"t": 91}, {"t": 92}, {"t": 93}, {"t": 94}, {"t": 95}, {"t": 96}, {"t": 97}, {"t": 98}, {"t": 99}, {"t": 100}]}, "mark": "line", "encoding": {"order": {"type": "quantitative", "field": "t"}, "x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "y"}}, "transform": [{"calculate": "cos(((datum.t * PI) / 50))", "as": "x"}, {"calculate": "sin(((datum.t * PI) / 25))", "as": "y"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"}).catch(console.err);
+      vegaEmbed('#transform-rst-altair-plot-7', {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"values": [{"t": 0}, {"t": 1}, {"t": 2}, {"t": 3}, {"t": 4}, {"t": 5}, {"t": 6}, {"t": 7}, {"t": 8}, {"t": 9}, {"t": 10}, {"t": 11}, {"t": 12}, {"t": 13}, {"t": 14}, {"t": 15}, {"t": 16}, {"t": 17}, {"t": 18}, {"t": 19}, {"t": 20}, {"t": 21}, {"t": 22}, {"t": 23}, {"t": 24}, {"t": 25}, {"t": 26}, {"t": 27}, {"t": 28}, {"t": 29}, {"t": 30}, {"t": 31}, {"t": 32}, {"t": 33}, {"t": 34}, {"t": 35}, {"t": 36}, {"t": 37}, {"t": 38}, {"t": 39}, {"t": 40}, {"t": 41}, {"t": 42}, {"t": 43}, {"t": 44}, {"t": 45}, {"t": 46}, {"t": 47}, {"t": 48}, {"t": 49}, {"t": 50}, {"t": 51}, {"t": 52}, {"t": 53}, {"t": 54}, {"t": 55}, {"t": 56}, {"t": 57}, {"t": 58}, {"t": 59}, {"t": 60}, {"t": 61}, {"t": 62}, {"t": 63}, {"t": 64}, {"t": 65}, {"t": 66}, {"t": 67}, {"t": 68}, {"t": 69}, {"t": 70}, {"t": 71}, {"t": 72}, {"t": 73}, {"t": 74}, {"t": 75}, {"t": 76}, {"t": 77}, {"t": 78}, {"t": 79}, {"t": 80}, {"t": 81}, {"t": 82}, {"t": 83}, {"t": 84}, {"t": 85}, {"t": 86}, {"t": 87}, {"t": 88}, {"t": 89}, {"t": 90}, {"t": 91}, {"t": 92}, {"t": 93}, {"t": 94}, {"t": 95}, {"t": 96}, {"t": 97}, {"t": 98}, {"t": 99}, {"t": 100}]}, "mark": "line", "encoding": {"order": {"type": "quantitative", "field": "t"}, "x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "y"}}, "transform": [{"calculate": "cos(((datum.t * PI) / 50))", "as": "x"}, {"calculate": "sin(((datum.t * PI) / 25))", "as": "y"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
   });
 </script>
 </div><p>Altair expressions are designed to output valid Vega expressions. The benefit of
@@ -612,13 +612,13 @@ This can be useful when, for example, selecting only a subset of data.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "area", "encoding": {"x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "field": "people"}}, "transform": [{"filter": "((datum.year === 2000) && (datum.sex === 1))"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"};
+      var spec = {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "area", "encoding": {"x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "field": "people"}}, "transform": [{"filter": "((datum.year === 2000) && (datum.sex === 1))"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#transform-rst-altair-plot-8', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "area", "encoding": {"x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "field": "people"}}, "transform": [{"filter": "((datum.year === 2000) && (datum.sex === 1))"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"}).catch(console.err);
+      vegaEmbed('#transform-rst-altair-plot-8', {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "area", "encoding": {"x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "field": "people"}}, "transform": [{"filter": "((datum.year === 2000) && (datum.sex === 1))"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
   });
 </script>
 </div><p>Notice that, like in the <a class="reference internal" href="#user-guide-filter-transform"><span class="std std-ref">Filter Transform</span></a>, data values are
@@ -658,13 +658,13 @@ values from year 2000 as in the above chart:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "transform": [{"filter": {"equal": 2000, "field": "year"}}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"};
+      var spec = {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "transform": [{"filter": {"equal": 2000, "field": "year"}}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#transform-rst-altair-plot-9', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "transform": [{"filter": {"equal": 2000, "field": "year"}}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"}).catch(console.err);
+      vegaEmbed('#transform-rst-altair-plot-9', {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "transform": [{"filter": {"equal": 2000, "field": "year"}}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
   });
 </script>
 </div><p>A <a class="reference internal" href="API.html#altair.FieldOneOfPredicate" title="altair.FieldOneOfPredicate"><code class="xref py py-class docutils literal"><span class="pre">FieldOneOfPredicate</span></code></a> is similar, but allows selection of any number
@@ -688,13 +688,13 @@ of specific values:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "transform": [{"filter": {"field": "year", "oneOf": [1900, 1950, 2000]}}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"};
+      var spec = {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "transform": [{"filter": {"field": "year", "oneOf": [1900, 1950, 2000]}}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#transform-rst-altair-plot-10', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "transform": [{"filter": {"field": "year", "oneOf": [1900, 1950, 2000]}}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"}).catch(console.err);
+      vegaEmbed('#transform-rst-altair-plot-10', {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "transform": [{"filter": {"field": "year", "oneOf": [1900, 1950, 2000]}}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
   });
 </script>
 </div><p>Finally, a <a class="reference internal" href="API.html#altair.FieldRangePredicate" title="altair.FieldRangePredicate"><code class="xref py py-meth docutils literal"><span class="pre">FieldRangePredicate()</span></code></a> allows selecting values within a
@@ -718,13 +718,13 @@ particular continuous range:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "transform": [{"filter": {"field": "year", "range": [1960, 2000]}}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"};
+      var spec = {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "transform": [{"filter": {"field": "year", "range": [1960, 2000]}}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#transform-rst-altair-plot-11', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "transform": [{"filter": {"field": "year", "range": [1960, 2000]}}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"}).catch(console.err);
+      vegaEmbed('#transform-rst-altair-plot-11', {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "transform": [{"filter": {"field": "year", "range": [1960, 2000]}}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
   });
 </script>
 </div></div>
@@ -773,13 +773,13 @@ to select the data to be shown in the top chart:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "vconcat": [{"mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "height": 200, "transform": [{"filter": {"selection": "selector041"}}], "width": 600}, {"mark": "bar", "encoding": {"color": {"condition": {"value": "steelblue", "selection": "selector041"}, "value": "lightgray"}, "x": {"type": "ordinal", "field": "year"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "height": 100, "selection": {"selector041": {"type": "multi", "fields": ["year"]}}, "width": 600}], "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"};
+      var spec = {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "vconcat": [{"mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "height": 200, "transform": [{"filter": {"selection": "selector043"}}], "width": 600}, {"mark": "bar", "encoding": {"color": {"condition": {"value": "steelblue", "selection": "selector043"}, "value": "lightgray"}, "x": {"type": "ordinal", "field": "year"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "height": 100, "selection": {"selector043": {"type": "multi", "fields": ["year"]}}, "width": 600}], "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#transform-rst-altair-plot-12', {"config": {"view": {"width": 400, "height": 300}}, "vconcat": [{"mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "height": 200, "transform": [{"filter": {"selection": "selector041"}}], "width": 600}, {"mark": "bar", "encoding": {"color": {"condition": {"value": "steelblue", "selection": "selector041"}, "value": "lightgray"}, "x": {"type": "ordinal", "field": "year"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "height": 100, "selection": {"selector041": {"type": "multi", "fields": ["year"]}}, "width": 600}], "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"}).catch(console.err);
+      vegaEmbed('#transform-rst-altair-plot-12', {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "vconcat": [{"mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "height": 200, "transform": [{"filter": {"selection": "selector043"}}], "width": 600}, {"mark": "bar", "encoding": {"color": {"condition": {"value": "steelblue", "selection": "selector043"}, "value": "lightgray"}, "x": {"type": "ordinal", "field": "year"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "height": 100, "selection": {"selector043": {"type": "multi", "fields": ["year"]}}, "width": 600}], "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
   });
 </script>
 </div></div>
@@ -819,13 +819,13 @@ by applying a <code class="docutils literal"><span class="pre">LogicalNotPredica
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "height": 200, "transform": [{"filter": {"not": {"field": "year", "range": [1900, 1950]}}}], "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"};
+      var spec = {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "height": 200, "transform": [{"filter": {"not": {"field": "year", "range": [1900, 1950]}}}], "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#transform-rst-altair-plot-13', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "height": 200, "transform": [{"filter": {"not": {"field": "year", "range": [1900, 1950]}}}], "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"}).catch(console.err);
+      vegaEmbed('#transform-rst-altair-plot-13', {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "height": 200, "transform": [{"filter": {"not": {"field": "year", "range": [1900, 1950]}}}], "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
   });
 </script>
 </div></div>
@@ -870,13 +870,13 @@ to. This example data is available in <code class="docutils literal"><span class
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "vconcat": [{"data": {"values": [{"name": "Alan", "age": 25, "height": 180}, {"name": "George", "age": 32, "height": 174}, {"name": "Fred", "age": 39, "height": 182}, {"name": "Steve", "age": 42, "height": 161}, {"name": "Nick", "age": 23, "height": 180}, {"name": "Will", "age": 21, "height": 168}, {"name": "Cole", "age": 51, "height": 160}, {"name": "Rick", "age": 63, "height": 181}, {"name": "Tom", "age": 54, "height": 179}]}, "mark": {"type": "square", "size": 200}, "encoding": {"color": {"type": "nominal", "field": "name"}, "tooltip": {"type": "nominal", "field": "name"}, "x": {"type": "quantitative", "field": "age", "scale": {"zero": false}}, "y": {"type": "quantitative", "field": "height", "scale": {"zero": false}}}, "height": 200, "width": 400}, {"data": {"values": [{"group": 1, "person": "Alan"}, {"group": 1, "person": "George"}, {"group": 1, "person": "Fred"}, {"group": 2, "person": "Steve"}, {"group": 2, "person": "Nick"}, {"group": 2, "person": "Will"}, {"group": 3, "person": "Cole"}, {"group": 3, "person": "Rick"}, {"group": 3, "person": "Tom"}]}, "mark": "rect", "encoding": {"x": {"type": "nominal", "field": "person"}, "y": {"type": "ordinal", "field": "group"}}, "height": 100, "width": 400}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"};
+      var spec = {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "vconcat": [{"data": {"values": [{"name": "Alan", "age": 25, "height": 180}, {"name": "George", "age": 32, "height": 174}, {"name": "Fred", "age": 39, "height": 182}, {"name": "Steve", "age": 42, "height": 161}, {"name": "Nick", "age": 23, "height": 180}, {"name": "Will", "age": 21, "height": 168}, {"name": "Cole", "age": 51, "height": 160}, {"name": "Rick", "age": 63, "height": 181}, {"name": "Tom", "age": 54, "height": 179}]}, "mark": {"type": "square", "size": 200}, "encoding": {"color": {"type": "nominal", "field": "name"}, "tooltip": {"type": "nominal", "field": "name"}, "x": {"type": "quantitative", "field": "age", "scale": {"zero": false}}, "y": {"type": "quantitative", "field": "height", "scale": {"zero": false}}}, "height": 200, "width": 400}, {"data": {"values": [{"group": 1, "person": "Alan"}, {"group": 1, "person": "George"}, {"group": 1, "person": "Fred"}, {"group": 2, "person": "Steve"}, {"group": 2, "person": "Nick"}, {"group": 2, "person": "Will"}, {"group": 3, "person": "Cole"}, {"group": 3, "person": "Rick"}, {"group": 3, "person": "Tom"}]}, "mark": "rect", "encoding": {"x": {"type": "nominal", "field": "person"}, "y": {"type": "ordinal", "field": "group"}}, "height": 100, "width": 400}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#transform-rst-altair-plot-15', {"config": {"view": {"width": 400, "height": 300}}, "vconcat": [{"data": {"values": [{"name": "Alan", "age": 25, "height": 180}, {"name": "George", "age": 32, "height": 174}, {"name": "Fred", "age": 39, "height": 182}, {"name": "Steve", "age": 42, "height": 161}, {"name": "Nick", "age": 23, "height": 180}, {"name": "Will", "age": 21, "height": 168}, {"name": "Cole", "age": 51, "height": 160}, {"name": "Rick", "age": 63, "height": 181}, {"name": "Tom", "age": 54, "height": 179}]}, "mark": {"type": "square", "size": 200}, "encoding": {"color": {"type": "nominal", "field": "name"}, "tooltip": {"type": "nominal", "field": "name"}, "x": {"type": "quantitative", "field": "age", "scale": {"zero": false}}, "y": {"type": "quantitative", "field": "height", "scale": {"zero": false}}}, "height": 200, "width": 400}, {"data": {"values": [{"group": 1, "person": "Alan"}, {"group": 1, "person": "George"}, {"group": 1, "person": "Fred"}, {"group": 2, "person": "Steve"}, {"group": 2, "person": "Nick"}, {"group": 2, "person": "Will"}, {"group": 3, "person": "Cole"}, {"group": 3, "person": "Rick"}, {"group": 3, "person": "Tom"}]}, "mark": "rect", "encoding": {"x": {"type": "nominal", "field": "person"}, "y": {"type": "ordinal", "field": "group"}}, "height": 100, "width": 400}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"}).catch(console.err);
+      vegaEmbed('#transform-rst-altair-plot-15', {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "vconcat": [{"data": {"values": [{"name": "Alan", "age": 25, "height": 180}, {"name": "George", "age": 32, "height": 174}, {"name": "Fred", "age": 39, "height": 182}, {"name": "Steve", "age": 42, "height": 161}, {"name": "Nick", "age": 23, "height": 180}, {"name": "Will", "age": 21, "height": 168}, {"name": "Cole", "age": 51, "height": 160}, {"name": "Rick", "age": 63, "height": 181}, {"name": "Tom", "age": 54, "height": 179}]}, "mark": {"type": "square", "size": 200}, "encoding": {"color": {"type": "nominal", "field": "name"}, "tooltip": {"type": "nominal", "field": "name"}, "x": {"type": "quantitative", "field": "age", "scale": {"zero": false}}, "y": {"type": "quantitative", "field": "height", "scale": {"zero": false}}}, "height": 200, "width": 400}, {"data": {"values": [{"group": 1, "person": "Alan"}, {"group": 1, "person": "George"}, {"group": 1, "person": "Fred"}, {"group": 2, "person": "Steve"}, {"group": 2, "person": "Nick"}, {"group": 2, "person": "Will"}, {"group": 3, "person": "Cole"}, {"group": 3, "person": "Rick"}, {"group": 3, "person": "Tom"}]}, "mark": "rect", "encoding": {"x": {"type": "nominal", "field": "person"}, "y": {"type": "ordinal", "field": "group"}}, "height": 100, "width": 400}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
   });
 </script>
 </div><p>If we would like to plot features that reference both datasets (for example, the
@@ -906,13 +906,13 @@ For the above data, we can merge the data and create a combined chart as follows
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"values": [{"group": 1, "person": "Alan", "name": "Alan", "age": 25, "height": 180}, {"group": 1, "person": "George", "name": "George", "age": 32, "height": 174}, {"group": 1, "person": "Fred", "name": "Fred", "age": 39, "height": 182}, {"group": 2, "person": "Steve", "name": "Steve", "age": 42, "height": 161}, {"group": 2, "person": "Nick", "name": "Nick", "age": 23, "height": 180}, {"group": 2, "person": "Will", "name": "Will", "age": 21, "height": 168}, {"group": 3, "person": "Cole", "name": "Cole", "age": 51, "height": 160}, {"group": 3, "person": "Rick", "name": "Rick", "age": 63, "height": 181}, {"group": 3, "person": "Tom", "name": "Tom", "age": 54, "height": 179}]}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "aggregate": "mean", "field": "age"}, "y": {"type": "ordinal", "field": "group"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"};
+      var spec = {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"values": [{"group": 1, "person": "Alan", "name": "Alan", "age": 25, "height": 180}, {"group": 1, "person": "George", "name": "George", "age": 32, "height": 174}, {"group": 1, "person": "Fred", "name": "Fred", "age": 39, "height": 182}, {"group": 2, "person": "Steve", "name": "Steve", "age": 42, "height": 161}, {"group": 2, "person": "Nick", "name": "Nick", "age": 23, "height": 180}, {"group": 2, "person": "Will", "name": "Will", "age": 21, "height": 168}, {"group": 3, "person": "Cole", "name": "Cole", "age": 51, "height": 160}, {"group": 3, "person": "Rick", "name": "Rick", "age": 63, "height": 181}, {"group": 3, "person": "Tom", "name": "Tom", "age": 54, "height": 179}]}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "aggregate": "mean", "field": "age"}, "y": {"type": "ordinal", "field": "group"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#transform-rst-altair-plot-16', {"config": {"view": {"width": 400, "height": 300}}, "data": {"values": [{"group": 1, "person": "Alan", "name": "Alan", "age": 25, "height": 180}, {"group": 1, "person": "George", "name": "George", "age": 32, "height": 174}, {"group": 1, "person": "Fred", "name": "Fred", "age": 39, "height": 182}, {"group": 2, "person": "Steve", "name": "Steve", "age": 42, "height": 161}, {"group": 2, "person": "Nick", "name": "Nick", "age": 23, "height": 180}, {"group": 2, "person": "Will", "name": "Will", "age": 21, "height": 168}, {"group": 3, "person": "Cole", "name": "Cole", "age": 51, "height": 160}, {"group": 3, "person": "Rick", "name": "Rick", "age": 63, "height": 181}, {"group": 3, "person": "Tom", "name": "Tom", "age": 54, "height": 179}]}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "aggregate": "mean", "field": "age"}, "y": {"type": "ordinal", "field": "group"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"}).catch(console.err);
+      vegaEmbed('#transform-rst-altair-plot-16', {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"values": [{"group": 1, "person": "Alan", "name": "Alan", "age": 25, "height": 180}, {"group": 1, "person": "George", "name": "George", "age": 32, "height": 174}, {"group": 1, "person": "Fred", "name": "Fred", "age": 39, "height": 182}, {"group": 2, "person": "Steve", "name": "Steve", "age": 42, "height": 161}, {"group": 2, "person": "Nick", "name": "Nick", "age": 23, "height": 180}, {"group": 2, "person": "Will", "name": "Will", "age": 21, "height": 168}, {"group": 3, "person": "Cole", "name": "Cole", "age": 51, "height": 160}, {"group": 3, "person": "Rick", "name": "Rick", "age": 63, "height": 181}, {"group": 3, "person": "Tom", "name": "Tom", "age": 54, "height": 179}]}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "aggregate": "mean", "field": "age"}, "y": {"type": "ordinal", "field": "group"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
   });
 </script>
 </div><p>We specify a left join, meaning that for each entry of the “person” column in
@@ -943,13 +943,13 @@ chart specification itself, we can do the following:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"values": [{"group": 1, "person": "Alan"}, {"group": 1, "person": "George"}, {"group": 1, "person": "Fred"}, {"group": 2, "person": "Steve"}, {"group": 2, "person": "Nick"}, {"group": 2, "person": "Will"}, {"group": 3, "person": "Cole"}, {"group": 3, "person": "Rick"}, {"group": 3, "person": "Tom"}]}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "aggregate": "mean", "field": "age"}, "y": {"type": "ordinal", "field": "group"}}, "transform": [{"lookup": "person", "from": {"data": {"values": [{"name": "Alan", "age": 25, "height": 180}, {"name": "George", "age": 32, "height": 174}, {"name": "Fred", "age": 39, "height": 182}, {"name": "Steve", "age": 42, "height": 161}, {"name": "Nick", "age": 23, "height": 180}, {"name": "Will", "age": 21, "height": 168}, {"name": "Cole", "age": 51, "height": 160}, {"name": "Rick", "age": 63, "height": 181}, {"name": "Tom", "age": 54, "height": 179}]}, "key": "name", "fields": ["age", "height"]}}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"};
+      var spec = {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"values": [{"group": 1, "person": "Alan"}, {"group": 1, "person": "George"}, {"group": 1, "person": "Fred"}, {"group": 2, "person": "Steve"}, {"group": 2, "person": "Nick"}, {"group": 2, "person": "Will"}, {"group": 3, "person": "Cole"}, {"group": 3, "person": "Rick"}, {"group": 3, "person": "Tom"}]}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "aggregate": "mean", "field": "age"}, "y": {"type": "ordinal", "field": "group"}}, "transform": [{"lookup": "person", "from": {"data": {"values": [{"name": "Alan", "age": 25, "height": 180}, {"name": "George", "age": 32, "height": 174}, {"name": "Fred", "age": 39, "height": 182}, {"name": "Steve", "age": 42, "height": 161}, {"name": "Nick", "age": 23, "height": 180}, {"name": "Will", "age": 21, "height": 168}, {"name": "Cole", "age": 51, "height": 160}, {"name": "Rick", "age": 63, "height": 181}, {"name": "Tom", "age": 54, "height": 179}]}, "key": "name", "fields": ["age", "height"]}}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#transform-rst-altair-plot-17', {"config": {"view": {"width": 400, "height": 300}}, "data": {"values": [{"group": 1, "person": "Alan"}, {"group": 1, "person": "George"}, {"group": 1, "person": "Fred"}, {"group": 2, "person": "Steve"}, {"group": 2, "person": "Nick"}, {"group": 2, "person": "Will"}, {"group": 3, "person": "Cole"}, {"group": 3, "person": "Rick"}, {"group": 3, "person": "Tom"}]}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "aggregate": "mean", "field": "age"}, "y": {"type": "ordinal", "field": "group"}}, "transform": [{"lookup": "person", "from": {"data": {"values": [{"name": "Alan", "age": 25, "height": 180}, {"name": "George", "age": 32, "height": 174}, {"name": "Fred", "age": 39, "height": 182}, {"name": "Steve", "age": 42, "height": 161}, {"name": "Nick", "age": 23, "height": 180}, {"name": "Will", "age": 21, "height": 168}, {"name": "Cole", "age": 51, "height": 160}, {"name": "Rick", "age": 63, "height": 181}, {"name": "Tom", "age": 54, "height": 179}]}, "key": "name", "fields": ["age", "height"]}}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"}).catch(console.err);
+      vegaEmbed('#transform-rst-altair-plot-17', {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"values": [{"group": 1, "person": "Alan"}, {"group": 1, "person": "George"}, {"group": 1, "person": "Fred"}, {"group": 2, "person": "Steve"}, {"group": 2, "person": "Nick"}, {"group": 2, "person": "Will"}, {"group": 3, "person": "Cole"}, {"group": 3, "person": "Rick"}, {"group": 3, "person": "Tom"}]}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "aggregate": "mean", "field": "age"}, "y": {"type": "ordinal", "field": "group"}}, "transform": [{"lookup": "person", "from": {"data": {"values": [{"name": "Alan", "age": 25, "height": 180}, {"name": "George", "age": 32, "height": 174}, {"name": "Fred", "age": 39, "height": 182}, {"name": "Steve", "age": 42, "height": 161}, {"name": "Nick", "age": 23, "height": 180}, {"name": "Will", "age": 21, "height": 168}, {"name": "Cole", "age": 51, "height": 160}, {"name": "Rick", "age": 63, "height": 181}, {"name": "Tom", "age": 54, "height": 179}]}, "key": "name", "fields": ["age", "height"]}}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
   });
 </script>
 </div><p>Here <code class="docutils literal"><span class="pre">lookup</span></code> names the field in the groups dataset on which we will match,
@@ -986,13 +986,13 @@ of unemployment rates per county in the US:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/us-10m.json", "format": {"feature": "counties", "type": "topojson"}}, "mark": "geoshape", "encoding": {"color": {"type": "quantitative", "field": "rate"}}, "height": 300, "projection": {"type": "albersUsa"}, "transform": [{"lookup": "id", "from": {"data": {"url": "https://vega.github.io/vega-datasets/data/unemployment.tsv"}, "key": "id", "fields": ["rate"]}}], "width": 500, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"};
+      var spec = {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"url": "https://vega.github.io/vega-datasets/data/us-10m.json", "format": {"feature": "counties", "type": "topojson"}}, "mark": "geoshape", "encoding": {"color": {"type": "quantitative", "field": "rate"}}, "height": 300, "projection": {"type": "albersUsa"}, "transform": [{"lookup": "id", "from": {"data": {"url": "https://vega.github.io/vega-datasets/data/unemployment.tsv"}, "key": "id", "fields": ["rate"]}}], "width": 500, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#transform-rst-altair-plot-18', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/us-10m.json", "format": {"feature": "counties", "type": "topojson"}}, "mark": "geoshape", "encoding": {"color": {"type": "quantitative", "field": "rate"}}, "height": 300, "projection": {"type": "albersUsa"}, "transform": [{"lookup": "id", "from": {"data": {"url": "https://vega.github.io/vega-datasets/data/unemployment.tsv"}, "key": "id", "fields": ["rate"]}}], "width": 500, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"}).catch(console.err);
+      vegaEmbed('#transform-rst-altair-plot-18', {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"url": "https://vega.github.io/vega-datasets/data/us-10m.json", "format": {"feature": "counties", "type": "topojson"}}, "mark": "geoshape", "encoding": {"color": {"type": "quantitative", "field": "rate"}}, "height": 300, "projection": {"type": "albersUsa"}, "transform": [{"lookup": "id", "from": {"data": {"url": "https://vega.github.io/vega-datasets/data/unemployment.tsv"}, "key": "id", "fields": ["rate"]}}], "width": 500, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
   });
 </script>
 </div></div>
@@ -1040,20 +1040,20 @@ measurements in Seattle during the year 2010:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-temps.csv"}, "mark": "line", "encoding": {"x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "temp"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"};
+      var spec = {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-temps.csv"}, "mark": "line", "encoding": {"x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "temp"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#transform-rst-altair-plot-19', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-temps.csv"}, "mark": "line", "encoding": {"x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "temp"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"}).catch(console.err);
+      vegaEmbed('#transform-rst-altair-plot-19', {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-temps.csv"}, "mark": "line", "encoding": {"x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "temp"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
   });
 </script>
 </div><p>The plot is too busy due to the amount of data points squeezed into the short
 time; we can make it a bit cleaner by discretizing it, for example, by month
-(<code class="docutils literal"><span class="pre">timeUnit=&quot;month&quot;</span></code>) and plotting only the mean monthly temperature:</p>
+and plotting only the mean monthly temperature:</p>
 <div class="highlight-python" id="transform-rst-altair-source-20"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">temps</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;date:T&#39;</span><span class="p">,</span> <span class="n">timeUnit</span><span class="o">=</span><span class="s1">&#39;month&#39;</span><span class="p">),</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;month(date):T&#39;</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="s1">&#39;mean(temp):Q&#39;</span>
 <span class="p">)</span>
 </pre></div>
@@ -1064,20 +1064,21 @@ time; we can make it a bit cleaner by discretizing it, for example, by month
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-temps.csv"}, "mark": "line", "encoding": {"x": {"type": "temporal", "field": "date", "timeUnit": "month"}, "y": {"type": "quantitative", "aggregate": "mean", "field": "temp"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"};
+      var spec = {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-temps.csv"}, "mark": "line", "encoding": {"x": {"type": "temporal", "field": "date", "timeUnit": "month"}, "y": {"type": "quantitative", "aggregate": "mean", "field": "temp"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#transform-rst-altair-plot-20', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-temps.csv"}, "mark": "line", "encoding": {"x": {"type": "temporal", "field": "date", "timeUnit": "month"}, "y": {"type": "quantitative", "aggregate": "mean", "field": "temp"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"}).catch(console.err);
+      vegaEmbed('#transform-rst-altair-plot-20', {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-temps.csv"}, "mark": "line", "encoding": {"x": {"type": "temporal", "field": "date", "timeUnit": "month"}, "y": {"type": "quantitative", "aggregate": "mean", "field": "temp"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
   });
 </script>
 </div><p>Notice that by default timeUnit output is a continuous quantity; if you would
-instead like it to be a categorical, you can specify the ordinal type.
+instead like it to be a categorical, you can specify the ordinal (<code class="docutils literal"><span class="pre">O</span></code>) or
+nominal (<code class="docutils literal"><span class="pre">N</span></code>) type.
 This can be useful when plotting a bar chart or other discrete chart type:</p>
 <div class="highlight-python" id="transform-rst-altair-source-21"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">temps</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;date:O&#39;</span><span class="p">,</span> <span class="n">timeUnit</span><span class="o">=</span><span class="s1">&#39;month&#39;</span><span class="p">),</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;month(date):O&#39;</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="s1">&#39;mean(temp):Q&#39;</span>
 <span class="p">)</span>
 </pre></div>
@@ -1088,21 +1089,21 @@ This can be useful when plotting a bar chart or other discrete chart type:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-temps.csv"}, "mark": "bar", "encoding": {"x": {"type": "ordinal", "field": "date", "timeUnit": "month"}, "y": {"type": "quantitative", "aggregate": "mean", "field": "temp"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"};
+      var spec = {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-temps.csv"}, "mark": "bar", "encoding": {"x": {"type": "ordinal", "field": "date", "timeUnit": "month"}, "y": {"type": "quantitative", "aggregate": "mean", "field": "temp"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#transform-rst-altair-plot-21', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-temps.csv"}, "mark": "bar", "encoding": {"x": {"type": "ordinal", "field": "date", "timeUnit": "month"}, "y": {"type": "quantitative", "aggregate": "mean", "field": "temp"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"}).catch(console.err);
+      vegaEmbed('#transform-rst-altair-plot-21', {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-temps.csv"}, "mark": "bar", "encoding": {"x": {"type": "ordinal", "field": "date", "timeUnit": "month"}, "y": {"type": "quantitative", "aggregate": "mean", "field": "temp"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
   });
 </script>
 </div><p>Multiple time units can be combined within a single plot to yield interesting
 views of your data; for example, here we extract both the month and the day
 to give a profile of Seattle temperatures through the year:</p>
 <div class="highlight-python" id="transform-rst-altair-source-22"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">temps</span><span class="p">)</span><span class="o">.</span><span class="n">mark_rect</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;date:O&#39;</span><span class="p">,</span> <span class="n">timeUnit</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;day&#39;</span><span class="p">)),</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;date:O&#39;</span><span class="p">,</span> <span class="n">timeUnit</span><span class="o">=</span><span class="s1">&#39;month&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;month&#39;</span><span class="p">)),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;date(date):O&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;day&#39;</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;month(date):O&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;month&#39;</span><span class="p">),</span>
     <span class="n">color</span><span class="o">=</span><span class="s1">&#39;max(temp):Q&#39;</span>
 <span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
     <span class="n">title</span><span class="o">=</span><span class="s2">&quot;2010 Daily High Temperatures in Seattle (F)&quot;</span>
@@ -1115,13 +1116,13 @@ to give a profile of Seattle temperatures through the year:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-temps.csv"}, "mark": "rect", "encoding": {"color": {"type": "quantitative", "aggregate": "max", "field": "temp"}, "x": {"type": "ordinal", "axis": {"title": "day"}, "field": "date", "timeUnit": "date"}, "y": {"type": "ordinal", "axis": {"title": "month"}, "field": "date", "timeUnit": "month"}}, "title": "2010 Daily High Temperatures in Seattle (F)", "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"};
+      var spec = {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-temps.csv"}, "mark": "rect", "encoding": {"color": {"type": "quantitative", "aggregate": "max", "field": "temp"}, "x": {"type": "ordinal", "field": "date", "timeUnit": "date", "title": "day"}, "y": {"type": "ordinal", "field": "date", "timeUnit": "month", "title": "month"}}, "title": "2010 Daily High Temperatures in Seattle (F)", "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#transform-rst-altair-plot-22', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-temps.csv"}, "mark": "rect", "encoding": {"color": {"type": "quantitative", "aggregate": "max", "field": "temp"}, "x": {"type": "ordinal", "axis": {"title": "day"}, "field": "date", "timeUnit": "date"}, "y": {"type": "ordinal", "axis": {"title": "month"}, "field": "date", "timeUnit": "month"}}, "title": "2010 Daily High Temperatures in Seattle (F)", "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"}).catch(console.err);
+      vegaEmbed('#transform-rst-altair-plot-22', {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-temps.csv"}, "mark": "rect", "encoding": {"color": {"type": "quantitative", "aggregate": "max", "field": "temp"}, "x": {"type": "ordinal", "field": "date", "timeUnit": "date", "title": "day"}, "y": {"type": "ordinal", "field": "date", "timeUnit": "month", "title": "month"}}, "title": "2010 Daily High Temperatures in Seattle (F)", "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
   });
 </script>
 </div></div>
@@ -1135,7 +1136,7 @@ method. For example:</p>
     <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;month:T&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">format</span><span class="o">=</span><span class="s1">&#39;%b&#39;</span><span class="p">)),</span>
     <span class="n">y</span><span class="o">=</span><span class="s1">&#39;mean(temp):Q&#39;</span>
 <span class="p">)</span><span class="o">.</span><span class="n">transform_timeunit</span><span class="p">(</span>
-    <span class="s2">&quot;month&quot;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s2">&quot;date&quot;</span><span class="p">,</span> <span class="n">timeUnit</span><span class="o">=</span><span class="s2">&quot;month&quot;</span>
+    <span class="n">month</span><span class="o">=</span><span class="s1">&#39;month(date)&#39;</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -1145,13 +1146,13 @@ method. For example:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-temps.csv"}, "mark": "line", "encoding": {"x": {"type": "temporal", "axis": {"format": "%b"}, "field": "month"}, "y": {"type": "quantitative", "aggregate": "mean", "field": "temp"}}, "transform": [{"field": "date", "timeUnit": "month", "as": "month"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"};
+      var spec = {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-temps.csv"}, "mark": "line", "encoding": {"x": {"type": "temporal", "axis": {"format": "%b"}, "field": "month"}, "y": {"type": "quantitative", "aggregate": "mean", "field": "temp"}}, "transform": [{"field": "date", "timeUnit": "month", "as": "month"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#transform-rst-altair-plot-23', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-temps.csv"}, "mark": "line", "encoding": {"x": {"type": "temporal", "axis": {"format": "%b"}, "field": "month"}, "y": {"type": "quantitative", "aggregate": "mean", "field": "temp"}}, "transform": [{"field": "date", "timeUnit": "month", "as": "month"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"}).catch(console.err);
+      vegaEmbed('#transform-rst-altair-plot-23', {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-temps.csv"}, "mark": "line", "encoding": {"x": {"type": "temporal", "axis": {"format": "%b"}, "field": "month"}, "y": {"type": "quantitative", "aggregate": "mean", "field": "temp"}}, "transform": [{"field": "date", "timeUnit": "month", "as": "month"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
   });
 </script>
 </div><p>Notice that because the <code class="docutils literal"><span class="pre">timeUnit</span></code> is not part of the encoding channel here,
@@ -1185,13 +1186,13 @@ activities during a day:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"values": [{"Activity": "Sleeping", "Time": 8}, {"Activity": "Eating", "Time": 2}, {"Activity": "TV", "Time": 4}, {"Activity": "Work", "Time": 8}, {"Activity": "Exercise", "Time": 2}]}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "field": "Time"}, "y": {"type": "nominal", "field": "Activity"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"};
+      var spec = {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"values": [{"Activity": "Sleeping", "Time": 8}, {"Activity": "Eating", "Time": 2}, {"Activity": "TV", "Time": 4}, {"Activity": "Work", "Time": 8}, {"Activity": "Exercise", "Time": 2}]}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "field": "Time"}, "y": {"type": "nominal", "field": "Activity"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#transform-rst-altair-plot-24', {"config": {"view": {"width": 400, "height": 300}}, "data": {"values": [{"Activity": "Sleeping", "Time": 8}, {"Activity": "Eating", "Time": 2}, {"Activity": "TV", "Time": 4}, {"Activity": "Work", "Time": 8}, {"Activity": "Exercise", "Time": 2}]}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "field": "Time"}, "y": {"type": "nominal", "field": "Activity"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"}).catch(console.err);
+      vegaEmbed('#transform-rst-altair-plot-24', {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"values": [{"Activity": "Sleeping", "Time": 8}, {"Activity": "Eating", "Time": 2}, {"Activity": "TV", "Time": 4}, {"Activity": "Work", "Time": 8}, {"Activity": "Exercise", "Time": 2}]}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "field": "Time"}, "y": {"type": "nominal", "field": "Activity"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
   });
 </script>
 </div><p>You might wish to plot these bars in units of percentage of total time rather than
@@ -1214,13 +1215,13 @@ window transform, using <code class="xref py py-meth docutils literal"><span cla
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"values": [{"Activity": "Sleeping", "Time": 8}, {"Activity": "Eating", "Time": 2}, {"Activity": "TV", "Time": 4}, {"Activity": "Work", "Time": 8}, {"Activity": "Exercise", "Time": 2}]}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "field": "PercentOfTotal"}, "y": {"type": "nominal", "field": "Activity"}}, "transform": [{"window": [{"op": "sum", "field": "Time", "as": "TotalTime"}], "frame": [null, null]}, {"calculate": "datum.Time / datum.TotalTime * 100", "as": "PercentOfTotal"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"};
+      var spec = {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"values": [{"Activity": "Sleeping", "Time": 8}, {"Activity": "Eating", "Time": 2}, {"Activity": "TV", "Time": 4}, {"Activity": "Work", "Time": 8}, {"Activity": "Exercise", "Time": 2}]}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "field": "PercentOfTotal"}, "y": {"type": "nominal", "field": "Activity"}}, "transform": [{"window": [{"op": "sum", "field": "Time", "as": "TotalTime"}], "frame": [null, null]}, {"calculate": "datum.Time / datum.TotalTime * 100", "as": "PercentOfTotal"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#transform-rst-altair-plot-25', {"config": {"view": {"width": 400, "height": 300}}, "data": {"values": [{"Activity": "Sleeping", "Time": 8}, {"Activity": "Eating", "Time": 2}, {"Activity": "TV", "Time": 4}, {"Activity": "Work", "Time": 8}, {"Activity": "Exercise", "Time": 2}]}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "field": "PercentOfTotal"}, "y": {"type": "nominal", "field": "Activity"}}, "transform": [{"window": [{"op": "sum", "field": "Time", "as": "TotalTime"}], "frame": [null, null]}, {"calculate": "datum.Time / datum.TotalTime * 100", "as": "PercentOfTotal"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"}).catch(console.err);
+      vegaEmbed('#transform-rst-altair-plot-25', {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"values": [{"Activity": "Sleeping", "Time": 8}, {"Activity": "Eating", "Time": 2}, {"Activity": "TV", "Time": 4}, {"Activity": "Work", "Time": 8}, {"Activity": "Exercise", "Time": 2}]}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "field": "PercentOfTotal"}, "y": {"type": "nominal", "field": "Activity"}}, "transform": [{"window": [{"op": "sum", "field": "Time", "as": "TotalTime"}], "frame": [null, null]}, {"calculate": "datum.Time / datum.TotalTime * 100", "as": "PercentOfTotal"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
   });
 </script>
 </div><p>In the window transform, we specify <code class="docutils literal"><span class="pre">frame=[None,</span> <span class="pre">None]</span></code>, which indicates that
@@ -1276,7 +1277,7 @@ Altair. For more information on the arguments of the window transform, see
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.0',
+            VERSION:'2.1.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

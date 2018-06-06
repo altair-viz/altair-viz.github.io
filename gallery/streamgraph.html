@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Streamgraph &mdash; Altair 2.0 documentation</title>
+  <title>Streamgraph &mdash; Altair 2.1.0 documentation</title>
   
 
   
@@ -45,10 +45,10 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Altair 2.0 documentation" href="../index.html"/>
+    <link rel="top" title="Altair 2.1.0 documentation" href="../index.html"/>
         <link rel="up" title="Example Gallery" href="index.html"/>
-        <link rel="next" title="Trellis Area" href="trellis_area.html"/>
-        <link rel="prev" title="Interval Selection Example" href="interval_selection.html"/> 
+        <link rel="next" title="Trellis Area Chart" href="trellis_area.html"/>
+        <link rel="prev" title="Normalized Stacked Area Chart" href="normalized_stacked_area_chart.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -80,7 +80,7 @@
             
             
               <div class="version">
-                2.0.1
+                2.1
               </div>
             
           
@@ -119,16 +119,19 @@
 <li class="toctree-l2 current"><a class="reference internal" href="index.html#area-charts">Area Charts</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="horizon_graph.html">Horizon Graph</a></li>
 <li class="toctree-l3"><a class="reference internal" href="interval_selection.html">Interval Selection Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layered_area_chart.html">Layered Area Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="normalized_stacked_area_chart.html">Normalized Stacked Area Chart</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Streamgraph</a><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="trellis_area.html">Trellis Area</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trellis_area.html">Trellis Area Chart</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#scatter-plots">Scatter Plots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#histograms">Histograms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#maps">Maps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#interactive-charts">Interactive Charts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#case-studies">Case Studies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#other-charts">Other Charts</a></li>
 </ul>
 </li>
@@ -233,13 +236,13 @@
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/unemployment-across-industries.json"}, "mark": "area", "encoding": {"color": {"type": "nominal", "field": "series", "scale": {"scheme": "category20b"}}, "x": {"type": "temporal", "axis": {"domain": false, "format": "%Y", "tickSize": 0}, "field": "date", "timeUnit": "yearmonth"}, "y": {"type": "quantitative", "aggregate": "sum", "axis": null, "field": "count", "stack": "center"}}, "selection": {"selector023": {"type": "interval", "bind": "scales", "encodings": ["x", "y"]}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/unemployment-across-industries.json"}, "mark": "area", "encoding": {"color": {"type": "nominal", "field": "series", "scale": {"scheme": "category20b"}}, "x": {"type": "temporal", "axis": {"domain": false, "format": "%Y", "tickSize": 0}, "field": "date", "timeUnit": "yearmonth"}, "y": {"type": "quantitative", "aggregate": "sum", "axis": null, "field": "count", "stack": "center"}}, "selection": {"selector025": {"type": "interval", "bind": "scales", "encodings": ["x", "y"]}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#streamgraph-rst-altair-plot-0', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/unemployment-across-industries.json"}, "mark": "area", "encoding": {"color": {"type": "nominal", "field": "series", "scale": {"scheme": "category20b"}}, "x": {"type": "temporal", "axis": {"domain": false, "format": "%Y", "tickSize": 0}, "field": "date", "timeUnit": "yearmonth"}, "y": {"type": "quantitative", "aggregate": "sum", "axis": null, "field": "count", "stack": "center"}}, "selection": {"selector023": {"type": "interval", "bind": "scales", "encodings": ["x", "y"]}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"}).catch(console.err);
+      vegaEmbed('#streamgraph-rst-altair-plot-0', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/unemployment-across-industries.json"}, "mark": "area", "encoding": {"color": {"type": "nominal", "field": "series", "scale": {"scheme": "category20b"}}, "x": {"type": "temporal", "axis": {"domain": false, "format": "%Y", "tickSize": 0}, "field": "date", "timeUnit": "yearmonth"}, "y": {"type": "quantitative", "aggregate": "sum", "axis": null, "field": "count", "stack": "center"}}, "selection": {"selector025": {"type": "interval", "bind": "scales", "encodings": ["x", "y"]}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
   });
 </script>
 </div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
@@ -248,8 +251,7 @@
 <span class="n">source</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">unemployment_across_industries</span><span class="o">.</span><span class="n">url</span>
 
 <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">mark_area</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;date:T&#39;</span><span class="p">,</span>
-        <span class="n">timeUnit</span><span class="o">=</span><span class="s1">&#39;yearmonth&#39;</span><span class="p">,</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;yearmonth(date):T&#39;</span><span class="p">,</span>
         <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">format</span><span class="o">=</span><span class="s1">&#39;%Y&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">tickSize</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
     <span class="p">),</span>
     <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;sum(count):Q&#39;</span><span class="p">,</span> <span class="n">stack</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="bp">None</span><span class="p">),</span>
@@ -273,10 +275,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="trellis_area.html" class="btn btn-neutral float-right" title="Trellis Area" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="trellis_area.html" class="btn btn-neutral float-right" title="Trellis Area Chart" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="interval_selection.html" class="btn btn-neutral" title="Interval Selection Example" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="normalized_stacked_area_chart.html" class="btn btn-neutral" title="Normalized Stacked Area Chart" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -307,7 +309,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.0',
+            VERSION:'2.1.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

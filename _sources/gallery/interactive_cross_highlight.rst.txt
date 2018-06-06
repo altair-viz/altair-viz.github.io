@@ -35,7 +35,7 @@ see a detail of the distribution in the upper panel.
             legend=alt.Legend(title='Records in Selection')
         )
     ).transform_filter(
-        pts.ref()
+        pts
     )
 
     bar = alt.Chart(data.movies.url).mark_bar().encode(

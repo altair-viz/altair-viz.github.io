@@ -31,8 +31,9 @@ top chart can be selected by interacting with the bottom chart.
     )
 
     lower = upper.properties(
-        selection=brush,
         height=60
+    ).add_selection(
+        brush
     )
 
     alt.vconcat(upper, lower, data=sp500)

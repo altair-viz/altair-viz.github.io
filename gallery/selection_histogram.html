@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Selection Histogram &mdash; Altair 2.0 documentation</title>
+  <title>Selection Histogram &mdash; Altair 2.1.0 documentation</title>
   
 
   
@@ -45,7 +45,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Altair 2.0 documentation" href="../index.html"/>
+    <link rel="top" title="Altair 2.1.0 documentation" href="../index.html"/>
         <link rel="up" title="Example Gallery" href="index.html"/>
         <link rel="next" title="Simple Interactive Colored Scatterplot" href="interactive_scatter_plot.html"/>
         <link rel="prev" title="Selection Detail Example" href="select_detail.html"/> 
@@ -80,7 +80,7 @@
             
             
               <div class="version">
-                2.0.1
+                2.1
               </div>
             
           
@@ -128,15 +128,15 @@
 <li class="toctree-l3"><a class="reference internal" href="interactive_brush.html">Interactive Rectangular Brush</a></li>
 <li class="toctree-l3"><a class="reference internal" href="multiline_highlight.html">Multi-Line Highlight</a></li>
 <li class="toctree-l3"><a class="reference internal" href="multiline_tooltip.html">Multi-Line Tooltip</a></li>
-<li class="toctree-l3"><a class="reference internal" href="seattle_weather_interactive.html">Seattle Weather Interactive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scatter_with_histogram.html">Scatter Plot and Histogram with Interval Selection</a></li>
 <li class="toctree-l3"><a class="reference internal" href="select_detail.html">Selection Detail Example</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Selection Histogram</a><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="interactive_scatter_plot.html">Simple Interactive Colored Scatterplot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="us_population_over_time.html">US Population Over Time</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#case-studies">Case Studies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#other-charts">Other Charts</a></li>
 </ul>
 </li>
@@ -243,13 +243,13 @@ of items in each category within the selection.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "vconcat": [{"mark": "point", "encoding": {"color": {"condition": {"type": "nominal", "field": "Origin", "selection": "selector020"}, "value": "lightgray"}, "x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "selection": {"selector020": {"type": "interval"}}}, {"mark": "bar", "encoding": {"color": {"type": "nominal", "field": "Origin"}, "x": {"type": "quantitative", "aggregate": "count", "field": "Origin"}, "y": {"type": "nominal", "field": "Origin"}}, "transform": [{"filter": {"selection": "selector020"}}]}], "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "vconcat": [{"mark": "point", "encoding": {"color": {"condition": {"type": "nominal", "field": "Origin", "selection": "selector022"}, "value": "lightgray"}, "x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "selection": {"selector022": {"type": "interval"}}}, {"mark": "bar", "encoding": {"color": {"type": "nominal", "field": "Origin"}, "x": {"type": "quantitative", "aggregate": "count", "field": "Origin"}, "y": {"type": "nominal", "field": "Origin"}}, "transform": [{"filter": {"selection": "selector022"}}]}], "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#selection_histogram-rst-altair-plot-0', {"config": {"view": {"width": 400, "height": 300}}, "vconcat": [{"mark": "point", "encoding": {"color": {"condition": {"type": "nominal", "field": "Origin", "selection": "selector020"}, "value": "lightgray"}, "x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "selection": {"selector020": {"type": "interval"}}}, {"mark": "bar", "encoding": {"color": {"type": "nominal", "field": "Origin"}, "x": {"type": "quantitative", "aggregate": "count", "field": "Origin"}, "y": {"type": "nominal", "field": "Origin"}}, "transform": [{"filter": {"selection": "selector020"}}]}], "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"}).catch(console.err);
+      vegaEmbed('#selection_histogram-rst-altair-plot-0', {"config": {"view": {"width": 400, "height": 300}}, "vconcat": [{"mark": "point", "encoding": {"color": {"condition": {"type": "nominal", "field": "Origin", "selection": "selector022"}, "value": "lightgray"}, "x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "selection": {"selector022": {"type": "interval"}}}, {"mark": "bar", "encoding": {"color": {"type": "nominal", "field": "Origin"}, "x": {"type": "quantitative", "aggregate": "count", "field": "Origin"}, "y": {"type": "nominal", "field": "Origin"}}, "transform": [{"filter": {"selection": "selector022"}}]}], "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
   });
 </script>
 </div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
@@ -263,8 +263,8 @@ of items in each category within the selection.</p>
     <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Horsepower:Q&#39;</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Miles_per_Gallon:Q&#39;</span><span class="p">,</span>
     <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span><span class="n">brush</span><span class="p">,</span> <span class="s1">&#39;Origin:N&#39;</span><span class="p">,</span> <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;lightgray&#39;</span><span class="p">))</span>
-<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
-    <span class="n">selection</span><span class="o">=</span><span class="n">brush</span>
+<span class="p">)</span><span class="o">.</span><span class="n">add_selection</span><span class="p">(</span>
+    <span class="n">brush</span>
 <span class="p">)</span>
 
 <span class="n">bars</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">()</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
@@ -272,7 +272,7 @@ of items in each category within the selection.</p>
     <span class="n">color</span><span class="o">=</span><span class="s1">&#39;Origin:N&#39;</span><span class="p">,</span>
     <span class="n">x</span><span class="o">=</span><span class="s1">&#39;count(Origin):Q&#39;</span>
 <span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span>
-    <span class="n">brush</span><span class="o">.</span><span class="n">ref</span><span class="p">()</span>
+    <span class="n">brush</span>
 <span class="p">)</span>
 
 <span class="n">alt</span><span class="o">.</span><span class="n">vconcat</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">bars</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">cars</span><span class="p">)</span>
@@ -326,7 +326,7 @@ of items in each category within the selection.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.0',
+            VERSION:'2.1.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

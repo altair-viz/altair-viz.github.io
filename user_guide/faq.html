@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Frequently Asked Questions &mdash; Altair 2.0 documentation</title>
+  <title>Frequently Asked Questions &mdash; Altair 2.1.0 documentation</title>
   
 
   
@@ -45,7 +45,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Altair 2.0 documentation" href="../index.html"/>
+    <link rel="top" title="Altair 2.1.0 documentation" href="../index.html"/>
         <link rel="next" title="Display Troubleshooting" href="troubleshooting.html"/>
         <link rel="prev" title="Customizing Visualizations" href="customization.html"/> 
 
@@ -79,7 +79,7 @@
             
             
               <div class="version">
-                2.0.1
+                2.1
               </div>
             
           
@@ -224,9 +224,12 @@ and nteract that know how to automatically perform this rendering (see
 <a class="reference internal" href="../getting_started/installation.html#installation"><span class="std std-ref">Installation</span></a> for details). If you’re using another frontend, you’ll have
 to figure out how to run that javascript rendering in the most convenient way
 for you.</p>
-<p>The easiest approach would be to save a chart to HTML, and then open it in your
-favorite web browser.
-You can save any chart to an HTML file by calling <code class="docutils literal"><span class="pre">chart.save('filename.html')</span></code>.</p>
+<p>The easiest approach is to use the <code class="xref py py-meth docutils literal"><span class="pre">Chart.serve()</span></code> method, which will convert
+the chart to HTML, start a webserver, and open your default browser to view the
+chart. See <a class="reference internal" href="display_frontends.html#display-general"><span class="std std-ref">Working in non-Notebook Environments</span></a> for more information.</p>
+<p>If you would like to manually save the chart to an html file in order to view it
+with a browser, you can use the <code class="xref py py-meth docutils literal"><span class="pre">Chart.save()</span></code> method; for example
+<code class="docutils literal"><span class="pre">chart.save('filename.html')</span></code>.</p>
 </div>
 <div class="section" id="i-tried-to-make-a-plot-but-it-doesn-t-show-up">
 <span id="faq-no-display"></span><h2>I tried to make a plot but it doesn’t show up<a class="headerlink" href="#i-tried-to-make-a-plot-but-it-doesn-t-show-up" title="Permalink to this headline">¶</a></h2>
@@ -421,7 +424,7 @@ and performance may suffer.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.0',
+            VERSION:'2.1.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

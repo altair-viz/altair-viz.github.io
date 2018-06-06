@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Simple Stacked Area Chart &mdash; Altair 2.0 documentation</title>
+  <title>Simple Stacked Area Chart &mdash; Altair 2.1.0 documentation</title>
   
 
   
@@ -45,7 +45,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Altair 2.0 documentation" href="../index.html"/>
+    <link rel="top" title="Altair 2.1.0 documentation" href="../index.html"/>
         <link rel="up" title="Example Gallery" href="index.html"/>
         <link rel="next" title="Strip Plot" href="strip_plot.html"/>
         <link rel="prev" title="Simple Scatter Plot" href="simple_scatter.html"/> 
@@ -80,7 +80,7 @@
             
             
               <div class="version">
-                2.0.1
+                2.1
               </div>
             
           
@@ -114,10 +114,12 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Example Gallery</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="index.html#simple-charts">Simple Charts</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="scatter_tooltips.html">Scatter Plot with Tooltips</a></li>
 <li class="toctree-l3"><a class="reference internal" href="simple_bar_chart.html">Simple Bar Chart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="simple_heatmap.html">Simple Heatmap</a></li>
 <li class="toctree-l3"><a class="reference internal" href="simple_histogram.html">Simple Histogram</a></li>
 <li class="toctree-l3"><a class="reference internal" href="simple_line_chart.html">Simple Line Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simple_line_chart_with_markers.html">Simple Line Chart with Markers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="simple_scatter.html">Simple Scatter Plot</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Simple Stacked Area Chart</a><ul class="simple">
 </ul>
@@ -132,6 +134,7 @@
 <li class="toctree-l2"><a class="reference internal" href="index.html#histograms">Histograms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#maps">Maps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#interactive-charts">Interactive Charts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#case-studies">Case Studies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#other-charts">Other Charts</a></li>
 </ul>
 </li>
@@ -236,24 +239,24 @@
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/unemployment-across-industries.json"}, "mark": "area", "encoding": {"color": {"type": "nominal", "field": "series"}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "count"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"values": [{"year": "2001-01-01", "source": "Fossil Fuels", "net_generation": 35361}, {"year": "2002-01-01", "source": "Fossil Fuels", "net_generation": 35991}, {"year": "2003-01-01", "source": "Fossil Fuels", "net_generation": 36234}, {"year": "2004-01-01", "source": "Fossil Fuels", "net_generation": 36205}, {"year": "2005-01-01", "source": "Fossil Fuels", "net_generation": 36883}, {"year": "2006-01-01", "source": "Fossil Fuels", "net_generation": 37014}, {"year": "2007-01-01", "source": "Fossil Fuels", "net_generation": 41389}, {"year": "2008-01-01", "source": "Fossil Fuels", "net_generation": 42734}, {"year": "2009-01-01", "source": "Fossil Fuels", "net_generation": 38620}, {"year": "2010-01-01", "source": "Fossil Fuels", "net_generation": 42750}, {"year": "2011-01-01", "source": "Fossil Fuels", "net_generation": 39361}, {"year": "2012-01-01", "source": "Fossil Fuels", "net_generation": 37379}, {"year": "2013-01-01", "source": "Fossil Fuels", "net_generation": 34873}, {"year": "2014-01-01", "source": "Fossil Fuels", "net_generation": 35250}, {"year": "2015-01-01", "source": "Fossil Fuels", "net_generation": 32319}, {"year": "2016-01-01", "source": "Fossil Fuels", "net_generation": 28437}, {"year": "2017-01-01", "source": "Fossil Fuels", "net_generation": 29329}, {"year": "2001-01-01", "source": "Nuclear Energy", "net_generation": 3853}, {"year": "2002-01-01", "source": "Nuclear Energy", "net_generation": 4574}, {"year": "2003-01-01", "source": "Nuclear Energy", "net_generation": 3988}, {"year": "2004-01-01", "source": "Nuclear Energy", "net_generation": 4929}, {"year": "2005-01-01", "source": "Nuclear Energy", "net_generation": 4538}, {"year": "2006-01-01", "source": "Nuclear Energy", "net_generation": 5095}, {"year": "2007-01-01", "source": "Nuclear Energy", "net_generation": 4519}, {"year": "2008-01-01", "source": "Nuclear Energy", "net_generation": 5282}, {"year": "2009-01-01", "source": "Nuclear Energy", "net_generation": 4679}, {"year": "2010-01-01", "source": "Nuclear Energy", "net_generation": 4451}, {"year": "2011-01-01", "source": "Nuclear Energy", "net_generation": 5215}, {"year": "2012-01-01", "source": "Nuclear Energy", "net_generation": 4347}, {"year": "2013-01-01", "source": "Nuclear Energy", "net_generation": 5321}, {"year": "2014-01-01", "source": "Nuclear Energy", "net_generation": 4152}, {"year": "2015-01-01", "source": "Nuclear Energy", "net_generation": 5243}, {"year": "2016-01-01", "source": "Nuclear Energy", "net_generation": 4703}, {"year": "2017-01-01", "source": "Nuclear Energy", "net_generation": 5214}, {"year": "2001-01-01", "source": "Renewables", "net_generation": 1437}, {"year": "2002-01-01", "source": "Renewables", "net_generation": 1963}, {"year": "2003-01-01", "source": "Renewables", "net_generation": 1885}, {"year": "2004-01-01", "source": "Renewables", "net_generation": 2102}, {"year": "2005-01-01", "source": "Renewables", "net_generation": 2724}, {"year": "2006-01-01", "source": "Renewables", "net_generation": 3364}, {"year": "2007-01-01", "source": "Renewables", "net_generation": 3870}, {"year": "2008-01-01", "source": "Renewables", "net_generation": 5070}, {"year": "2009-01-01", "source": "Renewables", "net_generation": 8560}, {"year": "2010-01-01", "source": "Renewables", "net_generation": 10308}, {"year": "2011-01-01", "source": "Renewables", "net_generation": 11795}, {"year": "2012-01-01", "source": "Renewables", "net_generation": 14949}, {"year": "2013-01-01", "source": "Renewables", "net_generation": 16476}, {"year": "2014-01-01", "source": "Renewables", "net_generation": 17452}, {"year": "2015-01-01", "source": "Renewables", "net_generation": 19091}, {"year": "2016-01-01", "source": "Renewables", "net_generation": 21241}, {"year": "2017-01-01", "source": "Renewables", "net_generation": 21933}]}, "mark": "area", "encoding": {"color": {"type": "nominal", "field": "source"}, "x": {"type": "temporal", "field": "year"}, "y": {"type": "quantitative", "field": "net_generation"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#simple_stacked_area_chart-rst-altair-plot-0', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/unemployment-across-industries.json"}, "mark": "area", "encoding": {"color": {"type": "nominal", "field": "series"}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "count"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"}).catch(console.err);
+      vegaEmbed('#simple_stacked_area_chart-rst-altair-plot-0', {"config": {"view": {"width": 400, "height": 300}}, "data": {"values": [{"year": "2001-01-01", "source": "Fossil Fuels", "net_generation": 35361}, {"year": "2002-01-01", "source": "Fossil Fuels", "net_generation": 35991}, {"year": "2003-01-01", "source": "Fossil Fuels", "net_generation": 36234}, {"year": "2004-01-01", "source": "Fossil Fuels", "net_generation": 36205}, {"year": "2005-01-01", "source": "Fossil Fuels", "net_generation": 36883}, {"year": "2006-01-01", "source": "Fossil Fuels", "net_generation": 37014}, {"year": "2007-01-01", "source": "Fossil Fuels", "net_generation": 41389}, {"year": "2008-01-01", "source": "Fossil Fuels", "net_generation": 42734}, {"year": "2009-01-01", "source": "Fossil Fuels", "net_generation": 38620}, {"year": "2010-01-01", "source": "Fossil Fuels", "net_generation": 42750}, {"year": "2011-01-01", "source": "Fossil Fuels", "net_generation": 39361}, {"year": "2012-01-01", "source": "Fossil Fuels", "net_generation": 37379}, {"year": "2013-01-01", "source": "Fossil Fuels", "net_generation": 34873}, {"year": "2014-01-01", "source": "Fossil Fuels", "net_generation": 35250}, {"year": "2015-01-01", "source": "Fossil Fuels", "net_generation": 32319}, {"year": "2016-01-01", "source": "Fossil Fuels", "net_generation": 28437}, {"year": "2017-01-01", "source": "Fossil Fuels", "net_generation": 29329}, {"year": "2001-01-01", "source": "Nuclear Energy", "net_generation": 3853}, {"year": "2002-01-01", "source": "Nuclear Energy", "net_generation": 4574}, {"year": "2003-01-01", "source": "Nuclear Energy", "net_generation": 3988}, {"year": "2004-01-01", "source": "Nuclear Energy", "net_generation": 4929}, {"year": "2005-01-01", "source": "Nuclear Energy", "net_generation": 4538}, {"year": "2006-01-01", "source": "Nuclear Energy", "net_generation": 5095}, {"year": "2007-01-01", "source": "Nuclear Energy", "net_generation": 4519}, {"year": "2008-01-01", "source": "Nuclear Energy", "net_generation": 5282}, {"year": "2009-01-01", "source": "Nuclear Energy", "net_generation": 4679}, {"year": "2010-01-01", "source": "Nuclear Energy", "net_generation": 4451}, {"year": "2011-01-01", "source": "Nuclear Energy", "net_generation": 5215}, {"year": "2012-01-01", "source": "Nuclear Energy", "net_generation": 4347}, {"year": "2013-01-01", "source": "Nuclear Energy", "net_generation": 5321}, {"year": "2014-01-01", "source": "Nuclear Energy", "net_generation": 4152}, {"year": "2015-01-01", "source": "Nuclear Energy", "net_generation": 5243}, {"year": "2016-01-01", "source": "Nuclear Energy", "net_generation": 4703}, {"year": "2017-01-01", "source": "Nuclear Energy", "net_generation": 5214}, {"year": "2001-01-01", "source": "Renewables", "net_generation": 1437}, {"year": "2002-01-01", "source": "Renewables", "net_generation": 1963}, {"year": "2003-01-01", "source": "Renewables", "net_generation": 1885}, {"year": "2004-01-01", "source": "Renewables", "net_generation": 2102}, {"year": "2005-01-01", "source": "Renewables", "net_generation": 2724}, {"year": "2006-01-01", "source": "Renewables", "net_generation": 3364}, {"year": "2007-01-01", "source": "Renewables", "net_generation": 3870}, {"year": "2008-01-01", "source": "Renewables", "net_generation": 5070}, {"year": "2009-01-01", "source": "Renewables", "net_generation": 8560}, {"year": "2010-01-01", "source": "Renewables", "net_generation": 10308}, {"year": "2011-01-01", "source": "Renewables", "net_generation": 11795}, {"year": "2012-01-01", "source": "Renewables", "net_generation": 14949}, {"year": "2013-01-01", "source": "Renewables", "net_generation": 16476}, {"year": "2014-01-01", "source": "Renewables", "net_generation": 17452}, {"year": "2015-01-01", "source": "Renewables", "net_generation": 19091}, {"year": "2016-01-01", "source": "Renewables", "net_generation": 21241}, {"year": "2017-01-01", "source": "Renewables", "net_generation": 21933}]}, "mark": "area", "encoding": {"color": {"type": "nominal", "field": "source"}, "x": {"type": "temporal", "field": "year"}, "y": {"type": "quantitative", "field": "net_generation"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
   });
 </script>
 </div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
 <span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
 
-<span class="n">source</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">unemployment_across_industries</span><span class="o">.</span><span class="n">url</span>
+<span class="n">iowa</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">iowa_electricity</span><span class="p">()</span>
 
-<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">mark_area</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;date:T&quot;</span><span class="p">,</span>
-    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;count:Q&quot;</span><span class="p">,</span>
-    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;series:N&quot;</span>
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">iowa</span><span class="p">)</span><span class="o">.</span><span class="n">mark_area</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;year:T&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;net_generation:Q&quot;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;source:N&quot;</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -305,7 +308,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.0',
+            VERSION:'2.1.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

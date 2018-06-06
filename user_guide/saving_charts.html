@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Saving Altair Charts &mdash; Altair 2.0 documentation</title>
+  <title>Saving Altair Charts &mdash; Altair 2.1.0 documentation</title>
   
 
   
@@ -45,7 +45,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Altair 2.0 documentation" href="../index.html"/>
+    <link rel="top" title="Altair 2.1.0 documentation" href="../index.html"/>
         <link rel="next" title="Customizing Visualizations" href="customization.html"/>
         <link rel="prev" title="Compound Charts: Layer, HConcat, VConcat, Repeat, Facet" href="compound_charts.html"/> 
 
@@ -79,7 +79,7 @@
             
             
               <div class="version">
-                2.0.1
+                2.1
               </div>
             
           
@@ -123,7 +123,10 @@
 <li class="toctree-l1"><a class="reference internal" href="configuration.html">Top-Level Chart Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Saving Altair Charts</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#png-and-svg-format">PNG and SVG format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#png-and-svg-format">PNG and SVG format</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#figure-size-resolution">Figure Size/Resolution</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#json-format">JSON format</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#html-format">HTML format</a></li>
 </ul>
@@ -251,6 +254,17 @@ installation.</p>
 </ul>
 <p>Once those dependencies are installed, you should be able to save charts as
 <code class="docutils literal"><span class="pre">png</span></code> or <code class="docutils literal"><span class="pre">svg</span></code>.</p>
+<div class="section" id="figure-size-resolution">
+<h3>Figure Size/Resolution<a class="headerlink" href="#figure-size-resolution" title="Permalink to this headline">¶</a></h3>
+<p>When using <code class="docutils literal"><span class="pre">chart.save()</span></code> above, the resolution of the resulting PNG is
+controlled by the resolution of your screen. The easiest way to produce a
+higher-resolution PNG image is to scale the image to make it larger, and thus
+to contain more pixels at a given resolution.</p>
+<p>This can be done with the <code class="docutils literal"><span class="pre">scale_factor</span></code> argument, which defaults to 1.0:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">chart</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;chart.png&#39;</span><span class="p">,</span> <span class="n">scale_factor</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="json-format">
 <h2>JSON format<a class="headerlink" href="#json-format" title="Permalink to this headline">¶</a></h2>
@@ -270,7 +284,7 @@ a filename with a <code class="docutils literal"><span class="pre">.json</span><
 <span class="n">chart</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;chart.json&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The contetns of the resulting file will look something like this:</p>
+<p>The contents of the resulting file will look something like this:</p>
 <div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;$schema&quot;</span><span class="p">:</span> <span class="s2">&quot;https://vega.github.io/schema/vega-lite/v2.json&quot;</span><span class="p">,</span>
   <span class="nt">&quot;config&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -406,7 +420,7 @@ javascript-enabled web browser:</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.0',
+            VERSION:'2.1.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Marks &mdash; Altair 2.0 documentation</title>
+  <title>Marks &mdash; Altair 2.1.0 documentation</title>
   
 
   
@@ -45,7 +45,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Altair 2.0 documentation" href="../index.html"/>
+    <link rel="top" title="Altair 2.1.0 documentation" href="../index.html"/>
         <link rel="next" title="Data Transformations" href="transform.html"/>
         <link rel="prev" title="Encodings" href="encoding.html"/> 
 
@@ -79,7 +79,7 @@
             
             
               <div class="version">
-                2.0.1
+                2.1
               </div>
             
           
@@ -306,13 +306,13 @@ arguments to represent points as red semi-transparent filled circles:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": {"type": "circle", "color": "red", "opacity": 0.3}, "encoding": {"x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"};
+      var spec = {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": {"type": "circle", "color": "red", "opacity": 0.3}, "encoding": {"x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#marks-rst-altair-plot-0', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": {"type": "circle", "color": "red", "opacity": 0.3}, "encoding": {"x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"}).catch(console.err);
+      vegaEmbed('#marks-rst-altair-plot-0', {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": {"type": "circle", "color": "red", "opacity": 0.3}, "encoding": {"x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
   });
 </script>
 </div><p>The additional arguments to <code class="docutils literal"><span class="pre">mark_*()</span></code> methods are passed along to an
@@ -407,7 +407,7 @@ associated <a class="reference internal" href="API.html#altair.MarkDef" title="a
 <td>The maximum length of the text mark in pixels (default 0, indicating no limit). The text value will be automatically truncated if the rendered size exceeds the limit.</td>
 </tr>
 <tr class="row-odd"><td>line</td>
-<td>anyOf(boolean, <a class="reference internal" href="API.html#altair.MarkProperties" title="altair.MarkProperties"><code class="xref py py-class docutils literal"><span class="pre">MarkProperties</span></code></a>)</td>
+<td>anyOf(boolean, <a class="reference internal" href="API.html#altair.MarkConfig" title="altair.MarkConfig"><code class="xref py py-class docutils literal"><span class="pre">MarkConfig</span></code></a>)</td>
 <td>A flag for overlaying line on top of area marks, or an object defining the properties of the overlayed lines.   *    If this value is an empty object (<code class="docutils literal"><span class="pre">{}</span></code>) or <code class="docutils literal"><span class="pre">true</span></code>, lines with default properties will be used.  *    If this value is <code class="docutils literal"><span class="pre">false</span></code>, no lines would be automatically added to area marks.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">false</span></code>.</td>
 </tr>
 <tr class="row-even"><td>opacity</td>
@@ -419,7 +419,7 @@ associated <a class="reference internal" href="API.html#altair.MarkDef" title="a
 <td>The orientation of a non-stacked bar, tick, area, and line charts. The value is either horizontal (default) or vertical.   * For bar, rule and tick, this determines whether the size of the bar and tick   should be applied to x or y dimension. * For area, this property determines the orient property of the Vega output. * For line and trail marks, this property determines the sort order of the points in the line   if <code class="docutils literal"><span class="pre">config.sortLineBy</span></code> is not specified.   For stacked charts, this is always determined by the orientation of the stack;   therefore explicitly specified value will be ignored.</td>
 </tr>
 <tr class="row-even"><td>point</td>
-<td>anyOf(boolean, <a class="reference internal" href="API.html#altair.MarkProperties" title="altair.MarkProperties"><code class="xref py py-class docutils literal"><span class="pre">MarkProperties</span></code></a>, [‘transparent’])</td>
+<td>anyOf(boolean, <a class="reference internal" href="API.html#altair.MarkConfig" title="altair.MarkConfig"><code class="xref py py-class docutils literal"><span class="pre">MarkConfig</span></code></a>, [‘transparent’])</td>
 <td>A flag for overlaying points on top of line or area marks, or an object defining the properties of the overlayed points.   *    If this property is <code class="docutils literal"><span class="pre">&quot;transparent&quot;</span></code>, transparent points will be used (for enhancing tooltips and selections).  *    If this property is an empty object (<code class="docutils literal"><span class="pre">{}</span></code>) or <code class="docutils literal"><span class="pre">true</span></code>, filled points with default properties will be used.  *    If this property is <code class="docutils literal"><span class="pre">false</span></code>, no points would be automatically added to line or area marks.  <strong>Default value:</strong> <code class="docutils literal"><span class="pre">false</span></code>.</td>
 </tr>
 <tr class="row-odd"><td>radius</td>
@@ -528,7 +528,7 @@ associated <a class="reference internal" href="API.html#altair.MarkDef" title="a
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.0',
+            VERSION:'2.1.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
