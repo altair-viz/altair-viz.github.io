@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Connected Scatterplot (Lines with Custom Paths) &mdash; Altair 2.1.0 documentation</title>
+  <title>Connected Scatterplot (Lines with Custom Paths) &mdash; Altair 2.2.0 documentation</title>
   
 
   
@@ -26,36 +26,23 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="../_static/altair-plot.css" type="text/css" />
-  
-    <link rel="stylesheet" href="../_static/altair-gallery.css" type="text/css" />
-  
-    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
-  
-    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Altair 2.1.0 documentation" href="../index.html"/>
-        <link rel="up" title="Example Gallery" href="index.html"/>
-        <link rel="next" title="Dot Dash Plot" href="dot_dash_plot.html"/>
-        <link rel="prev" title="Bubble Plot" href="bubble_plot.html"/> 
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/altair-plot.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/altair-gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Dot Dash Plot" href="dot_dash_plot.html" />
+    <link rel="prev" title="Bubble Plot" href="bubble_plot.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -72,7 +59,7 @@
 
           
             
-            <img src="../_static/altair-logo-light.png" class="logo" />
+            <img src="../_static/altair-logo-light.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -80,7 +67,7 @@
             
             
               <div class="version">
-                2.1
+                2.2
               </div>
             
           
@@ -127,6 +114,7 @@
 <li class="toctree-l3"><a class="reference internal" href="multifeature_scatter_plot.html">Multifeature Scatter Plot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="poly_fit.html">Polynomial Fit Plot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="scatter_matrix.html">Scatter Matrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scatter_href.html">Scatter Plot with Href</a></li>
 <li class="toctree-l3"><a class="reference internal" href="simple_scatter_with_errorbars.html">Simple Scatter Plot with Errorbars</a></li>
 <li class="toctree-l3"><a class="reference internal" href="scatter_with_labels.html">Simple Scatter Plot with Labels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="table_bubble_plot_github.html">Table Bubble Plot (Github Punch Card)</a></li>
@@ -152,9 +140,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/saving_charts.html">Saving Altair Charts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/customization.html">Customizing Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/times_and_dates.html">Times and Dates in Altair</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/troubleshooting.html">Display Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/renderers.html">Altair Renderers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/internals.html">Altair Internals: Understanding the Library</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/API.html">API Reference</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Case Studies</span></p>
@@ -178,7 +168,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Altair</a>
@@ -186,9 +176,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -242,13 +233,13 @@ It is based on Hannah Fairfield’s article ‘Driving Shifts Into Reverse’. S
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"values": [{"gas": 2.38, "miles": 3675, "side": "left", "year": 1956}, {"gas": 2.4, "miles": 3706, "side": "right", "year": 1957}, {"gas": 2.26, "miles": 3766, "side": "bottom", "year": 1958}, {"gas": 2.31, "miles": 3905, "side": "top", "year": 1959}, {"gas": 2.27, "miles": 3935, "side": "right", "year": 1960}, {"gas": 2.25, "miles": 3977, "side": "bottom", "year": 1961}, {"gas": 2.22, "miles": 4085, "side": "right", "year": 1962}, {"gas": 2.12, "miles": 4218, "side": "bottom", "year": 1963}, {"gas": 2.11, "miles": 4369, "side": "bottom", "year": 1964}, {"gas": 2.14, "miles": 4538, "side": "bottom", "year": 1965}, {"gas": 2.14, "miles": 4676, "side": "top", "year": 1966}, {"gas": 2.14, "miles": 4827, "side": "bottom", "year": 1967}, {"gas": 2.13, "miles": 5038, "side": "right", "year": 1968}, {"gas": 2.07, "miles": 5207, "side": "right", "year": 1969}, {"gas": 2.01, "miles": 5376, "side": "right", "year": 1970}, {"gas": 1.9300000000000002, "miles": 5617, "side": "bottom", "year": 1971}, {"gas": 1.87, "miles": 5973, "side": "bottom", "year": 1972}, {"gas": 1.9, "miles": 6154, "side": "right", "year": 1973}, {"gas": 2.34, "miles": 5943, "side": "left", "year": 1974}, {"gas": 2.31, "miles": 6111, "side": "bottom", "year": 1975}, {"gas": 2.32, "miles": 6389, "side": "bottom", "year": 1976}, {"gas": 2.36, "miles": 6630, "side": "top", "year": 1977}, {"gas": 2.23, "miles": 6883, "side": "bottom", "year": 1978}, {"gas": 2.68, "miles": 6744, "side": "left", "year": 1979}, {"gas": 3.3, "miles": 6672, "side": "left", "year": 1980}, {"gas": 3.3, "miles": 6732, "side": "right", "year": 1981}, {"gas": 2.92, "miles": 6835, "side": "right", "year": 1982}, {"gas": 2.66, "miles": 6943, "side": "right", "year": 1983}, {"gas": 2.48, "miles": 7130, "side": "right", "year": 1984}, {"gas": 2.36, "miles": 7323, "side": "right", "year": 1985}, {"gas": 1.76, "miles": 7558, "side": "left", "year": 1986}, {"gas": 1.76, "miles": 7770, "side": "top", "year": 1987}, {"gas": 1.6800000000000002, "miles": 8089, "side": "bottom", "year": 1988}, {"gas": 1.75, "miles": 8397, "side": "left", "year": 1989}, {"gas": 1.88, "miles": 8529, "side": "top", "year": 1990}, {"gas": 1.78, "miles": 8535, "side": "right", "year": 1991}, {"gas": 1.69, "miles": 8662, "side": "right", "year": 1992}, {"gas": 1.6, "miles": 8855, "side": "left", "year": 1993}, {"gas": 1.5899999999999999, "miles": 8909, "side": "bottom", "year": 1994}, {"gas": 1.6, "miles": 9150, "side": "bottom", "year": 1995}, {"gas": 1.67, "miles": 9192, "side": "top", "year": 1996}, {"gas": 1.65, "miles": 9416, "side": "right", "year": 1997}, {"gas": 1.3900000000000001, "miles": 9590, "side": "bottom", "year": 1998}, {"gas": 1.5, "miles": 9687, "side": "right", "year": 1999}, {"gas": 1.8900000000000001, "miles": 9717, "side": "top", "year": 2000}, {"gas": 1.77, "miles": 9699, "side": "left", "year": 2001}, {"gas": 1.6400000000000001, "miles": 9814, "side": "bottom", "year": 2002}, {"gas": 1.8599999999999999, "miles": 9868, "side": "right", "year": 2003}, {"gas": 2.14, "miles": 9994, "side": "left", "year": 2004}, {"gas": 2.5300000000000002, "miles": 10067, "side": "left", "year": 2005}, {"gas": 2.79, "miles": 10037, "side": "right", "year": 2006}, {"gas": 2.95, "miles": 10025, "side": "right", "year": 2007}, {"gas": 3.31, "miles": 9880, "side": "left", "year": 2008}, {"gas": 2.38, "miles": 9657, "side": "bottom", "year": 2009}, {"gas": 2.61, "miles": 9596, "side": "left", "year": 2010}]}, "mark": {"type": "line", "point": true}, "encoding": {"order": {"type": "quantitative", "field": "year"}, "x": {"type": "quantitative", "field": "miles", "scale": {"zero": false}}, "y": {"type": "quantitative", "field": "gas", "scale": {"zero": false}}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"name": "data-e24c277102dddc2eceb7d9aaeb087c70"}, "mark": {"type": "line", "point": true}, "encoding": {"order": {"type": "quantitative", "field": "year"}, "x": {"type": "quantitative", "field": "miles", "scale": {"zero": false}}, "y": {"type": "quantitative", "field": "gas", "scale": {"zero": false}}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json", "datasets": {"data-e24c277102dddc2eceb7d9aaeb087c70": [{"gas": 2.38, "miles": 3675, "side": "left", "year": 1956}, {"gas": 2.4, "miles": 3706, "side": "right", "year": 1957}, {"gas": 2.26, "miles": 3766, "side": "bottom", "year": 1958}, {"gas": 2.31, "miles": 3905, "side": "top", "year": 1959}, {"gas": 2.27, "miles": 3935, "side": "right", "year": 1960}, {"gas": 2.25, "miles": 3977, "side": "bottom", "year": 1961}, {"gas": 2.22, "miles": 4085, "side": "right", "year": 1962}, {"gas": 2.12, "miles": 4218, "side": "bottom", "year": 1963}, {"gas": 2.11, "miles": 4369, "side": "bottom", "year": 1964}, {"gas": 2.14, "miles": 4538, "side": "bottom", "year": 1965}, {"gas": 2.14, "miles": 4676, "side": "top", "year": 1966}, {"gas": 2.14, "miles": 4827, "side": "bottom", "year": 1967}, {"gas": 2.13, "miles": 5038, "side": "right", "year": 1968}, {"gas": 2.07, "miles": 5207, "side": "right", "year": 1969}, {"gas": 2.01, "miles": 5376, "side": "right", "year": 1970}, {"gas": 1.9300000000000002, "miles": 5617, "side": "bottom", "year": 1971}, {"gas": 1.87, "miles": 5973, "side": "bottom", "year": 1972}, {"gas": 1.9, "miles": 6154, "side": "right", "year": 1973}, {"gas": 2.34, "miles": 5943, "side": "left", "year": 1974}, {"gas": 2.31, "miles": 6111, "side": "bottom", "year": 1975}, {"gas": 2.32, "miles": 6389, "side": "bottom", "year": 1976}, {"gas": 2.36, "miles": 6630, "side": "top", "year": 1977}, {"gas": 2.23, "miles": 6883, "side": "bottom", "year": 1978}, {"gas": 2.68, "miles": 6744, "side": "left", "year": 1979}, {"gas": 3.3, "miles": 6672, "side": "left", "year": 1980}, {"gas": 3.3, "miles": 6732, "side": "right", "year": 1981}, {"gas": 2.92, "miles": 6835, "side": "right", "year": 1982}, {"gas": 2.66, "miles": 6943, "side": "right", "year": 1983}, {"gas": 2.48, "miles": 7130, "side": "right", "year": 1984}, {"gas": 2.36, "miles": 7323, "side": "right", "year": 1985}, {"gas": 1.76, "miles": 7558, "side": "left", "year": 1986}, {"gas": 1.76, "miles": 7770, "side": "top", "year": 1987}, {"gas": 1.6800000000000002, "miles": 8089, "side": "bottom", "year": 1988}, {"gas": 1.75, "miles": 8397, "side": "left", "year": 1989}, {"gas": 1.88, "miles": 8529, "side": "top", "year": 1990}, {"gas": 1.78, "miles": 8535, "side": "right", "year": 1991}, {"gas": 1.69, "miles": 8662, "side": "right", "year": 1992}, {"gas": 1.6, "miles": 8855, "side": "left", "year": 1993}, {"gas": 1.5899999999999999, "miles": 8909, "side": "bottom", "year": 1994}, {"gas": 1.6, "miles": 9150, "side": "bottom", "year": 1995}, {"gas": 1.67, "miles": 9192, "side": "top", "year": 1996}, {"gas": 1.65, "miles": 9416, "side": "right", "year": 1997}, {"gas": 1.3900000000000001, "miles": 9590, "side": "bottom", "year": 1998}, {"gas": 1.5, "miles": 9687, "side": "right", "year": 1999}, {"gas": 1.8900000000000001, "miles": 9717, "side": "top", "year": 2000}, {"gas": 1.77, "miles": 9699, "side": "left", "year": 2001}, {"gas": 1.6400000000000001, "miles": 9814, "side": "bottom", "year": 2002}, {"gas": 1.8599999999999999, "miles": 9868, "side": "right", "year": 2003}, {"gas": 2.14, "miles": 9994, "side": "left", "year": 2004}, {"gas": 2.5300000000000002, "miles": 10067, "side": "left", "year": 2005}, {"gas": 2.79, "miles": 10037, "side": "right", "year": 2006}, {"gas": 2.95, "miles": 10025, "side": "right", "year": 2007}, {"gas": 3.31, "miles": 9880, "side": "left", "year": 2008}, {"gas": 2.38, "miles": 9657, "side": "bottom", "year": 2009}, {"gas": 2.61, "miles": 9596, "side": "left", "year": 2010}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#connected_scatterplot-rst-altair-plot-0', {"config": {"view": {"width": 400, "height": 300}}, "data": {"values": [{"gas": 2.38, "miles": 3675, "side": "left", "year": 1956}, {"gas": 2.4, "miles": 3706, "side": "right", "year": 1957}, {"gas": 2.26, "miles": 3766, "side": "bottom", "year": 1958}, {"gas": 2.31, "miles": 3905, "side": "top", "year": 1959}, {"gas": 2.27, "miles": 3935, "side": "right", "year": 1960}, {"gas": 2.25, "miles": 3977, "side": "bottom", "year": 1961}, {"gas": 2.22, "miles": 4085, "side": "right", "year": 1962}, {"gas": 2.12, "miles": 4218, "side": "bottom", "year": 1963}, {"gas": 2.11, "miles": 4369, "side": "bottom", "year": 1964}, {"gas": 2.14, "miles": 4538, "side": "bottom", "year": 1965}, {"gas": 2.14, "miles": 4676, "side": "top", "year": 1966}, {"gas": 2.14, "miles": 4827, "side": "bottom", "year": 1967}, {"gas": 2.13, "miles": 5038, "side": "right", "year": 1968}, {"gas": 2.07, "miles": 5207, "side": "right", "year": 1969}, {"gas": 2.01, "miles": 5376, "side": "right", "year": 1970}, {"gas": 1.9300000000000002, "miles": 5617, "side": "bottom", "year": 1971}, {"gas": 1.87, "miles": 5973, "side": "bottom", "year": 1972}, {"gas": 1.9, "miles": 6154, "side": "right", "year": 1973}, {"gas": 2.34, "miles": 5943, "side": "left", "year": 1974}, {"gas": 2.31, "miles": 6111, "side": "bottom", "year": 1975}, {"gas": 2.32, "miles": 6389, "side": "bottom", "year": 1976}, {"gas": 2.36, "miles": 6630, "side": "top", "year": 1977}, {"gas": 2.23, "miles": 6883, "side": "bottom", "year": 1978}, {"gas": 2.68, "miles": 6744, "side": "left", "year": 1979}, {"gas": 3.3, "miles": 6672, "side": "left", "year": 1980}, {"gas": 3.3, "miles": 6732, "side": "right", "year": 1981}, {"gas": 2.92, "miles": 6835, "side": "right", "year": 1982}, {"gas": 2.66, "miles": 6943, "side": "right", "year": 1983}, {"gas": 2.48, "miles": 7130, "side": "right", "year": 1984}, {"gas": 2.36, "miles": 7323, "side": "right", "year": 1985}, {"gas": 1.76, "miles": 7558, "side": "left", "year": 1986}, {"gas": 1.76, "miles": 7770, "side": "top", "year": 1987}, {"gas": 1.6800000000000002, "miles": 8089, "side": "bottom", "year": 1988}, {"gas": 1.75, "miles": 8397, "side": "left", "year": 1989}, {"gas": 1.88, "miles": 8529, "side": "top", "year": 1990}, {"gas": 1.78, "miles": 8535, "side": "right", "year": 1991}, {"gas": 1.69, "miles": 8662, "side": "right", "year": 1992}, {"gas": 1.6, "miles": 8855, "side": "left", "year": 1993}, {"gas": 1.5899999999999999, "miles": 8909, "side": "bottom", "year": 1994}, {"gas": 1.6, "miles": 9150, "side": "bottom", "year": 1995}, {"gas": 1.67, "miles": 9192, "side": "top", "year": 1996}, {"gas": 1.65, "miles": 9416, "side": "right", "year": 1997}, {"gas": 1.3900000000000001, "miles": 9590, "side": "bottom", "year": 1998}, {"gas": 1.5, "miles": 9687, "side": "right", "year": 1999}, {"gas": 1.8900000000000001, "miles": 9717, "side": "top", "year": 2000}, {"gas": 1.77, "miles": 9699, "side": "left", "year": 2001}, {"gas": 1.6400000000000001, "miles": 9814, "side": "bottom", "year": 2002}, {"gas": 1.8599999999999999, "miles": 9868, "side": "right", "year": 2003}, {"gas": 2.14, "miles": 9994, "side": "left", "year": 2004}, {"gas": 2.5300000000000002, "miles": 10067, "side": "left", "year": 2005}, {"gas": 2.79, "miles": 10037, "side": "right", "year": 2006}, {"gas": 2.95, "miles": 10025, "side": "right", "year": 2007}, {"gas": 3.31, "miles": 9880, "side": "left", "year": 2008}, {"gas": 2.38, "miles": 9657, "side": "bottom", "year": 2009}, {"gas": 2.61, "miles": 9596, "side": "left", "year": 2010}]}, "mark": {"type": "line", "point": true}, "encoding": {"order": {"type": "quantitative", "field": "year"}, "x": {"type": "quantitative", "field": "miles", "scale": {"zero": false}}, "y": {"type": "quantitative", "field": "gas", "scale": {"zero": false}}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
+      vegaEmbed('#connected_scatterplot-rst-altair-plot-0', spec, opt).catch(console.err);
   });
 </script>
 </div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
@@ -269,9 +260,7 @@ It is based on Hannah Fairfield’s article ‘Driving Shifts Into Reverse’. S
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -293,7 +282,7 @@ It is based on Hannah Fairfield’s article ‘Driving Shifts Into Reverse’. S
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -311,7 +300,8 @@ It is based on Hannah Fairfield’s article ‘Driving Shifts Into Reverse’. S
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.1.0',
+            VERSION:'2.2.0',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -322,24 +312,18 @@ It is based on Hannah Fairfield’s article ‘Driving Shifts Into Reverse’. S
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@3.3"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@2.4"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@3.14"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@2.6"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@3.18"></script>
 
   
 
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

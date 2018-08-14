@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Example Gallery &mdash; Altair 2.1.0 documentation</title>
+  <title>Example Gallery &mdash; Altair 2.2.0 documentation</title>
   
 
   
@@ -26,35 +26,23 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="../_static/altair-plot.css" type="text/css" />
-  
-    <link rel="stylesheet" href="../_static/altair-gallery.css" type="text/css" />
-  
-    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
-  
-    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Altair 2.1.0 documentation" href="../index.html"/>
-        <link rel="next" title="Scatter Plot with Tooltips" href="scatter_tooltips.html"/>
-        <link rel="prev" title="Basic Statistical Visualization" href="../getting_started/starting.html"/> 
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/altair-plot.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/altair-gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Scatter Plot with Tooltips" href="scatter_tooltips.html" />
+    <link rel="prev" title="Basic Statistical Visualization" href="../getting_started/starting.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -71,7 +59,7 @@
 
           
             
-            <img src="../_static/altair-logo-light.png" class="logo" />
+            <img src="../_static/altair-logo-light.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -79,7 +67,7 @@
             
             
               <div class="version">
-                2.1
+                2.2
               </div>
             
           
@@ -162,6 +150,7 @@
 <li class="toctree-l3"><a class="reference internal" href="normalized_stacked_area_chart.html">Normalized Stacked Area Chart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="streamgraph.html">Streamgraph</a></li>
 <li class="toctree-l3"><a class="reference internal" href="trellis_area.html">Trellis Area Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trellis_area_sort_array.html">Trellis Area Sort Chart</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#scatter-plots">Scatter Plots</a><ul>
@@ -172,6 +161,7 @@
 <li class="toctree-l3"><a class="reference internal" href="multifeature_scatter_plot.html">Multifeature Scatter Plot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="poly_fit.html">Polynomial Fit Plot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="scatter_matrix.html">Scatter Matrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scatter_href.html">Scatter Plot with Href</a></li>
 <li class="toctree-l3"><a class="reference internal" href="simple_scatter_with_errorbars.html">Simple Scatter Plot with Errorbars</a></li>
 <li class="toctree-l3"><a class="reference internal" href="scatter_with_labels.html">Simple Scatter Plot with Labels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="table_bubble_plot_github.html">Table Bubble Plot (Github Punch Card)</a></li>
@@ -210,13 +200,16 @@
 <li class="toctree-l3"><a class="reference internal" href="cumulative_wiki_donations.html">Cumulative Wikipedia Donations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="falkensee.html">Falkensee</a></li>
 <li class="toctree-l3"><a class="reference internal" href="gapminder_bubble_plot.html">Gapminder Bubble Plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="isotype.html">Isotype Visualization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="airports.html">Locations of US Airports</a></li>
 <li class="toctree-l3"><a class="reference internal" href="london_tube.html">London Tube Lines</a></li>
 <li class="toctree-l3"><a class="reference internal" href="natural_disasters.html">Natural Disasters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="one_dot_per_zipcode.html">One Dot Per Zipcode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="seattle_weather_interactive.html">Seattle Weather Interactive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="top_k_letters.html">Top K Letters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="us_state_capitals.html">U.S. state capitals overlayed on a map of the U.S</a></li>
 <li class="toctree-l3"><a class="reference internal" href="us_population_over_time.html">US Population Over Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="us_population_pyramid_over_time.html">US Population Pyramid Over Time</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#other-charts">Other Charts</a><ul>
@@ -244,9 +237,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/saving_charts.html">Saving Altair Charts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/customization.html">Customizing Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/times_and_dates.html">Times and Dates in Altair</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/troubleshooting.html">Display Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/renderers.html">Altair Renderers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/internals.html">Altair Internals: Understanding the Library</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/API.html">API Reference</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Case Studies</span></p>
@@ -270,7 +265,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Altair</a>
@@ -278,9 +273,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -561,6 +557,11 @@
   <span class="image-title">Trellis Area Chart</span>
 </a>
 
+<a class="imagegroup" href="trellis_area_sort_array.html">
+  <span class="image" alt="Trellis Area Sort Chart" style="background-image: url(/_static/trellis_area_sort_array-thumb.png);"></span>
+  <span class="image-title">Trellis Area Sort Chart</span>
+</a>
+
 </span>
 
 <div style='clear:both;'></div><div class="toctree-wrapper compound">
@@ -603,6 +604,11 @@
 <a class="imagegroup" href="scatter_matrix.html">
   <span class="image" alt="Scatter Matrix" style="background-image: url(/_static/scatter_matrix-thumb.png);"></span>
   <span class="image-title">Scatter Matrix</span>
+</a>
+
+<a class="imagegroup" href="scatter_href.html">
+  <span class="image" alt="Scatter Plot with Href" style="background-image: url(/_static/scatter_href-thumb.png);"></span>
+  <span class="image-title">Scatter Plot with Href</span>
 </a>
 
 <a class="imagegroup" href="simple_scatter_with_errorbars.html">
@@ -771,6 +777,11 @@
   <span class="image-title">Gapminder Bubble Plot</span>
 </a>
 
+<a class="imagegroup" href="isotype.html">
+  <span class="image" alt="Isotype Visualization" style="background-image: url(/_static/isotype-thumb.png);"></span>
+  <span class="image-title">Isotype Visualization</span>
+</a>
+
 <a class="imagegroup" href="airports.html">
   <span class="image" alt="Locations of US Airports" style="background-image: url(/_static/airports-thumb.png);"></span>
   <span class="image-title">Locations of US Airports</span>
@@ -796,6 +807,11 @@
   <span class="image-title">Seattle Weather Interactive</span>
 </a>
 
+<a class="imagegroup" href="top_k_letters.html">
+  <span class="image" alt="Top K Letters" style="background-image: url(/_static/top_k_letters-thumb.png);"></span>
+  <span class="image-title">Top K Letters</span>
+</a>
+
 <a class="imagegroup" href="us_state_capitals.html">
   <span class="image" alt="U.S. state capitals overlayed on a map of the U.S" style="background-image: url(/_static/us_state_capitals-thumb.png);"></span>
   <span class="image-title">U.S. state capitals overlayed on a map of the U.S</span>
@@ -804,6 +820,11 @@
 <a class="imagegroup" href="us_population_over_time.html">
   <span class="image" alt="US Population Over Time" style="background-image: url(/_static/us_population_over_time-thumb.png);"></span>
   <span class="image-title">US Population Over Time</span>
+</a>
+
+<a class="imagegroup" href="us_population_pyramid_over_time.html">
+  <span class="image" alt="US Population Pyramid Over Time" style="background-image: url(/_static/us_population_pyramid_over_time-thumb.png);"></span>
+  <span class="image-title">US Population Pyramid Over Time</span>
 </a>
 
 </span>
@@ -864,9 +885,7 @@
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -888,7 +907,7 @@
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -906,7 +925,8 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.1.0',
+            VERSION:'2.2.0',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -917,24 +937,18 @@
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@3.3"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@2.4"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@3.14"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@2.6"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@3.18"></script>
 
   
 
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

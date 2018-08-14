@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Displaying Charts in Various Frontends &mdash; Altair 2.1.0 documentation</title>
+  <title>Displaying Charts in Various Frontends &mdash; Altair 2.2.0 documentation</title>
   
 
   
@@ -26,35 +26,23 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="../_static/altair-plot.css" type="text/css" />
-  
-    <link rel="stylesheet" href="../_static/altair-gallery.css" type="text/css" />
-  
-    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
-  
-    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Altair 2.1.0 documentation" href="../index.html"/>
-        <link rel="next" title="Customizing Renderers" href="custom_renderers.html"/>
-        <link rel="prev" title="Importing Vega &amp; Vega-Lite Versions" href="importing.html"/> 
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/altair-plot.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/altair-gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Customizing Renderers" href="custom_renderers.html" />
+    <link rel="prev" title="Importing Vega &amp; Vega-Lite Versions" href="importing.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -71,7 +59,7 @@
 
           
             
-            <img src="../_static/altair-logo-light.png" class="logo" />
+            <img src="../_static/altair-logo-light.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -79,7 +67,7 @@
             
             
               <div class="version">
-                2.1
+                2.2
               </div>
             
           
@@ -124,9 +112,11 @@
 <li class="toctree-l1"><a class="reference internal" href="compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="saving_charts.html">Saving Altair Charts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="customization.html">Customizing Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="times_and_dates.html">Times and Dates in Altair</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Display Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="renderers.html">Altair Renderers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internals.html">Altair Internals: Understanding the Library</a></li>
 <li class="toctree-l1"><a class="reference internal" href="API.html">API Reference</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Case Studies</span></p>
@@ -162,7 +152,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Altair</a>
@@ -170,9 +160,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -317,7 +308,7 @@ in JupyterLab/nteract:</p>
 </pre></div>
 </div>
 <p>Renderers can also be registered using the <a class="reference external" href="https://github.com/takluyver/entrypoints">entrypoints</a> API of Python packages.
-For an example, see <a href="#id4"><span class="problematic" id="id5">`ipyvega`_</span></a>.</p>
+For an example, see <a class="reference external" href="https://github.com/vega/ipyvega/">ipyvega</a>.</p>
 <p>This same <code class="docutils literal"><span class="pre">renderer</span></code> objects exists separately on all of the Python APIs
 for Vega-Lite/Vega described in <a class="reference internal" href="importing.html#importing"><span class="std std-ref">Importing Vega &amp; Vega-Lite Versions</span></a>.</p>
 </div>
@@ -325,7 +316,7 @@ for Vega-Lite/Vega described in <a class="reference internal" href="importing.ht
 <span id="display-notebook"></span><h3>Displaying in the Jupyter Notebook<a class="headerlink" href="#displaying-in-the-jupyter-notebook" title="Permalink to this headline">¶</a></h3>
 <p>To render Vega-Lite 2.x or Vega 3.x in the Jupyter Notebook (as mentioned above
 we recommend these versions), you will need to install and enable the
-<a href="#id6"><span class="problematic" id="id7">`ipyvega`_</span></a> Python package using conda:</p>
+<a class="reference external" href="https://github.com/vega/ipyvega/">ipyvega</a> Python package using conda:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ conda install vega --channel conda-forge
 </pre></div>
 </div>
@@ -334,7 +325,7 @@ we recommend these versions), you will need to install and enable the
 $ jupyter nbextension install --sys-prefix --py vega <span class="c1"># not needed in notebook &gt;= 5.3</span>
 </pre></div>
 </div>
-<p>For Vega-Lite 1.x or Vega 2.x, you will need to install and enable the <a href="#id8"><span class="problematic" id="id9">`ipyvega`_</span></a> Python
+<p>For Vega-Lite 1.x or Vega 2.x, you will need to install and enable the <a class="reference external" href="https://github.com/vega/ipyvega/">ipyvega</a> Python
 package using:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ conda install vega --channel conda-forge
 </pre></div>
@@ -411,9 +402,7 @@ it.</p>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -435,7 +424,7 @@ it.</p>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -453,7 +442,8 @@ it.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.1.0',
+            VERSION:'2.2.0',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -464,24 +454,18 @@ it.</p>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@3.3"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@2.4"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@3.14"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@2.6"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@3.18"></script>
 
   
 
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

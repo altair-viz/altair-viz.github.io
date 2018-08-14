@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Anscombe’s Quartet &mdash; Altair 2.1.0 documentation</title>
+  <title>Anscombe’s Quartet &mdash; Altair 2.2.0 documentation</title>
   
 
   
@@ -26,36 +26,23 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="../_static/altair-plot.css" type="text/css" />
-  
-    <link rel="stylesheet" href="../_static/altair-gallery.css" type="text/css" />
-  
-    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
-  
-    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Altair 2.1.0 documentation" href="../index.html"/>
-        <link rel="up" title="Example Gallery" href="index.html"/>
-        <link rel="next" title="Becker’s Barley Trellis Plot" href="beckers_barley_trellis_plot.html"/>
-        <link rel="prev" title="Simple Interactive Colored Scatterplot" href="interactive_scatter_plot.html"/> 
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/altair-plot.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/altair-gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Becker’s Barley Trellis Plot" href="beckers_barley_trellis_plot.html" />
+    <link rel="prev" title="Simple Interactive Colored Scatterplot" href="interactive_scatter_plot.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -72,7 +59,7 @@
 
           
             
-            <img src="../_static/altair-logo-light.png" class="logo" />
+            <img src="../_static/altair-logo-light.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -80,7 +67,7 @@
             
             
               <div class="version">
-                2.1
+                2.2
               </div>
             
           
@@ -129,13 +116,16 @@
 <li class="toctree-l3"><a class="reference internal" href="cumulative_wiki_donations.html">Cumulative Wikipedia Donations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="falkensee.html">Falkensee</a></li>
 <li class="toctree-l3"><a class="reference internal" href="gapminder_bubble_plot.html">Gapminder Bubble Plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="isotype.html">Isotype Visualization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="airports.html">Locations of US Airports</a></li>
 <li class="toctree-l3"><a class="reference internal" href="london_tube.html">London Tube Lines</a></li>
 <li class="toctree-l3"><a class="reference internal" href="natural_disasters.html">Natural Disasters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="one_dot_per_zipcode.html">One Dot Per Zipcode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="seattle_weather_interactive.html">Seattle Weather Interactive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="top_k_letters.html">Top K Letters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="us_state_capitals.html">U.S. state capitals overlayed on a map of the U.S</a></li>
 <li class="toctree-l3"><a class="reference internal" href="us_population_over_time.html">US Population Over Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="us_population_pyramid_over_time.html">US Population Pyramid Over Time</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#other-charts">Other Charts</a></li>
@@ -153,9 +143,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/saving_charts.html">Saving Altair Charts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/customization.html">Customizing Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/times_and_dates.html">Times and Dates in Altair</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/troubleshooting.html">Display Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/renderers.html">Altair Renderers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/internals.html">Altair Internals: Understanding the Library</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/API.html">API Reference</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Case Studies</span></p>
@@ -179,7 +171,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Altair</a>
@@ -187,9 +179,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -242,13 +235,13 @@
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"values": [{"Series": "I", "X": 10, "Y": 8.04}, {"Series": "I", "X": 8, "Y": 6.95}, {"Series": "I", "X": 13, "Y": 7.58}, {"Series": "I", "X": 9, "Y": 8.81}, {"Series": "I", "X": 11, "Y": 8.33}, {"Series": "I", "X": 14, "Y": 9.96}, {"Series": "I", "X": 6, "Y": 7.24}, {"Series": "I", "X": 4, "Y": 4.26}, {"Series": "I", "X": 12, "Y": 10.84}, {"Series": "I", "X": 7, "Y": 4.8100000000000005}, {"Series": "I", "X": 5, "Y": 5.68}, {"Series": "II", "X": 10, "Y": 9.14}, {"Series": "II", "X": 8, "Y": 8.14}, {"Series": "II", "X": 13, "Y": 8.74}, {"Series": "II", "X": 9, "Y": 8.77}, {"Series": "II", "X": 11, "Y": 9.26}, {"Series": "II", "X": 14, "Y": 8.1}, {"Series": "II", "X": 6, "Y": 6.13}, {"Series": "II", "X": 4, "Y": 3.1}, {"Series": "II", "X": 12, "Y": 9.13}, {"Series": "II", "X": 7, "Y": 7.26}, {"Series": "II", "X": 5, "Y": 4.74}, {"Series": "III", "X": 10, "Y": 7.46}, {"Series": "III", "X": 8, "Y": 6.77}, {"Series": "III", "X": 13, "Y": 12.74}, {"Series": "III", "X": 9, "Y": 7.11}, {"Series": "III", "X": 11, "Y": 7.8100000000000005}, {"Series": "III", "X": 14, "Y": 8.84}, {"Series": "III", "X": 6, "Y": 6.08}, {"Series": "III", "X": 4, "Y": 5.39}, {"Series": "III", "X": 12, "Y": 8.15}, {"Series": "III", "X": 7, "Y": 6.42}, {"Series": "III", "X": 5, "Y": 5.73}, {"Series": "IV", "X": 8, "Y": 6.58}, {"Series": "IV", "X": 8, "Y": 5.76}, {"Series": "IV", "X": 8, "Y": 7.71}, {"Series": "IV", "X": 8, "Y": 8.84}, {"Series": "IV", "X": 8, "Y": 8.47}, {"Series": "IV", "X": 8, "Y": 7.04}, {"Series": "IV", "X": 8, "Y": 5.25}, {"Series": "IV", "X": 19, "Y": 12.5}, {"Series": "IV", "X": 8, "Y": 5.5600000000000005}, {"Series": "IV", "X": 8, "Y": 7.91}, {"Series": "IV", "X": 8, "Y": 6.89}]}, "mark": "circle", "encoding": {"column": {"type": "nominal", "field": "Series"}, "x": {"type": "quantitative", "field": "X", "scale": {"zero": false}}, "y": {"type": "quantitative", "field": "Y", "scale": {"zero": false}}}, "height": 150, "width": 150, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"name": "data-3d23a3381c61efd5a9c7a8abc82c6d65"}, "mark": "circle", "encoding": {"column": {"type": "nominal", "field": "Series"}, "x": {"type": "quantitative", "field": "X", "scale": {"zero": false}}, "y": {"type": "quantitative", "field": "Y", "scale": {"zero": false}}}, "height": 150, "width": 150, "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json", "datasets": {"data-3d23a3381c61efd5a9c7a8abc82c6d65": [{"Series": "I", "X": 10, "Y": 8.04}, {"Series": "I", "X": 8, "Y": 6.95}, {"Series": "I", "X": 13, "Y": 7.58}, {"Series": "I", "X": 9, "Y": 8.81}, {"Series": "I", "X": 11, "Y": 8.33}, {"Series": "I", "X": 14, "Y": 9.96}, {"Series": "I", "X": 6, "Y": 7.24}, {"Series": "I", "X": 4, "Y": 4.26}, {"Series": "I", "X": 12, "Y": 10.84}, {"Series": "I", "X": 7, "Y": 4.8100000000000005}, {"Series": "I", "X": 5, "Y": 5.68}, {"Series": "II", "X": 10, "Y": 9.14}, {"Series": "II", "X": 8, "Y": 8.14}, {"Series": "II", "X": 13, "Y": 8.74}, {"Series": "II", "X": 9, "Y": 8.77}, {"Series": "II", "X": 11, "Y": 9.26}, {"Series": "II", "X": 14, "Y": 8.1}, {"Series": "II", "X": 6, "Y": 6.13}, {"Series": "II", "X": 4, "Y": 3.1}, {"Series": "II", "X": 12, "Y": 9.13}, {"Series": "II", "X": 7, "Y": 7.26}, {"Series": "II", "X": 5, "Y": 4.74}, {"Series": "III", "X": 10, "Y": 7.46}, {"Series": "III", "X": 8, "Y": 6.77}, {"Series": "III", "X": 13, "Y": 12.74}, {"Series": "III", "X": 9, "Y": 7.11}, {"Series": "III", "X": 11, "Y": 7.8100000000000005}, {"Series": "III", "X": 14, "Y": 8.84}, {"Series": "III", "X": 6, "Y": 6.08}, {"Series": "III", "X": 4, "Y": 5.39}, {"Series": "III", "X": 12, "Y": 8.15}, {"Series": "III", "X": 7, "Y": 6.42}, {"Series": "III", "X": 5, "Y": 5.73}, {"Series": "IV", "X": 8, "Y": 6.58}, {"Series": "IV", "X": 8, "Y": 5.76}, {"Series": "IV", "X": 8, "Y": 7.71}, {"Series": "IV", "X": 8, "Y": 8.84}, {"Series": "IV", "X": 8, "Y": 8.47}, {"Series": "IV", "X": 8, "Y": 7.04}, {"Series": "IV", "X": 8, "Y": 5.25}, {"Series": "IV", "X": 19, "Y": 12.5}, {"Series": "IV", "X": 8, "Y": 5.5600000000000005}, {"Series": "IV", "X": 8, "Y": 7.91}, {"Series": "IV", "X": 8, "Y": 6.89}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#anscombe_plot-rst-altair-plot-0', {"config": {"view": {"width": 400, "height": 300}}, "data": {"values": [{"Series": "I", "X": 10, "Y": 8.04}, {"Series": "I", "X": 8, "Y": 6.95}, {"Series": "I", "X": 13, "Y": 7.58}, {"Series": "I", "X": 9, "Y": 8.81}, {"Series": "I", "X": 11, "Y": 8.33}, {"Series": "I", "X": 14, "Y": 9.96}, {"Series": "I", "X": 6, "Y": 7.24}, {"Series": "I", "X": 4, "Y": 4.26}, {"Series": "I", "X": 12, "Y": 10.84}, {"Series": "I", "X": 7, "Y": 4.8100000000000005}, {"Series": "I", "X": 5, "Y": 5.68}, {"Series": "II", "X": 10, "Y": 9.14}, {"Series": "II", "X": 8, "Y": 8.14}, {"Series": "II", "X": 13, "Y": 8.74}, {"Series": "II", "X": 9, "Y": 8.77}, {"Series": "II", "X": 11, "Y": 9.26}, {"Series": "II", "X": 14, "Y": 8.1}, {"Series": "II", "X": 6, "Y": 6.13}, {"Series": "II", "X": 4, "Y": 3.1}, {"Series": "II", "X": 12, "Y": 9.13}, {"Series": "II", "X": 7, "Y": 7.26}, {"Series": "II", "X": 5, "Y": 4.74}, {"Series": "III", "X": 10, "Y": 7.46}, {"Series": "III", "X": 8, "Y": 6.77}, {"Series": "III", "X": 13, "Y": 12.74}, {"Series": "III", "X": 9, "Y": 7.11}, {"Series": "III", "X": 11, "Y": 7.8100000000000005}, {"Series": "III", "X": 14, "Y": 8.84}, {"Series": "III", "X": 6, "Y": 6.08}, {"Series": "III", "X": 4, "Y": 5.39}, {"Series": "III", "X": 12, "Y": 8.15}, {"Series": "III", "X": 7, "Y": 6.42}, {"Series": "III", "X": 5, "Y": 5.73}, {"Series": "IV", "X": 8, "Y": 6.58}, {"Series": "IV", "X": 8, "Y": 5.76}, {"Series": "IV", "X": 8, "Y": 7.71}, {"Series": "IV", "X": 8, "Y": 8.84}, {"Series": "IV", "X": 8, "Y": 8.47}, {"Series": "IV", "X": 8, "Y": 7.04}, {"Series": "IV", "X": 8, "Y": 5.25}, {"Series": "IV", "X": 19, "Y": 12.5}, {"Series": "IV", "X": 8, "Y": 5.5600000000000005}, {"Series": "IV", "X": 8, "Y": 7.91}, {"Series": "IV", "X": 8, "Y": 6.89}]}, "mark": "circle", "encoding": {"column": {"type": "nominal", "field": "Series"}, "x": {"type": "quantitative", "field": "X", "scale": {"zero": false}}, "y": {"type": "quantitative", "field": "Y", "scale": {"zero": false}}}, "height": 150, "width": 150, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
+      vegaEmbed('#anscombe_plot-rst-altair-plot-0', spec, opt).catch(console.err);
   });
 </script>
 </div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
@@ -272,9 +265,7 @@
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -296,7 +287,7 @@
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -314,7 +305,8 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.1.0',
+            VERSION:'2.2.0',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -325,24 +317,18 @@
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@3.3"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@2.4"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@3.14"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@2.6"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@3.18"></script>
 
   
 
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

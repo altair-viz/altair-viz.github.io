@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Selections: Building Blocks of Interactions &mdash; Altair 2.1.0 documentation</title>
+  <title>Selections: Building Blocks of Interactions &mdash; Altair 2.2.0 documentation</title>
   
 
   
@@ -26,35 +26,23 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="../_static/altair-plot.css" type="text/css" />
-  
-    <link rel="stylesheet" href="../_static/altair-gallery.css" type="text/css" />
-  
-    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
-  
-    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Altair 2.1.0 documentation" href="../index.html"/>
-        <link rel="next" title="Top-Level Chart Configuration" href="configuration.html"/>
-        <link rel="prev" title="Data Transformations" href="transform.html"/> 
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/altair-plot.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/altair-gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Top-Level Chart Configuration" href="configuration.html" />
+    <link rel="prev" title="Data Transformations" href="transform.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -71,7 +59,7 @@
 
           
             
-            <img src="../_static/altair-logo-light.png" class="logo" />
+            <img src="../_static/altair-logo-light.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -79,7 +67,7 @@
             
             
               <div class="version">
-                2.1
+                2.2
               </div>
             
           
@@ -127,6 +115,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#multiple-selections">Multiple Selections</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#selection-targets-fields-and-encodings">Selection Targets: Fields and Encodings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#further-examples">Further Examples</a></li>
 </ul>
 </li>
@@ -134,9 +123,11 @@
 <li class="toctree-l1"><a class="reference internal" href="compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="saving_charts.html">Saving Altair Charts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="customization.html">Customizing Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="times_and_dates.html">Times and Dates in Altair</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Display Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="renderers.html">Altair Renderers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internals.html">Altair Internals: Understanding the Library</a></li>
 <li class="toctree-l1"><a class="reference internal" href="API.html">API Reference</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Case Studies</span></p>
@@ -160,7 +151,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Altair</a>
@@ -168,9 +159,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -242,16 +234,16 @@ to it. Here is a simple scatter-plot created from the <code class="docutils lite
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"type": "nominal", "field": "Origin"}, "x": {"type": "quantitative", "field": "Miles_per_Gallon"}, "y": {"type": "quantitative", "field": "Horsepower"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"type": "nominal", "field": "Origin"}, "x": {"type": "quantitative", "field": "Miles_per_Gallon"}, "y": {"type": "quantitative", "field": "Horsepower"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#selections-rst-altair-plot-0', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"type": "nominal", "field": "Origin"}, "x": {"type": "quantitative", "field": "Miles_per_Gallon"}, "y": {"type": "quantitative", "field": "Horsepower"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
+      vegaEmbed('#selections-rst-altair-plot-0', spec, opt).catch(console.err);
   });
 </script>
-</div><p>First we’ll create an interval selection using the <a class="reference internal" href="API.html#altair.selection_interval" title="altair.selection_interval"><code class="xref py py-func docutils literal"><span class="pre">selection_interval()</span></code></a>
+</div><p>First we’ll create an interval selection using the <a class="reference internal" href="generated/api/altair.selection_interval.html#altair.selection_interval" title="altair.selection_interval"><code class="xref py py-func docutils literal"><span class="pre">selection_interval()</span></code></a>
 function:</p>
 <div class="highlight-python" id="selections-rst-altair-source-1"><div class="highlight"><pre><span></span><span class="n">brush</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection_interval</span><span class="p">()</span>  <span class="c1"># selection of type &quot;interval&quot;</span>
 </pre></div>
@@ -273,20 +265,20 @@ property:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"type": "nominal", "field": "Origin"}, "x": {"type": "quantitative", "field": "Miles_per_Gallon"}, "y": {"type": "quantitative", "field": "Horsepower"}}, "selection": {"selector034": {"type": "interval"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"type": "nominal", "field": "Origin"}, "x": {"type": "quantitative", "field": "Miles_per_Gallon"}, "y": {"type": "quantitative", "field": "Horsepower"}}, "selection": {"selector034": {"type": "interval"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#selections-rst-altair-plot-2', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"type": "nominal", "field": "Origin"}, "x": {"type": "quantitative", "field": "Miles_per_Gallon"}, "y": {"type": "quantitative", "field": "Horsepower"}}, "selection": {"selector034": {"type": "interval"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
+      vegaEmbed('#selections-rst-altair-plot-2', spec, opt).catch(console.err);
   });
 </script>
 </div><p>The result above is a chart that allows you to click and drag to create
 a selection region, and to move this region once the region is created.</p>
 <p>This is neat, but the selection doesn’t actually <em>do</em> anything yet.
 To use this selection, we need to reference it in some way within
-the chart. Here, we will use the <a class="reference internal" href="API.html#altair.condition" title="altair.condition"><code class="xref py py-func docutils literal"><span class="pre">condition()</span></code></a> function to create
+the chart. Here, we will use the <a class="reference internal" href="generated/api/altair.condition.html#altair.condition" title="altair.condition"><code class="xref py py-func docutils literal"><span class="pre">condition()</span></code></a> function to create
 a conditional color encoding: we’ll tie the color to the <code class="docutils literal"><span class="pre">&quot;Origin&quot;</span></code>
 column for points in the selection, and set the color to <code class="docutils literal"><span class="pre">&quot;lightgray&quot;</span></code>
 for points outside the selection:</p>
@@ -305,13 +297,13 @@ for points outside the selection:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"condition": {"type": "nominal", "field": "Origin", "selection": "selector034"}, "value": "lightgray"}, "x": {"type": "quantitative", "field": "Miles_per_Gallon"}, "y": {"type": "quantitative", "field": "Horsepower"}}, "selection": {"selector034": {"type": "interval"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"condition": {"type": "nominal", "field": "Origin", "selection": "selector034"}, "value": "lightgray"}, "x": {"type": "quantitative", "field": "Miles_per_Gallon"}, "y": {"type": "quantitative", "field": "Horsepower"}}, "selection": {"selector034": {"type": "interval"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#selections-rst-altair-plot-3', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"condition": {"type": "nominal", "field": "Origin", "selection": "selector034"}, "value": "lightgray"}, "x": {"type": "quantitative", "field": "Miles_per_Gallon"}, "y": {"type": "quantitative", "field": "Horsepower"}}, "selection": {"selector034": {"type": "interval"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
+      vegaEmbed('#selections-rst-altair-plot-3', spec, opt).catch(console.err);
   });
 </script>
 </div><p>As you can see, with this simple change, the color of the points responds
@@ -341,13 +333,13 @@ tied to <code class="docutils literal"><span class="pre">&quot;Miles_per_Gallon&
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "hconcat": [{"data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"condition": {"type": "nominal", "field": "Origin", "selection": "selector034"}, "value": "lightgray"}, "x": {"type": "quantitative", "field": "Acceleration"}, "y": {"type": "quantitative", "field": "Horsepower"}}, "height": 250, "selection": {"selector034": {"type": "interval"}}, "width": 250}, {"data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"condition": {"type": "nominal", "field": "Origin", "selection": "selector034"}, "value": "lightgray"}, "x": {"type": "quantitative", "field": "Miles_per_Gallon"}, "y": {"type": "quantitative", "field": "Horsepower"}}, "height": 250, "selection": {"selector034": {"type": "interval"}}, "width": 250}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "hconcat": [{"data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"condition": {"type": "nominal", "field": "Origin", "selection": "selector034"}, "value": "lightgray"}, "x": {"type": "quantitative", "field": "Acceleration"}, "y": {"type": "quantitative", "field": "Horsepower"}}, "height": 250, "selection": {"selector034": {"type": "interval"}}, "width": 250}, {"data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"condition": {"type": "nominal", "field": "Origin", "selection": "selector034"}, "value": "lightgray"}, "x": {"type": "quantitative", "field": "Miles_per_Gallon"}, "y": {"type": "quantitative", "field": "Horsepower"}}, "height": 250, "selection": {"selector034": {"type": "interval"}}, "width": 250}], "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#selections-rst-altair-plot-4', {"config": {"view": {"width": 400, "height": 300}}, "hconcat": [{"data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"condition": {"type": "nominal", "field": "Origin", "selection": "selector034"}, "value": "lightgray"}, "x": {"type": "quantitative", "field": "Acceleration"}, "y": {"type": "quantitative", "field": "Horsepower"}}, "height": 250, "selection": {"selector034": {"type": "interval"}}, "width": 250}, {"data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"condition": {"type": "nominal", "field": "Origin", "selection": "selector034"}, "value": "lightgray"}, "x": {"type": "quantitative", "field": "Miles_per_Gallon"}, "y": {"type": "quantitative", "field": "Horsepower"}}, "height": 250, "selection": {"selector034": {"type": "interval"}}, "width": 250}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
+      vegaEmbed('#selections-rst-altair-plot-4', spec, opt).catch(console.err);
   });
 </script>
 </div><p>Because both copies of the chart reference the same selection object, the
@@ -379,13 +371,13 @@ We can modify the brush definition, and leave the rest of the code unchanged:</p
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "hconcat": [{"data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"condition": {"type": "nominal", "field": "Origin", "selection": "selector035"}, "value": "lightgray"}, "x": {"type": "quantitative", "field": "Acceleration"}, "y": {"type": "quantitative", "field": "Horsepower"}}, "height": 250, "selection": {"selector035": {"type": "interval", "encodings": ["x"]}}, "width": 250}, {"data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"condition": {"type": "nominal", "field": "Origin", "selection": "selector035"}, "value": "lightgray"}, "x": {"type": "quantitative", "field": "Miles_per_Gallon"}, "y": {"type": "quantitative", "field": "Horsepower"}}, "height": 250, "selection": {"selector035": {"type": "interval", "encodings": ["x"]}}, "width": 250}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "hconcat": [{"data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"condition": {"type": "nominal", "field": "Origin", "selection": "selector035"}, "value": "lightgray"}, "x": {"type": "quantitative", "field": "Acceleration"}, "y": {"type": "quantitative", "field": "Horsepower"}}, "height": 250, "selection": {"selector035": {"type": "interval", "encodings": ["x"]}}, "width": 250}, {"data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"condition": {"type": "nominal", "field": "Origin", "selection": "selector035"}, "value": "lightgray"}, "x": {"type": "quantitative", "field": "Miles_per_Gallon"}, "y": {"type": "quantitative", "field": "Horsepower"}}, "height": 250, "selection": {"selector035": {"type": "interval", "encodings": ["x"]}}, "width": 250}], "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#selections-rst-altair-plot-5', {"config": {"view": {"width": 400, "height": 300}}, "hconcat": [{"data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"condition": {"type": "nominal", "field": "Origin", "selection": "selector035"}, "value": "lightgray"}, "x": {"type": "quantitative", "field": "Acceleration"}, "y": {"type": "quantitative", "field": "Horsepower"}}, "height": 250, "selection": {"selector035": {"type": "interval", "encodings": ["x"]}}, "width": 250}, {"data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"condition": {"type": "nominal", "field": "Origin", "selection": "selector035"}, "value": "lightgray"}, "x": {"type": "quantitative", "field": "Miles_per_Gallon"}, "y": {"type": "quantitative", "field": "Horsepower"}}, "height": 250, "selection": {"selector035": {"type": "interval", "encodings": ["x"]}}, "width": 250}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
+      vegaEmbed('#selections-rst-altair-plot-5', spec, opt).catch(console.err);
   });
 </script>
 </div></div>
@@ -417,7 +409,7 @@ selection:</p>
 <div class="section" id="interval-selections">
 <h3>Interval Selections<a class="headerlink" href="#interval-selections" title="Permalink to this headline">¶</a></h3>
 <p>An <em>interval</em> selection allows you to select chart elements by clicking and dragging.
-You can create such a selection using the <a class="reference internal" href="API.html#altair.selection_interval" title="altair.selection_interval"><code class="xref py py-func docutils literal"><span class="pre">selection_interval()</span></code></a> function:</p>
+You can create such a selection using the <a class="reference internal" href="generated/api/altair.selection_interval.html#altair.selection_interval" title="altair.selection_interval"><code class="xref py py-func docutils literal"><span class="pre">selection_interval()</span></code></a> function:</p>
 <div class="highlight-python" id="selections-rst-altair-source-7"><div class="highlight"><pre><span></span><span class="n">interval</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection_interval</span><span class="p">()</span>
 <span class="n">make_example</span><span class="p">(</span><span class="n">interval</span><span class="p">)</span>
 </pre></div>
@@ -428,18 +420,18 @@ You can create such a selection using the <a class="reference internal" href="AP
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "rect", "encoding": {"color": {"condition": {"type": "quantitative", "aggregate": "count", "selection": "selector036"}, "value": "lightgray"}, "x": {"type": "ordinal", "field": "Cylinders"}, "y": {"type": "nominal", "field": "Origin"}}, "height": 180, "selection": {"selector036": {"type": "interval"}}, "width": 300, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "rect", "encoding": {"color": {"condition": {"type": "quantitative", "aggregate": "count", "selection": "selector036"}, "value": "lightgray"}, "x": {"type": "ordinal", "field": "Cylinders"}, "y": {"type": "nominal", "field": "Origin"}}, "height": 180, "selection": {"selector036": {"type": "interval"}}, "width": 300, "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#selections-rst-altair-plot-7', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "rect", "encoding": {"color": {"condition": {"type": "quantitative", "aggregate": "count", "selection": "selector036"}, "value": "lightgray"}, "x": {"type": "ordinal", "field": "Cylinders"}, "y": {"type": "nominal", "field": "Origin"}}, "height": 180, "selection": {"selector036": {"type": "interval"}}, "width": 300, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
+      vegaEmbed('#selections-rst-altair-plot-7', spec, opt).catch(console.err);
   });
 </script>
 </div><p>As you click and drag on the plot, you’ll find that your mouse creates a box
 that can be subsequently moved to change the selection.</p>
-<p>The <a class="reference internal" href="API.html#altair.selection_interval" title="altair.selection_interval"><code class="xref py py-func docutils literal"><span class="pre">selection_interval()</span></code></a> function takes a few additional arguments; for
+<p>The <a class="reference internal" href="generated/api/altair.selection_interval.html#altair.selection_interval" title="altair.selection_interval"><code class="xref py py-func docutils literal"><span class="pre">selection_interval()</span></code></a> function takes a few additional arguments; for
 example we can bind the interval to only the x-axis, and set it such that the
 empty selection contains none of the points:</p>
 <div class="highlight-python" id="selections-rst-altair-source-8"><div class="highlight"><pre><span></span><span class="n">interval_x</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection_interval</span><span class="p">(</span><span class="n">encodings</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">],</span> <span class="n">empty</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
@@ -452,13 +444,13 @@ empty selection contains none of the points:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "rect", "encoding": {"color": {"condition": {"type": "quantitative", "aggregate": "count", "selection": "selector037"}, "value": "lightgray"}, "x": {"type": "ordinal", "field": "Cylinders"}, "y": {"type": "nominal", "field": "Origin"}}, "height": 180, "selection": {"selector037": {"type": "interval", "encodings": ["x"], "empty": "none"}}, "width": 300, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "rect", "encoding": {"color": {"condition": {"type": "quantitative", "aggregate": "count", "selection": "selector037"}, "value": "lightgray"}, "x": {"type": "ordinal", "field": "Cylinders"}, "y": {"type": "nominal", "field": "Origin"}}, "height": 180, "selection": {"selector037": {"type": "interval", "encodings": ["x"], "empty": "none"}}, "width": 300, "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#selections-rst-altair-plot-8', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "rect", "encoding": {"color": {"condition": {"type": "quantitative", "aggregate": "count", "selection": "selector037"}, "value": "lightgray"}, "x": {"type": "ordinal", "field": "Cylinders"}, "y": {"type": "nominal", "field": "Origin"}}, "height": 180, "selection": {"selector037": {"type": "interval", "encodings": ["x"], "empty": "none"}}, "width": 300, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
+      vegaEmbed('#selections-rst-altair-plot-8', spec, opt).catch(console.err);
   });
 </script>
 </div><p>A special case of an interval selection is when the interval is bound to the
@@ -480,16 +472,16 @@ chart scales; this is how Altair plots can be made interactive:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"type": "nominal", "field": "Origin"}, "x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "selection": {"selector038": {"type": "interval", "bind": "scales"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"type": "nominal", "field": "Origin"}, "x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "selection": {"selector038": {"type": "interval", "bind": "scales"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#selections-rst-altair-plot-9', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"type": "nominal", "field": "Origin"}, "x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "selection": {"selector038": {"type": "interval", "bind": "scales"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
+      vegaEmbed('#selections-rst-altair-plot-9', spec, opt).catch(console.err);
   });
 </script>
-</div><p>Because this is such a common pattern, Altair provides the <a class="reference internal" href="API.html#altair.Chart.interactive" title="altair.Chart.interactive"><code class="xref py py-meth docutils literal"><span class="pre">Chart.interactive()</span></code></a>
+</div><p>Because this is such a common pattern, Altair provides the <a class="reference internal" href="generated/toplevel/altair.Chart.html#altair.Chart.interactive" title="altair.Chart.interactive"><code class="xref py py-meth docutils literal"><span class="pre">Chart.interactive()</span></code></a>
 method which creates such a selection more concisely.</p>
 </div>
 <div class="section" id="single-selections">
@@ -506,13 +498,13 @@ mouse actions. By default, points are selected on click:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "rect", "encoding": {"color": {"condition": {"type": "quantitative", "aggregate": "count", "selection": "selector039"}, "value": "lightgray"}, "x": {"type": "ordinal", "field": "Cylinders"}, "y": {"type": "nominal", "field": "Origin"}}, "height": 180, "selection": {"selector039": {"type": "single"}}, "width": 300, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "rect", "encoding": {"color": {"condition": {"type": "quantitative", "aggregate": "count", "selection": "selector039"}, "value": "lightgray"}, "x": {"type": "ordinal", "field": "Cylinders"}, "y": {"type": "nominal", "field": "Origin"}}, "height": 180, "selection": {"selector039": {"type": "single"}}, "width": 300, "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#selections-rst-altair-plot-10', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "rect", "encoding": {"color": {"condition": {"type": "quantitative", "aggregate": "count", "selection": "selector039"}, "value": "lightgray"}, "x": {"type": "ordinal", "field": "Cylinders"}, "y": {"type": "nominal", "field": "Origin"}}, "height": 180, "selection": {"selector039": {"type": "single"}}, "width": 300, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
+      vegaEmbed('#selections-rst-altair-plot-10', spec, opt).catch(console.err);
   });
 </script>
 </div><p>By changing some arguments, we can select points on mouseover rather than on
@@ -528,13 +520,13 @@ point is highlighted:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "rect", "encoding": {"color": {"condition": {"type": "quantitative", "aggregate": "count", "selection": "selector040"}, "value": "lightgray"}, "x": {"type": "ordinal", "field": "Cylinders"}, "y": {"type": "nominal", "field": "Origin"}}, "height": 180, "selection": {"selector040": {"type": "single", "on": "mouseover", "nearest": true}}, "width": 300, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "rect", "encoding": {"color": {"condition": {"type": "quantitative", "aggregate": "count", "selection": "selector040"}, "value": "lightgray"}, "x": {"type": "ordinal", "field": "Cylinders"}, "y": {"type": "nominal", "field": "Origin"}}, "height": 180, "selection": {"selector040": {"type": "single", "on": "mouseover", "nearest": true}}, "width": 300, "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#selections-rst-altair-plot-11', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "rect", "encoding": {"color": {"condition": {"type": "quantitative", "aggregate": "count", "selection": "selector040"}, "value": "lightgray"}, "x": {"type": "ordinal", "field": "Cylinders"}, "y": {"type": "nominal", "field": "Origin"}}, "height": 180, "selection": {"selector040": {"type": "single", "on": "mouseover", "nearest": true}}, "width": 300, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
+      vegaEmbed('#selections-rst-altair-plot-11', spec, opt).catch(console.err);
   });
 </script>
 </div></div>
@@ -554,16 +546,16 @@ by clicking on them while holding the <em>shift</em> key:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "rect", "encoding": {"color": {"condition": {"type": "quantitative", "aggregate": "count", "selection": "selector041"}, "value": "lightgray"}, "x": {"type": "ordinal", "field": "Cylinders"}, "y": {"type": "nominal", "field": "Origin"}}, "height": 180, "selection": {"selector041": {"type": "multi"}}, "width": 300, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "rect", "encoding": {"color": {"condition": {"type": "quantitative", "aggregate": "count", "selection": "selector041"}, "value": "lightgray"}, "x": {"type": "ordinal", "field": "Cylinders"}, "y": {"type": "nominal", "field": "Origin"}}, "height": 180, "selection": {"selector041": {"type": "multi"}}, "width": 300, "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#selections-rst-altair-plot-12', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "rect", "encoding": {"color": {"condition": {"type": "quantitative", "aggregate": "count", "selection": "selector041"}, "value": "lightgray"}, "x": {"type": "ordinal", "field": "Cylinders"}, "y": {"type": "nominal", "field": "Origin"}}, "height": 180, "selection": {"selector041": {"type": "multi"}}, "width": 300, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
+      vegaEmbed('#selections-rst-altair-plot-12', spec, opt).catch(console.err);
   });
 </script>
-</div><p>In addition to the options seen in <a class="reference internal" href="API.html#altair.selection_single" title="altair.selection_single"><code class="xref py py-func docutils literal"><span class="pre">selection_single()</span></code></a>, the multi selection
+</div><p>In addition to the options seen in <a class="reference internal" href="generated/api/altair.selection_single.html#altair.selection_single" title="altair.selection_single"><code class="xref py py-func docutils literal"><span class="pre">selection_single()</span></code></a>, the multi selection
 accepts the <code class="docutils literal"><span class="pre">toggle</span></code> parameter, which controls whether points can be removed
 from the selection once they are added.</p>
 <p>For example, here is a plot where you can “paint” the chart objects by hovering
@@ -578,16 +570,112 @@ over them with your mouse:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "rect", "encoding": {"color": {"condition": {"type": "quantitative", "aggregate": "count", "selection": "selector042"}, "value": "lightgray"}, "x": {"type": "ordinal", "field": "Cylinders"}, "y": {"type": "nominal", "field": "Origin"}}, "height": 180, "selection": {"selector042": {"type": "multi", "on": "mouseover", "toggle": false, "empty": "none"}}, "width": 300, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "rect", "encoding": {"color": {"condition": {"type": "quantitative", "aggregate": "count", "selection": "selector042"}, "value": "lightgray"}, "x": {"type": "ordinal", "field": "Cylinders"}, "y": {"type": "nominal", "field": "Origin"}}, "height": 180, "selection": {"selector042": {"type": "multi", "on": "mouseover", "toggle": false, "empty": "none"}}, "width": 300, "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#selections-rst-altair-plot-13', {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "rect", "encoding": {"color": {"condition": {"type": "quantitative", "aggregate": "count", "selection": "selector042"}, "value": "lightgray"}, "x": {"type": "ordinal", "field": "Cylinders"}, "y": {"type": "nominal", "field": "Origin"}}, "height": 180, "selection": {"selector042": {"type": "multi", "on": "mouseover", "toggle": false, "empty": "none"}}, "width": 300, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
+      vegaEmbed('#selections-rst-altair-plot-13', spec, opt).catch(console.err);
   });
 </script>
 </div></div>
+</div>
+<div class="section" id="selection-targets-fields-and-encodings">
+<h2>Selection Targets: Fields and Encodings<a class="headerlink" href="#selection-targets-fields-and-encodings" title="Permalink to this headline">¶</a></h2>
+<p>For any but the simplest selections, the user needs to think about exactly
+what is targeted by the selection, and this can be controlled with either the
+<code class="docutils literal"><span class="pre">fields</span></code> or <code class="docutils literal"><span class="pre">encodings</span></code> arguments. These control what data properties are
+used to determine which points are part of the selection.</p>
+<p>For example, here we create a small chart that acts as an interactive legend,
+by targeting the Origin field using <code class="docutils literal"><span class="pre">fields=['Origin']</span></code>. Clicking on points
+in the upper-left plot (the legend) will propagate a selection for all points
+with a matching <code class="docutils literal"><span class="pre">Origin</span></code>.</p>
+<div class="highlight-python" id="selections-rst-altair-source-14"><div class="highlight"><pre><span></span><span class="n">selection</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection_multi</span><span class="p">(</span><span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Origin&#39;</span><span class="p">])</span>
+<span class="n">color</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span><span class="n">selection</span><span class="p">,</span>
+                      <span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;Origin:N&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="bp">None</span><span class="p">),</span>
+                      <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;lightgray&#39;</span><span class="p">))</span>
+
+<span class="n">scatter</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">cars</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Horsepower:Q&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Miles_per_Gallon:Q&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
+    <span class="n">tooltip</span><span class="o">=</span><span class="s1">&#39;Name:N&#39;</span>
+<span class="p">)</span>
+
+<span class="n">legend</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">cars</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;Origin:N&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">orient</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)),</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">color</span>
+<span class="p">)</span><span class="o">.</span><span class="n">add_selection</span><span class="p">(</span>
+    <span class="n">selection</span>
+<span class="p">)</span>
+
+<span class="n">scatter</span> <span class="o">|</span> <span class="n">legend</span>
+</pre></div>
+</div>
+
+<div id="selections-rst-altair-plot-14">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "hconcat": [{"data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"condition": {"type": "nominal", "field": "Origin", "legend": null, "selection": "selector043"}, "value": "lightgray"}, "tooltip": {"type": "nominal", "field": "Name"}, "x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}}, {"data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"condition": {"type": "nominal", "field": "Origin", "legend": null, "selection": "selector043"}, "value": "lightgray"}, "y": {"type": "nominal", "axis": {"orient": "right"}, "field": "Origin"}}, "selection": {"selector043": {"type": "multi", "fields": ["Origin"]}}}], "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#selections-rst-altair-plot-14', spec, opt).catch(console.err);
+  });
+</script>
+</div><p>The above could be equivalently replace <code class="docutils literal"><span class="pre">fields=['Origin']</span></code> with
+<code class="docutils literal"><span class="pre">encodings=['color']</span></code>, because in this case the chart maps <code class="docutils literal"><span class="pre">color</span></code> to
+<code class="docutils literal"><span class="pre">'Origin'</span></code>.</p>
+<p>Similarly, we can specify multiple fields and/or encodings that must be
+matched in order for a datum to be included in a selection.
+For example, we could modify the above chart to create a two-dimensional
+clickable legend that will select points by both Origin and number of
+cylinders:</p>
+<div class="highlight-python" id="selections-rst-altair-source-15"><div class="highlight"><pre><span></span><span class="n">selection</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection_multi</span><span class="p">(</span><span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Origin&#39;</span><span class="p">,</span> <span class="s1">&#39;Cylinders&#39;</span><span class="p">])</span>
+<span class="n">color</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span><span class="n">selection</span><span class="p">,</span>
+                      <span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;Origin:N&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="bp">None</span><span class="p">),</span>
+                      <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;lightgray&#39;</span><span class="p">))</span>
+
+<span class="n">scatter</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">cars</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Horsepower:Q&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Miles_per_Gallon:Q&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
+    <span class="n">tooltip</span><span class="o">=</span><span class="s1">&#39;Name:N&#39;</span>
+<span class="p">)</span>
+
+<span class="n">legend</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">cars</span><span class="p">)</span><span class="o">.</span><span class="n">mark_rect</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;Origin:N&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">orient</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)),</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Cylinders:O&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">color</span>
+<span class="p">)</span><span class="o">.</span><span class="n">add_selection</span><span class="p">(</span>
+    <span class="n">selection</span>
+<span class="p">)</span>
+
+<span class="n">scatter</span> <span class="o">|</span> <span class="n">legend</span>
+</pre></div>
+</div>
+
+<div id="selections-rst-altair-plot-15">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "hconcat": [{"data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"condition": {"type": "nominal", "field": "Origin", "legend": null, "selection": "selector044"}, "value": "lightgray"}, "tooltip": {"type": "nominal", "field": "Name"}, "x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}}, {"data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "rect", "encoding": {"color": {"condition": {"type": "nominal", "field": "Origin", "legend": null, "selection": "selector044"}, "value": "lightgray"}, "x": {"type": "ordinal", "field": "Cylinders"}, "y": {"type": "nominal", "axis": {"orient": "right"}, "field": "Origin"}}, "selection": {"selector044": {"type": "multi", "fields": ["Origin", "Cylinders"]}}}], "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#selections-rst-altair-plot-15', spec, opt).catch(console.err);
+  });
+</script>
+</div><p>By fine-tuning the behavior of selections in this way, they can be used to
+create a wide variety of linked interactive chart types.</p>
 </div>
 <div class="section" id="further-examples">
 <h2>Further Examples<a class="headerlink" href="#further-examples" title="Permalink to this headline">¶</a></h2>
@@ -601,9 +689,7 @@ mouse and keystroke options, see the <a class="reference external" href="https:/
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -625,7 +711,7 @@ mouse and keystroke options, see the <a class="reference external" href="https:/
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -643,7 +729,8 @@ mouse and keystroke options, see the <a class="reference external" href="https:/
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.1.0',
+            VERSION:'2.2.0',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -654,24 +741,18 @@ mouse and keystroke options, see the <a class="reference external" href="https:/
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@3.3"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@2.4"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@3.14"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@2.6"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@3.18"></script>
 
   
 
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

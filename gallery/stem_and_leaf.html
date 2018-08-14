@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Stem and Leaf Plot &mdash; Altair 2.1.0 documentation</title>
+  <title>Stem and Leaf Plot &mdash; Altair 2.2.0 documentation</title>
   
 
   
@@ -26,36 +26,23 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="../_static/altair-plot.css" type="text/css" />
-  
-    <link rel="stylesheet" href="../_static/altair-gallery.css" type="text/css" />
-  
-    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
-  
-    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Altair 2.1.0 documentation" href="../index.html"/>
-        <link rel="up" title="Example Gallery" href="index.html"/>
-        <link rel="next" title="Trail Marker" href="trail_marker.html"/>
-        <link rel="prev" title="Ranged Dot Plot" href="ranged_dot_plot.html"/> 
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/altair-plot.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/altair-gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Trail Marker" href="trail_marker.html" />
+    <link rel="prev" title="Ranged Dot Plot" href="ranged_dot_plot.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -72,7 +59,7 @@
 
           
             
-            <img src="../_static/altair-logo-light.png" class="logo" />
+            <img src="../_static/altair-logo-light.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -80,7 +67,7 @@
             
             
               <div class="version">
-                2.1
+                2.2
               </div>
             
           
@@ -149,9 +136,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/saving_charts.html">Saving Altair Charts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/customization.html">Customizing Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/times_and_dates.html">Times and Dates in Altair</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/troubleshooting.html">Display Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/renderers.html">Altair Renderers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/internals.html">Altair Internals: Understanding the Library</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/API.html">API Reference</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Case Studies</span></p>
@@ -175,7 +164,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Altair</a>
@@ -183,9 +172,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -238,13 +228,13 @@
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}, "axis": {"labelFontSize": 20}, "text": {"fontSize": 20}}, "data": {"values": [{"samples": 10, "stem": "1", "leaf": "0", "position": 1}, {"samples": 20, "stem": "2", "leaf": "0", "position": 1}, {"samples": 20, "stem": "2", "leaf": "0", "position": 2}, {"samples": 21, "stem": "2", "leaf": "1", "position": 3}, {"samples": 23, "stem": "2", "leaf": "3", "position": 4}, {"samples": 24, "stem": "2", "leaf": "4", "position": 5}, {"samples": 27, "stem": "2", "leaf": "7", "position": 6}, {"samples": 28, "stem": "2", "leaf": "8", "position": 7}, {"samples": 28, "stem": "2", "leaf": "8", "position": 8}, {"samples": 28, "stem": "2", "leaf": "8", "position": 9}, {"samples": 30, "stem": "3", "leaf": "0", "position": 1}, {"samples": 31, "stem": "3", "leaf": "1", "position": 2}, {"samples": 32, "stem": "3", "leaf": "2", "position": 3}, {"samples": 32, "stem": "3", "leaf": "2", "position": 4}, {"samples": 33, "stem": "3", "leaf": "3", "position": 5}, {"samples": 34, "stem": "3", "leaf": "4", "position": 6}, {"samples": 34, "stem": "3", "leaf": "4", "position": 7}, {"samples": 36, "stem": "3", "leaf": "6", "position": 8}, {"samples": 37, "stem": "3", "leaf": "7", "position": 9}, {"samples": 37, "stem": "3", "leaf": "7", "position": 10}, {"samples": 39, "stem": "3", "leaf": "9", "position": 11}, {"samples": 39, "stem": "3", "leaf": "9", "position": 12}, {"samples": 39, "stem": "3", "leaf": "9", "position": 13}, {"samples": 40, "stem": "4", "leaf": "0", "position": 1}, {"samples": 40, "stem": "4", "leaf": "0", "position": 2}, {"samples": 40, "stem": "4", "leaf": "0", "position": 3}, {"samples": 41, "stem": "4", "leaf": "1", "position": 4}, {"samples": 41, "stem": "4", "leaf": "1", "position": 5}, {"samples": 42, "stem": "4", "leaf": "2", "position": 6}, {"samples": 42, "stem": "4", "leaf": "2", "position": 7}, {"samples": 42, "stem": "4", "leaf": "2", "position": 8}, {"samples": 42, "stem": "4", "leaf": "2", "position": 9}, {"samples": 42, "stem": "4", "leaf": "2", "position": 10}, {"samples": 43, "stem": "4", "leaf": "3", "position": 11}, {"samples": 43, "stem": "4", "leaf": "3", "position": 12}, {"samples": 43, "stem": "4", "leaf": "3", "position": 13}, {"samples": 44, "stem": "4", "leaf": "4", "position": 14}, {"samples": 44, "stem": "4", "leaf": "4", "position": 15}, {"samples": 45, "stem": "4", "leaf": "5", "position": 16}, {"samples": 45, "stem": "4", "leaf": "5", "position": 17}, {"samples": 45, "stem": "4", "leaf": "5", "position": 18}, {"samples": 45, "stem": "4", "leaf": "5", "position": 19}, {"samples": 45, "stem": "4", "leaf": "5", "position": 20}, {"samples": 46, "stem": "4", "leaf": "6", "position": 21}, {"samples": 46, "stem": "4", "leaf": "6", "position": 22}, {"samples": 46, "stem": "4", "leaf": "6", "position": 23}, {"samples": 46, "stem": "4", "leaf": "6", "position": 24}, {"samples": 46, "stem": "4", "leaf": "6", "position": 25}, {"samples": 47, "stem": "4", "leaf": "7", "position": 26}, {"samples": 47, "stem": "4", "leaf": "7", "position": 27}, {"samples": 48, "stem": "4", "leaf": "8", "position": 28}, {"samples": 48, "stem": "4", "leaf": "8", "position": 29}, {"samples": 49, "stem": "4", "leaf": "9", "position": 30}, {"samples": 49, "stem": "4", "leaf": "9", "position": 31}, {"samples": 50, "stem": "5", "leaf": "0", "position": 1}, {"samples": 51, "stem": "5", "leaf": "1", "position": 2}, {"samples": 51, "stem": "5", "leaf": "1", "position": 3}, {"samples": 51, "stem": "5", "leaf": "1", "position": 4}, {"samples": 51, "stem": "5", "leaf": "1", "position": 5}, {"samples": 51, "stem": "5", "leaf": "1", "position": 6}, {"samples": 52, "stem": "5", "leaf": "2", "position": 7}, {"samples": 52, "stem": "5", "leaf": "2", "position": 8}, {"samples": 53, "stem": "5", "leaf": "3", "position": 9}, {"samples": 53, "stem": "5", "leaf": "3", "position": 10}, {"samples": 53, "stem": "5", "leaf": "3", "position": 11}, {"samples": 54, "stem": "5", "leaf": "4", "position": 12}, {"samples": 54, "stem": "5", "leaf": "4", "position": 13}, {"samples": 54, "stem": "5", "leaf": "4", "position": 14}, {"samples": 54, "stem": "5", "leaf": "4", "position": 15}, {"samples": 54, "stem": "5", "leaf": "4", "position": 16}, {"samples": 55, "stem": "5", "leaf": "5", "position": 17}, {"samples": 55, "stem": "5", "leaf": "5", "position": 18}, {"samples": 55, "stem": "5", "leaf": "5", "position": 19}, {"samples": 55, "stem": "5", "leaf": "5", "position": 20}, {"samples": 55, "stem": "5", "leaf": "5", "position": 21}, {"samples": 57, "stem": "5", "leaf": "7", "position": 22}, {"samples": 57, "stem": "5", "leaf": "7", "position": 23}, {"samples": 58, "stem": "5", "leaf": "8", "position": 24}, {"samples": 59, "stem": "5", "leaf": "9", "position": 25}, {"samples": 59, "stem": "5", "leaf": "9", "position": 26}, {"samples": 61, "stem": "6", "leaf": "1", "position": 1}, {"samples": 61, "stem": "6", "leaf": "1", "position": 2}, {"samples": 62, "stem": "6", "leaf": "2", "position": 3}, {"samples": 62, "stem": "6", "leaf": "2", "position": 4}, {"samples": 62, "stem": "6", "leaf": "2", "position": 5}, {"samples": 63, "stem": "6", "leaf": "3", "position": 6}, {"samples": 63, "stem": "6", "leaf": "3", "position": 7}, {"samples": 64, "stem": "6", "leaf": "4", "position": 8}, {"samples": 64, "stem": "6", "leaf": "4", "position": 9}, {"samples": 65, "stem": "6", "leaf": "5", "position": 10}, {"samples": 65, "stem": "6", "leaf": "5", "position": 11}, {"samples": 65, "stem": "6", "leaf": "5", "position": 12}, {"samples": 70, "stem": "7", "leaf": "0", "position": 1}, {"samples": 71, "stem": "7", "leaf": "1", "position": 2}, {"samples": 72, "stem": "7", "leaf": "2", "position": 3}, {"samples": 72, "stem": "7", "leaf": "2", "position": 4}, {"samples": 73, "stem": "7", "leaf": "3", "position": 5}, {"samples": 73, "stem": "7", "leaf": "3", "position": 6}, {"samples": 73, "stem": "7", "leaf": "3", "position": 7}, {"samples": 77, "stem": "7", "leaf": "7", "position": 8}]}, "mark": {"type": "text", "align": "left", "baseline": "middle", "dx": -5}, "encoding": {"text": {"type": "nominal", "field": "leaf"}, "x": {"type": "quantitative", "axis": {"grid": false, "labels": false, "ticks": false, "title": ""}, "field": "position"}, "y": {"type": "nominal", "axis": {"tickSize": 0, "title": ""}, "field": "stem"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "axis": {"labelFontSize": 20}, "text": {"fontSize": 20}}, "data": {"name": "data-656e163bdf36ab7b5e5a64e77d1bc438"}, "mark": {"type": "text", "align": "left", "baseline": "middle", "dx": -5}, "encoding": {"text": {"type": "nominal", "field": "leaf"}, "x": {"type": "quantitative", "axis": {"grid": false, "labels": false, "ticks": false, "title": ""}, "field": "position"}, "y": {"type": "nominal", "axis": {"tickSize": 0, "title": ""}, "field": "stem"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json", "datasets": {"data-656e163bdf36ab7b5e5a64e77d1bc438": [{"samples": "10", "stem": "1", "leaf": "0", "position": 1}, {"samples": "20", "stem": "2", "leaf": "0", "position": 1}, {"samples": "20", "stem": "2", "leaf": "0", "position": 2}, {"samples": "21", "stem": "2", "leaf": "1", "position": 3}, {"samples": "23", "stem": "2", "leaf": "3", "position": 4}, {"samples": "24", "stem": "2", "leaf": "4", "position": 5}, {"samples": "27", "stem": "2", "leaf": "7", "position": 6}, {"samples": "28", "stem": "2", "leaf": "8", "position": 7}, {"samples": "28", "stem": "2", "leaf": "8", "position": 8}, {"samples": "28", "stem": "2", "leaf": "8", "position": 9}, {"samples": "30", "stem": "3", "leaf": "0", "position": 1}, {"samples": "31", "stem": "3", "leaf": "1", "position": 2}, {"samples": "32", "stem": "3", "leaf": "2", "position": 3}, {"samples": "32", "stem": "3", "leaf": "2", "position": 4}, {"samples": "33", "stem": "3", "leaf": "3", "position": 5}, {"samples": "34", "stem": "3", "leaf": "4", "position": 6}, {"samples": "34", "stem": "3", "leaf": "4", "position": 7}, {"samples": "36", "stem": "3", "leaf": "6", "position": 8}, {"samples": "37", "stem": "3", "leaf": "7", "position": 9}, {"samples": "37", "stem": "3", "leaf": "7", "position": 10}, {"samples": "39", "stem": "3", "leaf": "9", "position": 11}, {"samples": "39", "stem": "3", "leaf": "9", "position": 12}, {"samples": "39", "stem": "3", "leaf": "9", "position": 13}, {"samples": "40", "stem": "4", "leaf": "0", "position": 1}, {"samples": "40", "stem": "4", "leaf": "0", "position": 2}, {"samples": "40", "stem": "4", "leaf": "0", "position": 3}, {"samples": "41", "stem": "4", "leaf": "1", "position": 4}, {"samples": "41", "stem": "4", "leaf": "1", "position": 5}, {"samples": "42", "stem": "4", "leaf": "2", "position": 6}, {"samples": "42", "stem": "4", "leaf": "2", "position": 7}, {"samples": "42", "stem": "4", "leaf": "2", "position": 8}, {"samples": "42", "stem": "4", "leaf": "2", "position": 9}, {"samples": "42", "stem": "4", "leaf": "2", "position": 10}, {"samples": "43", "stem": "4", "leaf": "3", "position": 11}, {"samples": "43", "stem": "4", "leaf": "3", "position": 12}, {"samples": "43", "stem": "4", "leaf": "3", "position": 13}, {"samples": "44", "stem": "4", "leaf": "4", "position": 14}, {"samples": "44", "stem": "4", "leaf": "4", "position": 15}, {"samples": "45", "stem": "4", "leaf": "5", "position": 16}, {"samples": "45", "stem": "4", "leaf": "5", "position": 17}, {"samples": "45", "stem": "4", "leaf": "5", "position": 18}, {"samples": "45", "stem": "4", "leaf": "5", "position": 19}, {"samples": "45", "stem": "4", "leaf": "5", "position": 20}, {"samples": "46", "stem": "4", "leaf": "6", "position": 21}, {"samples": "46", "stem": "4", "leaf": "6", "position": 22}, {"samples": "46", "stem": "4", "leaf": "6", "position": 23}, {"samples": "46", "stem": "4", "leaf": "6", "position": 24}, {"samples": "46", "stem": "4", "leaf": "6", "position": 25}, {"samples": "47", "stem": "4", "leaf": "7", "position": 26}, {"samples": "47", "stem": "4", "leaf": "7", "position": 27}, {"samples": "48", "stem": "4", "leaf": "8", "position": 28}, {"samples": "48", "stem": "4", "leaf": "8", "position": 29}, {"samples": "49", "stem": "4", "leaf": "9", "position": 30}, {"samples": "49", "stem": "4", "leaf": "9", "position": 31}, {"samples": "50", "stem": "5", "leaf": "0", "position": 1}, {"samples": "51", "stem": "5", "leaf": "1", "position": 2}, {"samples": "51", "stem": "5", "leaf": "1", "position": 3}, {"samples": "51", "stem": "5", "leaf": "1", "position": 4}, {"samples": "51", "stem": "5", "leaf": "1", "position": 5}, {"samples": "51", "stem": "5", "leaf": "1", "position": 6}, {"samples": "52", "stem": "5", "leaf": "2", "position": 7}, {"samples": "52", "stem": "5", "leaf": "2", "position": 8}, {"samples": "53", "stem": "5", "leaf": "3", "position": 9}, {"samples": "53", "stem": "5", "leaf": "3", "position": 10}, {"samples": "53", "stem": "5", "leaf": "3", "position": 11}, {"samples": "54", "stem": "5", "leaf": "4", "position": 12}, {"samples": "54", "stem": "5", "leaf": "4", "position": 13}, {"samples": "54", "stem": "5", "leaf": "4", "position": 14}, {"samples": "54", "stem": "5", "leaf": "4", "position": 15}, {"samples": "54", "stem": "5", "leaf": "4", "position": 16}, {"samples": "55", "stem": "5", "leaf": "5", "position": 17}, {"samples": "55", "stem": "5", "leaf": "5", "position": 18}, {"samples": "55", "stem": "5", "leaf": "5", "position": 19}, {"samples": "55", "stem": "5", "leaf": "5", "position": 20}, {"samples": "55", "stem": "5", "leaf": "5", "position": 21}, {"samples": "57", "stem": "5", "leaf": "7", "position": 22}, {"samples": "57", "stem": "5", "leaf": "7", "position": 23}, {"samples": "58", "stem": "5", "leaf": "8", "position": 24}, {"samples": "59", "stem": "5", "leaf": "9", "position": 25}, {"samples": "59", "stem": "5", "leaf": "9", "position": 26}, {"samples": "61", "stem": "6", "leaf": "1", "position": 1}, {"samples": "61", "stem": "6", "leaf": "1", "position": 2}, {"samples": "62", "stem": "6", "leaf": "2", "position": 3}, {"samples": "62", "stem": "6", "leaf": "2", "position": 4}, {"samples": "62", "stem": "6", "leaf": "2", "position": 5}, {"samples": "63", "stem": "6", "leaf": "3", "position": 6}, {"samples": "63", "stem": "6", "leaf": "3", "position": 7}, {"samples": "64", "stem": "6", "leaf": "4", "position": 8}, {"samples": "64", "stem": "6", "leaf": "4", "position": 9}, {"samples": "65", "stem": "6", "leaf": "5", "position": 10}, {"samples": "65", "stem": "6", "leaf": "5", "position": 11}, {"samples": "65", "stem": "6", "leaf": "5", "position": 12}, {"samples": "70", "stem": "7", "leaf": "0", "position": 1}, {"samples": "71", "stem": "7", "leaf": "1", "position": 2}, {"samples": "72", "stem": "7", "leaf": "2", "position": 3}, {"samples": "72", "stem": "7", "leaf": "2", "position": 4}, {"samples": "73", "stem": "7", "leaf": "3", "position": 5}, {"samples": "73", "stem": "7", "leaf": "3", "position": 6}, {"samples": "73", "stem": "7", "leaf": "3", "position": 7}, {"samples": "77", "stem": "7", "leaf": "7", "position": 8}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#stem_and_leaf-rst-altair-plot-0', {"config": {"view": {"width": 400, "height": 300}, "axis": {"labelFontSize": 20}, "text": {"fontSize": 20}}, "data": {"values": [{"samples": 10, "stem": "1", "leaf": "0", "position": 1}, {"samples": 20, "stem": "2", "leaf": "0", "position": 1}, {"samples": 20, "stem": "2", "leaf": "0", "position": 2}, {"samples": 21, "stem": "2", "leaf": "1", "position": 3}, {"samples": 23, "stem": "2", "leaf": "3", "position": 4}, {"samples": 24, "stem": "2", "leaf": "4", "position": 5}, {"samples": 27, "stem": "2", "leaf": "7", "position": 6}, {"samples": 28, "stem": "2", "leaf": "8", "position": 7}, {"samples": 28, "stem": "2", "leaf": "8", "position": 8}, {"samples": 28, "stem": "2", "leaf": "8", "position": 9}, {"samples": 30, "stem": "3", "leaf": "0", "position": 1}, {"samples": 31, "stem": "3", "leaf": "1", "position": 2}, {"samples": 32, "stem": "3", "leaf": "2", "position": 3}, {"samples": 32, "stem": "3", "leaf": "2", "position": 4}, {"samples": 33, "stem": "3", "leaf": "3", "position": 5}, {"samples": 34, "stem": "3", "leaf": "4", "position": 6}, {"samples": 34, "stem": "3", "leaf": "4", "position": 7}, {"samples": 36, "stem": "3", "leaf": "6", "position": 8}, {"samples": 37, "stem": "3", "leaf": "7", "position": 9}, {"samples": 37, "stem": "3", "leaf": "7", "position": 10}, {"samples": 39, "stem": "3", "leaf": "9", "position": 11}, {"samples": 39, "stem": "3", "leaf": "9", "position": 12}, {"samples": 39, "stem": "3", "leaf": "9", "position": 13}, {"samples": 40, "stem": "4", "leaf": "0", "position": 1}, {"samples": 40, "stem": "4", "leaf": "0", "position": 2}, {"samples": 40, "stem": "4", "leaf": "0", "position": 3}, {"samples": 41, "stem": "4", "leaf": "1", "position": 4}, {"samples": 41, "stem": "4", "leaf": "1", "position": 5}, {"samples": 42, "stem": "4", "leaf": "2", "position": 6}, {"samples": 42, "stem": "4", "leaf": "2", "position": 7}, {"samples": 42, "stem": "4", "leaf": "2", "position": 8}, {"samples": 42, "stem": "4", "leaf": "2", "position": 9}, {"samples": 42, "stem": "4", "leaf": "2", "position": 10}, {"samples": 43, "stem": "4", "leaf": "3", "position": 11}, {"samples": 43, "stem": "4", "leaf": "3", "position": 12}, {"samples": 43, "stem": "4", "leaf": "3", "position": 13}, {"samples": 44, "stem": "4", "leaf": "4", "position": 14}, {"samples": 44, "stem": "4", "leaf": "4", "position": 15}, {"samples": 45, "stem": "4", "leaf": "5", "position": 16}, {"samples": 45, "stem": "4", "leaf": "5", "position": 17}, {"samples": 45, "stem": "4", "leaf": "5", "position": 18}, {"samples": 45, "stem": "4", "leaf": "5", "position": 19}, {"samples": 45, "stem": "4", "leaf": "5", "position": 20}, {"samples": 46, "stem": "4", "leaf": "6", "position": 21}, {"samples": 46, "stem": "4", "leaf": "6", "position": 22}, {"samples": 46, "stem": "4", "leaf": "6", "position": 23}, {"samples": 46, "stem": "4", "leaf": "6", "position": 24}, {"samples": 46, "stem": "4", "leaf": "6", "position": 25}, {"samples": 47, "stem": "4", "leaf": "7", "position": 26}, {"samples": 47, "stem": "4", "leaf": "7", "position": 27}, {"samples": 48, "stem": "4", "leaf": "8", "position": 28}, {"samples": 48, "stem": "4", "leaf": "8", "position": 29}, {"samples": 49, "stem": "4", "leaf": "9", "position": 30}, {"samples": 49, "stem": "4", "leaf": "9", "position": 31}, {"samples": 50, "stem": "5", "leaf": "0", "position": 1}, {"samples": 51, "stem": "5", "leaf": "1", "position": 2}, {"samples": 51, "stem": "5", "leaf": "1", "position": 3}, {"samples": 51, "stem": "5", "leaf": "1", "position": 4}, {"samples": 51, "stem": "5", "leaf": "1", "position": 5}, {"samples": 51, "stem": "5", "leaf": "1", "position": 6}, {"samples": 52, "stem": "5", "leaf": "2", "position": 7}, {"samples": 52, "stem": "5", "leaf": "2", "position": 8}, {"samples": 53, "stem": "5", "leaf": "3", "position": 9}, {"samples": 53, "stem": "5", "leaf": "3", "position": 10}, {"samples": 53, "stem": "5", "leaf": "3", "position": 11}, {"samples": 54, "stem": "5", "leaf": "4", "position": 12}, {"samples": 54, "stem": "5", "leaf": "4", "position": 13}, {"samples": 54, "stem": "5", "leaf": "4", "position": 14}, {"samples": 54, "stem": "5", "leaf": "4", "position": 15}, {"samples": 54, "stem": "5", "leaf": "4", "position": 16}, {"samples": 55, "stem": "5", "leaf": "5", "position": 17}, {"samples": 55, "stem": "5", "leaf": "5", "position": 18}, {"samples": 55, "stem": "5", "leaf": "5", "position": 19}, {"samples": 55, "stem": "5", "leaf": "5", "position": 20}, {"samples": 55, "stem": "5", "leaf": "5", "position": 21}, {"samples": 57, "stem": "5", "leaf": "7", "position": 22}, {"samples": 57, "stem": "5", "leaf": "7", "position": 23}, {"samples": 58, "stem": "5", "leaf": "8", "position": 24}, {"samples": 59, "stem": "5", "leaf": "9", "position": 25}, {"samples": 59, "stem": "5", "leaf": "9", "position": 26}, {"samples": 61, "stem": "6", "leaf": "1", "position": 1}, {"samples": 61, "stem": "6", "leaf": "1", "position": 2}, {"samples": 62, "stem": "6", "leaf": "2", "position": 3}, {"samples": 62, "stem": "6", "leaf": "2", "position": 4}, {"samples": 62, "stem": "6", "leaf": "2", "position": 5}, {"samples": 63, "stem": "6", "leaf": "3", "position": 6}, {"samples": 63, "stem": "6", "leaf": "3", "position": 7}, {"samples": 64, "stem": "6", "leaf": "4", "position": 8}, {"samples": 64, "stem": "6", "leaf": "4", "position": 9}, {"samples": 65, "stem": "6", "leaf": "5", "position": 10}, {"samples": 65, "stem": "6", "leaf": "5", "position": 11}, {"samples": 65, "stem": "6", "leaf": "5", "position": 12}, {"samples": 70, "stem": "7", "leaf": "0", "position": 1}, {"samples": 71, "stem": "7", "leaf": "1", "position": 2}, {"samples": 72, "stem": "7", "leaf": "2", "position": 3}, {"samples": 72, "stem": "7", "leaf": "2", "position": 4}, {"samples": 73, "stem": "7", "leaf": "3", "position": 5}, {"samples": 73, "stem": "7", "leaf": "3", "position": 6}, {"samples": 73, "stem": "7", "leaf": "3", "position": 7}, {"samples": 77, "stem": "7", "leaf": "7", "position": 8}]}, "mark": {"type": "text", "align": "left", "baseline": "middle", "dx": -5}, "encoding": {"text": {"type": "nominal", "field": "leaf"}, "x": {"type": "quantitative", "axis": {"grid": false, "labels": false, "ticks": false, "title": ""}, "field": "position"}, "y": {"type": "nominal", "axis": {"tickSize": 0, "title": ""}, "field": "stem"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
+      vegaEmbed('#stem_and_leaf-rst-altair-plot-0', spec, opt).catch(console.err);
   });
 </script>
 </div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
@@ -253,24 +243,19 @@
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
 
 <span class="c1"># Generating random data</span>
-<span class="n">original_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;samples&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int</span><span class="p">)})</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;samples&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)})</span>
 
 <span class="c1"># Splitting stem and leaf</span>
-<span class="n">original_data</span><span class="p">[</span><span class="s1">&#39;stem&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">original_data</span><span class="p">[</span><span class="s1">&#39;samples&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-<span class="n">original_data</span><span class="p">[</span><span class="s1">&#39;leaf&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">original_data</span><span class="p">[</span><span class="s1">&#39;samples&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;stem&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;samples&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;leaf&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;samples&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
-<span class="n">original_data</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;stem&#39;</span><span class="p">,</span> <span class="s1">&#39;leaf&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-<span class="n">original_data</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;stem&#39;</span><span class="p">,</span> <span class="s1">&#39;leaf&#39;</span><span class="p">])</span>
 
 <span class="c1"># Determining leaf position</span>
-<span class="n">get_position</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
-
-<span class="n">original_data</span><span class="p">[</span><span class="s1">&#39;position&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">original_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;stem&#39;</span><span class="p">)</span>\
-                                         <span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">get_position</span><span class="p">)</span>\
-                                         <span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;position&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;stem&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">cumcount</span><span class="p">()</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># Creating stem and leaf plot</span>
-<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">original_data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_text</span><span class="p">(</span>
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_text</span><span class="p">(</span>
     <span class="n">align</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span>
     <span class="n">baseline</span><span class="o">=</span><span class="s1">&#39;middle&#39;</span><span class="p">,</span>
     <span class="n">dx</span><span class="o">=-</span><span class="mi">5</span>
@@ -293,9 +278,7 @@
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -317,7 +300,7 @@
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -335,7 +318,8 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.1.0',
+            VERSION:'2.2.0',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -346,24 +330,18 @@
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@3.3"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@2.4"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@3.14"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@2.6"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@3.18"></script>
 
   
 
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

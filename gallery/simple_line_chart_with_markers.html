@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Simple Line Chart with Markers &mdash; Altair 2.1.0 documentation</title>
+  <title>Simple Line Chart with Markers &mdash; Altair 2.2.0 documentation</title>
   
 
   
@@ -26,36 +26,23 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="../_static/altair-plot.css" type="text/css" />
-  
-    <link rel="stylesheet" href="../_static/altair-gallery.css" type="text/css" />
-  
-    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
-  
-    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Altair 2.1.0 documentation" href="../index.html"/>
-        <link rel="up" title="Example Gallery" href="index.html"/>
-        <link rel="next" title="Simple Scatter Plot" href="simple_scatter.html"/>
-        <link rel="prev" title="Simple Line Chart" href="simple_line_chart.html"/> 
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/altair-plot.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/altair-gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Simple Scatter Plot" href="simple_scatter.html" />
+    <link rel="prev" title="Simple Line Chart" href="simple_line_chart.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -72,7 +59,7 @@
 
           
             
-            <img src="../_static/altair-logo-light.png" class="logo" />
+            <img src="../_static/altair-logo-light.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -80,7 +67,7 @@
             
             
               <div class="version">
-                2.1
+                2.2
               </div>
             
           
@@ -150,9 +137,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/saving_charts.html">Saving Altair Charts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/customization.html">Customizing Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/times_and_dates.html">Times and Dates in Altair</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/troubleshooting.html">Display Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/renderers.html">Altair Renderers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/internals.html">Altair Internals: Understanding the Library</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/API.html">API Reference</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Case Studies</span></p>
@@ -176,7 +165,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Altair</a>
@@ -184,9 +173,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -240,13 +230,13 @@ columns.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"values": [{"x": 0, "sin(x)": 0.0}, {"x": 1, "sin(x)": 0.19866933079506122}, {"x": 2, "sin(x)": 0.3894183423086505}, {"x": 3, "sin(x)": 0.5646424733950354}, {"x": 4, "sin(x)": 0.7173560908995228}, {"x": 5, "sin(x)": 0.8414709848078965}, {"x": 6, "sin(x)": 0.9320390859672263}, {"x": 7, "sin(x)": 0.9854497299884601}, {"x": 8, "sin(x)": 0.9995736030415051}, {"x": 9, "sin(x)": 0.9738476308781951}, {"x": 10, "sin(x)": 0.9092974268256817}, {"x": 11, "sin(x)": 0.8084964038195901}, {"x": 12, "sin(x)": 0.675463180551151}, {"x": 13, "sin(x)": 0.5155013718214642}, {"x": 14, "sin(x)": 0.33498815015590505}, {"x": 15, "sin(x)": 0.1411200080598672}, {"x": 16, "sin(x)": -0.058374143427580086}, {"x": 17, "sin(x)": -0.2555411020268312}, {"x": 18, "sin(x)": -0.44252044329485246}, {"x": 19, "sin(x)": -0.6118578909427189}, {"x": 20, "sin(x)": -0.7568024953079282}, {"x": 21, "sin(x)": -0.8715757724135881}, {"x": 22, "sin(x)": -0.9516020738895161}, {"x": 23, "sin(x)": -0.9936910036334644}, {"x": 24, "sin(x)": -0.9961646088358407}, {"x": 25, "sin(x)": -0.9589242746631385}, {"x": 26, "sin(x)": -0.8834546557201531}, {"x": 27, "sin(x)": -0.7727644875559871}, {"x": 28, "sin(x)": -0.6312666378723216}, {"x": 29, "sin(x)": -0.46460217941375737}, {"x": 30, "sin(x)": -0.27941549819892586}, {"x": 31, "sin(x)": -0.08308940281749641}, {"x": 32, "sin(x)": 0.11654920485049364}, {"x": 33, "sin(x)": 0.31154136351337786}, {"x": 34, "sin(x)": 0.4941133511386082}, {"x": 35, "sin(x)": 0.6569865987187891}, {"x": 36, "sin(x)": 0.7936678638491531}, {"x": 37, "sin(x)": 0.8987080958116269}, {"x": 38, "sin(x)": 0.9679196720314863}, {"x": 39, "sin(x)": 0.998543345374605}, {"x": 40, "sin(x)": 0.9893582466233818}, {"x": 41, "sin(x)": 0.9407305566797731}, {"x": 42, "sin(x)": 0.8545989080882805}, {"x": 43, "sin(x)": 0.7343970978741134}, {"x": 44, "sin(x)": 0.5849171928917617}, {"x": 45, "sin(x)": 0.4121184852417566}, {"x": 46, "sin(x)": 0.22288991410024764}, {"x": 47, "sin(x)": 0.024775425453357765}, {"x": 48, "sin(x)": -0.17432678122297965}, {"x": 49, "sin(x)": -0.3664791292519284}, {"x": 50, "sin(x)": -0.5440211108893699}, {"x": 51, "sin(x)": -0.6998746875935424}, {"x": 52, "sin(x)": -0.8278264690856536}, {"x": 53, "sin(x)": -0.9227754216128066}, {"x": 54, "sin(x)": -0.9809362300664916}, {"x": 55, "sin(x)": -0.9999902065507035}, {"x": 56, "sin(x)": -0.9791777291513174}, {"x": 57, "sin(x)": -0.9193285256646757}, {"x": 58, "sin(x)": -0.8228285949687089}, {"x": 59, "sin(x)": -0.6935250847771224}, {"x": 60, "sin(x)": -0.5365729180004349}, {"x": 61, "sin(x)": -0.3582292822368287}, {"x": 62, "sin(x)": -0.1656041754483094}, {"x": 63, "sin(x)": 0.03362304722113669}, {"x": 64, "sin(x)": 0.23150982510153895}, {"x": 65, "sin(x)": 0.4201670368266409}, {"x": 66, "sin(x)": 0.592073514707223}, {"x": 67, "sin(x)": 0.7403758899524486}, {"x": 68, "sin(x)": 0.8591618148564959}, {"x": 69, "sin(x)": 0.9436956694441048}, {"x": 70, "sin(x)": 0.9906073556948704}, {"x": 71, "sin(x)": 0.9980266527163617}, {"x": 72, "sin(x)": 0.9656577765492775}, {"x": 73, "sin(x)": 0.8947911721405042}, {"x": 74, "sin(x)": 0.7882520673753163}, {"x": 75, "sin(x)": 0.6502878401571169}, {"x": 76, "sin(x)": 0.4863986888537997}, {"x": 77, "sin(x)": 0.30311835674570226}, {"x": 78, "sin(x)": 0.10775365229944406}, {"x": 79, "sin(x)": -0.09190685022768165}, {"x": 80, "sin(x)": -0.2879033166650653}, {"x": 81, "sin(x)": -0.47242198639846616}, {"x": 82, "sin(x)": -0.6381066823479474}, {"x": 83, "sin(x)": -0.7783520785342986}, {"x": 84, "sin(x)": -0.8875670335815046}, {"x": 85, "sin(x)": -0.9613974918795568}, {"x": 86, "sin(x)": -0.9969000660415961}, {"x": 87, "sin(x)": -0.9926593804706332}, {"x": 88, "sin(x)": -0.948844497918124}, {"x": 89, "sin(x)": -0.8672021794855813}, {"x": 90, "sin(x)": -0.750987246771676}, {"x": 91, "sin(x)": -0.6048328224062841}, {"x": 92, "sin(x)": -0.4345656220718967}, {"x": 93, "sin(x)": -0.2469736617366209}, {"x": 94, "sin(x)": -0.04953564087836742}, {"x": 95, "sin(x)": 0.14987720966295234}, {"x": 96, "sin(x)": 0.3433149288198954}, {"x": 97, "sin(x)": 0.5230657651576964}, {"x": 98, "sin(x)": 0.6819636200681355}, {"x": 99, "sin(x)": 0.8136737375071054}]}, "mark": {"type": "line", "point": true}, "encoding": {"x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "sin(x)"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"name": "data-ea15454b25337b3f1fbe9d7a80d0f999"}, "mark": {"type": "line", "point": true}, "encoding": {"x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "sin(x)"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json", "datasets": {"data-ea15454b25337b3f1fbe9d7a80d0f999": [{"x": 0, "sin(x)": 0.0}, {"x": 1, "sin(x)": 0.19866933079506122}, {"x": 2, "sin(x)": 0.3894183423086505}, {"x": 3, "sin(x)": 0.5646424733950354}, {"x": 4, "sin(x)": 0.7173560908995228}, {"x": 5, "sin(x)": 0.8414709848078965}, {"x": 6, "sin(x)": 0.9320390859672263}, {"x": 7, "sin(x)": 0.9854497299884601}, {"x": 8, "sin(x)": 0.9995736030415051}, {"x": 9, "sin(x)": 0.9738476308781951}, {"x": 10, "sin(x)": 0.9092974268256817}, {"x": 11, "sin(x)": 0.8084964038195901}, {"x": 12, "sin(x)": 0.675463180551151}, {"x": 13, "sin(x)": 0.5155013718214642}, {"x": 14, "sin(x)": 0.33498815015590505}, {"x": 15, "sin(x)": 0.1411200080598672}, {"x": 16, "sin(x)": -0.058374143427580086}, {"x": 17, "sin(x)": -0.2555411020268312}, {"x": 18, "sin(x)": -0.44252044329485246}, {"x": 19, "sin(x)": -0.6118578909427189}, {"x": 20, "sin(x)": -0.7568024953079282}, {"x": 21, "sin(x)": -0.8715757724135881}, {"x": 22, "sin(x)": -0.9516020738895161}, {"x": 23, "sin(x)": -0.9936910036334644}, {"x": 24, "sin(x)": -0.9961646088358407}, {"x": 25, "sin(x)": -0.9589242746631385}, {"x": 26, "sin(x)": -0.8834546557201531}, {"x": 27, "sin(x)": -0.7727644875559871}, {"x": 28, "sin(x)": -0.6312666378723216}, {"x": 29, "sin(x)": -0.46460217941375737}, {"x": 30, "sin(x)": -0.27941549819892586}, {"x": 31, "sin(x)": -0.08308940281749641}, {"x": 32, "sin(x)": 0.11654920485049364}, {"x": 33, "sin(x)": 0.31154136351337786}, {"x": 34, "sin(x)": 0.4941133511386082}, {"x": 35, "sin(x)": 0.6569865987187891}, {"x": 36, "sin(x)": 0.7936678638491531}, {"x": 37, "sin(x)": 0.8987080958116269}, {"x": 38, "sin(x)": 0.9679196720314863}, {"x": 39, "sin(x)": 0.998543345374605}, {"x": 40, "sin(x)": 0.9893582466233818}, {"x": 41, "sin(x)": 0.9407305566797731}, {"x": 42, "sin(x)": 0.8545989080882805}, {"x": 43, "sin(x)": 0.7343970978741134}, {"x": 44, "sin(x)": 0.5849171928917617}, {"x": 45, "sin(x)": 0.4121184852417566}, {"x": 46, "sin(x)": 0.22288991410024764}, {"x": 47, "sin(x)": 0.024775425453357765}, {"x": 48, "sin(x)": -0.17432678122297965}, {"x": 49, "sin(x)": -0.3664791292519284}, {"x": 50, "sin(x)": -0.5440211108893699}, {"x": 51, "sin(x)": -0.6998746875935424}, {"x": 52, "sin(x)": -0.8278264690856536}, {"x": 53, "sin(x)": -0.9227754216128066}, {"x": 54, "sin(x)": -0.9809362300664916}, {"x": 55, "sin(x)": -0.9999902065507035}, {"x": 56, "sin(x)": -0.9791777291513174}, {"x": 57, "sin(x)": -0.9193285256646757}, {"x": 58, "sin(x)": -0.8228285949687089}, {"x": 59, "sin(x)": -0.6935250847771224}, {"x": 60, "sin(x)": -0.5365729180004349}, {"x": 61, "sin(x)": -0.3582292822368287}, {"x": 62, "sin(x)": -0.1656041754483094}, {"x": 63, "sin(x)": 0.03362304722113669}, {"x": 64, "sin(x)": 0.23150982510153895}, {"x": 65, "sin(x)": 0.4201670368266409}, {"x": 66, "sin(x)": 0.592073514707223}, {"x": 67, "sin(x)": 0.7403758899524486}, {"x": 68, "sin(x)": 0.8591618148564959}, {"x": 69, "sin(x)": 0.9436956694441048}, {"x": 70, "sin(x)": 0.9906073556948704}, {"x": 71, "sin(x)": 0.9980266527163617}, {"x": 72, "sin(x)": 0.9656577765492775}, {"x": 73, "sin(x)": 0.8947911721405042}, {"x": 74, "sin(x)": 0.7882520673753163}, {"x": 75, "sin(x)": 0.6502878401571169}, {"x": 76, "sin(x)": 0.4863986888537997}, {"x": 77, "sin(x)": 0.30311835674570226}, {"x": 78, "sin(x)": 0.10775365229944406}, {"x": 79, "sin(x)": -0.09190685022768165}, {"x": 80, "sin(x)": -0.2879033166650653}, {"x": 81, "sin(x)": -0.47242198639846616}, {"x": 82, "sin(x)": -0.6381066823479474}, {"x": 83, "sin(x)": -0.7783520785342986}, {"x": 84, "sin(x)": -0.8875670335815046}, {"x": 85, "sin(x)": -0.9613974918795568}, {"x": 86, "sin(x)": -0.9969000660415961}, {"x": 87, "sin(x)": -0.9926593804706332}, {"x": 88, "sin(x)": -0.948844497918124}, {"x": 89, "sin(x)": -0.8672021794855813}, {"x": 90, "sin(x)": -0.750987246771676}, {"x": 91, "sin(x)": -0.6048328224062841}, {"x": 92, "sin(x)": -0.4345656220718967}, {"x": 93, "sin(x)": -0.2469736617366209}, {"x": 94, "sin(x)": -0.04953564087836742}, {"x": 95, "sin(x)": 0.14987720966295234}, {"x": 96, "sin(x)": 0.3433149288198954}, {"x": 97, "sin(x)": 0.5230657651576964}, {"x": 98, "sin(x)": 0.6819636200681355}, {"x": 99, "sin(x)": 0.8136737375071054}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#simple_line_chart_with_markers-rst-altair-plot-0', {"config": {"view": {"width": 400, "height": 300}}, "data": {"values": [{"x": 0, "sin(x)": 0.0}, {"x": 1, "sin(x)": 0.19866933079506122}, {"x": 2, "sin(x)": 0.3894183423086505}, {"x": 3, "sin(x)": 0.5646424733950354}, {"x": 4, "sin(x)": 0.7173560908995228}, {"x": 5, "sin(x)": 0.8414709848078965}, {"x": 6, "sin(x)": 0.9320390859672263}, {"x": 7, "sin(x)": 0.9854497299884601}, {"x": 8, "sin(x)": 0.9995736030415051}, {"x": 9, "sin(x)": 0.9738476308781951}, {"x": 10, "sin(x)": 0.9092974268256817}, {"x": 11, "sin(x)": 0.8084964038195901}, {"x": 12, "sin(x)": 0.675463180551151}, {"x": 13, "sin(x)": 0.5155013718214642}, {"x": 14, "sin(x)": 0.33498815015590505}, {"x": 15, "sin(x)": 0.1411200080598672}, {"x": 16, "sin(x)": -0.058374143427580086}, {"x": 17, "sin(x)": -0.2555411020268312}, {"x": 18, "sin(x)": -0.44252044329485246}, {"x": 19, "sin(x)": -0.6118578909427189}, {"x": 20, "sin(x)": -0.7568024953079282}, {"x": 21, "sin(x)": -0.8715757724135881}, {"x": 22, "sin(x)": -0.9516020738895161}, {"x": 23, "sin(x)": -0.9936910036334644}, {"x": 24, "sin(x)": -0.9961646088358407}, {"x": 25, "sin(x)": -0.9589242746631385}, {"x": 26, "sin(x)": -0.8834546557201531}, {"x": 27, "sin(x)": -0.7727644875559871}, {"x": 28, "sin(x)": -0.6312666378723216}, {"x": 29, "sin(x)": -0.46460217941375737}, {"x": 30, "sin(x)": -0.27941549819892586}, {"x": 31, "sin(x)": -0.08308940281749641}, {"x": 32, "sin(x)": 0.11654920485049364}, {"x": 33, "sin(x)": 0.31154136351337786}, {"x": 34, "sin(x)": 0.4941133511386082}, {"x": 35, "sin(x)": 0.6569865987187891}, {"x": 36, "sin(x)": 0.7936678638491531}, {"x": 37, "sin(x)": 0.8987080958116269}, {"x": 38, "sin(x)": 0.9679196720314863}, {"x": 39, "sin(x)": 0.998543345374605}, {"x": 40, "sin(x)": 0.9893582466233818}, {"x": 41, "sin(x)": 0.9407305566797731}, {"x": 42, "sin(x)": 0.8545989080882805}, {"x": 43, "sin(x)": 0.7343970978741134}, {"x": 44, "sin(x)": 0.5849171928917617}, {"x": 45, "sin(x)": 0.4121184852417566}, {"x": 46, "sin(x)": 0.22288991410024764}, {"x": 47, "sin(x)": 0.024775425453357765}, {"x": 48, "sin(x)": -0.17432678122297965}, {"x": 49, "sin(x)": -0.3664791292519284}, {"x": 50, "sin(x)": -0.5440211108893699}, {"x": 51, "sin(x)": -0.6998746875935424}, {"x": 52, "sin(x)": -0.8278264690856536}, {"x": 53, "sin(x)": -0.9227754216128066}, {"x": 54, "sin(x)": -0.9809362300664916}, {"x": 55, "sin(x)": -0.9999902065507035}, {"x": 56, "sin(x)": -0.9791777291513174}, {"x": 57, "sin(x)": -0.9193285256646757}, {"x": 58, "sin(x)": -0.8228285949687089}, {"x": 59, "sin(x)": -0.6935250847771224}, {"x": 60, "sin(x)": -0.5365729180004349}, {"x": 61, "sin(x)": -0.3582292822368287}, {"x": 62, "sin(x)": -0.1656041754483094}, {"x": 63, "sin(x)": 0.03362304722113669}, {"x": 64, "sin(x)": 0.23150982510153895}, {"x": 65, "sin(x)": 0.4201670368266409}, {"x": 66, "sin(x)": 0.592073514707223}, {"x": 67, "sin(x)": 0.7403758899524486}, {"x": 68, "sin(x)": 0.8591618148564959}, {"x": 69, "sin(x)": 0.9436956694441048}, {"x": 70, "sin(x)": 0.9906073556948704}, {"x": 71, "sin(x)": 0.9980266527163617}, {"x": 72, "sin(x)": 0.9656577765492775}, {"x": 73, "sin(x)": 0.8947911721405042}, {"x": 74, "sin(x)": 0.7882520673753163}, {"x": 75, "sin(x)": 0.6502878401571169}, {"x": 76, "sin(x)": 0.4863986888537997}, {"x": 77, "sin(x)": 0.30311835674570226}, {"x": 78, "sin(x)": 0.10775365229944406}, {"x": 79, "sin(x)": -0.09190685022768165}, {"x": 80, "sin(x)": -0.2879033166650653}, {"x": 81, "sin(x)": -0.47242198639846616}, {"x": 82, "sin(x)": -0.6381066823479474}, {"x": 83, "sin(x)": -0.7783520785342986}, {"x": 84, "sin(x)": -0.8875670335815046}, {"x": 85, "sin(x)": -0.9613974918795568}, {"x": 86, "sin(x)": -0.9969000660415961}, {"x": 87, "sin(x)": -0.9926593804706332}, {"x": 88, "sin(x)": -0.948844497918124}, {"x": 89, "sin(x)": -0.8672021794855813}, {"x": 90, "sin(x)": -0.750987246771676}, {"x": 91, "sin(x)": -0.6048328224062841}, {"x": 92, "sin(x)": -0.4345656220718967}, {"x": 93, "sin(x)": -0.2469736617366209}, {"x": 94, "sin(x)": -0.04953564087836742}, {"x": 95, "sin(x)": 0.14987720966295234}, {"x": 96, "sin(x)": 0.3433149288198954}, {"x": 97, "sin(x)": 0.5230657651576964}, {"x": 98, "sin(x)": 0.6819636200681355}, {"x": 99, "sin(x)": 0.8136737375071054}]}, "mark": {"type": "line", "point": true}, "encoding": {"x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "sin(x)"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
+      vegaEmbed('#simple_line_chart_with_markers-rst-altair-plot-0', spec, opt).catch(console.err);
   });
 </script>
 </div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
@@ -269,9 +259,7 @@ columns.</p>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -293,7 +281,7 @@ columns.</p>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -311,7 +299,8 @@ columns.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.1.0',
+            VERSION:'2.2.0',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -322,24 +311,18 @@ columns.</p>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@3.3"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@2.4"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@3.14"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@2.6"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@3.18"></script>
 
   
 
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

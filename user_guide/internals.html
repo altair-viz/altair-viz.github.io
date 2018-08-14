@@ -1,0 +1,578 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Altair Internals: Understanding the Library &mdash; Altair 2.2.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/altair-plot.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/altair-gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="API Reference" href="API.html" />
+    <link rel="prev" title="Altair Renderers" href="renderers.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Altair
+          
+
+          
+            
+            <img src="../_static/altair-logo-light.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/starting.html">Basic Statistical Visualization</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Gallery</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Example Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="data.html">Specifying Data in Altair</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoding.html">Encodings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="marks.html">Marks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transform.html">Data Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="selections.html">Selections: Building Blocks of Interactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Top-Level Chart Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="saving_charts.html">Saving Altair Charts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="customization.html">Customizing Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="times_and_dates.html">Times and Dates in Altair</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Display Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="renderers.html">Altair Renderers</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Altair Internals: Understanding the Library</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#altair-chart-to-vega-lite-spec">Altair chart to Vega-Lite Spec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#altair-s-low-level-object-structure">Altair’s Low-Level Object Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#converting-vega-lite-to-altair">Converting Vega-Lite to Altair</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="API.html">API Reference</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Case Studies</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../case_studies/exploring-weather.html">Exploring Seattle Weather</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="importing.html">Importing Vega &amp; Vega-Lite Versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="display_frontends.html">Displaying Charts in Various Frontends</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_renderers.html">Customizing Renderers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_transformers.html">Data transformers</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Altair</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Altair Internals: Understanding the Library</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/user_guide/internals.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="altair-internals-understanding-the-library">
+<span id="user-guide-internals"></span><h1>Altair Internals: Understanding the Library<a class="headerlink" href="#altair-internals-understanding-the-library" title="Permalink to this headline">¶</a></h1>
+<p>This section will provide some details about how the Altair API relates to the
+Vega-Lite visualization specification, and how you can use that knowledge to
+use the package more effectively.</p>
+<p>First of all, it is important to realize that when stripped down to its core,
+Altair itself cannot render visualizations. Altair is an API that does one
+very well-defined thing:</p>
+<ul class="simple">
+<li><strong>Altair provides a Python API for generating validated Vega-Lite specifications</strong></li>
+</ul>
+<p>That’s it. In order to take those specifications and turn them into actual
+visualizations requires a frontend that is correctly set up, but strictly
+speaking that rendering is generally not controlled by the Altair package.</p>
+<div class="section" id="altair-chart-to-vega-lite-spec">
+<h2>Altair chart to Vega-Lite Spec<a class="headerlink" href="#altair-chart-to-vega-lite-spec" title="Permalink to this headline">¶</a></h2>
+<p>Since Altair is fundamentally about constructing chart specifications, the central
+functionality of any chart object are the <a class="reference internal" href="generated/toplevel/altair.Chart.html#altair.Chart.to_dict" title="altair.Chart.to_dict"><code class="xref py py-meth docutils literal"><span class="pre">to_dict()</span></code></a> and
+<a class="reference internal" href="generated/toplevel/altair.Chart.html#altair.Chart.to_json" title="altair.Chart.to_json"><code class="xref py py-meth docutils literal"><span class="pre">to_json()</span></code></a> methods, which output the chart specification as a Python
+dict or JSON string, respectively. For example, here is a simple scatter chart,
+from which we can output the JSON representation:</p>
+<div class="highlight-python" id="internals-rst-altair-source-0"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+
+<span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">cars</span><span class="o">.</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Horsepower:Q&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Miles_per_Gallon:Q&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;Origin:N&#39;</span><span class="p">,</span>
+<span class="p">)</span><span class="o">.</span><span class="n">configure_view</span><span class="p">(</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">chart</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="admonition">
+<div class="first last highlight-none"><div class="highlight"><pre><span></span>{
+  &quot;$schema&quot;: &quot;https://vega.github.io/schema/vega-lite/v2.6.0.json&quot;,
+  &quot;config&quot;: {
+    &quot;view&quot;: {
+      &quot;height&quot;: 300,
+      &quot;width&quot;: 400
+    }
+  },
+  &quot;data&quot;: {
+    &quot;url&quot;: &quot;https://vega.github.io/vega-datasets/data/cars.json&quot;
+  },
+  &quot;encoding&quot;: {
+    &quot;color&quot;: {
+      &quot;field&quot;: &quot;Origin&quot;,
+      &quot;type&quot;: &quot;nominal&quot;
+    },
+    &quot;x&quot;: {
+      &quot;field&quot;: &quot;Horsepower&quot;,
+      &quot;type&quot;: &quot;quantitative&quot;
+    },
+    &quot;y&quot;: {
+      &quot;field&quot;: &quot;Miles_per_Gallon&quot;,
+      &quot;type&quot;: &quot;quantitative&quot;
+    }
+  },
+  &quot;mark&quot;: &quot;point&quot;
+}
+</pre></div>
+</div>
+<p>Before returning the dict or JSON output, Altair validates it against the
+<a class="reference external" href="https://github.com/vega/schema">Vega-Lite schema</a> using the
+<a class="reference external" href="https://python-jsonschema.readthedocs.io/en/latest/">jsonschema</a> package.
+The Vega-Lite schema defines valid attributes and values that can appear
+within the specification of a Vega-Lite chart.</p>
+<p>With the JSON schema in hand, it can then be passed to a library such as
+<a class="reference external" href="https://github.com/vega/vega-embed">Vega-Embed</a> that knows how to read the
+specification and render the chart that it describes, and the result is the
+following visualization:</p>
+
+<div id="internals-rst-altair-plot-1">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"type": "nominal", "field": "Origin"}, "x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#internals-rst-altair-plot-1', spec, opt).catch(console.err);
+  });
+</script>
+</div><p>Whenever you use Altair within JupyterLab, Jupyter notebook, or other frontends,
+it is frontend extensions that extract the JSON output from the Altair chart
+object and pass that specification along to the appropriate rendering code.</p>
+</div>
+<div class="section" id="altair-s-low-level-object-structure">
+<h2>Altair’s Low-Level Object Structure<a class="headerlink" href="#altair-s-low-level-object-structure" title="Permalink to this headline">¶</a></h2>
+<p>The standard API methods used in Altair (e.g. <a class="reference internal" href="generated/toplevel/altair.Chart.html#altair.Chart.mark_point" title="altair.Chart.mark_point"><code class="xref py py-meth docutils literal"><span class="pre">mark_point()</span></code></a>,
+<a class="reference internal" href="generated/toplevel/altair.Chart.html#altair.Chart.encode" title="altair.Chart.encode"><code class="xref py py-meth docutils literal"><span class="pre">encode()</span></code></a>, <code class="docutils literal"><span class="pre">configure_*()</span></code>, <code class="docutils literal"><span class="pre">transform_*()</span></code>, etc.)
+are higher-level convenience functions that wrap the low-level API.
+That low-level API is essentially a Python object hierarchy that mirrors
+that of the JSON schema definition.</p>
+<p>For example, we can choose to avoid the convenience methods and rather construct
+the above chart using these low-level object types directly:</p>
+<div class="highlight-python" id="internals-rst-altair-source-2"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">UrlData</span><span class="p">(</span>
+        <span class="n">url</span><span class="o">=</span><span class="s1">&#39;https://vega.github.io/vega-datasets/data/cars.json&#39;</span>
+    <span class="p">),</span>
+    <span class="n">mark</span><span class="o">=</span><span class="s1">&#39;point&#39;</span><span class="p">,</span>
+    <span class="n">encoding</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">EncodingWithFacet</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">PositionFieldDef</span><span class="p">(</span>
+            <span class="n">field</span><span class="o">=</span><span class="s1">&#39;Horsepower&#39;</span><span class="p">,</span>
+            <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;quantitative&#39;</span>
+        <span class="p">),</span>
+        <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">PositionFieldDef</span><span class="p">(</span>
+            <span class="n">field</span><span class="o">=</span><span class="s1">&#39;Miles_per_Gallon&#39;</span><span class="p">,</span>
+            <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;quantitative&#39;</span>
+        <span class="p">),</span>
+        <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">MarkPropFieldDefWithCondition</span><span class="p">(</span>
+            <span class="n">field</span><span class="o">=</span><span class="s1">&#39;Origin&#39;</span><span class="p">,</span>
+            <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;nominal&#39;</span>
+        <span class="p">)</span>
+    <span class="p">),</span>
+    <span class="n">config</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Config</span><span class="p">(</span>
+        <span class="n">view</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">ViewConfig</span><span class="p">(</span>
+            <span class="n">height</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+            <span class="n">width</span><span class="o">=</span><span class="mi">400</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="internals-rst-altair-plot-2">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"type": "nominal", "field": "Origin"}, "x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#internals-rst-altair-plot-2', spec, opt).catch(console.err);
+  });
+</script>
+</div><p>This low-level approach is much more verbose than the typical idiomatic approach
+to creating Altair charts, but it makes much more clear the mapping between
+Altair’s python object structure and Vega-Lite’s schema definition structure.</p>
+<p>One of the nice features of Altair is that this low-level object hierarchy is not
+constructed by hand, but rather <em>programmatically generated</em> from the Vega-Lite
+schema, using the <code class="docutils literal"><span class="pre">generate_schema_wrapper.py</span></code> script that you can find in
+<a class="reference external" href="https://github.com/altair-viz/altair/blob/master/tools/generate_schema_wrapper.py">Altair’s repository</a>.
+This auto-generation of code propagates descriptions from the vega-lite schema
+into the Python class docstrings, from which the
+<a class="reference external" href="http://altair-viz.github.io/user_guide/API.html">API Reference</a>
+within Altair’s documentation are in turn automatically generated.
+This means that as the Vega-Lite schema evolves, Altair can very quickly be brought
+up-to-date, and only the higher-level chart methods need to be updated by hand.</p>
+</div>
+<div class="section" id="converting-vega-lite-to-altair">
+<h2>Converting Vega-Lite to Altair<a class="headerlink" href="#converting-vega-lite-to-altair" title="Permalink to this headline">¶</a></h2>
+<p>With this knowledge in mind, and with a bit of practice, it is fairly
+straightforward to construct an Altair chart from a Vega-Lite spec.
+For example, consider the
+<a class="reference external" href="https://vega.github.io/vega-lite/examples/bar.html">Simple Bar Chart</a> example
+from the Vega-Lite documentation, which has the following JSON specification:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;$schema&quot;</span><span class="p">:</span> <span class="s2">&quot;https://vega.github.io/schema/vega-lite/v2.json&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;A simple bar chart with embedded data.&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">28</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">55</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">43</span><span class="p">},</span>
+      <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">91</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">81</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="s2">&quot;F&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">53</span><span class="p">},</span>
+      <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="s2">&quot;G&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">19</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="s2">&quot;H&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">87</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="s2">&quot;I&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">52</span><span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;mark&quot;</span><span class="p">:</span> <span class="s2">&quot;bar&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;encoding&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;field&quot;</span><span class="p">:</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;ordinal&quot;</span><span class="p">},</span>
+    <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;field&quot;</span><span class="p">:</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;quantitative&quot;</span><span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>At the lowest level, we can use the <a class="reference internal" href="generated/toplevel/altair.Chart.html#altair.Chart.from_json" title="altair.Chart.from_json"><code class="xref py py-meth docutils literal"><span class="pre">from_json()</span></code></a> class method to
+construct an Altair chart object from this string of Vega-Lite JSON:</p>
+<div class="highlight-python" id="internals-rst-altair-source-3"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="o">.</span><span class="n">from_json</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">{</span>
+<span class="s2">  &quot;$schema&quot;: &quot;https://vega.github.io/schema/vega-lite/v2.json&quot;,</span>
+<span class="s2">  &quot;description&quot;: &quot;A simple bar chart with embedded data.&quot;,</span>
+<span class="s2">  &quot;data&quot;: {</span>
+<span class="s2">    &quot;values&quot;: [</span>
+<span class="s2">      {&quot;a&quot;: &quot;A&quot;,&quot;b&quot;: 28}, {&quot;a&quot;: &quot;B&quot;,&quot;b&quot;: 55}, {&quot;a&quot;: &quot;C&quot;,&quot;b&quot;: 43},</span>
+<span class="s2">      {&quot;a&quot;: &quot;D&quot;,&quot;b&quot;: 91}, {&quot;a&quot;: &quot;E&quot;,&quot;b&quot;: 81}, {&quot;a&quot;: &quot;F&quot;,&quot;b&quot;: 53},</span>
+<span class="s2">      {&quot;a&quot;: &quot;G&quot;,&quot;b&quot;: 19}, {&quot;a&quot;: &quot;H&quot;,&quot;b&quot;: 87}, {&quot;a&quot;: &quot;I&quot;,&quot;b&quot;: 52}</span>
+<span class="s2">    ]</span>
+<span class="s2">  },</span>
+<span class="s2">  &quot;mark&quot;: &quot;bar&quot;,</span>
+<span class="s2">  &quot;encoding&quot;: {</span>
+<span class="s2">    &quot;x&quot;: {&quot;field&quot;: &quot;a&quot;, &quot;type&quot;: &quot;ordinal&quot;},</span>
+<span class="s2">    &quot;y&quot;: {&quot;field&quot;: &quot;b&quot;, &quot;type&quot;: &quot;quantitative&quot;}</span>
+<span class="s2">  }</span>
+<span class="s2">}</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="internals-rst-altair-plot-3">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"name": "data-c2a3e89ba9d5d1687d5e8c28d630a033"}, "mark": "bar", "description": "A simple bar chart with embedded data.", "encoding": {"x": {"type": "ordinal", "field": "a"}, "y": {"type": "quantitative", "field": "b"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.json", "datasets": {"data-c2a3e89ba9d5d1687d5e8c28d630a033": [{"a": "A", "b": 28}, {"a": "B", "b": 55}, {"a": "C", "b": 43}, {"a": "D", "b": 91}, {"a": "E", "b": 81}, {"a": "F", "b": 53}, {"a": "G", "b": 19}, {"a": "H", "b": 87}, {"a": "I", "b": 52}]}};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#internals-rst-altair-plot-3', spec, opt).catch(console.err);
+  });
+</script>
+</div><p>Likewise, if you have the Python dictionary equivalent of the JSON string,
+you can use the <a class="reference internal" href="generated/toplevel/altair.Chart.html#altair.Chart.from_dict" title="altair.Chart.from_dict"><code class="xref py py-meth docutils literal"><span class="pre">from_dict()</span></code></a> method to construct the chart object:</p>
+<div class="highlight-python" id="internals-rst-altair-source-4"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="o">.</span><span class="n">from_dict</span><span class="p">({</span>
+  <span class="s2">&quot;$schema&quot;</span><span class="p">:</span> <span class="s2">&quot;https://vega.github.io/schema/vega-lite/v2.json&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;A simple bar chart with embedded data.&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">28</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">55</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">43</span><span class="p">},</span>
+      <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">91</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">81</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="s2">&quot;F&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">53</span><span class="p">},</span>
+      <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="s2">&quot;G&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">19</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="s2">&quot;H&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">87</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="s2">&quot;I&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">52</span><span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;mark&quot;</span><span class="p">:</span> <span class="s2">&quot;bar&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;encoding&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;field&quot;</span><span class="p">:</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;ordinal&quot;</span><span class="p">},</span>
+    <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;field&quot;</span><span class="p">:</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;quantitative&quot;</span><span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+
+<div id="internals-rst-altair-plot-4">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"name": "data-c2a3e89ba9d5d1687d5e8c28d630a033"}, "mark": "bar", "description": "A simple bar chart with embedded data.", "encoding": {"x": {"type": "ordinal", "field": "a"}, "y": {"type": "quantitative", "field": "b"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.json", "datasets": {"data-c2a3e89ba9d5d1687d5e8c28d630a033": [{"a": "A", "b": 28}, {"a": "B", "b": 55}, {"a": "C", "b": 43}, {"a": "D", "b": 91}, {"a": "E", "b": 81}, {"a": "F", "b": 53}, {"a": "G", "b": 19}, {"a": "H", "b": 87}, {"a": "I", "b": 52}]}};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#internals-rst-altair-plot-4', spec, opt).catch(console.err);
+  });
+</script>
+</div><p>With a bit more effort and some judicious copying and pasting, we can
+manually convert this into more idiomatic Altair code for the same chart,
+including constructing a Pandas dataframe from the data values:</p>
+<div class="highlight-python" id="internals-rst-altair-source-5"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_records</span><span class="p">([</span>
+      <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">28</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">55</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">43</span><span class="p">},</span>
+      <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">91</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">81</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="s2">&quot;F&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">53</span><span class="p">},</span>
+      <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="s2">&quot;G&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">19</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="s2">&quot;H&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">87</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="s2">&quot;I&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">52</span><span class="p">}</span>
+    <span class="p">])</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;a:O&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;b:Q&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="internals-rst-altair-plot-5">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"name": "data-c2a3e89ba9d5d1687d5e8c28d630a033"}, "mark": "bar", "encoding": {"x": {"type": "ordinal", "field": "a"}, "y": {"type": "quantitative", "field": "b"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json", "datasets": {"data-c2a3e89ba9d5d1687d5e8c28d630a033": [{"a": "A", "b": 28}, {"a": "B", "b": 55}, {"a": "C", "b": 43}, {"a": "D", "b": 91}, {"a": "E", "b": 81}, {"a": "F", "b": 53}, {"a": "G", "b": 19}, {"a": "H", "b": 87}, {"a": "I", "b": 52}]}};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#internals-rst-altair-plot-5', spec, opt).catch(console.err);
+  });
+</script>
+</div><p>The key is to realize that <code class="docutils literal"><span class="pre">&quot;encoding&quot;</span></code> properties are usually set using the
+<a class="reference internal" href="generated/toplevel/altair.Chart.html#altair.Chart.encode" title="altair.Chart.encode"><code class="xref py py-meth docutils literal"><span class="pre">encode()</span></code></a> method, encoding types are usually computed from
+short-hand type codes, <code class="docutils literal"><span class="pre">&quot;transform&quot;</span></code> and <code class="docutils literal"><span class="pre">&quot;config&quot;</span></code> properties come from
+the <code class="docutils literal"><span class="pre">transform_*()</span></code> and <code class="docutils literal"><span class="pre">configure_*()</span></code> methods, and so on.</p>
+<p>This approach is the process by which Altair contributors constructed many
+of the initial examples in the
+<a class="reference external" href="https://altair-viz.github.io/gallery/index.html">Altair Example Gallery</a>,
+drawing inspiration from the
+<a class="reference external" href="https://vega.github.io/vega-lite/examples/">Vega-Lite Example Gallery</a>.
+Becoming familiar with the mapping between Altair and Vega-Lite at this level
+is useful in making use of the Vega-Lite documentation in places where Altair’s
+documentation is weak or incomplete.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="API.html" class="btn btn-neutral float-right" title="API Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="renderers.html" class="btn btn-neutral" title="Altair Renderers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016-2018, Altair Developers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.2.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@3.3"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@2.6"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@3.18"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

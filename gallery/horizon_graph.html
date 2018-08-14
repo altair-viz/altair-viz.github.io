@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Horizon Graph &mdash; Altair 2.1.0 documentation</title>
+  <title>Horizon Graph &mdash; Altair 2.2.0 documentation</title>
   
 
   
@@ -26,36 +26,23 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="../_static/altair-plot.css" type="text/css" />
-  
-    <link rel="stylesheet" href="../_static/altair-gallery.css" type="text/css" />
-  
-    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
-  
-    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Altair 2.1.0 documentation" href="../index.html"/>
-        <link rel="up" title="Example Gallery" href="index.html"/>
-        <link rel="next" title="Interval Selection Example" href="interval_selection.html"/>
-        <link rel="prev" title="Step Chart" href="step_chart.html"/> 
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/altair-plot.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/altair-gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Interval Selection Example" href="interval_selection.html" />
+    <link rel="prev" title="Step Chart" href="step_chart.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -72,7 +59,7 @@
 
           
             
-            <img src="../_static/altair-logo-light.png" class="logo" />
+            <img src="../_static/altair-logo-light.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -80,7 +67,7 @@
             
             
               <div class="version">
-                2.1
+                2.2
               </div>
             
           
@@ -125,6 +112,7 @@
 <li class="toctree-l3"><a class="reference internal" href="normalized_stacked_area_chart.html">Normalized Stacked Area Chart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="streamgraph.html">Streamgraph</a></li>
 <li class="toctree-l3"><a class="reference internal" href="trellis_area.html">Trellis Area Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trellis_area_sort_array.html">Trellis Area Sort Chart</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#scatter-plots">Scatter Plots</a></li>
@@ -147,9 +135,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/saving_charts.html">Saving Altair Charts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/customization.html">Customizing Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/times_and_dates.html">Times and Dates in Altair</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/troubleshooting.html">Display Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/renderers.html">Altair Renderers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/internals.html">Altair Internals: Understanding the Library</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/API.html">API Reference</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Case Studies</span></p>
@@ -173,7 +163,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Altair</a>
@@ -181,9 +171,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -236,13 +227,13 @@
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "layer": [{"data": {"values": [{"x": 1, "y": 28}, {"x": 2, "y": 55}, {"x": 3, "y": 43}, {"x": 4, "y": 91}, {"x": 5, "y": 81}, {"x": 6, "y": 53}, {"x": 7, "y": 19}, {"x": 8, "y": 87}, {"x": 9, "y": 52}, {"x": 10, "y": 48}, {"x": 11, "y": 24}, {"x": 12, "y": 49}, {"x": 13, "y": 87}, {"x": 14, "y": 66}, {"x": 15, "y": 17}, {"x": 16, "y": 27}, {"x": 17, "y": 68}, {"x": 18, "y": 16}, {"x": 19, "y": 49}, {"x": 20, "y": 15}]}, "mark": {"type": "area", "clip": true, "interpolate": "monotone"}, "encoding": {"opacity": {"value": 0.6}, "x": {"type": "quantitative", "field": "x", "scale": {"nice": false, "zero": false}}, "y": {"type": "quantitative", "axis": {"title": "y"}, "field": "y", "scale": {"domain": [0, 50]}}}, "height": 75, "width": 500}, {"data": {"values": [{"x": 1, "y": 28}, {"x": 2, "y": 55}, {"x": 3, "y": 43}, {"x": 4, "y": 91}, {"x": 5, "y": 81}, {"x": 6, "y": 53}, {"x": 7, "y": 19}, {"x": 8, "y": 87}, {"x": 9, "y": 52}, {"x": 10, "y": 48}, {"x": 11, "y": 24}, {"x": 12, "y": 49}, {"x": 13, "y": 87}, {"x": 14, "y": 66}, {"x": 15, "y": 17}, {"x": 16, "y": 27}, {"x": 17, "y": 68}, {"x": 18, "y": 16}, {"x": 19, "y": 49}, {"x": 20, "y": 15}]}, "mark": {"type": "area", "clip": true, "interpolate": "monotone"}, "encoding": {"opacity": {"value": 0.6}, "x": {"type": "quantitative", "field": "x", "scale": {"nice": false, "zero": false}}, "y": {"type": "quantitative", "field": "ny", "scale": {"domain": [0, 50]}}}, "height": 75, "transform": [{"calculate": "(datum.y - 50)", "as": "ny"}], "width": 500}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "layer": [{"data": {"name": "data-5f9e6e06c1ea70f051c1f4e739c3a610"}, "mark": {"type": "area", "clip": true, "interpolate": "monotone"}, "encoding": {"opacity": {"value": 0.6}, "x": {"type": "quantitative", "field": "x", "scale": {"nice": false, "zero": false}}, "y": {"type": "quantitative", "axis": {"title": "y"}, "field": "y", "scale": {"domain": [0, 50]}}}, "height": 75, "width": 500}, {"data": {"name": "data-5f9e6e06c1ea70f051c1f4e739c3a610"}, "mark": {"type": "area", "clip": true, "interpolate": "monotone"}, "encoding": {"opacity": {"value": 0.6}, "x": {"type": "quantitative", "field": "x", "scale": {"nice": false, "zero": false}}, "y": {"type": "quantitative", "field": "ny", "scale": {"domain": [0, 50]}}}, "height": 75, "transform": [{"calculate": "(datum.y - 50)", "as": "ny"}], "width": 500}], "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json", "datasets": {"data-5f9e6e06c1ea70f051c1f4e739c3a610": [{"x": 1, "y": 28}, {"x": 2, "y": 55}, {"x": 3, "y": 43}, {"x": 4, "y": 91}, {"x": 5, "y": 81}, {"x": 6, "y": 53}, {"x": 7, "y": 19}, {"x": 8, "y": 87}, {"x": 9, "y": 52}, {"x": 10, "y": 48}, {"x": 11, "y": 24}, {"x": 12, "y": 49}, {"x": 13, "y": 87}, {"x": 14, "y": 66}, {"x": 15, "y": 17}, {"x": 16, "y": 27}, {"x": 17, "y": 68}, {"x": 18, "y": 16}, {"x": 19, "y": 49}, {"x": 20, "y": 15}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#horizon_graph-rst-altair-plot-0', {"config": {"view": {"width": 400, "height": 300}}, "layer": [{"data": {"values": [{"x": 1, "y": 28}, {"x": 2, "y": 55}, {"x": 3, "y": 43}, {"x": 4, "y": 91}, {"x": 5, "y": 81}, {"x": 6, "y": 53}, {"x": 7, "y": 19}, {"x": 8, "y": 87}, {"x": 9, "y": 52}, {"x": 10, "y": 48}, {"x": 11, "y": 24}, {"x": 12, "y": 49}, {"x": 13, "y": 87}, {"x": 14, "y": 66}, {"x": 15, "y": 17}, {"x": 16, "y": 27}, {"x": 17, "y": 68}, {"x": 18, "y": 16}, {"x": 19, "y": 49}, {"x": 20, "y": 15}]}, "mark": {"type": "area", "clip": true, "interpolate": "monotone"}, "encoding": {"opacity": {"value": 0.6}, "x": {"type": "quantitative", "field": "x", "scale": {"nice": false, "zero": false}}, "y": {"type": "quantitative", "axis": {"title": "y"}, "field": "y", "scale": {"domain": [0, 50]}}}, "height": 75, "width": 500}, {"data": {"values": [{"x": 1, "y": 28}, {"x": 2, "y": 55}, {"x": 3, "y": 43}, {"x": 4, "y": 91}, {"x": 5, "y": 81}, {"x": 6, "y": 53}, {"x": 7, "y": 19}, {"x": 8, "y": 87}, {"x": 9, "y": 52}, {"x": 10, "y": 48}, {"x": 11, "y": 24}, {"x": 12, "y": 49}, {"x": 13, "y": 87}, {"x": 14, "y": 66}, {"x": 15, "y": 17}, {"x": 16, "y": 27}, {"x": 17, "y": 68}, {"x": 18, "y": 16}, {"x": 19, "y": 49}, {"x": 20, "y": 15}]}, "mark": {"type": "area", "clip": true, "interpolate": "monotone"}, "encoding": {"opacity": {"value": 0.6}, "x": {"type": "quantitative", "field": "x", "scale": {"nice": false, "zero": false}}, "y": {"type": "quantitative", "field": "ny", "scale": {"domain": [0, 50]}}}, "height": 75, "transform": [{"calculate": "(datum.y - 50)", "as": "ny"}], "width": 500}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"}).catch(console.err);
+      vegaEmbed('#horizon_graph-rst-altair-plot-0', spec, opt).catch(console.err);
   });
 </script>
 </div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
@@ -289,9 +280,7 @@
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -313,7 +302,7 @@
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -331,7 +320,8 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.1.0',
+            VERSION:'2.2.0',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -342,24 +332,18 @@
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@3.3"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@2.4"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@3.14"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@2.6"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@3.18"></script>
 
   
 
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>
