@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Top-Level Chart Configuration &mdash; Altair 2.2.0 documentation</title>
+  <title>Top-Level Chart Configuration &mdash; Altair 2.2.1 documentation</title>
   
 
   
@@ -1487,7 +1487,7 @@ for a single selection definition (except <code class="docutils literal"><span c
 </table>
 <div class="section" id="removing-the-border">
 <h3>Removing the border<a class="headerlink" href="#removing-the-border" title="Permalink to this headline">¶</a></h3>
-<p>By default, charts have both a grid and an outside border. To create a chart with no border, you will need to remove the both.</p>
+<p>By default, charts have both a grid and an outside border. To create a chart with no border, you will need to remove them both.</p>
 <p>As an example, let’s start with a simple scatter plot.</p>
 <div class="highlight-python" id="configuration-rst-altair-source-0"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
 <span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
@@ -1606,8 +1606,7 @@ added to its specification:</p>
 <span class="n">chart</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="admonition">
-<div class="first last highlight-none"><div class="highlight"><pre><span></span>    {&#39;config&#39;: {&#39;view&#39;: {&#39;width&#39;: 400, &#39;height&#39;: 300}}, &#39;data&#39;: {&#39;url&#39;: &#39;https://vega.github.io/vega-datasets/data/cars.json&#39;}, &#39;mark&#39;: &#39;point&#39;, &#39;encoding&#39;: {&#39;x&#39;: {&#39;type&#39;: &#39;quantitative&#39;, &#39;field&#39;: &#39;Horsepower&#39;}, &#39;y&#39;: {&#39;type&#39;: &#39;quantitative&#39;, &#39;field&#39;: &#39;Miles_per_Gallon&#39;}}, &#39;$schema&#39;: &#39;https://vega.github.io/schema/vega-lite/v2.6.0.json&#39;}
+<div class="highlight-none"><div class="highlight"><pre><span></span>    {&#39;config&#39;: {&#39;view&#39;: {&#39;width&#39;: 400, &#39;height&#39;: 300}}, &#39;data&#39;: {&#39;url&#39;: &#39;https://vega.github.io/vega-datasets/data/cars.json&#39;}, &#39;mark&#39;: &#39;point&#39;, &#39;encoding&#39;: {&#39;x&#39;: {&#39;type&#39;: &#39;quantitative&#39;, &#39;field&#39;: &#39;Horsepower&#39;}, &#39;y&#39;: {&#39;type&#39;: &#39;quantitative&#39;, &#39;field&#39;: &#39;Miles_per_Gallon&#39;}}, &#39;$schema&#39;: &#39;https://vega.github.io/schema/vega-lite/v2.6.0.json&#39;}
 </pre></div>
 </div>
 <p>The rendered chart will then reflect these configurations:</p>
@@ -1639,8 +1638,7 @@ rather than transparent:</p>
 <span class="n">chart</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="admonition">
-<div class="first last highlight-none"><div class="highlight"><pre><span></span>    {&#39;config&#39;: {&#39;background&#39;: &#39;white&#39;, &#39;view&#39;: {&#39;width&#39;: 400, &#39;height&#39;: 300}}, &#39;data&#39;: {&#39;url&#39;: &#39;https://vega.github.io/vega-datasets/data/cars.json&#39;}, &#39;mark&#39;: &#39;point&#39;, &#39;encoding&#39;: {&#39;x&#39;: {&#39;type&#39;: &#39;quantitative&#39;, &#39;field&#39;: &#39;Horsepower&#39;}, &#39;y&#39;: {&#39;type&#39;: &#39;quantitative&#39;, &#39;field&#39;: &#39;Miles_per_Gallon&#39;}}, &#39;$schema&#39;: &#39;https://vega.github.io/schema/vega-lite/v2.6.0.json&#39;}
+<div class="highlight-none"><div class="highlight"><pre><span></span>    {&#39;config&#39;: {&#39;background&#39;: &#39;white&#39;, &#39;view&#39;: {&#39;width&#39;: 400, &#39;height&#39;: 300}}, &#39;data&#39;: {&#39;url&#39;: &#39;https://vega.github.io/vega-datasets/data/cars.json&#39;}, &#39;mark&#39;: &#39;point&#39;, &#39;encoding&#39;: {&#39;x&#39;: {&#39;type&#39;: &#39;quantitative&#39;, &#39;field&#39;: &#39;Horsepower&#39;}, &#39;y&#39;: {&#39;type&#39;: &#39;quantitative&#39;, &#39;field&#39;: &#39;Miles_per_Gallon&#39;}}, &#39;$schema&#39;: &#39;https://vega.github.io/schema/vega-lite/v2.6.0.json&#39;}
 </pre></div>
 </div>
 <div class="highlight-python" id="configuration-rst-altair-source-6"><div class="highlight"><pre><span></span><span class="n">chart</span>
@@ -1668,8 +1666,7 @@ theme named <code class="docutils literal"><span class="pre">'none'</span></code
 <span class="n">chart</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="admonition">
-<div class="first last highlight-none"><div class="highlight"><pre><span></span>    {&#39;data&#39;: {&#39;url&#39;: &#39;https://vega.github.io/vega-datasets/data/cars.json&#39;}, &#39;mark&#39;: &#39;point&#39;, &#39;encoding&#39;: {&#39;x&#39;: {&#39;type&#39;: &#39;quantitative&#39;, &#39;field&#39;: &#39;Horsepower&#39;}, &#39;y&#39;: {&#39;type&#39;: &#39;quantitative&#39;, &#39;field&#39;: &#39;Miles_per_Gallon&#39;}}, &#39;$schema&#39;: &#39;https://vega.github.io/schema/vega-lite/v2.6.0.json&#39;}
+<div class="highlight-none"><div class="highlight"><pre><span></span>    {&#39;data&#39;: {&#39;url&#39;: &#39;https://vega.github.io/vega-datasets/data/cars.json&#39;}, &#39;mark&#39;: &#39;point&#39;, &#39;encoding&#39;: {&#39;x&#39;: {&#39;type&#39;: &#39;quantitative&#39;, &#39;field&#39;: &#39;Horsepower&#39;}, &#39;y&#39;: {&#39;type&#39;: &#39;quantitative&#39;, &#39;field&#39;: &#39;Miles_per_Gallon&#39;}}, &#39;$schema&#39;: &#39;https://vega.github.io/schema/vega-lite/v2.6.0.json&#39;}
 </pre></div>
 </div>
 <div class="highlight-python" id="configuration-rst-altair-source-8"><div class="highlight"><pre><span></span><span class="n">chart</span>
@@ -1807,7 +1804,7 @@ fill unless otherwise specified:</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.2.0',
+            VERSION:'2.2.1',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
