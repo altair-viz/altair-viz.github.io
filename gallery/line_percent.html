@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Line Chart with Percent axis &mdash; Altair 2.2.2 documentation</title>
+  <title>Line Chart with Percent axis &mdash; Altair 2.3.0 documentation</title>
   
 
   
@@ -34,7 +34,7 @@
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Line chart with Confidence Interval Band" href="line_with_ci.html" />
+    <link rel="next" title="Line Chart with Points" href="line_chart_with_points.html" />
     <link rel="prev" title="Line Chart with Layered Aggregates" href="layer_line_color_rule.html" /> 
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                2.2
+                2.3.0
               </div>
             
           
@@ -103,11 +103,13 @@
 <li class="toctree-l2"><a class="reference internal" href="index.html#simple-charts">Simple Charts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#bar-charts">Bar Charts</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html#line-charts">Line Charts</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="filled_step_chart.html">Filled Step Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="line_with_ci.html">Line Chart with Confidence Interval Band</a></li>
 <li class="toctree-l3"><a class="reference internal" href="layer_line_color_rule.html">Line Chart with Layered Aggregates</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Line Chart with Percent axis</a><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="line_with_ci.html">Line chart with Confidence Interval Band</a></li>
+<li class="toctree-l3"><a class="reference internal" href="line_chart_with_points.html">Line Chart with Points</a></li>
 <li class="toctree-l3"><a class="reference internal" href="multi_series_line.html">Multi Series Line Chart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="slope_graph.html">Slope Graph</a></li>
 <li class="toctree-l3"><a class="reference internal" href="step_chart.html">Step Chart</a></li>
@@ -129,7 +131,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/encoding.html">Encodings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/marks.html">Marks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/transform.html">Data Transformations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/selections.html">Selections: Building Blocks of Interactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/interactions.html">Bindings, Selections, Conditions: Making Charts Interactive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/configuration.html">Top-Level Chart Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/saving_charts.html">Saving Altair Charts</a></li>
@@ -220,15 +222,14 @@
             
   <div class="section" id="line-chart-with-percent-axis">
 <span id="gallery-line-percent"></span><h1>Line Chart with Percent axis<a class="headerlink" href="#line-chart-with-percent-axis" title="Permalink to this headline">¶</a></h1>
-<p>This example shows how to format the tick labels of the
-y-axis of a chart as percentages.</p>
+<p>This example shows how to format the tick labels of the y-axis of a chart as percentages.</p>
 
 <div id="line_percent-rst-altair-plot-0">
 <script>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/jobs.json"}, "mark": "line", "encoding": {"color": {"type": "nominal", "field": "sex"}, "x": {"type": "ordinal", "field": "year"}, "y": {"type": "quantitative", "axis": {"format": "%"}, "field": "perc"}}, "title": "Percent of work-force working as Welders", "transform": [{"filter": "(datum.job === 'Welder')"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"name": "data-29207666d1415cb2c5d81514961b3723"}, "mark": "line", "encoding": {"color": {"type": "nominal", "field": "sex"}, "x": {"type": "ordinal", "field": "year"}, "y": {"type": "quantitative", "axis": {"format": "%"}, "field": "perc"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json", "datasets": {"data-29207666d1415cb2c5d81514961b3723": [{"count": 101, "job": "Welder", "perc": 1.8682246797e-05, "sex": "men", "year": 1850}, {"count": 200, "job": "Welder", "perc": 2.3712320233e-05, "sex": "men", "year": 1860}, {"count": 300, "job": "Welder", "perc": 2.2850111116000003e-05, "sex": "men", "year": 1870}, {"count": 198, "job": "Welder", "perc": 1.0815367851e-05, "sex": "men", "year": 1880}, {"count": 904, "job": "Welder", "perc": 3.0448197124000002e-05, "sex": "men", "year": 1900}, {"count": 0, "job": "Welder", "perc": 0.0, "sex": "men", "year": 1910}, {"count": 25637, "job": "Welder", "perc": 0.0006105724803500001, "sex": "men", "year": 1920}, {"count": 61167, "job": "Welder", "perc": 0.001255218121929, "sex": "men", "year": 1930}, {"count": 134709, "job": "Welder", "perc": 0.00258900045832, "sex": "men", "year": 1940}, {"count": 281806, "job": "Welder", "perc": 0.004639475561424001, "sex": "men", "year": 1950}, {"count": 399733, "job": "Welder", "perc": 0.004599522269101, "sex": "men", "year": 1960}, {"count": 576267, "job": "Welder", "perc": 0.005274185102263001, "sex": "men", "year": 1970}, {"count": 821710, "job": "Welder", "perc": 0.0063944891240450006, "sex": "men", "year": 1980}, {"count": 700666, "job": "Welder", "perc": 0.00469849321258, "sex": "men", "year": 1990}, {"count": 727405, "job": "Welder", "perc": 0.004326640610365, "sex": "men", "year": 2000}, {"count": 0, "job": "Welder", "perc": 0.0, "sex": "women", "year": 1850}, {"count": 0, "job": "Welder", "perc": 0.0, "sex": "women", "year": 1860}, {"count": 0, "job": "Welder", "perc": 0.0, "sex": "women", "year": 1870}, {"count": 0, "job": "Welder", "perc": 0.0, "sex": "women", "year": 1880}, {"count": 0, "job": "Welder", "perc": 0.0, "sex": "women", "year": 1900}, {"count": 0, "job": "Welder", "perc": 0.0, "sex": "women", "year": 1910}, {"count": 606, "job": "Welder", "perc": 1.4432535908e-05, "sex": "women", "year": 1920}, {"count": 1011, "job": "Welder", "perc": 2.0746898184000002e-05, "sex": "women", "year": 1930}, {"count": 2323, "job": "Welder", "perc": 4.4646223078e-05, "sex": "women", "year": 1940}, {"count": 10209, "job": "Welder", "perc": 0.000168074512276, "sex": "women", "year": 1950}, {"count": 28594, "job": "Welder", "perc": 0.00032901646789900004, "sex": "women", "year": 1960}, {"count": 48083, "job": "Welder", "perc": 0.00044007142916700006, "sex": "women", "year": 1970}, {"count": 57920, "job": "Welder", "perc": 0.000450729344981, "sex": "women", "year": 1980}, {"count": 36224, "job": "Welder", "perc": 0.000242909200863, "sex": "women", "year": 1990}, {"count": 63197, "job": "Welder", "perc": 0.00037589885504300005, "sex": "women", "year": 2000}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -238,19 +239,16 @@ y-axis of a chart as percentages.</p>
   });
 </script>
 </div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
-<span class="kn">from</span> <span class="nn">altair.expr</span> <span class="kn">import</span> <span class="n">datum</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
 
-<span class="n">source</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">jobs</span><span class="o">.</span><span class="n">url</span>
+<span class="n">source</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">jobs</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
+<span class="n">welders</span> <span class="o">=</span> <span class="n">source</span><span class="p">[</span><span class="n">source</span><span class="o">.</span><span class="n">job</span> <span class="o">==</span> <span class="s1">&#39;Welder&#39;</span><span class="p">]</span>
 
-<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">welders</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;year:O&#39;</span><span class="p">),</span>
     <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;perc:Q&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">format</span><span class="o">=</span><span class="s1">&#39;%&#39;</span><span class="p">)),</span>
     <span class="n">color</span><span class="o">=</span><span class="s1">&#39;sex:N&#39;</span>
-<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
-    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Percent of work-force working as Welders&#39;</span>
-<span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span>
-    <span class="n">datum</span><span class="o">.</span><span class="n">job</span> <span class="o">==</span> <span class="s1">&#39;Welder&#39;</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -266,7 +264,7 @@ y-axis of a chart as percentages.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="line_with_ci.html" class="btn btn-neutral float-right" title="Line chart with Confidence Interval Band" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="line_chart_with_points.html" class="btn btn-neutral float-right" title="Line Chart with Points" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="layer_line_color_rule.html" class="btn btn-neutral" title="Line Chart with Layered Aggregates" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -300,7 +298,7 @@ y-axis of a chart as percentages.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.2.2',
+            VERSION:'2.3.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',

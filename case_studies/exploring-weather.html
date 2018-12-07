@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Exploring Seattle Weather &mdash; Altair 2.2.2 documentation</title>
+  <title>Exploring Seattle Weather &mdash; Altair 2.3.0 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                2.2
+                2.3.0
               </div>
             
           
@@ -107,7 +107,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/encoding.html">Encodings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/marks.html">Marks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/transform.html">Data Transformations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/selections.html">Selections: Building Blocks of Interactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/interactions.html">Bindings, Selections, Conditions: Making Charts Interactive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/configuration.html">Top-Level Chart Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/saving_charts.html">Saving Altair Charts</a></li>
@@ -549,7 +549,7 @@ by weather type:</p>
 </div><p>And now we can vertically concatenate this histogram to the points plot above,
 and add a brush selection tool such that the histogram reflects the content
 of the selection (for more information on selections, see
-<a class="reference internal" href="../user_guide/selections.html#user-guide-selections"><span class="std std-ref">Selections: Building Blocks of Interactions</span></a>):</p>
+<a class="reference internal" href="../user_guide/interactions.html#user-guide-interactions"><span class="std std-ref">Bindings, Selections, Conditions: Making Charts Interactive</span></a>):</p>
 <div class="highlight-python" id="exploring-weather-rst-altair-source-13"><div class="highlight"><pre><span></span><span class="n">brush</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;interval&#39;</span><span class="p">)</span>
 
 <span class="n">points</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">()</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
@@ -648,7 +648,7 @@ If you want to further customize your charts, you can refer to Altair’s
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.2.2',
+            VERSION:'2.3.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',

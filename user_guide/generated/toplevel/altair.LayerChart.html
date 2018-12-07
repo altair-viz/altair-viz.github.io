@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>altair.LayerChart &mdash; Altair 2.2.2 documentation</title>
+  <title>altair.LayerChart &mdash; Altair 2.3.0 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                2.2
+                2.3.0
               </div>
             
           
@@ -107,7 +107,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../encoding.html">Encodings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../marks.html">Marks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../transform.html">Data Transformations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../selections.html">Selections: Building Blocks of Interactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interactions.html">Bindings, Selections, Conditions: Making Charts Interactive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../configuration.html">Top-Level Chart Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../saving_charts.html">Saving Altair Charts</a></li>
@@ -497,31 +497,34 @@ schema.</p>
 <tr class="row-odd"><td><a class="reference internal" href="#altair.LayerChart.to_dict" title="altair.LayerChart.to_dict"><code class="xref py py-obj docutils literal"><span class="pre">to_dict</span></code></a>(*args,&nbsp;**kwargs)</td>
 <td>Convert the chart to a dictionary suitable for JSON export</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#altair.LayerChart.to_json" title="altair.LayerChart.to_json"><code class="xref py py-obj docutils literal"><span class="pre">to_json</span></code></a>([validate,&nbsp;ignore,&nbsp;context,&nbsp;indent,&nbsp;…])</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">to_html</span></code>([base_url,&nbsp;output_div,&nbsp;…])</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#altair.LayerChart.to_json" title="altair.LayerChart.to_json"><code class="xref py py-obj docutils literal"><span class="pre">to_json</span></code></a>([validate,&nbsp;ignore,&nbsp;context,&nbsp;indent,&nbsp;…])</td>
 <td>Emit the JSON representation for this object as a string.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#altair.LayerChart.transform_aggregate" title="altair.LayerChart.transform_aggregate"><code class="xref py py-obj docutils literal"><span class="pre">transform_aggregate</span></code></a>([aggregate,&nbsp;groupby])</td>
+<tr class="row-even"><td><a class="reference internal" href="#altair.LayerChart.transform_aggregate" title="altair.LayerChart.transform_aggregate"><code class="xref py py-obj docutils literal"><span class="pre">transform_aggregate</span></code></a>([aggregate,&nbsp;groupby])</td>
 <td>Add an AggregateTransform to the schema.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#altair.LayerChart.transform_bin" title="altair.LayerChart.transform_bin"><code class="xref py py-obj docutils literal"><span class="pre">transform_bin</span></code></a>([as_,&nbsp;field,&nbsp;bin])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#altair.LayerChart.transform_bin" title="altair.LayerChart.transform_bin"><code class="xref py py-obj docutils literal"><span class="pre">transform_bin</span></code></a>([as_,&nbsp;field,&nbsp;bin])</td>
 <td>Add a BinTransform to the schema.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#altair.LayerChart.transform_calculate" title="altair.LayerChart.transform_calculate"><code class="xref py py-obj docutils literal"><span class="pre">transform_calculate</span></code></a>([as_,&nbsp;calculate])</td>
+<tr class="row-even"><td><a class="reference internal" href="#altair.LayerChart.transform_calculate" title="altair.LayerChart.transform_calculate"><code class="xref py py-obj docutils literal"><span class="pre">transform_calculate</span></code></a>([as_,&nbsp;calculate])</td>
 <td>Add a CalculateTransform to the schema.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#altair.LayerChart.transform_filter" title="altair.LayerChart.transform_filter"><code class="xref py py-obj docutils literal"><span class="pre">transform_filter</span></code></a>(filter,&nbsp;**kwargs)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#altair.LayerChart.transform_filter" title="altair.LayerChart.transform_filter"><code class="xref py py-obj docutils literal"><span class="pre">transform_filter</span></code></a>(filter,&nbsp;**kwargs)</td>
 <td>Add a FilterTransform to the schema.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#altair.LayerChart.transform_lookup" title="altair.LayerChart.transform_lookup"><code class="xref py py-obj docutils literal"><span class="pre">transform_lookup</span></code></a>([as_,&nbsp;from_,&nbsp;lookup,&nbsp;default])</td>
+<tr class="row-even"><td><a class="reference internal" href="#altair.LayerChart.transform_lookup" title="altair.LayerChart.transform_lookup"><code class="xref py py-obj docutils literal"><span class="pre">transform_lookup</span></code></a>([as_,&nbsp;from_,&nbsp;lookup,&nbsp;default])</td>
 <td>Add a LookupTransform to the schema</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#altair.LayerChart.transform_timeunit" title="altair.LayerChart.transform_timeunit"><code class="xref py py-obj docutils literal"><span class="pre">transform_timeunit</span></code></a>([as_,&nbsp;field,&nbsp;timeUnit])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#altair.LayerChart.transform_timeunit" title="altair.LayerChart.transform_timeunit"><code class="xref py py-obj docutils literal"><span class="pre">transform_timeunit</span></code></a>([as_,&nbsp;field,&nbsp;timeUnit])</td>
 <td>Add a TimeUnitTransform to the schema.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#altair.LayerChart.transform_window" title="altair.LayerChart.transform_window"><code class="xref py py-obj docutils literal"><span class="pre">transform_window</span></code></a>([window,&nbsp;frame,&nbsp;groupby,&nbsp;…])</td>
+<tr class="row-even"><td><a class="reference internal" href="#altair.LayerChart.transform_window" title="altair.LayerChart.transform_window"><code class="xref py py-obj docutils literal"><span class="pre">transform_window</span></code></a>([window,&nbsp;frame,&nbsp;groupby,&nbsp;…])</td>
 <td>Add a WindowTransform to the schema</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#altair.LayerChart.validate" title="altair.LayerChart.validate"><code class="xref py py-obj docutils literal"><span class="pre">validate</span></code></a>(instance[,&nbsp;schema])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#altair.LayerChart.validate" title="altair.LayerChart.validate"><code class="xref py py-obj docutils literal"><span class="pre">validate</span></code></a>(instance[,&nbsp;schema])</td>
 <td>Validate the instance against the class schema in the context of the rootschema.</td>
 </tr>
 </tbody>
@@ -5887,7 +5890,7 @@ column using <cite>alt.repeat(‘row’)</cite> and <cite>alt.repeat(‘column�
 
 <dl class="method">
 <dt id="altair.LayerChart.save">
-<code class="descname">save</code><span class="sig-paren">(</span><em>fp</em>, <em>format=None</em>, <em>override_data_transformer=True</em>, <em>scale_factor=1.0</em>, <em>vegalite_version='2.6.0'</em>, <em>vega_version='3.3.1'</em>, <em>vegaembed_version='3.14'</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.LayerChart.save" title="Permalink to this definition">¶</a></dt>
+<code class="descname">save</code><span class="sig-paren">(</span><em>fp</em>, <em>format=None</em>, <em>override_data_transformer=True</em>, <em>scale_factor=1.0</em>, <em>vegalite_version='2.6.0'</em>, <em>vega_version='4'</em>, <em>vegaembed_version='3'</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.LayerChart.save" title="Permalink to this definition">¶</a></dt>
 <dd><p>Save a chart to file in a variety of formats</p>
 <p>Supported formats are json, html, png, svg</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -6569,7 +6572,7 @@ rootschema.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'2.2.2',
+            VERSION:'2.3.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',

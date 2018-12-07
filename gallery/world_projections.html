@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>World Projections &mdash; Altair 2.2.2 documentation</title>
+  <title>World Projections &mdash; Altair 2.3.0 documentation</title>
   
 
   
@@ -34,7 +34,7 @@
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Faceted Scatter Plot with Linked Brushing" href="scatter_linked_brush.html" />
+    <link rel="next" title="Interactive Average" href="selection_layer_bar_month.html" />
     <link rel="prev" title="Repeated Choropleth Map" href="choropleth_repeat.html" /> 
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                2.2
+                2.3.0
               </div>
             
           
@@ -126,7 +126,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/encoding.html">Encodings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/marks.html">Marks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/transform.html">Data Transformations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/selections.html">Selections: Building Blocks of Interactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/interactions.html">Bindings, Selections, Conditions: Making Charts Interactive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/configuration.html">Top-Level Chart Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/saving_charts.html">Saving Altair Charts</a></li>
@@ -238,9 +238,9 @@ Altair, see <a class="reference external" href="https://vega.github.io/vega-lite
 </div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
 <span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
 
-<span class="n">countries</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">topo_feature</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">world_110m</span><span class="o">.</span><span class="n">url</span><span class="p">,</span> <span class="s1">&#39;countries&#39;</span><span class="p">)</span>
+<span class="n">source</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">topo_feature</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">world_110m</span><span class="o">.</span><span class="n">url</span><span class="p">,</span> <span class="s1">&#39;countries&#39;</span><span class="p">)</span>
 
-<span class="n">base</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">countries</span><span class="p">)</span><span class="o">.</span><span class="n">mark_geoshape</span><span class="p">(</span>
+<span class="n">base</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">mark_geoshape</span><span class="p">(</span>
     <span class="n">fill</span><span class="o">=</span><span class="s1">&#39;#666666&#39;</span><span class="p">,</span>
     <span class="n">stroke</span><span class="o">=</span><span class="s1">&#39;white&#39;</span>
 <span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
@@ -270,7 +270,7 @@ Altair, see <a class="reference external" href="https://vega.github.io/vega-lite
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="scatter_linked_brush.html" class="btn btn-neutral float-right" title="Faceted Scatter Plot with Linked Brushing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="selection_layer_bar_month.html" class="btn btn-neutral float-right" title="Interactive Average" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="choropleth_repeat.html" class="btn btn-neutral" title="Repeated Choropleth Map" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -304,7 +304,7 @@ Altair, see <a class="reference external" href="https://vega.github.io/vega-lite
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.2.2',
+            VERSION:'2.3.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',

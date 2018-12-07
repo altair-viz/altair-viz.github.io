@@ -18,7 +18,7 @@ of items in each category within the selection.
     import altair as alt
     from vega_datasets import data
 
-    cars = data.cars.url
+    source = data.cars()
 
     brush = alt.selection(type='interval')
 
@@ -38,7 +38,7 @@ of items in each category within the selection.
         brush
     )
 
-    alt.vconcat(points, bars, data=cars)
+    alt.vconcat(points, bars, data=source)
 
 
 .. toctree::

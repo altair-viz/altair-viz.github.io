@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Interactive Chart with Cross-Highlight &mdash; Altair 2.2.2 documentation</title>
+  <title>Interactive Chart with Cross-Highlight &mdash; Altair 2.3.0 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                2.2
+                2.3.0
               </div>
             
           
@@ -108,7 +108,6 @@
 <li class="toctree-l2"><a class="reference internal" href="index.html#histograms">Histograms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#maps">Maps</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html#interactive-charts">Interactive Charts</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="scatter_linked_brush.html">Faceted Scatter Plot with Linked Brushing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="selection_layer_bar_month.html">Interactive Average</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Interactive Chart with Cross-Highlight</a><ul class="simple">
 </ul>
@@ -117,6 +116,8 @@
 <li class="toctree-l3"><a class="reference internal" href="interactive_brush.html">Interactive Rectangular Brush</a></li>
 <li class="toctree-l3"><a class="reference internal" href="multiline_highlight.html">Multi-Line Highlight</a></li>
 <li class="toctree-l3"><a class="reference internal" href="multiline_tooltip.html">Multi-Line Tooltip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scatter_linked_brush.html">Multi-panel Scatter Plot with Linked Brushing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multiple_interactions.html">Multiple Interations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="scatter_with_histogram.html">Scatter Plot and Histogram with Interval Selection</a></li>
 <li class="toctree-l3"><a class="reference internal" href="select_detail.html">Selection Detail Example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="selection_histogram.html">Selection Histogram</a></li>
@@ -134,7 +135,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/encoding.html">Encodings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/marks.html">Marks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/transform.html">Data Transformations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/selections.html">Selections: Building Blocks of Interactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/interactions.html">Bindings, Selections, Conditions: Making Charts Interactive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/configuration.html">Top-Level Chart Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/saving_charts.html">Saving Altair Charts</a></li>
@@ -246,6 +247,8 @@ see a detail of the distribution in the upper panel.</p>
 </div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
 <span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
 
+<span class="n">source</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">movies</span><span class="o">.</span><span class="n">url</span>
+
 <span class="n">pts</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;single&quot;</span><span class="p">,</span> <span class="n">encodings</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">])</span>
 
 <span class="n">rect</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">movies</span><span class="o">.</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">mark_rect</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
@@ -266,7 +269,7 @@ see a detail of the distribution in the upper panel.</p>
     <span class="n">pts</span>
 <span class="p">)</span>
 
-<span class="n">bar</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">movies</span><span class="o">.</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+<span class="n">bar</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Major_Genre:N&#39;</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="s1">&#39;count()&#39;</span><span class="p">,</span>
     <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span><span class="n">pts</span><span class="p">,</span> <span class="n">alt</span><span class="o">.</span><span class="n">ColorValue</span><span class="p">(</span><span class="s2">&quot;steelblue&quot;</span><span class="p">),</span> <span class="n">alt</span><span class="o">.</span><span class="n">ColorValue</span><span class="p">(</span><span class="s2">&quot;grey&quot;</span><span class="p">))</span>
@@ -331,7 +334,7 @@ see a detail of the distribution in the upper panel.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.2.2',
+            VERSION:'2.3.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',

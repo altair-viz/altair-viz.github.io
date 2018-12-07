@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Top K Letters &mdash; Altair 2.2.2 documentation</title>
+  <title>Top K Letters &mdash; Altair 2.3.0 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="U.S. state capitals overlayed on a map of the U.S" href="us_state_capitals.html" />
-    <link rel="prev" title="Seattle Weather Interactive" href="seattle_weather_interactive.html" /> 
+    <link rel="prev" title="The U.S. employment crash during the Great Recession" href="us_employment.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                2.2
+                2.3.0
               </div>
             
           
@@ -114,12 +114,14 @@
 <li class="toctree-l3"><a class="reference internal" href="cumulative_wiki_donations.html">Cumulative Wikipedia Donations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="falkensee.html">Falkensee</a></li>
 <li class="toctree-l3"><a class="reference internal" href="gapminder_bubble_plot.html">Gapminder Bubble Plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="iowa_electricity.html">Iowa’s renewable energy boom</a></li>
 <li class="toctree-l3"><a class="reference internal" href="isotype.html">Isotype Visualization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="airports.html">Locations of US Airports</a></li>
 <li class="toctree-l3"><a class="reference internal" href="london_tube.html">London Tube Lines</a></li>
 <li class="toctree-l3"><a class="reference internal" href="natural_disasters.html">Natural Disasters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="one_dot_per_zipcode.html">One Dot Per Zipcode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="seattle_weather_interactive.html">Seattle Weather Interactive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="us_employment.html">The U.S. employment crash during the Great Recession</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Top K Letters</a><ul class="simple">
 </ul>
 </li>
@@ -138,7 +140,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/encoding.html">Encodings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/marks.html">Marks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/transform.html">Data Transformations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/selections.html">Selections: Building Blocks of Interactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/interactions.html">Bindings, Selections, Conditions: Making Charts Interactive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/configuration.html">Top-Level Chart Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/saving_charts.html">Saving Altair Charts</a></li>
@@ -263,11 +265,11 @@ the first paragraph of Dickens’ <em>A Tale of Two Cities</em> by number of occ
 <span class="s2">or for evil, in the superlative degree of comparison only.</span>
 <span class="s2">&quot;&quot;&quot;</span>
 
-<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+<span class="n">source</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
     <span class="p">{</span><span class="s1">&#39;letters&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">text</span> <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">isalpha</span><span class="p">()])}</span>
 <span class="p">)</span>
 
-<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">transform_aggregate</span><span class="p">(</span>
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">transform_aggregate</span><span class="p">(</span>
     <span class="n">count</span><span class="o">=</span><span class="s1">&#39;count()&#39;</span><span class="p">,</span>
     <span class="n">groupby</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;letters&#39;</span><span class="p">]</span>
 <span class="p">)</span><span class="o">.</span><span class="n">transform_window</span><span class="p">(</span>
@@ -298,7 +300,7 @@ the first paragraph of Dickens’ <em>A Tale of Two Cities</em> by number of occ
         <a href="us_state_capitals.html" class="btn btn-neutral float-right" title="U.S. state capitals overlayed on a map of the U.S" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="seattle_weather_interactive.html" class="btn btn-neutral" title="Seattle Weather Interactive" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="us_employment.html" class="btn btn-neutral" title="The U.S. employment crash during the Great Recession" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -329,7 +331,7 @@ the first paragraph of Dickens’ <em>A Tale of Two Cities</em> by number of occ
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.2.2',
+            VERSION:'2.3.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',

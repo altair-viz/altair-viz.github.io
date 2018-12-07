@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Facetted Scatterplot with marginal histograms &mdash; Altair 2.2.2 documentation</title>
+  <title>Facetted Scatterplot with marginal histograms &mdash; Altair 2.3.0 documentation</title>
   
 
   
@@ -34,8 +34,8 @@
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Layering text over a heatmap" href="layered_heatmap_text.html" />
-    <link rel="prev" title="Binned Heatmap" href="binned_heatmap.html" /> 
+    <link rel="next" title="Gantt Chart" href="gantt_chart.html" />
+    <link rel="prev" title="Error Bars showing Confidence Interval" href="error_bars_with_ci.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                2.2
+                2.3.0
               </div>
             
           
@@ -110,16 +110,22 @@
 <li class="toctree-l2"><a class="reference internal" href="index.html#interactive-charts">Interactive Charts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#case-studies">Case Studies</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html#other-charts">Other Charts</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="bar_chart_with_highlighted_segment.html">Bar Chart with Highlighted Segment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="binned_heatmap.html">Binned Heatmap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="boxplot_max_min.html">Box Plot with Min/Max Whiskers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="candlestick_chart.html">Candlestick Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="error_bars_with_ci.html">Error Bars showing Confidence Interval</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Facetted Scatterplot with marginal histograms</a><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="layered_heatmap_text.html">Layering text over a heatmap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gantt_chart.html">Gantt Chart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="multiple_marks.html">Multiple Marks</a></li>
 <li class="toctree-l3"><a class="reference internal" href="parallel_coordinates.html">Parallel Coordinates Example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ranged_dot_plot.html">Ranged Dot Plot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="stem_and_leaf.html">Stem and Leaf Plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layered_heatmap_text.html">Text over a Heatmap</a></li>
 <li class="toctree-l3"><a class="reference internal" href="trail_marker.html">Trail Marker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="weather_heatmap.html">Weather Heatmap</a></li>
 </ul>
 </li>
 </ul>
@@ -131,7 +137,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/encoding.html">Encodings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/marks.html">Marks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/transform.html">Data Transformations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/selections.html">Selections: Building Blocks of Interactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/interactions.html">Bindings, Selections, Conditions: Making Charts Interactive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/configuration.html">Top-Level Chart Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/saving_charts.html">Saving Altair Charts</a></li>
@@ -243,7 +249,9 @@ with marginal facetted histograms, and how to share their respective
 </div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
 <span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
 
-<span class="n">iris</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">iris</span><span class="p">()</span>
+<span class="n">source</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">iris</span><span class="p">()</span>
+
+<span class="n">base</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
 
 <span class="n">xscale</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">))</span>
 <span class="n">yscale</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mf">1.9</span><span class="p">,</span> <span class="mf">4.55</span><span class="p">))</span>
@@ -251,13 +259,13 @@ with marginal facetted histograms, and how to share their respective
 <span class="n">area_args</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;opacity&#39;</span><span class="p">:</span> <span class="o">.</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;interpolate&#39;</span><span class="p">:</span> <span class="s1">&#39;step&#39;</span><span class="p">}</span>
 <span class="n">blank_axis</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 
-<span class="n">points</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+<span class="n">points</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;sepalLength&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">xscale</span><span class="p">),</span>
     <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;sepalWidth&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">yscale</span><span class="p">),</span>
     <span class="n">color</span><span class="o">=</span><span class="s1">&#39;species&#39;</span><span class="p">,</span>
 <span class="p">)</span>
 
-<span class="n">top_hist</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span><span class="o">.</span><span class="n">mark_area</span><span class="p">(</span><span class="o">**</span><span class="n">area_args</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+<span class="n">top_hist</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">mark_area</span><span class="p">(</span><span class="o">**</span><span class="n">area_args</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;sepalLength:Q&#39;</span><span class="p">,</span>
           <span class="c1"># when using bins, the axis scale is set through</span>
           <span class="c1"># the bin extent, so we do not specify the scale here</span>
@@ -270,7 +278,7 @@ with marginal facetted histograms, and how to share their respective
     <span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;species:N&#39;</span><span class="p">),</span>
 <span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
 
-<span class="n">right_hist</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span><span class="o">.</span><span class="n">mark_area</span><span class="p">(</span><span class="o">**</span><span class="n">area_args</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+<span class="n">right_hist</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">mark_area</span><span class="p">(</span><span class="o">**</span><span class="n">area_args</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;sepalWidth:Q&#39;</span><span class="p">,</span>
           <span class="nb">bin</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Bin</span><span class="p">(</span><span class="n">maxbins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="n">yscale</span><span class="o">.</span><span class="n">domain</span><span class="p">),</span>
           <span class="n">stack</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
@@ -295,10 +303,10 @@ with marginal facetted histograms, and how to share their respective
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="layered_heatmap_text.html" class="btn btn-neutral float-right" title="Layering text over a heatmap" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="gantt_chart.html" class="btn btn-neutral float-right" title="Gantt Chart" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="binned_heatmap.html" class="btn btn-neutral" title="Binned Heatmap" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="error_bars_with_ci.html" class="btn btn-neutral" title="Error Bars showing Confidence Interval" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -329,7 +337,7 @@ with marginal facetted histograms, and how to share their respective
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.2.2',
+            VERSION:'2.3.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Line chart with Confidence Interval Band &mdash; Altair 2.2.2 documentation</title>
+  <title>Line Chart with Confidence Interval Band &mdash; Altair 2.3.0 documentation</title>
   
 
   
@@ -34,8 +34,8 @@
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Multi Series Line Chart" href="multi_series_line.html" />
-    <link rel="prev" title="Line Chart with Percent axis" href="line_percent.html" /> 
+    <link rel="next" title="Line Chart with Layered Aggregates" href="layer_line_color_rule.html" />
+    <link rel="prev" title="Filled Step Chart" href="filled_step_chart.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                2.2
+                2.3.0
               </div>
             
           
@@ -103,11 +103,13 @@
 <li class="toctree-l2"><a class="reference internal" href="index.html#simple-charts">Simple Charts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#bar-charts">Bar Charts</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html#line-charts">Line Charts</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="layer_line_color_rule.html">Line Chart with Layered Aggregates</a></li>
-<li class="toctree-l3"><a class="reference internal" href="line_percent.html">Line Chart with Percent axis</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Line chart with Confidence Interval Band</a><ul class="simple">
+<li class="toctree-l3"><a class="reference internal" href="filled_step_chart.html">Filled Step Chart</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Line Chart with Confidence Interval Band</a><ul class="simple">
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="layer_line_color_rule.html">Line Chart with Layered Aggregates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="line_percent.html">Line Chart with Percent axis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="line_chart_with_points.html">Line Chart with Points</a></li>
 <li class="toctree-l3"><a class="reference internal" href="multi_series_line.html">Multi Series Line Chart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="slope_graph.html">Slope Graph</a></li>
 <li class="toctree-l3"><a class="reference internal" href="step_chart.html">Step Chart</a></li>
@@ -129,7 +131,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/encoding.html">Encodings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/marks.html">Marks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/transform.html">Data Transformations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/selections.html">Selections: Building Blocks of Interactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/interactions.html">Bindings, Selections, Conditions: Making Charts Interactive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/configuration.html">Top-Level Chart Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/saving_charts.html">Saving Altair Charts</a></li>
@@ -199,7 +201,7 @@
         
           <li><a href="index.html">Example Gallery</a> &raquo;</li>
         
-      <li>Line chart with Confidence Interval Band</li>
+      <li>Line Chart with Confidence Interval Band</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -219,8 +221,8 @@
            <div itemprop="articleBody">
             
   <div class="section" id="line-chart-with-confidence-interval-band">
-<span id="gallery-line-with-ci"></span><h1>Line chart with Confidence Interval Band<a class="headerlink" href="#line-chart-with-confidence-interval-band" title="Permalink to this headline">¶</a></h1>
-<p>This example shows how to make a line chart with a bootstrapped 95% confidence interval band.</p>
+<span id="gallery-line-with-ci"></span><h1>Line Chart with Confidence Interval Band<a class="headerlink" href="#line-chart-with-confidence-interval-band" title="Permalink to this headline">¶</a></h1>
+<p>How to make a line chart with a bootstrapped 95% confidence interval band.</p>
 
 <div id="line_with_ci-rst-altair-plot-0">
 <script>
@@ -239,19 +241,25 @@
 </div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
 <span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
 
-<span class="n">cars</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">cars</span><span class="p">()</span>
+<span class="n">source</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">cars</span><span class="p">()</span>
 
-<span class="n">line</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">cars</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+<span class="c1"># Configure the base chart</span>
+<span class="n">base</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+
+<span class="c1"># Configure the line</span>
+<span class="n">line</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="s1">&#39;mean(Miles_per_Gallon)&#39;</span>
 <span class="p">)</span>
 
-<span class="n">confidence_interval</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">cars</span><span class="p">)</span><span class="o">.</span><span class="n">mark_area</span><span class="p">(</span><span class="n">opacity</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+<span class="c1"># Configure the confidence interval</span>
+<span class="n">confidence_interval</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">mark_area</span><span class="p">(</span><span class="n">opacity</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;ci0(Miles_per_Gallon)&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Miles/Gallon&#39;</span><span class="p">)),</span>
     <span class="n">y2</span><span class="o">=</span><span class="s1">&#39;ci1(Miles_per_Gallon)&#39;</span>
 <span class="p">)</span>
 
+<span class="c1"># Draw the chart</span>
 <span class="n">confidence_interval</span> <span class="o">+</span> <span class="n">line</span>
 </pre></div>
 </div>
@@ -267,10 +275,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="multi_series_line.html" class="btn btn-neutral float-right" title="Multi Series Line Chart" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="layer_line_color_rule.html" class="btn btn-neutral float-right" title="Line Chart with Layered Aggregates" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="line_percent.html" class="btn btn-neutral" title="Line Chart with Percent axis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="filled_step_chart.html" class="btn btn-neutral" title="Filled Step Chart" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -301,7 +309,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.2.2',
+            VERSION:'2.3.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',

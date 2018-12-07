@@ -14,7 +14,6 @@ This example shows a visualization of global deaths from natural disasters.
 
     
     import altair as alt
-    from altair.expr import datum
     from vega_datasets import data
 
     source = data.disasters.url
@@ -35,7 +34,7 @@ This example shows a visualization of global deaths from natural disasters.
         width=480,
         height=350
     ).transform_filter(
-        datum.Entity != 'All natural disasters'
+        alt.datum.Entity != 'All natural disasters'
     )
 
 

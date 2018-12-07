@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Error Bars showing Confidence Interval &mdash; Altair 2.2.2 documentation</title>
+  <title>Error Bars showing Confidence Interval &mdash; Altair 2.3.0 documentation</title>
   
 
   
@@ -34,8 +34,8 @@
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Gantt Chart" href="gantt_chart.html" />
-    <link rel="prev" title="Diverging Stacked Bar Chart" href="diverging_stacked_bar_chart.html" /> 
+    <link rel="next" title="Facetted Scatterplot with marginal histograms" href="scatter_marginal_hist.html" />
+    <link rel="prev" title="Candlestick Chart" href="candlestick_chart.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                2.2
+                2.3.0
               </div>
             
           
@@ -101,30 +101,7 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Example Gallery</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="index.html#simple-charts">Simple Charts</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="index.html#bar-charts">Bar Charts</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="bar_chart_with_highlight.html">Bar Chart with Highlight</a></li>
-<li class="toctree-l3"><a class="reference internal" href="boxplot_max_min.html">Box Plot with Min/Max Whiskers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="percentage_of_total.html">Calculating Percentage of Total</a></li>
-<li class="toctree-l3"><a class="reference internal" href="candlestick_chart.html">Candlestick Chart</a></li>
-<li class="toctree-l3"><a class="reference internal" href="diverging_stacked_bar_chart.html">Diverging Stacked Bar Chart</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Error Bars showing Confidence Interval</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="gantt_chart.html">Gantt Chart</a></li>
-<li class="toctree-l3"><a class="reference internal" href="grouped_bar_chart.html">Grouped Bar Chart</a></li>
-<li class="toctree-l3"><a class="reference internal" href="aggregate_bar_chart.html">Horizontal Aggregate Bar Chart</a></li>
-<li class="toctree-l3"><a class="reference internal" href="horizontal_stacked_bar_chart.html">Horizontal Stacked Bar Chart</a></li>
-<li class="toctree-l3"><a class="reference internal" href="layered_chart_bar_mark.html">LayerChart with Bar and Tick</a></li>
-<li class="toctree-l3"><a class="reference internal" href="layered_bar_chart.html">Layered Bar Chart</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mean_overlay_over_precipitiation_chart.html">Layered Bar Chart with Line as Mean</a></li>
-<li class="toctree-l3"><a class="reference internal" href="layered_plot_with_dual_axis.html">Layered Plot with Dual-Axis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="normalized_stacked_bar_chart.html">Normalized Stacked Bar Chart</a></li>
-<li class="toctree-l3"><a class="reference internal" href="bar_chart_with_labels.html">Simple Bar Chart with Labels</a></li>
-<li class="toctree-l3"><a class="reference internal" href="simple_highlighted_bar_chart.html">Simple Highlighted Bar Chart</a></li>
-<li class="toctree-l3"><a class="reference internal" href="stacked_bar_chart.html">Stacked Bar Chart</a></li>
-<li class="toctree-l3"><a class="reference internal" href="trellis_stacked_bar_chart.html">Trellis Stacked Bar Chart</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#bar-charts">Bar Charts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#line-charts">Line Charts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#area-charts">Area Charts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#scatter-plots">Scatter Plots</a></li>
@@ -132,7 +109,25 @@
 <li class="toctree-l2"><a class="reference internal" href="index.html#maps">Maps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#interactive-charts">Interactive Charts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#case-studies">Case Studies</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#other-charts">Other Charts</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#other-charts">Other Charts</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="bar_chart_with_highlighted_segment.html">Bar Chart with Highlighted Segment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="binned_heatmap.html">Binned Heatmap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="boxplot_max_min.html">Box Plot with Min/Max Whiskers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="candlestick_chart.html">Candlestick Chart</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Error Bars showing Confidence Interval</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="scatter_marginal_hist.html">Facetted Scatterplot with marginal histograms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gantt_chart.html">Gantt Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multiple_marks.html">Multiple Marks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="parallel_coordinates.html">Parallel Coordinates Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ranged_dot_plot.html">Ranged Dot Plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stem_and_leaf.html">Stem and Leaf Plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layered_heatmap_text.html">Text over a Heatmap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trail_marker.html">Trail Marker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="weather_heatmap.html">Weather Heatmap</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -142,7 +137,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/encoding.html">Encodings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/marks.html">Marks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/transform.html">Data Transformations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/selections.html">Selections: Building Blocks of Interactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/interactions.html">Bindings, Selections, Conditions: Making Charts Interactive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/configuration.html">Top-Level Chart Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/saving_charts.html">Saving Altair Charts</a></li>
@@ -233,9 +228,7 @@
             
   <div class="section" id="error-bars-showing-confidence-interval">
 <span id="gallery-error-bars-with-ci"></span><h1>Error Bars showing Confidence Interval<a class="headerlink" href="#error-bars-showing-confidence-interval" title="Permalink to this headline">¶</a></h1>
-<p>This example shows how to show error bars using confidence intervals.
-The confidence intervals are computed internally in vega by
-a non-parametric <a class="reference external" href="https://github.com/vega/vega-statistics/blob/master/src/bootstrapCI.js">bootstrap of the mean</a>.</p>
+<p>This example shows how to show error bars using confidence intervals. The confidence intervals are computed internally in vega by a non-parametric <a class="reference external" href="https://github.com/vega/vega-statistics/blob/master/src/bootstrapCI.js">bootstrap of the mean</a>.</p>
 
 <div id="error_bars_with_ci-rst-altair-plot-0">
 <script>
@@ -254,9 +247,11 @@ a non-parametric <a class="reference external" href="https://github.com/vega/veg
 </div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
 <span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
 
-<span class="n">barley</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">barley</span><span class="p">()</span>
+<span class="n">source</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">barley</span><span class="p">()</span>
 
-<span class="n">points</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">barley</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">(</span><span class="n">filled</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+<span class="n">base</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+
+<span class="n">points</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">mark_point</span><span class="p">(</span><span class="n">filled</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span>
         <span class="s1">&#39;mean(yield)&#39;</span><span class="p">,</span>
         <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">zero</span><span class="o">=</span><span class="bp">False</span><span class="p">),</span>
@@ -266,7 +261,7 @@ a non-parametric <a class="reference external" href="https://github.com/vega/veg
     <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
 <span class="p">)</span>
 
-<span class="n">error_bars</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">barley</span><span class="p">)</span><span class="o">.</span><span class="n">mark_rule</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+<span class="n">error_bars</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">mark_rule</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="s1">&#39;ci0(yield)&#39;</span><span class="p">,</span>
     <span class="n">x2</span><span class="o">=</span><span class="s1">&#39;ci1(yield)&#39;</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="s1">&#39;variety&#39;</span>
@@ -287,10 +282,10 @@ a non-parametric <a class="reference external" href="https://github.com/vega/veg
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="gantt_chart.html" class="btn btn-neutral float-right" title="Gantt Chart" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="scatter_marginal_hist.html" class="btn btn-neutral float-right" title="Facetted Scatterplot with marginal histograms" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="diverging_stacked_bar_chart.html" class="btn btn-neutral" title="Diverging Stacked Bar Chart" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="candlestick_chart.html" class="btn btn-neutral" title="Candlestick Chart" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -321,7 +316,7 @@ a non-parametric <a class="reference external" href="https://github.com/vega/veg
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.2.2',
+            VERSION:'2.3.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>LayerChart with Bar and Tick &mdash; Altair 2.2.2 documentation</title>
+  <title>Bar and Tick Chart &mdash; Altair 2.3.0 documentation</title>
   
 
   
@@ -34,8 +34,8 @@
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Layered Bar Chart" href="layered_bar_chart.html" />
-    <link rel="prev" title="Horizontal Stacked Bar Chart" href="horizontal_stacked_bar_chart.html" /> 
+    <link rel="next" title="Calculating Percentage of Total" href="percentage_of_total.html" />
+    <link rel="prev" title="Bar Chart with Negative Values" href="bar_chart_with_negatives.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                2.2
+                2.3.0
               </div>
             
           
@@ -102,26 +102,25 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Example Gallery</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="index.html#simple-charts">Simple Charts</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html#bar-charts">Bar Charts</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="bar_chart_with_highlight.html">Bar Chart with Highlight</a></li>
-<li class="toctree-l3"><a class="reference internal" href="boxplot_max_min.html">Box Plot with Min/Max Whiskers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="percentage_of_total.html">Calculating Percentage of Total</a></li>
-<li class="toctree-l3"><a class="reference internal" href="candlestick_chart.html">Candlestick Chart</a></li>
-<li class="toctree-l3"><a class="reference internal" href="diverging_stacked_bar_chart.html">Diverging Stacked Bar Chart</a></li>
-<li class="toctree-l3"><a class="reference internal" href="error_bars_with_ci.html">Error Bars showing Confidence Interval</a></li>
-<li class="toctree-l3"><a class="reference internal" href="gantt_chart.html">Gantt Chart</a></li>
-<li class="toctree-l3"><a class="reference internal" href="grouped_bar_chart.html">Grouped Bar Chart</a></li>
-<li class="toctree-l3"><a class="reference internal" href="aggregate_bar_chart.html">Horizontal Aggregate Bar Chart</a></li>
-<li class="toctree-l3"><a class="reference internal" href="horizontal_stacked_bar_chart.html">Horizontal Stacked Bar Chart</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">LayerChart with Bar and Tick</a><ul class="simple">
+<li class="toctree-l3"><a class="reference internal" href="bar_chart_with_highlighted_bar.html">Bar Chart with Highlighted Bar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bar_chart_with_labels.html">Bar Chart with Labels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bar_chart_with_mean_line.html">Bar Chart with Line at Mean</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bar_and_line_with_dual_axis.html">Bar Chart with Line on Dual Axis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bar_chart_with_negatives.html">Bar Chart with Negative Values</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Bar and Tick Chart</a><ul class="simple">
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="percentage_of_total.html">Calculating Percentage of Total</a></li>
+<li class="toctree-l3"><a class="reference internal" href="diverging_stacked_bar_chart.html">Diverging Stacked Bar Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="grouped_bar_chart.html">Grouped Bar Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bar_chart_horizontal.html">Horizontal Bar Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="grouped_bar_chart_horizontal.html">Horizontal Grouped Bar Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="horizontal_stacked_bar_chart.html">Horizontal Stacked Bar Chart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="layered_bar_chart.html">Layered Bar Chart</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mean_overlay_over_precipitiation_chart.html">Layered Bar Chart with Line as Mean</a></li>
-<li class="toctree-l3"><a class="reference internal" href="layered_plot_with_dual_axis.html">Layered Plot with Dual-Axis</a></li>
 <li class="toctree-l3"><a class="reference internal" href="normalized_stacked_bar_chart.html">Normalized Stacked Bar Chart</a></li>
-<li class="toctree-l3"><a class="reference internal" href="bar_chart_with_labels.html">Simple Bar Chart with Labels</a></li>
-<li class="toctree-l3"><a class="reference internal" href="simple_highlighted_bar_chart.html">Simple Highlighted Bar Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bar_chart_sorted.html">Sorted Bar Chart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="stacked_bar_chart.html">Stacked Bar Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stacked_bar_chart_sorted_segments.html">Stacked Bar Chart with Sorted Segments</a></li>
 <li class="toctree-l3"><a class="reference internal" href="trellis_stacked_bar_chart.html">Trellis Stacked Bar Chart</a></li>
 </ul>
 </li>
@@ -142,7 +141,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/encoding.html">Encodings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/marks.html">Marks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/transform.html">Data Transformations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/selections.html">Selections: Building Blocks of Interactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/interactions.html">Bindings, Selections, Conditions: Making Charts Interactive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/configuration.html">Top-Level Chart Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/saving_charts.html">Saving Altair Charts</a></li>
@@ -212,7 +211,7 @@
         
           <li><a href="index.html">Example Gallery</a> &raquo;</li>
         
-      <li>LayerChart with Bar and Tick</li>
+      <li>Bar and Tick Chart</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -231,16 +230,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="layerchart-with-bar-and-tick">
-<span id="gallery-layered-chart-bar-mark"></span><h1>LayerChart with Bar and Tick<a class="headerlink" href="#layerchart-with-bar-and-tick" title="Permalink to this headline">¶</a></h1>
-<p>This example shows how to layer two charts on top of one another.</p>
+  <div class="section" id="bar-and-tick-chart">
+<span id="gallery-layered-chart-bar-mark"></span><h1>Bar and Tick Chart<a class="headerlink" href="#bar-and-tick-chart" title="Permalink to this headline">¶</a></h1>
+<p>How to layer a tick chart on top of a bar chart.</p>
 
 <div id="layered_chart_bar_mark-rst-altair-plot-0">
 <script>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}, "scale": {"rangeStep": 40}, "tick": {"bandSize": 35, "thickness": 2}}, "layer": [{"mark": "bar", "encoding": {"x": {"type": "nominal", "field": "project"}, "y": {"type": "quantitative", "field": "score"}}}, {"mark": {"type": "tick", "color": "red"}, "encoding": {"x": {"type": "nominal", "field": "project"}, "y": {"type": "quantitative", "field": "goal"}}}], "data": {"name": "data-06453710d60ef955b79014b6d9d13b60"}, "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json", "datasets": {"data-06453710d60ef955b79014b6d9d13b60": [{"project": "a", "score": 25, "goal": 25}, {"project": "b", "score": 57, "goal": 47}, {"project": "c", "score": 23, "goal": 30}, {"project": "d", "score": 19, "goal": 27}, {"project": "e", "score": 8, "goal": 38}, {"project": "f", "score": 47, "goal": 19}, {"project": "g", "score": 8, "goal": 4}]}};
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "scale": {"rangeStep": 40}, "tick": {"bandSize": 35}}, "layer": [{"data": {"name": "data-06453710d60ef955b79014b6d9d13b60"}, "mark": "bar", "encoding": {"x": {"type": "nominal", "field": "project"}, "y": {"type": "quantitative", "field": "score"}}}, {"data": {"name": "data-06453710d60ef955b79014b6d9d13b60"}, "mark": {"type": "tick", "color": "red", "thickness": 2}, "encoding": {"x": {"type": "nominal", "field": "project"}, "y": {"type": "quantitative", "field": "goal"}}}], "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json", "datasets": {"data-06453710d60ef955b79014b6d9d13b60": [{"project": "a", "score": 25, "goal": 25}, {"project": "b", "score": 57, "goal": 47}, {"project": "c", "score": 23, "goal": 30}, {"project": "d", "score": 19, "goal": 27}, {"project": "e", "score": 8, "goal": 38}, {"project": "f", "score": 47, "goal": 19}, {"project": "g", "score": 8, "goal": 4}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -252,28 +251,28 @@
 </div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 
-<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+<span class="n">source</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
     <span class="s1">&#39;project&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">],</span>
     <span class="s1">&#39;score&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">57</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">47</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span>
-    <span class="s1">&#39;goal&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">47</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">38</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">4</span><span class="p">]}</span>
-<span class="p">)</span>
+    <span class="s1">&#39;goal&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">47</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">38</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="p">})</span>
 
-<span class="n">a</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">()</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+<span class="n">base</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+
+<span class="n">bar</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="s1">&#39;project&#39;</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="s1">&#39;score&#39;</span>
 <span class="p">)</span>
 
-<span class="n">b</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">()</span><span class="o">.</span><span class="n">mark_tick</span><span class="p">(</span>
+<span class="n">tick</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">mark_tick</span><span class="p">(</span>
     <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span>
+    <span class="n">thickness</span><span class="o">=</span><span class="mi">2</span>
 <span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="s1">&#39;project&#39;</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="s1">&#39;goal&#39;</span>
 <span class="p">)</span>
 
-<span class="n">alt</span><span class="o">.</span><span class="n">layer</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
-    <span class="n">data</span><span class="o">=</span><span class="n">data</span>
-<span class="p">)</span><span class="o">.</span><span class="n">configure_tick</span><span class="p">(</span>
-    <span class="n">thickness</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<span class="p">(</span><span class="n">bar</span> <span class="o">+</span> <span class="n">tick</span><span class="p">)</span><span class="o">.</span><span class="n">configure_tick</span><span class="p">(</span>
     <span class="n">bandSize</span><span class="o">=</span><span class="mi">35</span>  <span class="c1"># controls the width of the tick</span>
 <span class="p">)</span><span class="o">.</span><span class="n">configure_scale</span><span class="p">(</span>
     <span class="n">rangeStep</span><span class="o">=</span><span class="mi">40</span>  <span class="c1"># controls the width of the bar</span>
@@ -292,10 +291,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="layered_bar_chart.html" class="btn btn-neutral float-right" title="Layered Bar Chart" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="percentage_of_total.html" class="btn btn-neutral float-right" title="Calculating Percentage of Total" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="horizontal_stacked_bar_chart.html" class="btn btn-neutral" title="Horizontal Stacked Bar Chart" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="bar_chart_with_negatives.html" class="btn btn-neutral" title="Bar Chart with Negative Values" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -326,7 +325,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.2.2',
+            VERSION:'2.3.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',

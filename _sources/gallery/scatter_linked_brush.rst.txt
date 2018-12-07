@@ -4,10 +4,10 @@
 .. _gallery_scatter_linked_brush:
 
 
-Faceted Scatter Plot with Linked Brushing
------------------------------------------
+Multi-panel Scatter Plot with Linked Brushing
+---------------------------------------------
 This is an example of using an interval selection to control the color of
-points across multiple facets.
+points across multiple panels.
 
 
 .. altair-plot::
@@ -17,11 +17,11 @@ points across multiple facets.
     import altair as alt
     from vega_datasets import data
 
-    cars = data.cars()
+    source = data.cars()
 
     brush = alt.selection(type='interval', resolve='global')
 
-    base = alt.Chart(cars).mark_point().encode(
+    base = alt.Chart(source).mark_point().encode(
         y='Miles_per_Gallon',
         color=alt.condition(brush, 'Origin', alt.ColorValue('gray'))
     ).add_selection(

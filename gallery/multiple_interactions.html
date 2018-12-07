@@ -1,0 +1,401 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Multiple Interations &mdash; Altair 2.3.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/altair-plot.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/altair-gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Scatter Plot and Histogram with Interval Selection" href="scatter_with_histogram.html" />
+    <link rel="prev" title="Multi-panel Scatter Plot with Linked Brushing" href="scatter_linked_brush.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Altair
+          
+
+          
+            
+            <img src="../_static/altair-logo-light.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/starting.html">Basic Statistical Visualization</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Gallery</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Example Gallery</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#simple-charts">Simple Charts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#bar-charts">Bar Charts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#line-charts">Line Charts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#area-charts">Area Charts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#scatter-plots">Scatter Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#histograms">Histograms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#maps">Maps</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#interactive-charts">Interactive Charts</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="selection_layer_bar_month.html">Interactive Average</a></li>
+<li class="toctree-l3"><a class="reference internal" href="interactive_cross_highlight.html">Interactive Chart with Cross-Highlight</a></li>
+<li class="toctree-l3"><a class="reference internal" href="interactive_layered_crossfilter.html">Interactive Crossfilter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="interactive_brush.html">Interactive Rectangular Brush</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multiline_highlight.html">Multi-Line Highlight</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multiline_tooltip.html">Multi-Line Tooltip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scatter_linked_brush.html">Multi-panel Scatter Plot with Linked Brushing</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Multiple Interations</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="scatter_with_histogram.html">Scatter Plot and Histogram with Interval Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="select_detail.html">Selection Detail Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="selection_histogram.html">Selection Histogram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="interactive_scatter_plot.html">Simple Interactive Colored Scatterplot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#case-studies">Case Studies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#other-charts">Other Charts</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/data.html">Specifying Data in Altair</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/encoding.html">Encodings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/marks.html">Marks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/transform.html">Data Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/interactions.html">Bindings, Selections, Conditions: Making Charts Interactive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/configuration.html">Top-Level Chart Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/saving_charts.html">Saving Altair Charts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/customization.html">Customizing Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/times_and_dates.html">Times and Dates in Altair</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/troubleshooting.html">Display Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/renderers.html">Altair Renderers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/internals.html">Altair Internals: Understanding the Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/API.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/ecosystem.html">Altair Ecosystem</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Case Studies</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../case_studies/exploring-weather.html">Exploring Seattle Weather</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/importing.html">Importing Vega &amp; Vega-Lite Versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/display_frontends.html">Displaying Charts in Various Frontends</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/custom_renderers.html">Customizing Renderers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/data_transformers.html">Data transformers</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Altair</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Example Gallery</a> &raquo;</li>
+        
+      <li>Multiple Interations</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/gallery/multiple_interactions.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="multiple-interations">
+<span id="gallery-multiple-interactions"></span><h1>Multiple Interations<a class="headerlink" href="#multiple-interations" title="Permalink to this headline">¶</a></h1>
+<p>This example shows how multiple user inputs can be layered onto a chart. The four inputs have functionality as follows:</p>
+<ul class="simple">
+<li>Dropdown: Filters the movies by genre</li>
+<li>Radio Buttons: Highlights certain films by Worldwide Gross</li>
+<li>Mouse Drag and Scroll: Zooms the x and y scales to allow for panning.</li>
+</ul>
+
+<div id="multiple_interactions-rst-altair-plot-0">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "vconcat": [{"hconcat": [{"data": {"url": "https://vega.github.io/vega-datasets/data/movies.json", "format": {"parse": {"Release_Date": "date"}}}, "mark": {"type": "point", "filled": true}, "encoding": {"tooltip": {"type": "nominal", "field": "Title"}, "x": {"type": "quantitative", "field": "Worldwide_Gross", "scale": {"clamp": true, "domain": [100000, 1000000000]}}, "y": {"type": "quantitative", "field": "IMDB_Rating"}}, "height": 200, "selection": {"Release Year_": {"type": "single", "bind": {"input": "range", "max": 2018, "min": 1969, "step": 1}, "fields": ["Release_Year"]}}, "title": "Slider Filtering", "transform": [{"calculate": "floor(datum.IMDB_Rating)", "as": "Rounded_IMDB_Rating"}, {"calculate": "datum.Production_Budget > 100000000.0 ? 100 : 10", "as": "Hundred_Million_Production"}, {"calculate": "year(datum.Release_Date)", "as": "Release_Year"}, {"filter": "(datum.IMDB_Rating > 0)"}, {"filter": {"field": "MPAA_Rating", "oneOf": ["G", "NC-17", "PG", "PG-13", "R"]}}, {"filter": {"selection": "Release Year_"}}], "width": 200}, {"data": {"url": "https://vega.github.io/vega-datasets/data/movies.json", "format": {"parse": {"Release_Date": "date"}}}, "mark": {"type": "point", "filled": true}, "encoding": {"tooltip": {"type": "nominal", "field": "Title"}, "x": {"type": "quantitative", "field": "Worldwide_Gross", "scale": {"clamp": true, "domain": [100000, 1000000000]}}, "y": {"type": "quantitative", "field": "IMDB_Rating"}}, "height": 200, "selection": {"Genre": {"type": "single", "fields": ["Major_Genre"], "bind": {"input": "select", "options": ["Action", "Adventure", "Black Comedy", "Comedy", "Concert/Performance", "Documentary", "Drama", "Horror", "Musical", "Romantic Comedy", "Thriller/Suspense", "Western"]}}}, "title": "Dropdown Filtering", "transform": [{"calculate": "floor(datum.IMDB_Rating)", "as": "Rounded_IMDB_Rating"}, {"calculate": "datum.Production_Budget > 100000000.0 ? 100 : 10", "as": "Hundred_Million_Production"}, {"calculate": "year(datum.Release_Date)", "as": "Release_Year"}, {"filter": "(datum.IMDB_Rating > 0)"}, {"filter": {"field": "MPAA_Rating", "oneOf": ["G", "NC-17", "PG", "PG-13", "R"]}}, {"filter": {"selection": "Genre"}}], "width": 200}]}, {"hconcat": [{"data": {"url": "https://vega.github.io/vega-datasets/data/movies.json", "format": {"parse": {"Release_Date": "date"}}}, "mark": {"type": "point", "filled": true}, "encoding": {"color": {"condition": {"type": "nominal", "field": "MPAA_Rating", "legend": null, "selection": "Rating"}, "value": "lightgray"}, "tooltip": {"type": "nominal", "field": "Title"}, "x": {"type": "quantitative", "field": "Worldwide_Gross", "scale": {"clamp": true, "domain": [100000, 1000000000]}}, "y": {"type": "quantitative", "field": "IMDB_Rating"}}, "height": 200, "selection": {"Rating": {"type": "single", "fields": ["MPAA_Rating"], "bind": {"input": "radio", "options": ["G", "NC-17", "PG", "PG-13", "R"]}}}, "title": "Radio Button Highlighting", "transform": [{"calculate": "floor(datum.IMDB_Rating)", "as": "Rounded_IMDB_Rating"}, {"calculate": "datum.Production_Budget > 100000000.0 ? 100 : 10", "as": "Hundred_Million_Production"}, {"calculate": "year(datum.Release_Date)", "as": "Release_Year"}, {"filter": "(datum.IMDB_Rating > 0)"}, {"filter": {"field": "MPAA_Rating", "oneOf": ["G", "NC-17", "PG", "PG-13", "R"]}}], "width": 200}, {"data": {"url": "https://vega.github.io/vega-datasets/data/movies.json", "format": {"parse": {"Release_Date": "date"}}}, "mark": {"type": "point", "filled": true}, "encoding": {"size": {"type": "quantitative", "condition": {"value": 25, "selection": "Big Budget Films"}, "field": "Hundred_Million_Production"}, "tooltip": {"type": "nominal", "field": "Title"}, "x": {"type": "quantitative", "field": "Worldwide_Gross", "scale": {"clamp": true, "domain": [100000, 1000000000]}}, "y": {"type": "quantitative", "field": "IMDB_Rating"}}, "height": 200, "selection": {"Big Budget Films": {"type": "single", "bind": {"input": "checkbox"}}}, "title": "Checkbox Formatting", "transform": [{"calculate": "floor(datum.IMDB_Rating)", "as": "Rounded_IMDB_Rating"}, {"calculate": "datum.Production_Budget > 100000000.0 ? 100 : 10", "as": "Hundred_Million_Production"}, {"calculate": "year(datum.Release_Date)", "as": "Release_Year"}, {"filter": "(datum.IMDB_Rating > 0)"}, {"filter": {"field": "MPAA_Rating", "oneOf": ["G", "NC-17", "PG", "PG-13", "R"]}}], "width": 200}]}], "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#multiple_interactions-rst-altair-plot-0', spec, opt).catch(console.err);
+  });
+</script>
+</div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+
+<span class="n">movies</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">UrlData</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">movies</span><span class="o">.</span><span class="n">url</span><span class="p">,</span>
+    <span class="n">format</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">DataFormat</span><span class="p">(</span><span class="n">parse</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Release_Date&quot;</span><span class="p">:</span><span class="s2">&quot;date&quot;</span><span class="p">})</span>
+<span class="p">)</span>
+<span class="n">ratings</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;NC-17&#39;</span><span class="p">,</span> <span class="s1">&#39;PG&#39;</span><span class="p">,</span> <span class="s1">&#39;PG-13&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">]</span>
+<span class="n">genres</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Action&#39;</span><span class="p">,</span> <span class="s1">&#39;Adventure&#39;</span><span class="p">,</span> <span class="s1">&#39;Black Comedy&#39;</span><span class="p">,</span> <span class="s1">&#39;Comedy&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;Concert/Performance&#39;</span><span class="p">,</span> <span class="s1">&#39;Documentary&#39;</span><span class="p">,</span> <span class="s1">&#39;Drama&#39;</span><span class="p">,</span> <span class="s1">&#39;Horror&#39;</span><span class="p">,</span> <span class="s1">&#39;Musical&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;Romantic Comedy&#39;</span><span class="p">,</span> <span class="s1">&#39;Thriller/Suspense&#39;</span><span class="p">,</span> <span class="s1">&#39;Western&#39;</span><span class="p">]</span>
+
+<span class="n">base</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">movies</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">(</span><span class="n">filled</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span><span class="o">.</span><span class="n">transform_calculate</span><span class="p">(</span>
+    <span class="n">Rounded_IMDB_Rating</span> <span class="o">=</span> <span class="s2">&quot;floor(datum.IMDB_Rating)&quot;</span><span class="p">,</span>
+    <span class="n">Hundred_Million_Production</span> <span class="o">=</span>  <span class="s2">&quot;datum.Production_Budget &gt; 100000000.0 ? 100 : 10&quot;</span><span class="p">,</span>
+    <span class="n">Release_Year</span> <span class="o">=</span> <span class="s2">&quot;year(datum.Release_Date)&quot;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">datum</span><span class="o">.</span><span class="n">IMDB_Rating</span> <span class="o">&gt;</span> <span class="mi">0</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">FieldOneOfPredicate</span><span class="p">(</span><span class="n">field</span><span class="o">=</span><span class="s1">&#39;MPAA_Rating&#39;</span><span class="p">,</span> <span class="n">oneOf</span><span class="o">=</span><span class="n">ratings</span><span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Worldwide_Gross:Q&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">100000</span><span class="p">,</span><span class="mi">10</span><span class="o">**</span><span class="mi">9</span><span class="p">),</span> <span class="n">clamp</span><span class="o">=</span><span class="bp">True</span><span class="p">)),</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;IMDB_Rating:Q&#39;</span><span class="p">,</span>
+    <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;Title:N&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># A slider filter</span>
+<span class="n">year_slider</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">binding_range</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">1969</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">2018</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">slider_selection</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection_single</span><span class="p">(</span><span class="n">bind</span><span class="o">=</span><span class="n">year_slider</span><span class="p">,</span> <span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Release_Year&#39;</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Release Year_&quot;</span><span class="p">)</span>
+
+
+<span class="n">filter_year</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">add_selection</span><span class="p">(</span>
+    <span class="n">slider_selection</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span>
+    <span class="n">slider_selection</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Slider Filtering&quot;</span><span class="p">)</span>
+
+<span class="c1"># A dropdown filter</span>
+<span class="n">genre_dropdown</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">binding_select</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="n">genres</span><span class="p">)</span>
+<span class="n">genre_select</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection_single</span><span class="p">(</span><span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Major_Genre&#39;</span><span class="p">],</span> <span class="n">bind</span><span class="o">=</span><span class="n">genre_dropdown</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Genre&quot;</span><span class="p">)</span>
+
+<span class="n">filter_genres</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">add_selection</span><span class="p">(</span>
+    <span class="n">genre_select</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span>
+    <span class="n">genre_select</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Dropdown Filtering&quot;</span><span class="p">)</span>
+
+<span class="c1">#color changing marks</span>
+<span class="n">rating_radio</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">binding_radio</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="n">ratings</span><span class="p">)</span>
+
+<span class="n">rating_select</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection_single</span><span class="p">(</span><span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;MPAA_Rating&#39;</span><span class="p">],</span> <span class="n">bind</span><span class="o">=</span><span class="n">rating_radio</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Rating&quot;</span><span class="p">)</span>
+<span class="n">rating_color_condition</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span><span class="n">rating_select</span><span class="p">,</span>
+                      <span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;MPAA_Rating:N&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="bp">None</span><span class="p">),</span>
+                      <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;lightgray&#39;</span><span class="p">))</span>
+
+<span class="n">highlight_ratings</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">add_selection</span><span class="p">(</span>
+    <span class="n">rating_select</span>
+<span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">rating_color_condition</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Radio Button Highlighting&quot;</span><span class="p">)</span>
+
+<span class="c1"># Boolean selection for format changes</span>
+<span class="n">input_checkbox</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">binding_checkbox</span><span class="p">()</span>
+<span class="n">checkbox_selection</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection_single</span><span class="p">(</span><span class="n">bind</span><span class="o">=</span><span class="n">input_checkbox</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Big Budget Films&quot;</span><span class="p">)</span>
+
+<span class="n">size_checkbox_condition</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span><span class="n">checkbox_selection</span><span class="p">,</span>
+                                        <span class="n">alt</span><span class="o">.</span><span class="n">SizeValue</span><span class="p">(</span><span class="mi">25</span><span class="p">),</span>
+                                        <span class="n">alt</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span><span class="s1">&#39;Hundred_Million_Production:Q&#39;</span><span class="p">)</span>
+                                       <span class="p">)</span>
+
+<span class="n">budget_sizing</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">add_selection</span><span class="p">(</span>
+    <span class="n">checkbox_selection</span>
+<span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">size</span><span class="o">=</span><span class="n">size_checkbox_condition</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Checkbox Formatting&quot;</span><span class="p">)</span>
+
+<span class="p">(</span> <span class="n">filter_year</span> <span class="o">|</span> <span class="n">filter_genres</span><span class="p">)</span> <span class="o">&amp;</span>  <span class="p">(</span><span class="n">highlight_ratings</span> <span class="o">|</span> <span class="n">budget_sizing</span>  <span class="p">)</span>
+</pre></div>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="scatter_with_histogram.html" class="btn btn-neutral float-right" title="Scatter Plot and Histogram with Interval Selection" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="scatter_linked_brush.html" class="btn btn-neutral" title="Multi-panel Scatter Plot with Linked Brushing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016-2018, Altair Developers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.3.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@3.3"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@2.6"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@3.18"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

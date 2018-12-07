@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Simple Line Chart with Markers &mdash; Altair 2.2.2 documentation</title>
+  <title>Simple Line Chart with Markers &mdash; Altair 2.3.0 documentation</title>
   
 
   
@@ -33,9 +33,7 @@
   <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Simple Scatter Plot" href="simple_scatter.html" />
-    <link rel="prev" title="Simple Line Chart" href="simple_line_chart.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -67,7 +65,7 @@
             
             
               <div class="version">
-                2.2
+                2.3.0
               </div>
             
           
@@ -98,33 +96,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/starting.html">Basic Statistical Visualization</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Gallery</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Example Gallery</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="index.html#simple-charts">Simple Charts</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="scatter_tooltips.html">Scatter Plot with Tooltips</a></li>
-<li class="toctree-l3"><a class="reference internal" href="simple_bar_chart.html">Simple Bar Chart</a></li>
-<li class="toctree-l3"><a class="reference internal" href="simple_heatmap.html">Simple Heatmap</a></li>
-<li class="toctree-l3"><a class="reference internal" href="simple_histogram.html">Simple Histogram</a></li>
-<li class="toctree-l3"><a class="reference internal" href="simple_line_chart.html">Simple Line Chart</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Simple Line Chart with Markers</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="simple_scatter.html">Simple Scatter Plot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="simple_stacked_area_chart.html">Simple Stacked Area Chart</a></li>
-<li class="toctree-l3"><a class="reference internal" href="strip_plot.html">Strip Plot</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#bar-charts">Bar Charts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#line-charts">Line Charts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#area-charts">Area Charts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#scatter-plots">Scatter Plots</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#histograms">Histograms</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#maps">Maps</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#interactive-charts">Interactive Charts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#case-studies">Case Studies</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#other-charts">Other Charts</a></li>
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Example Gallery</a></li>
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul>
@@ -132,7 +105,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/encoding.html">Encodings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/marks.html">Marks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/transform.html">Data Transformations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/selections.html">Selections: Building Blocks of Interactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/interactions.html">Bindings, Selections, Conditions: Making Charts Interactive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/configuration.html">Top-Level Chart Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/saving_charts.html">Saving Altair Charts</a></li>
@@ -200,8 +173,6 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="index.html">Example Gallery</a> &raquo;</li>
-        
       <li>Simple Line Chart with Markers</li>
     
     
@@ -245,10 +216,10 @@ columns.</p>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span>
+<span class="n">source</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span>
                      <span class="s1">&#39;sin(x)&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="mi">5</span><span class="p">)})</span>
 
-<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">point</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">point</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="s1">&#39;sin(x)&#39;</span>
 <span class="p">)</span>
@@ -263,15 +234,6 @@ columns.</p>
            
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="simple_scatter.html" class="btn btn-neutral float-right" title="Simple Scatter Plot" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="simple_line_chart.html" class="btn btn-neutral" title="Simple Line Chart" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>
@@ -300,7 +262,7 @@ columns.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.2.2',
+            VERSION:'2.3.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',

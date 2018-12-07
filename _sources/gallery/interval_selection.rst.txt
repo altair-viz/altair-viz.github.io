@@ -18,7 +18,8 @@ top chart can be selected by interacting with the bottom chart.
 
     import altair as alt
     from vega_datasets import data
-    sp500 = data.sp500.url
+
+    source = data.sp500.url
 
     brush = alt.selection(type='interval', encodings=['x'])
 
@@ -32,11 +33,9 @@ top chart can be selected by interacting with the bottom chart.
 
     lower = upper.properties(
         height=60
-    ).add_selection(
-        brush
-    )
+    ).add_selection(brush)
 
-    alt.vconcat(upper, lower, data=sp500)
+    alt.vconcat(upper, lower, data=source)
 
 
 .. toctree::

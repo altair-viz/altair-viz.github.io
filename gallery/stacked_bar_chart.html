@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Stacked Bar Chart &mdash; Altair 2.2.2 documentation</title>
+  <title>Stacked Bar Chart &mdash; Altair 2.3.0 documentation</title>
   
 
   
@@ -34,8 +34,8 @@
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Trellis Stacked Bar Chart" href="trellis_stacked_bar_chart.html" />
-    <link rel="prev" title="Simple Highlighted Bar Chart" href="simple_highlighted_bar_chart.html" /> 
+    <link rel="next" title="Stacked Bar Chart with Sorted Segments" href="stacked_bar_chart_sorted_segments.html" />
+    <link rel="prev" title="Sorted Bar Chart" href="bar_chart_sorted.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                2.2
+                2.3.0
               </div>
             
           
@@ -102,26 +102,25 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Example Gallery</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="index.html#simple-charts">Simple Charts</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html#bar-charts">Bar Charts</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="bar_chart_with_highlight.html">Bar Chart with Highlight</a></li>
-<li class="toctree-l3"><a class="reference internal" href="boxplot_max_min.html">Box Plot with Min/Max Whiskers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bar_chart_with_highlighted_bar.html">Bar Chart with Highlighted Bar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bar_chart_with_labels.html">Bar Chart with Labels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bar_chart_with_mean_line.html">Bar Chart with Line at Mean</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bar_and_line_with_dual_axis.html">Bar Chart with Line on Dual Axis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bar_chart_with_negatives.html">Bar Chart with Negative Values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layered_chart_bar_mark.html">Bar and Tick Chart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="percentage_of_total.html">Calculating Percentage of Total</a></li>
-<li class="toctree-l3"><a class="reference internal" href="candlestick_chart.html">Candlestick Chart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="diverging_stacked_bar_chart.html">Diverging Stacked Bar Chart</a></li>
-<li class="toctree-l3"><a class="reference internal" href="error_bars_with_ci.html">Error Bars showing Confidence Interval</a></li>
-<li class="toctree-l3"><a class="reference internal" href="gantt_chart.html">Gantt Chart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="grouped_bar_chart.html">Grouped Bar Chart</a></li>
-<li class="toctree-l3"><a class="reference internal" href="aggregate_bar_chart.html">Horizontal Aggregate Bar Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bar_chart_horizontal.html">Horizontal Bar Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="grouped_bar_chart_horizontal.html">Horizontal Grouped Bar Chart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="horizontal_stacked_bar_chart.html">Horizontal Stacked Bar Chart</a></li>
-<li class="toctree-l3"><a class="reference internal" href="layered_chart_bar_mark.html">LayerChart with Bar and Tick</a></li>
 <li class="toctree-l3"><a class="reference internal" href="layered_bar_chart.html">Layered Bar Chart</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mean_overlay_over_precipitiation_chart.html">Layered Bar Chart with Line as Mean</a></li>
-<li class="toctree-l3"><a class="reference internal" href="layered_plot_with_dual_axis.html">Layered Plot with Dual-Axis</a></li>
 <li class="toctree-l3"><a class="reference internal" href="normalized_stacked_bar_chart.html">Normalized Stacked Bar Chart</a></li>
-<li class="toctree-l3"><a class="reference internal" href="bar_chart_with_labels.html">Simple Bar Chart with Labels</a></li>
-<li class="toctree-l3"><a class="reference internal" href="simple_highlighted_bar_chart.html">Simple Highlighted Bar Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bar_chart_sorted.html">Sorted Bar Chart</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Stacked Bar Chart</a><ul class="simple">
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="stacked_bar_chart_sorted_segments.html">Stacked Bar Chart with Sorted Segments</a></li>
 <li class="toctree-l3"><a class="reference internal" href="trellis_stacked_bar_chart.html">Trellis Stacked Bar Chart</a></li>
 </ul>
 </li>
@@ -142,7 +141,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/encoding.html">Encodings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/marks.html">Marks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/transform.html">Data Transformations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/selections.html">Selections: Building Blocks of Interactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/interactions.html">Bindings, Selections, Conditions: Making Charts Interactive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/configuration.html">Top-Level Chart Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/saving_charts.html">Saving Altair Charts</a></li>
@@ -252,9 +251,9 @@
 </div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
 <span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
 
-<span class="n">barley</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">barley</span><span class="p">()</span>
+<span class="n">source</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">barley</span><span class="p">()</span>
 
-<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">barley</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="s1">&#39;variety&#39;</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="s1">&#39;sum(yield)&#39;</span><span class="p">,</span>
     <span class="n">color</span><span class="o">=</span><span class="s1">&#39;site&#39;</span>
@@ -273,10 +272,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="trellis_stacked_bar_chart.html" class="btn btn-neutral float-right" title="Trellis Stacked Bar Chart" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="stacked_bar_chart_sorted_segments.html" class="btn btn-neutral float-right" title="Stacked Bar Chart with Sorted Segments" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="simple_highlighted_bar_chart.html" class="btn btn-neutral" title="Simple Highlighted Bar Chart" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="bar_chart_sorted.html" class="btn btn-neutral" title="Sorted Bar Chart" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -307,7 +306,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.2.2',
+            VERSION:'2.3.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
