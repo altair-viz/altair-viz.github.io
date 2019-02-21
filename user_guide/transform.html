@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Data Transformations &mdash; Altair 2.4.1 documentation</title>
+  <title>Data Transformations &mdash; Altair 2.3.1 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                2.4.1
+                2.3.1
               </div>
             
           
@@ -772,7 +772,7 @@ to select the data to be shown in the top chart:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "vconcat": [{"mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "height": 200, "transform": [{"filter": {"selection": "selector067"}}], "width": 600}, {"mark": "bar", "encoding": {"color": {"condition": {"value": "steelblue", "selection": "selector067"}, "value": "lightgray"}, "x": {"type": "ordinal", "field": "year"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "height": 100, "selection": {"selector067": {"type": "multi", "fields": ["year"]}}, "width": 600}], "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "vconcat": [{"mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "height": 200, "transform": [{"filter": {"selection": "selector045"}}], "width": 600}, {"mark": "bar", "encoding": {"color": {"condition": {"value": "steelblue", "selection": "selector045"}, "value": "lightgray"}, "x": {"type": "ordinal", "field": "year"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "height": 100, "selection": {"selector045": {"type": "multi", "fields": ["year"]}}, "width": 600}], "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -1369,7 +1369,7 @@ If we plot the <a class="reference external" href="https://en.wikipedia.org/w/in
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.4.1',
+            VERSION:'2.3.1',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
