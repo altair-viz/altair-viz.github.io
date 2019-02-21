@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Customizing Visualizations &mdash; Altair 2.3.0 documentation</title>
+  <title>Customizing Visualizations &mdash; Altair 2.4.1 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                2.3.0
+                2.4.1
               </div>
             
           
@@ -122,7 +122,12 @@
 <li class="toctree-l2"><a class="reference internal" href="#adjusting-axis-limits">Adjusting Axis Limits</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#adjusting-axis-labels">Adjusting Axis Labels</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#adjusting-the-legend">Adjusting the Legend</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#customizing-colors">Customizing Colors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#customizing-colors">Customizing Colors</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#color-schemes">Color Schemes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#color-domain-and-range">Color Domain and Range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#raw-color-values">Raw Color Values</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#adjusting-the-width-of-bar-marks">Adjusting the width of Bar Marks</a></li>
 </ul>
 </li>
@@ -492,7 +497,7 @@ limit to the edge of the domain:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"x": {"type": "quantitative", "field": "Acceleration", "scale": {"clamp": true, "domain": [5, 20]}}, "y": {"type": "quantitative", "field": "Horsepower"}}, "selection": {"selector032": {"type": "interval", "bind": "scales", "encodings": ["x", "y"]}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"x": {"type": "quantitative", "field": "Acceleration", "scale": {"clamp": true, "domain": [5, 20]}}, "y": {"type": "quantitative", "field": "Horsepower"}}, "selection": {"selector054": {"type": "interval", "bind": "scales", "encodings": ["x", "y"]}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -681,13 +686,18 @@ the y labels as a dollar value:</p>
 </div></div>
 <div class="section" id="customizing-colors">
 <h2>Customizing Colors<a class="headerlink" href="#customizing-colors" title="Permalink to this headline">¶</a></h2>
-<p>By default, the type of data will impact the color scheme use.  See the <a class="reference internal" href="encoding.html#type-legend-scale"><span class="std std-ref">Effect of Data Type on Color Scales</span></a> section for
-more information.  The mapping of data to color can be customized with the <cite>scale</cite> argument
-to the <a class="reference internal" href="generated/channels/altair.Color.html#altair.Color" title="altair.Color"><code class="xref py py-class docutils literal"><span class="pre">Color</span></code></a> class.</p>
-<p>Vega includes a set of named color schemes for both categorical and sequential data.
-See the <a class="reference external" href="https://vega.github.io/vega/docs/schemes/">Vega documentation</a>
-for a full gallery of color schemes.  These schemes
-can be passed to the <cite>scheme</cite> argument of the <a class="reference internal" href="generated/core/altair.Scale.html#altair.Scale" title="altair.Scale"><code class="xref py py-class docutils literal"><span class="pre">Scale</span></code></a> class.</p>
+<p>As discussed in <a class="reference internal" href="encoding.html#type-legend-scale"><span class="std std-ref">Effect of Data Type on Color Scales</span></a>, Altair chooses a suitable default color
+scheme based on the type of the data that the color encodes. These defaults can
+be customized using the <cite>scale</cite> argument of the <a class="reference internal" href="generated/channels/altair.Color.html#altair.Color" title="altair.Color"><code class="xref py py-class docutils literal"><span class="pre">Color</span></code></a> class.</p>
+<p>The <a class="reference internal" href="generated/core/altair.Scale.html#altair.Scale" title="altair.Scale"><code class="xref py py-class docutils literal"><span class="pre">Scale</span></code></a> class passed to the <cite>scale</cite> argument provides a number of options
+for customizing the color scale; we will discuss a few of them here.</p>
+<div class="section" id="color-schemes">
+<h3>Color Schemes<a class="headerlink" href="#color-schemes" title="Permalink to this headline">¶</a></h3>
+<p>Altair  includes a set of named color schemes for both categorical and sequential
+data, defined by the vega project; see the
+<a class="reference external" href="https://vega.github.io/vega/docs/schemes/">Vega documentation</a>
+for a full gallery of available color schemes.  These schemes
+can be passed to the <cite>scheme</cite> argument of the <a class="reference internal" href="generated/core/altair.Scale.html#altair.Scale" title="altair.Scale"><code class="xref py py-class docutils literal"><span class="pre">Scale</span></code></a> class:</p>
 <div class="highlight-python" id="customization-rst-altair-source-15"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
 <span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
 
@@ -715,7 +725,10 @@ can be passed to the <cite>scheme</cite> argument of the <a class="reference int
       vegaEmbed('#customization-rst-altair-plot-15', spec, opt).catch(console.err);
   });
 </script>
-</div><p>To make a custom mapping of discrete values to colors, use the
+</div></div>
+<div class="section" id="color-domain-and-range">
+<h3>Color Domain and Range<a class="headerlink" href="#color-domain-and-range" title="Permalink to this headline">¶</a></h3>
+<p>To make a custom mapping of discrete values to colors, use the
 <cite>domain</cite> and <cite>range</cite> paramaters of the <a class="reference internal" href="generated/core/altair.Scale.html#altair.Scale" title="altair.Scale"><code class="xref py py-class docutils literal"><span class="pre">Scale</span></code></a> class for
 values and colors respectively.</p>
 <div class="highlight-python" id="customization-rst-altair-source-16"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
@@ -723,12 +736,12 @@ values and colors respectively.</p>
 
 <span class="n">iris</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">iris</span><span class="p">()</span>
 <span class="n">domain</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;setosa&#39;</span><span class="p">,</span> <span class="s1">&#39;versicolor&#39;</span><span class="p">,</span> <span class="s1">&#39;virginica&#39;</span><span class="p">]</span>
-<span class="n">rng</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">]</span>
+<span class="n">range_</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">]</span>
 
 <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="s1">&#39;petalWidth&#39;</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="s1">&#39;petalLength&#39;</span><span class="p">,</span>
-    <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;species&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="n">domain</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="n">rng</span><span class="p">))</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;species&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="n">domain</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="n">range_</span><span class="p">))</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -748,10 +761,49 @@ values and colors respectively.</p>
   });
 </script>
 </div></div>
+<div class="section" id="raw-color-values">
+<h3>Raw Color Values<a class="headerlink" href="#raw-color-values" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal"><span class="pre">scale</span></code> is what maps the raw input values into an appropriate color encoding
+for displaying the data. If your data entries consist of raw color names or codes,
+you can set <code class="docutils literal"><span class="pre">scale=None</span></code> to use those colors directly:</p>
+<div class="highlight-python" id="customization-rst-altair-source-17"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span>
+    <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;steelblue&#39;</span><span class="p">,</span> <span class="s1">&#39;chartreuse&#39;</span><span class="p">,</span> <span class="s1">&#39;#F4D03F&#39;</span><span class="p">,</span> <span class="s1">&#39;#D35400&#39;</span><span class="p">,</span> <span class="s1">&#39;#7D3C98&#39;</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">(</span>
+    <span class="n">filled</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+    <span class="n">size</span><span class="o">=</span><span class="mi">100</span>
+<span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;color&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="customization-rst-altair-plot-17">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"name": "data-135352839f31b822176fa3bab35b2412"}, "mark": {"type": "point", "filled": true, "size": 100}, "encoding": {"color": {"type": "nominal", "field": "color", "scale": null}, "x": {"type": "quantitative", "field": "x"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json", "datasets": {"data-135352839f31b822176fa3bab35b2412": [{"x": 0, "color": "red"}, {"x": 1, "color": "steelblue"}, {"x": 2, "color": "chartreuse"}, {"x": 3, "color": "#F4D03F"}, {"x": 4, "color": "#D35400"}, {"x": 5, "color": "#7D3C98"}]}};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#customization-rst-altair-plot-17', spec, opt).catch(console.err);
+  });
+</script>
+</div></div>
+</div>
 <div class="section" id="adjusting-the-width-of-bar-marks">
 <h2>Adjusting the width of Bar Marks<a class="headerlink" href="#adjusting-the-width-of-bar-marks" title="Permalink to this headline">¶</a></h2>
 <p>The width of the bars in a bar plot are controlled through the <code class="docutils literal"><span class="pre">size</span></code> property in the <a class="reference internal" href="generated/toplevel/altair.Chart.html#altair.Chart.mark_bar" title="altair.Chart.mark_bar"><code class="xref py py-meth docutils literal"><span class="pre">mark_bar()</span></code></a>:</p>
-<div class="highlight-python" id="customization-rst-altair-source-17"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
+<div class="highlight-python" id="customization-rst-altair-source-18"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">],</span> <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">]})</span>
@@ -763,7 +815,7 @@ values and colors respectively.</p>
 </pre></div>
 </div>
 
-<div id="customization-rst-altair-plot-17">
+<div id="customization-rst-altair-plot-18">
 <script>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
@@ -774,18 +826,18 @@ values and colors respectively.</p>
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#customization-rst-altair-plot-17', spec, opt).catch(console.err);
+      vegaEmbed('#customization-rst-altair-plot-18', spec, opt).catch(console.err);
   });
 </script>
 </div><p>But since <code class="docutils literal"><span class="pre">mark_bar(size=10)</span></code> only controls the width of the bars, it might become possible that the width of the chart is not adjusted accordingly:</p>
-<div class="highlight-python" id="customization-rst-altair-source-18"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+<div class="highlight-python" id="customization-rst-altair-source-19"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="s1">&#39;name:O&#39;</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="s1">&#39;value:Q&#39;</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 
-<div id="customization-rst-altair-plot-18">
+<div id="customization-rst-altair-plot-19">
 <script>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
@@ -796,7 +848,7 @@ values and colors respectively.</p>
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#customization-rst-altair-plot-18', spec, opt).catch(console.err);
+      vegaEmbed('#customization-rst-altair-plot-19', spec, opt).catch(console.err);
   });
 </script>
 </div><p>The width of the chart containing the bar plot can be controlled through two mechanisms:</p>
@@ -805,14 +857,14 @@ values and colors respectively.</p>
 <li>Setting the <code class="docutils literal"><span class="pre">rangeStep</span></code> property of the bars in the <a class="reference internal" href="generated/core/altair.Scale.html#altair.Scale" title="altair.Scale"><code class="xref py py-class docutils literal"><span class="pre">Scale</span></code></a> class. The <code class="docutils literal"><span class="pre">rangeStep</span></code> allocates the width (in pixels) for each bar, so the width of the chart becomes the number of bars multiply the <code class="docutils literal"><span class="pre">rangeStep</span></code>.</li>
 </ol>
 <p>An example using the first mechanism (using <code class="docutils literal"><span class="pre">width</span></code>):</p>
-<div class="highlight-python" id="customization-rst-altair-source-19"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+<div class="highlight-python" id="customization-rst-altair-source-20"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="s1">&#39;name:O&#39;</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="s1">&#39;value:Q&#39;</span>
 <span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 </pre></div>
 </div>
 
-<div id="customization-rst-altair-plot-19">
+<div id="customization-rst-altair-plot-20">
 <script>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
@@ -823,19 +875,19 @@ values and colors respectively.</p>
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#customization-rst-altair-plot-19', spec, opt).catch(console.err);
+      vegaEmbed('#customization-rst-altair-plot-20', spec, opt).catch(console.err);
   });
 </script>
 </div><p>The width of the bars are set using <code class="docutils literal"><span class="pre">mark_bar(size=30)</span></code> and the width of the chart is set using <code class="docutils literal"><span class="pre">properties(width=100)</span></code></p>
 <p>An example using the second mechanism (using <code class="docutils literal"><span class="pre">rangeStep</span></code>):</p>
-<div class="highlight-python" id="customization-rst-altair-source-20"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+<div class="highlight-python" id="customization-rst-altair-source-21"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;name:N&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">rangeStep</span><span class="o">=</span><span class="mi">100</span><span class="p">)),</span>
     <span class="n">y</span><span class="o">=</span><span class="s1">&#39;value:Q&#39;</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 
-<div id="customization-rst-altair-plot-20">
+<div id="customization-rst-altair-plot-21">
 <script>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
@@ -846,7 +898,7 @@ values and colors respectively.</p>
         "renderer": "canvas",
         "actions": {"editor": true, "source": true, "export": true}
       };
-      vegaEmbed('#customization-rst-altair-plot-20', spec, opt).catch(console.err);
+      vegaEmbed('#customization-rst-altair-plot-21', spec, opt).catch(console.err);
   });
 </script>
 </div><p>The width of the bars are set using <code class="docutils literal"><span class="pre">mark_bar(size=30)</span></code> and the width that is allocated for each bar bar in the the chart is set using <code class="docutils literal"><span class="pre">alt.Scale(rangeStep=100)</span></code></p>
@@ -899,7 +951,7 @@ values and colors respectively.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.3.0',
+            VERSION:'2.4.1',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',

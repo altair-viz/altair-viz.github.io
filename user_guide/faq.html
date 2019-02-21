@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Frequently Asked Questions &mdash; Altair 2.3.0 documentation</title>
+  <title>Frequently Asked Questions &mdash; Altair 2.4.1 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                2.3.0
+                2.4.1
               </div>
             
           
@@ -118,7 +118,12 @@
 <li class="toctree-l2"><a class="reference internal" href="#i-tried-to-make-a-plot-but-it-doesn-t-show-up">I tried to make a plot but it doesn’t show up</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#why-does-altair-lead-to-such-extremely-large-notebooks">Why does Altair lead to such extremely large notebooks?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#maxrowserror-how-can-i-plot-large-datasets">MaxRowsError: How can I plot Large Datasets?</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#passing-data-by-url">Passing Data by URL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#passing-data-by-url">Passing Data by URL</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#vega-datasets">Vega Datasets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#local-filesystem">Local Filesystem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#local-data-server">Local Data Server</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#disabling-maxrows">Disabling MaxRows</a></li>
 </ul>
 </li>
@@ -292,40 +297,19 @@ pass it to the chart by URL. You can do this manually if you wish:</p>
  &#39;mark&#39;: &#39;line&#39;}
 </pre></div>
 </div>
-<p>Alternatively, Altair provides a JSON data transformer that will automatically
-store your data to disk and reference it by URL when a chart is rendered:</p>
-<div class="highlight-python" id="faq-rst-altair-source-2"><div class="highlight"><pre><span></span><span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
- <span class="n">x</span><span class="o">=</span><span class="s1">&#39;x:Q&#39;</span><span class="p">,</span>
- <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y:Q&#39;</span>
-<span class="p">)</span>
-
-<span class="k">with</span> <span class="n">alt</span><span class="o">.</span><span class="n">data_transformers</span><span class="o">.</span><span class="n">enable</span><span class="p">(</span><span class="s1">&#39;json&#39;</span><span class="p">):</span>
-    <span class="n">pprint</span><span class="p">(</span><span class="n">chart</span><span class="o">.</span><span class="n">to_dict</span><span class="p">())</span>
-</pre></div>
-</div>
-<div class="highlight-none"><div class="highlight"><pre><span></span>{&#39;$schema&#39;: &#39;https://vega.github.io/schema/vega-lite/v2.4.1.json&#39;,
- &#39;config&#39;: {&#39;view&#39;: {&#39;height&#39;: 300, &#39;width&#39;: 400}},
- &#39;data&#39;: {&#39;format&#39;: {&#39;type&#39;: &#39;json&#39;},
-          &#39;url&#39;: &#39;altair-data-da466e59-a1e3-4659-a9a7-e64d09c85aa7.json&#39;},
- &#39;encoding&#39;: {&#39;x&#39;: {&#39;field&#39;: &#39;x&#39;, &#39;type&#39;: &#39;quantitative&#39;},
-              &#39;y&#39;: {&#39;field&#39;: &#39;y&#39;, &#39;type&#39;: &#39;quantitative&#39;}},
- &#39;mark&#39;: &#39;line&#39;}
-</pre></div>
-</div>
-<p>With either of these approaches, the data is now stored externally in a JSON
-file rather than being embedded in the notebook,
+<p>For other strategies for effectively working with large datasets in Altair, see
+<a class="reference internal" href="#altair-faq-max-rows"><span class="std std-ref">MaxRowsError: How can I plot Large Datasets?</span></a></p>
+<p>With this type of approach, the data is now stored as an external file
+rather than being embedded in the notebook,
 leading to much more compact plot specifications.
 The disadvantage, of course, is a loss of portability: if the notebook is
 ever moved, the data file must accompany it or the plot may not display.</p>
-<p>In the future, we plan to explore the idea of named datasets that can be
-transparently embedded once in the notebook metadata and referenced by name
-in plots throughout, but that is not implemented yet.</p>
 </div>
 <div class="section" id="maxrowserror-how-can-i-plot-large-datasets">
 <span id="altair-faq-max-rows"></span><h2>MaxRowsError: How can I plot Large Datasets?<a class="headerlink" href="#maxrowserror-how-can-i-plot-large-datasets" title="Permalink to this headline">¶</a></h2>
 <p>If you try to create a plot that will directly embed a dataset with more than
 5000 rows, you will see a <code class="docutils literal"><span class="pre">MaxRowsError</span></code>:</p>
-<div class="highlight-python" id="faq-rst-altair-source-3"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">)})</span>
+<div class="highlight-python" id="faq-rst-altair-source-2"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">)})</span>
 <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -346,16 +330,49 @@ error is a way of preventing that.</p>
 in the notebook, but rather pass it to the chart by URL.
 This not only addresses the issue of large notebooks, but also leads to better
 interactivity performance with large datasets.</p>
-<p>As noted above, Altair has a <code class="docutils literal"><span class="pre">JSON</span></code> data transformer that will do
-this transparently:</p>
+<div class="section" id="vega-datasets">
+<h4>Vega Datasets<a class="headerlink" href="#vega-datasets" title="Permalink to this headline">¶</a></h4>
+<p>If you are working with one of the vega datasets, you can pass the data by URL
+using the <code class="docutils literal"><span class="pre">url</span></code> attribute:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+<span class="n">source</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">cars</span><span class="o">.</span><span class="n">url</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span> <span class="c1"># etc.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="local-filesystem">
+<h4>Local Filesystem<a class="headerlink" href="#local-filesystem" title="Permalink to this headline">¶</a></h4>
+<p>You may also save data to a local filesystem and reference the data by
+file path. As noted above, Altair has <code class="docutils literal"><span class="pre">JSON</span></code> and <code class="docutils literal"><span class="pre">CSV</span></code> data data_transformers
+that will do this transparently when enabled:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">data_transformers</span><span class="o">.</span><span class="n">enable</span><span class="p">(</span><span class="s1">&#39;json&#39;</span><span class="p">)</span>
+<span class="c1"># or</span>
+<span class="n">alt</span><span class="o">.</span><span class="n">data_transformers</span><span class="o">.</span><span class="n">enable</span><span class="p">(</span><span class="s1">&#39;csv&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>With this data transformer enabled, each time you make a plot the data will be
 serialized to disk and referenced by URL, rather than being embedded in the
-notebook output.</p>
-<p>Another approach is to manually save the data to file and reference it that way
+notebook output.
+You may also manually save the data to file and reference it that way
 (see <a class="reference internal" href="#altair-faq-large-notebook"><span class="std std-ref">Why does Altair lead to such extremely large notebooks?</span></a>).</p>
+<p>Note that the filesystem approach may not work on some cloud-based Jupyter notebook services.</p>
+</div>
+<div class="section" id="local-data-server">
+<h4>Local Data Server<a class="headerlink" href="#local-data-server" title="Permalink to this headline">¶</a></h4>
+<p>It is also possible to serve your data from a local threaded server to avoid writing
+datasets to disk. The <a class="reference external" href="https://github.com/altair-viz/altair_data_server">altair_data_server</a>
+package makes this easy. First install the package:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>pip install altair_data_server
+</pre></div>
+</div>
+<p>And then enable the data transformer:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="n">alt</span><span class="o">.</span><span class="n">data_transformers</span><span class="o">.</span><span class="n">enable</span><span class="p">(</span><span class="s1">&#39;data_server&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note that this may not approach on some cloud-based Jupyter notebook services.</p>
+</div>
 </div>
 <div class="section" id="disabling-maxrows">
 <h3>Disabling MaxRows<a class="headerlink" href="#disabling-maxrows" title="Permalink to this headline">¶</a></h3>
@@ -414,7 +431,7 @@ and performance may suffer.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.3.0',
+            VERSION:'2.4.1',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',

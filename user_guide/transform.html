@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Data Transformations &mdash; Altair 2.3.0 documentation</title>
+  <title>Data Transformations &mdash; Altair 2.4.1 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                2.3.0
+                2.4.1
               </div>
             
           
@@ -772,7 +772,7 @@ to select the data to be shown in the top chart:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "vconcat": [{"mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "height": 200, "transform": [{"filter": {"selection": "selector045"}}], "width": 600}, {"mark": "bar", "encoding": {"color": {"condition": {"value": "steelblue", "selection": "selector045"}, "value": "lightgray"}, "x": {"type": "ordinal", "field": "year"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "height": 100, "selection": {"selector045": {"type": "multi", "fields": ["year"]}}, "width": 600}], "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "vconcat": [{"mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "height": 200, "transform": [{"filter": {"selection": "selector067"}}], "width": 600}, {"mark": "bar", "encoding": {"color": {"condition": {"value": "steelblue", "selection": "selector067"}, "value": "lightgray"}, "x": {"type": "ordinal", "field": "year"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "height": 100, "selection": {"selector067": {"type": "multi", "fields": ["year"]}}, "width": 600}], "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -1161,21 +1161,20 @@ labels.</p>
 </div>
 <div class="section" id="window-transform">
 <span id="user-guide-window-transform"></span><h2>Window Transform<a class="headerlink" href="#window-transform" title="Permalink to this headline">¶</a></h2>
-<p>The Window transform performs calculations over sorted groups of data objects.
-These calculations including ranking, lead/lag analysis, and aggregates such
-as running sums and averages. Calculated values are written back to the
-input data stream, where they can be referenced in encodings.</p>
-<p>For example, consider the following chart showing time spent on various
-activities during a day:</p>
+<p>The window transform performs calculations over sorted groups of data objects.
+These calculations include ranking, lead/lag analysis, and aggregates such as cumulative sums and averages.
+Calculated values are written back to the input data stream, where they can be referenced by encodings.</p>
+<p>For example, consider the following cumulative frequency distribution:</p>
 <div class="highlight-python" id="transform-rst-altair-source-24"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
 
-<span class="n">activities</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Activity&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Sleeping&#39;</span><span class="p">,</span> <span class="s1">&#39;Eating&#39;</span><span class="p">,</span> <span class="s1">&#39;TV&#39;</span><span class="p">,</span> <span class="s1">&#39;Work&#39;</span><span class="p">,</span> <span class="s1">&#39;Exercise&#39;</span><span class="p">],</span>
-                           <span class="s1">&#39;Time&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">]})</span>
-
-<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">activities</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Time:Q&#39;</span><span class="p">,</span>
-    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Activity:N&#39;</span>
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">movies</span><span class="o">.</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">transform_window</span><span class="p">(</span>
+    <span class="n">sort</span><span class="o">=</span><span class="p">[{</span><span class="s1">&#39;field&#39;</span><span class="p">:</span> <span class="s1">&#39;IMDB_Rating&#39;</span><span class="p">}],</span>
+    <span class="n">frame</span><span class="o">=</span><span class="p">[</span><span class="bp">None</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="n">cumulative_count</span><span class="o">=</span><span class="s1">&#39;count(*)&#39;</span><span class="p">,</span>
+<span class="p">)</span><span class="o">.</span><span class="n">mark_area</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;IMDB_Rating:Q&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;cumulative_count:Q&#39;</span><span class="p">,</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -1185,7 +1184,7 @@ activities during a day:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"name": "data-b65fb8da81d8d9141134bef309e2af20"}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "field": "Time"}, "y": {"type": "nominal", "field": "Activity"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json", "datasets": {"data-b65fb8da81d8d9141134bef309e2af20": [{"Activity": "Sleeping", "Time": 8}, {"Activity": "Eating", "Time": 2}, {"Activity": "TV", "Time": 4}, {"Activity": "Work", "Time": 8}, {"Activity": "Exercise", "Time": 2}]}};
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/movies.json"}, "mark": "area", "encoding": {"x": {"type": "quantitative", "field": "IMDB_Rating"}, "y": {"type": "quantitative", "field": "cumulative_count"}}, "transform": [{"window": [{"op": "count", "field": "*", "as": "cumulative_count"}], "frame": [null, 0], "sort": [{"field": "IMDB_Rating"}]}], "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -1194,17 +1193,83 @@ activities during a day:</p>
       vegaEmbed('#transform-rst-altair-plot-24', spec, opt).catch(console.err);
   });
 </script>
-</div><p>You might wish to plot these bars in units of percentage of total time rather than
-in units of hours. You can do this by combining a calculate transform with a
-window transform, using <a class="reference internal" href="generated/toplevel/altair.Chart.html#altair.Chart.transform_window" title="altair.Chart.transform_window"><code class="xref py py-meth docutils literal"><span class="pre">transform_window()</span></code></a>:</p>
-<div class="highlight-python" id="transform-rst-altair-source-25"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">activities</span><span class="p">)</span><span class="o">.</span><span class="n">transform_window</span><span class="p">(</span>
-    <span class="n">TotalTime</span><span class="o">=</span><span class="s1">&#39;sum(Time)&#39;</span><span class="p">,</span>
-    <span class="n">frame</span><span class="o">=</span><span class="p">[</span><span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">]</span>
-<span class="p">)</span><span class="o">.</span><span class="n">transform_calculate</span><span class="p">(</span>
-    <span class="n">PercentOfTotal</span><span class="o">=</span><span class="s2">&quot;100 * datum.Time / datum.TotalTime&quot;</span>
-<span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;PercentOfTotal:Q&#39;</span><span class="p">,</span>
-    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Activity:N&#39;</span>
+</div><p>First, we pass a sort field definition, which indicates how data objects should be sorted within the window.
+Here, movies should be sorted by their IMDB rating.
+Next, we pass the frame, which indicates how many data objects before and after the current data object should be included within the window.
+Here, all movies up to and including the current movie should be included.
+Finally, we pass a window field definition, which indicates how data objects should be aggregated within the window.
+Here, the number of movies should be counted.</p>
+<p>There are many aggregation functions built into Altair.
+As well as those given in <a class="reference internal" href="encoding.html#encoding-aggregates"><span class="std std-ref">Binning and Aggregation</span></a>, we can use the following within window field definitions:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="4%" />
+<col width="3%" />
+<col width="94%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Aggregate</th>
+<th class="head">Parameter</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>row_number</td>
+<td>None</td>
+<td>Assigns each data object a consecutive row number, starting from 1.</td>
+</tr>
+<tr class="row-odd"><td>rank</td>
+<td>None</td>
+<td>Assigns a rank order value to each data object in a window, starting from 1. Peer values are assigned the same rank. Subsequent rank scores incorporate the number of prior values. For example, if the first two values tie for rank 1, the third value is assigned rank 3.</td>
+</tr>
+<tr class="row-even"><td>dense_rank</td>
+<td>None</td>
+<td>Assigns dense rank order values to each data object in a window, starting from 1. Peer values are assigned the same rank. Subsequent rank scores do not incorporate the number of prior values. For example, if the first two values tie for rank 1, the third value is assigned rank 2.</td>
+</tr>
+<tr class="row-odd"><td>percent_rank</td>
+<td>None</td>
+<td>Assigns a percentage rank order value to each data object in a window. The percent is calculated as (rank - 1) / (group_size - 1).</td>
+</tr>
+<tr class="row-even"><td>cume_dist</td>
+<td>None</td>
+<td>Assigns a cumulative distribution value between 0 and 1 to each data object in a window.</td>
+</tr>
+<tr class="row-odd"><td>ntile</td>
+<td>Number</td>
+<td>Assigns a quantile (e.g., percentile) value to each data object in a window. Accepts an integer parameter indicating the number of buckets to use (e.g., 100 for percentiles, 5 for quintiles).</td>
+</tr>
+<tr class="row-even"><td>lag</td>
+<td>Number</td>
+<td>Assigns a value from the data object that precedes the current object by a specified number of positions. If no such object exists, assigns <code class="docutils literal"><span class="pre">null</span></code>. Accepts an offset parameter (default <code class="docutils literal"><span class="pre">1</span></code>) that indicates the number of positions. This operation must have a corresponding entry in the <cite>fields</cite> parameter array.</td>
+</tr>
+<tr class="row-odd"><td>lead</td>
+<td>Number</td>
+<td>Assigns a value from the data object that follows the current object by a specified number of positions. If no such object exists, assigns <code class="docutils literal"><span class="pre">null</span></code>. Accepts an offset parameter (default <code class="docutils literal"><span class="pre">1</span></code>) that indicates the number of positions. This operation must have a corresponding entry in the <cite>fields</cite> parameter array.</td>
+</tr>
+<tr class="row-even"><td>first_value</td>
+<td>None</td>
+<td>Assigns a value from the first data object in the current sliding window frame. This operation must have a corresponding entry in the <cite>fields</cite> parameter array.</td>
+</tr>
+<tr class="row-odd"><td>last_value</td>
+<td>None</td>
+<td>Assigns a value from the last data object in the current sliding window frame. This operation must have a corresponding entry in the <cite>fields</cite> parameter array.</td>
+</tr>
+<tr class="row-even"><td>nth_value</td>
+<td>Number</td>
+<td>Assigns a value from the nth data object in the current sliding window frame. If no such object exists, assigns <code class="docutils literal"><span class="pre">null</span></code>. Requires a non-negative integer parameter that indicates the offset from the start of the window frame. This operation must have a corresponding entry in the <cite>fields</cite> parameter array.</td>
+</tr>
+</tbody>
+</table>
+<p>While an aggregate transform computes a single value that summarises all data objects, a window transform adds a new property to each data object.
+This new property is computed from the neighbouring data objects: that is, from the data objects delimited by the window field definition.
+For example, consider the following time series of stock prices:</p>
+<div class="highlight-python" id="transform-rst-altair-source-25"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">stocks</span><span class="o">.</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;date:T&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price:Q&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;symbol:N&#39;</span><span class="p">,</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -1214,7 +1279,7 @@ window transform, using <a class="reference internal" href="generated/toplevel/a
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"name": "data-b65fb8da81d8d9141134bef309e2af20"}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "field": "PercentOfTotal"}, "y": {"type": "nominal", "field": "Activity"}}, "transform": [{"window": [{"op": "sum", "field": "Time", "as": "TotalTime"}], "frame": [null, null]}, {"calculate": "100 * datum.Time / datum.TotalTime", "as": "PercentOfTotal"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json", "datasets": {"data-b65fb8da81d8d9141134bef309e2af20": [{"Activity": "Sleeping", "Time": 8}, {"Activity": "Eating", "Time": 2}, {"Activity": "TV", "Time": 4}, {"Activity": "Work", "Time": 8}, {"Activity": "Exercise", "Time": 2}]}};
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/stocks.csv"}, "mark": "line", "encoding": {"color": {"type": "nominal", "field": "symbol"}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "price"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -1223,12 +1288,42 @@ window transform, using <a class="reference internal" href="generated/toplevel/a
       vegaEmbed('#transform-rst-altair-plot-25', spec, opt).catch(console.err);
   });
 </script>
-</div><p>In the window transform, we specify <code class="docutils literal"><span class="pre">frame=[None,</span> <span class="pre">None]</span></code>, which indicates that
-the aggregation at each point is performed on the entire dataset.</p>
-<p>Window transforms are quite flexible, and are not yet well documented within
-Altair. For more information on the arguments of the window transform, see
-<a class="reference internal" href="generated/core/altair.WindowTransform.html#altair.WindowTransform" title="altair.WindowTransform"><code class="xref py py-class docutils literal"><span class="pre">WindowTransform</span></code></a>, or see the
-<a class="reference external" href="https://vega.github.io/vega-lite/docs/window.html">Vega-Lite window transform examples</a>.</p>
+</div><p>It’s hard to see the overall pattern in the above example, because Google’s stock price is much higher than the other stock prices.
+If we plot the <a class="reference external" href="https://en.wikipedia.org/w/index.php?title=Z-score">z-scores</a> of the stock prices, rather than the stock prices themselves, then the overall pattern becomes clearer:</p>
+<div class="highlight-python" id="transform-rst-altair-source-26"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">stocks</span><span class="o">.</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">transform_window</span><span class="p">(</span>
+    <span class="n">mean_price</span><span class="o">=</span><span class="s1">&#39;mean(price)&#39;</span><span class="p">,</span>
+    <span class="n">stdev_price</span><span class="o">=</span><span class="s1">&#39;stdev(price)&#39;</span><span class="p">,</span>
+    <span class="n">frame</span><span class="o">=</span><span class="p">[</span><span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">],</span>
+    <span class="n">groupby</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;symbol&#39;</span><span class="p">],</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_calculate</span><span class="p">(</span>
+    <span class="n">z_score</span><span class="o">=</span><span class="p">(</span><span class="n">alt</span><span class="o">.</span><span class="n">datum</span><span class="o">.</span><span class="n">price</span> <span class="o">-</span> <span class="n">alt</span><span class="o">.</span><span class="n">datum</span><span class="o">.</span><span class="n">mean_price</span><span class="p">)</span> <span class="o">/</span> <span class="n">alt</span><span class="o">.</span><span class="n">datum</span><span class="o">.</span><span class="n">stdev_price</span><span class="p">,</span>
+<span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;date:T&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;z_score:Q&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;symbol:N&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="transform-rst-altair-plot-26">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/stocks.csv"}, "mark": "line", "encoding": {"color": {"type": "nominal", "field": "symbol"}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "z_score"}}, "transform": [{"window": [{"op": "mean", "field": "price", "as": "mean_price"}, {"op": "stdev", "field": "price", "as": "stdev_price"}], "frame": [null, null], "groupby": ["symbol"]}, {"calculate": "((datum.price - datum.mean_price) / datum.stdev_price)", "as": "z_score"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#transform-rst-altair-plot-26', spec, opt).catch(console.err);
+  });
+</script>
+</div><p>By using two aggregation functions (<code class="docutils literal"><span class="pre">mean</span></code> and <code class="docutils literal"><span class="pre">stdev</span></code>) within the window transform, we are able to compute the z-scores within the calculate transform.</p>
+<p>For more information about the arguments to the window transform, see <a class="reference internal" href="generated/core/altair.WindowTransform.html#altair.WindowTransform" title="altair.WindowTransform"><code class="xref py py-class docutils literal"><span class="pre">WindowTransform</span></code></a> and <a class="reference external" href="https://vega.github.io/vega-lite/docs/window.html">the Vega-Lite documentation</a>.</p>
 </div>
 </div>
 
@@ -1274,7 +1369,7 @@ Altair. For more information on the arguments of the window transform, see
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.3.0',
+            VERSION:'2.4.1',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',

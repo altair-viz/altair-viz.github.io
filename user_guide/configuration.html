@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Top-Level Chart Configuration &mdash; Altair 2.3.0 documentation</title>
+  <title>Top-Level Chart Configuration &mdash; Altair 2.4.1 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                2.3.0
+                2.4.1
               </div>
             
           
@@ -1547,7 +1547,7 @@ for a single selection definition (except <code class="docutils literal"><span c
       vegaEmbed('#configuration-rst-altair-plot-1', spec, opt).catch(console.err);
   });
 </script>
-</div><p>You’ll note that while the inside rules are gone, the outside border remains. Hide it by setting the <cite>strokeOpacity</cite> option on <a class="reference internal" href="generated/toplevel/altair.Chart.html#altair.Chart.configure_view" title="altair.Chart.configure_view"><code class="xref py py-meth docutils literal"><span class="pre">Chart.configure_view()</span></code></a> to <cite>0</cite>.</p>
+</div><p>You’ll note that while the inside rules are gone, the outside border remains. Hide it by setting the <cite>strokeWidth</cite> or the <cite>strokeOpacity</cite> options on <a class="reference internal" href="generated/toplevel/altair.Chart.html#altair.Chart.configure_view" title="altair.Chart.configure_view"><code class="xref py py-meth docutils literal"><span class="pre">Chart.configure_view()</span></code></a> to <cite>0</cite>.</p>
 <div class="highlight-python" id="configuration-rst-altair-source-2"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
 <span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
 
@@ -1579,7 +1579,25 @@ for a single selection definition (except <code class="docutils literal"><span c
       vegaEmbed('#configuration-rst-altair-plot-2', spec, opt).catch(console.err);
   });
 </script>
-</div></div>
+</div><p>It is also possible to completely remove all borders and axes by combining the above option with setting <cite>axis</cite> to <cite>None</cite> during encoding.</p>
+<p>..altair-plot:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="k">import</span> <span class="n">data</span>
+
+<span class="n">iris</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">iris</span><span class="p">()</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;petalWidth&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;petalLength&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;species&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">configure_axis</span><span class="p">(</span>
+    <span class="n">grid</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span><span class="o">.</span><span class="n">configure_view</span><span class="p">(</span>
+    <span class="n">strokeWidth</span><span class="o">=</span><span class="mi">0</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="altair-themes">
 <span id="chart-themes"></span><h2>Altair Themes<a class="headerlink" href="#altair-themes" title="Permalink to this headline">¶</a></h2>
@@ -1805,7 +1823,7 @@ fill unless otherwise specified:</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.3.0',
+            VERSION:'2.4.1',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
