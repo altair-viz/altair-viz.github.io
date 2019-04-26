@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Candlestick Chart &mdash; Altair 2.4.1 documentation</title>
+  <title>Candlestick Chart &mdash; Altair 3.0.0 documentation</title>
   
 
   
@@ -34,7 +34,7 @@
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Controlling Axis Scale" href="axes_scales.html" />
+    <link rel="next" title="Error Bar with Standard Deviation" href="errorbars_with_std.html" />
     <link rel="prev" title="Box Plot with Min/Max Whiskers" href="boxplot_max_min.html" /> 
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                2.4.1
+                3.0.0
               </div>
             
           
@@ -111,19 +111,22 @@
 <li class="toctree-l2"><a class="reference internal" href="index.html#case-studies">Case Studies</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html#other-charts">Other Charts</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="bar_chart_with_highlighted_segment.html">Bar Chart with Highlighted Segment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="beckers_barley_wrapped_facet.html">Becker’s Barley Trellis Plot (wrapped facet)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="binned_heatmap.html">Binned Heatmap</a></li>
 <li class="toctree-l3"><a class="reference internal" href="boxplot_max_min.html">Box Plot with Min/Max Whiskers</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Candlestick Chart</a><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="axes_scales.html">Controlling Axis Scale</a></li>
-<li class="toctree-l3"><a class="reference internal" href="error_bars_with_ci.html">Error Bars showing Confidence Interval</a></li>
+<li class="toctree-l3"><a class="reference internal" href="errorbars_with_std.html">Error Bar with Standard Deviation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="errorbars_with_ci.html">Error Bars showing Confidence Interval</a></li>
 <li class="toctree-l3"><a class="reference internal" href="scatter_marginal_hist.html">Facetted Scatterplot with marginal histograms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="gantt_chart.html">Gantt Chart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="isotype_grid.html">Isotype Grid</a></li>
 <li class="toctree-l3"><a class="reference internal" href="multiple_marks.html">Multiple Marks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="normed_parallel_coordinates.html">Normalized Parallel Coordinates Example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="parallel_coordinates.html">Parallel Coordinates Example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ranged_dot_plot.html">Ranged Dot Plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sorted_error_bars_with_ci.html">Sorted Error Bars showing Confidence Interval</a></li>
 <li class="toctree-l3"><a class="reference internal" href="stem_and_leaf.html">Stem and Leaf Plot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="layered_heatmap_text.html">Text over a Heatmap</a></li>
 </ul>
@@ -235,7 +238,7 @@
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "layer": [{"data": {"name": "data-e43e82da555daf870355e8af29d7a511"}, "mark": "rule", "encoding": {"color": {"condition": {"value": "#06982d", "test": "datum.open < datum.close"}, "value": "#ae1325"}, "x": {"type": "temporal", "axis": {"format": "%m/%d", "title": "Date in 2009"}, "field": "date", "scale": {"domain": [{"month": 5, "date": 31, "year": 2009}, {"month": 7, "date": 1, "year": 2009}]}, "timeUnit": "yearmonthdate"}, "y": {"type": "quantitative", "field": "low", "scale": {"zero": false}, "title": "Price"}, "y2": {"type": "quantitative", "field": "high"}}}, {"data": {"name": "data-e43e82da555daf870355e8af29d7a511"}, "mark": "bar", "encoding": {"color": {"condition": {"value": "#06982d", "test": "datum.open < datum.close"}, "value": "#ae1325"}, "x": {"type": "temporal", "field": "date", "timeUnit": "yearmonthdate"}, "y": {"type": "quantitative", "field": "open"}, "y2": {"type": "quantitative", "field": "close"}}}], "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json", "datasets": {"data-e43e82da555daf870355e8af29d7a511": [{"close": 30.04, "date": "2009-06-01", "high": 30.05, "low": 28.45, "open": 28.7, "ret": -4.89396411092985, "signal": "short"}, {"close": 29.63, "date": "2009-06-02", "high": 30.13, "low": 28.3, "open": 30.04, "ret": -0.322580645161295, "signal": "short"}, {"close": 31.02, "date": "2009-06-03", "high": 31.79, "low": 29.62, "open": 29.62, "ret": 3.68663594470045, "signal": "short"}, {"close": 30.18, "date": "2009-06-04", "high": 31.02, "low": 29.92, "open": 31.02, "ret": 4.51010886469673, "signal": "short"}, {"close": 29.62, "date": "2009-06-05", "high": 30.81, "low": 28.85, "open": 29.39, "ret": 6.08424336973478, "signal": "short"}, {"close": 29.77, "date": "2009-06-08", "high": 31.82, "low": 26.41, "open": 30.84, "ret": 1.2539184952978, "signal": "short"}, {"close": 28.27, "date": "2009-06-09", "high": 29.77, "low": 27.79, "open": 29.77, "ret": -5.02431118314424, "signal": "short"}, {"close": 28.46, "date": "2009-06-10", "high": 29.74, "low": 26.9, "open": 26.9, "ret": -5.46623794212217, "signal": "short"}, {"close": 28.11, "date": "2009-06-11", "high": 28.11, "low": 26.81, "open": 27.36, "ret": -8.3743842364532, "signal": "short"}, {"close": 28.15, "date": "2009-06-12", "high": 28.5, "low": 27.73, "open": 28.08, "ret": -5.52763819095477, "signal": "short"}, {"close": 30.81, "date": "2009-06-15", "high": 31.09, "low": 29.64, "open": 29.7, "ret": 3.4920634920635, "signal": "long"}, {"close": 32.68, "date": "2009-06-16", "high": 32.75, "low": 30.07, "open": 30.81, "ret": 0.155038759689914, "signal": "short"}, {"close": 31.54, "date": "2009-06-17", "high": 32.77, "low": 30.64, "open": 31.19, "ret": 5.82822085889571, "signal": "short"}, {"close": 30.03, "date": "2009-06-18", "high": 31.54, "low": 29.6, "open": 31.54, "ret": 8.17610062893082, "signal": "short"}, {"close": 27.99, "date": "2009-06-19", "high": 29.32, "low": 27.56, "open": 29.16, "ret": 8.59872611464968, "signal": "short"}, {"close": 31.17, "date": "2009-06-22", "high": 32.05, "low": 30.3, "open": 30.4, "ret": 15.4907975460123, "signal": "short"}, {"close": 30.58, "date": "2009-06-23", "high": 31.54, "low": 27.83, "open": 31.3, "ret": 11.7370892018779, "signal": "short"}, {"close": 29.05, "date": "2009-06-24", "high": 30.58, "low": 28.79, "open": 30.58, "ret": -10.4234527687296, "signal": "long"}, {"close": 26.36, "date": "2009-06-25", "high": 29.56, "low": 26.3, "open": 29.45, "ret": 0.0, "signal": "long"}, {"close": 25.93, "date": "2009-06-26", "high": 27.22, "low": 25.76, "open": 27.09, "ret": 0.0, "signal": "long"}, {"close": 25.35, "date": "2009-06-29", "high": 27.18, "low": 25.29, "open": 25.93, "ret": 5.26315789473684, "signal": "long"}, {"close": 26.35, "date": "2009-06-30", "high": 27.38, "low": 25.02, "open": 25.36, "ret": 6.73758865248228, "signal": "long"}]}};
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "layer": [{"data": {"name": "data-e43e82da555daf870355e8af29d7a511"}, "mark": "rule", "encoding": {"color": {"value": "#ae1325", "condition": {"value": "#06982d", "test": "datum.open < datum.close"}}, "x": {"type": "temporal", "axis": {"format": "%m/%d", "title": "Date in 2009"}, "field": "date", "scale": {"domain": [{"month": 5, "date": 31, "year": 2009}, {"month": 7, "date": 1, "year": 2009}]}, "timeUnit": "yearmonthdate"}, "y": {"type": "quantitative", "field": "low", "scale": {"zero": false}, "title": "Price"}, "y2": {"field": "high"}}}, {"data": {"name": "data-e43e82da555daf870355e8af29d7a511"}, "mark": "bar", "encoding": {"color": {"value": "#ae1325", "condition": {"value": "#06982d", "test": "datum.open < datum.close"}}, "x": {"type": "temporal", "field": "date", "timeUnit": "yearmonthdate"}, "y": {"type": "quantitative", "field": "open"}, "y2": {"field": "close"}}}], "$schema": "https://vega.github.io/schema/vega-lite/v3.2.1.json", "datasets": {"data-e43e82da555daf870355e8af29d7a511": [{"close": 30.04, "date": "2009-06-01", "high": 30.05, "low": 28.45, "open": 28.7, "ret": -4.89396411092985, "signal": "short"}, {"close": 29.63, "date": "2009-06-02", "high": 30.13, "low": 28.3, "open": 30.04, "ret": -0.322580645161295, "signal": "short"}, {"close": 31.02, "date": "2009-06-03", "high": 31.79, "low": 29.62, "open": 29.62, "ret": 3.68663594470045, "signal": "short"}, {"close": 30.18, "date": "2009-06-04", "high": 31.02, "low": 29.92, "open": 31.02, "ret": 4.51010886469673, "signal": "short"}, {"close": 29.62, "date": "2009-06-05", "high": 30.81, "low": 28.85, "open": 29.39, "ret": 6.08424336973478, "signal": "short"}, {"close": 29.77, "date": "2009-06-08", "high": 31.82, "low": 26.41, "open": 30.84, "ret": 1.2539184952978, "signal": "short"}, {"close": 28.27, "date": "2009-06-09", "high": 29.77, "low": 27.79, "open": 29.77, "ret": -5.02431118314424, "signal": "short"}, {"close": 28.46, "date": "2009-06-10", "high": 29.74, "low": 26.9, "open": 26.9, "ret": -5.46623794212217, "signal": "short"}, {"close": 28.11, "date": "2009-06-11", "high": 28.11, "low": 26.81, "open": 27.36, "ret": -8.3743842364532, "signal": "short"}, {"close": 28.15, "date": "2009-06-12", "high": 28.5, "low": 27.73, "open": 28.08, "ret": -5.52763819095477, "signal": "short"}, {"close": 30.81, "date": "2009-06-15", "high": 31.09, "low": 29.64, "open": 29.7, "ret": 3.4920634920635, "signal": "long"}, {"close": 32.68, "date": "2009-06-16", "high": 32.75, "low": 30.07, "open": 30.81, "ret": 0.155038759689914, "signal": "short"}, {"close": 31.54, "date": "2009-06-17", "high": 32.77, "low": 30.64, "open": 31.19, "ret": 5.82822085889571, "signal": "short"}, {"close": 30.03, "date": "2009-06-18", "high": 31.54, "low": 29.6, "open": 31.54, "ret": 8.17610062893082, "signal": "short"}, {"close": 27.99, "date": "2009-06-19", "high": 29.32, "low": 27.56, "open": 29.16, "ret": 8.59872611464968, "signal": "short"}, {"close": 31.17, "date": "2009-06-22", "high": 32.05, "low": 30.3, "open": 30.4, "ret": 15.4907975460123, "signal": "short"}, {"close": 30.58, "date": "2009-06-23", "high": 31.54, "low": 27.83, "open": 31.3, "ret": 11.7370892018779, "signal": "short"}, {"close": 29.05, "date": "2009-06-24", "high": 30.58, "low": 28.79, "open": 30.58, "ret": -10.4234527687296, "signal": "long"}, {"close": 26.36, "date": "2009-06-25", "high": 29.56, "low": 26.3, "open": 29.45, "ret": 0.0, "signal": "long"}, {"close": 25.93, "date": "2009-06-26", "high": 27.22, "low": 25.76, "open": 27.09, "ret": 0.0, "signal": "long"}, {"close": 25.35, "date": "2009-06-29", "high": 27.18, "low": 25.29, "open": 25.93, "ret": 5.26315789473684, "signal": "long"}, {"close": 26.35, "date": "2009-06-30", "high": 27.38, "low": 25.02, "open": 25.36, "ret": 6.73758865248228, "signal": "long"}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -491,7 +494,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="axes_scales.html" class="btn btn-neutral float-right" title="Controlling Axis Scale" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="errorbars_with_std.html" class="btn btn-neutral float-right" title="Error Bar with Standard Deviation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="boxplot_max_min.html" class="btn btn-neutral" title="Box Plot with Min/Max Whiskers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -525,7 +528,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.4.1',
+            VERSION:'3.0.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -536,9 +539,9 @@
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@3.3"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@2.6"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@3.18"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5.3"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.2"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@4.0"></script>
 
   
 

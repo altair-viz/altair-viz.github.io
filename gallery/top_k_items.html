@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Top K Items &mdash; Altair 2.4.1 documentation</title>
+  <title>Top K Items &mdash; Altair 3.0.0 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                2.4.1
+                3.0.0
               </div>
             
           
@@ -110,11 +110,11 @@
 <li class="toctree-l2"><a class="reference internal" href="index.html#interactive-charts">Interactive Charts</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html#case-studies">Case Studies</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="anscombe_plot.html">Anscombe’s Quartet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="co2_concentration.html">Atmospheric CO2 Concentration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="beckers_barley_trellis_plot.html">Becker’s Barley Trellis Plot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cumulative_wiki_donations.html">Cumulative Wikipedia Donations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="falkensee.html">Falkensee</a></li>
 <li class="toctree-l3"><a class="reference internal" href="gapminder_bubble_plot.html">Gapminder Bubble Plot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="co2_concentration.html">Iowa’s renewable energy boom</a></li>
 <li class="toctree-l3"><a class="reference internal" href="iowa_electricity.html">Iowa’s renewable energy boom</a></li>
 <li class="toctree-l3"><a class="reference internal" href="isotype.html">Isotype Visualization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="isotype_emoji.html">Isotype Visualization with Emoji</a></li>
@@ -132,6 +132,7 @@
 <li class="toctree-l3"><a class="reference internal" href="us_state_capitals.html">U.S. state capitals overlayed on a map of the U.S</a></li>
 <li class="toctree-l3"><a class="reference internal" href="us_population_over_time.html">US Population Over Time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="us_population_pyramid_over_time.html">US Population Pyramid Over Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wheat_wages.html">Wheat and Wages</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#other-charts">Other Charts</a></li>
@@ -246,7 +247,7 @@ Here we sort the top 10 highest ranking movies of IMDB.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/movies.json"}, "mark": "bar", "encoding": {"color": {"type": "quantitative", "field": "IMDB_Rating"}, "x": {"type": "nominal", "field": "Title", "sort": {"op": "mean", "field": "IMDB_Rating", "order": "descending"}}, "y": {"type": "quantitative", "field": "IMDB_Rating"}}, "transform": [{"window": [{"op": "rank", "field": "IMDB_Rating", "as": "rank"}], "sort": [{"field": "IMDB_Rating", "order": "descending"}]}, {"filter": "(datum.rank < 10)"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"url": "https://vega.github.io/vega-datasets/data/movies.json"}, "mark": "bar", "encoding": {"color": {"type": "quantitative", "field": "IMDB_Rating"}, "x": {"type": "nominal", "field": "Title", "sort": {"field": "IMDB_Rating", "op": "mean", "order": "descending"}}, "y": {"type": "quantitative", "field": "IMDB_Rating"}}, "transform": [{"window": [{"op": "rank", "field": "IMDB_Rating", "as": "rank"}], "sort": [{"field": "IMDB_Rating", "order": "descending"}]}, {"filter": "(datum.rank < 10)"}], "$schema": "https://vega.github.io/schema/vega-lite/v3.2.1.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -325,7 +326,7 @@ Here we sort the top 10 highest ranking movies of IMDB.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.4.1',
+            VERSION:'3.0.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -336,9 +337,9 @@ Here we sort the top 10 highest ranking movies of IMDB.</p>
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@3.3"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@2.6"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@3.18"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5.3"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.2"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@4.0"></script>
 
   
 

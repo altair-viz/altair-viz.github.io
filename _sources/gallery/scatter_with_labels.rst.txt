@@ -22,12 +22,12 @@ This example shows a basic scatter plot with labels created with Altair.
         'label': ['A', 'B', 'C', 'D', 'E']
     })
 
-    bars = alt.Chart(source).mark_point().encode(
+    points = alt.Chart(source).mark_point().encode(
         x='x:Q',
         y='y:Q'
     )
 
-    text = bars.mark_text(
+    text = points.mark_text(
         align='left',
         baseline='middle',
         dx=7
@@ -35,7 +35,7 @@ This example shows a basic scatter plot with labels created with Altair.
         text='label'
     )
 
-    bars + text
+    points + text
 
 
 .. toctree::

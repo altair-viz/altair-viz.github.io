@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Seattle Weather Heatmap &mdash; Altair 2.4.1 documentation</title>
+  <title>Seattle Weather Heatmap &mdash; Altair 3.0.0 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                2.4.1
+                3.0.0
               </div>
             
           
@@ -110,11 +110,11 @@
 <li class="toctree-l2"><a class="reference internal" href="index.html#interactive-charts">Interactive Charts</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html#case-studies">Case Studies</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="anscombe_plot.html">Anscombe’s Quartet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="co2_concentration.html">Atmospheric CO2 Concentration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="beckers_barley_trellis_plot.html">Becker’s Barley Trellis Plot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cumulative_wiki_donations.html">Cumulative Wikipedia Donations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="falkensee.html">Falkensee</a></li>
 <li class="toctree-l3"><a class="reference internal" href="gapminder_bubble_plot.html">Gapminder Bubble Plot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="co2_concentration.html">Iowa’s renewable energy boom</a></li>
 <li class="toctree-l3"><a class="reference internal" href="iowa_electricity.html">Iowa’s renewable energy boom</a></li>
 <li class="toctree-l3"><a class="reference internal" href="isotype.html">Isotype Visualization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="isotype_emoji.html">Isotype Visualization with Emoji</a></li>
@@ -132,6 +132,7 @@
 <li class="toctree-l3"><a class="reference internal" href="us_state_capitals.html">U.S. state capitals overlayed on a map of the U.S</a></li>
 <li class="toctree-l3"><a class="reference internal" href="us_population_over_time.html">US Population Over Time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="us_population_pyramid_over_time.html">US Population Pyramid Over Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wheat_wages.html">Wheat and Wages</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#other-charts">Other Charts</a></li>
@@ -242,7 +243,7 @@
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-temps.csv"}, "mark": "rect", "encoding": {"color": {"type": "quantitative", "aggregate": "max", "field": "temp"}, "tooltip": [{"type": "temporal", "field": "date", "timeUnit": "monthdate", "title": "Date"}, {"type": "quantitative", "aggregate": "max", "field": "temp", "title": "Max Temp"}], "x": {"type": "ordinal", "field": "date", "timeUnit": "date"}, "y": {"type": "ordinal", "field": "date", "timeUnit": "month"}}, "title": "2010 Daily High Temperature (F) in Seattle, WA", "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-temps.csv"}, "mark": "rect", "encoding": {"color": {"type": "quantitative", "aggregate": "max", "field": "temp", "scale": {"scheme": "inferno"}}, "tooltip": [{"type": "temporal", "field": "date", "timeUnit": "monthdate", "title": "Date"}, {"type": "quantitative", "aggregate": "max", "field": "temp", "title": "Max Temp"}], "x": {"type": "ordinal", "field": "date", "timeUnit": "date"}, "y": {"type": "ordinal", "field": "date", "timeUnit": "month"}}, "title": "2010 Daily High Temperature (F) in Seattle, WA", "width": 550, "$schema": "https://vega.github.io/schema/vega-lite/v3.2.1.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -261,14 +262,14 @@
     <span class="n">source</span><span class="p">,</span>
     <span class="n">title</span><span class="o">=</span><span class="s2">&quot;2010 Daily High Temperature (F) in Seattle, WA&quot;</span>
 <span class="p">)</span><span class="o">.</span><span class="n">mark_rect</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;date:O&#39;</span><span class="p">,</span> <span class="n">timeUnit</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">),</span>
-    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;date:O&#39;</span><span class="p">,</span> <span class="n">timeUnit</span><span class="o">=</span><span class="s1">&#39;month&#39;</span><span class="p">),</span>
-    <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;temp:Q&#39;</span><span class="p">,</span> <span class="n">aggregate</span><span class="o">=</span><span class="s1">&#39;max&#39;</span><span class="p">),</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;date(date):O&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;month(date):O&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;max(temp):Q&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">scheme</span><span class="o">=</span><span class="s2">&quot;inferno&quot;</span><span class="p">)),</span>
     <span class="n">tooltip</span><span class="o">=</span><span class="p">[</span>
-        <span class="n">alt</span><span class="o">.</span><span class="n">Tooltip</span><span class="p">(</span><span class="s1">&#39;date:T&#39;</span><span class="p">,</span> <span class="n">timeUnit</span><span class="o">=</span><span class="s1">&#39;monthdate&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Date&#39;</span><span class="p">),</span>
-        <span class="n">alt</span><span class="o">.</span><span class="n">Tooltip</span><span class="p">(</span><span class="s1">&#39;temp:Q&#39;</span><span class="p">,</span> <span class="n">aggregate</span><span class="o">=</span><span class="s1">&#39;max&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Max Temp&#39;</span><span class="p">)</span>
+        <span class="n">alt</span><span class="o">.</span><span class="n">Tooltip</span><span class="p">(</span><span class="s1">&#39;monthdate(date):T&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Date&#39;</span><span class="p">),</span>
+        <span class="n">alt</span><span class="o">.</span><span class="n">Tooltip</span><span class="p">(</span><span class="s1">&#39;max(temp):Q&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Max Temp&#39;</span><span class="p">)</span>
     <span class="p">]</span>
-<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">550</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="toctree-wrapper compound">
@@ -317,7 +318,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.4.1',
+            VERSION:'3.0.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -328,9 +329,9 @@
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@3.3"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@2.6"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@3.18"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5.3"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.2"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@4.0"></script>
 
   
 

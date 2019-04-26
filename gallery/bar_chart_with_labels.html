@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Bar Chart with Labels &mdash; Altair 2.4.1 documentation</title>
+  <title>Bar Chart with Labels &mdash; Altair 3.0.0 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                2.4.1
+                3.0.0
               </div>
             
           
@@ -113,6 +113,7 @@
 <li class="toctree-l3"><a class="reference internal" href="percentage_of_total.html">Calculating Percentage of Total</a></li>
 <li class="toctree-l3"><a class="reference internal" href="diverging_stacked_bar_chart.html">Diverging Stacked Bar Chart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="grouped_bar_chart.html">Grouped Bar Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="grouped_bar_chart_with_error_bars.html">Grouped Bar Chart with Error Bars</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bar_chart_horizontal.html">Horizontal Bar Chart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="grouped_bar_chart_horizontal.html">Horizontal Grouped Bar Chart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="horizontal_stacked_bar_chart.html">Horizontal Stacked Bar Chart</a></li>
@@ -121,6 +122,7 @@
 <li class="toctree-l3"><a class="reference internal" href="bar_chart_sorted.html">Sorted Bar Chart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="stacked_bar_chart.html">Stacked Bar Chart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="stacked_bar_chart_sorted_segments.html">Stacked Bar Chart with Sorted Segments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stacked_bar_chart_with_text.html">Stacked Bar Chart with Text Overlay</a></li>
 <li class="toctree-l3"><a class="reference internal" href="trellis_stacked_bar_chart.html">Trellis Stacked Bar Chart</a></li>
 </ul>
 </li>
@@ -239,7 +241,7 @@
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "layer": [{"data": {"name": "data-76d1ce26ea5761007c35827e1564d86c"}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "field": "wheat"}, "y": {"type": "ordinal", "field": "year"}}}, {"data": {"name": "data-76d1ce26ea5761007c35827e1564d86c"}, "mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 3}, "encoding": {"text": {"type": "quantitative", "field": "wheat"}, "x": {"type": "quantitative", "field": "wheat"}, "y": {"type": "ordinal", "field": "year"}}}], "height": 900, "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json", "datasets": {"data-76d1ce26ea5761007c35827e1564d86c": [{"wages": 5.0, "wheat": 41.0, "year": 1565}, {"wages": 5.05, "wheat": 45.0, "year": 1570}, {"wages": 5.08, "wheat": 42.0, "year": 1575}, {"wages": 5.12, "wheat": 49.0, "year": 1580}, {"wages": 5.15, "wheat": 41.5, "year": 1585}, {"wages": 5.25, "wheat": 47.0, "year": 1590}, {"wages": 5.54, "wheat": 64.0, "year": 1595}, {"wages": 5.61, "wheat": 27.0, "year": 1600}, {"wages": 5.69, "wheat": 33.0, "year": 1605}, {"wages": 5.78, "wheat": 32.0, "year": 1610}, {"wages": 5.94, "wheat": 33.0, "year": 1615}, {"wages": 6.01, "wheat": 35.0, "year": 1620}, {"wages": 6.12, "wheat": 33.0, "year": 1625}, {"wages": 6.22, "wheat": 45.0, "year": 1630}, {"wages": 6.3, "wheat": 33.0, "year": 1635}, {"wages": 6.37, "wheat": 39.0, "year": 1640}, {"wages": 6.45, "wheat": 53.0, "year": 1645}, {"wages": 6.5, "wheat": 42.0, "year": 1650}, {"wages": 6.6, "wheat": 40.5, "year": 1655}, {"wages": 6.75, "wheat": 46.5, "year": 1660}, {"wages": 6.8, "wheat": 32.0, "year": 1665}, {"wages": 6.9, "wheat": 37.0, "year": 1670}, {"wages": 7.0, "wheat": 43.0, "year": 1675}, {"wages": 7.3, "wheat": 35.0, "year": 1680}, {"wages": 7.6, "wheat": 27.0, "year": 1685}, {"wages": 8.0, "wheat": 40.0, "year": 1690}, {"wages": 8.5, "wheat": 50.0, "year": 1695}, {"wages": 9.0, "wheat": 30.0, "year": 1700}, {"wages": 10.0, "wheat": 32.0, "year": 1705}, {"wages": 11.0, "wheat": 44.0, "year": 1710}, {"wages": 11.75, "wheat": 33.0, "year": 1715}, {"wages": 12.5, "wheat": 29.0, "year": 1720}, {"wages": 13.0, "wheat": 39.0, "year": 1725}, {"wages": 13.3, "wheat": 26.0, "year": 1730}, {"wages": 13.6, "wheat": 32.0, "year": 1735}, {"wages": 14.0, "wheat": 27.0, "year": 1740}, {"wages": 14.5, "wheat": 27.5, "year": 1745}, {"wages": 15.0, "wheat": 31.0, "year": 1750}, {"wages": 15.7, "wheat": 35.5, "year": 1755}, {"wages": 16.5, "wheat": 31.0, "year": 1760}, {"wages": 17.6, "wheat": 43.0, "year": 1765}, {"wages": 18.5, "wheat": 47.0, "year": 1770}, {"wages": 19.5, "wheat": 44.0, "year": 1775}, {"wages": 21.0, "wheat": 46.0, "year": 1780}, {"wages": 23.0, "wheat": 42.0, "year": 1785}, {"wages": 25.5, "wheat": 47.5, "year": 1790}, {"wages": 27.5, "wheat": 76.0, "year": 1795}, {"wages": 28.5, "wheat": 79.0, "year": 1800}, {"wages": 29.5, "wheat": 81.0, "year": 1805}, {"wages": 30.0, "wheat": 99.0, "year": 1810}, {"wages": null, "wheat": 78.0, "year": 1815}, {"wages": null, "wheat": 54.0, "year": 1820}]}};
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "layer": [{"data": {"name": "data-76d1ce26ea5761007c35827e1564d86c"}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "field": "wheat"}, "y": {"type": "ordinal", "field": "year"}}}, {"data": {"name": "data-76d1ce26ea5761007c35827e1564d86c"}, "mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 3}, "encoding": {"text": {"type": "quantitative", "field": "wheat"}, "x": {"type": "quantitative", "field": "wheat"}, "y": {"type": "ordinal", "field": "year"}}}], "height": 900, "$schema": "https://vega.github.io/schema/vega-lite/v3.2.1.json", "datasets": {"data-76d1ce26ea5761007c35827e1564d86c": [{"wages": 5.0, "wheat": 41.0, "year": 1565}, {"wages": 5.05, "wheat": 45.0, "year": 1570}, {"wages": 5.08, "wheat": 42.0, "year": 1575}, {"wages": 5.12, "wheat": 49.0, "year": 1580}, {"wages": 5.15, "wheat": 41.5, "year": 1585}, {"wages": 5.25, "wheat": 47.0, "year": 1590}, {"wages": 5.54, "wheat": 64.0, "year": 1595}, {"wages": 5.61, "wheat": 27.0, "year": 1600}, {"wages": 5.69, "wheat": 33.0, "year": 1605}, {"wages": 5.78, "wheat": 32.0, "year": 1610}, {"wages": 5.94, "wheat": 33.0, "year": 1615}, {"wages": 6.01, "wheat": 35.0, "year": 1620}, {"wages": 6.12, "wheat": 33.0, "year": 1625}, {"wages": 6.22, "wheat": 45.0, "year": 1630}, {"wages": 6.3, "wheat": 33.0, "year": 1635}, {"wages": 6.37, "wheat": 39.0, "year": 1640}, {"wages": 6.45, "wheat": 53.0, "year": 1645}, {"wages": 6.5, "wheat": 42.0, "year": 1650}, {"wages": 6.6, "wheat": 40.5, "year": 1655}, {"wages": 6.75, "wheat": 46.5, "year": 1660}, {"wages": 6.8, "wheat": 32.0, "year": 1665}, {"wages": 6.9, "wheat": 37.0, "year": 1670}, {"wages": 7.0, "wheat": 43.0, "year": 1675}, {"wages": 7.3, "wheat": 35.0, "year": 1680}, {"wages": 7.6, "wheat": 27.0, "year": 1685}, {"wages": 8.0, "wheat": 40.0, "year": 1690}, {"wages": 8.5, "wheat": 50.0, "year": 1695}, {"wages": 9.0, "wheat": 30.0, "year": 1700}, {"wages": 10.0, "wheat": 32.0, "year": 1705}, {"wages": 11.0, "wheat": 44.0, "year": 1710}, {"wages": 11.75, "wheat": 33.0, "year": 1715}, {"wages": 12.5, "wheat": 29.0, "year": 1720}, {"wages": 13.0, "wheat": 39.0, "year": 1725}, {"wages": 13.3, "wheat": 26.0, "year": 1730}, {"wages": 13.6, "wheat": 32.0, "year": 1735}, {"wages": 14.0, "wheat": 27.0, "year": 1740}, {"wages": 14.5, "wheat": 27.5, "year": 1745}, {"wages": 15.0, "wheat": 31.0, "year": 1750}, {"wages": 15.7, "wheat": 35.5, "year": 1755}, {"wages": 16.5, "wheat": 31.0, "year": 1760}, {"wages": 17.6, "wheat": 43.0, "year": 1765}, {"wages": 18.5, "wheat": 47.0, "year": 1770}, {"wages": 19.5, "wheat": 44.0, "year": 1775}, {"wages": 21.0, "wheat": 46.0, "year": 1780}, {"wages": 23.0, "wheat": 42.0, "year": 1785}, {"wages": 25.5, "wheat": 47.5, "year": 1790}, {"wages": 27.5, "wheat": 76.0, "year": 1795}, {"wages": 28.5, "wheat": 79.0, "year": 1800}, {"wages": 29.5, "wheat": 81.0, "year": 1805}, {"wages": 30.0, "wheat": 99.0, "year": 1810}, {"wages": null, "wheat": 78.0, "year": 1815}, {"wages": null, "wheat": 54.0, "year": 1820}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -315,7 +317,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.4.1',
+            VERSION:'3.0.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -326,9 +328,9 @@
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@3.3"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@2.6"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@3.18"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5.3"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.2"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@4.0"></script>
 
   
 

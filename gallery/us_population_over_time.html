@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>US Population Over Time &mdash; Altair 2.4.1 documentation</title>
+  <title>US Population Over Time &mdash; Altair 3.0.0 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                2.4.1
+                3.0.0
               </div>
             
           
@@ -110,11 +110,11 @@
 <li class="toctree-l2"><a class="reference internal" href="index.html#interactive-charts">Interactive Charts</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html#case-studies">Case Studies</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="anscombe_plot.html">Anscombe’s Quartet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="co2_concentration.html">Atmospheric CO2 Concentration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="beckers_barley_trellis_plot.html">Becker’s Barley Trellis Plot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cumulative_wiki_donations.html">Cumulative Wikipedia Donations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="falkensee.html">Falkensee</a></li>
 <li class="toctree-l3"><a class="reference internal" href="gapminder_bubble_plot.html">Gapminder Bubble Plot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="co2_concentration.html">Iowa’s renewable energy boom</a></li>
 <li class="toctree-l3"><a class="reference internal" href="iowa_electricity.html">Iowa’s renewable energy boom</a></li>
 <li class="toctree-l3"><a class="reference internal" href="isotype.html">Isotype Visualization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="isotype_emoji.html">Isotype Visualization with Emoji</a></li>
@@ -132,6 +132,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="us_population_pyramid_over_time.html">US Population Pyramid Over Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wheat_wages.html">Wheat and Wages</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#other-charts">Other Charts</a></li>
@@ -244,7 +245,7 @@ distribution over time.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "bar", "encoding": {"color": {"type": "nominal", "field": "sex", "scale": {"domain": ["Male", "Female"], "range": ["steelblue", "salmon"]}}, "column": {"type": "ordinal", "field": "age"}, "x": {"type": "nominal", "field": "sex", "title": null}, "y": {"type": "quantitative", "field": "people", "scale": {"domain": [0, 12000000]}}}, "selection": {"year": {"type": "single", "fields": ["year"], "bind": {"input": "range", "max": 2000, "min": 1900, "step": 10}}}, "transform": [{"calculate": "if((datum.sex === 1),'Male','Female')", "as": "sex"}, {"filter": {"selection": "year"}}], "width": 20, "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}, "facet": {"spacing": 8}}, "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "bar", "encoding": {"color": {"type": "nominal", "field": "sex", "scale": {"domain": ["Male", "Female"], "range": ["steelblue", "salmon"]}}, "column": {"type": "ordinal", "field": "age"}, "x": {"type": "nominal", "field": "sex", "title": null}, "y": {"type": "quantitative", "field": "people", "scale": {"domain": [0, 12000000]}}}, "selection": {"year": {"type": "single", "fields": ["year"], "bind": {"input": "range", "max": 2000, "min": 1900, "step": 10}, "init": {"year": 2000}}}, "transform": [{"calculate": "if((datum.sex === 1),'Male','Female')", "as": "sex"}, {"filter": {"selection": "year"}}], "width": 20, "$schema": "https://vega.github.io/schema/vega-lite/v3.2.1.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -262,7 +263,8 @@ distribution over time.</p>
                       <span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;steelblue&quot;</span><span class="p">,</span> <span class="s2">&quot;salmon&quot;</span><span class="p">])</span>
 
 <span class="n">slider</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">binding_range</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">1900</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">select_year</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection_single</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">],</span> <span class="n">bind</span><span class="o">=</span><span class="n">slider</span><span class="p">)</span>
+<span class="n">select_year</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection_single</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">],</span>
+                                   <span class="n">bind</span><span class="o">=</span><span class="n">slider</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="mi">2000</span><span class="p">})</span>
 
 <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;sex:N&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="bp">None</span><span class="p">),</span>
@@ -277,6 +279,8 @@ distribution over time.</p>
     <span class="s2">&quot;sex&quot;</span><span class="p">,</span> <span class="n">alt</span><span class="o">.</span><span class="n">expr</span><span class="o">.</span><span class="n">if_</span><span class="p">(</span><span class="n">alt</span><span class="o">.</span><span class="n">datum</span><span class="o">.</span><span class="n">sex</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Male&quot;</span><span class="p">,</span> <span class="s2">&quot;Female&quot;</span><span class="p">)</span>
 <span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span>
     <span class="n">select_year</span>
+<span class="p">)</span><span class="o">.</span><span class="n">configure_facet</span><span class="p">(</span>
+    <span class="n">spacing</span><span class="o">=</span><span class="mi">8</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -326,7 +330,7 @@ distribution over time.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.4.1',
+            VERSION:'3.0.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -337,9 +341,9 @@ distribution over time.</p>
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@3.3"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@2.6"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@3.18"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5.3"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.2"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@4.0"></script>
 
   
 

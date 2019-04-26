@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Data transformers &mdash; Altair 2.4.1 documentation</title>
+  <title>Data transformers &mdash; Altair 3.0.0 documentation</title>
   
 
   
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                2.4.1
+                3.0.0
               </div>
             
           
@@ -265,7 +265,7 @@ of the data transformer.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "layer": [{"data": {"name": "data-137453ccbb3f929636eb2f9dd7052f16"}, "mark": "line", "encoding": {"x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "y"}}}, {"data": {"name": "data-137453ccbb3f929636eb2f9dd7052f16"}, "mark": "point", "encoding": {"x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "y"}}}], "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json", "datasets": {"data-137453ccbb3f929636eb2f9dd7052f16": [{"x": 0, "y": 1}, {"x": 1, "y": 3}, {"x": 2, "y": 4}, {"x": 3, "y": 3}, {"x": 4, "y": 5}]}};
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "layer": [{"data": {"name": "data-137453ccbb3f929636eb2f9dd7052f16"}, "mark": "line", "encoding": {"x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "y"}}}, {"data": {"name": "data-137453ccbb3f929636eb2f9dd7052f16"}, "mark": "point", "encoding": {"x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "y"}}}], "$schema": "https://vega.github.io/schema/vega-lite/v3.2.1.json", "datasets": {"data-137453ccbb3f929636eb2f9dd7052f16": [{"x": 0, "y": 1}, {"x": 1, "y": 3}, {"x": 2, "y": 4}, {"x": 3, "y": 3}, {"x": 4, "y": 5}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -280,8 +280,8 @@ was specified twice, only one copy of it is output in the spec:</p>
 <span class="n">pprint</span><span class="p">(</span><span class="n">chart</span><span class="o">.</span><span class="n">to_dict</span><span class="p">())</span>
 </pre></div>
 </div>
-<div class="highlight-none"><div class="highlight"><pre><span></span>{&#39;$schema&#39;: &#39;https://vega.github.io/schema/vega-lite/v2.6.0.json&#39;,
- &#39;config&#39;: {&#39;view&#39;: {&#39;height&#39;: 300, &#39;width&#39;: 400}},
+<div class="highlight-none"><div class="highlight"><pre><span></span>{&#39;$schema&#39;: &#39;https://vega.github.io/schema/vega-lite/v3.2.1.json&#39;,
+ &#39;config&#39;: {&#39;mark&#39;: {&#39;tooltip&#39;: None}, &#39;view&#39;: {&#39;height&#39;: 300, &#39;width&#39;: 400}},
  &#39;datasets&#39;: {&#39;data-137453ccbb3f929636eb2f9dd7052f16&#39;: [{&#39;x&#39;: 0, &#39;y&#39;: 1},
                                                         {&#39;x&#39;: 1, &#39;y&#39;: 3},
                                                         {&#39;x&#39;: 2, &#39;y&#39;: 4},
@@ -306,8 +306,8 @@ by using the <code class="docutils literal"><span class="pre">enable()</span></c
     <span class="n">pprint</span><span class="p">(</span><span class="n">chart</span><span class="o">.</span><span class="n">to_dict</span><span class="p">())</span>
 </pre></div>
 </div>
-<div class="highlight-none"><div class="highlight"><pre><span></span>{&#39;$schema&#39;: &#39;https://vega.github.io/schema/vega-lite/v2.6.0.json&#39;,
- &#39;config&#39;: {&#39;view&#39;: {&#39;height&#39;: 300, &#39;width&#39;: 400}},
+<div class="highlight-none"><div class="highlight"><pre><span></span>{&#39;$schema&#39;: &#39;https://vega.github.io/schema/vega-lite/v3.2.1.json&#39;,
+ &#39;config&#39;: {&#39;mark&#39;: {&#39;tooltip&#39;: None}, &#39;view&#39;: {&#39;height&#39;: 300, &#39;width&#39;: 400}},
  &#39;layer&#39;: [{&#39;data&#39;: {&#39;values&#39;: [{&#39;x&#39;: 0, &#39;y&#39;: 1},
                                 {&#39;x&#39;: 1, &#39;y&#39;: 3},
                                 {&#39;x&#39;: 2, &#39;y&#39;: 4},
@@ -471,7 +471,7 @@ desired directory and make sure that the directory actually exists.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.4.1',
+            VERSION:'3.0.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -482,9 +482,9 @@ desired directory and make sure that the directory actually exists.</p>
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@3.3"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@2.6"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@3.18"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5.3"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.2"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@4.0"></script>
 
   
 

@@ -32,10 +32,7 @@ Altair, see https://vega.github.io/vega-lite/docs/projection.html
     charts = [base.project(proj).properties(title=proj)
               for proj in projections]
 
-    alt.vconcat(
-        alt.hconcat(*charts[:2]),
-        alt.hconcat(*charts[2:])
-    )
+    alt.concat(*charts, columns=2)
 
 
 .. toctree::

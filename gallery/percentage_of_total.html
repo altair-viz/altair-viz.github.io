@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Calculating Percentage of Total &mdash; Altair 2.4.1 documentation</title>
+  <title>Calculating Percentage of Total &mdash; Altair 3.0.0 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                2.4.1
+                3.0.0
               </div>
             
           
@@ -113,6 +113,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="diverging_stacked_bar_chart.html">Diverging Stacked Bar Chart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="grouped_bar_chart.html">Grouped Bar Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="grouped_bar_chart_with_error_bars.html">Grouped Bar Chart with Error Bars</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bar_chart_horizontal.html">Horizontal Bar Chart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="grouped_bar_chart_horizontal.html">Horizontal Grouped Bar Chart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="horizontal_stacked_bar_chart.html">Horizontal Stacked Bar Chart</a></li>
@@ -121,6 +122,7 @@
 <li class="toctree-l3"><a class="reference internal" href="bar_chart_sorted.html">Sorted Bar Chart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="stacked_bar_chart.html">Stacked Bar Chart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="stacked_bar_chart_sorted_segments.html">Stacked Bar Chart with Sorted Segments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stacked_bar_chart_with_text.html">Stacked Bar Chart with Text Overlay</a></li>
 <li class="toctree-l3"><a class="reference internal" href="trellis_stacked_bar_chart.html">Trellis Stacked Bar Chart</a></li>
 </ul>
 </li>
@@ -232,15 +234,15 @@
             
   <div class="section" id="calculating-percentage-of-total">
 <span id="gallery-percentage-of-total"></span><h1>Calculating Percentage of Total<a class="headerlink" href="#calculating-percentage-of-total" title="Permalink to this headline">¶</a></h1>
-<p>This chart demonstrates how to use a window transform to display data values
-as a percentage of total values.</p>
+<p>This chart demonstrates how to use a joinaggregate transform to display
+data values as a percentage of total.</p>
 
 <div id="percentage_of_total-rst-altair-plot-0">
 <script>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"name": "data-b65fb8da81d8d9141134bef309e2af20"}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "axis": {"format": ".0%"}, "field": "PercentOfTotal"}, "y": {"type": "nominal", "field": "Activity"}}, "transform": [{"window": [{"op": "sum", "field": "Time", "as": "TotalTime"}], "frame": [null, null]}, {"calculate": "datum.Time / datum.TotalTime", "as": "PercentOfTotal"}], "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json", "datasets": {"data-b65fb8da81d8d9141134bef309e2af20": [{"Activity": "Sleeping", "Time": 8}, {"Activity": "Eating", "Time": 2}, {"Activity": "TV", "Time": 4}, {"Activity": "Work", "Time": 8}, {"Activity": "Exercise", "Time": 2}]}};
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"name": "data-b65fb8da81d8d9141134bef309e2af20"}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "axis": {"format": ".0%"}, "field": "PercentOfTotal"}, "y": {"type": "nominal", "field": "Activity"}}, "transform": [{"joinaggregate": [{"op": "sum", "field": "Time", "as": "TotalTime"}]}, {"calculate": "datum.Time / datum.TotalTime", "as": "PercentOfTotal"}], "$schema": "https://vega.github.io/schema/vega-lite/v3.2.1.json", "datasets": {"data-b65fb8da81d8d9141134bef309e2af20": [{"Activity": "Sleeping", "Time": 8}, {"Activity": "Eating", "Time": 2}, {"Activity": "TV", "Time": 4}, {"Activity": "Work", "Time": 8}, {"Activity": "Exercise", "Time": 2}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -255,14 +257,13 @@ as a percentage of total values.</p>
 <span class="n">source</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Activity&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Sleeping&#39;</span><span class="p">,</span> <span class="s1">&#39;Eating&#39;</span><span class="p">,</span> <span class="s1">&#39;TV&#39;</span><span class="p">,</span> <span class="s1">&#39;Work&#39;</span><span class="p">,</span> <span class="s1">&#39;Exercise&#39;</span><span class="p">],</span>
                            <span class="s1">&#39;Time&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">]})</span>
 
-<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;PercentOfTotal:Q&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">format</span><span class="o">=</span><span class="s1">&#39;.0%&#39;</span><span class="p">)),</span>
-    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Activity:N&#39;</span>
-<span class="p">)</span><span class="o">.</span><span class="n">transform_window</span><span class="p">(</span>
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">transform_joinaggregate</span><span class="p">(</span>
     <span class="n">TotalTime</span><span class="o">=</span><span class="s1">&#39;sum(Time)&#39;</span><span class="p">,</span>
-    <span class="n">frame</span><span class="o">=</span><span class="p">[</span><span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">]</span>
 <span class="p">)</span><span class="o">.</span><span class="n">transform_calculate</span><span class="p">(</span>
     <span class="n">PercentOfTotal</span><span class="o">=</span><span class="s2">&quot;datum.Time / datum.TotalTime&quot;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;PercentOfTotal:Q&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">format</span><span class="o">=</span><span class="s1">&#39;.0%&#39;</span><span class="p">)),</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Activity:N&#39;</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -312,7 +313,7 @@ as a percentage of total values.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.4.1',
+            VERSION:'3.0.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -323,9 +324,9 @@ as a percentage of total values.</p>
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@3.3"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@2.6"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@3.18"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5.3"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.2"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@4.0"></script>
 
   
 

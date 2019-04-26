@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Iowa’s renewable energy boom &mdash; Altair 2.4.1 documentation</title>
+  <title>Atmospheric CO2 Concentration &mdash; Altair 3.0.0 documentation</title>
   
 
   
@@ -34,8 +34,8 @@
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Iowa’s renewable energy boom" href="iowa_electricity.html" />
-    <link rel="prev" title="Gapminder Bubble Plot" href="gapminder_bubble_plot.html" /> 
+    <link rel="next" title="Becker’s Barley Trellis Plot" href="beckers_barley_trellis_plot.html" />
+    <link rel="prev" title="Anscombe’s Quartet" href="anscombe_plot.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                2.4.1
+                3.0.0
               </div>
             
           
@@ -110,13 +110,13 @@
 <li class="toctree-l2"><a class="reference internal" href="index.html#interactive-charts">Interactive Charts</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html#case-studies">Case Studies</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="anscombe_plot.html">Anscombe’s Quartet</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Atmospheric CO2 Concentration</a><ul class="simple">
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="beckers_barley_trellis_plot.html">Becker’s Barley Trellis Plot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cumulative_wiki_donations.html">Cumulative Wikipedia Donations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="falkensee.html">Falkensee</a></li>
 <li class="toctree-l3"><a class="reference internal" href="gapminder_bubble_plot.html">Gapminder Bubble Plot</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Iowa’s renewable energy boom</a><ul class="simple">
-</ul>
-</li>
 <li class="toctree-l3"><a class="reference internal" href="iowa_electricity.html">Iowa’s renewable energy boom</a></li>
 <li class="toctree-l3"><a class="reference internal" href="isotype.html">Isotype Visualization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="isotype_emoji.html">Isotype Visualization with Emoji</a></li>
@@ -132,6 +132,7 @@
 <li class="toctree-l3"><a class="reference internal" href="us_state_capitals.html">U.S. state capitals overlayed on a map of the U.S</a></li>
 <li class="toctree-l3"><a class="reference internal" href="us_population_over_time.html">US Population Over Time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="us_population_pyramid_over_time.html">US Population Pyramid Over Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wheat_wages.html">Wheat and Wages</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#other-charts">Other Charts</a></li>
@@ -214,7 +215,7 @@
         
           <li><a href="index.html">Example Gallery</a> &raquo;</li>
         
-      <li>Iowa’s renewable energy boom</li>
+      <li>Atmospheric CO2 Concentration</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -233,16 +234,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="iowa-s-renewable-energy-boom">
-<span id="gallery-co2-concentration"></span><h1>Iowa’s renewable energy boom<a class="headerlink" href="#iowa-s-renewable-energy-boom" title="Permalink to this headline">¶</a></h1>
-<p>This example is a fully developed line chart that uses a window transformation. It was inspired by <cite>Gregor Aisch’s work at datawrapper &lt;https://www.datawrapper.de/_/OHgEm/&gt;_</cite>.</p>
+  <div class="section" id="atmospheric-co2-concentration">
+<span id="gallery-co2-concentration"></span><h1>Atmospheric CO2 Concentration<a class="headerlink" href="#atmospheric-co2-concentration" title="Permalink to this headline">¶</a></h1>
+<p>This example is a fully developed line chart that uses a window transformation.
+It was inspired by <a class="reference external" href="https://www.datawrapper.de/_/OHgEm/">Gregor Aisch’s work at datawrapper</a>.</p>
 
 <div id="co2_concentration-rst-altair-plot-0">
 <script>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}, "text": {"align": "left", "dx": 1, "dy": 3}}, "layer": [{"data": {"url": "https://vega.github.io/vega-datasets/data/co2-concentration.csv"}, "mark": "line", "encoding": {"color": {"type": "ordinal", "field": "decade", "legend": null, "scale": {"scheme": "magma"}}, "x": {"type": "quantitative", "axis": {"tickCount": 11, "title": "Year into Decade"}, "field": "scaled_date"}, "y": {"type": "quantitative", "field": "CO2", "scale": {"zero": false}, "title": "CO2 concentration in ppm"}}, "title": "Carbon Dioxide in the Atmosphere", "transform": [{"calculate": "year(datum.Date)", "as": "year"}, {"calculate": "floor(datum.year / 10)", "as": "decade"}, {"calculate": "(datum.year % 10) + (month(datum.Date)/12)", "as": "scaled_date"}, {"window": [{"op": "first_value", "field": "scaled_date", "as": "first_date"}, {"op": "last_value", "field": "scaled_date", "as": "last_date"}], "frame": [null, null], "groupby": ["decade"], "sort": [{"field": "scaled_date", "order": "ascending"}]}, {"calculate": "datum.first_date === datum.scaled_date ? 'first' : datum.last_date === datum.scaled_date ? 'last' : null", "as": "end"}]}, {"data": {"url": "https://vega.github.io/vega-datasets/data/co2-concentration.csv"}, "mark": {"type": "text", "baseline": "top"}, "encoding": {"text": {"type": "nominal", "field": "year"}, "x": {"type": "quantitative", "axis": {"tickCount": 11, "title": "Year into Decade"}, "field": "scaled_date"}, "y": {"type": "quantitative", "field": "CO2", "scale": {"zero": false}, "title": "CO2 concentration in ppm"}}, "title": "Carbon Dioxide in the Atmosphere", "transform": [{"calculate": "year(datum.Date)", "as": "year"}, {"calculate": "floor(datum.year / 10)", "as": "decade"}, {"calculate": "(datum.year % 10) + (month(datum.Date)/12)", "as": "scaled_date"}, {"window": [{"op": "first_value", "field": "scaled_date", "as": "first_date"}, {"op": "last_value", "field": "scaled_date", "as": "last_date"}], "frame": [null, null], "groupby": ["decade"], "sort": [{"field": "scaled_date", "order": "ascending"}]}, {"calculate": "datum.first_date === datum.scaled_date ? 'first' : datum.last_date === datum.scaled_date ? 'last' : null", "as": "end"}, {"filter": "(datum.end === 'first')"}]}, {"data": {"url": "https://vega.github.io/vega-datasets/data/co2-concentration.csv"}, "mark": {"type": "text", "baseline": "bottom"}, "encoding": {"text": {"type": "nominal", "field": "year"}, "x": {"type": "quantitative", "axis": {"tickCount": 11, "title": "Year into Decade"}, "field": "scaled_date"}, "y": {"type": "quantitative", "field": "CO2", "scale": {"zero": false}, "title": "CO2 concentration in ppm"}}, "title": "Carbon Dioxide in the Atmosphere", "transform": [{"calculate": "year(datum.Date)", "as": "year"}, {"calculate": "floor(datum.year / 10)", "as": "decade"}, {"calculate": "(datum.year % 10) + (month(datum.Date)/12)", "as": "scaled_date"}, {"window": [{"op": "first_value", "field": "scaled_date", "as": "first_date"}, {"op": "last_value", "field": "scaled_date", "as": "last_date"}], "frame": [null, null], "groupby": ["decade"], "sort": [{"field": "scaled_date", "order": "ascending"}]}, {"calculate": "datum.first_date === datum.scaled_date ? 'first' : datum.last_date === datum.scaled_date ? 'last' : null", "as": "end"}, {"filter": "(datum.end === 'last')"}]}], "height": 375, "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}, "text": {"align": "left", "dx": 1, "dy": 3}}, "layer": [{"data": {"url": "https://vega.github.io/vega-datasets/data/co2-concentration.csv"}, "mark": "line", "encoding": {"color": {"type": "ordinal", "field": "decade", "legend": null, "scale": {"scheme": "magma"}}, "x": {"type": "quantitative", "axis": {"tickCount": 11, "title": "Year into Decade"}, "field": "scaled_date"}, "y": {"type": "quantitative", "field": "CO2", "scale": {"zero": false}, "title": "CO2 concentration in ppm"}}, "title": "Carbon Dioxide in the Atmosphere", "transform": [{"calculate": "year(datum.Date)", "as": "year"}, {"calculate": "floor(datum.year / 10)", "as": "decade"}, {"calculate": "(datum.year % 10) + (month(datum.Date)/12)", "as": "scaled_date"}, {"window": [{"op": "first_value", "field": "scaled_date", "as": "first_date"}, {"op": "last_value", "field": "scaled_date", "as": "last_date"}], "frame": [null, null], "groupby": ["decade"], "sort": [{"field": "scaled_date", "order": "ascending"}]}, {"calculate": "datum.first_date === datum.scaled_date ? 'first' : datum.last_date === datum.scaled_date ? 'last' : null", "as": "end"}]}, {"data": {"url": "https://vega.github.io/vega-datasets/data/co2-concentration.csv"}, "mark": {"type": "text", "baseline": "top"}, "encoding": {"text": {"type": "nominal", "field": "year"}, "x": {"type": "quantitative", "axis": {"tickCount": 11, "title": "Year into Decade"}, "field": "scaled_date"}, "y": {"type": "quantitative", "field": "CO2", "scale": {"zero": false}, "title": "CO2 concentration in ppm"}}, "title": "Carbon Dioxide in the Atmosphere", "transform": [{"calculate": "year(datum.Date)", "as": "year"}, {"calculate": "floor(datum.year / 10)", "as": "decade"}, {"calculate": "(datum.year % 10) + (month(datum.Date)/12)", "as": "scaled_date"}, {"window": [{"op": "first_value", "field": "scaled_date", "as": "first_date"}, {"op": "last_value", "field": "scaled_date", "as": "last_date"}], "frame": [null, null], "groupby": ["decade"], "sort": [{"field": "scaled_date", "order": "ascending"}]}, {"calculate": "datum.first_date === datum.scaled_date ? 'first' : datum.last_date === datum.scaled_date ? 'last' : null", "as": "end"}, {"filter": "(datum.end === 'first')"}]}, {"data": {"url": "https://vega.github.io/vega-datasets/data/co2-concentration.csv"}, "mark": {"type": "text", "baseline": "bottom"}, "encoding": {"text": {"type": "nominal", "field": "year"}, "x": {"type": "quantitative", "axis": {"tickCount": 11, "title": "Year into Decade"}, "field": "scaled_date"}, "y": {"type": "quantitative", "field": "CO2", "scale": {"zero": false}, "title": "CO2 concentration in ppm"}}, "title": "Carbon Dioxide in the Atmosphere", "transform": [{"calculate": "year(datum.Date)", "as": "year"}, {"calculate": "floor(datum.year / 10)", "as": "decade"}, {"calculate": "(datum.year % 10) + (month(datum.Date)/12)", "as": "scaled_date"}, {"window": [{"op": "first_value", "field": "scaled_date", "as": "first_date"}, {"op": "last_value", "field": "scaled_date", "as": "last_date"}], "frame": [null, null], "groupby": ["decade"], "sort": [{"field": "scaled_date", "order": "ascending"}]}, {"calculate": "datum.first_date === datum.scaled_date ? 'first' : datum.last_date === datum.scaled_date ? 'last' : null", "as": "end"}, {"filter": "(datum.end === 'last')"}]}], "height": 375, "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v3.2.1.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -322,10 +324,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="iowa_electricity.html" class="btn btn-neutral float-right" title="Iowa’s renewable energy boom" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="beckers_barley_trellis_plot.html" class="btn btn-neutral float-right" title="Becker’s Barley Trellis Plot" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="gapminder_bubble_plot.html" class="btn btn-neutral" title="Gapminder Bubble Plot" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="anscombe_plot.html" class="btn btn-neutral" title="Anscombe’s Quartet" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -356,7 +358,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.4.1',
+            VERSION:'3.0.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -367,9 +369,9 @@
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@3.3"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@2.6"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@3.18"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5.3"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.2"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@4.0"></script>
 
   
 

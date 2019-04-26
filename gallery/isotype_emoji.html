@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Isotype Visualization with Emoji &mdash; Altair 2.4.1 documentation</title>
+  <title>Isotype Visualization with Emoji &mdash; Altair 3.0.0 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                2.4.1
+                3.0.0
               </div>
             
           
@@ -110,11 +110,11 @@
 <li class="toctree-l2"><a class="reference internal" href="index.html#interactive-charts">Interactive Charts</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html#case-studies">Case Studies</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="anscombe_plot.html">Anscombe’s Quartet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="co2_concentration.html">Atmospheric CO2 Concentration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="beckers_barley_trellis_plot.html">Becker’s Barley Trellis Plot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cumulative_wiki_donations.html">Cumulative Wikipedia Donations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="falkensee.html">Falkensee</a></li>
 <li class="toctree-l3"><a class="reference internal" href="gapminder_bubble_plot.html">Gapminder Bubble Plot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="co2_concentration.html">Iowa’s renewable energy boom</a></li>
 <li class="toctree-l3"><a class="reference internal" href="iowa_electricity.html">Iowa’s renewable energy boom</a></li>
 <li class="toctree-l3"><a class="reference internal" href="isotype.html">Isotype Visualization</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Isotype Visualization with Emoji</a><ul class="simple">
@@ -132,6 +132,7 @@
 <li class="toctree-l3"><a class="reference internal" href="us_state_capitals.html">U.S. state capitals overlayed on a map of the U.S</a></li>
 <li class="toctree-l3"><a class="reference internal" href="us_population_over_time.html">US Population Over Time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="us_population_pyramid_over_time.html">US Population Pyramid Over Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wheat_wages.html">Wheat and Wages</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#other-charts">Other Charts</a></li>
@@ -244,7 +245,7 @@ This is adapted from Vega-Lite example <a class="reference external" href="https
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"name": "data-006229bd86d4a5200814600dc915ef80"}, "mark": {"type": "text", "baseline": "middle", "size": 60}, "encoding": {"row": {"type": "nominal", "field": "country", "header": {"title": ""}}, "text": {"type": "nominal", "field": "emoji"}, "x": {"type": "ordinal", "axis": null, "field": "x"}, "y": {"type": "ordinal", "axis": null, "field": "animal"}}, "height": 200, "transform": [{"calculate": "{'cattle': '\ud83d\udc04', 'pigs': '\ud83d\udc16', 'sheep': '\ud83d\udc0f'}[datum.animal]", "as": "emoji"}, {"window": [{"op": "rank", "field": "", "as": "x"}], "groupby": ["country", "animal"]}], "width": 800, "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json", "datasets": {"data-006229bd86d4a5200814600dc915ef80": [{"animal": "cattle", "country": "Great Britain"}, {"animal": "cattle", "country": "Great Britain"}, {"animal": "cattle", "country": "Great Britain"}, {"animal": "pigs", "country": "Great Britain"}, {"animal": "pigs", "country": "Great Britain"}, {"animal": "sheep", "country": "Great Britain"}, {"animal": "sheep", "country": "Great Britain"}, {"animal": "sheep", "country": "Great Britain"}, {"animal": "sheep", "country": "Great Britain"}, {"animal": "sheep", "country": "Great Britain"}, {"animal": "sheep", "country": "Great Britain"}, {"animal": "sheep", "country": "Great Britain"}, {"animal": "sheep", "country": "Great Britain"}, {"animal": "sheep", "country": "Great Britain"}, {"animal": "sheep", "country": "Great Britain"}, {"animal": "cattle", "country": "United States"}, {"animal": "cattle", "country": "United States"}, {"animal": "cattle", "country": "United States"}, {"animal": "cattle", "country": "United States"}, {"animal": "cattle", "country": "United States"}, {"animal": "cattle", "country": "United States"}, {"animal": "cattle", "country": "United States"}, {"animal": "cattle", "country": "United States"}, {"animal": "cattle", "country": "United States"}, {"animal": "pigs", "country": "United States"}, {"animal": "pigs", "country": "United States"}, {"animal": "pigs", "country": "United States"}, {"animal": "pigs", "country": "United States"}, {"animal": "pigs", "country": "United States"}, {"animal": "pigs", "country": "United States"}, {"animal": "sheep", "country": "United States"}, {"animal": "sheep", "country": "United States"}, {"animal": "sheep", "country": "United States"}, {"animal": "sheep", "country": "United States"}, {"animal": "sheep", "country": "United States"}, {"animal": "sheep", "country": "United States"}, {"animal": "sheep", "country": "United States"}]}};
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"name": "data-006229bd86d4a5200814600dc915ef80"}, "mark": {"type": "text", "baseline": "middle", "size": 45}, "encoding": {"row": {"type": "nominal", "field": "country", "header": {"title": ""}}, "text": {"type": "nominal", "field": "emoji"}, "x": {"type": "ordinal", "axis": null, "field": "x"}, "y": {"type": "ordinal", "axis": null, "field": "animal"}}, "height": 140, "transform": [{"calculate": "{'cattle': '\ud83d\udc04', 'pigs': '\ud83d\udc16', 'sheep': '\ud83d\udc0f'}[datum.animal]", "as": "emoji"}, {"window": [{"op": "rank", "field": "", "as": "x"}], "groupby": ["country", "animal"]}], "width": 550, "$schema": "https://vega.github.io/schema/vega-lite/v3.2.1.json", "datasets": {"data-006229bd86d4a5200814600dc915ef80": [{"animal": "cattle", "country": "Great Britain"}, {"animal": "cattle", "country": "Great Britain"}, {"animal": "cattle", "country": "Great Britain"}, {"animal": "pigs", "country": "Great Britain"}, {"animal": "pigs", "country": "Great Britain"}, {"animal": "sheep", "country": "Great Britain"}, {"animal": "sheep", "country": "Great Britain"}, {"animal": "sheep", "country": "Great Britain"}, {"animal": "sheep", "country": "Great Britain"}, {"animal": "sheep", "country": "Great Britain"}, {"animal": "sheep", "country": "Great Britain"}, {"animal": "sheep", "country": "Great Britain"}, {"animal": "sheep", "country": "Great Britain"}, {"animal": "sheep", "country": "Great Britain"}, {"animal": "sheep", "country": "Great Britain"}, {"animal": "cattle", "country": "United States"}, {"animal": "cattle", "country": "United States"}, {"animal": "cattle", "country": "United States"}, {"animal": "cattle", "country": "United States"}, {"animal": "cattle", "country": "United States"}, {"animal": "cattle", "country": "United States"}, {"animal": "cattle", "country": "United States"}, {"animal": "cattle", "country": "United States"}, {"animal": "cattle", "country": "United States"}, {"animal": "pigs", "country": "United States"}, {"animal": "pigs", "country": "United States"}, {"animal": "pigs", "country": "United States"}, {"animal": "pigs", "country": "United States"}, {"animal": "pigs", "country": "United States"}, {"animal": "pigs", "country": "United States"}, {"animal": "sheep", "country": "United States"}, {"animal": "sheep", "country": "United States"}, {"animal": "sheep", "country": "United States"}, {"animal": "sheep", "country": "United States"}, {"animal": "sheep", "country": "United States"}, {"animal": "sheep", "country": "United States"}, {"animal": "sheep", "country": "United States"}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -297,7 +298,7 @@ This is adapted from Vega-Lite example <a class="reference external" href="https
     <span class="p">])</span>
 
 
-<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">mark_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">baseline</span><span class="o">=</span><span class="s1">&#39;middle&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">mark_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">baseline</span><span class="o">=</span><span class="s1">&#39;middle&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;x:O&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="bp">None</span><span class="p">),</span>
     <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;animal:O&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="bp">None</span><span class="p">),</span>
     <span class="n">alt</span><span class="o">.</span><span class="n">Row</span><span class="p">(</span><span class="s1">&#39;country:N&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Header</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)),</span>
@@ -307,7 +308,7 @@ This is adapted from Vega-Lite example <a class="reference external" href="https
 <span class="p">)</span><span class="o">.</span><span class="n">transform_window</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="s1">&#39;rank()&#39;</span><span class="p">,</span>
     <span class="n">groupby</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;country&#39;</span><span class="p">,</span> <span class="s1">&#39;animal&#39;</span><span class="p">]</span>
-<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">550</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">140</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="toctree-wrapper compound">
@@ -356,7 +357,7 @@ This is adapted from Vega-Lite example <a class="reference external" href="https
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.4.1',
+            VERSION:'3.0.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -367,9 +368,9 @@ This is adapted from Vega-Lite example <a class="reference external" href="https
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@3.3"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@2.6"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@3.18"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5.3"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.2"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@4.0"></script>
 
   
 

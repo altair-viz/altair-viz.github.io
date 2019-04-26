@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Simple Scatter Plot with Errorbars &mdash; Altair 2.4.1 documentation</title>
+  <title>Simple Scatter Plot with Errorbars &mdash; Altair 3.0.0 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                2.4.1
+                3.0.0
               </div>
             
           
@@ -233,7 +233,7 @@
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}}, "layer": [{"data": {"name": "data-306b2a55db0733ecb4dd5c7ef21bd267"}, "mark": {"type": "point", "filled": true, "size": 50}, "encoding": {"color": {"value": "black"}, "x": {"type": "quantitative", "field": "x", "scale": {"domain": [0, 6]}, "title": "x"}, "y": {"type": "quantitative", "field": "y", "scale": {"domain": [10, 11], "zero": false}, "title": "y"}}}, {"data": {"name": "data-306b2a55db0733ecb4dd5c7ef21bd267"}, "mark": "rule", "encoding": {"x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "ymin"}, "y2": {"type": "quantitative", "field": "ymax"}}, "transform": [{"calculate": "datum.y-datum.yerr", "as": "ymin"}, {"calculate": "datum.y+datum.yerr", "as": "ymax"}]}], "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json", "datasets": {"data-306b2a55db0733ecb4dd5c7ef21bd267": [{"x": 1, "y": 10.882026172983831, "yerr": 0.2}, {"x": 2, "y": 10.200078604183611, "yerr": 0.2}, {"x": 3, "y": 10.489368992052869, "yerr": 0.2}, {"x": 4, "y": 11.12044659960073, "yerr": 0.2}, {"x": 5, "y": 10.933778995074984, "yerr": 0.2}]}};
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "layer": [{"data": {"name": "data-306b2a55db0733ecb4dd5c7ef21bd267"}, "mark": {"type": "point", "color": "black", "filled": true, "size": 50}, "encoding": {"x": {"type": "quantitative", "field": "x", "scale": {"domain": [0, 6]}}, "y": {"type": "quantitative", "field": "y", "scale": {"domain": [10, 11]}}}, "transform": [{"calculate": "datum.y-datum.yerr", "as": "ymin"}, {"calculate": "datum.y+datum.yerr", "as": "ymax"}]}, {"data": {"name": "data-306b2a55db0733ecb4dd5c7ef21bd267"}, "mark": "errorbar", "encoding": {"x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "ymin"}, "y2": {"field": "ymax"}}, "transform": [{"calculate": "datum.y-datum.yerr", "as": "ymin"}, {"calculate": "datum.y+datum.yerr", "as": "ymax"}]}], "$schema": "https://vega.github.io/schema/vega-lite/v3.2.1.json", "datasets": {"data-306b2a55db0733ecb4dd5c7ef21bd267": [{"x": 1, "y": 10.882026172983831, "yerr": 0.2}, {"x": 2, "y": 10.200078604183611, "yerr": 0.2}, {"x": 3, "y": 10.489368992052869, "yerr": 0.2}, {"x": 4, "y": 11.12044659960073, "yerr": 0.2}, {"x": 5, "y": 10.933778995074984, "yerr": 0.2}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -256,31 +256,26 @@
 <span class="n">source</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;x&quot;</span><span class="p">:</span><span class="n">x</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span><span class="n">y</span><span class="p">,</span> <span class="s2">&quot;yerr&quot;</span><span class="p">:</span><span class="n">yerr</span><span class="p">})</span>
 
 <span class="c1"># the base chart</span>
-<span class="n">base</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+<span class="n">base</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">transform_calculate</span><span class="p">(</span>
+    <span class="n">ymin</span><span class="o">=</span><span class="s2">&quot;datum.y-datum.yerr&quot;</span><span class="p">,</span>
+    <span class="n">ymax</span><span class="o">=</span><span class="s2">&quot;datum.y+datum.yerr&quot;</span>
+<span class="p">)</span>
 
 <span class="c1"># generate the points</span>
-<span class="n">points</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">mark_point</span><span class="p">(</span><span class="n">filled</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span>
-        <span class="s1">&#39;x&#39;</span><span class="p">,</span>
-        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span>
-        <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
-    <span class="p">),</span>
-    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span>
-        <span class="s1">&#39;y&#39;</span><span class="p">,</span>
-        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span>
-        <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">zero</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span>
-    <span class="p">),</span>
-    <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">points</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">mark_point</span><span class="p">(</span>
+    <span class="n">filled</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+    <span class="n">size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">))),</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">)))</span>
 <span class="p">)</span>
 
 <span class="c1"># generate the error bars</span>
-<span class="n">errorbars</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">mark_rule</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+<span class="n">errorbars</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">mark_errorbar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="s2">&quot;ymin:Q&quot;</span><span class="p">,</span>
     <span class="n">y2</span><span class="o">=</span><span class="s2">&quot;ymax:Q&quot;</span>
-<span class="p">)</span><span class="o">.</span><span class="n">transform_calculate</span><span class="p">(</span>
-    <span class="n">ymin</span><span class="o">=</span><span class="s2">&quot;datum.y-datum.yerr&quot;</span><span class="p">,</span>
-    <span class="n">ymax</span><span class="o">=</span><span class="s2">&quot;datum.y+datum.yerr&quot;</span>
 <span class="p">)</span>
 
 <span class="n">points</span> <span class="o">+</span> <span class="n">errorbars</span>
@@ -332,7 +327,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.4.1',
+            VERSION:'3.0.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -343,9 +338,9 @@
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@3.3"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@2.6"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@3.18"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5.3"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.2"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@4.0"></script>
 
   
 
