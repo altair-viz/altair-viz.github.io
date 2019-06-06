@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>London Tube Lines &mdash; Altair 3.0.0 documentation</title>
+  <title>London Tube Lines &mdash; Altair 3.1.0 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                3.0.0
+                3.1.0
               </div>
             
           
@@ -132,6 +132,7 @@
 <li class="toctree-l3"><a class="reference internal" href="us_state_capitals.html">U.S. state capitals overlayed on a map of the U.S</a></li>
 <li class="toctree-l3"><a class="reference internal" href="us_population_over_time.html">US Population Over Time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="us_population_pyramid_over_time.html">US Population Pyramid Over Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="us_population_over_time_facet.html">US Population: Wrapped Facet</a></li>
 <li class="toctree-l3"><a class="reference internal" href="wheat_wages.html">Wheat and Wages</a></li>
 </ul>
 </li>
@@ -245,7 +246,7 @@ borough boundaries. It is based on the vega-lite example at
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "layer": [{"data": {"url": "https://vega.github.io/vega-datasets/data/londonBoroughs.json", "format": {"feature": "boroughs", "type": "topojson"}}, "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 2}, "encoding": {"color": {"value": "#eee"}}, "height": 500, "width": 700}, {"data": {"url": "https://vega.github.io/vega-datasets/data/londonCentroids.json"}, "mark": "text", "encoding": {"latitude": {"field": "cy", "type": "quantitative"}, "longitude": {"field": "cx", "type": "quantitative"}, "opacity": {"value": 0.6}, "size": {"value": 8}, "text": {"type": "nominal", "field": "bLabel"}}, "transform": [{"calculate": "indexof (datum.name,' ') > 0  ? substring(datum.name,0,indexof(datum.name, ' ')) : datum.name", "as": "bLabel"}]}, {"data": {"url": "https://vega.github.io/vega-datasets/data/londonTubeLines.json", "format": {"feature": "line", "type": "topojson"}}, "mark": {"type": "geoshape", "filled": false, "strokeWidth": 2}, "encoding": {"color": {"type": "nominal", "field": "id", "legend": {"offset": 0, "orient": "bottom-right", "title": null}}}}], "$schema": "https://vega.github.io/schema/vega-lite/v3.2.1.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "layer": [{"data": {"url": "https://vega.github.io/vega-datasets/data/londonBoroughs.json", "format": {"feature": "boroughs", "type": "topojson"}}, "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 2}, "encoding": {"color": {"value": "#eee"}}, "height": 500, "width": 700}, {"data": {"url": "https://vega.github.io/vega-datasets/data/londonCentroids.json"}, "mark": "text", "encoding": {"latitude": {"field": "cy", "type": "quantitative"}, "longitude": {"field": "cx", "type": "quantitative"}, "opacity": {"value": 0.6}, "size": {"value": 8}, "text": {"type": "nominal", "field": "bLabel"}}, "transform": [{"calculate": "indexof (datum.name,' ') > 0  ? substring(datum.name,0,indexof(datum.name, ' ')) : datum.name", "as": "bLabel"}]}, {"data": {"url": "https://vega.github.io/vega-datasets/data/londonTubeLines.json", "format": {"feature": "line", "type": "topojson"}}, "mark": {"type": "geoshape", "filled": false, "strokeWidth": 2}, "encoding": {"color": {"type": "nominal", "field": "id", "legend": {"offset": 0, "orient": "bottom-right", "title": null}}}}], "$schema": "https://vega.github.io/schema/vega-lite/v3.3.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -352,7 +353,7 @@ borough boundaries. It is based on the vega-lite example at
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.0.0',
+            VERSION:'3.1.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -363,9 +364,9 @@ borough boundaries. It is based on the vega-lite example at
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5.3"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.2"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@4.0"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5.4"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.3"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@4.2"></script>
 
   
 

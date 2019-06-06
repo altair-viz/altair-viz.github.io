@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>altair.Chart &mdash; Altair 3.0.0 documentation</title>
+  <title>altair.Chart &mdash; Altair 3.1.0 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                3.0.0
+                3.1.0
               </div>
             
           
@@ -436,7 +436,7 @@ marks and <cite>“point”</cite> or <cite>“line”</cite> marks that have a 
 <tr class="row-even"><td><a class="reference internal" href="#altair.Chart.encode" title="altair.Chart.encode"><code class="xref py py-obj docutils literal"><span class="pre">encode</span></code></a>([color,&nbsp;column,&nbsp;detail,&nbsp;facet,&nbsp;fill,&nbsp;…])</td>
 <td>FacetedEncoding schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#altair.Chart.facet" title="altair.Chart.facet"><code class="xref py py-obj docutils literal"><span class="pre">facet</span></code></a>([row,&nbsp;column,&nbsp;data])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#altair.Chart.facet" title="altair.Chart.facet"><code class="xref py py-obj docutils literal"><span class="pre">facet</span></code></a>([facet,&nbsp;row,&nbsp;column,&nbsp;data,&nbsp;columns])</td>
 <td>Create a facet chart from the current chart.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#altair.Chart.from_dict" title="altair.Chart.from_dict"><code class="xref py py-obj docutils literal"><span class="pre">from_dict</span></code></a>(dct[,&nbsp;validate])</td>
@@ -494,12 +494,12 @@ marks and <cite>“point”</cite> or <cite>“line”</cite> marks that have a 
 <td>Set the chart’s mark to ‘trail’</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#altair.Chart.project" title="altair.Chart.project"><code class="xref py py-obj docutils literal"><span class="pre">project</span></code></a>([type,&nbsp;center,&nbsp;clipAngle,&nbsp;…])</td>
-<td>Add a geographic projection to the chartself.</td>
+<td>Add a geographic projection to the chart.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#altair.Chart.properties" title="altair.Chart.properties"><code class="xref py py-obj docutils literal"><span class="pre">properties</span></code></a>(**kwargs)</td>
 <td>Set top-level properties of the Chart.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#altair.Chart.repeat" title="altair.Chart.repeat"><code class="xref py py-obj docutils literal"><span class="pre">repeat</span></code></a>([row,&nbsp;column])</td>
+<tr class="row-even"><td><a class="reference internal" href="#altair.Chart.repeat" title="altair.Chart.repeat"><code class="xref py py-obj docutils literal"><span class="pre">repeat</span></code></a>([repeat,&nbsp;row,&nbsp;column,&nbsp;columns])</td>
 <td>Return a RepeatChart built from the chart</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#altair.Chart.resolve_axis" title="altair.Chart.resolve_axis"><code class="xref py py-obj docutils literal"><span class="pre">resolve_axis</span></code></a>([x,&nbsp;y])</td>
@@ -4598,7 +4598,7 @@ automatically truncated if the rendered size exceeds the limit.</p>
 
 <dl class="method">
 <dt id="altair.Chart.configure_legend">
-<code class="descname">configure_legend</code><span class="sig-paren">(</span><em>clipHeight=Undefined</em>, <em>columnPadding=Undefined</em>, <em>columns=Undefined</em>, <em>cornerRadius=Undefined</em>, <em>fillColor=Undefined</em>, <em>gradientDirection=Undefined</em>, <em>gradientHorizontalMaxLength=Undefined</em>, <em>gradientHorizontalMinLength=Undefined</em>, <em>gradientLabelLimit=Undefined</em>, <em>gradientLabelOffset=Undefined</em>, <em>gradientLength=Undefined</em>, <em>gradientOpacity=Undefined</em>, <em>gradientStrokeColor=Undefined</em>, <em>gradientStrokeWidth=Undefined</em>, <em>gradientThickness=Undefined</em>, <em>gradientVerticalMaxLength=Undefined</em>, <em>gradientVerticalMinLength=Undefined</em>, <em>gridAlign=Undefined</em>, <em>labelAlign=Undefined</em>, <em>labelBaseline=Undefined</em>, <em>labelColor=Undefined</em>, <em>labelFont=Undefined</em>, <em>labelFontSize=Undefined</em>, <em>labelFontStyle=Undefined</em>, <em>labelFontWeight=Undefined</em>, <em>labelLimit=Undefined</em>, <em>labelOffset=Undefined</em>, <em>labelOpacity=Undefined</em>, <em>labelOverlap=Undefined</em>, <em>labelPadding=Undefined</em>, <em>labelSeparation=Undefined</em>, <em>layout=Undefined</em>, <em>offset=Undefined</em>, <em>orient=Undefined</em>, <em>padding=Undefined</em>, <em>rowPadding=Undefined</em>, <em>shortTimeLabels=Undefined</em>, <em>strokeColor=Undefined</em>, <em>strokeDash=Undefined</em>, <em>strokeWidth=Undefined</em>, <em>symbolBaseFillColor=Undefined</em>, <em>symbolBaseStrokeColor=Undefined</em>, <em>symbolDash=Undefined</em>, <em>symbolDashOffset=Undefined</em>, <em>symbolDirection=Undefined</em>, <em>symbolFillColor=Undefined</em>, <em>symbolOffset=Undefined</em>, <em>symbolOpacity=Undefined</em>, <em>symbolSize=Undefined</em>, <em>symbolStrokeColor=Undefined</em>, <em>symbolStrokeWidth=Undefined</em>, <em>symbolType=Undefined</em>, <em>title=Undefined</em>, <em>titleAlign=Undefined</em>, <em>titleAnchor=Undefined</em>, <em>titleBaseline=Undefined</em>, <em>titleColor=Undefined</em>, <em>titleFont=Undefined</em>, <em>titleFontSize=Undefined</em>, <em>titleFontStyle=Undefined</em>, <em>titleFontWeight=Undefined</em>, <em>titleLimit=Undefined</em>, <em>titleOpacity=Undefined</em>, <em>titleOrient=Undefined</em>, <em>titlePadding=Undefined</em>, <em>**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Chart.configure_legend" title="Permalink to this definition">¶</a></dt>
+<code class="descname">configure_legend</code><span class="sig-paren">(</span><em>clipHeight=Undefined</em>, <em>columnPadding=Undefined</em>, <em>columns=Undefined</em>, <em>cornerRadius=Undefined</em>, <em>fillColor=Undefined</em>, <em>gradientDirection=Undefined</em>, <em>gradientHorizontalMaxLength=Undefined</em>, <em>gradientHorizontalMinLength=Undefined</em>, <em>gradientLabelLimit=Undefined</em>, <em>gradientLabelOffset=Undefined</em>, <em>gradientLength=Undefined</em>, <em>gradientOpacity=Undefined</em>, <em>gradientStrokeColor=Undefined</em>, <em>gradientStrokeWidth=Undefined</em>, <em>gradientThickness=Undefined</em>, <em>gradientVerticalMaxLength=Undefined</em>, <em>gradientVerticalMinLength=Undefined</em>, <em>gridAlign=Undefined</em>, <em>labelAlign=Undefined</em>, <em>labelBaseline=Undefined</em>, <em>labelColor=Undefined</em>, <em>labelFont=Undefined</em>, <em>labelFontSize=Undefined</em>, <em>labelFontStyle=Undefined</em>, <em>labelFontWeight=Undefined</em>, <em>labelLimit=Undefined</em>, <em>labelOffset=Undefined</em>, <em>labelOpacity=Undefined</em>, <em>labelOverlap=Undefined</em>, <em>labelPadding=Undefined</em>, <em>labelSeparation=Undefined</em>, <em>layout=Undefined</em>, <em>legendX=Undefined</em>, <em>legendY=Undefined</em>, <em>offset=Undefined</em>, <em>orient=Undefined</em>, <em>padding=Undefined</em>, <em>rowPadding=Undefined</em>, <em>shortTimeLabels=Undefined</em>, <em>strokeColor=Undefined</em>, <em>strokeDash=Undefined</em>, <em>strokeWidth=Undefined</em>, <em>symbolBaseFillColor=Undefined</em>, <em>symbolBaseStrokeColor=Undefined</em>, <em>symbolDash=Undefined</em>, <em>symbolDashOffset=Undefined</em>, <em>symbolDirection=Undefined</em>, <em>symbolFillColor=Undefined</em>, <em>symbolOffset=Undefined</em>, <em>symbolOpacity=Undefined</em>, <em>symbolSize=Undefined</em>, <em>symbolStrokeColor=Undefined</em>, <em>symbolStrokeWidth=Undefined</em>, <em>symbolType=Undefined</em>, <em>title=Undefined</em>, <em>titleAlign=Undefined</em>, <em>titleAnchor=Undefined</em>, <em>titleBaseline=Undefined</em>, <em>titleColor=Undefined</em>, <em>titleFont=Undefined</em>, <em>titleFontSize=Undefined</em>, <em>titleFontStyle=Undefined</em>, <em>titleFontWeight=Undefined</em>, <em>titleLimit=Undefined</em>, <em>titleOpacity=Undefined</em>, <em>titleOrient=Undefined</em>, <em>titlePadding=Undefined</em>, <em>**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Chart.configure_legend" title="Permalink to this definition">¶</a></dt>
 <dd><p>LegendConfig schema wrapper</p>
 <p>Mapping(required=[])</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -4734,6 +4734,12 @@ considered non-overlapping (default <code class="docutils literal"><span class="
 </dd>
 <dt><strong>layout</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference internal" href="../core/altair.LegendLayout.html#altair.LegendLayout" title="altair.LegendLayout"><code class="xref py py-class docutils literal"><span class="pre">LegendLayout</span></code></a></span></dt>
 <dd><p class="first last">Legend orient group layout parameters.</p>
+</dd>
+<dt><strong>legendX</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">Custom x-position for legend with orient “none”.</p>
+</dd>
+<dt><strong>legendY</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">Custom y-position for legend with orient “none”.</p>
 </dd>
 <dt><strong>offset</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
 <dd><p class="first">The offset in pixels by which to displace the legend from the data rectangle and
@@ -7570,9 +7576,11 @@ visualization has a continuous (non-ordinal) x-scale or ordinal x-scale with
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>deep</strong> <span class="classifier-delimiter">:</span> <span class="classifier">boolean, optional</span></dt>
-<dd><p class="first last">if True (default) then return a deep copy of all dict, list, and
-SchemaBase objects within the object structure</p>
+<dt><strong>deep</strong> <span class="classifier-delimiter">:</span> <span class="classifier">boolean or list, optional</span></dt>
+<dd><p class="first last">If True (default) then return a deep copy of all dict, list, and
+SchemaBase objects within the object structure.
+If False, then only copy the top object.
+If a list or iterable, then only copy the listed attributes.</p>
 </dd>
 <dt><strong>ignore</strong> <span class="classifier-delimiter">:</span> <span class="classifier">list, optional</span></dt>
 <dd><p class="first last">A list of keys for which the contents should not be copied, but
@@ -7626,7 +7634,7 @@ included in the view.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Attributes:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>color</strong> <span class="classifier-delimiter">:</span> <span class="classifier">anyOf(<a class="reference internal" href="../core/altair.ColorFieldDefWithCondition.html#altair.ColorFieldDefWithCondition" title="altair.ColorFieldDefWithCondition"><code class="xref py py-class docutils literal"><span class="pre">ColorFieldDefWithCondition</span></code></a>, <a class="reference internal" href="../core/altair.ColorValueDefWithCondition.html#altair.ColorValueDefWithCondition" title="altair.ColorValueDefWithCondition"><code class="xref py py-class docutils literal"><span class="pre">ColorValueDefWithCondition</span></code></a>)</span></dt>
+<dt><strong>color</strong> <span class="classifier-delimiter">:</span> <span class="classifier">anyOf(<a class="reference internal" href="../core/altair.StringFieldDefWithCondition.html#altair.StringFieldDefWithCondition" title="altair.StringFieldDefWithCondition"><code class="xref py py-class docutils literal"><span class="pre">StringFieldDefWithCondition</span></code></a>, <a class="reference internal" href="../core/altair.StringValueDefWithCondition.html#altair.StringValueDefWithCondition" title="altair.StringValueDefWithCondition"><code class="xref py py-class docutils literal"><span class="pre">StringValueDefWithCondition</span></code></a>)</span></dt>
 <dd><p class="first">Color of the marks – either fill or stroke color based on  the <code class="docutils literal"><span class="pre">filled</span></code> property
 of mark definition.
 By default, <code class="docutils literal"><span class="pre">color</span></code> represents fill color for <code class="docutils literal"><span class="pre">&quot;area&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;bar&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;tick&quot;</span></code>,
@@ -7642,7 +7650,7 @@ is specified, <code class="docutils literal"><span class="pre">color</span></cod
 <dt><strong>column</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference internal" href="../core/altair.FacetFieldDef.html#altair.FacetFieldDef" title="altair.FacetFieldDef"><code class="xref py py-class docutils literal"><span class="pre">FacetFieldDef</span></code></a></span></dt>
 <dd><p class="first last">A field definition for the horizontal facet of trellis plots.</p>
 </dd>
-<dt><strong>detail</strong> <span class="classifier-delimiter">:</span> <span class="classifier">anyOf(<a class="reference internal" href="../core/altair.FieldDef.html#altair.FieldDef" title="altair.FieldDef"><code class="xref py py-class docutils literal"><span class="pre">FieldDef</span></code></a>, List(<a class="reference internal" href="../core/altair.FieldDef.html#altair.FieldDef" title="altair.FieldDef"><code class="xref py py-class docutils literal"><span class="pre">FieldDef</span></code></a>))</span></dt>
+<dt><strong>detail</strong> <span class="classifier-delimiter">:</span> <span class="classifier">anyOf(<a class="reference internal" href="../core/altair.FieldDefWithoutScale.html#altair.FieldDefWithoutScale" title="altair.FieldDefWithoutScale"><code class="xref py py-class docutils literal"><span class="pre">FieldDefWithoutScale</span></code></a>, List(<a class="reference internal" href="../core/altair.FieldDefWithoutScale.html#altair.FieldDefWithoutScale" title="altair.FieldDefWithoutScale"><code class="xref py py-class docutils literal"><span class="pre">FieldDefWithoutScale</span></code></a>))</span></dt>
 <dd><p class="first last">Additional levels of detail for grouping data in aggregate views and
 in line, trail, and area marks without mapping data to a specific visual channel.</p>
 </dd>
@@ -7650,7 +7658,7 @@ in line, trail, and area marks without mapping data to a specific visual channel
 <dd><p class="first">A field definition for the (flexible) facet of trellis plots.</p>
 <p class="last">If either <code class="docutils literal"><span class="pre">row</span></code> or <code class="docutils literal"><span class="pre">column</span></code> is specified, this channel will be ignored.</p>
 </dd>
-<dt><strong>fill</strong> <span class="classifier-delimiter">:</span> <span class="classifier">anyOf(<a class="reference internal" href="../core/altair.ColorFieldDefWithCondition.html#altair.ColorFieldDefWithCondition" title="altair.ColorFieldDefWithCondition"><code class="xref py py-class docutils literal"><span class="pre">ColorFieldDefWithCondition</span></code></a>, <a class="reference internal" href="../core/altair.ColorValueDefWithCondition.html#altair.ColorValueDefWithCondition" title="altair.ColorValueDefWithCondition"><code class="xref py py-class docutils literal"><span class="pre">ColorValueDefWithCondition</span></code></a>)</span></dt>
+<dt><strong>fill</strong> <span class="classifier-delimiter">:</span> <span class="classifier">anyOf(<a class="reference internal" href="../core/altair.StringFieldDefWithCondition.html#altair.StringFieldDefWithCondition" title="altair.StringFieldDefWithCondition"><code class="xref py py-class docutils literal"><span class="pre">StringFieldDefWithCondition</span></code></a>, <a class="reference internal" href="../core/altair.StringValueDefWithCondition.html#altair.StringValueDefWithCondition" title="altair.StringValueDefWithCondition"><code class="xref py py-class docutils literal"><span class="pre">StringValueDefWithCondition</span></code></a>)</span></dt>
 <dd><p class="first">Fill color of the marks.
 <strong>Default value:</strong> If undefined, the default color depends on <a class="reference external" href="https://vega.github.io/vega-lite/docs/config.html#mark">mark config</a> ‘s <code class="docutils literal"><span class="pre">color</span></code> property.</p>
 <p class="last"><em>Note:</em> When using <code class="docutils literal"><span class="pre">fill</span></code> channel, <code class="docutils literal"><span class="pre">color</span></code> channel will be ignored. To customize
@@ -7667,7 +7675,7 @@ property.</p>
 <dt><strong>href</strong> <span class="classifier-delimiter">:</span> <span class="classifier">anyOf(<a class="reference internal" href="../core/altair.TextFieldDefWithCondition.html#altair.TextFieldDefWithCondition" title="altair.TextFieldDefWithCondition"><code class="xref py py-class docutils literal"><span class="pre">TextFieldDefWithCondition</span></code></a>, <a class="reference internal" href="../core/altair.TextValueDefWithCondition.html#altair.TextValueDefWithCondition" title="altair.TextValueDefWithCondition"><code class="xref py py-class docutils literal"><span class="pre">TextValueDefWithCondition</span></code></a>)</span></dt>
 <dd><p class="first last">A URL to load upon mouse click.</p>
 </dd>
-<dt><strong>key</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference internal" href="../core/altair.FieldDef.html#altair.FieldDef" title="altair.FieldDef"><code class="xref py py-class docutils literal"><span class="pre">FieldDef</span></code></a></span></dt>
+<dt><strong>key</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference internal" href="../core/altair.FieldDefWithoutScale.html#altair.FieldDefWithoutScale" title="altair.FieldDefWithoutScale"><code class="xref py py-class docutils literal"><span class="pre">FieldDefWithoutScale</span></code></a></span></dt>
 <dd><p class="first last">A data field to use as a unique key for data binding. When a visualization’s data is
 updated, the key value will be used to match data elements to existing mark
 instances. Use a key channel to enable object constancy for transitions over dynamic
@@ -7739,7 +7747,7 @@ of the mark.</li>
 instead of line with varying size)</li>
 </ul>
 </dd>
-<dt><strong>stroke</strong> <span class="classifier-delimiter">:</span> <span class="classifier">anyOf(<a class="reference internal" href="../core/altair.ColorFieldDefWithCondition.html#altair.ColorFieldDefWithCondition" title="altair.ColorFieldDefWithCondition"><code class="xref py py-class docutils literal"><span class="pre">ColorFieldDefWithCondition</span></code></a>, <a class="reference internal" href="../core/altair.ColorValueDefWithCondition.html#altair.ColorValueDefWithCondition" title="altair.ColorValueDefWithCondition"><code class="xref py py-class docutils literal"><span class="pre">ColorValueDefWithCondition</span></code></a>)</span></dt>
+<dt><strong>stroke</strong> <span class="classifier-delimiter">:</span> <span class="classifier">anyOf(<a class="reference internal" href="../core/altair.StringFieldDefWithCondition.html#altair.StringFieldDefWithCondition" title="altair.StringFieldDefWithCondition"><code class="xref py py-class docutils literal"><span class="pre">StringFieldDefWithCondition</span></code></a>, <a class="reference internal" href="../core/altair.StringValueDefWithCondition.html#altair.StringValueDefWithCondition" title="altair.StringValueDefWithCondition"><code class="xref py py-class docutils literal"><span class="pre">StringValueDefWithCondition</span></code></a>)</span></dt>
 <dd><p class="first">Stroke color of the marks.
 <strong>Default value:</strong> If undefined, the default color depends on <a class="reference external" href="https://vega.github.io/vega-lite/docs/config.html#mark">mark config</a> ‘s <code class="docutils literal"><span class="pre">color</span></code> property.</p>
 <p class="last"><em>Note:</em> When using <code class="docutils literal"><span class="pre">stroke</span></code> channel, <code class="docutils literal"><span class="pre">color</span></code> channel will be ignored. To
@@ -7809,11 +7817,47 @@ property.</p>
 
 <dl class="method">
 <dt id="altair.Chart.facet">
-<code class="descname">facet</code><span class="sig-paren">(</span><em>row=Undefined</em>, <em>column=Undefined</em>, <em>data=Undefined</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Chart.facet" title="Permalink to this definition">¶</a></dt>
+<code class="descname">facet</code><span class="sig-paren">(</span><em>facet=Undefined</em>, <em>row=Undefined</em>, <em>column=Undefined</em>, <em>data=Undefined</em>, <em>columns=Undefined</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Chart.facet" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a facet chart from the current chart.</p>
 <p>Faceted charts require data to be specified at the top level; if data
 is not specified, the data from the current chart will be used at the
 top level.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>facet</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string or alt.Facet (optional)</span></dt>
+<dd><p class="first last">The data column to use as an encoding for a wrapped facet.
+If specified, then neither row nor column may be specified.</p>
+</dd>
+<dt><strong>column</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string or alt.Column (optional)</span></dt>
+<dd><p class="first last">The data column to use as an encoding for a column facet.
+May be combined with row argument, but not with facet argument.</p>
+</dd>
+<dt><strong>row</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string or alt.Column (optional)</span></dt>
+<dd><p class="first last">The data column to use as an encoding for a row facet.
+May be combined with column argument, but not with facet argument.</p>
+</dd>
+<dt><strong>data</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string or dataframe (optional)</span></dt>
+<dd><p class="first last">The dataset to use for faceting. If not supplied, then data must
+be specified in the top-level chart that calls this method.</p>
+</dd>
+<dt><strong>columns</strong> <span class="classifier-delimiter">:</span> <span class="classifier">integer</span></dt>
+<dd><p class="first last">the maximum number of columns for a wrapped facet.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>self :</strong></dt>
+<dd><p class="first last">for chaining</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="classmethod">
@@ -8025,7 +8069,7 @@ unique among all selections within the chart.</p>
 <dl class="method">
 <dt id="altair.Chart.project">
 <code class="descname">project</code><span class="sig-paren">(</span><em>type='mercator'</em>, <em>center=Undefined</em>, <em>clipAngle=Undefined</em>, <em>clipExtent=Undefined</em>, <em>coefficient=Undefined</em>, <em>distance=Undefined</em>, <em>fraction=Undefined</em>, <em>lobes=Undefined</em>, <em>parallel=Undefined</em>, <em>precision=Undefined</em>, <em>radius=Undefined</em>, <em>ratio=Undefined</em>, <em>rotate=Undefined</em>, <em>spacing=Undefined</em>, <em>tilt=Undefined</em>, <em>**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Chart.project" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add a geographic projection to the chartself.</p>
+<dd><p>Add a geographic projection to the chart.</p>
 <p>This is generally used either with <code class="docutils literal"><span class="pre">mark_geoshape</span></code> or with the
 <code class="docutils literal"><span class="pre">latitude</span></code>/<code class="docutils literal"><span class="pre">longitude</span></code> encodings.</p>
 <p>Available projection types are
@@ -8111,7 +8155,7 @@ pitch and roll.)</p>
 
 <dl class="method">
 <dt id="altair.Chart.repeat">
-<code class="descname">repeat</code><span class="sig-paren">(</span><em>row=Undefined</em>, <em>column=Undefined</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Chart.repeat" title="Permalink to this definition">¶</a></dt>
+<code class="descname">repeat</code><span class="sig-paren">(</span><em>repeat=Undefined</em>, <em>row=Undefined</em>, <em>column=Undefined</em>, <em>columns=Undefined</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Chart.repeat" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a RepeatChart built from the chart</p>
 <p>Fields within the chart can be set to correspond to the row or
 column using <cite>alt.repeat(‘row’)</cite> and <cite>alt.repeat(‘column’)</cite>.</p>
@@ -8120,11 +8164,22 @@ column using <cite>alt.repeat(‘row’)</cite> and <cite>alt.repeat(‘column�
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>repeat</strong> <span class="classifier-delimiter">:</span> <span class="classifier">list</span></dt>
+<dd><p class="first last">a list of data column names to be repeated. This cannot be
+used along with the <code class="docutils literal"><span class="pre">row</span></code> or <code class="docutils literal"><span class="pre">column</span></code> argument.</p>
+</dd>
 <dt><strong>row</strong> <span class="classifier-delimiter">:</span> <span class="classifier">list</span></dt>
 <dd><p class="first last">a list of data column names to be mapped to the row facet</p>
 </dd>
 <dt><strong>column</strong> <span class="classifier-delimiter">:</span> <span class="classifier">list</span></dt>
 <dd><p class="first last">a list of data column names to be mapped to the column facet</p>
+</dd>
+<dt><strong>columns</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd><p class="first last">the maximum number of columns before wrapping. Only referenced
+if <code class="docutils literal"><span class="pre">repeat</span></code> is specified.</p>
+</dd>
+<dt><strong>**kwargs :</strong></dt>
+<dd><p class="first last">additional keywords passed to RepeatChart.</p>
 </dd>
 </dl>
 </td>
@@ -8243,7 +8298,7 @@ column using <cite>alt.repeat(‘row’)</cite> and <cite>alt.repeat(‘column�
 
 <dl class="method">
 <dt id="altair.Chart.save">
-<code class="descname">save</code><span class="sig-paren">(</span><em>fp</em>, <em>format=None</em>, <em>override_data_transformer=True</em>, <em>scale_factor=1.0</em>, <em>vegalite_version='3.2.1'</em>, <em>vega_version='4'</em>, <em>vegaembed_version='3'</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Chart.save" title="Permalink to this definition">¶</a></dt>
+<code class="descname">save</code><span class="sig-paren">(</span><em>fp</em>, <em>format=None</em>, <em>override_data_transformer=True</em>, <em>scale_factor=1.0</em>, <em>vegalite_version='3.3.0'</em>, <em>vega_version='5'</em>, <em>vegaembed_version='4'</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Chart.save" title="Permalink to this definition">¶</a></dt>
 <dd><p>Save a chart to file in a variety of formats</p>
 <p>Supported formats are json, html, png, svg</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -8259,9 +8314,9 @@ column using <cite>alt.repeat(‘row’)</cite> and <cite>alt.repeat(‘column�
 If not specified, the format will be determined from the filename.</p>
 </dd>
 <dt><strong>override_data_transformer</strong> <span class="classifier-delimiter">:</span> <span class="classifier">boolean (optional)</span></dt>
-<dd><p class="first last">If True (default), then the save action will be done with the
-default data_transformer with max_rows set to None. If False,
-then use the currently active data transformer.</p>
+<dd><p class="first last">If True (default), then the save action will be done with
+the MaxRowsError disabled. If False, then do not change the data
+transformer.</p>
 </dd>
 <dt><strong>scale_factor</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
 <dd><p class="first last">For svg or png formats, scale the image by this factor when saving.
@@ -8837,8 +8892,8 @@ unspecified, all data points will be in a single group.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">chart</span><span class="o">.</span><span class="n">transform</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="go">JoinAggregateTransform({</span>
 <span class="go">  joinaggregate: [JoinAggregateFieldDef({</span>
-<span class="go">    as: &#39;x&#39;,</span>
-<span class="go">    field: &#39;y&#39;,</span>
+<span class="go">    as: FieldName(&#39;x&#39;),</span>
+<span class="go">    field: FieldName(&#39;y&#39;),</span>
 <span class="go">    op: AggregateOp(&#39;sum&#39;)</span>
 <span class="go">  })]</span>
 <span class="go">})</span>
@@ -9189,7 +9244,7 @@ rootschema</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'3.0.0',
+            VERSION:'3.1.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -9200,9 +9255,9 @@ rootschema</p>
       <script type="text/javascript" src="../../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5.3"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.2"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@4.0"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5.4"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.3"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@4.2"></script>
 
   
 

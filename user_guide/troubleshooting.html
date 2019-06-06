@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Display Troubleshooting &mdash; Altair 3.0.0 documentation</title>
+  <title>Display Troubleshooting &mdash; Altair 3.1.0 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                3.0.0
+                3.1.0
               </div>
             
           
@@ -129,6 +129,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#notebook-textual-chart-representation">Notebook: Textual Chart Representation</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#trouble-shooting-altair-outside-of-jupyter">Trouble-shooting Altair outside of Jupyter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#general-trouble-shooting">General Trouble-shooting</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#plot-displays-but-the-content-is-empty">Plot displays, but the content is empty</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#chart-does-not-display-at-all">Chart does not display at all</a></li>
@@ -242,6 +243,11 @@ check the version with:</p>
 <p>If this is the problem, then use <code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-U</span> <span class="pre">jupyterlab</span></code> or
 <code class="docutils literal"><span class="pre">conda</span> <span class="pre">update</span> <span class="pre">jupyterlab</span></code> to update JupyterLab, depending on how you
 first installed it.</p>
+<p><em>Note: until JupyterLab 1.0 is released, you will need to use the 1.0
+pre-release with Altair 3. This can be installed using</em>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ pip install -U --pre jupyterlab
+</pre></div>
+</div>
 </div>
 <div class="section" id="jupyterlab-vegalite-2-object">
 <span id="jupyterlab-vega-lite-2-object"></span><h3>JupyterLab: VegaLite 2 Object<a class="headerlink" href="#jupyterlab-vegalite-2-object" title="Permalink to this headline">¶</a></h3>
@@ -390,6 +396,8 @@ to Altair version 3 and follow the instructions at <a class="reference internal"
 <span id="id3"></span><h3>Notebook: Textual Chart Representation<a class="headerlink" href="#notebook-textual-chart-representation" title="Permalink to this headline">¶</a></h3>
 <p><em>If you are using the Notebook rather than the JupyterLab, then refer to</em>
 <a class="reference internal" href="#jupyterlab-textual-chart-representation"><span class="std std-ref">JupyterLab: Textual Chart Representation</span></a></p>
+<p><em>If you are not using a Jupyter notebook environment, then refer to</em>
+<a class="reference internal" href="#troubleshooting-non-notebook"><span class="std std-ref">Trouble-shooting Altair outside of Jupyter</span></a>.</p>
 <p>If you are using Jupyter notebook and see a textual representation of the Chart
 object similar to this:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Chart</span><span class="p">({</span>
@@ -415,6 +423,15 @@ choose “Kernel”-&gt;”Change Kernel” and then select “Python 2” or �
 depending on what version of Python you used when installing Altair.</p>
 </div>
 </div>
+<div class="section" id="trouble-shooting-altair-outside-of-jupyter">
+<span id="troubleshooting-non-notebook"></span><h2>Trouble-shooting Altair outside of Jupyter<a class="headerlink" href="#trouble-shooting-altair-outside-of-jupyter" title="Permalink to this headline">¶</a></h2>
+<p>If you are using Altair outside of a Jupyter notebook environment (such as a
+Python or IPython terminal) charts will be displayed as a textual
+representation. Rendering of Altair charts requires executing Javascript code,
+which your Python terminal cannot do natively.</p>
+<p>For recommendations on how to use Altair outside of notebook environments,
+see <a class="reference internal" href="display_frontends.html#display-general"><span class="std std-ref">Working in non-Notebook Environments</span></a>.</p>
+</div>
 <div class="section" id="general-trouble-shooting">
 <span id="troubleshooting-general"></span><h2>General Trouble-shooting<a class="headerlink" href="#general-trouble-shooting" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="plot-displays-but-the-content-is-empty">
@@ -434,7 +451,7 @@ depending on what version of Python you used when installing Altair.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"url": "nonexistent_file.csv"}, "mark": "line", "encoding": {"x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "y"}}, "$schema": "https://vega.github.io/schema/vega-lite/v3.2.1.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"url": "nonexistent_file.csv"}, "mark": "line", "encoding": {"x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "y"}}, "$schema": "https://vega.github.io/schema/vega-lite/v3.3.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -465,7 +482,7 @@ in the data; for example:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"name": "data-6ef4eb0433870443fb20a26352f02d1b"}, "mark": "point", "encoding": {"color": {"type": "quantitative", "field": "color"}, "x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "y"}}, "$schema": "https://vega.github.io/schema/vega-lite/v3.2.1.json", "datasets": {"data-6ef4eb0433870443fb20a26352f02d1b": [{"x": 1, "y": 3}, {"x": 2, "y": 1}, {"x": 3, "y": 4}]}};
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"name": "data-6ef4eb0433870443fb20a26352f02d1b"}, "mark": "point", "encoding": {"color": {"type": "quantitative", "field": "color"}, "x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "y"}}, "$schema": "https://vega.github.io/schema/vega-lite/v3.3.0.json", "datasets": {"data-6ef4eb0433870443fb20a26352f02d1b": [{"x": 1, "y": 3}, {"x": 2, "y": 1}, {"x": 3, "y": 4}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -524,7 +541,7 @@ an evaluation of that variable:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"type": "nominal", "field": "Origin"}, "x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "$schema": "https://vega.github.io/schema/vega-lite/v3.2.1.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"type": "nominal", "field": "Origin"}, "x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "$schema": "https://vega.github.io/schema/vega-lite/v3.3.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -549,7 +566,7 @@ displayed as an output:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"type": "nominal", "field": "Origin"}, "x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "$schema": "https://vega.github.io/schema/vega-lite/v3.2.1.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"type": "nominal", "field": "Origin"}, "x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "$schema": "https://vega.github.io/schema/vega-lite/v3.3.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -604,7 +621,7 @@ displayed as an output:</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.0.0',
+            VERSION:'3.1.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -615,9 +632,9 @@ displayed as an output:</p>
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5.3"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.2"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@4.0"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5.4"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.3"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@4.2"></script>
 
   
 

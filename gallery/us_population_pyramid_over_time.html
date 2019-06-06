@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>US Population Pyramid Over Time &mdash; Altair 3.0.0 documentation</title>
+  <title>US Population Pyramid Over Time &mdash; Altair 3.1.0 documentation</title>
   
 
   
@@ -34,7 +34,7 @@
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Wheat and Wages" href="wheat_wages.html" />
+    <link rel="next" title="US Population: Wrapped Facet" href="us_population_over_time_facet.html" />
     <link rel="prev" title="US Population Over Time" href="us_population_over_time.html" /> 
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                3.0.0
+                3.1.0
               </div>
             
           
@@ -132,6 +132,7 @@
 <li class="toctree-l3 current"><a class="current reference internal" href="#">US Population Pyramid Over Time</a><ul class="simple">
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="us_population_over_time_facet.html">US Population: Wrapped Facet</a></li>
 <li class="toctree-l3"><a class="reference internal" href="wheat_wages.html">Wheat and Wages</a></li>
 </ul>
 </li>
@@ -245,7 +246,7 @@ distribution over time.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "concat": [{"data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "bar", "encoding": {"color": {"type": "nominal", "field": "gender", "legend": null, "scale": {"domain": ["Male", "Female"], "range": ["#1f77b4", "#e377c2"]}}, "x": {"type": "quantitative", "aggregate": "sum", "field": "people", "sort": "descending", "title": "population"}, "y": {"type": "ordinal", "axis": null, "field": "age"}}, "selection": {"year": {"type": "single", "fields": ["year"], "bind": {"input": "range", "max": 2000, "min": 1850, "step": 10}, "init": {"year": 2000}}}, "title": "Female", "transform": [{"filter": {"selection": "year"}}, {"calculate": "if((datum.sex === 1),'Male','Female')", "as": "gender"}, {"filter": "(datum.gender === 'Female')"}], "width": 250}, {"data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "text", "encoding": {"text": {"type": "quantitative", "field": "age"}, "y": {"type": "ordinal", "axis": null, "field": "age"}}, "selection": {"year": {"type": "single", "fields": ["year"], "bind": {"input": "range", "max": 2000, "min": 1850, "step": 10}, "init": {"year": 2000}}}, "transform": [{"filter": {"selection": "year"}}, {"calculate": "if((datum.sex === 1),'Male','Female')", "as": "gender"}], "width": 20}, {"data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "bar", "encoding": {"color": {"type": "nominal", "field": "gender", "legend": null, "scale": {"domain": ["Male", "Female"], "range": ["#1f77b4", "#e377c2"]}}, "x": {"type": "quantitative", "aggregate": "sum", "field": "people", "title": "population"}, "y": {"type": "ordinal", "axis": null, "field": "age"}}, "selection": {"year": {"type": "single", "fields": ["year"], "bind": {"input": "range", "max": 2000, "min": 1850, "step": 10}, "init": {"year": 2000}}}, "title": "Male", "transform": [{"filter": {"selection": "year"}}, {"calculate": "if((datum.sex === 1),'Male','Female')", "as": "gender"}, {"filter": "(datum.gender === 'Male')"}], "width": 250}], "spacing": 5, "$schema": "https://vega.github.io/schema/vega-lite/v3.2.1.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "concat": [{"mark": "bar", "encoding": {"color": {"type": "nominal", "field": "gender", "legend": null, "scale": {"domain": ["Male", "Female"], "range": ["#1f77b4", "#e377c2"]}}, "x": {"type": "quantitative", "aggregate": "sum", "field": "people", "sort": "descending", "title": "population"}, "y": {"type": "ordinal", "axis": null, "field": "age"}}, "selection": {"year": {"type": "single", "fields": ["year"], "bind": {"input": "range", "max": 2000, "min": 1850, "step": 10}, "init": {"year": 2000}}}, "title": "Female", "transform": [{"filter": {"selection": "year"}}, {"calculate": "if((datum.sex === 1),'Male','Female')", "as": "gender"}, {"filter": "(datum.gender === 'Female')"}], "width": 250}, {"mark": "text", "encoding": {"text": {"type": "quantitative", "field": "age"}, "y": {"type": "ordinal", "axis": null, "field": "age"}}, "selection": {"year": {"type": "single", "fields": ["year"], "bind": {"input": "range", "max": 2000, "min": 1850, "step": 10}, "init": {"year": 2000}}}, "transform": [{"filter": {"selection": "year"}}, {"calculate": "if((datum.sex === 1),'Male','Female')", "as": "gender"}], "width": 20}, {"mark": "bar", "encoding": {"color": {"type": "nominal", "field": "gender", "legend": null, "scale": {"domain": ["Male", "Female"], "range": ["#1f77b4", "#e377c2"]}}, "x": {"type": "quantitative", "aggregate": "sum", "field": "people", "title": "population"}, "y": {"type": "ordinal", "axis": null, "field": "age"}}, "selection": {"year": {"type": "single", "fields": ["year"], "bind": {"input": "range", "max": 2000, "min": 1850, "step": 10}, "init": {"year": 2000}}}, "title": "Male", "transform": [{"filter": {"selection": "year"}}, {"calculate": "if((datum.sex === 1),'Male','Female')", "as": "gender"}, {"filter": "(datum.gender === 'Male')"}], "width": 250}], "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "spacing": 5, "$schema": "https://vega.github.io/schema/vega-lite/v3.3.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -315,7 +316,7 @@ distribution over time.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="wheat_wages.html" class="btn btn-neutral float-right" title="Wheat and Wages" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="us_population_over_time_facet.html" class="btn btn-neutral float-right" title="US Population: Wrapped Facet" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="us_population_over_time.html" class="btn btn-neutral" title="US Population Over Time" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -349,7 +350,7 @@ distribution over time.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.0.0',
+            VERSION:'3.1.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -360,9 +361,9 @@ distribution over time.</p>
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5.3"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.2"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@4.0"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5.4"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.3"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@4.2"></script>
 
   
 

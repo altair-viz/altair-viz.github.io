@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Atmospheric CO2 Concentration &mdash; Altair 3.0.0 documentation</title>
+  <title>Atmospheric CO2 Concentration &mdash; Altair 3.1.0 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                3.0.0
+                3.1.0
               </div>
             
           
@@ -132,6 +132,7 @@
 <li class="toctree-l3"><a class="reference internal" href="us_state_capitals.html">U.S. state capitals overlayed on a map of the U.S</a></li>
 <li class="toctree-l3"><a class="reference internal" href="us_population_over_time.html">US Population Over Time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="us_population_pyramid_over_time.html">US Population Pyramid Over Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="us_population_over_time_facet.html">US Population: Wrapped Facet</a></li>
 <li class="toctree-l3"><a class="reference internal" href="wheat_wages.html">Wheat and Wages</a></li>
 </ul>
 </li>
@@ -244,7 +245,7 @@ It was inspired by <a class="reference external" href="https://www.datawrapper.d
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}, "text": {"align": "left", "dx": 1, "dy": 3}}, "layer": [{"data": {"url": "https://vega.github.io/vega-datasets/data/co2-concentration.csv"}, "mark": "line", "encoding": {"color": {"type": "ordinal", "field": "decade", "legend": null, "scale": {"scheme": "magma"}}, "x": {"type": "quantitative", "axis": {"tickCount": 11, "title": "Year into Decade"}, "field": "scaled_date"}, "y": {"type": "quantitative", "field": "CO2", "scale": {"zero": false}, "title": "CO2 concentration in ppm"}}, "title": "Carbon Dioxide in the Atmosphere", "transform": [{"calculate": "year(datum.Date)", "as": "year"}, {"calculate": "floor(datum.year / 10)", "as": "decade"}, {"calculate": "(datum.year % 10) + (month(datum.Date)/12)", "as": "scaled_date"}, {"window": [{"op": "first_value", "field": "scaled_date", "as": "first_date"}, {"op": "last_value", "field": "scaled_date", "as": "last_date"}], "frame": [null, null], "groupby": ["decade"], "sort": [{"field": "scaled_date", "order": "ascending"}]}, {"calculate": "datum.first_date === datum.scaled_date ? 'first' : datum.last_date === datum.scaled_date ? 'last' : null", "as": "end"}]}, {"data": {"url": "https://vega.github.io/vega-datasets/data/co2-concentration.csv"}, "mark": {"type": "text", "baseline": "top"}, "encoding": {"text": {"type": "nominal", "field": "year"}, "x": {"type": "quantitative", "axis": {"tickCount": 11, "title": "Year into Decade"}, "field": "scaled_date"}, "y": {"type": "quantitative", "field": "CO2", "scale": {"zero": false}, "title": "CO2 concentration in ppm"}}, "title": "Carbon Dioxide in the Atmosphere", "transform": [{"calculate": "year(datum.Date)", "as": "year"}, {"calculate": "floor(datum.year / 10)", "as": "decade"}, {"calculate": "(datum.year % 10) + (month(datum.Date)/12)", "as": "scaled_date"}, {"window": [{"op": "first_value", "field": "scaled_date", "as": "first_date"}, {"op": "last_value", "field": "scaled_date", "as": "last_date"}], "frame": [null, null], "groupby": ["decade"], "sort": [{"field": "scaled_date", "order": "ascending"}]}, {"calculate": "datum.first_date === datum.scaled_date ? 'first' : datum.last_date === datum.scaled_date ? 'last' : null", "as": "end"}, {"filter": "(datum.end === 'first')"}]}, {"data": {"url": "https://vega.github.io/vega-datasets/data/co2-concentration.csv"}, "mark": {"type": "text", "baseline": "bottom"}, "encoding": {"text": {"type": "nominal", "field": "year"}, "x": {"type": "quantitative", "axis": {"tickCount": 11, "title": "Year into Decade"}, "field": "scaled_date"}, "y": {"type": "quantitative", "field": "CO2", "scale": {"zero": false}, "title": "CO2 concentration in ppm"}}, "title": "Carbon Dioxide in the Atmosphere", "transform": [{"calculate": "year(datum.Date)", "as": "year"}, {"calculate": "floor(datum.year / 10)", "as": "decade"}, {"calculate": "(datum.year % 10) + (month(datum.Date)/12)", "as": "scaled_date"}, {"window": [{"op": "first_value", "field": "scaled_date", "as": "first_date"}, {"op": "last_value", "field": "scaled_date", "as": "last_date"}], "frame": [null, null], "groupby": ["decade"], "sort": [{"field": "scaled_date", "order": "ascending"}]}, {"calculate": "datum.first_date === datum.scaled_date ? 'first' : datum.last_date === datum.scaled_date ? 'last' : null", "as": "end"}, {"filter": "(datum.end === 'last')"}]}], "height": 375, "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v3.2.1.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}, "text": {"align": "left", "dx": 1, "dy": 3}}, "layer": [{"mark": "line", "encoding": {"color": {"type": "ordinal", "field": "decade", "legend": null, "scale": {"scheme": "magma"}}, "x": {"type": "quantitative", "axis": {"tickCount": 11, "title": "Year into Decade"}, "field": "scaled_date"}, "y": {"type": "quantitative", "field": "CO2", "scale": {"zero": false}, "title": "CO2 concentration in ppm"}}, "title": "Carbon Dioxide in the Atmosphere", "transform": [{"calculate": "year(datum.Date)", "as": "year"}, {"calculate": "floor(datum.year / 10)", "as": "decade"}, {"calculate": "(datum.year % 10) + (month(datum.Date)/12)", "as": "scaled_date"}, {"window": [{"op": "first_value", "field": "scaled_date", "as": "first_date"}, {"op": "last_value", "field": "scaled_date", "as": "last_date"}], "frame": [null, null], "groupby": ["decade"], "sort": [{"field": "scaled_date", "order": "ascending"}]}, {"calculate": "datum.first_date === datum.scaled_date ? 'first' : datum.last_date === datum.scaled_date ? 'last' : null", "as": "end"}]}, {"mark": {"type": "text", "baseline": "top"}, "encoding": {"text": {"type": "nominal", "field": "year"}, "x": {"type": "quantitative", "axis": {"tickCount": 11, "title": "Year into Decade"}, "field": "scaled_date"}, "y": {"type": "quantitative", "field": "CO2", "scale": {"zero": false}, "title": "CO2 concentration in ppm"}}, "title": "Carbon Dioxide in the Atmosphere", "transform": [{"calculate": "year(datum.Date)", "as": "year"}, {"calculate": "floor(datum.year / 10)", "as": "decade"}, {"calculate": "(datum.year % 10) + (month(datum.Date)/12)", "as": "scaled_date"}, {"window": [{"op": "first_value", "field": "scaled_date", "as": "first_date"}, {"op": "last_value", "field": "scaled_date", "as": "last_date"}], "frame": [null, null], "groupby": ["decade"], "sort": [{"field": "scaled_date", "order": "ascending"}]}, {"calculate": "datum.first_date === datum.scaled_date ? 'first' : datum.last_date === datum.scaled_date ? 'last' : null", "as": "end"}, {"filter": "(datum.end === 'first')"}]}, {"mark": {"type": "text", "baseline": "bottom"}, "encoding": {"text": {"type": "nominal", "field": "year"}, "x": {"type": "quantitative", "axis": {"tickCount": 11, "title": "Year into Decade"}, "field": "scaled_date"}, "y": {"type": "quantitative", "field": "CO2", "scale": {"zero": false}, "title": "CO2 concentration in ppm"}}, "title": "Carbon Dioxide in the Atmosphere", "transform": [{"calculate": "year(datum.Date)", "as": "year"}, {"calculate": "floor(datum.year / 10)", "as": "decade"}, {"calculate": "(datum.year % 10) + (month(datum.Date)/12)", "as": "scaled_date"}, {"window": [{"op": "first_value", "field": "scaled_date", "as": "first_date"}, {"op": "last_value", "field": "scaled_date", "as": "last_date"}], "frame": [null, null], "groupby": ["decade"], "sort": [{"field": "scaled_date", "order": "ascending"}]}, {"calculate": "datum.first_date === datum.scaled_date ? 'first' : datum.last_date === datum.scaled_date ? 'last' : null", "as": "end"}, {"filter": "(datum.end === 'last')"}]}], "data": {"url": "https://vega.github.io/vega-datasets/data/co2-concentration.csv"}, "height": 375, "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v3.3.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -358,7 +359,7 @@ It was inspired by <a class="reference external" href="https://www.datawrapper.d
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.0.0',
+            VERSION:'3.1.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -369,9 +370,9 @@ It was inspired by <a class="reference external" href="https://www.datawrapper.d
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5.3"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.2"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@4.0"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5.4"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.3"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@4.2"></script>
 
   
 

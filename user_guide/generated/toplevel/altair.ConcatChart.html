@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>altair.ConcatChart &mdash; Altair 3.0.0 documentation</title>
+  <title>altair.ConcatChart &mdash; Altair 3.1.0 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                3.0.0
+                3.1.0
               </div>
             
           
@@ -500,12 +500,12 @@ schema.</p>
 <td>Instantiate the object from a valid JSON string</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#altair.ConcatChart.project" title="altair.ConcatChart.project"><code class="xref py py-obj docutils literal"><span class="pre">project</span></code></a>([type,&nbsp;center,&nbsp;clipAngle,&nbsp;…])</td>
-<td>Add a geographic projection to the chartself.</td>
+<td>Add a geographic projection to the chart.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#altair.ConcatChart.properties" title="altair.ConcatChart.properties"><code class="xref py py-obj docutils literal"><span class="pre">properties</span></code></a>(**kwargs)</td>
 <td>Set top-level properties of the Chart.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#altair.ConcatChart.repeat" title="altair.ConcatChart.repeat"><code class="xref py py-obj docutils literal"><span class="pre">repeat</span></code></a>([row,&nbsp;column])</td>
+<tr class="row-even"><td><a class="reference internal" href="#altair.ConcatChart.repeat" title="altair.ConcatChart.repeat"><code class="xref py py-obj docutils literal"><span class="pre">repeat</span></code></a>([repeat,&nbsp;row,&nbsp;column,&nbsp;columns])</td>
 <td>Return a RepeatChart built from the chart</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#altair.ConcatChart.resolve_axis" title="altair.ConcatChart.resolve_axis"><code class="xref py py-obj docutils literal"><span class="pre">resolve_axis</span></code></a>([x,&nbsp;y])</td>
@@ -4604,7 +4604,7 @@ automatically truncated if the rendered size exceeds the limit.</p>
 
 <dl class="method">
 <dt id="altair.ConcatChart.configure_legend">
-<code class="descname">configure_legend</code><span class="sig-paren">(</span><em>clipHeight=Undefined</em>, <em>columnPadding=Undefined</em>, <em>columns=Undefined</em>, <em>cornerRadius=Undefined</em>, <em>fillColor=Undefined</em>, <em>gradientDirection=Undefined</em>, <em>gradientHorizontalMaxLength=Undefined</em>, <em>gradientHorizontalMinLength=Undefined</em>, <em>gradientLabelLimit=Undefined</em>, <em>gradientLabelOffset=Undefined</em>, <em>gradientLength=Undefined</em>, <em>gradientOpacity=Undefined</em>, <em>gradientStrokeColor=Undefined</em>, <em>gradientStrokeWidth=Undefined</em>, <em>gradientThickness=Undefined</em>, <em>gradientVerticalMaxLength=Undefined</em>, <em>gradientVerticalMinLength=Undefined</em>, <em>gridAlign=Undefined</em>, <em>labelAlign=Undefined</em>, <em>labelBaseline=Undefined</em>, <em>labelColor=Undefined</em>, <em>labelFont=Undefined</em>, <em>labelFontSize=Undefined</em>, <em>labelFontStyle=Undefined</em>, <em>labelFontWeight=Undefined</em>, <em>labelLimit=Undefined</em>, <em>labelOffset=Undefined</em>, <em>labelOpacity=Undefined</em>, <em>labelOverlap=Undefined</em>, <em>labelPadding=Undefined</em>, <em>labelSeparation=Undefined</em>, <em>layout=Undefined</em>, <em>offset=Undefined</em>, <em>orient=Undefined</em>, <em>padding=Undefined</em>, <em>rowPadding=Undefined</em>, <em>shortTimeLabels=Undefined</em>, <em>strokeColor=Undefined</em>, <em>strokeDash=Undefined</em>, <em>strokeWidth=Undefined</em>, <em>symbolBaseFillColor=Undefined</em>, <em>symbolBaseStrokeColor=Undefined</em>, <em>symbolDash=Undefined</em>, <em>symbolDashOffset=Undefined</em>, <em>symbolDirection=Undefined</em>, <em>symbolFillColor=Undefined</em>, <em>symbolOffset=Undefined</em>, <em>symbolOpacity=Undefined</em>, <em>symbolSize=Undefined</em>, <em>symbolStrokeColor=Undefined</em>, <em>symbolStrokeWidth=Undefined</em>, <em>symbolType=Undefined</em>, <em>title=Undefined</em>, <em>titleAlign=Undefined</em>, <em>titleAnchor=Undefined</em>, <em>titleBaseline=Undefined</em>, <em>titleColor=Undefined</em>, <em>titleFont=Undefined</em>, <em>titleFontSize=Undefined</em>, <em>titleFontStyle=Undefined</em>, <em>titleFontWeight=Undefined</em>, <em>titleLimit=Undefined</em>, <em>titleOpacity=Undefined</em>, <em>titleOrient=Undefined</em>, <em>titlePadding=Undefined</em>, <em>**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.ConcatChart.configure_legend" title="Permalink to this definition">¶</a></dt>
+<code class="descname">configure_legend</code><span class="sig-paren">(</span><em>clipHeight=Undefined</em>, <em>columnPadding=Undefined</em>, <em>columns=Undefined</em>, <em>cornerRadius=Undefined</em>, <em>fillColor=Undefined</em>, <em>gradientDirection=Undefined</em>, <em>gradientHorizontalMaxLength=Undefined</em>, <em>gradientHorizontalMinLength=Undefined</em>, <em>gradientLabelLimit=Undefined</em>, <em>gradientLabelOffset=Undefined</em>, <em>gradientLength=Undefined</em>, <em>gradientOpacity=Undefined</em>, <em>gradientStrokeColor=Undefined</em>, <em>gradientStrokeWidth=Undefined</em>, <em>gradientThickness=Undefined</em>, <em>gradientVerticalMaxLength=Undefined</em>, <em>gradientVerticalMinLength=Undefined</em>, <em>gridAlign=Undefined</em>, <em>labelAlign=Undefined</em>, <em>labelBaseline=Undefined</em>, <em>labelColor=Undefined</em>, <em>labelFont=Undefined</em>, <em>labelFontSize=Undefined</em>, <em>labelFontStyle=Undefined</em>, <em>labelFontWeight=Undefined</em>, <em>labelLimit=Undefined</em>, <em>labelOffset=Undefined</em>, <em>labelOpacity=Undefined</em>, <em>labelOverlap=Undefined</em>, <em>labelPadding=Undefined</em>, <em>labelSeparation=Undefined</em>, <em>layout=Undefined</em>, <em>legendX=Undefined</em>, <em>legendY=Undefined</em>, <em>offset=Undefined</em>, <em>orient=Undefined</em>, <em>padding=Undefined</em>, <em>rowPadding=Undefined</em>, <em>shortTimeLabels=Undefined</em>, <em>strokeColor=Undefined</em>, <em>strokeDash=Undefined</em>, <em>strokeWidth=Undefined</em>, <em>symbolBaseFillColor=Undefined</em>, <em>symbolBaseStrokeColor=Undefined</em>, <em>symbolDash=Undefined</em>, <em>symbolDashOffset=Undefined</em>, <em>symbolDirection=Undefined</em>, <em>symbolFillColor=Undefined</em>, <em>symbolOffset=Undefined</em>, <em>symbolOpacity=Undefined</em>, <em>symbolSize=Undefined</em>, <em>symbolStrokeColor=Undefined</em>, <em>symbolStrokeWidth=Undefined</em>, <em>symbolType=Undefined</em>, <em>title=Undefined</em>, <em>titleAlign=Undefined</em>, <em>titleAnchor=Undefined</em>, <em>titleBaseline=Undefined</em>, <em>titleColor=Undefined</em>, <em>titleFont=Undefined</em>, <em>titleFontSize=Undefined</em>, <em>titleFontStyle=Undefined</em>, <em>titleFontWeight=Undefined</em>, <em>titleLimit=Undefined</em>, <em>titleOpacity=Undefined</em>, <em>titleOrient=Undefined</em>, <em>titlePadding=Undefined</em>, <em>**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.ConcatChart.configure_legend" title="Permalink to this definition">¶</a></dt>
 <dd><p>LegendConfig schema wrapper</p>
 <p>Mapping(required=[])</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -4740,6 +4740,12 @@ considered non-overlapping (default <code class="docutils literal"><span class="
 </dd>
 <dt><strong>layout</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference internal" href="../core/altair.LegendLayout.html#altair.LegendLayout" title="altair.LegendLayout"><code class="xref py py-class docutils literal"><span class="pre">LegendLayout</span></code></a></span></dt>
 <dd><p class="first last">Legend orient group layout parameters.</p>
+</dd>
+<dt><strong>legendX</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">Custom x-position for legend with orient “none”.</p>
+</dd>
+<dt><strong>legendY</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">Custom y-position for legend with orient “none”.</p>
 </dd>
 <dt><strong>offset</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
 <dd><p class="first">The offset in pixels by which to displace the legend from the data rectangle and
@@ -7576,9 +7582,11 @@ visualization has a continuous (non-ordinal) x-scale or ordinal x-scale with
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>deep</strong> <span class="classifier-delimiter">:</span> <span class="classifier">boolean, optional</span></dt>
-<dd><p class="first last">if True (default) then return a deep copy of all dict, list, and
-SchemaBase objects within the object structure</p>
+<dt><strong>deep</strong> <span class="classifier-delimiter">:</span> <span class="classifier">boolean or list, optional</span></dt>
+<dd><p class="first last">If True (default) then return a deep copy of all dict, list, and
+SchemaBase objects within the object structure.
+If False, then only copy the top object.
+If a list or iterable, then only copy the listed attributes.</p>
 </dd>
 <dt><strong>ignore</strong> <span class="classifier-delimiter">:</span> <span class="classifier">list, optional</span></dt>
 <dd><p class="first last">A list of keys for which the contents should not be copied, but
@@ -7698,7 +7706,7 @@ cls._default_wrapper_classes will be used.</p>
 <dl class="method">
 <dt id="altair.ConcatChart.project">
 <code class="descname">project</code><span class="sig-paren">(</span><em>type='mercator'</em>, <em>center=Undefined</em>, <em>clipAngle=Undefined</em>, <em>clipExtent=Undefined</em>, <em>coefficient=Undefined</em>, <em>distance=Undefined</em>, <em>fraction=Undefined</em>, <em>lobes=Undefined</em>, <em>parallel=Undefined</em>, <em>precision=Undefined</em>, <em>radius=Undefined</em>, <em>ratio=Undefined</em>, <em>rotate=Undefined</em>, <em>spacing=Undefined</em>, <em>tilt=Undefined</em>, <em>**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.ConcatChart.project" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add a geographic projection to the chartself.</p>
+<dd><p>Add a geographic projection to the chart.</p>
 <p>This is generally used either with <code class="docutils literal"><span class="pre">mark_geoshape</span></code> or with the
 <code class="docutils literal"><span class="pre">latitude</span></code>/<code class="docutils literal"><span class="pre">longitude</span></code> encodings.</p>
 <p>Available projection types are
@@ -7784,7 +7792,7 @@ pitch and roll.)</p>
 
 <dl class="method">
 <dt id="altair.ConcatChart.repeat">
-<code class="descname">repeat</code><span class="sig-paren">(</span><em>row=Undefined</em>, <em>column=Undefined</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.ConcatChart.repeat" title="Permalink to this definition">¶</a></dt>
+<code class="descname">repeat</code><span class="sig-paren">(</span><em>repeat=Undefined</em>, <em>row=Undefined</em>, <em>column=Undefined</em>, <em>columns=Undefined</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.ConcatChart.repeat" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a RepeatChart built from the chart</p>
 <p>Fields within the chart can be set to correspond to the row or
 column using <cite>alt.repeat(‘row’)</cite> and <cite>alt.repeat(‘column’)</cite>.</p>
@@ -7793,11 +7801,22 @@ column using <cite>alt.repeat(‘row’)</cite> and <cite>alt.repeat(‘column�
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>repeat</strong> <span class="classifier-delimiter">:</span> <span class="classifier">list</span></dt>
+<dd><p class="first last">a list of data column names to be repeated. This cannot be
+used along with the <code class="docutils literal"><span class="pre">row</span></code> or <code class="docutils literal"><span class="pre">column</span></code> argument.</p>
+</dd>
 <dt><strong>row</strong> <span class="classifier-delimiter">:</span> <span class="classifier">list</span></dt>
 <dd><p class="first last">a list of data column names to be mapped to the row facet</p>
 </dd>
 <dt><strong>column</strong> <span class="classifier-delimiter">:</span> <span class="classifier">list</span></dt>
 <dd><p class="first last">a list of data column names to be mapped to the column facet</p>
+</dd>
+<dt><strong>columns</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd><p class="first last">the maximum number of columns before wrapping. Only referenced
+if <code class="docutils literal"><span class="pre">repeat</span></code> is specified.</p>
+</dd>
+<dt><strong>**kwargs :</strong></dt>
+<dd><p class="first last">additional keywords passed to RepeatChart.</p>
 </dd>
 </dl>
 </td>
@@ -7916,7 +7935,7 @@ column using <cite>alt.repeat(‘row’)</cite> and <cite>alt.repeat(‘column�
 
 <dl class="method">
 <dt id="altair.ConcatChart.save">
-<code class="descname">save</code><span class="sig-paren">(</span><em>fp</em>, <em>format=None</em>, <em>override_data_transformer=True</em>, <em>scale_factor=1.0</em>, <em>vegalite_version='3.2.1'</em>, <em>vega_version='4'</em>, <em>vegaembed_version='3'</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.ConcatChart.save" title="Permalink to this definition">¶</a></dt>
+<code class="descname">save</code><span class="sig-paren">(</span><em>fp</em>, <em>format=None</em>, <em>override_data_transformer=True</em>, <em>scale_factor=1.0</em>, <em>vegalite_version='3.3.0'</em>, <em>vega_version='5'</em>, <em>vegaembed_version='4'</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.ConcatChart.save" title="Permalink to this definition">¶</a></dt>
 <dd><p>Save a chart to file in a variety of formats</p>
 <p>Supported formats are json, html, png, svg</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -7932,9 +7951,9 @@ column using <cite>alt.repeat(‘row’)</cite> and <cite>alt.repeat(‘column�
 If not specified, the format will be determined from the filename.</p>
 </dd>
 <dt><strong>override_data_transformer</strong> <span class="classifier-delimiter">:</span> <span class="classifier">boolean (optional)</span></dt>
-<dd><p class="first last">If True (default), then the save action will be done with the
-default data_transformer with max_rows set to None. If False,
-then use the currently active data transformer.</p>
+<dd><p class="first last">If True (default), then the save action will be done with
+the MaxRowsError disabled. If False, then do not change the data
+transformer.</p>
 </dd>
 <dt><strong>scale_factor</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
 <dd><p class="first last">For svg or png formats, scale the image by this factor when saving.
@@ -8510,8 +8529,8 @@ unspecified, all data points will be in a single group.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">chart</span><span class="o">.</span><span class="n">transform</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="go">JoinAggregateTransform({</span>
 <span class="go">  joinaggregate: [JoinAggregateFieldDef({</span>
-<span class="go">    as: &#39;x&#39;,</span>
-<span class="go">    field: &#39;y&#39;,</span>
+<span class="go">    as: FieldName(&#39;x&#39;),</span>
+<span class="go">    field: FieldName(&#39;y&#39;),</span>
 <span class="go">    op: AggregateOp(&#39;sum&#39;)</span>
 <span class="go">  })]</span>
 <span class="go">})</span>
@@ -8862,7 +8881,7 @@ rootschema</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'3.0.0',
+            VERSION:'3.1.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -8873,9 +8892,9 @@ rootschema</p>
       <script type="text/javascript" src="../../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5.3"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.2"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@4.0"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5.4"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.3"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@4.2"></script>
 
   
 

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Top-Level Chart Configuration &mdash; Altair 3.0.0 documentation</title>
+  <title>Top-Level Chart Configuration &mdash; Altair 3.1.0 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                3.0.0
+                3.1.0
               </div>
             
           
@@ -844,7 +844,7 @@ Here is an example:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}, "header": {"labelColor": "red", "labelFontSize": 14, "titleColor": "green", "titleFontSize": 14}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"type": "nominal", "field": "Origin"}, "column": {"type": "nominal", "field": "Origin"}, "x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "height": 180, "width": 180, "$schema": "https://vega.github.io/schema/vega-lite/v3.2.1.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}, "header": {"labelColor": "red", "labelFontSize": 14, "titleColor": "green", "titleFontSize": 14}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"type": "nominal", "field": "Origin"}, "column": {"type": "nominal", "field": "Origin"}, "x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "height": 180, "width": 180, "$schema": "https://vega.github.io/schema/vega-lite/v3.3.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -1026,7 +1026,7 @@ Here is an example:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}, "legend": {"cornerRadius": 10, "fillColor": "#EEEEEE", "orient": "top-right", "padding": 10, "strokeColor": "gray"}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"type": "nominal", "field": "Origin"}, "x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "$schema": "https://vega.github.io/schema/vega-lite/v3.2.1.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}, "legend": {"cornerRadius": 10, "fillColor": "#EEEEEE", "orient": "top-right", "padding": 10, "strokeColor": "gray"}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"type": "nominal", "field": "Origin"}, "x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "$schema": "https://vega.github.io/schema/vega-lite/v3.3.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -1211,6 +1211,14 @@ Here is an example:</p>
 <tr class="row-odd"><td class="vl-prop">layout</td>
 <td><a class="reference internal" href="generated/core/altair.LegendLayout.html#altair.LegendLayout" title="altair.LegendLayout"><code class="xref py py-class docutils literal"><span class="pre">LegendLayout</span></code></a></td>
 <td class="vl-decsr">Legend orient group layout parameters.</td>
+</tr>
+<tr class="row-even"><td class="vl-prop">legendX</td>
+<td><code class="docutils literal"><span class="pre">number</span></code></td>
+<td class="vl-decsr">Custom x-position for legend with orient “none”.</td>
+</tr>
+<tr class="row-odd"><td class="vl-prop">legendY</td>
+<td><code class="docutils literal"><span class="pre">number</span></code></td>
+<td class="vl-decsr">Custom y-position for legend with orient “none”.</td>
 </tr>
 <tr class="row-even"><td class="vl-prop">offset</td>
 <td><code class="docutils literal"><span class="pre">number</span></code></td>
@@ -2072,7 +2080,7 @@ here is an example:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}, "title": {"anchor": "start", "color": "gray", "font": "Courier", "fontSize": 20}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "title": "Cars Data", "$schema": "https://vega.github.io/schema/vega-lite/v3.2.1.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}, "title": {"anchor": "start", "color": "gray", "font": "Courier", "fontSize": 20}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "title": "Cars Data", "$schema": "https://vega.github.io/schema/vega-lite/v3.3.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -2192,7 +2200,7 @@ be controlled:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 200, "height": 200, "fill": "#FFEEDD", "stroke": "red", "strokeWidth": 4}, "mark": {"tooltip": null}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "$schema": "https://vega.github.io/schema/vega-lite/v3.2.1.json"};
+      var spec = {"config": {"view": {"width": 200, "height": 200, "fill": "#FFEEDD", "stroke": "red", "strokeWidth": 4}, "mark": {"tooltip": null}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "$schema": "https://vega.github.io/schema/vega-lite/v3.3.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -2324,7 +2332,7 @@ added to its specification:</p>
 <span class="n">chart</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="highlight-none"><div class="highlight"><pre><span></span>    {&#39;config&#39;: {&#39;view&#39;: {&#39;width&#39;: 400, &#39;height&#39;: 300}, &#39;mark&#39;: {&#39;tooltip&#39;: None}}, &#39;data&#39;: {&#39;url&#39;: &#39;https://vega.github.io/vega-datasets/data/cars.json&#39;}, &#39;mark&#39;: &#39;point&#39;, &#39;encoding&#39;: {&#39;x&#39;: {&#39;type&#39;: &#39;quantitative&#39;, &#39;field&#39;: &#39;Horsepower&#39;}, &#39;y&#39;: {&#39;type&#39;: &#39;quantitative&#39;, &#39;field&#39;: &#39;Miles_per_Gallon&#39;}}, &#39;$schema&#39;: &#39;https://vega.github.io/schema/vega-lite/v3.2.1.json&#39;}
+<div class="highlight-none"><div class="highlight"><pre><span></span>    {&#39;config&#39;: {&#39;view&#39;: {&#39;width&#39;: 400, &#39;height&#39;: 300}, &#39;mark&#39;: {&#39;tooltip&#39;: None}}, &#39;data&#39;: {&#39;url&#39;: &#39;https://vega.github.io/vega-datasets/data/cars.json&#39;}, &#39;mark&#39;: &#39;point&#39;, &#39;encoding&#39;: {&#39;x&#39;: {&#39;type&#39;: &#39;quantitative&#39;, &#39;field&#39;: &#39;Horsepower&#39;}, &#39;y&#39;: {&#39;type&#39;: &#39;quantitative&#39;, &#39;field&#39;: &#39;Miles_per_Gallon&#39;}}, &#39;$schema&#39;: &#39;https://vega.github.io/schema/vega-lite/v3.3.0.json&#39;}
 </pre></div>
 </div>
 <p>The rendered chart will then reflect these configurations:</p>
@@ -2337,7 +2345,7 @@ added to its specification:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "$schema": "https://vega.github.io/schema/vega-lite/v3.2.1.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "$schema": "https://vega.github.io/schema/vega-lite/v3.3.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -2356,7 +2364,7 @@ rather than transparent:</p>
 <span class="n">chart</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="highlight-none"><div class="highlight"><pre><span></span>    {&#39;config&#39;: {&#39;background&#39;: &#39;white&#39;, &#39;view&#39;: {&#39;width&#39;: 400, &#39;height&#39;: 300}, &#39;mark&#39;: {&#39;tooltip&#39;: None}}, &#39;data&#39;: {&#39;url&#39;: &#39;https://vega.github.io/vega-datasets/data/cars.json&#39;}, &#39;mark&#39;: &#39;point&#39;, &#39;encoding&#39;: {&#39;x&#39;: {&#39;type&#39;: &#39;quantitative&#39;, &#39;field&#39;: &#39;Horsepower&#39;}, &#39;y&#39;: {&#39;type&#39;: &#39;quantitative&#39;, &#39;field&#39;: &#39;Miles_per_Gallon&#39;}}, &#39;$schema&#39;: &#39;https://vega.github.io/schema/vega-lite/v3.2.1.json&#39;}
+<div class="highlight-none"><div class="highlight"><pre><span></span>    {&#39;config&#39;: {&#39;background&#39;: &#39;white&#39;, &#39;view&#39;: {&#39;width&#39;: 400, &#39;height&#39;: 300}, &#39;mark&#39;: {&#39;tooltip&#39;: None}}, &#39;data&#39;: {&#39;url&#39;: &#39;https://vega.github.io/vega-datasets/data/cars.json&#39;}, &#39;mark&#39;: &#39;point&#39;, &#39;encoding&#39;: {&#39;x&#39;: {&#39;type&#39;: &#39;quantitative&#39;, &#39;field&#39;: &#39;Horsepower&#39;}, &#39;y&#39;: {&#39;type&#39;: &#39;quantitative&#39;, &#39;field&#39;: &#39;Miles_per_Gallon&#39;}}, &#39;$schema&#39;: &#39;https://vega.github.io/schema/vega-lite/v3.3.0.json&#39;}
 </pre></div>
 </div>
 <div class="highlight-python" id="configuration-rst-altair-source-7"><div class="highlight"><pre><span></span><span class="n">chart</span>
@@ -2368,7 +2376,7 @@ rather than transparent:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"background": "white", "view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "$schema": "https://vega.github.io/schema/vega-lite/v3.2.1.json"};
+      var spec = {"config": {"background": "white", "view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "$schema": "https://vega.github.io/schema/vega-lite/v3.3.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -2384,7 +2392,7 @@ theme named <code class="docutils literal"><span class="pre">'none'</span></code
 <span class="n">chart</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="highlight-none"><div class="highlight"><pre><span></span>    {&#39;data&#39;: {&#39;url&#39;: &#39;https://vega.github.io/vega-datasets/data/cars.json&#39;}, &#39;mark&#39;: &#39;point&#39;, &#39;encoding&#39;: {&#39;x&#39;: {&#39;type&#39;: &#39;quantitative&#39;, &#39;field&#39;: &#39;Horsepower&#39;}, &#39;y&#39;: {&#39;type&#39;: &#39;quantitative&#39;, &#39;field&#39;: &#39;Miles_per_Gallon&#39;}}, &#39;$schema&#39;: &#39;https://vega.github.io/schema/vega-lite/v3.2.1.json&#39;}
+<div class="highlight-none"><div class="highlight"><pre><span></span>    {&#39;data&#39;: {&#39;url&#39;: &#39;https://vega.github.io/vega-datasets/data/cars.json&#39;}, &#39;mark&#39;: &#39;point&#39;, &#39;encoding&#39;: {&#39;x&#39;: {&#39;type&#39;: &#39;quantitative&#39;, &#39;field&#39;: &#39;Horsepower&#39;}, &#39;y&#39;: {&#39;type&#39;: &#39;quantitative&#39;, &#39;field&#39;: &#39;Miles_per_Gallon&#39;}}, &#39;$schema&#39;: &#39;https://vega.github.io/schema/vega-lite/v3.3.0.json&#39;}
 </pre></div>
 </div>
 <div class="highlight-python" id="configuration-rst-altair-source-9"><div class="highlight"><pre><span></span><span class="n">chart</span>
@@ -2396,7 +2404,7 @@ theme named <code class="docutils literal"><span class="pre">'none'</span></code
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "$schema": "https://vega.github.io/schema/vega-lite/v3.2.1.json"};
+      var spec = {"data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "$schema": "https://vega.github.io/schema/vega-lite/v3.3.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -2462,7 +2470,7 @@ fill unless otherwise specified:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "$schema": "https://vega.github.io/schema/vega-lite/v3.2.1.json"};
+      var spec = {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "$schema": "https://vega.github.io/schema/vega-lite/v3.3.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -2522,7 +2530,7 @@ fill unless otherwise specified:</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.0.0',
+            VERSION:'3.1.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -2533,9 +2541,9 @@ fill unless otherwise specified:</p>
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5.3"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.2"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@4.0"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5.4"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.3"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@4.2"></script>
 
   
 

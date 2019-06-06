@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Simple Scatter Plot with Labels &mdash; Altair 3.0.0 documentation</title>
+  <title>Simple Scatter Plot with Labels &mdash; Altair 3.1.0 documentation</title>
   
 
   
@@ -34,7 +34,7 @@
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Table Bubble Plot (Github Punch Card)" href="table_bubble_plot_github.html" />
+    <link rel="next" title="Stripplot" href="stripplot.html" />
     <link rel="prev" title="Simple Scatter Plot with Errorbars" href="simple_scatter_with_errorbars.html" /> 
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                3.0.0
+                3.1.0
               </div>
             
           
@@ -106,6 +106,7 @@
 <li class="toctree-l2"><a class="reference internal" href="index.html#area-charts">Area Charts</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html#scatter-plots">Scatter Plots</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="binned_scatterplot.html">Binned Scatterplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scatter_linked_table.html">Brushing Scatter Plot to show data on a table</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bubble_plot.html">Bubble Plot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="connected_scatterplot.html">Connected Scatterplot (Lines with Custom Paths)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dot_dash_plot.html">Dot Dash Plot</a></li>
@@ -113,10 +114,12 @@
 <li class="toctree-l3"><a class="reference internal" href="poly_fit.html">Polynomial Fit Plot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="scatter_matrix.html">Scatter Matrix</a></li>
 <li class="toctree-l3"><a class="reference internal" href="scatter_href.html">Scatter Plot with Href</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scatter_with_rolling_mean.html">Scatter Plot with Rolling Mean</a></li>
 <li class="toctree-l3"><a class="reference internal" href="simple_scatter_with_errorbars.html">Simple Scatter Plot with Errorbars</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Simple Scatter Plot with Labels</a><ul class="simple">
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="stripplot.html">Stripplot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="table_bubble_plot_github.html">Table Bubble Plot (Github Punch Card)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="trellis_scatter_plot.html">Trellis Scatter Plot</a></li>
 </ul>
@@ -233,7 +236,7 @@
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "layer": [{"data": {"name": "data-4db6ddb6c4b049d1ba9819161e3b8018"}, "mark": "point", "encoding": {"x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "y"}}}, {"data": {"name": "data-4db6ddb6c4b049d1ba9819161e3b8018"}, "mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 7}, "encoding": {"text": {"type": "nominal", "field": "label"}, "x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "y"}}}], "$schema": "https://vega.github.io/schema/vega-lite/v3.2.1.json", "datasets": {"data-4db6ddb6c4b049d1ba9819161e3b8018": [{"x": 1, "y": 1, "label": "A"}, {"x": 3, "y": 3, "label": "B"}, {"x": 5, "y": 5, "label": "C"}, {"x": 7, "y": 7, "label": "D"}, {"x": 9, "y": 9, "label": "E"}]}};
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "layer": [{"mark": "point", "encoding": {"x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "y"}}}, {"mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 7}, "encoding": {"text": {"type": "nominal", "field": "label"}, "x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "y"}}}], "data": {"name": "data-4db6ddb6c4b049d1ba9819161e3b8018"}, "$schema": "https://vega.github.io/schema/vega-lite/v3.3.0.json", "datasets": {"data-4db6ddb6c4b049d1ba9819161e3b8018": [{"x": 1, "y": 1, "label": "A"}, {"x": 3, "y": 3, "label": "B"}, {"x": 5, "y": 5, "label": "C"}, {"x": 7, "y": 7, "label": "D"}, {"x": 9, "y": 9, "label": "E"}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -279,7 +282,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="table_bubble_plot_github.html" class="btn btn-neutral float-right" title="Table Bubble Plot (Github Punch Card)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="stripplot.html" class="btn btn-neutral float-right" title="Stripplot" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="simple_scatter_with_errorbars.html" class="btn btn-neutral" title="Simple Scatter Plot with Errorbars" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -313,7 +316,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.0.0',
+            VERSION:'3.1.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -324,9 +327,9 @@
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5.3"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.2"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@4.0"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5.4"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.3"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@4.2"></script>
 
   
 

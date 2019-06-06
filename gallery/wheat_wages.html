@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Wheat and Wages &mdash; Altair 3.0.0 documentation</title>
+  <title>Wheat and Wages &mdash; Altair 3.1.0 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Bar Chart with Highlighted Segment" href="bar_chart_with_highlighted_segment.html" />
-    <link rel="prev" title="US Population Pyramid Over Time" href="us_population_pyramid_over_time.html" /> 
+    <link rel="prev" title="US Population: Wrapped Facet" href="us_population_over_time_facet.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                3.0.0
+                3.1.0
               </div>
             
           
@@ -130,6 +130,7 @@
 <li class="toctree-l3"><a class="reference internal" href="us_state_capitals.html">U.S. state capitals overlayed on a map of the U.S</a></li>
 <li class="toctree-l3"><a class="reference internal" href="us_population_over_time.html">US Population Over Time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="us_population_pyramid_over_time.html">US Population Pyramid Over Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="us_population_over_time_facet.html">US Population: Wrapped Facet</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Wheat and Wages</a><ul class="simple">
 </ul>
 </li>
@@ -245,7 +246,7 @@ the price of wheat, the wages of a mechanic, and the reigning British monarch.</
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300, "stroke": "transparent"}, "mark": {"tooltip": null}, "axis": {"domain": false, "gridColor": "white", "gridOpacity": 0.25, "title": null}}, "layer": [{"data": {"url": "https://vega.github.io/vega-datasets/data/wheat.json"}, "mark": {"type": "bar", "fill": "#aaa", "stroke": "#999"}, "encoding": {"x": {"type": "quantitative", "axis": {"format": "d", "tickCount": 5}, "field": "year"}, "x2": {"field": "year_end"}, "y": {"type": "quantitative", "axis": {"zindex": 1}, "field": "wheat"}}, "transform": [{"calculate": "+datum.year + 5", "as": "year_end"}]}, {"data": {"url": "https://vega.github.io/vega-datasets/data/wheat.json"}, "mark": {"type": "area", "color": "#a4cedb", "opacity": 0.7}, "encoding": {"x": {"type": "quantitative", "field": "year"}, "y": {"type": "quantitative", "field": "wages"}}, "transform": [{"calculate": "+datum.year + 5", "as": "year_end"}]}, {"data": {"url": "https://vega.github.io/vega-datasets/data/wheat.json"}, "mark": {"type": "line", "color": "#000", "opacity": 0.7}, "encoding": {"x": {"type": "quantitative", "field": "year"}, "y": {"type": "quantitative", "field": "wages"}}, "transform": [{"calculate": "+datum.year + 5", "as": "year_end"}]}, {"data": {"url": "https://vega.github.io/vega-datasets/data/wheat.json"}, "mark": {"type": "line", "color": "#EE8182", "yOffset": -2}, "encoding": {"x": {"type": "quantitative", "field": "year"}, "y": {"type": "quantitative", "field": "wages"}}, "transform": [{"calculate": "+datum.year + 5", "as": "year_end"}]}, {"data": {"url": "https://vega.github.io/vega-datasets/data/monarchs.json"}, "mark": {"type": "bar", "stroke": "#000"}, "encoding": {"fill": {"type": "nominal", "field": "commonwealth", "legend": null, "scale": {"range": ["black", "white"]}}, "x": {"type": "quantitative", "field": "start"}, "x2": {"field": "end"}, "y": {"type": "quantitative", "field": "y"}, "y2": {"field": "offset"}}, "transform": [{"calculate": "((!datum.commonwealth && datum.index % 2) ? -1: 1) * 2 + 95", "as": "offset"}, {"calculate": "((!datum.commonwealth && datum.index % 2) ? -1: 1) + 95", "as": "off2"}, {"calculate": "95", "as": "y"}, {"calculate": "+datum.start + (+datum.end - +datum.start)/2", "as": "x"}]}, {"data": {"url": "https://vega.github.io/vega-datasets/data/monarchs.json"}, "mark": {"type": "text", "fontSize": 9, "fontStyle": "italic", "yOffset": 14}, "encoding": {"text": {"type": "nominal", "field": "name"}, "x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "off2"}}, "transform": [{"calculate": "((!datum.commonwealth && datum.index % 2) ? -1: 1) * 2 + 95", "as": "offset"}, {"calculate": "((!datum.commonwealth && datum.index % 2) ? -1: 1) + 95", "as": "off2"}, {"calculate": "95", "as": "y"}, {"calculate": "+datum.start + (+datum.end - +datum.start)/2", "as": "x"}]}], "height": 400, "width": 900, "$schema": "https://vega.github.io/schema/vega-lite/v3.2.1.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300, "stroke": "transparent"}, "mark": {"tooltip": null}, "axis": {"domain": false, "gridColor": "white", "gridOpacity": 0.25, "title": null}}, "layer": [{"mark": {"type": "bar", "fill": "#aaa", "stroke": "#999"}, "encoding": {"x": {"type": "quantitative", "axis": {"format": "d", "tickCount": 5}, "field": "year"}, "x2": {"field": "year_end"}, "y": {"type": "quantitative", "axis": {"zindex": 1}, "field": "wheat"}}, "transform": [{"calculate": "+datum.year + 5", "as": "year_end"}]}, {"mark": {"type": "area", "color": "#a4cedb", "opacity": 0.7}, "encoding": {"x": {"type": "quantitative", "field": "year"}, "y": {"type": "quantitative", "field": "wages"}}, "transform": [{"calculate": "+datum.year + 5", "as": "year_end"}]}, {"mark": {"type": "line", "color": "#000", "opacity": 0.7}, "encoding": {"x": {"type": "quantitative", "field": "year"}, "y": {"type": "quantitative", "field": "wages"}}, "transform": [{"calculate": "+datum.year + 5", "as": "year_end"}]}, {"mark": {"type": "line", "color": "#EE8182", "yOffset": -2}, "encoding": {"x": {"type": "quantitative", "field": "year"}, "y": {"type": "quantitative", "field": "wages"}}, "transform": [{"calculate": "+datum.year + 5", "as": "year_end"}]}, {"data": {"url": "https://vega.github.io/vega-datasets/data/monarchs.json"}, "mark": {"type": "bar", "stroke": "#000"}, "encoding": {"fill": {"type": "nominal", "field": "commonwealth", "legend": null, "scale": {"range": ["black", "white"]}}, "x": {"type": "quantitative", "field": "start"}, "x2": {"field": "end"}, "y": {"type": "quantitative", "field": "y"}, "y2": {"field": "offset"}}, "transform": [{"calculate": "((!datum.commonwealth && datum.index % 2) ? -1: 1) * 2 + 95", "as": "offset"}, {"calculate": "((!datum.commonwealth && datum.index % 2) ? -1: 1) + 95", "as": "off2"}, {"calculate": "95", "as": "y"}, {"calculate": "+datum.start + (+datum.end - +datum.start)/2", "as": "x"}]}, {"data": {"url": "https://vega.github.io/vega-datasets/data/monarchs.json"}, "mark": {"type": "text", "fontSize": 9, "fontStyle": "italic", "yOffset": 14}, "encoding": {"text": {"type": "nominal", "field": "name"}, "x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "off2"}}, "transform": [{"calculate": "((!datum.commonwealth && datum.index % 2) ? -1: 1) * 2 + 95", "as": "offset"}, {"calculate": "((!datum.commonwealth && datum.index % 2) ? -1: 1) + 95", "as": "off2"}, {"calculate": "95", "as": "y"}, {"calculate": "+datum.start + (+datum.end - +datum.start)/2", "as": "x"}]}], "data": {"url": "https://vega.github.io/vega-datasets/data/wheat.json"}, "height": 400, "width": 900, "$schema": "https://vega.github.io/schema/vega-lite/v3.3.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -320,7 +321,7 @@ the price of wheat, the wages of a mechanic, and the reigning British monarch.</
         <a href="bar_chart_with_highlighted_segment.html" class="btn btn-neutral float-right" title="Bar Chart with Highlighted Segment" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="us_population_pyramid_over_time.html" class="btn btn-neutral" title="US Population Pyramid Over Time" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="us_population_over_time_facet.html" class="btn btn-neutral" title="US Population: Wrapped Facet" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -351,7 +352,7 @@ the price of wheat, the wages of a mechanic, and the reigning British monarch.</
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.0.0',
+            VERSION:'3.1.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -362,9 +363,9 @@ the price of wheat, the wages of a mechanic, and the reigning British monarch.</
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5.3"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.2"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@4.0"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5.4"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.3"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@4.2"></script>
 
   
 

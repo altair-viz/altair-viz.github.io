@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Displaying Charts in Various Frontends &mdash; Altair 3.0.0 documentation</title>
+  <title>Displaying Charts in Various Frontends &mdash; Altair 3.1.0 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                3.0.0
+                3.1.0
               </div>
             
           
@@ -136,6 +136,9 @@
 <li class="toctree-l3"><a class="reference internal" href="#displaying-in-nteract">Displaying in nteract</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#displaying-in-colab">Displaying in Colab</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#working-in-non-notebook-environments">Working in non-Notebook Environments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#built-in-serve-method">Built-in <code class="docutils literal"><span class="pre">serve()</span></code> method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#manual-save-and-display">Manual <code class="docutils literal"><span class="pre">save()</span></code> and display</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-vegascope-renderer">The Vegascope Renderer</a></li>
 </ul>
 </li>
 </ul>
@@ -343,17 +346,15 @@ $ jupyter nbextension install --sys-prefix --py vega <span class="c1"># not need
 </div>
 <div class="section" id="displaying-in-jupyterlab">
 <span id="display-jupyterlab"></span><h3>Displaying in JupyterLab<a class="headerlink" href="#displaying-in-jupyterlab" title="Permalink to this headline">¶</a></h3>
-<p>JupyterLab versions 0.32 and later include built-in support for Vega-Lite 2.x and
-Vega 3.x. These will work out of the box with Altair imported as:</p>
+<p>JupyterLab version 1.0 and later includes built-in support for Altair 3 charts
+(If you are using older versions of Altair, they will work with JupyterLab
+versions between 0.32 and 0.35).</p>
+<p>These will work out of the box with Altair imported as:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
 </pre></div>
 </div>
-<p>An extension is available with the older Vega-Lite 1.x and Vega 2.x renderers
-(<code class="docutils literal"><span class="pre">labextension</span> <span class="pre">install</span></code> requires nodejs):</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">nodejs</span>  <span class="c1"># if you do not already have nodejs installed</span>
-<span class="n">jupyter</span> <span class="n">labextension</span> <span class="n">install</span> <span class="nd">@jupyterlab</span><span class="o">/</span><span class="n">vega2</span><span class="o">-</span><span class="n">extension</span>
-</pre></div>
-</div>
+<p>The Vega jupyterlab extension is included with the main jupyterlab installation,
+so no additional steps are necessary.</p>
 </div>
 <div class="section" id="displaying-in-nteract">
 <span id="display-nteract"></span><h3>Displaying in nteract<a class="headerlink" href="#displaying-in-nteract" title="Permalink to this headline">¶</a></h3>
@@ -372,13 +373,16 @@ enabled, so Altair will work out-of-the-box.</p>
 environment, but to render these specifications currently requires a javascript
 engine. For this reason, Altair works most seamlessly with the browser-based
 environments mentioned above.</p>
-<p>If you would like to render plots from another Python interface that does not have
-a built-in javascript engine, you’ll need to somehow connect your charts to a
-second tool that can execute javascript.</p>
-<p>Fortunately, most people have a web browser available, and Altair provides the
-<code class="xref py py-meth docutils literal"><span class="pre">Chart.serve()</span></code> method which will seamlessly convert the plot to HTML, start
-a webserver serving that HTML, and open your system’s default web browser to view
-it.</p>
+<p>If you would like to render plots from another Python interface that does not
+have a built-in javascript engine, you’ll need to somehow connect your charts
+to a second tool that can execute javascript.</p>
+<p>There are a few options available for this:</p>
+</div>
+<div class="section" id="built-in-serve-method">
+<h3>Built-in <code class="docutils literal"><span class="pre">serve()</span></code> method<a class="headerlink" href="#built-in-serve-method" title="Permalink to this headline">¶</a></h3>
+<p>Altair includes a <code class="xref py py-meth docutils literal"><span class="pre">Chart.serve()</span></code> method which will seamlessly convert a
+chart to HTML, start a webserver serving that HTML, and open your system’s
+default web browser to view it.</p>
 <p>For example, you can serve a chart to a web browser like this:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
 
@@ -397,6 +401,47 @@ it.</p>
 </div>
 <p>The command will block the Python interpreter, and will have to be canceled with
 <code class="docutils literal"><span class="pre">Ctrl-C</span></code> to execute any further code.</p>
+</div>
+<div class="section" id="manual-save-and-display">
+<h3>Manual <code class="docutils literal"><span class="pre">save()</span></code> and display<a class="headerlink" href="#manual-save-and-display" title="Permalink to this headline">¶</a></h3>
+<p>If you would prefer, you can manually save your chart as html and open it with
+a web browser. Once you have created your chart, run:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">chart</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;filename.html&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>and use a web browser to open this file.</p>
+</div>
+<div class="section" id="the-vegascope-renderer">
+<h3>The Vegascope Renderer<a class="headerlink" href="#the-vegascope-renderer" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference external" href="https://github.com/scikit-hep/vegascope">VegaScope</a> project provides an Altair renderer that works seamlessly with
+the IPython terminal. Start by installing the package:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ pip install vegascope
+</pre></div>
+</div>
+<p>Now in your Python script you can enable the vegascope renderer:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="n">alt</span><span class="o">.</span><span class="n">renderers</span><span class="o">.</span><span class="n">enable</span><span class="p">(</span><span class="s1">&#39;vegascope&#39;</span><span class="p">)</span>
+
+<span class="c1"># load a simple dataset as a pandas DataFrame</span>
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="k">import</span> <span class="n">data</span>
+<span class="n">cars</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">cars</span><span class="p">()</span>
+
+<span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">cars</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Horsepower&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Miles_per_Gallon&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;Origin&#39;</span><span class="p">,</span>
+<span class="p">)</span><span class="o">.</span><span class="n">interactive</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>In an IPython environment, this will automatically trigger vegascope to serve
+the chart in a background process to your web browser, and unlike Altair’s
+<code class="xref py py-meth docutils literal"><span class="pre">Chart.serve()</span></code> method, any subsequently created charts will use
+the same server.</p>
+<p>If you are in a non-IPython environment, you can trigger the renderer manually
+using the <code class="xref py py-meth docutils literal"><span class="pre">Chart.display()</span></code> method:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">chart</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -443,7 +488,7 @@ it.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.0.0',
+            VERSION:'3.1.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -454,9 +499,9 @@ it.</p>
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5.3"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.2"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@4.0"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5.4"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.3"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@4.2"></script>
 
   
 

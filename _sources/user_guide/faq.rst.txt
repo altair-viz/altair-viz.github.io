@@ -7,25 +7,21 @@ Frequently Asked Questions
 
 .. _faq-other-ides:
 
-Does Altair work with PyCharm/Spyder/<my favorite IDE>
-------------------------------------------------------
-Altair can be used to create chart specifications with any frontend, but in
-order to *render* those charts requires executing the javascript code that
+Does Altair work with IPython Terminal/PyCharm/Spyder/<my favorite IDE>
+-----------------------------------------------------------------------
+Altair can be used to create chart specifications with any frontend that
+executes Python code, but in order to *render* those charts requires connecting
+altair to an environment capable of executing the javascript code that
 turns the JSON specification into a visual chart.
 
-There are extensions included in JupyterLab, Jupyter Notebook, Colab, Hydrogen,
-and nteract that know how to automatically perform this rendering (see
-:ref:`installation` for details). If you're using another frontend, you'll have
-to figure out how to run that javascript rendering in the most convenient way
-for you.
+There are extensions included in JupyterLab, Jupyter Notebook, Colab,
+Kaggle kernels, Hydrogen, and nteract that know how to automatically perform
+this rendering (see :ref:`installation` for details).
 
-The easiest approach is to use the :meth:`Chart.serve` method, which will convert
-the chart to HTML, start a webserver, and open your default browser to view the
-chart. See :ref:`display-general` for more information.
-
-If you would like to manually save the chart to an html file in order to view it
-with a browser, you can use the :meth:`Chart.save` method; for example
-``chart.save('filename.html')``.
+For other frontends that don't have vega-lite rendering built-in, it is
+possible to work with Altair charts using either the ``vegascope`` project,
+or the build-in :meth:`Chart.serve` or :meth:`Chart.save` methods.
+For more information on thse, see :ref:`display-general`.
 
 .. _faq-no-display:
 
@@ -148,10 +144,21 @@ error is a way of preventing that.
 
 You can get around it in a few ways:
 
+Disabling MaxRowsError
+~~~~~~~~~~~~~~~~~~~~~~
+If you are certain you would like to embed your dataset within the visualization
+specification, you can disable the ``MaxRows`` check with the following::
+
+    alt.data_transformers.disable_max_rows()
+
+If you choose this route, please be careful: if you are making multiple plots
+with the dataset in a particular notebook, the notebook will grow very large
+and performance may suffer.
+
 Passing Data by URL
 ~~~~~~~~~~~~~~~~~~~
-The preferred solution to working with large datasets is to not embed the data
-in the notebook, but rather pass it to the chart by URL.
+A better solution when working with large datasets is to not embed the data
+in the notebook, but rather store it separately pass it to the chart by URL.
 This not only addresses the issue of large notebooks, but also leads to better
 interactivity performance with large datasets.
 
@@ -203,15 +210,3 @@ And then enable the data transformer::
     alt.data_transformers.enable('data_server')
 
 Note that this may not approach on some cloud-based Jupyter notebook services.
-
-Disabling MaxRows
-~~~~~~~~~~~~~~~~~
-If you are certain you would like to embed your dataset within the visualization
-specification, you can disable the ``MaxRows`` check by modifying the arguments
-to the default data transformer::
-
-    alt.data_transformers.enable('default', max_rows=None)
-
-If you choose this route, please be careful: if you are making multiple plots
-with the dataset in a particular notebook, the notebook will grow very large
-and performance may suffer.
