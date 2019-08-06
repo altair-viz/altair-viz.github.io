@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Compound Charts: Layer, HConcat, VConcat, Repeat, Facet &mdash; Altair 3.1.0 documentation</title>
+  <title>Compound Charts: Layer, HConcat, VConcat, Repeat, Facet &mdash; Altair 3.2.0 documentation</title>
   
 
   
@@ -34,7 +34,7 @@
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Saving Altair Charts" href="saving_charts.html" />
+    <link rel="next" title="Scale and Guide Resolution" href="scale_resolve.html" />
     <link rel="prev" title="Top-Level Chart Configuration" href="configuration.html" /> 
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                3.1.0
+                3.2.0
               </div>
             
           
@@ -120,6 +120,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#faceted-charts">Faceted Charts</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="scale_resolve.html">Scale and Guide Resolution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="saving_charts.html">Saving Altair Charts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="customization.html">Customizing Visualizations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="times_and_dates.html">Times and Dates in Altair</a></li>
@@ -292,7 +293,7 @@ same data; for example:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "layer": [{"mark": "line", "encoding": {"color": {"type": "nominal", "field": "symbol"}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "price"}}, "transform": [{"filter": "(datum.symbol === 'GOOG')"}]}, {"mark": "point", "encoding": {"color": {"type": "nominal", "field": "symbol"}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "price"}}, "transform": [{"filter": "(datum.symbol === 'GOOG')"}]}], "data": {"url": "https://vega.github.io/vega-datasets/data/stocks.csv"}, "$schema": "https://vega.github.io/schema/vega-lite/v3.3.0.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "layer": [{"mark": "line", "encoding": {"color": {"type": "nominal", "field": "symbol"}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "price"}}, "transform": [{"filter": "(datum.symbol === 'GOOG')"}]}, {"mark": "point", "encoding": {"color": {"type": "nominal", "field": "symbol"}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "price"}}, "transform": [{"filter": "(datum.symbol === 'GOOG')"}]}], "data": {"url": "https://vega.github.io/vega-datasets/data/stocks.csv"}, "$schema": "https://vega.github.io/schema/vega-lite/v3.4.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -317,7 +318,7 @@ number of charts:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "layer": [{"mark": "line", "encoding": {"color": {"type": "nominal", "field": "symbol"}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "price"}}, "selection": {"selector030": {"type": "interval", "bind": "scales", "encodings": ["x", "y"]}}, "transform": [{"filter": "(datum.symbol === 'GOOG')"}]}, {"mark": "point", "encoding": {"color": {"type": "nominal", "field": "symbol"}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "price"}}, "transform": [{"filter": "(datum.symbol === 'GOOG')"}]}, {"mark": "rule", "encoding": {"color": {"type": "nominal", "field": "symbol"}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "price"}}, "transform": [{"filter": "(datum.symbol === 'GOOG')"}]}], "data": {"url": "https://vega.github.io/vega-datasets/data/stocks.csv"}, "$schema": "https://vega.github.io/schema/vega-lite/v3.3.0.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "layer": [{"mark": "line", "encoding": {"color": {"type": "nominal", "field": "symbol"}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "price"}}, "selection": {"selector031": {"type": "interval", "bind": "scales", "encodings": ["x", "y"]}}, "transform": [{"filter": "(datum.symbol === 'GOOG')"}]}, {"mark": "point", "encoding": {"color": {"type": "nominal", "field": "symbol"}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "price"}}, "transform": [{"filter": "(datum.symbol === 'GOOG')"}]}, {"mark": "rule", "encoding": {"color": {"type": "nominal", "field": "symbol"}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "price"}}, "transform": [{"filter": "(datum.symbol === 'GOOG')"}]}], "data": {"url": "https://vega.github.io/vega-datasets/data/stocks.csv"}, "$schema": "https://vega.github.io/schema/vega-lite/v3.4.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -364,7 +365,7 @@ heat-map:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "layer": [{"mark": "rect", "encoding": {"color": {"type": "quantitative", "aggregate": "count", "scale": {"scheme": "greenblue"}}, "x": {"type": "quantitative", "bin": true, "field": "IMDB_Rating"}, "y": {"type": "quantitative", "bin": true, "field": "Rotten_Tomatoes_Rating"}}}, {"mark": {"type": "circle", "color": "black", "size": 5}, "encoding": {"x": {"type": "quantitative", "field": "IMDB_Rating"}, "y": {"type": "quantitative", "field": "Rotten_Tomatoes_Rating"}}}], "data": {"url": "https://vega.github.io/vega-datasets/data/movies.json"}, "$schema": "https://vega.github.io/schema/vega-lite/v3.3.0.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "layer": [{"mark": "rect", "encoding": {"color": {"type": "quantitative", "aggregate": "count", "scale": {"scheme": "greenblue"}}, "x": {"type": "quantitative", "bin": true, "field": "IMDB_Rating"}, "y": {"type": "quantitative", "bin": true, "field": "Rotten_Tomatoes_Rating"}}}, {"mark": {"type": "circle", "color": "black", "size": 5}, "encoding": {"x": {"type": "quantitative", "field": "IMDB_Rating"}, "y": {"type": "quantitative", "field": "Rotten_Tomatoes_Rating"}}}], "data": {"url": "https://vega.github.io/vega-datasets/data/movies.json"}, "$schema": "https://vega.github.io/schema/vega-lite/v3.4.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -384,7 +385,7 @@ and will be obscured by the heatmap marks:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "layer": [{"mark": {"type": "circle", "color": "black", "size": 5}, "encoding": {"x": {"type": "quantitative", "field": "IMDB_Rating"}, "y": {"type": "quantitative", "field": "Rotten_Tomatoes_Rating"}}}, {"mark": "rect", "encoding": {"color": {"type": "quantitative", "aggregate": "count", "scale": {"scheme": "greenblue"}}, "x": {"type": "quantitative", "bin": true, "field": "IMDB_Rating"}, "y": {"type": "quantitative", "bin": true, "field": "Rotten_Tomatoes_Rating"}}}], "data": {"url": "https://vega.github.io/vega-datasets/data/movies.json"}, "$schema": "https://vega.github.io/schema/vega-lite/v3.3.0.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "layer": [{"mark": {"type": "circle", "color": "black", "size": 5}, "encoding": {"x": {"type": "quantitative", "field": "IMDB_Rating"}, "y": {"type": "quantitative", "field": "Rotten_Tomatoes_Rating"}}}, {"mark": "rect", "encoding": {"color": {"type": "quantitative", "aggregate": "count", "scale": {"scheme": "greenblue"}}, "x": {"type": "quantitative", "bin": true, "field": "IMDB_Rating"}, "y": {"type": "quantitative", "bin": true, "field": "Rotten_Tomatoes_Rating"}}}], "data": {"url": "https://vega.github.io/vega-datasets/data/movies.json"}, "$schema": "https://vega.github.io/schema/vega-lite/v3.4.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -436,7 +437,7 @@ distribution of its points:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "hconcat": [{"mark": "point", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": "petalLength"}, "y": {"type": "quantitative", "field": "petalWidth"}}, "height": 300, "width": 300}, {"mark": "bar", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "aggregate": "count"}, "y": {"type": "quantitative", "bin": {"maxbins": 30}, "field": "petalWidth"}}, "height": 300, "width": 100}], "data": {"url": "https://vega.github.io/vega-datasets/data/iris.json"}, "$schema": "https://vega.github.io/schema/vega-lite/v3.3.0.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "hconcat": [{"mark": "point", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": "petalLength"}, "y": {"type": "quantitative", "field": "petalWidth"}}, "height": 300, "width": 300}, {"mark": "bar", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "aggregate": "count"}, "y": {"type": "quantitative", "bin": {"maxbins": 30}, "field": "petalWidth"}}, "height": 300, "width": 100}], "data": {"url": "https://vega.github.io/vega-datasets/data/iris.json"}, "$schema": "https://vega.github.io/schema/vega-lite/v3.4.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -456,7 +457,7 @@ with the <a class="reference internal" href="generated/api/altair.hconcat.html#a
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "hconcat": [{"mark": "point", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": "petalLength"}, "y": {"type": "quantitative", "field": "petalWidth"}}, "height": 300, "width": 300}, {"mark": "bar", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "aggregate": "count"}, "y": {"type": "quantitative", "bin": {"maxbins": 30}, "field": "petalWidth"}}, "height": 300, "width": 100}], "data": {"url": "https://vega.github.io/vega-datasets/data/iris.json"}, "$schema": "https://vega.github.io/schema/vega-lite/v3.3.0.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "hconcat": [{"mark": "point", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": "petalLength"}, "y": {"type": "quantitative", "field": "petalWidth"}}, "height": 300, "width": 300}, {"mark": "bar", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "aggregate": "count"}, "y": {"type": "quantitative", "bin": {"maxbins": 30}, "field": "petalWidth"}}, "height": 300, "width": 100}], "data": {"url": "https://vega.github.io/vega-datasets/data/iris.json"}, "$schema": "https://vega.github.io/schema/vega-lite/v3.4.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -506,7 +507,7 @@ with a <code class="docutils literal"><span class="pre">brush</span></code> sele
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "vconcat": [{"mark": "area", "encoding": {"x": {"type": "temporal", "field": "date", "scale": {"domain": {"selection": "selector031"}}}, "y": {"type": "quantitative", "field": "price"}}, "height": 200, "width": 600}, {"mark": "area", "encoding": {"x": {"type": "temporal", "field": "date", "scale": {"domain": {"selection": "selector031"}}}, "y": {"type": "quantitative", "field": "price"}}, "height": 60, "selection": {"selector031": {"type": "interval", "encodings": ["x"]}}, "width": 600}], "data": {"url": "https://vega.github.io/vega-datasets/data/sp500.csv"}, "$schema": "https://vega.github.io/schema/vega-lite/v3.3.0.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "vconcat": [{"mark": "area", "encoding": {"x": {"type": "temporal", "field": "date", "scale": {"domain": {"selection": "selector032"}}}, "y": {"type": "quantitative", "field": "price"}}, "height": 200, "width": 600}, {"mark": "area", "encoding": {"x": {"type": "temporal", "field": "date", "scale": {"domain": {"selection": "selector032"}}}, "y": {"type": "quantitative", "field": "price"}}, "height": 60, "selection": {"selector032": {"type": "interval", "encodings": ["x"]}}, "width": 600}], "data": {"url": "https://vega.github.io/vega-datasets/data/sp500.csv"}, "$schema": "https://vega.github.io/schema/vega-lite/v3.4.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -557,7 +558,7 @@ showing how <code class="docutils literal"><span class="pre">repeat</span></code
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "vconcat": [{"hconcat": [{"mark": "point", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": "sepalLength"}, "y": {"type": "quantitative", "field": "petalLength"}}, "height": 200, "selection": {"selector032": {"type": "interval", "bind": "scales", "encodings": ["x", "y"]}}, "width": 200}, {"mark": "point", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": "sepalWidth"}, "y": {"type": "quantitative", "field": "petalLength"}}, "height": 200, "selection": {"selector032": {"type": "interval", "bind": "scales", "encodings": ["x", "y"]}}, "width": 200}]}, {"hconcat": [{"mark": "point", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": "sepalLength"}, "y": {"type": "quantitative", "field": "petalWidth"}}, "height": 200, "selection": {"selector032": {"type": "interval", "bind": "scales", "encodings": ["x", "y"]}}, "width": 200}, {"mark": "point", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": "sepalWidth"}, "y": {"type": "quantitative", "field": "petalWidth"}}, "height": 200, "selection": {"selector032": {"type": "interval", "bind": "scales", "encodings": ["x", "y"]}}, "width": 200}]}], "data": {"url": "https://vega.github.io/vega-datasets/data/iris.json"}, "$schema": "https://vega.github.io/schema/vega-lite/v3.3.0.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "vconcat": [{"hconcat": [{"mark": "point", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": "sepalLength"}, "y": {"type": "quantitative", "field": "petalLength"}}, "height": 200, "selection": {"selector033": {"type": "interval", "bind": "scales", "encodings": ["x", "y"]}}, "width": 200}, {"mark": "point", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": "sepalWidth"}, "y": {"type": "quantitative", "field": "petalLength"}}, "height": 200, "selection": {"selector033": {"type": "interval", "bind": "scales", "encodings": ["x", "y"]}}, "width": 200}]}, {"hconcat": [{"mark": "point", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": "sepalLength"}, "y": {"type": "quantitative", "field": "petalWidth"}}, "height": 200, "selection": {"selector033": {"type": "interval", "bind": "scales", "encodings": ["x", "y"]}}, "width": 200}, {"mark": "point", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": "sepalWidth"}, "y": {"type": "quantitative", "field": "petalWidth"}}, "height": 200, "selection": {"selector033": {"type": "interval", "bind": "scales", "encodings": ["x", "y"]}}, "width": 200}]}], "data": {"url": "https://vega.github.io/vega-datasets/data/iris.json"}, "$schema": "https://vega.github.io/schema/vega-lite/v3.4.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -594,7 +595,7 @@ method, makes this type of chart a bit easier to produce:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "repeat": {"column": ["sepalLength", "sepalWidth"], "row": ["petalLength", "petalWidth"]}, "spec": {"data": {"url": "https://vega.github.io/vega-datasets/data/iris.json"}, "mark": "point", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": {"repeat": "column"}}, "y": {"type": "quantitative", "field": {"repeat": "row"}}}, "height": 200, "selection": {"selector033": {"type": "interval", "bind": "scales", "encodings": ["x", "y"]}}, "width": 200}, "$schema": "https://vega.github.io/schema/vega-lite/v3.3.0.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "repeat": {"column": ["sepalLength", "sepalWidth"], "row": ["petalLength", "petalWidth"]}, "spec": {"data": {"url": "https://vega.github.io/vega-datasets/data/iris.json"}, "mark": "point", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": {"repeat": "column"}}, "y": {"type": "quantitative", "field": {"repeat": "row"}}}, "height": 200, "selection": {"selector034": {"type": "interval", "bind": "scales", "encodings": ["x", "y"]}}, "width": 200}, "$schema": "https://vega.github.io/schema/vega-lite/v3.4.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -644,7 +645,7 @@ concatenation:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "hconcat": [{"mark": "point", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": "petalLength"}, "y": {"type": "quantitative", "field": "petalWidth"}}, "height": 160, "transform": [{"filter": "(datum.species === 'setosa')"}], "width": 160}, {"mark": "point", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": "petalLength"}, "y": {"type": "quantitative", "field": "petalWidth"}}, "height": 160, "transform": [{"filter": "(datum.species === 'versicolor')"}], "width": 160}, {"mark": "point", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": "petalLength"}, "y": {"type": "quantitative", "field": "petalWidth"}}, "height": 160, "transform": [{"filter": "(datum.species === 'virginica')"}], "width": 160}], "data": {"url": "https://vega.github.io/vega-datasets/data/iris.json"}, "$schema": "https://vega.github.io/schema/vega-lite/v3.3.0.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "hconcat": [{"mark": "point", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": "petalLength"}, "y": {"type": "quantitative", "field": "petalWidth"}}, "height": 160, "transform": [{"filter": "(datum.species === 'setosa')"}], "width": 160}, {"mark": "point", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": "petalLength"}, "y": {"type": "quantitative", "field": "petalWidth"}}, "height": 160, "transform": [{"filter": "(datum.species === 'versicolor')"}], "width": 160}, {"mark": "point", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": "petalLength"}, "y": {"type": "quantitative", "field": "petalWidth"}}, "height": 160, "transform": [{"filter": "(datum.species === 'virginica')"}], "width": 160}], "data": {"url": "https://vega.github.io/vega-datasets/data/iris.json"}, "$schema": "https://vega.github.io/schema/vega-lite/v3.4.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -674,7 +675,7 @@ if a bit verbose.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"url": "https://vega.github.io/vega-datasets/data/iris.json"}, "facet": {"column": {"type": "nominal", "field": "species"}}, "spec": {"mark": "point", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": "petalLength"}, "y": {"type": "quantitative", "field": "petalWidth"}}, "height": 180, "width": 180}, "$schema": "https://vega.github.io/schema/vega-lite/v3.3.0.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"url": "https://vega.github.io/vega-datasets/data/iris.json"}, "facet": {"column": {"type": "nominal", "field": "species"}}, "spec": {"mark": "point", "encoding": {"color": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": "petalLength"}, "y": {"type": "quantitative", "field": "petalWidth"}}, "height": 180, "width": 180}, "$schema": "https://vega.github.io/schema/vega-lite/v3.4.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -702,7 +703,7 @@ can give the same results:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"url": "https://vega.github.io/vega-datasets/data/iris.json"}, "mark": "point", "encoding": {"color": {"type": "nominal", "field": "species"}, "column": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": "petalLength"}, "y": {"type": "quantitative", "field": "petalWidth"}}, "height": 180, "width": 180, "$schema": "https://vega.github.io/schema/vega-lite/v3.3.0.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"url": "https://vega.github.io/vega-datasets/data/iris.json"}, "mark": "point", "encoding": {"color": {"type": "nominal", "field": "species"}, "column": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": "petalLength"}, "y": {"type": "quantitative", "field": "petalWidth"}}, "height": 180, "width": 180, "$schema": "https://vega.github.io/schema/vega-lite/v3.4.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -745,7 +746,7 @@ layered chart with a hover selection:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"url": "https://vega.github.io/vega-datasets/data/iris.json"}, "facet": {"type": "nominal", "field": "species"}, "spec": {"layer": [{"mark": "point", "encoding": {"color": {"value": "lightgray", "condition": {"type": "nominal", "field": "species", "selection": "selector034"}}, "x": {"type": "quantitative", "field": "petalLength"}, "y": {"type": "quantitative", "field": "petalWidth"}}, "height": 180, "selection": {"selector034": {"type": "single", "on": "mouseover", "nearest": true, "empty": "none"}}, "width": 180}, {"mark": {"type": "text", "dy": -5}, "encoding": {"color": {"value": "lightgray", "condition": {"type": "nominal", "field": "species", "selection": "selector034"}}, "opacity": {"value": 0, "condition": {"value": 1, "selection": "selector034"}}, "text": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": "petalLength"}, "y": {"type": "quantitative", "field": "petalWidth"}}, "height": 180, "width": 180}]}, "$schema": "https://vega.github.io/schema/vega-lite/v3.3.0.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"url": "https://vega.github.io/vega-datasets/data/iris.json"}, "facet": {"type": "nominal", "field": "species"}, "spec": {"layer": [{"mark": "point", "encoding": {"color": {"condition": {"type": "nominal", "field": "species", "selection": "selector035"}, "value": "lightgray"}, "x": {"type": "quantitative", "field": "petalLength"}, "y": {"type": "quantitative", "field": "petalWidth"}}, "height": 180, "selection": {"selector035": {"type": "single", "on": "mouseover", "nearest": true, "empty": "none"}}, "width": 180}, {"mark": {"type": "text", "dy": -5}, "encoding": {"color": {"condition": {"type": "nominal", "field": "species", "selection": "selector035"}, "value": "lightgray"}, "opacity": {"condition": {"value": 1, "selection": "selector035"}, "value": 0}, "text": {"type": "nominal", "field": "species"}, "x": {"type": "quantitative", "field": "petalLength"}, "y": {"type": "quantitative", "field": "petalWidth"}}, "height": 180, "width": 180}]}, "$schema": "https://vega.github.io/schema/vega-lite/v3.4.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -768,7 +769,7 @@ well.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="saving_charts.html" class="btn btn-neutral float-right" title="Saving Altair Charts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="scale_resolve.html" class="btn btn-neutral float-right" title="Scale and Guide Resolution" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="configuration.html" class="btn btn-neutral" title="Top-Level Chart Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -802,7 +803,7 @@ well.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.1.0',
+            VERSION:'3.2.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -814,7 +815,7 @@ well.</p>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5.4"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.3"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.4"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@4.2"></script>
 
   

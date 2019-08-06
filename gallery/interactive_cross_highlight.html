@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Interactive Chart with Cross-Highlight &mdash; Altair 3.1.0 documentation</title>
+  <title>Interactive Chart with Cross-Highlight &mdash; Altair 3.2.0 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                3.1.0
+                3.2.0
               </div>
             
           
@@ -140,6 +140,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/interactions.html">Bindings, Selections, Conditions: Making Charts Interactive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/configuration.html">Top-Level Chart Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/scale_resolve.html">Scale and Guide Resolution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/saving_charts.html">Saving Altair Charts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/customization.html">Customizing Visualizations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/times_and_dates.html">Times and Dates in Altair</a></li>
@@ -237,7 +238,7 @@ see a detail of the distribution in the upper panel.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "vconcat": [{"layer": [{"mark": "rect", "encoding": {"color": {"type": "quantitative", "aggregate": "count", "legend": {"title": "Total Records"}, "scale": {"scheme": "greenblue"}}, "x": {"type": "quantitative", "bin": true, "field": "IMDB_Rating"}, "y": {"type": "quantitative", "bin": true, "field": "Rotten_Tomatoes_Rating"}}}, {"mark": "point", "encoding": {"color": {"value": "grey"}, "size": {"type": "quantitative", "aggregate": "count", "legend": {"title": "Records in Selection"}}, "x": {"type": "quantitative", "bin": true, "field": "IMDB_Rating"}, "y": {"type": "quantitative", "bin": true, "field": "Rotten_Tomatoes_Rating"}}, "transform": [{"filter": {"selection": "selector005"}}]}], "data": {"url": "https://vega.github.io/vega-datasets/data/movies.json"}}, {"data": {"url": "https://vega.github.io/vega-datasets/data/movies.json"}, "mark": "bar", "encoding": {"color": {"value": "grey", "condition": {"value": "steelblue", "selection": "selector005"}}, "x": {"type": "nominal", "field": "Major_Genre"}, "y": {"type": "quantitative", "aggregate": "count"}}, "height": 200, "selection": {"selector005": {"type": "single", "encodings": ["x"]}}, "width": 550}], "resolve": {"legend": {"color": "independent", "size": "independent"}}, "$schema": "https://vega.github.io/schema/vega-lite/v3.3.0.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "vconcat": [{"layer": [{"mark": "rect", "encoding": {"color": {"type": "quantitative", "aggregate": "count", "legend": {"title": "Total Records"}, "scale": {"scheme": "greenblue"}}, "x": {"type": "quantitative", "bin": true, "field": "IMDB_Rating"}, "y": {"type": "quantitative", "bin": true, "field": "Rotten_Tomatoes_Rating"}}}, {"mark": "point", "encoding": {"color": {"value": "grey"}, "size": {"type": "quantitative", "aggregate": "count", "legend": {"title": "Records in Selection"}}, "x": {"type": "quantitative", "bin": true, "field": "IMDB_Rating"}, "y": {"type": "quantitative", "bin": true, "field": "Rotten_Tomatoes_Rating"}}, "transform": [{"filter": {"selection": "selector006"}}]}], "data": {"url": "https://vega.github.io/vega-datasets/data/movies.json"}}, {"data": {"url": "https://vega.github.io/vega-datasets/data/movies.json"}, "mark": "bar", "encoding": {"color": {"condition": {"value": "steelblue", "selection": "selector006"}, "value": "grey"}, "x": {"type": "nominal", "field": "Major_Genre"}, "y": {"type": "quantitative", "aggregate": "count"}}, "height": 200, "selection": {"selector006": {"type": "single", "encodings": ["x"]}}, "width": 550}], "resolve": {"legend": {"color": "independent", "size": "independent"}}, "$schema": "https://vega.github.io/schema/vega-lite/v3.4.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -335,7 +336,7 @@ see a detail of the distribution in the upper panel.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.1.0',
+            VERSION:'3.2.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -347,7 +348,7 @@ see a detail of the distribution in the upper panel.</p>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5.4"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.3"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.4"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@4.2"></script>
 
   

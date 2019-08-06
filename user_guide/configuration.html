@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Top-Level Chart Configuration &mdash; Altair 3.1.0 documentation</title>
+  <title>Top-Level Chart Configuration &mdash; Altair 3.2.0 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                3.1.0
+                3.2.0
               </div>
             
           
@@ -128,6 +128,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scale_resolve.html">Scale and Guide Resolution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="saving_charts.html">Saving Altair Charts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="customization.html">Customizing Visualizations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="times_and_dates.html">Times and Dates in Altair</a></li>
@@ -304,7 +305,7 @@ Object values can additionally specify parameters for content sizing and automat
 </td>
 </tr>
 <tr class="row-odd"><td class="vl-prop">bar</td>
-<td><a class="reference internal" href="generated/core/altair.BarConfig.html#altair.BarConfig" title="altair.BarConfig"><code class="xref py py-class docutils literal"><span class="pre">BarConfig</span></code></a></td>
+<td><a class="reference internal" href="generated/core/altair.RectConfig.html#altair.RectConfig" title="altair.RectConfig"><code class="xref py py-class docutils literal"><span class="pre">RectConfig</span></code></a></td>
 <td class="vl-decsr">Bar-Specific Config</td>
 </tr>
 <tr class="row-even"><td class="vl-prop">boxplot</td>
@@ -421,7 +422,7 @@ If an object, the value should have the format <code class="docutils literal"><s
 For a full list of scale range configuration options, please see the <a class="reference external" href="https://vega.github.io/vega-lite/docs/scale.html#config">corresponding section of the scale documentation</a>.</td>
 </tr>
 <tr class="row-even"><td class="vl-prop">rect</td>
-<td><a class="reference internal" href="generated/core/altair.MarkConfig.html#altair.MarkConfig" title="altair.MarkConfig"><code class="xref py py-class docutils literal"><span class="pre">MarkConfig</span></code></a></td>
+<td><a class="reference internal" href="generated/core/altair.RectConfig.html#altair.RectConfig" title="altair.RectConfig"><code class="xref py py-class docutils literal"><span class="pre">RectConfig</span></code></a></td>
 <td class="vl-decsr">Rect-Specific Config</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop">repeat</td>
@@ -844,7 +845,7 @@ Here is an example:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}, "header": {"labelColor": "red", "labelFontSize": 14, "titleColor": "green", "titleFontSize": 14}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"type": "nominal", "field": "Origin"}, "column": {"type": "nominal", "field": "Origin"}, "x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "height": 180, "width": 180, "$schema": "https://vega.github.io/schema/vega-lite/v3.3.0.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}, "header": {"labelColor": "red", "labelFontSize": 14, "titleColor": "green", "titleFontSize": 14}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"type": "nominal", "field": "Origin"}, "column": {"type": "nominal", "field": "Origin"}, "x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "height": 180, "width": 180, "$schema": "https://vega.github.io/schema/vega-lite/v3.4.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -902,7 +903,7 @@ Here is an example:</p>
 </td>
 </tr>
 <tr class="row-odd"><td class="vl-prop">labelColor</td>
-<td><code class="docutils literal"><span class="pre">string</span></code></td>
+<td><a class="reference internal" href="generated/core/altair.Color.html#altair.Color" title="altair.Color"><code class="xref py py-class docutils literal"><span class="pre">Color</span></code></a></td>
 <td class="vl-decsr">The color of the header label, can be in hex color code or regular color name.</td>
 </tr>
 <tr class="row-even"><td class="vl-prop">labelFont</td>
@@ -913,20 +914,30 @@ Here is an example:</p>
 <td><code class="docutils literal"><span class="pre">number</span></code></td>
 <td class="vl-decsr">The font size of the header label, in pixels.</td>
 </tr>
-<tr class="row-even"><td class="vl-prop">labelLimit</td>
+<tr class="row-even"><td class="vl-prop">labelFontStyle</td>
+<td><a class="reference internal" href="generated/core/altair.FontStyle.html#altair.FontStyle" title="altair.FontStyle"><code class="xref py py-class docutils literal"><span class="pre">FontStyle</span></code></a></td>
+<td class="vl-decsr">The font style of the header label.</td>
+</tr>
+<tr class="row-odd"><td class="vl-prop">labelLimit</td>
 <td><code class="docutils literal"><span class="pre">number</span></code></td>
 <td class="vl-decsr"><p class="first">The maximum length of the header label in pixels. The text value will be automatically truncated if the rendered size exceeds the limit.</p>
 <p class="last"><strong>Default value:</strong> <code class="docutils literal"><span class="pre">0</span></code>, indicating no limit</p>
 </td>
 </tr>
-<tr class="row-odd"><td class="vl-prop">labelOrient</td>
+<tr class="row-even"><td class="vl-prop">labelOrient</td>
 <td><a class="reference internal" href="generated/core/altair.Orient.html#altair.Orient" title="altair.Orient"><code class="xref py py-class docutils literal"><span class="pre">Orient</span></code></a></td>
 <td class="vl-decsr">The orientation of the header label. One of <code class="docutils literal"><span class="pre">&quot;top&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;bottom&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;left&quot;</span></code> or <code class="docutils literal"><span class="pre">&quot;right&quot;</span></code>.</td>
 </tr>
-<tr class="row-even"><td class="vl-prop">labelPadding</td>
+<tr class="row-odd"><td class="vl-prop">labelPadding</td>
 <td><code class="docutils literal"><span class="pre">number</span></code></td>
 <td class="vl-decsr"><p class="first">The padding, in pixel, between facet header’s label and the plot.</p>
 <p class="last"><strong>Default value:</strong> <code class="docutils literal"><span class="pre">10</span></code></p>
+</td>
+</tr>
+<tr class="row-even"><td class="vl-prop">labels</td>
+<td><code class="docutils literal"><span class="pre">boolean</span></code></td>
+<td class="vl-decsr"><p class="first">A boolean flag indicating if labels should be included as part of the header.</p>
+<p class="last"><strong>Default value:</strong> <code class="docutils literal"><span class="pre">true</span></code>.</p>
 </td>
 </tr>
 <tr class="row-odd"><td class="vl-prop">shortTimeLabels</td>
@@ -960,7 +971,7 @@ Here is an example:</p>
 </td>
 </tr>
 <tr class="row-odd"><td class="vl-prop">titleColor</td>
-<td><code class="docutils literal"><span class="pre">string</span></code></td>
+<td><a class="reference internal" href="generated/core/altair.Color.html#altair.Color" title="altair.Color"><code class="xref py py-class docutils literal"><span class="pre">Color</span></code></a></td>
 <td class="vl-decsr">Color of the header title, can be in hex color code or regular color name.</td>
 </tr>
 <tr class="row-even"><td class="vl-prop">titleFont</td>
@@ -971,22 +982,26 @@ Here is an example:</p>
 <td><code class="docutils literal"><span class="pre">number</span></code></td>
 <td class="vl-decsr">Font size of the header title.</td>
 </tr>
-<tr class="row-even"><td class="vl-prop">titleFontWeight</td>
+<tr class="row-even"><td class="vl-prop">titleFontStyle</td>
+<td><a class="reference internal" href="generated/core/altair.FontStyle.html#altair.FontStyle" title="altair.FontStyle"><code class="xref py py-class docutils literal"><span class="pre">FontStyle</span></code></a></td>
+<td class="vl-decsr">The font style of the header title.</td>
+</tr>
+<tr class="row-odd"><td class="vl-prop">titleFontWeight</td>
 <td><a class="reference internal" href="generated/core/altair.FontWeight.html#altair.FontWeight" title="altair.FontWeight"><code class="xref py py-class docutils literal"><span class="pre">FontWeight</span></code></a></td>
 <td class="vl-decsr">Font weight of the header title.
 This can be either a string (e.g <code class="docutils literal"><span class="pre">&quot;bold&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;normal&quot;</span></code>) or a number (<code class="docutils literal"><span class="pre">100</span></code>, <code class="docutils literal"><span class="pre">200</span></code>, <code class="docutils literal"><span class="pre">300</span></code>, …, <code class="docutils literal"><span class="pre">900</span></code> where <code class="docutils literal"><span class="pre">&quot;normal&quot;</span></code> = <code class="docutils literal"><span class="pre">400</span></code> and <code class="docutils literal"><span class="pre">&quot;bold&quot;</span></code> = <code class="docutils literal"><span class="pre">700</span></code>).</td>
 </tr>
-<tr class="row-odd"><td class="vl-prop">titleLimit</td>
+<tr class="row-even"><td class="vl-prop">titleLimit</td>
 <td><code class="docutils literal"><span class="pre">number</span></code></td>
 <td class="vl-decsr"><p class="first">The maximum length of the header title in pixels. The text value will be automatically truncated if the rendered size exceeds the limit.</p>
 <p class="last"><strong>Default value:</strong> <code class="docutils literal"><span class="pre">0</span></code>, indicating no limit</p>
 </td>
 </tr>
-<tr class="row-even"><td class="vl-prop">titleOrient</td>
+<tr class="row-odd"><td class="vl-prop">titleOrient</td>
 <td><a class="reference internal" href="generated/core/altair.Orient.html#altair.Orient" title="altair.Orient"><code class="xref py py-class docutils literal"><span class="pre">Orient</span></code></a></td>
 <td class="vl-decsr">The orientation of the header title. One of <code class="docutils literal"><span class="pre">&quot;top&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;bottom&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;left&quot;</span></code> or <code class="docutils literal"><span class="pre">&quot;right&quot;</span></code>.</td>
 </tr>
-<tr class="row-odd"><td class="vl-prop">titlePadding</td>
+<tr class="row-even"><td class="vl-prop">titlePadding</td>
 <td><code class="docutils literal"><span class="pre">number</span></code></td>
 <td class="vl-decsr"><p class="first">The padding, in pixel, between facet header’s title and the label.</p>
 <p class="last"><strong>Default value:</strong> <code class="docutils literal"><span class="pre">10</span></code></p>
@@ -1026,7 +1041,7 @@ Here is an example:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}, "legend": {"cornerRadius": 10, "fillColor": "#EEEEEE", "orient": "top-right", "padding": 10, "strokeColor": "gray"}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"type": "nominal", "field": "Origin"}, "x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "$schema": "https://vega.github.io/schema/vega-lite/v3.3.0.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}, "legend": {"cornerRadius": 10, "fillColor": "#EEEEEE", "orient": "top-right", "padding": 10, "strokeColor": "gray"}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"type": "nominal", "field": "Origin"}, "x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "$schema": "https://vega.github.io/schema/vega-lite/v3.4.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -1179,7 +1194,7 @@ Here is an example:</p>
 </tr>
 <tr class="row-odd"><td class="vl-prop">labelLimit</td>
 <td><code class="docutils literal"><span class="pre">number</span></code></td>
-<td class="vl-decsr"><p class="first">Maximum allowed pixel width of axis tick labels.</p>
+<td class="vl-decsr"><p class="first">Maximum allowed pixel width of legend tick labels.</p>
 <p class="last"><strong>Default value:</strong> <code class="docutils literal"><span class="pre">160</span></code>.</p>
 </td>
 </tr>
@@ -1194,10 +1209,7 @@ Here is an example:</p>
 <tr class="row-even"><td class="vl-prop">labelOverlap</td>
 <td><a class="reference internal" href="generated/core/altair.LabelOverlap.html#altair.LabelOverlap" title="altair.LabelOverlap"><code class="xref py py-class docutils literal"><span class="pre">LabelOverlap</span></code></a></td>
 <td class="vl-decsr"><p class="first">The strategy to use for resolving overlap of labels in gradient legends. If <code class="docutils literal"><span class="pre">false</span></code>, no overlap reduction is attempted. If set to <code class="docutils literal"><span class="pre">true</span></code> or <code class="docutils literal"><span class="pre">&quot;parity&quot;</span></code>, a strategy of removing every other label is used. If set to <code class="docutils literal"><span class="pre">&quot;greedy&quot;</span></code>, a linear scan of the labels is performed, removing any label that overlaps with the last visible label (this often works better for log-scaled axes).</p>
-<p><strong>Default value:</strong> <code class="docutils literal"><span class="pre">&quot;greedy&quot;</span></code> for <code class="docutils literal"><span class="pre">log</span> <span class="pre">scales</span> <span class="pre">otherwise</span></code>true`.</p>
-<ul class="last simple">
-<li></li>
-</ul>
+<p class="last"><strong>Default value:</strong> <code class="docutils literal"><span class="pre">&quot;greedy&quot;</span></code> for <code class="docutils literal"><span class="pre">log</span> <span class="pre">scales</span> <span class="pre">otherwise</span></code>true`.</p>
 </td>
 </tr>
 <tr class="row-odd"><td class="vl-prop">labelPadding</td>
@@ -1320,14 +1332,8 @@ Here is an example:</p>
 </tr>
 <tr class="row-odd"><td class="vl-prop">symbolType</td>
 <td><a class="reference internal" href="generated/core/altair.SymbolShape.html#altair.SymbolShape" title="altair.SymbolShape"><code class="xref py py-class docutils literal"><span class="pre">SymbolShape</span></code></a></td>
-<td class="vl-decsr"><p class="first">Default shape type (such as “circle”) for legend symbols.
-Can be one of ``”circle”<code class="docutils literal"><span class="pre">,</span></code>”square”<code class="docutils literal"><span class="pre">,</span></code>”cross”<code class="docutils literal"><span class="pre">,</span></code>”diamond”<code class="docutils literal"><span class="pre">,</span></code>”triangle-up”<code class="docutils literal"><span class="pre">,</span></code>”triangle-down”<code class="docutils literal"><span class="pre">,</span></code>”triangle-right”<code class="docutils literal"><span class="pre">,</span> <span class="pre">or</span></code>”triangle-left”`.</p>
-<ul class="last simple">
-<li>In addition to a set of built-in shapes, custom shapes can be defined using <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths">SVG path strings</a>.</li>
-<li></li>
-<li><strong>Default value:</strong> <code class="docutils literal"><span class="pre">&quot;circle&quot;</span></code>.</li>
-<li></li>
-</ul>
+<td class="vl-decsr"><p class="first">The symbol shape. One of the plotting shapes <code class="docutils literal"><span class="pre">circle</span></code> (default), <code class="docutils literal"><span class="pre">square</span></code>, <code class="docutils literal"><span class="pre">cross</span></code>, <code class="docutils literal"><span class="pre">diamond</span></code>, <code class="docutils literal"><span class="pre">triangle-up</span></code>, <code class="docutils literal"><span class="pre">triangle-down</span></code>, <code class="docutils literal"><span class="pre">triangle-right</span></code>, or <code class="docutils literal"><span class="pre">triangle-left</span></code>, the line symbol <code class="docutils literal"><span class="pre">stroke</span></code>, or one of the centered directional shapes <code class="docutils literal"><span class="pre">arrow</span></code>, <code class="docutils literal"><span class="pre">wedge</span></code>, or <code class="docutils literal"><span class="pre">triangle</span></code>. Alternatively, a custom <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths">SVG path string</a> can be provided. For correct sizing, custom shape paths should be defined within a square bounding box with coordinates ranging from -1 to 1 along both the x and y dimensions.</p>
+<p class="last"><strong>Default value:</strong> <code class="docutils literal"><span class="pre">&quot;circle&quot;</span></code>.</p>
 </td>
 </tr>
 <tr class="row-even"><td class="vl-prop">title</td>
@@ -1373,7 +1379,7 @@ This can be either a string (e.g <code class="docutils literal"><span class="pre
 </tr>
 <tr class="row-odd"><td class="vl-prop">titleLimit</td>
 <td><code class="docutils literal"><span class="pre">number</span></code></td>
-<td class="vl-decsr"><p class="first">Maximum allowed pixel width of axis titles.</p>
+<td class="vl-decsr"><p class="first">Maximum allowed pixel width of legend titles.</p>
 <p class="last"><strong>Default value:</strong> <code class="docutils literal"><span class="pre">180</span></code>.</p>
 </td>
 </tr>
@@ -1449,7 +1455,7 @@ defining default properties for each mark.</p>
 </td>
 </tr>
 <tr class="row-odd"><td class="vl-prop">color</td>
-<td><code class="docutils literal"><span class="pre">string</span></code></td>
+<td><a class="reference internal" href="generated/core/altair.Color.html#altair.Color" title="altair.Color"><code class="xref py py-class docutils literal"><span class="pre">Color</span></code></a></td>
 <td class="vl-decsr"><p class="first">Default color.  Note that <code class="docutils literal"><span class="pre">fill</span></code> and <code class="docutils literal"><span class="pre">stroke</span></code> have higher precedence than <code class="docutils literal"><span class="pre">color</span></code> and will override <code class="docutils literal"><span class="pre">color</span></code>.</p>
 <p><strong>Default value:</strong> <span style="color: #4682b4;"><p>■</p>
 </span> <code class="docutils literal"><span class="pre">&quot;#4682b4&quot;</span></code></p>
@@ -1522,11 +1528,15 @@ defining default properties for each mark.</p>
 <td class="vl-decsr">The font weight.
 This can be either a string (e.g <code class="docutils literal"><span class="pre">&quot;bold&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;normal&quot;</span></code>) or a number (<code class="docutils literal"><span class="pre">100</span></code>, <code class="docutils literal"><span class="pre">200</span></code>, <code class="docutils literal"><span class="pre">300</span></code>, …, <code class="docutils literal"><span class="pre">900</span></code> where <code class="docutils literal"><span class="pre">&quot;normal&quot;</span></code> = <code class="docutils literal"><span class="pre">400</span></code> and <code class="docutils literal"><span class="pre">&quot;bold&quot;</span></code> = <code class="docutils literal"><span class="pre">700</span></code>).</td>
 </tr>
-<tr class="row-odd"><td class="vl-prop">href</td>
+<tr class="row-odd"><td class="vl-prop">height</td>
+<td><code class="docutils literal"><span class="pre">number</span></code></td>
+<td class="vl-decsr">Height of the marks.</td>
+</tr>
+<tr class="row-even"><td class="vl-prop">href</td>
 <td><code class="docutils literal"><span class="pre">string</span></code></td>
 <td class="vl-decsr">A URL to load upon mouse click. If defined, the mark acts as a hyperlink.</td>
 </tr>
-<tr class="row-even"><td class="vl-prop">interpolate</td>
+<tr class="row-odd"><td class="vl-prop">interpolate</td>
 <td><a class="reference internal" href="generated/core/altair.Interpolate.html#altair.Interpolate" title="altair.Interpolate"><code class="xref py py-class docutils literal"><span class="pre">Interpolate</span></code></a></td>
 <td class="vl-decsr"><p class="first">The line interpolation method to use for line and area marks. One of the following:</p>
 <ul class="last simple">
@@ -1546,23 +1556,23 @@ This can be either a string (e.g <code class="docutils literal"><span class="pre
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td class="vl-prop">limit</td>
+<tr class="row-even"><td class="vl-prop">limit</td>
 <td><code class="docutils literal"><span class="pre">number</span></code></td>
 <td class="vl-decsr"><p class="first">The maximum length of the text mark in pixels. The text value will be automatically truncated if the rendered size exceeds the limit.</p>
 <p class="last"><strong>Default value:</strong> <code class="docutils literal"><span class="pre">0</span></code>, indicating no limit</p>
 </td>
 </tr>
-<tr class="row-even"><td class="vl-prop">opacity</td>
+<tr class="row-odd"><td class="vl-prop">opacity</td>
 <td><code class="docutils literal"><span class="pre">number</span></code></td>
 <td class="vl-decsr"><p class="first">The overall opacity (value between [0,1]).</p>
 <p class="last"><strong>Default value:</strong> <code class="docutils literal"><span class="pre">0.7</span></code> for non-aggregate plots with <code class="docutils literal"><span class="pre">point</span></code>, <code class="docutils literal"><span class="pre">tick</span></code>, <code class="docutils literal"><span class="pre">circle</span></code>, or <code class="docutils literal"><span class="pre">square</span></code> marks or layered <code class="docutils literal"><span class="pre">bar</span></code> charts and <code class="docutils literal"><span class="pre">1</span></code> otherwise.</p>
 </td>
 </tr>
-<tr class="row-odd"><td class="vl-prop">order</td>
+<tr class="row-even"><td class="vl-prop">order</td>
 <td>[null, boolean]</td>
 <td class="vl-decsr">For line and trail marks, this <code class="docutils literal"><span class="pre">order</span></code> property can be set to <code class="docutils literal"><span class="pre">null</span></code> or <code class="docutils literal"><span class="pre">false</span></code> to make the lines use the original order in the data sources.</td>
 </tr>
-<tr class="row-even"><td class="vl-prop">orient</td>
+<tr class="row-odd"><td class="vl-prop">orient</td>
 <td><a class="reference internal" href="generated/core/altair.Orientation.html#altair.Orientation" title="altair.Orientation"><code class="xref py py-class docutils literal"><span class="pre">Orientation</span></code></a></td>
 <td class="vl-decsr"><p class="first">The orientation of a non-stacked bar, tick, area, and line charts.
 The value is either horizontal (default) or vertical.</p>
@@ -1577,11 +1587,11 @@ therefore explicitly specified value will be ignored.</li>
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td class="vl-prop">radius</td>
+<tr class="row-even"><td class="vl-prop">radius</td>
 <td><code class="docutils literal"><span class="pre">number</span></code></td>
 <td class="vl-decsr">Polar coordinate radial offset, in pixels, of the text label from the origin determined by the <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code> properties.</td>
 </tr>
-<tr class="row-even"><td class="vl-prop">shape</td>
+<tr class="row-odd"><td class="vl-prop">shape</td>
 <td><code class="docutils literal"><span class="pre">string</span></code></td>
 <td class="vl-decsr"><p class="first">Shape of the point marks. Supported values include:</p>
 <ul class="simple">
@@ -1593,7 +1603,7 @@ therefore explicitly specified value will be ignored.</li>
 <p class="last"><strong>Default value:</strong> <code class="docutils literal"><span class="pre">&quot;circle&quot;</span></code></p>
 </td>
 </tr>
-<tr class="row-odd"><td class="vl-prop">size</td>
+<tr class="row-even"><td class="vl-prop">size</td>
 <td><code class="docutils literal"><span class="pre">number</span></code></td>
 <td class="vl-decsr"><p class="first">Default size for marks.</p>
 <ul class="simple">
@@ -1604,60 +1614,60 @@ therefore explicitly specified value will be ignored.</li>
 <p class="last"><strong>Default value:</strong> <code class="docutils literal"><span class="pre">30</span></code> for point, circle, square marks; <code class="docutils literal"><span class="pre">rangeStep</span></code> - 1 for bar marks with discrete dimensions; <code class="docutils literal"><span class="pre">5</span></code> for bar marks with continuous dimensions; <code class="docutils literal"><span class="pre">11</span></code> for text marks.</p>
 </td>
 </tr>
-<tr class="row-even"><td class="vl-prop">stroke</td>
+<tr class="row-odd"><td class="vl-prop">stroke</td>
 <td><a class="reference internal" href="generated/core/altair.Color.html#altair.Color" title="altair.Color"><code class="xref py py-class docutils literal"><span class="pre">Color</span></code></a></td>
 <td class="vl-decsr"><p class="first">Default Stroke Color.  This has higher precedence than <code class="docutils literal"><span class="pre">config.color</span></code></p>
 <p class="last"><strong>Default value:</strong> (None)</p>
 </td>
 </tr>
-<tr class="row-odd"><td class="vl-prop">strokeCap</td>
+<tr class="row-even"><td class="vl-prop">strokeCap</td>
 <td><a class="reference internal" href="generated/core/altair.StrokeCap.html#altair.StrokeCap" title="altair.StrokeCap"><code class="xref py py-class docutils literal"><span class="pre">StrokeCap</span></code></a></td>
 <td class="vl-decsr"><p class="first">The stroke cap for line ending style. One of <code class="docutils literal"><span class="pre">&quot;butt&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;round&quot;</span></code>, or <code class="docutils literal"><span class="pre">&quot;square&quot;</span></code>.</p>
 <p class="last"><strong>Default value:</strong> <code class="docutils literal"><span class="pre">&quot;square&quot;</span></code></p>
 </td>
 </tr>
-<tr class="row-even"><td class="vl-prop">strokeDash</td>
+<tr class="row-odd"><td class="vl-prop">strokeDash</td>
 <td>array(<code class="docutils literal"><span class="pre">number</span></code>)</td>
 <td class="vl-decsr">An array of alternating stroke, space lengths for creating dashed or dotted lines.</td>
 </tr>
-<tr class="row-odd"><td class="vl-prop">strokeDashOffset</td>
+<tr class="row-even"><td class="vl-prop">strokeDashOffset</td>
 <td><code class="docutils literal"><span class="pre">number</span></code></td>
 <td class="vl-decsr">The offset (in pixels) into which to begin drawing with the stroke dash array.</td>
 </tr>
-<tr class="row-even"><td class="vl-prop">strokeJoin</td>
+<tr class="row-odd"><td class="vl-prop">strokeJoin</td>
 <td><a class="reference internal" href="generated/core/altair.StrokeJoin.html#altair.StrokeJoin" title="altair.StrokeJoin"><code class="xref py py-class docutils literal"><span class="pre">StrokeJoin</span></code></a></td>
 <td class="vl-decsr"><p class="first">The stroke line join method. One of <code class="docutils literal"><span class="pre">&quot;miter&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;round&quot;</span></code> or <code class="docutils literal"><span class="pre">&quot;bevel&quot;</span></code>.</p>
 <p class="last"><strong>Default value:</strong> <code class="docutils literal"><span class="pre">&quot;miter&quot;</span></code></p>
 </td>
 </tr>
-<tr class="row-odd"><td class="vl-prop">strokeMiterLimit</td>
+<tr class="row-even"><td class="vl-prop">strokeMiterLimit</td>
 <td><code class="docutils literal"><span class="pre">number</span></code></td>
 <td class="vl-decsr">The miter limit at which to bevel a line join.</td>
 </tr>
-<tr class="row-even"><td class="vl-prop">strokeOpacity</td>
+<tr class="row-odd"><td class="vl-prop">strokeOpacity</td>
 <td><code class="docutils literal"><span class="pre">number</span></code></td>
 <td class="vl-decsr"><p class="first">The stroke opacity (value between [0,1]).</p>
 <p class="last"><strong>Default value:</strong> <code class="docutils literal"><span class="pre">1</span></code></p>
 </td>
 </tr>
-<tr class="row-odd"><td class="vl-prop">strokeWidth</td>
+<tr class="row-even"><td class="vl-prop">strokeWidth</td>
 <td><code class="docutils literal"><span class="pre">number</span></code></td>
 <td class="vl-decsr">The stroke width, in pixels.</td>
 </tr>
-<tr class="row-even"><td class="vl-prop">tension</td>
+<tr class="row-odd"><td class="vl-prop">tension</td>
 <td><code class="docutils literal"><span class="pre">number</span></code></td>
 <td class="vl-decsr">Depending on the interpolation type, sets the tension parameter (for line and area marks).</td>
 </tr>
-<tr class="row-odd"><td class="vl-prop">text</td>
+<tr class="row-even"><td class="vl-prop">text</td>
 <td><code class="docutils literal"><span class="pre">string</span></code></td>
 <td class="vl-decsr">Placeholder text if the <code class="docutils literal"><span class="pre">text</span></code> channel is not specified</td>
 </tr>
-<tr class="row-even"><td class="vl-prop">theta</td>
+<tr class="row-odd"><td class="vl-prop">theta</td>
 <td><code class="docutils literal"><span class="pre">number</span></code></td>
 <td class="vl-decsr">Polar coordinate angle, in radians, of the text label from the origin determined by the <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code> properties. Values for <code class="docutils literal"><span class="pre">theta</span></code> follow the same convention of <code class="docutils literal"><span class="pre">arc</span></code> mark <code class="docutils literal"><span class="pre">startAngle</span></code> and <code class="docutils literal"><span class="pre">endAngle</span></code> properties: angles are measured in radians, with <code class="docutils literal"><span class="pre">0</span></code> indicating “north”.</td>
 </tr>
-<tr class="row-odd"><td class="vl-prop">tooltip</td>
-<td>anyOf(<code class="docutils literal"><span class="pre">string</span></code>, <a class="reference internal" href="generated/core/altair.TooltipContent.html#altair.TooltipContent" title="altair.TooltipContent"><code class="xref py py-class docutils literal"><span class="pre">TooltipContent</span></code></a>, <code class="docutils literal"><span class="pre">null</span></code>)</td>
+<tr class="row-even"><td class="vl-prop">tooltip</td>
+<td>anyOf(<a class="reference internal" href="generated/core/altair.Value.html#altair.Value" title="altair.Value"><code class="xref py py-class docutils literal"><span class="pre">Value</span></code></a>, <a class="reference internal" href="generated/core/altair.TooltipContent.html#altair.TooltipContent" title="altair.TooltipContent"><code class="xref py py-class docutils literal"><span class="pre">TooltipContent</span></code></a>, <code class="docutils literal"><span class="pre">null</span></code>)</td>
 <td class="vl-decsr"><p class="first">The tooltip text string to show upon mouse hover or an object defining which fields should the tooltip be derived from.</p>
 <ul class="last simple">
 <li>If <code class="docutils literal"><span class="pre">tooltip</span></code> is <code class="docutils literal"><span class="pre">{&quot;content&quot;:</span> <span class="pre">&quot;encoding&quot;}</span></code>, then all fields from <code class="docutils literal"><span class="pre">encoding</span></code> will be used.</li>
@@ -1666,21 +1676,33 @@ therefore explicitly specified value will be ignored.</li>
 </ul>
 </td>
 </tr>
-<tr class="row-even"><td class="vl-prop">x</td>
+<tr class="row-odd"><td class="vl-prop">width</td>
 <td><code class="docutils literal"><span class="pre">number</span></code></td>
-<td class="vl-decsr">X coordinates of the marks, or width of horizontal <code class="docutils literal"><span class="pre">&quot;bar&quot;</span></code> and <code class="docutils literal"><span class="pre">&quot;area&quot;</span></code> without <code class="docutils literal"><span class="pre">x2</span></code>.</td>
+<td class="vl-decsr">Width of the marks.</td>
+</tr>
+<tr class="row-even"><td class="vl-prop">x</td>
+<td>anyOf(<code class="docutils literal"><span class="pre">number</span></code>, [‘width’])</td>
+<td class="vl-decsr"><p class="first">X coordinates of the marks, or width of horizontal <code class="docutils literal"><span class="pre">&quot;bar&quot;</span></code> and <code class="docutils literal"><span class="pre">&quot;area&quot;</span></code> without specified <code class="docutils literal"><span class="pre">x2</span></code> or <code class="docutils literal"><span class="pre">width</span></code>.</p>
+<p class="last">The <code class="docutils literal"><span class="pre">value</span></code> of this channel can be a number or a string <code class="docutils literal"><span class="pre">&quot;width&quot;</span></code> for the width of the plot.</p>
+</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop">x2</td>
-<td><code class="docutils literal"><span class="pre">number</span></code></td>
-<td class="vl-decsr">X2 coordinates for ranged <code class="docutils literal"><span class="pre">&quot;area&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;bar&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;rect&quot;</span></code>, and  <code class="docutils literal"><span class="pre">&quot;rule&quot;</span></code>.</td>
+<td>anyOf(<code class="docutils literal"><span class="pre">number</span></code>, [‘width’])</td>
+<td class="vl-decsr"><p class="first">X2 coordinates for ranged <code class="docutils literal"><span class="pre">&quot;area&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;bar&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;rect&quot;</span></code>, and  <code class="docutils literal"><span class="pre">&quot;rule&quot;</span></code>.</p>
+<p class="last">The <code class="docutils literal"><span class="pre">value</span></code> of this channel can be a number or a string <code class="docutils literal"><span class="pre">&quot;width&quot;</span></code> for the width of the plot.</p>
+</td>
 </tr>
 <tr class="row-even"><td class="vl-prop">y</td>
-<td><code class="docutils literal"><span class="pre">number</span></code></td>
-<td class="vl-decsr">Y coordinates of the marks, or height of vertical <code class="docutils literal"><span class="pre">&quot;bar&quot;</span></code> and <code class="docutils literal"><span class="pre">&quot;area&quot;</span></code> without <code class="docutils literal"><span class="pre">y2</span></code></td>
+<td>anyOf(<code class="docutils literal"><span class="pre">number</span></code>, [‘height’])</td>
+<td class="vl-decsr"><p class="first">Y coordinates of the marks, or height of vertical <code class="docutils literal"><span class="pre">&quot;bar&quot;</span></code> and <code class="docutils literal"><span class="pre">&quot;area&quot;</span></code> without specified <code class="docutils literal"><span class="pre">y2</span></code> or <code class="docutils literal"><span class="pre">height</span></code>.</p>
+<p class="last">The <code class="docutils literal"><span class="pre">value</span></code> of this channel can be a number or a string <code class="docutils literal"><span class="pre">&quot;height&quot;</span></code> for the height of the plot.</p>
+</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop">y2</td>
-<td><code class="docutils literal"><span class="pre">number</span></code></td>
-<td class="vl-decsr">Y2 coordinates for ranged <code class="docutils literal"><span class="pre">&quot;area&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;bar&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;rect&quot;</span></code>, and  <code class="docutils literal"><span class="pre">&quot;rule&quot;</span></code>.</td>
+<td>anyOf(<code class="docutils literal"><span class="pre">number</span></code>, [‘width’])</td>
+<td class="vl-decsr"><p class="first">Y2 coordinates for ranged <code class="docutils literal"><span class="pre">&quot;area&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;bar&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;rect&quot;</span></code>, and  <code class="docutils literal"><span class="pre">&quot;rule&quot;</span></code>.</p>
+<p class="last">The <code class="docutils literal"><span class="pre">value</span></code> of this channel can be a number or a string <code class="docutils literal"><span class="pre">&quot;height&quot;</span></code> for the height of the plot.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1720,7 +1742,7 @@ the following properties:</p>
 <tr class="row-odd"><td class="vl-prop">bandPaddingOuter</td>
 <td><code class="docutils literal"><span class="pre">number</span></code></td>
 <td class="vl-decsr"><p class="first">Default outer padding for <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code> band-ordinal scales.</p>
-<p class="last">If not specified, by default, band scale’s paddingOuter is paddingInner/2.</p>
+<p class="last"><strong>Default value:</strong> <code class="docutils literal"><span class="pre">paddingInner/2</span></code> (which makes <em>width/height = number of unique values * step</em>)</p>
 </td>
 </tr>
 <tr class="row-even"><td class="vl-prop">barBandPaddingInner</td>
@@ -1805,7 +1827,7 @@ If not specified, by default, band scale’s paddingOuter is paddingInner/2.</td
 <tr class="row-even"><td class="vl-prop">pointPadding</td>
 <td><code class="docutils literal"><span class="pre">number</span></code></td>
 <td class="vl-decsr"><p class="first">Default outer padding for <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code> point-ordinal scales.</p>
-<p class="last"><strong>Default value:</strong> <code class="docutils literal"><span class="pre">0.5</span></code></p>
+<p class="last"><strong>Default value:</strong> <code class="docutils literal"><span class="pre">0.5</span></code> (which makes <em>width/height = number of unique values * step</em>)</p>
 </td>
 </tr>
 <tr class="row-odd"><td class="vl-prop">quantileCount</td>
@@ -1956,7 +1978,7 @@ the following properties:</p>
 <td class="vl-decsr">&#160;</td>
 </tr>
 <tr class="row-even"><td class="vl-prop">precision</td>
-<td><code class="docutils literal"><span class="pre">string</span></code></td>
+<td><code class="docutils literal"><span class="pre">number</span></code></td>
 <td class="vl-decsr">Sets the threshold for the projection’s <a class="reference external" href="http://bl.ocks.org/mbostock/3795544">adaptive resampling</a> to the specified value in pixels. This value corresponds to the <a class="reference external" href="http://en.wikipedia.org/wiki/Ramer%E2%80%93Douglas%E2%80%93Peucker_algorithm">Douglas–Peucker distance</a>. If precision is not specified, returns the projection’s current resampling precision which defaults to <code class="docutils literal"><span class="pre">√0.5</span> <span class="pre">≅</span> <span class="pre">0.70710…</span></code>.</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop">radius</td>
@@ -2080,7 +2102,7 @@ here is an example:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}, "title": {"anchor": "start", "color": "gray", "font": "Courier", "fontSize": 20}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "title": "Cars Data", "$schema": "https://vega.github.io/schema/vega-lite/v3.3.0.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}, "title": {"anchor": "start", "color": "gray", "font": "Courier", "fontSize": 20}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "title": "Cars Data", "$schema": "https://vega.github.io/schema/vega-lite/v3.4.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -2200,7 +2222,7 @@ be controlled:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 200, "height": 200, "fill": "#FFEEDD", "stroke": "red", "strokeWidth": 4}, "mark": {"tooltip": null}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "$schema": "https://vega.github.io/schema/vega-lite/v3.3.0.json"};
+      var spec = {"config": {"view": {"width": 200, "height": 200, "fill": "#FFEEDD", "stroke": "red", "strokeWidth": 4}, "mark": {"tooltip": null}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "$schema": "https://vega.github.io/schema/vega-lite/v3.4.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -2234,7 +2256,7 @@ be controlled:</p>
 </td>
 </tr>
 <tr class="row-even"><td class="vl-prop">fill</td>
-<td>[string, null]</td>
+<td>anyOf(<a class="reference internal" href="generated/core/altair.Color.html#altair.Color" title="altair.Color"><code class="xref py py-class docutils literal"><span class="pre">Color</span></code></a>, <code class="docutils literal"><span class="pre">null</span></code>)</td>
 <td class="vl-decsr"><p class="first">The fill color.</p>
 <p class="last"><strong>Default value:</strong> <code class="docutils literal"><span class="pre">undefined</span></code></p>
 </td>
@@ -2258,7 +2280,7 @@ be controlled:</p>
 </td>
 </tr>
 <tr class="row-even"><td class="vl-prop">stroke</td>
-<td>[string, null]</td>
+<td>anyOf(<a class="reference internal" href="generated/core/altair.Color.html#altair.Color" title="altair.Color"><code class="xref py py-class docutils literal"><span class="pre">Color</span></code></a>, <code class="docutils literal"><span class="pre">null</span></code>)</td>
 <td class="vl-decsr"><p class="first">The stroke color.</p>
 <p class="last"><strong>Default value:</strong> <code class="docutils literal"><span class="pre">&quot;#ddd&quot;</span></code></p>
 </td>
@@ -2332,7 +2354,7 @@ added to its specification:</p>
 <span class="n">chart</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="highlight-none"><div class="highlight"><pre><span></span>    {&#39;config&#39;: {&#39;view&#39;: {&#39;width&#39;: 400, &#39;height&#39;: 300}, &#39;mark&#39;: {&#39;tooltip&#39;: None}}, &#39;data&#39;: {&#39;url&#39;: &#39;https://vega.github.io/vega-datasets/data/cars.json&#39;}, &#39;mark&#39;: &#39;point&#39;, &#39;encoding&#39;: {&#39;x&#39;: {&#39;type&#39;: &#39;quantitative&#39;, &#39;field&#39;: &#39;Horsepower&#39;}, &#39;y&#39;: {&#39;type&#39;: &#39;quantitative&#39;, &#39;field&#39;: &#39;Miles_per_Gallon&#39;}}, &#39;$schema&#39;: &#39;https://vega.github.io/schema/vega-lite/v3.3.0.json&#39;}
+<div class="highlight-none"><div class="highlight"><pre><span></span>    {&#39;config&#39;: {&#39;view&#39;: {&#39;width&#39;: 400, &#39;height&#39;: 300}, &#39;mark&#39;: {&#39;tooltip&#39;: None}}, &#39;data&#39;: {&#39;url&#39;: &#39;https://vega.github.io/vega-datasets/data/cars.json&#39;}, &#39;mark&#39;: &#39;point&#39;, &#39;encoding&#39;: {&#39;x&#39;: {&#39;type&#39;: &#39;quantitative&#39;, &#39;field&#39;: &#39;Horsepower&#39;}, &#39;y&#39;: {&#39;type&#39;: &#39;quantitative&#39;, &#39;field&#39;: &#39;Miles_per_Gallon&#39;}}, &#39;$schema&#39;: &#39;https://vega.github.io/schema/vega-lite/v3.4.0.json&#39;}
 </pre></div>
 </div>
 <p>The rendered chart will then reflect these configurations:</p>
@@ -2345,7 +2367,7 @@ added to its specification:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "$schema": "https://vega.github.io/schema/vega-lite/v3.3.0.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "$schema": "https://vega.github.io/schema/vega-lite/v3.4.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -2364,7 +2386,7 @@ rather than transparent:</p>
 <span class="n">chart</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="highlight-none"><div class="highlight"><pre><span></span>    {&#39;config&#39;: {&#39;background&#39;: &#39;white&#39;, &#39;view&#39;: {&#39;width&#39;: 400, &#39;height&#39;: 300}, &#39;mark&#39;: {&#39;tooltip&#39;: None}}, &#39;data&#39;: {&#39;url&#39;: &#39;https://vega.github.io/vega-datasets/data/cars.json&#39;}, &#39;mark&#39;: &#39;point&#39;, &#39;encoding&#39;: {&#39;x&#39;: {&#39;type&#39;: &#39;quantitative&#39;, &#39;field&#39;: &#39;Horsepower&#39;}, &#39;y&#39;: {&#39;type&#39;: &#39;quantitative&#39;, &#39;field&#39;: &#39;Miles_per_Gallon&#39;}}, &#39;$schema&#39;: &#39;https://vega.github.io/schema/vega-lite/v3.3.0.json&#39;}
+<div class="highlight-none"><div class="highlight"><pre><span></span>    {&#39;config&#39;: {&#39;background&#39;: &#39;white&#39;, &#39;view&#39;: {&#39;width&#39;: 400, &#39;height&#39;: 300}, &#39;mark&#39;: {&#39;tooltip&#39;: None}}, &#39;data&#39;: {&#39;url&#39;: &#39;https://vega.github.io/vega-datasets/data/cars.json&#39;}, &#39;mark&#39;: &#39;point&#39;, &#39;encoding&#39;: {&#39;x&#39;: {&#39;type&#39;: &#39;quantitative&#39;, &#39;field&#39;: &#39;Horsepower&#39;}, &#39;y&#39;: {&#39;type&#39;: &#39;quantitative&#39;, &#39;field&#39;: &#39;Miles_per_Gallon&#39;}}, &#39;$schema&#39;: &#39;https://vega.github.io/schema/vega-lite/v3.4.0.json&#39;}
 </pre></div>
 </div>
 <div class="highlight-python" id="configuration-rst-altair-source-7"><div class="highlight"><pre><span></span><span class="n">chart</span>
@@ -2376,7 +2398,7 @@ rather than transparent:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"background": "white", "view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "$schema": "https://vega.github.io/schema/vega-lite/v3.3.0.json"};
+      var spec = {"config": {"background": "white", "view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "$schema": "https://vega.github.io/schema/vega-lite/v3.4.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -2392,7 +2414,7 @@ theme named <code class="docutils literal"><span class="pre">'none'</span></code
 <span class="n">chart</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="highlight-none"><div class="highlight"><pre><span></span>    {&#39;data&#39;: {&#39;url&#39;: &#39;https://vega.github.io/vega-datasets/data/cars.json&#39;}, &#39;mark&#39;: &#39;point&#39;, &#39;encoding&#39;: {&#39;x&#39;: {&#39;type&#39;: &#39;quantitative&#39;, &#39;field&#39;: &#39;Horsepower&#39;}, &#39;y&#39;: {&#39;type&#39;: &#39;quantitative&#39;, &#39;field&#39;: &#39;Miles_per_Gallon&#39;}}, &#39;$schema&#39;: &#39;https://vega.github.io/schema/vega-lite/v3.3.0.json&#39;}
+<div class="highlight-none"><div class="highlight"><pre><span></span>    {&#39;data&#39;: {&#39;url&#39;: &#39;https://vega.github.io/vega-datasets/data/cars.json&#39;}, &#39;mark&#39;: &#39;point&#39;, &#39;encoding&#39;: {&#39;x&#39;: {&#39;type&#39;: &#39;quantitative&#39;, &#39;field&#39;: &#39;Horsepower&#39;}, &#39;y&#39;: {&#39;type&#39;: &#39;quantitative&#39;, &#39;field&#39;: &#39;Miles_per_Gallon&#39;}}, &#39;$schema&#39;: &#39;https://vega.github.io/schema/vega-lite/v3.4.0.json&#39;}
 </pre></div>
 </div>
 <div class="highlight-python" id="configuration-rst-altair-source-9"><div class="highlight"><pre><span></span><span class="n">chart</span>
@@ -2404,7 +2426,7 @@ theme named <code class="docutils literal"><span class="pre">'none'</span></code
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "$schema": "https://vega.github.io/schema/vega-lite/v3.3.0.json"};
+      var spec = {"data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "$schema": "https://vega.github.io/schema/vega-lite/v3.4.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -2470,7 +2492,7 @@ fill unless otherwise specified:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "$schema": "https://vega.github.io/schema/vega-lite/v3.3.0.json"};
+      var spec = {"config": {"view": {"height": 300, "width": 400}, "mark": {"color": "black", "fill": "black"}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "$schema": "https://vega.github.io/schema/vega-lite/v3.4.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -2530,7 +2552,7 @@ fill unless otherwise specified:</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.1.0',
+            VERSION:'3.2.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -2542,7 +2564,7 @@ fill unless otherwise specified:</p>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5.4"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.3"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.4"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@4.2"></script>
 
   

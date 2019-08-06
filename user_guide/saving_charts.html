@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Saving Altair Charts &mdash; Altair 3.1.0 documentation</title>
+  <title>Saving Altair Charts &mdash; Altair 3.2.0 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Customizing Visualizations" href="customization.html" />
-    <link rel="prev" title="Compound Charts: Layer, HConcat, VConcat, Repeat, Facet" href="compound_charts.html" /> 
+    <link rel="prev" title="Scale and Guide Resolution" href="scale_resolve.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                3.1.0
+                3.2.0
               </div>
             
           
@@ -110,6 +110,7 @@
 <li class="toctree-l1"><a class="reference internal" href="interactions.html">Bindings, Selections, Conditions: Making Charts Interactive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configuration.html">Top-Level Chart Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scale_resolve.html">Scale and Guide Resolution</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Saving Altair Charts</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#png-and-svg-format">PNG and SVG format</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#figure-size-resolution">Figure Size/Resolution</a></li>
@@ -328,9 +329,9 @@ javascript-enabled web browser:</p>
 <div class="highlight-HTML"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdn.jsdelivr.net/npm/vega@3&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdn.jsdelivr.net/npm/vega-lite@2&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdn.jsdelivr.net/npm/vega-embed@3&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdn.jsdelivr.net/npm/vega@5&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdn.jsdelivr.net/npm/vega-lite@3&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdn.jsdelivr.net/npm/vega-embed@4&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;vis&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -370,6 +371,16 @@ javascript-enabled web browser:</p>
 </pre></div>
 </div>
 <p>You can view the result here: <a class="reference external" href="/_static/chart.html">chart.html</a>.</p>
+<p>By default <code class="docutils literal"><span class="pre">canvas</span></code> is used for rendering the visualization in vegaEmbed. To
+change to <code class="docutils literal"><span class="pre">svg</span></code> rendering, use the <code class="docutils literal"><span class="pre">embed_options</span></code> as such:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">chart</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;chart.html&#39;</span><span class="p">,</span> <span class="n">embed_options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;renderer&#39;</span><span class="p">:</span><span class="s1">&#39;svg&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This is not the same as <code class="docutils literal"><span class="pre">alt.renderers.enable('svg')</span></code>, what renders a
+static <code class="docutils literal"><span class="pre">svg</span></code> image.</p>
+</div>
 </div>
 </div>
 
@@ -384,7 +395,7 @@ javascript-enabled web browser:</p>
         <a href="customization.html" class="btn btn-neutral float-right" title="Customizing Visualizations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="compound_charts.html" class="btn btn-neutral" title="Compound Charts: Layer, HConcat, VConcat, Repeat, Facet" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="scale_resolve.html" class="btn btn-neutral" title="Scale and Guide Resolution" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -415,7 +426,7 @@ javascript-enabled web browser:</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.1.0',
+            VERSION:'3.2.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -427,7 +438,7 @@ javascript-enabled web browser:</p>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5.4"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.3"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.4"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@4.2"></script>
 
   

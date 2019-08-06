@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>altair.selection_multi &mdash; Altair 3.1.0 documentation</title>
+  <title>altair.selection_multi &mdash; Altair 3.2.0 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                3.1.0
+                3.2.0
               </div>
             
           
@@ -110,6 +110,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../interactions.html">Bindings, Selections, Conditions: Making Charts Interactive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../configuration.html">Top-Level Chart Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../scale_resolve.html">Scale and Guide Resolution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../saving_charts.html">Saving Altair Charts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../customization.html">Customizing Visualizations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../times_and_dates.html">Times and Dates in Altair</a></li>
@@ -121,23 +122,24 @@
 <li class="toctree-l2"><a class="reference internal" href="../../API.html#top-level-objects">Top-Level Objects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../API.html#encoding-channels">Encoding Channels</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../API.html#api-functions">API Functions</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="altair.layer.html">altair.layer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.concat.html">altair.concat</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.vconcat.html">altair.vconcat</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.hconcat.html">altair.hconcat</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.repeat.html">altair.repeat</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.value.html">altair.value</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.selection.html">altair.selection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.selection_interval.html">altair.selection_interval</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">altair.selection_multi</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.selection_single.html">altair.selection_single</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.binding.html">altair.binding</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.binding_checkbox.html">altair.binding_checkbox</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.binding_radio.html">altair.binding_radio</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.binding_range.html">altair.binding_range</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.binding_select.html">altair.binding_select</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.concat.html">altair.concat</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.condition.html">altair.condition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.hconcat.html">altair.hconcat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.layer.html">altair.layer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.pipe.html">altair.pipe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.repeat.html">altair.repeat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.selection.html">altair.selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.selection_interval.html">altair.selection_interval</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">altair.selection_multi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.selection_single.html">altair.selection_single</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.topo_feature.html">altair.topo_feature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.value.html">altair.value</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.vconcat.html">altair.vconcat</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../API.html#low-level-schema-wrappers">Low-Level Schema Wrappers</a></li>
@@ -234,36 +236,50 @@ Mapping(required=[type])</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Attributes:</th><td class="field-body"><dl class="first last docutils">
 <dt><strong>type</strong> <span class="classifier-delimiter">:</span> <span class="classifier">enum(‘multi’)</span></dt>
-<dd></dd>
+<dd><p class="first">Determines the default event processing and data query for the selection. Vega-Lite
+currently supports three selection types:</p>
+<ul class="last simple">
+<li><code class="docutils literal"><span class="pre">single</span></code> – to select a single discrete data value on <code class="docutils literal"><span class="pre">click</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">multi</span></code> – to select multiple discrete data value; the first value is selected
+on <code class="docutils literal"><span class="pre">click</span></code> and additional values toggled on shift- <code class="docutils literal"><span class="pre">click</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">interval</span></code> – to select a continuous range of data values on <code class="docutils literal"><span class="pre">drag</span></code>.</li>
+</ul>
+</dd>
 <dt><strong>clear</strong> <span class="classifier-delimiter">:</span> <span class="classifier">anyOf(<a class="reference internal" href="../core/altair.EventStream.html#altair.EventStream" title="altair.EventStream"><code class="xref py py-class docutils literal"><span class="pre">EventStream</span></code></a>, boolean)</span></dt>
 <dd><p class="first">Clears the selection, emptying it of all values. Can be an
 <a class="reference external" href="https://vega.github.io/vega/docs/event-streams/">EventStream</a> or <code class="docutils literal"><span class="pre">false</span></code> to
 disable.</p>
 <p><strong>Default value:</strong> <code class="docutils literal"><span class="pre">dblclick</span></code>.</p>
-<p class="last">See the <a class="reference external" href="https://vega.github.io/vega-lite/docs/clear.html">clear</a> documentation
-for more information.</p>
+<p class="last"><strong>See also:</strong> <a class="reference external" href="https://vega.github.io/vega-lite/docs/clear.html">clear</a>
+documentation.</p>
 </dd>
 <dt><strong>empty</strong> <span class="classifier-delimiter">:</span> <span class="classifier">enum(‘all’, ‘none’)</span></dt>
 <dd><p class="first last">By default, <code class="docutils literal"><span class="pre">all</span></code> data values are considered to lie within an empty selection.
 When set to <code class="docutils literal"><span class="pre">none</span></code>, empty selections contain no data values.</p>
 </dd>
 <dt><strong>encodings</strong> <span class="classifier-delimiter">:</span> <span class="classifier">List(<a class="reference internal" href="../core/altair.SingleDefUnitChannel.html#altair.SingleDefUnitChannel" title="altair.SingleDefUnitChannel"><code class="xref py py-class docutils literal"><span class="pre">SingleDefUnitChannel</span></code></a>)</span></dt>
-<dd><p class="first last">An array of encoding channels. The corresponding data field values
+<dd><p class="first">An array of encoding channels. The corresponding data field values
 must match for a data tuple to fall within the selection.</p>
+<p class="last"><strong>See also:</strong> <a class="reference external" href="https://vega.github.io/vega-lite/docs/project.html">encodings</a>
+documentation.</p>
 </dd>
 <dt><strong>fields</strong> <span class="classifier-delimiter">:</span> <span class="classifier">List(<a class="reference internal" href="../core/altair.FieldName.html#altair.FieldName" title="altair.FieldName"><code class="xref py py-class docutils literal"><span class="pre">FieldName</span></code></a>)</span></dt>
-<dd><p class="first last">An array of field names whose values must match for a data tuple to
+<dd><p class="first">An array of field names whose values must match for a data tuple to
 fall within the selection.</p>
+<p class="last"><strong>See also:</strong> <a class="reference external" href="https://vega.github.io/vega-lite/docs/project.html">fields</a>
+documentation.</p>
 </dd>
 <dt><strong>init</strong> <span class="classifier-delimiter">:</span> <span class="classifier">anyOf(<a class="reference internal" href="../core/altair.SelectionInitMapping.html#altair.SelectionInitMapping" title="altair.SelectionInitMapping"><code class="xref py py-class docutils literal"><span class="pre">SelectionInitMapping</span></code></a>, List(<a class="reference internal" href="../core/altair.SelectionInitMapping.html#altair.SelectionInitMapping" title="altair.SelectionInitMapping"><code class="xref py py-class docutils literal"><span class="pre">SelectionInitMapping</span></code></a>))</span></dt>
-<dd><p class="first last">Initialize the selection with a mapping between <a class="reference external" href="https://vega.github.io/vega-lite/docs/project.html">projected channels or field names</a> and an initial
+<dd><p class="first">Initialize the selection with a mapping between <a class="reference external" href="https://vega.github.io/vega-lite/docs/project.html">projected channels or field names</a> and an initial
 value (or array of values).</p>
+<p class="last"><strong>See also:</strong> <a class="reference external" href="https://vega.github.io/vega-lite/docs/init.html">init</a>
+documentation.</p>
 </dd>
 <dt><strong>nearest</strong> <span class="classifier-delimiter">:</span> <span class="classifier">boolean</span></dt>
 <dd><p class="first">When true, an invisible voronoi diagram is computed to accelerate discrete
 selection. The data value <em>nearest</em> the mouse cursor is added to the selection.</p>
-<p class="last">See the <a class="reference external" href="https://vega.github.io/vega-lite/docs/nearest.html">nearest transform</a>
-documentation for more information.</p>
+<p class="last"><strong>See also:</strong> <a class="reference external" href="https://vega.github.io/vega-lite/docs/nearest.html">nearest</a>
+documentation.</p>
 </dd>
 <dt><strong>on</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference internal" href="../core/altair.EventStream.html#altair.EventStream" title="altair.EventStream"><code class="xref py py-class docutils literal"><span class="pre">EventStream</span></code></a></span></dt>
 <dd><p class="first last">A <a class="reference external" href="https://vega.github.io/vega/docs/event-streams/">Vega event stream</a> (object or
@@ -271,9 +287,10 @@ selector) that triggers the selection.
 For interval selections, the event stream must specify a <a class="reference external" href="https://vega.github.io/vega/docs/event-streams/#between-filters">start and end</a>.</p>
 </dd>
 <dt><strong>resolve</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference internal" href="../core/altair.SelectionResolution.html#altair.SelectionResolution" title="altair.SelectionResolution"><code class="xref py py-class docutils literal"><span class="pre">SelectionResolution</span></code></a></span></dt>
-<dd><p class="first last">With layered and multi-view displays, a strategy that determines how
+<dd><p class="first">With layered and multi-view displays, a strategy that determines how
 selections’ data queries are resolved when applied in a filter transform,
 conditional encoding rule, or scale domain.</p>
+<p class="last"><strong>See also:</strong> <a class="reference external" href="https://vega.github.io/vega-lite/docs/selection-resolve.html">resolve</a> documentation.</p>
 </dd>
 <dt><strong>toggle</strong> <span class="classifier-delimiter">:</span> <span class="classifier">anyOf(string, boolean)</span></dt>
 <dd><p class="first">Controls whether data values should be toggled or only ever inserted into
@@ -281,8 +298,8 @@ multi selections. Can be <code class="docutils literal"><span class="pre">true</
 <a class="reference external" href="https://vega.github.io/vega/docs/expressions/">Vega expression</a>.</p>
 <p><strong>Default value:</strong> <code class="docutils literal"><span class="pre">true</span></code>, which corresponds to <code class="docutils literal"><span class="pre">event.shiftKey</span></code> (i.e.,
 data values are toggled when a user interacts with the shift-key pressed).</p>
-<p class="last">See the <a class="reference external" href="https://vega.github.io/vega-lite/docs/toggle.html">toggle transform</a>
-documentation for more information.</p>
+<p class="last"><strong>See also:</strong> <a class="reference external" href="https://vega.github.io/vega-lite/docs/toggle.html">toggle</a>
+documentation.</p>
 </dd>
 </dl>
 </td>
@@ -335,7 +352,7 @@ documentation for more information.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'3.1.0',
+            VERSION:'3.2.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -347,7 +364,7 @@ documentation for more information.</p>
       <script type="text/javascript" src="../../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../../_static/doctools.js"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5.4"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.3"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.4"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@4.2"></script>
 
   
