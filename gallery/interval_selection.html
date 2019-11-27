@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Interval Selection Example &mdash; Altair 3.2.0 documentation</title>
+  <title>Interval Selection Example &mdash; Altair 3.3.0 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                3.2.0
+                3.3.0
               </div>
             
           
@@ -104,6 +104,7 @@
 <li class="toctree-l2"><a class="reference internal" href="index.html#bar-charts">Bar Charts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#line-charts">Line Charts</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html#area-charts">Area Charts</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="cumulative_count_chart.html">Cumulative Count Chart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="horizon_graph.html">Horizon Graph</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Interval Selection Example</a><ul class="simple">
 </ul>
@@ -230,7 +231,7 @@ top chart can be selected by interacting with the bottom chart.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "vconcat": [{"mark": "area", "encoding": {"x": {"type": "temporal", "field": "date", "scale": {"domain": {"selection": "selector009"}}}, "y": {"type": "quantitative", "field": "price"}}, "height": 200, "width": 600}, {"mark": "area", "encoding": {"x": {"type": "temporal", "field": "date", "scale": {"domain": {"selection": "selector009"}}}, "y": {"type": "quantitative", "field": "price"}}, "height": 60, "selection": {"selector009": {"type": "interval", "encodings": ["x"]}}, "width": 600}], "data": {"url": "https://vega.github.io/vega-datasets/data/sp500.csv"}, "$schema": "https://vega.github.io/schema/vega-lite/v3.4.0.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "vconcat": [{"mark": "area", "encoding": {"x": {"type": "temporal", "field": "date", "scale": {"domain": {"selection": "selector026"}}}, "y": {"type": "quantitative", "field": "price"}}, "height": 200, "width": 600}, {"mark": "area", "encoding": {"x": {"type": "temporal", "field": "date", "scale": {"domain": {"selection": "selector026"}}}, "y": {"type": "quantitative", "field": "price"}}, "height": 60, "selection": {"selector026": {"type": "interval", "encodings": ["x"]}}, "width": 600}], "data": {"url": "https://vega.github.io/vega-datasets/data/sp500.csv"}, "$schema": "https://vega.github.io/schema/vega-lite/v3.4.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -307,7 +308,7 @@ top chart can be selected by interacting with the bottom chart.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.2.0',
+            VERSION:'3.3.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -320,7 +321,7 @@ top chart can be selected by interacting with the bottom chart.</p>
       <script type="text/javascript" src="../_static/doctools.js"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5.4"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.4"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@4.2"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@5.1"></script>
 
   
 

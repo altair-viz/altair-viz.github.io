@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Connections Among U.S. Airports Interactive &mdash; Altair 3.2.0 documentation</title>
+  <title>Connections Among U.S. Airports Interactive &mdash; Altair 3.3.0 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                3.2.0
+                3.3.0
               </div>
             
           
@@ -250,7 +250,7 @@ are displayed on mouseover via a single selection.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300, "stroke": null}, "mark": {"tooltip": null}}, "layer": [{"data": {"url": "https://vega.github.io/vega-datasets/data/us-10m.json", "format": {"feature": "states", "type": "topojson"}}, "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"}, "height": 500, "projection": {"type": "albersUsa"}, "width": 750}, {"data": {"url": "https://vega.github.io/vega-datasets/data/flights-airport.csv"}, "mark": {"type": "rule", "opacity": 0.35}, "encoding": {"latitude": {"field": "latitude", "type": "quantitative"}, "latitude2": {"field": "lat2"}, "longitude": {"field": "longitude", "type": "quantitative"}, "longitude2": {"field": "lon2"}}, "transform": [{"lookup": "origin", "from": {"data": {"url": "https://vega.github.io/vega-datasets/data/airports.csv"}, "key": "iata", "fields": ["state", "latitude", "longitude"]}}, {"lookup": "destination", "as": ["state", "lat2", "lon2"], "from": {"data": {"url": "https://vega.github.io/vega-datasets/data/airports.csv"}, "key": "iata", "fields": ["state", "latitude", "longitude"]}}, {"filter": {"selection": "selector003"}}]}, {"data": {"url": "https://vega.github.io/vega-datasets/data/flights-airport.csv"}, "mark": "circle", "encoding": {"latitude": {"field": "latitude", "type": "quantitative"}, "longitude": {"field": "longitude", "type": "quantitative"}, "order": {"type": "quantitative", "field": "routes", "sort": "descending"}, "size": {"type": "quantitative", "field": "routes", "legend": null, "scale": {"range": [0, 1000]}}, "tooltip": [{"type": "nominal", "field": "origin"}, {"type": "quantitative", "field": "routes"}]}, "selection": {"selector003": {"type": "single", "on": "mouseover", "nearest": true, "fields": ["origin"], "empty": "none"}}, "transform": [{"aggregate": [{"op": "count", "as": "routes"}], "groupby": ["origin"]}, {"lookup": "origin", "from": {"data": {"url": "https://vega.github.io/vega-datasets/data/airports.csv"}, "key": "iata", "fields": ["state", "latitude", "longitude"]}}, {"filter": "((datum.state !== 'PR') && (datum.state !== 'VI'))"}]}], "$schema": "https://vega.github.io/schema/vega-lite/v3.4.0.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300, "stroke": null}, "mark": {"tooltip": null}}, "layer": [{"data": {"url": "https://vega.github.io/vega-datasets/data/us-10m.json", "format": {"feature": "states", "type": "topojson"}}, "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"}, "height": 500, "projection": {"type": "albersUsa"}, "width": 750}, {"data": {"url": "https://vega.github.io/vega-datasets/data/flights-airport.csv"}, "mark": {"type": "rule", "opacity": 0.35}, "encoding": {"latitude": {"field": "latitude", "type": "quantitative"}, "latitude2": {"field": "lat2"}, "longitude": {"field": "longitude", "type": "quantitative"}, "longitude2": {"field": "lon2"}}, "transform": [{"lookup": "origin", "from": {"data": {"url": "https://vega.github.io/vega-datasets/data/airports.csv"}, "key": "iata", "fields": ["state", "latitude", "longitude"]}}, {"lookup": "destination", "as": ["state", "lat2", "lon2"], "from": {"data": {"url": "https://vega.github.io/vega-datasets/data/airports.csv"}, "key": "iata", "fields": ["state", "latitude", "longitude"]}}, {"filter": {"selection": "selector020"}}]}, {"data": {"url": "https://vega.github.io/vega-datasets/data/flights-airport.csv"}, "mark": "circle", "encoding": {"latitude": {"field": "latitude", "type": "quantitative"}, "longitude": {"field": "longitude", "type": "quantitative"}, "order": {"type": "quantitative", "field": "routes", "sort": "descending"}, "size": {"type": "quantitative", "field": "routes", "legend": null, "scale": {"range": [0, 1000]}}, "tooltip": [{"type": "nominal", "field": "origin"}, {"type": "quantitative", "field": "routes"}]}, "selection": {"selector020": {"type": "single", "on": "mouseover", "nearest": true, "fields": ["origin"], "empty": "none"}}, "transform": [{"aggregate": [{"op": "count", "as": "routes"}], "groupby": ["origin"]}, {"lookup": "origin", "from": {"data": {"url": "https://vega.github.io/vega-datasets/data/airports.csv"}, "key": "iata", "fields": ["state", "latitude", "longitude"]}}, {"filter": "((datum.state !== 'PR') && (datum.state !== 'VI'))"}]}], "$schema": "https://vega.github.io/schema/vega-lite/v3.4.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -369,7 +369,7 @@ are displayed on mouseover via a single selection.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.2.0',
+            VERSION:'3.3.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -382,7 +382,7 @@ are displayed on mouseover via a single selection.</p>
       <script type="text/javascript" src="../_static/doctools.js"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5.4"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.4"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@4.2"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@5.1"></script>
 
   
 

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Specifying Data in Altair &mdash; Altair 3.2.0 documentation</title>
+  <title>Specifying Data in Altair &mdash; Altair 3.3.0 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Encodings" href="encoding.html" />
-    <link rel="prev" title="Violinplot" href="../gallery/violine_plot.html" /> 
+    <link rel="prev" title="Wilkinson Dot Plot" href="../gallery/wilkinson-dot-plot.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                3.2.0
+                3.3.0
               </div>
             
           
@@ -110,6 +110,16 @@
 <li class="toctree-l3"><a class="reference internal" href="#converting-between-long-form-and-wide-form-fold-transform">Converting Between Long-form and Wide-form: Fold Transform</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#generated-data">Generated Data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sequence-generator">Sequence Generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#graticule-generator">Graticule Generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sphere-generator">Sphere Generator</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#geospatial-data">Geospatial Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#geopandas-vs-pandas">GeoPandas vs Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#projections">Projections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#winding-order">Winding order</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="encoding.html">Encodings</a></li>
@@ -208,11 +218,12 @@
 <p>Each top-level chart object (i.e. <a class="reference internal" href="generated/toplevel/altair.Chart.html#altair.Chart" title="altair.Chart"><code class="xref py py-class docutils literal"><span class="pre">Chart</span></code></a>, <a class="reference internal" href="generated/toplevel/altair.LayerChart.html#altair.LayerChart" title="altair.LayerChart"><code class="xref py py-class docutils literal"><span class="pre">LayerChart</span></code></a>,
 and <a class="reference internal" href="generated/toplevel/altair.VConcatChart.html#altair.VConcatChart" title="altair.VConcatChart"><code class="xref py py-class docutils literal"><span class="pre">VConcatChart</span></code></a>, <a class="reference internal" href="generated/toplevel/altair.HConcatChart.html#altair.HConcatChart" title="altair.HConcatChart"><code class="xref py py-class docutils literal"><span class="pre">HConcatChart</span></code></a>, <a class="reference internal" href="generated/toplevel/altair.RepeatChart.html#altair.RepeatChart" title="altair.RepeatChart"><code class="xref py py-class docutils literal"><span class="pre">RepeatChart</span></code></a>,
 <a class="reference internal" href="generated/toplevel/altair.FacetChart.html#altair.FacetChart" title="altair.FacetChart"><code class="xref py py-class docutils literal"><span class="pre">FacetChart</span></code></a>) accepts a dataset as its first argument.
-The dataset can be specified in one of three ways:</p>
+The dataset can be specified in one of the following ways:</p>
 <ul class="simple">
 <li>as a <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html">Pandas DataFrame</a></li>
 <li>as a <a class="reference internal" href="generated/core/altair.Data.html#altair.Data" title="altair.Data"><code class="xref py py-class docutils literal"><span class="pre">Data</span></code></a> or related object (i.e. <a class="reference internal" href="generated/core/altair.UrlData.html#altair.UrlData" title="altair.UrlData"><code class="xref py py-class docutils literal"><span class="pre">UrlData</span></code></a>, <a class="reference internal" href="generated/core/altair.InlineData.html#altair.InlineData" title="altair.InlineData"><code class="xref py py-class docutils literal"><span class="pre">InlineData</span></code></a>, <a class="reference internal" href="generated/core/altair.NamedData.html#altair.NamedData" title="altair.NamedData"><code class="xref py py-class docutils literal"><span class="pre">NamedData</span></code></a>)</li>
 <li>as a url string pointing to a <code class="docutils literal"><span class="pre">json</span></code> or <code class="docutils literal"><span class="pre">csv</span></code> formatted text file</li>
+<li>as an object that supports the <cite>__geo_interface__</cite> (eg. <a class="reference external" href="http://geopandas.org/data_structures.html#geodataframe">Geopandas GeoDataFrame</a>, <a class="reference external" href="https://shapely.readthedocs.io/en/latest/manual.html#geometric-objects">Shapely Geometries</a>, <a class="reference external" href="https://github.com/jazzband/geojson#geojson-objects">GeoJSON Objects</a>)</li>
 </ul>
 <p>For example, here we specify data via a DataFrame:</p>
 <div class="highlight-python" id="data-rst-altair-source-0"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
@@ -516,6 +527,214 @@ With it, the above chart can be reproduced as follows:</p>
 to be folded. The <code class="docutils literal"><span class="pre">as_</span></code> argument is optional, with the default being <code class="docutils literal"><span class="pre">[&quot;key&quot;,</span> <span class="pre">&quot;value&quot;]</span></code>.</p>
 </div>
 </div>
+<div class="section" id="generated-data">
+<span id="data-generated"></span><h2>Generated Data<a class="headerlink" href="#generated-data" title="Permalink to this headline">¶</a></h2>
+<p>At times it is convenient to not use an external data source, but rather generate data for
+display within the chart specification itself. The benefit is that the chart specification
+can be made much smaller for generated data than for embedded data.</p>
+<div class="section" id="sequence-generator">
+<h3>Sequence Generator<a class="headerlink" href="#sequence-generator" title="Permalink to this headline">¶</a></h3>
+<p>Here is an example of using the <a class="reference internal" href="generated/api/altair.sequence.html#altair.sequence" title="altair.sequence"><code class="xref py py-func docutils literal"><span class="pre">sequence()</span></code></a> function to generate a sequence of  <em>x</em>
+data, along with a <a class="reference internal" href="transform.html#user-guide-calculate-transform"><span class="std std-ref">Calculate Transform</span></a> to compute <em>y</em> data.</p>
+<div class="highlight-python" id="data-rst-altair-source-11"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
+
+<span class="c1"># Note that the following generator is functionally similar to</span>
+<span class="c1"># data = pd.DataFrame({&#39;x&#39;: np.arange(0, 10, 0.1)})</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">sequence</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">as_</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">transform_calculate</span><span class="p">(</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;sin(datum.x)&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;x:Q&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y:Q&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="data-rst-altair-plot-11">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"sequence": {"start": 0, "stop": 10, "step": 0.1, "as": "x"}}, "mark": "line", "encoding": {"x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "y"}}, "transform": [{"calculate": "sin(datum.x)", "as": "y"}], "$schema": "https://vega.github.io/schema/vega-lite/v3.4.0.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#data-rst-altair-plot-11', spec, opt).catch(console.err);
+  });
+</script>
+</div></div>
+<div class="section" id="graticule-generator">
+<h3>Graticule Generator<a class="headerlink" href="#graticule-generator" title="Permalink to this headline">¶</a></h3>
+<p>Another type of data that is convenient to generate in the chart itself is the latitude/longitude
+lines on a geographic visualization, known as a graticule. These can be created using Altair’s
+<a class="reference internal" href="generated/api/altair.graticule.html#altair.graticule" title="altair.graticule"><code class="xref py py-func docutils literal"><span class="pre">graticule()</span></code></a> generator function. Here is a simple example:</p>
+<div class="highlight-python" id="data-rst-altair-source-12"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">graticule</span><span class="p">(</span><span class="n">step</span><span class="o">=</span><span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">])</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_geoshape</span><span class="p">(</span><span class="n">stroke</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">project</span><span class="p">(</span>
+    <span class="s1">&#39;orthographic&#39;</span><span class="p">,</span>
+    <span class="n">rotate</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">45</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="data-rst-altair-plot-12">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"graticule": {"step": [15, 15]}}, "mark": {"type": "geoshape", "stroke": "black"}, "projection": {"rotate": [0, -45, 0], "type": "orthographic"}, "$schema": "https://vega.github.io/schema/vega-lite/v3.4.0.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#data-rst-altair-plot-12', spec, opt).catch(console.err);
+  });
+</script>
+</div></div>
+<div class="section" id="sphere-generator">
+<h3>Sphere Generator<a class="headerlink" href="#sphere-generator" title="Permalink to this headline">¶</a></h3>
+<p>Finally when visualizing the globe a sphere can be used as a background layer
+within a map to represent the extent of the Earth. This sphere data can be
+created using Altair’s <a class="reference internal" href="generated/api/altair.sphere.html#altair.sphere" title="altair.sphere"><code class="xref py py-func docutils literal"><span class="pre">sphere()</span></code></a> generator function. Here is an example:</p>
+<div class="highlight-python" id="data-rst-altair-source-13"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
+
+<span class="n">sphere_data</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">sphere</span><span class="p">()</span>
+<span class="n">grat_data</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">graticule</span><span class="p">(</span><span class="n">step</span><span class="o">=</span><span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">])</span>
+
+<span class="n">background</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">sphere_data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_geoshape</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="s1">&#39;aliceblue&#39;</span><span class="p">)</span>
+<span class="n">lines</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">grat_data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_geoshape</span><span class="p">(</span><span class="n">stroke</span><span class="o">=</span><span class="s1">&#39;lightgrey&#39;</span><span class="p">)</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">layer</span><span class="p">(</span><span class="n">background</span><span class="p">,</span> <span class="n">lines</span><span class="p">)</span><span class="o">.</span><span class="n">project</span><span class="p">(</span><span class="s1">&#39;naturalEarth1&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="data-rst-altair-plot-13">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "layer": [{"data": {"sphere": true}, "mark": {"type": "geoshape", "fill": "aliceblue"}}, {"data": {"graticule": {"step": [15, 15]}}, "mark": {"type": "geoshape", "stroke": "lightgrey"}}], "projection": {"type": "naturalEarth1"}, "$schema": "https://vega.github.io/schema/vega-lite/v3.4.0.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#data-rst-altair-plot-13', spec, opt).catch(console.err);
+  });
+</script>
+</div></div>
+</div>
+<div class="section" id="geospatial-data">
+<span id="data-geo-interface"></span><h2>Geospatial Data<a class="headerlink" href="#geospatial-data" title="Permalink to this headline">¶</a></h2>
+<p>Working with geographical data in Altair is possible if the object contains a
+<cite>__geo_interface__</cite> attribute. This attribute represents the geo_interface which is a
+Python protocol for Geospatial Data. The protocol follows a GeoJSON-like structure to
+store geo-spatial vector data.</p>
+<p>To make working with Geospatial Data as similar as working with long-form structured data
+the geo_interface is serialized in order to:
+- make it be correctly interpreted by Altair
+- provide users a similar experience as when working with tabular data such as Pandas.</p>
+<p>Altair can interpret a spatial bounded entity (a Feature) or a list of Features
+(FeatureCollection). In order for correct interpretation it is made sure that all records
+contain a single geometry (one of Point, LineString, Polygon, MultiPoint,
+MultiLineString, MultiPolygon, and GeometryCollection) and is stored as a Feature entity.</p>
+<p>The most basic Feature is an entity that only contains a Geometry object. For example
+a Polygon:</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Feature&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;geometry&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;coordinates&quot;</span><span class="p">:</span> <span class="p">[[</span>
+            <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+            <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+            <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+            <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+            <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="p">]],</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Polygon&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Often, the Feature contains also additional metadata next to the Geometry object.
+The <cite>__geo_interface__</cite> provides two approaches to store metadata.
+- Metadata stored as a dictionary within the key <cite>properties</cite> (so called properties
+member). This properties member must exist in a valid Feature entity.
+- Metada may be stored directly as foreign members on the top-level of the Feature.
+There is no normative processing model for usage of this declaration.</p>
+<p>Altair serializes the metadata from the properties in combination with the declared
+geometry as Feature entities. The result of this approach is that the keys <cite>type</cite>
+and <cite>geometry</cite> in the properties member will be overwritten if used.</p>
+<p>So a <cite>__geo_interface__</cite> that is registered as such</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Feature&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;f1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;geometry&quot;</span><span class="p">:</span> <span class="p">{</span><span class="o">...</span><span class="p">},</span>
+    <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;foo&quot;</span><span class="p">:</span> <span class="s2">&quot;xx&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;bah&quot;</span><span class="p">:</span> <span class="s2">&quot;yy&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;zz&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Example Feature&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Is serialized as such:</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Feature&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;geometry&quot;</span><span class="p">:</span> <span class="p">{</span><span class="o">...</span><span class="p">},</span>
+    <span class="s2">&quot;foo&quot;</span><span class="p">:</span> <span class="s2">&quot;xx&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;bah&quot;</span><span class="p">:</span> <span class="s2">&quot;yy&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The nested <cite>“type”: “zz”</cite> in the properties member is overwritten by <cite>“type”:”Feature”</cite>
+and only the metadata stored in the properties member is serialized. Meaning that
+foreign members and the commonly used identifier are not serialized.</p>
+</div>
+<div class="section" id="geopandas-vs-pandas">
+<span id="data-geopandas-vs-pandas"></span><h2>GeoPandas vs Pandas<a class="headerlink" href="#geopandas-vs-pandas" title="Permalink to this headline">¶</a></h2>
+<p>A <cite>GeoDataFrame</cite> is a <cite>DataFrame</cite> including a special column with spatial geometries.
+The column-name containing the spatial geometries defaults to <cite>geometry</cite>. To directly
+use a <cite>GeoDataFrame</cite> with Altair means in practice that only the column-name <cite>type</cite>
+should be avoided.</p>
+</div>
+<div class="section" id="projections">
+<span id="data-projections"></span><h2>Projections<a class="headerlink" href="#projections" title="Permalink to this headline">¶</a></h2>
+<p>Altair works best when the Geospatial Data adopts the World Geodetic System 1984 as
+its geographic coordinate reference system with units in decimal degrees.</p>
+<p>Try to avoid putting projected data into Altair, but reproject your spatial data to
+EPSG:4326 first.</p>
+<p>If your data comes in a different projection (eg. with units in meters) and you don’t
+have the option to reproject the data, try using the project configuration
+<cite>(type: ‘identity’, reflectY’: True)</cite>. It draws the geometries in a cartesian grid
+without applying a projection.</p>
+</div>
+<div class="section" id="winding-order">
+<span id="data-winding-order"></span><h2>Winding order<a class="headerlink" href="#winding-order" title="Permalink to this headline">¶</a></h2>
+<p>LineString, Polygon and MultiPolygon geometries contain coordinates in an order: lines
+go in a certain direction, and polygon rings do too. The GeoJSON-like structure of the
+__geo_interface__ recommends the right-hand rule winding order for Polygon and
+MultiPolygons. Meaning that the exterior rings should be counterclockwise and interior
+rings are clockwise. While it recommends the right-hand rule winding order, it does not
+reject geometries that do not use the right-hand rule.</p>
+<p>Altair does NOT follow the right-hand rule for geometries, but uses the left-hand rule.
+Meaning that exterior rings should be clockwise and interior rings should be
+counterclockwise.</p>
+<p>If you face a problem regarding winding order, try to force the left-hand rule on your
+data before usage in Altair using GeoPandas for example as such:</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">shapely.ops</span> <span class="k">import</span> <span class="n">orient</span> <span class="c1"># version &gt;=1.7a2</span>
+<span class="n">gdf</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">orient</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,))</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -529,7 +748,7 @@ to be folded. The <code class="docutils literal"><span class="pre">as_</span></c
         <a href="encoding.html" class="btn btn-neutral float-right" title="Encodings" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../gallery/violine_plot.html" class="btn btn-neutral" title="Violinplot" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../gallery/wilkinson-dot-plot.html" class="btn btn-neutral" title="Wilkinson Dot Plot" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -560,7 +779,7 @@ to be folded. The <code class="docutils literal"><span class="pre">as_</span></c
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.2.0',
+            VERSION:'3.3.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -573,7 +792,7 @@ to be folded. The <code class="docutils literal"><span class="pre">as_</span></c
       <script type="text/javascript" src="../_static/doctools.js"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5.4"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.4"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@4.2"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@5.1"></script>
 
   
 

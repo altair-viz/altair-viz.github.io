@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Data Transformations &mdash; Altair 3.2.0 documentation</title>
+  <title>Data Transformations &mdash; Altair 3.3.0 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                3.2.0
+                3.3.0
               </div>
             
           
@@ -387,13 +387,13 @@ grouped by the number of Cylinders.</p>
 </script>
 </div><p>The Altair shorthand string:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># ...</span>
-<span class="n">y</span><span class="o">=</span><span class="s1">&#39;mean(acceleration):Q&#39;</span><span class="p">,</span>
+<span class="n">x</span><span class="o">=</span><span class="s1">&#39;mean(Acceleration):Q&#39;</span><span class="p">,</span>
 <span class="c1"># ...</span>
 </pre></div>
 </div>
 <p>is made available for convenience, and is equivalent to the longer form:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># ...</span>
-<span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="n">field</span><span class="o">=</span><span class="s1">&#39;acceleration&#39;</span><span class="p">,</span> <span class="n">aggregate</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;quantitative&#39;</span><span class="p">),</span>
+<span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="n">field</span><span class="o">=</span><span class="s1">&#39;Acceleration&#39;</span><span class="p">,</span> <span class="n">aggregate</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;quantitative&#39;</span><span class="p">),</span>
 <span class="c1"># ...</span>
 </pre></div>
 </div>
@@ -549,7 +549,7 @@ bin a continuous field to create a discrete color map:</p>
 </div><p>In the first case we set <code class="docutils literal"><span class="pre">bin</span> <span class="pre">=</span> <span class="pre">True</span></code>, which uses the default bin settings.
 In the second case, we exercise more fine-tuned control over the bin parameters
 by passing a <code class="xref py py-class docutils literal"><span class="pre">Bin</span></code> object.</p>
-<p>If you are using the same binnings in multiple chart components, it can be useful
+<p>If you are using the same bins in multiple chart components, it can be useful
 to instead define the binning at the top level, using <a class="reference internal" href="generated/toplevel/altair.Chart.html#altair.Chart.transform_bin" title="altair.Chart.transform_bin"><code class="xref py py-meth docutils literal"><span class="pre">transform_bin()</span></code></a>
 method.</p>
 <p>Here is the above histogram created using a top-level bin transform:</p>
@@ -613,8 +613,8 @@ method.</p>
 </script>
 </div><p>The advantage of the top-level transform is that the same named field can be
 used in multiple places in the chart if desired.
-Note the slight difference in binning behavior between the encoding-based binnings
-(which preserve the range of the bins) and the transform-based binnings (which
+Note the slight difference in binning behavior between the encoding-based bins
+(which preserve the range of the bins) and the transform-based bins (which
 collapse each bin to a single representative value.</p>
 <div class="section" id="id1">
 <h3>Transform Options<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
@@ -966,7 +966,7 @@ to select the data to be shown in the top chart:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "vconcat": [{"mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "height": 200, "transform": [{"filter": {"selection": "selector049"}}], "width": 600}, {"mark": "bar", "encoding": {"color": {"condition": {"value": "steelblue", "selection": "selector049"}, "value": "lightgray"}, "x": {"type": "ordinal", "field": "year"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "height": 100, "selection": {"selector049": {"type": "multi", "fields": ["year"]}}, "width": 600}], "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "$schema": "https://vega.github.io/schema/vega-lite/v3.4.0.json"};
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "vconcat": [{"mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "height": 200, "transform": [{"filter": {"selection": "selector066"}}], "width": 600}, {"mark": "bar", "encoding": {"color": {"condition": {"value": "steelblue", "selection": "selector066"}, "value": "lightgray"}, "x": {"type": "ordinal", "field": "year"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "height": 100, "selection": {"selector066": {"type": "multi", "fields": ["year"]}}, "width": 600}], "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "$schema": "https://vega.github.io/schema/vega-lite/v3.4.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -1293,8 +1293,8 @@ data directly, the line skips the missing entries:</p>
       vegaEmbed('#transform-rst-altair-plot-19', spec, opt).catch(console.err);
   });
 </script>
-</div><p>This is not always desireable, because (particularly for a line plot with
-no points) it can imply the esistence of data that is not there.</p>
+</div><p>This is not always desirable, because (particularly for a line plot with
+no points) it can imply the existence of data that is not there.</p>
 <div class="section" id="impute-via-encodings">
 <h3>Impute via Encodings<a class="headerlink" href="#impute-via-encodings" title="Permalink to this headline">¶</a></h3>
 <p>To address this, you can use an impute argument to the encoding channel.
@@ -2473,7 +2473,7 @@ class, which has the following options:</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.2.0',
+            VERSION:'3.3.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -2486,7 +2486,7 @@ class, which has the following options:</p>
       <script type="text/javascript" src="../_static/doctools.js"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5.4"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.4"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@4.2"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@5.1"></script>
 
   
 

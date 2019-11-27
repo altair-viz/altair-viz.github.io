@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>altair.HConcatChart &mdash; Altair 3.2.0 documentation</title>
+  <title>altair.HConcatChart &mdash; Altair 3.3.0 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                3.2.0
+                3.3.0
               </div>
             
           
@@ -7903,14 +7903,14 @@ cls._default_wrapper_classes will be used.</p>
 
 <dl class="method">
 <dt id="altair.HConcatChart.project">
-<code class="descname">project</code><span class="sig-paren">(</span><em>type='mercator'</em>, <em>center=Undefined</em>, <em>clipAngle=Undefined</em>, <em>clipExtent=Undefined</em>, <em>coefficient=Undefined</em>, <em>distance=Undefined</em>, <em>fraction=Undefined</em>, <em>lobes=Undefined</em>, <em>parallel=Undefined</em>, <em>precision=Undefined</em>, <em>radius=Undefined</em>, <em>ratio=Undefined</em>, <em>rotate=Undefined</em>, <em>spacing=Undefined</em>, <em>tilt=Undefined</em>, <em>**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.HConcatChart.project" title="Permalink to this definition">¶</a></dt>
+<code class="descname">project</code><span class="sig-paren">(</span><em>type='mercator'</em>, <em>center=Undefined</em>, <em>clipAngle=Undefined</em>, <em>clipExtent=Undefined</em>, <em>coefficient=Undefined</em>, <em>distance=Undefined</em>, <em>fraction=Undefined</em>, <em>lobes=Undefined</em>, <em>parallel=Undefined</em>, <em>precision=Undefined</em>, <em>radius=Undefined</em>, <em>ratio=Undefined</em>, <em>reflectX=Undefined</em>, <em>reflectY=Undefined</em>, <em>rotate=Undefined</em>, <em>scale=Undefined</em>, <em>spacing=Undefined</em>, <em>tilt=Undefined</em>, <em>translate=Undefined</em>, <em>**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.HConcatChart.project" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a geographic projection to the chart.</p>
 <p>This is generally used either with <code class="docutils literal"><span class="pre">mark_geoshape</span></code> or with the
 <code class="docutils literal"><span class="pre">latitude</span></code>/<code class="docutils literal"><span class="pre">longitude</span></code> encodings.</p>
 <p>Available projection types are
 [‘albers’, ‘albersUsa’, ‘azimuthalEqualArea’, ‘azimuthalEquidistant’,
-‘conicConformal’, ‘conicEqualArea’, ‘conicEquidistant’, ‘equirectangular’,
-‘gnomonic’, ‘mercator’, ‘orthographic’, ‘stereographic’, ‘transverseMercator’]</p>
+‘conicConformal’, ‘conicEqualArea’, ‘conicEquidistant’, ‘equalEarth’, ‘equirectangular’,
+‘gnomonic’, ‘identity’, ‘mercator’, ‘orthographic’, ‘stereographic’, ‘transverseMercator’]</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -7963,6 +7963,10 @@ distance](<a class="reference external" href="http://en.wikipedia.org/wiki/Ramer
 <dd></dd>
 <dt><strong>ratio</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
 <dd></dd>
+<dt><strong>reflectX</strong> <span class="classifier-delimiter">:</span> <span class="classifier">boolean</span></dt>
+<dd></dd>
+<dt><strong>reflectY</strong> <span class="classifier-delimiter">:</span> <span class="classifier">boolean</span></dt>
+<dd></dd>
 <dt><strong>rotate</strong> <span class="classifier-delimiter">:</span> <span class="classifier">List(float)</span></dt>
 <dd><p class="first">Sets the projection’s three-axis rotation to the specified angles, which must be a
 two- or three-element array of numbers [<cite>lambda</cite>, <cite>phi</cite>, <cite>gamma</cite>] specifying the
@@ -7970,10 +7974,16 @@ rotation angles in degrees about each spherical axis. (These correspond to yaw,
 pitch and roll.)</p>
 <p class="last"><strong>Default value:</strong> <cite>[0, 0, 0]</cite></p>
 </dd>
+<dt><strong>scale</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">Sets the projection’s scale (zoom) value, overriding automatic fitting.</p>
+</dd>
 <dt><strong>spacing</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
 <dd></dd>
 <dt><strong>tilt</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
 <dd></dd>
+<dt><strong>translate</strong> <span class="classifier-delimiter">:</span> <span class="classifier">List(float)</span></dt>
+<dd><p class="first last">Sets the projection’s translation (pan) value, overriding automatic fitting.</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -8133,7 +8143,7 @@ if <code class="docutils literal"><span class="pre">repeat</span></code> is spec
 
 <dl class="method">
 <dt id="altair.HConcatChart.save">
-<code class="descname">save</code><span class="sig-paren">(</span><em>fp</em>, <em>format=None</em>, <em>override_data_transformer=True</em>, <em>scale_factor=1.0</em>, <em>vegalite_version='3.4.0'</em>, <em>vega_version='5'</em>, <em>vegaembed_version='4'</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.HConcatChart.save" title="Permalink to this definition">¶</a></dt>
+<code class="descname">save</code><span class="sig-paren">(</span><em>fp</em>, <em>format=None</em>, <em>override_data_transformer=True</em>, <em>scale_factor=1.0</em>, <em>vegalite_version='3.4.0'</em>, <em>vega_version='5'</em>, <em>vegaembed_version='5'</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.HConcatChart.save" title="Permalink to this definition">¶</a></dt>
 <dd><p>Save a chart to file in a variety of formats</p>
 <p>Supported formats are json, html, png, svg</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -8727,9 +8737,9 @@ unspecified, all data points will be in a single group.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">chart</span><span class="o">.</span><span class="n">transform</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="go">JoinAggregateTransform({</span>
 <span class="go">  joinaggregate: [JoinAggregateFieldDef({</span>
-<span class="go">    as: FieldName(&#39;x&#39;),</span>
-<span class="go">    field: FieldName(&#39;y&#39;),</span>
-<span class="go">    op: AggregateOp(&#39;sum&#39;)</span>
+<span class="go">    as: &#39;x&#39;,</span>
+<span class="go">    field: &#39;y&#39;,</span>
+<span class="go">    op: &#39;sum&#39;</span>
 <span class="go">  })]</span>
 <span class="go">})</span>
 </pre></div>
@@ -9079,7 +9089,7 @@ rootschema</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'3.2.0',
+            VERSION:'3.3.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -9092,7 +9102,7 @@ rootschema</p>
       <script type="text/javascript" src="../../../_static/doctools.js"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5.4"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.4"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@4.2"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@5.1"></script>
 
   
 
