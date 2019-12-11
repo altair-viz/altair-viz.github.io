@@ -28,8 +28,7 @@ The example demonstrates the trellis charts created by Richard Becker, William C
         alt.Y(
             'variety:N',
             title="",
-            sort=alt.EncodingSortField(field='yield', op='sum', order='descending'),
-            scale=alt.Scale(rangeStep=20),
+            sort='-x',
             axis=alt.Axis(grid=True)
         ),
         color=alt.Color('year:N', legend=alt.Legend(title="Year")),
@@ -38,6 +37,8 @@ The example demonstrates the trellis charts created by Richard Becker, William C
             title="",
             sort=alt.EncodingSortField(field='yield', op='sum', order='descending'),
         )
+    ).properties(
+        height=alt.Step(20)
     ).configure_view(stroke="transparent")
 
 

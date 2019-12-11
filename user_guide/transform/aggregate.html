@@ -1,0 +1,436 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Aggregate Transforms &mdash; Altair 4.0.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/altair-plot.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/altair-gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Bin transforms" href="bin.html" />
+    <link rel="prev" title="Data Transformations" href="index.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Altair
+          
+
+          
+            
+            <img src="../../_static/altair-logo-light.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/installation.html#dependencies">Dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/installation.html#development-install">Development Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/starting.html">Basic Statistical Visualization</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Gallery</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../gallery/index.html">Example Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../data.html">Specifying Data in Altair</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../encoding.html">Encodings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../marks.html">Marks</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Data Transformations</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Aggregate Transforms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#transform-options">Transform Options</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bin.html">Bin transforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="calculate.html">Calculate Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="density.html">Density Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filter.html">Filter Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flatten.html">Flatten Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fold.html">Fold Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="impute.html">Impute Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="joinaggregate.html">Join Aggregate Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lookup.html">Lookup Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loess.html">LOESS Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pivot.html">Pivot Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quantile.html">Quantile Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regression.html">Regression Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sample.html">Sample Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stack.html">Stack Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="timeunit.html">TimeUnit Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="window.html">Window Transform</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../interactions.html">Bindings, Selections, Conditions: Making Charts Interactive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Top-Level Chart Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scale_resolve.html">Scale and Guide Resolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../saving_charts.html">Saving Altair Charts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../customization.html">Customizing Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../times_and_dates.html">Times and Dates in Altair</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Display Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internals.html">Altair Internals: Understanding the Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ecosystem.html">Altair Ecosystem</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Case Studies</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../case_studies/exploring-weather.html">Exploring Seattle Weather</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../importing.html">Importing Vega &amp; Vega-Lite Versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../display_frontends.html">Displaying Altair Charts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../display_frontends.html#renderer-api">Renderer API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom_renderers.html">Customizing Renderers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_transformers.html">Data transformers</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../releases/changes.html">Altair Change Log</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Altair</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Data Transformations</a> &raquo;</li>
+        
+      <li>Aggregate Transforms</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/user_guide/transform/aggregate.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="aggregate-transforms">
+<span id="user-guide-aggregate-transform"></span><h1>Aggregate Transforms<a class="headerlink" href="#aggregate-transforms" title="Permalink to this headline">¶</a></h1>
+<p>There are two ways to aggregate data within Altair: within the encoding itself,
+or using a top level aggregate transform.</p>
+<p>The aggregate property of a field definition can be used to compute aggregate
+summary statistics (e.g., median, min, max) over groups of data.</p>
+<p>If at least one fields in the specified encoding channels contain aggregate,
+the resulting visualization will show aggregate data. In this case, all
+fields without aggregation function specified are treated as group-by fields
+in the aggregation process.</p>
+<p>For example, the following bar chart aggregates mean of <code class="docutils literal"><span class="pre">acceleration</span></code>,
+grouped by the number of Cylinders.</p>
+<div class="highlight-python" id="aggregate-rst-altair-source-0"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+
+<span class="n">cars</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">cars</span><span class="o">.</span><span class="n">url</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">cars</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Cylinders:O&#39;</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;mean(Acceleration):Q&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="aggregate-rst-altair-plot-0">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "aggregate": "mean", "field": "Acceleration"}, "y": {"type": "ordinal", "field": "Cylinders"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#aggregate-rst-altair-plot-0', spec, opt).catch(console.err);
+  });
+</script>
+</div><p>The Altair shorthand string:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># ...</span>
+<span class="n">x</span><span class="o">=</span><span class="s1">&#39;mean(Acceleration):Q&#39;</span><span class="p">,</span>
+<span class="c1"># ...</span>
+</pre></div>
+</div>
+<p>is made available for convenience, and is equivalent to the longer form:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># ...</span>
+<span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="n">field</span><span class="o">=</span><span class="s1">&#39;Acceleration&#39;</span><span class="p">,</span> <span class="n">aggregate</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;quantitative&#39;</span><span class="p">),</span>
+<span class="c1"># ...</span>
+</pre></div>
+</div>
+<p>For more information on shorthand encodings specifications, see
+<a class="reference internal" href="../encoding.html#encoding-aggregates"><span class="std std-ref">Binning and Aggregation</span></a>.</p>
+<p>The same plot can be shown using an explicitly computed aggregation, using the
+<a class="reference internal" href="../generated/toplevel/altair.Chart.html#altair.Chart.transform_aggregate" title="altair.Chart.transform_aggregate"><code class="xref py py-meth docutils literal"><span class="pre">transform_aggregate()</span></code></a> method:</p>
+<div class="highlight-python" id="aggregate-rst-altair-source-1"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">cars</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Cylinders:O&#39;</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;mean_acc:Q&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_aggregate</span><span class="p">(</span>
+    <span class="n">mean_acc</span><span class="o">=</span><span class="s1">&#39;mean(Acceleration)&#39;</span><span class="p">,</span>
+    <span class="n">groupby</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Cylinders&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="aggregate-rst-altair-plot-1">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "field": "mean_acc"}, "y": {"type": "ordinal", "field": "Cylinders"}}, "transform": [{"aggregate": [{"op": "mean", "field": "Acceleration", "as": "mean_acc"}], "groupby": ["Cylinders"]}], "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#aggregate-rst-altair-plot-1', spec, opt).catch(console.err);
+  });
+</script>
+</div><p>For a list of available aggregates, see <a class="reference internal" href="../encoding.html#encoding-aggregates"><span class="std std-ref">Binning and Aggregation</span></a>.</p>
+<div class="section" id="transform-options">
+<h2>Transform Options<a class="headerlink" href="#transform-options" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference internal" href="../generated/toplevel/altair.Chart.html#altair.Chart.transform_aggregate" title="altair.Chart.transform_aggregate"><code class="xref py py-meth docutils literal"><span class="pre">transform_aggregate()</span></code></a> method is built on the <a class="reference internal" href="../generated/core/altair.AggregateTransform.html#altair.AggregateTransform" title="altair.AggregateTransform"><code class="xref py py-class docutils literal"><span class="pre">AggregateTransform</span></code></a>
+class, which has the following options:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="25%" />
+<col width="63%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Property</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td class="vl-prop">aggregate</td>
+<td>array(<a class="reference internal" href="../generated/core/altair.AggregatedFieldDef.html#altair.AggregatedFieldDef" title="altair.AggregatedFieldDef"><code class="xref py py-class docutils literal"><span class="pre">AggregatedFieldDef</span></code></a>)</td>
+<td class="vl-decsr">Array of objects that define fields to aggregate.</td>
+</tr>
+<tr class="row-odd"><td class="vl-prop">groupby</td>
+<td>array(<a class="reference internal" href="../generated/core/altair.FieldName.html#altair.FieldName" title="altair.FieldName"><code class="xref py py-class docutils literal"><span class="pre">FieldName</span></code></a>)</td>
+<td class="vl-decsr">The data fields to group by. If not specified, a single group containing all data objects will be used.</td>
+</tr>
+</tbody>
+</table>
+<p>The <a class="reference internal" href="../generated/core/altair.AggregatedFieldDef.html#altair.AggregatedFieldDef" title="altair.AggregatedFieldDef"><code class="xref py py-class docutils literal"><span class="pre">AggregatedFieldDef</span></code></a> objects have the following options:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="25%" />
+<col width="63%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Property</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td class="vl-prop">as</td>
+<td><a class="reference internal" href="../generated/core/altair.FieldName.html#altair.FieldName" title="altair.FieldName"><code class="xref py py-class docutils literal"><span class="pre">FieldName</span></code></a></td>
+<td class="vl-decsr">The output field names to use for each aggregated field.</td>
+</tr>
+<tr class="row-odd"><td class="vl-prop">field</td>
+<td><a class="reference internal" href="../generated/core/altair.FieldName.html#altair.FieldName" title="altair.FieldName"><code class="xref py py-class docutils literal"><span class="pre">FieldName</span></code></a></td>
+<td class="vl-decsr">The data field for which to compute aggregate function. This is required for all aggregation operations except <code class="docutils literal"><span class="pre">&quot;count&quot;</span></code>.</td>
+</tr>
+<tr class="row-even"><td class="vl-prop">op</td>
+<td><a class="reference internal" href="../generated/core/altair.AggregateOp.html#altair.AggregateOp" title="altair.AggregateOp"><code class="xref py py-class docutils literal"><span class="pre">AggregateOp</span></code></a></td>
+<td class="vl-decsr">The aggregation operation to apply to the fields (e.g., <code class="docutils literal"><span class="pre">&quot;sum&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;average&quot;</span></code>, or <code class="docutils literal"><span class="pre">&quot;count&quot;</span></code>).
+See the <a class="reference external" href="https://vega.github.io/vega-lite/docs/aggregate.html#ops">full list of supported aggregation operations</a>
+for more information.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="bin.html" class="btn btn-neutral float-right" title="Bin transforms" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Data Transformations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016-2019, Altair Developers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'4.0.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.0.0"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

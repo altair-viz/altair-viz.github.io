@@ -61,7 +61,7 @@ aggregating identical metadata for the final plot.
         x='mean(x)',
         y='mean(y)',
         color=alt.condition(selector, 'id:O', alt.value('lightgray'), legend=None),
-    ).interactive()
+    )
 
     timeseries = base.mark_line().encode(
         x='time',

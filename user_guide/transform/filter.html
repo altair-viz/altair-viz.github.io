@@ -1,0 +1,611 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Filter Transform &mdash; Altair 4.0.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/altair-plot.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/altair-gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Flatten Transform" href="flatten.html" />
+    <link rel="prev" title="Density Transform" href="density.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Altair
+          
+
+          
+            
+            <img src="../../_static/altair-logo-light.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/installation.html#dependencies">Dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/installation.html#development-install">Development Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/starting.html">Basic Statistical Visualization</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Gallery</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../gallery/index.html">Example Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../data.html">Specifying Data in Altair</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../encoding.html">Encodings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../marks.html">Marks</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Data Transformations</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="aggregate.html">Aggregate Transforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bin.html">Bin transforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="calculate.html">Calculate Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="density.html">Density Transform</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Filter Transform</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#filter-expression">Filter Expression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#field-predicates">Field Predicates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#selection-predicates">Selection Predicates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#logical-operands">Logical Operands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#transform-options">Transform Options</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="flatten.html">Flatten Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fold.html">Fold Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="impute.html">Impute Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="joinaggregate.html">Join Aggregate Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lookup.html">Lookup Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loess.html">LOESS Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pivot.html">Pivot Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quantile.html">Quantile Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regression.html">Regression Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sample.html">Sample Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stack.html">Stack Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="timeunit.html">TimeUnit Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="window.html">Window Transform</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../interactions.html">Bindings, Selections, Conditions: Making Charts Interactive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Top-Level Chart Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scale_resolve.html">Scale and Guide Resolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../saving_charts.html">Saving Altair Charts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../customization.html">Customizing Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../times_and_dates.html">Times and Dates in Altair</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Display Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internals.html">Altair Internals: Understanding the Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ecosystem.html">Altair Ecosystem</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Case Studies</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../case_studies/exploring-weather.html">Exploring Seattle Weather</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../importing.html">Importing Vega &amp; Vega-Lite Versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../display_frontends.html">Displaying Altair Charts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../display_frontends.html#renderer-api">Renderer API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom_renderers.html">Customizing Renderers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_transformers.html">Data transformers</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../releases/changes.html">Altair Change Log</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Altair</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Data Transformations</a> &raquo;</li>
+        
+      <li>Filter Transform</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/user_guide/transform/filter.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="filter-transform">
+<span id="user-guide-filter-transform"></span><h1>Filter Transform<a class="headerlink" href="#filter-transform" title="Permalink to this headline">¶</a></h1>
+<p>The filter transform removes objects from a data stream based on a provided
+filter expression, selection, or other filter predicate. A filter can be
+added at the top level of a chart using the <a class="reference internal" href="../generated/toplevel/altair.Chart.html#altair.Chart.transform_filter" title="altair.Chart.transform_filter"><code class="xref py py-meth docutils literal"><span class="pre">Chart.transform_filter()</span></code></a>
+method. The argument to <code class="docutils literal"><span class="pre">transform_filter</span></code> can be one of a number of
+expressions and objects:</p>
+<ol class="arabic simple">
+<li>A <a class="reference external" href="https://vega.github.io/vega/docs/expressions/">Vega expression</a> expressed as a string or built using the <code class="xref py py-mod docutils literal"><span class="pre">expr</span></code> module</li>
+<li>A Field predicate, such as <a class="reference internal" href="../generated/core/altair.FieldOneOfPredicate.html#altair.FieldOneOfPredicate" title="altair.FieldOneOfPredicate"><code class="xref py py-class docutils literal"><span class="pre">FieldOneOfPredicate</span></code></a>,
+<a class="reference internal" href="../generated/core/altair.FieldRangePredicate.html#altair.FieldRangePredicate" title="altair.FieldRangePredicate"><code class="xref py py-class docutils literal"><span class="pre">FieldRangePredicate</span></code></a>, <a class="reference internal" href="../generated/core/altair.FieldEqualPredicate.html#altair.FieldEqualPredicate" title="altair.FieldEqualPredicate"><code class="xref py py-class docutils literal"><span class="pre">FieldEqualPredicate</span></code></a>,
+<a class="reference internal" href="../generated/core/altair.FieldLTPredicate.html#altair.FieldLTPredicate" title="altair.FieldLTPredicate"><code class="xref py py-class docutils literal"><span class="pre">FieldLTPredicate</span></code></a>, <a class="reference internal" href="../generated/core/altair.FieldGTPredicate.html#altair.FieldGTPredicate" title="altair.FieldGTPredicate"><code class="xref py py-class docutils literal"><span class="pre">FieldGTPredicate</span></code></a>,
+<a class="reference internal" href="../generated/core/altair.FieldLTEPredicate.html#altair.FieldLTEPredicate" title="altair.FieldLTEPredicate"><code class="xref py py-class docutils literal"><span class="pre">FieldLTEPredicate</span></code></a>, <a class="reference internal" href="../generated/core/altair.FieldGTEPredicate.html#altair.FieldGTEPredicate" title="altair.FieldGTEPredicate"><code class="xref py py-class docutils literal"><span class="pre">FieldGTEPredicate</span></code></a>,</li>
+<li>A Selection predicate or object created by <a class="reference internal" href="../generated/api/altair.selection.html#altair.selection" title="altair.selection"><code class="xref py py-func docutils literal"><span class="pre">selection()</span></code></a></li>
+<li>A Logical operand that combines any of the above</li>
+</ol>
+<p>We’ll show a brief example of each of these in the following sections</p>
+<div class="section" id="filter-expression">
+<h2>Filter Expression<a class="headerlink" href="#filter-expression" title="Permalink to this headline">¶</a></h2>
+<p>A filter expression uses the <a class="reference external" href="https://vega.github.io/vega/docs/expressions/">Vega expression</a> language, either specified
+directly as a string, or built using the <code class="xref py py-mod docutils literal"><span class="pre">expr</span></code> module.
+This can be useful when, for example, selecting only a subset of data.</p>
+<p>For example:</p>
+<div class="highlight-python" id="filter-rst-altair-source-0"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">altair</span> <span class="kn">import</span> <span class="n">datum</span>
+
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+<span class="n">pop</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">population</span><span class="o">.</span><span class="n">url</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">pop</span><span class="p">)</span><span class="o">.</span><span class="n">mark_area</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;age:O&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;people:Q&#39;</span><span class="p">,</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span>
+    <span class="p">(</span><span class="n">datum</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2000</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">datum</span><span class="o">.</span><span class="n">sex</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="filter-rst-altair-plot-0">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "area", "encoding": {"x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "field": "people"}}, "transform": [{"filter": "((datum.year === 2000) && (datum.sex === 1))"}], "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#filter-rst-altair-plot-0', spec, opt).catch(console.err);
+  });
+</script>
+</div><p>Notice that, like in the <a class="reference internal" href="#user-guide-filter-transform"><span class="std std-ref">Filter Transform</span></a>, data values are
+referenced via the name <code class="docutils literal"><span class="pre">datum</span></code>.</p>
+</div>
+<div class="section" id="field-predicates">
+<h2>Field Predicates<a class="headerlink" href="#field-predicates" title="Permalink to this headline">¶</a></h2>
+<p>Field predicates overlap somewhat in function with expression predicates, but
+have the advantage that their contents are validated by the schema. Examples
+are:</p>
+<ul class="simple">
+<li><a class="reference internal" href="../generated/core/altair.FieldEqualPredicate.html#altair.FieldEqualPredicate" title="altair.FieldEqualPredicate"><code class="xref py py-class docutils literal"><span class="pre">FieldEqualPredicate</span></code></a> evaluates whether a field is equal to
+a particular value</li>
+<li><a class="reference internal" href="../generated/core/altair.FieldOneOfPredicate.html#altair.FieldOneOfPredicate" title="altair.FieldOneOfPredicate"><code class="xref py py-class docutils literal"><span class="pre">FieldOneOfPredicate</span></code></a> evaluates whether a field is among a list of
+specified values.</li>
+<li><a class="reference internal" href="../generated/core/altair.FieldRangePredicate.html#altair.FieldRangePredicate" title="altair.FieldRangePredicate"><code class="xref py py-class docutils literal"><span class="pre">FieldRangePredicate</span></code></a> evaluates whether a continuous field is within
+a range of values.</li>
+<li><a class="reference internal" href="../generated/core/altair.FieldLTPredicate.html#altair.FieldLTPredicate" title="altair.FieldLTPredicate"><code class="xref py py-class docutils literal"><span class="pre">FieldLTPredicate</span></code></a> evaluates whether a continuous field is less
+than a given value</li>
+<li><a class="reference internal" href="../generated/core/altair.FieldGTPredicate.html#altair.FieldGTPredicate" title="altair.FieldGTPredicate"><code class="xref py py-class docutils literal"><span class="pre">FieldGTPredicate</span></code></a> evaluates whether a continuous field is greater
+than a given value</li>
+<li><a class="reference internal" href="../generated/core/altair.FieldLTEPredicate.html#altair.FieldLTEPredicate" title="altair.FieldLTEPredicate"><code class="xref py py-class docutils literal"><span class="pre">FieldLTEPredicate</span></code></a> evaluates whether a continuous field is less
+than or equal to a given value</li>
+<li><a class="reference internal" href="../generated/core/altair.FieldGTEPredicate.html#altair.FieldGTEPredicate" title="altair.FieldGTEPredicate"><code class="xref py py-class docutils literal"><span class="pre">FieldGTEPredicate</span></code></a> evaluates whether a continuous field is greater
+than or equal to a given value</li>
+</ul>
+<p>Here is an example of a <a class="reference internal" href="../generated/core/altair.FieldEqualPredicate.html#altair.FieldEqualPredicate" title="altair.FieldEqualPredicate"><code class="xref py py-class docutils literal"><span class="pre">FieldEqualPredicate</span></code></a> used to select just the
+values from year 2000 as in the above chart:</p>
+<div class="highlight-python" id="filter-rst-altair-source-1"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+<span class="n">pop</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">population</span><span class="o">.</span><span class="n">url</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">pop</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;age:O&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;sum(people):Q&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;year:O&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">FieldEqualPredicate</span><span class="p">(</span><span class="n">field</span><span class="o">=</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="n">equal</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="filter-rst-altair-plot-1">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "transform": [{"filter": {"equal": 2000, "field": "year"}}], "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#filter-rst-altair-plot-1', spec, opt).catch(console.err);
+  });
+</script>
+</div><p>A <a class="reference internal" href="../generated/core/altair.FieldOneOfPredicate.html#altair.FieldOneOfPredicate" title="altair.FieldOneOfPredicate"><code class="xref py py-class docutils literal"><span class="pre">FieldOneOfPredicate</span></code></a> is similar, but allows selection of any number
+of specific values:</p>
+<div class="highlight-python" id="filter-rst-altair-source-2"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+<span class="n">pop</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">population</span><span class="o">.</span><span class="n">url</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">pop</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;age:O&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;sum(people):Q&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;year:O&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">FieldOneOfPredicate</span><span class="p">(</span><span class="n">field</span><span class="o">=</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="n">oneOf</span><span class="o">=</span><span class="p">[</span><span class="mi">1900</span><span class="p">,</span> <span class="mi">1950</span><span class="p">,</span> <span class="mi">2000</span><span class="p">])</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="filter-rst-altair-plot-2">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "transform": [{"filter": {"field": "year", "oneOf": [1900, 1950, 2000]}}], "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#filter-rst-altair-plot-2', spec, opt).catch(console.err);
+  });
+</script>
+</div><p>Finally, a <a class="reference internal" href="../generated/core/altair.FieldRangePredicate.html#altair.FieldRangePredicate" title="altair.FieldRangePredicate"><code class="xref py py-meth docutils literal"><span class="pre">FieldRangePredicate()</span></code></a> allows selecting values within a
+particular continuous range:</p>
+<div class="highlight-python" id="filter-rst-altair-source-3"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+<span class="n">pop</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">population</span><span class="o">.</span><span class="n">url</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">pop</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;age:O&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;sum(people):Q&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;year:O&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">FieldRangePredicate</span><span class="p">(</span><span class="n">field</span><span class="o">=</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="mi">1960</span><span class="p">,</span> <span class="mi">2000</span><span class="p">])</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="filter-rst-altair-plot-3">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "transform": [{"filter": {"field": "year", "range": [1960, 2000]}}], "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#filter-rst-altair-plot-3', spec, opt).catch(console.err);
+  });
+</script>
+</div></div>
+<div class="section" id="selection-predicates">
+<h2>Selection Predicates<a class="headerlink" href="#selection-predicates" title="Permalink to this headline">¶</a></h2>
+<p>Selection predicates can be used to filter data based on a selection. While
+these can be constructed directly using a <a class="reference internal" href="../generated/core/altair.SelectionPredicate.html#altair.SelectionPredicate" title="altair.SelectionPredicate"><code class="xref py py-class docutils literal"><span class="pre">SelectionPredicate</span></code></a> class,
+in Altair it is often more convenient to construct them using the
+<a class="reference internal" href="../generated/api/altair.selection.html#altair.selection" title="altair.selection"><code class="xref py py-func docutils literal"><span class="pre">selection()</span></code></a> function. For example, this chart uses a multi-selection
+that allows the user to click or shift-click on the bars in the bottom chart
+to select the data to be shown in the top chart:</p>
+<div class="highlight-python" id="filter-rst-altair-source-4"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+<span class="n">pop</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">population</span><span class="o">.</span><span class="n">url</span>
+
+<span class="n">selection</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection_multi</span><span class="p">(</span><span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">])</span>
+
+<span class="n">top</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">()</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;age:O&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;sum(people):Q&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;year:O&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">200</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span>
+    <span class="n">selection</span>
+<span class="p">)</span>
+
+<span class="n">bottom</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">()</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;year:O&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;sum(people):Q&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span><span class="n">selection</span><span class="p">,</span> <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;steelblue&#39;</span><span class="p">),</span> <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;lightgray&#39;</span><span class="p">))</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">100</span>
+<span class="p">)</span><span class="o">.</span><span class="n">add_selection</span><span class="p">(</span>
+    <span class="n">selection</span>
+<span class="p">)</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">vconcat</span><span class="p">(</span>
+    <span class="n">top</span><span class="p">,</span> <span class="n">bottom</span><span class="p">,</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">pop</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="filter-rst-altair-plot-4">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "vconcat": [{"mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "height": 200, "transform": [{"filter": {"selection": "selector074"}}], "width": 600}, {"mark": "bar", "encoding": {"color": {"condition": {"value": "steelblue", "selection": "selector074"}, "value": "lightgray"}, "x": {"type": "ordinal", "field": "year"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "height": 100, "selection": {"selector074": {"type": "multi", "fields": ["year"]}}, "width": 600}], "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#filter-rst-altair-plot-4', spec, opt).catch(console.err);
+  });
+</script>
+</div></div>
+<div class="section" id="logical-operands">
+<h2>Logical Operands<a class="headerlink" href="#logical-operands" title="Permalink to this headline">¶</a></h2>
+<p>At times it is useful to combine several types of predicates into a single
+selection. This can be accomplished using the various logical operand classes:</p>
+<ul class="simple">
+<li><a class="reference internal" href="../generated/core/altair.LogicalOrPredicate.html#altair.LogicalOrPredicate" title="altair.LogicalOrPredicate"><code class="xref py py-class docutils literal"><span class="pre">LogicalOrPredicate</span></code></a></li>
+<li><a class="reference internal" href="../generated/core/altair.LogicalAndPredicate.html#altair.LogicalAndPredicate" title="altair.LogicalAndPredicate"><code class="xref py py-class docutils literal"><span class="pre">LogicalAndPredicate</span></code></a></li>
+<li><a class="reference internal" href="../generated/core/altair.LogicalNotPredicate.html#altair.LogicalNotPredicate" title="altair.LogicalNotPredicate"><code class="xref py py-class docutils literal"><span class="pre">LogicalNotPredicate</span></code></a></li>
+</ul>
+<p>These are not yet part of the Altair interface
+(see <a class="reference external" href="https://github.com/altair-viz/altair/issues/695">Issue 695</a>)
+but can be constructed explicitly; for example, here we plot US population
+distributions for all data <em>except</em> the years 1950-1960,
+by applying a <code class="docutils literal"><span class="pre">LogicalNotPredicate</span></code> schema to a <code class="docutils literal"><span class="pre">FieldRangePredicate</span></code>:</p>
+<div class="highlight-python" id="filter-rst-altair-source-5"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+
+<span class="n">pop</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">population</span><span class="o">.</span><span class="n">url</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">pop</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;age:O&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;sum(people):Q&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;year:O&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">200</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span>
+    <span class="p">{</span><span class="s1">&#39;not&#39;</span><span class="p">:</span> <span class="n">alt</span><span class="o">.</span><span class="n">FieldRangePredicate</span><span class="p">(</span><span class="n">field</span><span class="o">=</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="mi">1900</span><span class="p">,</span> <span class="mi">1950</span><span class="p">])}</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="filter-rst-altair-plot-5">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "height": 200, "transform": [{"filter": {"not": {"field": "year", "range": [1900, 1950]}}}], "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#filter-rst-altair-plot-5', spec, opt).catch(console.err);
+  });
+</script>
+</div></div>
+<div class="section" id="transform-options">
+<h2>Transform Options<a class="headerlink" href="#transform-options" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference internal" href="../generated/toplevel/altair.Chart.html#altair.Chart.transform_filter" title="altair.Chart.transform_filter"><code class="xref py py-meth docutils literal"><span class="pre">transform_filter()</span></code></a> method is built on the <a class="reference internal" href="../generated/core/altair.FilterTransform.html#altair.FilterTransform" title="altair.FilterTransform"><code class="xref py py-class docutils literal"><span class="pre">FilterTransform</span></code></a>
+class, which has the following options:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="25%" />
+<col width="63%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Property</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td class="vl-prop">filter</td>
+<td><code class="xref py py-class docutils literal"><span class="pre">LogicalOperand&lt;Predicate&gt;</span></code></td>
+<td class="vl-decsr"><p class="first">The <code class="docutils literal"><span class="pre">filter</span></code> property must be one of the predicate definitions:</p>
+<ol class="last simple">
+<li>an <a class="reference external" href="https://vega.github.io/vega-lite/docs/types.html#expression">expression</a> string,
+where <code class="docutils literal"><span class="pre">datum</span></code> can be used to refer to the current data object</li>
+<li>one of the field predicates: <a class="reference external" href="https://vega.github.io/vega-lite/docs/filter.html#equal-predicate"><code class="docutils literal"><span class="pre">equal</span></code></a>,
+<a class="reference external" href="https://vega.github.io/vega-lite/docs/filter.html#lt-predicate"><code class="docutils literal"><span class="pre">lt</span></code></a>,
+<a class="reference external" href="https://vega.github.io/vega-lite/docs/filter.html#lte-predicate"><code class="docutils literal"><span class="pre">lte</span></code></a>,
+<a class="reference external" href="https://vega.github.io/vega-lite/docs/filter.html#gt-predicate"><code class="docutils literal"><span class="pre">gt</span></code></a>,
+<a class="reference external" href="https://vega.github.io/vega-lite/docs/filter.html#gte-predicate"><code class="docutils literal"><span class="pre">gte</span></code></a>,
+<a class="reference external" href="https://vega.github.io/vega-lite/docs/filter.html#range-predicate"><code class="docutils literal"><span class="pre">range</span></code></a>,
+<a class="reference external" href="https://vega.github.io/vega-lite/docs/filter.html#one-of-predicate"><code class="docutils literal"><span class="pre">oneOf</span></code></a>,
+or <a class="reference external" href="https://vega.github.io/vega-lite/docs/filter.html#valid-predicate"><code class="docutils literal"><span class="pre">valid</span></code></a>,</li>
+<li>a <a class="reference external" href="https://vega.github.io/vega-lite/docs/filter.html#selection-predicate">selection predicate</a></li>
+<li>a logical operand that combines (1), (2), or (3).</li>
+</ol>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="flatten.html" class="btn btn-neutral float-right" title="Flatten Transform" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="density.html" class="btn btn-neutral" title="Density Transform" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016-2019, Altair Developers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'4.0.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.0.0"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

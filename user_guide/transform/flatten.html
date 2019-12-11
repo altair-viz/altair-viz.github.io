@@ -1,0 +1,399 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Flatten Transform &mdash; Altair 4.0.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/altair-plot.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/altair-gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Fold Transform" href="fold.html" />
+    <link rel="prev" title="Filter Transform" href="filter.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Altair
+          
+
+          
+            
+            <img src="../../_static/altair-logo-light.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/installation.html#dependencies">Dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/installation.html#development-install">Development Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/starting.html">Basic Statistical Visualization</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Gallery</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../gallery/index.html">Example Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../data.html">Specifying Data in Altair</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../encoding.html">Encodings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../marks.html">Marks</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Data Transformations</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="aggregate.html">Aggregate Transforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bin.html">Bin transforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="calculate.html">Calculate Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="density.html">Density Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filter.html">Filter Transform</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Flatten Transform</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#transform-options">Transform Options</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fold.html">Fold Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="impute.html">Impute Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="joinaggregate.html">Join Aggregate Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lookup.html">Lookup Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loess.html">LOESS Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pivot.html">Pivot Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quantile.html">Quantile Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regression.html">Regression Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sample.html">Sample Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stack.html">Stack Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="timeunit.html">TimeUnit Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="window.html">Window Transform</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../interactions.html">Bindings, Selections, Conditions: Making Charts Interactive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Top-Level Chart Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scale_resolve.html">Scale and Guide Resolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../saving_charts.html">Saving Altair Charts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../customization.html">Customizing Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../times_and_dates.html">Times and Dates in Altair</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Display Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internals.html">Altair Internals: Understanding the Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ecosystem.html">Altair Ecosystem</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Case Studies</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../case_studies/exploring-weather.html">Exploring Seattle Weather</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../importing.html">Importing Vega &amp; Vega-Lite Versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../display_frontends.html">Displaying Altair Charts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../display_frontends.html#renderer-api">Renderer API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom_renderers.html">Customizing Renderers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_transformers.html">Data transformers</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../releases/changes.html">Altair Change Log</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Altair</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Data Transformations</a> &raquo;</li>
+        
+      <li>Flatten Transform</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/user_guide/transform/flatten.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="flatten-transform">
+<span id="user-guide-flatten-transform"></span><h1>Flatten Transform<a class="headerlink" href="#flatten-transform" title="Permalink to this headline">¶</a></h1>
+<p>The flatten transform can be used to extract the contents of arrays from data entries.
+This will not generally be useful for well-structured data within pandas dataframes,
+but it can be useful for working with data from other sources.</p>
+<p>As an example, consider this dataset which uses a common convention in JSON data,
+a set of fields each containing a list of entries:</p>
+<div class="highlight-python" id="flatten-rst-altair-source-0"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">rand</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">generate_data</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">mean</span> <span class="o">=</span> <span class="n">rand</span><span class="o">.</span><span class="n">randn</span><span class="p">()</span>
+    <span class="n">std</span> <span class="o">=</span> <span class="n">rand</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">rand</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">std</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;values&#39;</span><span class="p">:</span> <span class="n">generate_data</span><span class="p">(</span><span class="mi">20</span><span class="p">)},</span>
+    <span class="p">{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;values&#39;</span><span class="p">:</span> <span class="n">generate_data</span><span class="p">(</span><span class="mi">30</span><span class="p">)},</span>
+    <span class="p">{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;values&#39;</span><span class="p">:</span> <span class="n">generate_data</span><span class="p">(</span><span class="mi">40</span><span class="p">)},</span>
+    <span class="p">{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;values&#39;</span><span class="p">:</span> <span class="n">generate_data</span><span class="p">(</span><span class="mi">50</span><span class="p">)},</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>This kind of data structure does not work well in the context of dataframe
+representations, as we can see by loading this into pandas:</p>
+<div class="highlight-python" id="flatten-rst-altair-source-1"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_records</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+<div class="highlight-none"><div class="highlight"><pre><span></span>      label                                             values
+    0     A  [2.005252455842496, 0.3967871813856627, 2.5678...
+    1     B  [1.1906228762083413, -1.6927165224630425, -0.5...
+    2     C  [0.3901956756272385, 1.4135072065946024, 0.603...
+    3     D  [1.0035211072316703, 1.1414240499680273, 1.883...
+</pre></div>
+</div>
+<p>Alair’s flatten transform allows you to extract the contents of these arrays
+into a column that can be referenced by an encoding:</p>
+<div class="highlight-python" id="flatten-rst-altair-source-2"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">transform_flatten</span><span class="p">(</span>
+    <span class="p">[</span><span class="s1">&#39;values&#39;</span><span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">mark_tick</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;values:Q&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;label:N&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="flatten-rst-altair-plot-2">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-7da2255847635beb11936fd307dac9ec"}, "mark": "tick", "encoding": {"x": {"type": "quantitative", "field": "values"}, "y": {"type": "nominal", "field": "label"}}, "transform": [{"flatten": ["values"]}], "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json", "datasets": {"data-7da2255847635beb11936fd307dac9ec": [{"label": "A", "values": [2.005252455842496, 0.3967871813856627, 2.5678646623388275, 1.256089150184741, 2.9514506567717906, 2.527222225531605, 1.4591284949861767, 3.2982061599790526, 2.4155261835794164, 2.0559779750579663, 2.1131370161326797, 1.6546010213924336, 2.614072050380182, 1.5383345252691776, 1.9299318117536766, 1.1849446526226046, 1.9912501219482928, 1.7842081074077434, 2.174273355818932, 0.8216338025661822]}, {"label": "B", "values": [1.1906228762083413, -1.6927165224630425, -0.5312698347586192, -0.7116216632399595, 0.6200316857888714, 0.5709294410904627, -0.4467321033662996, -0.27391145767462716, -1.254051255246734, -2.1002969780432346, -0.8360629274037326, -0.44564698124334645, 0.38583487238439984, 0.364225365993753, -0.8665790912905293, -0.8007505943360111, -1.3785226511430397, -1.6661233469968009, -1.887749485291185, 0.9436584110758434, -0.9612875094377379, -0.9058695032147039, -1.5366539941494795, 0.035261606263304435, -1.816231705316691, -0.7314083124732873, -1.2599979998699076, -0.26714467206306675, -0.9621801666738584, -1.4807828322098298]}, {"label": "C", "values": [0.3901956756272385, 1.4135072065946024, 0.6035674031624774, -0.38404980732869126, -0.6911855699015029, -0.37359215824933706, -0.7517155338563645, -0.6875172870877814, -0.1578807228410085, 0.5772153327340649, 1.721361426964954, 0.138844345725191, -1.7137508555740186, 0.12874278235884798, -0.8672056648567803, -0.22980617258976452, 0.448893739511322, -0.8470312944954548, 0.34412368545474464, -0.9960579965102729, 0.9660433966704345, 0.3054670482358442, -1.249999209937088, 0.8755667027899261, -0.9119421407710063, 1.772663916818762, 1.4618738821396275, -1.4401251360569163, 0.3402135805899632, -0.0970997842957472, 0.5619374646250908, 0.4329945402636224, 0.772681079048851, 0.8582476204206989, -0.6003912168777169, 0.887588766646983, -0.27687350513267617, 0.9227911093297897, 0.17428351802783523, 1.045905261505769]}, {"label": "D", "values": [1.0035211072316703, 1.1414240499680273, 1.883966340074569, 0.26423250248465424, 0.30297187418499605, 1.4258791863570983, 0.35178161480539905, 1.9142816703932795, 0.7325397009154708, 0.565179659434326, 1.9039147037041628, 1.682115143547207, 1.8761498223455284, 1.3941192591059013, 0.5081435465385542, 1.8974591128502323, 0.8055403565015302, 1.3421879374437606, 1.4147774880710302, 0.8621866416868407, 1.247749941590691, 1.402221670429774, 1.1286082775460302, 0.38874055896865456, 1.089411049148803, 1.6048465706509238, 0.5916931778120245, 0.8648815373533479, 0.7217438954379445, 1.8669779764973786, 1.2769347343298254, 1.1441675340102975, 0.5539192806412725, 1.210235748326848, 0.6018375764809559, 0.9558544157512746, 0.6211318385541937, 1.2790094843017004, 1.2289560155621015, 0.8354717359017642, 1.1384248012619282, 0.3919185955258142, 0.19229318984136412, 1.1601747538581697, 1.0234544678492, 1.2582537234019644, 2.1346255620985195, 1.4133875758559218, 0.482276942818254, 1.4998844810297163]}]}};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#flatten-rst-altair-plot-2', spec, opt).catch(console.err);
+  });
+</script>
+</div><p>This can be particularly useful in cleaning up data specified via a JSON URL,
+without having to first load the data for manipulation in pandas.</p>
+<div class="section" id="transform-options">
+<h2>Transform Options<a class="headerlink" href="#transform-options" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference internal" href="../generated/toplevel/altair.Chart.html#altair.Chart.transform_flatten" title="altair.Chart.transform_flatten"><code class="xref py py-meth docutils literal"><span class="pre">transform_flatten()</span></code></a> method is built on the <a class="reference internal" href="../generated/core/altair.FlattenTransform.html#altair.FlattenTransform" title="altair.FlattenTransform"><code class="xref py py-class docutils literal"><span class="pre">FlattenTransform</span></code></a>
+class, which has the following options:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="25%" />
+<col width="63%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Property</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td class="vl-prop">as</td>
+<td>array(<a class="reference internal" href="../generated/core/altair.FieldName.html#altair.FieldName" title="altair.FieldName"><code class="xref py py-class docutils literal"><span class="pre">FieldName</span></code></a>)</td>
+<td class="vl-decsr"><p class="first">The output field names for extracted array values.</p>
+<p class="last"><strong>Default value:</strong> The field name of the corresponding array field</p>
+</td>
+</tr>
+<tr class="row-odd"><td class="vl-prop">flatten</td>
+<td>array(<a class="reference internal" href="../generated/core/altair.FieldName.html#altair.FieldName" title="altair.FieldName"><code class="xref py py-class docutils literal"><span class="pre">FieldName</span></code></a>)</td>
+<td class="vl-decsr">An array of one or more data fields containing arrays to flatten.
+If multiple fields are specified, their array values should have a parallel structure, ideally with the same length.
+If the lengths of parallel arrays do not match,
+the longest array will be used with <code class="docutils literal"><span class="pre">null</span></code> values added for missing entries.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="fold.html" class="btn btn-neutral float-right" title="Fold Transform" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="filter.html" class="btn btn-neutral" title="Filter Transform" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016-2019, Altair Developers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'4.0.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.0.0"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

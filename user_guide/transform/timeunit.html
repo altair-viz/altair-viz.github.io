@@ -1,0 +1,495 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>TimeUnit Transform &mdash; Altair 4.0.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/altair-plot.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/altair-gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Window Transform" href="window.html" />
+    <link rel="prev" title="Stack Transform" href="stack.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Altair
+          
+
+          
+            
+            <img src="../../_static/altair-logo-light.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/installation.html#dependencies">Dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/installation.html#development-install">Development Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/starting.html">Basic Statistical Visualization</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Gallery</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../gallery/index.html">Example Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../data.html">Specifying Data in Altair</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../encoding.html">Encodings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../marks.html">Marks</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Data Transformations</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="aggregate.html">Aggregate Transforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bin.html">Bin transforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="calculate.html">Calculate Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="density.html">Density Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filter.html">Filter Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flatten.html">Flatten Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fold.html">Fold Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="impute.html">Impute Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="joinaggregate.html">Join Aggregate Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lookup.html">Lookup Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loess.html">LOESS Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pivot.html">Pivot Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quantile.html">Quantile Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regression.html">Regression Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sample.html">Sample Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stack.html">Stack Transform</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">TimeUnit Transform</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#timeunit-within-encoding">TimeUnit Within Encoding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timeunit-as-a-transform">TimeUnit as a Transform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#transform-options">Transform Options</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="window.html">Window Transform</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../interactions.html">Bindings, Selections, Conditions: Making Charts Interactive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Top-Level Chart Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scale_resolve.html">Scale and Guide Resolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../saving_charts.html">Saving Altair Charts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../customization.html">Customizing Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../times_and_dates.html">Times and Dates in Altair</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Display Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internals.html">Altair Internals: Understanding the Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ecosystem.html">Altair Ecosystem</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Case Studies</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../case_studies/exploring-weather.html">Exploring Seattle Weather</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../importing.html">Importing Vega &amp; Vega-Lite Versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../display_frontends.html">Displaying Altair Charts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../display_frontends.html#renderer-api">Renderer API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom_renderers.html">Customizing Renderers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_transformers.html">Data transformers</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../releases/changes.html">Altair Change Log</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Altair</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Data Transformations</a> &raquo;</li>
+        
+      <li>TimeUnit Transform</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/user_guide/transform/timeunit.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="timeunit-transform">
+<span id="user-guide-timeunit-transform"></span><h1>TimeUnit Transform<a class="headerlink" href="#timeunit-transform" title="Permalink to this headline">¶</a></h1>
+<p>TimeUnit transforms are used to discretize dates and times within Altair.
+As with the <a class="reference internal" href="aggregate.html#user-guide-aggregate-transform"><span class="std std-ref">Aggregate Transforms</span></a> and <a class="reference internal" href="bin.html#user-guide-bin-transform"><span class="std std-ref">Bin transforms</span></a>
+discussed above, they can be defined either as part of the encoding, or as a
+top-level transform.</p>
+<p>These are the available time units:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">&quot;year&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;yearquarter&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;yearquartermonth&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;yearmonth&quot;</span></code>,
+<code class="docutils literal"><span class="pre">&quot;yearmonthdate&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;yearmonthdatehours&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;yearmonthdatehoursminutes&quot;</span></code>,
+<code class="docutils literal"><span class="pre">&quot;yearmonthdatehoursseconds&quot;</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">&quot;quarter&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;quartermonth&quot;</span></code></li>
+<li><code class="docutils literal"><span class="pre">&quot;month&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;monthdate&quot;</span></code></li>
+<li><code class="docutils literal"><span class="pre">&quot;date&quot;</span></code> (Day of month, i.e., 1 - 31)</li>
+<li><code class="docutils literal"><span class="pre">&quot;day&quot;</span></code> (Day of week, i.e., Monday - Friday)</li>
+<li><code class="docutils literal"><span class="pre">&quot;hours&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;hoursminutes&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;hoursminutesseconds&quot;</span></code></li>
+<li><code class="docutils literal"><span class="pre">&quot;minutes&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;minutesseconds&quot;</span></code></li>
+<li><code class="docutils literal"><span class="pre">&quot;seconds&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;secondsmilliseconds&quot;</span></code></li>
+<li><code class="docutils literal"><span class="pre">&quot;milliseconds&quot;</span></code></li>
+</ul>
+<div class="section" id="timeunit-within-encoding">
+<h2>TimeUnit Within Encoding<a class="headerlink" href="#timeunit-within-encoding" title="Permalink to this headline">¶</a></h2>
+<p>Any temporal field definition can include a <code class="docutils literal"><span class="pre">timeUnit</span></code> argument to discretize
+the temporal data.</p>
+<p>For example, here we plot a dataset that consists of hourly temperature
+measurements in Seattle during the year 2010:</p>
+<div class="highlight-python" id="timeunit-rst-altair-source-0"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+
+<span class="n">temps</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">seattle_temps</span><span class="o">.</span><span class="n">url</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">temps</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;date:T&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;temp:Q&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="timeunit-rst-altair-plot-0">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-temps.csv"}, "mark": "line", "encoding": {"x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "temp"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#timeunit-rst-altair-plot-0', spec, opt).catch(console.err);
+  });
+</script>
+</div><p>The plot is too busy due to the amount of data points squeezed into the short
+time; we can make it a bit cleaner by discretizing it, for example, by month
+and plotting only the mean monthly temperature:</p>
+<div class="highlight-python" id="timeunit-rst-altair-source-1"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">temps</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;month(date):T&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;mean(temp):Q&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="timeunit-rst-altair-plot-1">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-temps.csv"}, "mark": "line", "encoding": {"x": {"type": "temporal", "field": "date", "timeUnit": "month"}, "y": {"type": "quantitative", "aggregate": "mean", "field": "temp"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#timeunit-rst-altair-plot-1', spec, opt).catch(console.err);
+  });
+</script>
+</div><p>Notice that by default timeUnit output is a continuous quantity; if you would
+instead like it to be a categorical, you can specify the ordinal (<code class="docutils literal"><span class="pre">O</span></code>) or
+nominal (<code class="docutils literal"><span class="pre">N</span></code>) type.
+This can be useful when plotting a bar chart or other discrete chart type:</p>
+<div class="highlight-python" id="timeunit-rst-altair-source-2"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">temps</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;month(date):O&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;mean(temp):Q&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="timeunit-rst-altair-plot-2">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-temps.csv"}, "mark": "bar", "encoding": {"x": {"type": "ordinal", "field": "date", "timeUnit": "month"}, "y": {"type": "quantitative", "aggregate": "mean", "field": "temp"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#timeunit-rst-altair-plot-2', spec, opt).catch(console.err);
+  });
+</script>
+</div><p>Multiple time units can be combined within a single plot to yield interesting
+views of your data; for example, here we extract both the month and the day
+to give a profile of Seattle temperatures through the year:</p>
+<div class="highlight-python" id="timeunit-rst-altair-source-3"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">temps</span><span class="p">)</span><span class="o">.</span><span class="n">mark_rect</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;date(date):O&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;day&#39;</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;month(date):O&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;month&#39;</span><span class="p">),</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;max(temp):Q&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;2010 Daily High Temperatures in Seattle (F)&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="timeunit-rst-altair-plot-3">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-temps.csv"}, "mark": "rect", "encoding": {"color": {"type": "quantitative", "aggregate": "max", "field": "temp"}, "x": {"type": "ordinal", "field": "date", "timeUnit": "date", "title": "day"}, "y": {"type": "ordinal", "field": "date", "timeUnit": "month", "title": "month"}}, "title": "2010 Daily High Temperatures in Seattle (F)", "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#timeunit-rst-altair-plot-3', spec, opt).catch(console.err);
+  });
+</script>
+</div></div>
+<div class="section" id="timeunit-as-a-transform">
+<h2>TimeUnit as a Transform<a class="headerlink" href="#timeunit-as-a-transform" title="Permalink to this headline">¶</a></h2>
+<p>Other times it is convenient to specify a timeUnit as a top-level transform,
+particularly when the value may be reused.
+This can be done most conveniently using the <a class="reference internal" href="../generated/toplevel/altair.Chart.html#altair.Chart.transform_timeunit" title="altair.Chart.transform_timeunit"><code class="xref py py-meth docutils literal"><span class="pre">Chart.transform_timeunit()</span></code></a>
+method. For example:</p>
+<div class="highlight-python" id="timeunit-rst-altair-source-4"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">temps</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;month:T&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%b&#39;</span><span class="p">)),</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;mean(temp):Q&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_timeunit</span><span class="p">(</span>
+    <span class="n">month</span><span class="o">=</span><span class="s1">&#39;month(date)&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="timeunit-rst-altair-plot-4">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-temps.csv"}, "mark": "line", "encoding": {"x": {"type": "temporal", "axis": {"format": "%b"}, "field": "month"}, "y": {"type": "quantitative", "aggregate": "mean", "field": "temp"}}, "transform": [{"field": "date", "timeUnit": "month", "as": "month"}], "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#timeunit-rst-altair-plot-4', spec, opt).catch(console.err);
+  });
+</script>
+</div><p>Notice that because the <code class="docutils literal"><span class="pre">timeUnit</span></code> is not part of the encoding channel here,
+it is often necessary to add an axis formatter to ensure appropriate axis
+labels.</p>
+</div>
+<div class="section" id="transform-options">
+<h2>Transform Options<a class="headerlink" href="#transform-options" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference internal" href="../generated/toplevel/altair.Chart.html#altair.Chart.transform_timeunit" title="altair.Chart.transform_timeunit"><code class="xref py py-meth docutils literal"><span class="pre">transform_timeunit()</span></code></a> method is built on the <a class="reference internal" href="../generated/core/altair.TimeUnitTransform.html#altair.TimeUnitTransform" title="altair.TimeUnitTransform"><code class="xref py py-class docutils literal"><span class="pre">TimeUnitTransform</span></code></a>
+class, which has the following options:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="25%" />
+<col width="63%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Property</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td class="vl-prop">as</td>
+<td><a class="reference internal" href="../generated/core/altair.FieldName.html#altair.FieldName" title="altair.FieldName"><code class="xref py py-class docutils literal"><span class="pre">FieldName</span></code></a></td>
+<td class="vl-decsr">The output field to write the timeUnit value.</td>
+</tr>
+<tr class="row-odd"><td class="vl-prop">field</td>
+<td><a class="reference internal" href="../generated/core/altair.FieldName.html#altair.FieldName" title="altair.FieldName"><code class="xref py py-class docutils literal"><span class="pre">FieldName</span></code></a></td>
+<td class="vl-decsr">The data field to apply time unit.</td>
+</tr>
+<tr class="row-even"><td class="vl-prop">timeUnit</td>
+<td><a class="reference internal" href="../generated/core/altair.TimeUnit.html#altair.TimeUnit" title="altair.TimeUnit"><code class="xref py py-class docutils literal"><span class="pre">TimeUnit</span></code></a></td>
+<td class="vl-decsr">The timeUnit.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="window.html" class="btn btn-neutral float-right" title="Window Transform" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="stack.html" class="btn btn-neutral" title="Stack Transform" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016-2019, Altair Developers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'4.0.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.0.0"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

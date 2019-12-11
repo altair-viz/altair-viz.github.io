@@ -1,0 +1,568 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Impute Transform &mdash; Altair 4.0.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/altair-plot.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/altair-gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Join Aggregate Transform" href="joinaggregate.html" />
+    <link rel="prev" title="Fold Transform" href="fold.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Altair
+          
+
+          
+            
+            <img src="../../_static/altair-logo-light.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/installation.html#dependencies">Dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/installation.html#development-install">Development Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/starting.html">Basic Statistical Visualization</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Gallery</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../gallery/index.html">Example Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../data.html">Specifying Data in Altair</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../encoding.html">Encodings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../marks.html">Marks</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Data Transformations</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="aggregate.html">Aggregate Transforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bin.html">Bin transforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="calculate.html">Calculate Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="density.html">Density Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filter.html">Filter Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flatten.html">Flatten Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fold.html">Fold Transform</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Impute Transform</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#impute-via-encodings">Impute via Encodings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#impute-via-transform">Impute via Transform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#transform-options">Transform Options</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="joinaggregate.html">Join Aggregate Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lookup.html">Lookup Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loess.html">LOESS Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pivot.html">Pivot Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quantile.html">Quantile Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regression.html">Regression Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sample.html">Sample Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stack.html">Stack Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="timeunit.html">TimeUnit Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="window.html">Window Transform</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../interactions.html">Bindings, Selections, Conditions: Making Charts Interactive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Top-Level Chart Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scale_resolve.html">Scale and Guide Resolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../saving_charts.html">Saving Altair Charts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../customization.html">Customizing Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../times_and_dates.html">Times and Dates in Altair</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Display Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internals.html">Altair Internals: Understanding the Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ecosystem.html">Altair Ecosystem</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Case Studies</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../case_studies/exploring-weather.html">Exploring Seattle Weather</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../importing.html">Importing Vega &amp; Vega-Lite Versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../display_frontends.html">Displaying Altair Charts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../display_frontends.html#renderer-api">Renderer API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom_renderers.html">Customizing Renderers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_transformers.html">Data transformers</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../releases/changes.html">Altair Change Log</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Altair</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Data Transformations</a> &raquo;</li>
+        
+      <li>Impute Transform</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/user_guide/transform/impute.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="impute-transform">
+<span id="user-guide-impute-transform"></span><h1>Impute Transform<a class="headerlink" href="#impute-transform" title="Permalink to this headline">¶</a></h1>
+<p>The impute transform allows you to fill-in missing entries in a dataset.
+As an example, consider the following data, which includes missing values
+that we filter-out of the long-form representation (see <a class="reference internal" href="../data.html#data-long-vs-wide"><span class="std std-ref">Long-form vs. Wide-form Data</span></a>
+for more on this):</p>
+<div class="highlight-python" id="impute-rst-altair-source-0"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;t&#39;</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
+    <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+    <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="p">})</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+<div class="highlight-none"><div class="highlight"><pre><span></span>       t variable  value
+    0  0        x    2.0
+    2  2        x    3.0
+    3  3        x    1.0
+    4  4        x    3.0
+    5  0        y    5.0
+    6  1        y    7.0
+    7  2        y    5.0
+    9  4        y    4.0
+</pre></div>
+</div>
+<p>Notice the result: the <code class="docutils literal"><span class="pre">x</span></code> series has no entry at <code class="docutils literal"><span class="pre">t=1</span></code>, and the <code class="docutils literal"><span class="pre">y</span></code>
+series has a missing entry at <code class="docutils literal"><span class="pre">t=3</span></code>. If we use Altair to visualize this
+data directly, the line skips the missing entries:</p>
+<div class="highlight-python" id="impute-rst-altair-source-1"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+
+<span class="n">raw</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">point</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;t:Q&#39;</span><span class="p">),</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;value:Q&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;variable:N&#39;</span>
+<span class="p">)</span>
+<span class="n">raw</span>
+</pre></div>
+</div>
+
+<div id="impute-rst-altair-plot-1">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-7be20e7420cc57bc379470ef15f02789"}, "mark": {"type": "line", "point": true}, "encoding": {"color": {"type": "nominal", "field": "variable"}, "x": {"type": "quantitative", "field": "t"}, "y": {"type": "quantitative", "field": "value"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json", "datasets": {"data-7be20e7420cc57bc379470ef15f02789": [{"t": 0, "variable": "x", "value": 2.0}, {"t": 2, "variable": "x", "value": 3.0}, {"t": 3, "variable": "x", "value": 1.0}, {"t": 4, "variable": "x", "value": 3.0}, {"t": 0, "variable": "y", "value": 5.0}, {"t": 1, "variable": "y", "value": 7.0}, {"t": 2, "variable": "y", "value": 5.0}, {"t": 4, "variable": "y", "value": 4.0}]}};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#impute-rst-altair-plot-1', spec, opt).catch(console.err);
+  });
+</script>
+</div><p>This is not always desirable, because (particularly for a line plot with
+no points) it can imply the existence of data that is not there.</p>
+<div class="section" id="impute-via-encodings">
+<h2>Impute via Encodings<a class="headerlink" href="#impute-via-encodings" title="Permalink to this headline">¶</a></h2>
+<p>To address this, you can use an impute argument to the encoding channel.
+For example, we can impute using a constant value (we’ll show the raw chart
+lightly in the background for reference):</p>
+<div class="highlight-python" id="impute-rst-altair-source-2"><div class="highlight"><pre><span></span><span class="n">background</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">opacity</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mf">0.2</span><span class="p">))</span>
+<span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">point</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;t:Q&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;value:Q&#39;</span><span class="p">,</span> <span class="n">impute</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">ImputeParams</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">)),</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;variable:N&#39;</span>
+<span class="p">)</span>
+<span class="n">background</span> <span class="o">+</span> <span class="n">chart</span>
+</pre></div>
+</div>
+
+<div id="impute-rst-altair-plot-2">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "line", "point": true}, "encoding": {"color": {"type": "nominal", "field": "variable"}, "opacity": {"value": 0.2}, "x": {"type": "quantitative", "field": "t"}, "y": {"type": "quantitative", "field": "value"}}}, {"mark": {"type": "line", "point": true}, "encoding": {"color": {"type": "nominal", "field": "variable"}, "x": {"type": "quantitative", "field": "t"}, "y": {"type": "quantitative", "field": "value", "impute": {"value": 0}}}}], "data": {"name": "data-7be20e7420cc57bc379470ef15f02789"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json", "datasets": {"data-7be20e7420cc57bc379470ef15f02789": [{"t": 0, "variable": "x", "value": 2.0}, {"t": 2, "variable": "x", "value": 3.0}, {"t": 3, "variable": "x", "value": 1.0}, {"t": 4, "variable": "x", "value": 3.0}, {"t": 0, "variable": "y", "value": 5.0}, {"t": 1, "variable": "y", "value": 7.0}, {"t": 2, "variable": "y", "value": 5.0}, {"t": 4, "variable": "y", "value": 4.0}]}};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#impute-rst-altair-plot-2', spec, opt).catch(console.err);
+  });
+</script>
+</div><p>Or we can impute using any supported aggregate:</p>
+<div class="highlight-python" id="impute-rst-altair-source-3"><div class="highlight"><pre><span></span><span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">point</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;t:Q&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;value:Q&#39;</span><span class="p">,</span> <span class="n">impute</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">ImputeParams</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">)),</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;variable:N&#39;</span>
+<span class="p">)</span>
+<span class="n">background</span> <span class="o">+</span> <span class="n">chart</span>
+</pre></div>
+</div>
+
+<div id="impute-rst-altair-plot-3">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "line", "point": true}, "encoding": {"color": {"type": "nominal", "field": "variable"}, "opacity": {"value": 0.2}, "x": {"type": "quantitative", "field": "t"}, "y": {"type": "quantitative", "field": "value"}}}, {"mark": {"type": "line", "point": true}, "encoding": {"color": {"type": "nominal", "field": "variable"}, "x": {"type": "quantitative", "field": "t"}, "y": {"type": "quantitative", "field": "value", "impute": {"method": "mean"}}}}], "data": {"name": "data-7be20e7420cc57bc379470ef15f02789"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json", "datasets": {"data-7be20e7420cc57bc379470ef15f02789": [{"t": 0, "variable": "x", "value": 2.0}, {"t": 2, "variable": "x", "value": 3.0}, {"t": 3, "variable": "x", "value": 1.0}, {"t": 4, "variable": "x", "value": 3.0}, {"t": 0, "variable": "y", "value": 5.0}, {"t": 1, "variable": "y", "value": 7.0}, {"t": 2, "variable": "y", "value": 5.0}, {"t": 4, "variable": "y", "value": 4.0}]}};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#impute-rst-altair-plot-3', spec, opt).catch(console.err);
+  });
+</script>
+</div></div>
+<div class="section" id="impute-via-transform">
+<h2>Impute via Transform<a class="headerlink" href="#impute-via-transform" title="Permalink to this headline">¶</a></h2>
+<p>Similar to the <a class="reference internal" href="bin.html#user-guide-bin-transform"><span class="std std-ref">Bin transforms</span></a> and <a class="reference internal" href="aggregate.html#user-guide-aggregate-transform"><span class="std std-ref">Aggregate Transforms</span></a>,
+it is also possible to specify the impute transform outside the encoding as a
+transform. For example, here is the equivalent of the above two charts:</p>
+<div class="highlight-python" id="impute-rst-altair-source-4"><div class="highlight"><pre><span></span><span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">transform_impute</span><span class="p">(</span>
+    <span class="n">impute</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">,</span>
+    <span class="n">key</span><span class="o">=</span><span class="s1">&#39;t&#39;</span><span class="p">,</span>
+    <span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">groupby</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;variable&#39;</span><span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">point</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;t:Q&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;value:Q&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;variable:N&#39;</span>
+<span class="p">)</span>
+<span class="n">background</span> <span class="o">+</span> <span class="n">chart</span>
+</pre></div>
+</div>
+
+<div id="impute-rst-altair-plot-4">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "line", "point": true}, "encoding": {"color": {"type": "nominal", "field": "variable"}, "opacity": {"value": 0.2}, "x": {"type": "quantitative", "field": "t"}, "y": {"type": "quantitative", "field": "value"}}}, {"mark": {"type": "line", "point": true}, "encoding": {"color": {"type": "nominal", "field": "variable"}, "x": {"type": "quantitative", "field": "t"}, "y": {"type": "quantitative", "field": "value"}}, "transform": [{"impute": "value", "key": "t", "groupby": ["variable"], "value": 0}]}], "data": {"name": "data-7be20e7420cc57bc379470ef15f02789"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json", "datasets": {"data-7be20e7420cc57bc379470ef15f02789": [{"t": 0, "variable": "x", "value": 2.0}, {"t": 2, "variable": "x", "value": 3.0}, {"t": 3, "variable": "x", "value": 1.0}, {"t": 4, "variable": "x", "value": 3.0}, {"t": 0, "variable": "y", "value": 5.0}, {"t": 1, "variable": "y", "value": 7.0}, {"t": 2, "variable": "y", "value": 5.0}, {"t": 4, "variable": "y", "value": 4.0}]}};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#impute-rst-altair-plot-4', spec, opt).catch(console.err);
+  });
+</script>
+</div><div class="highlight-python" id="impute-rst-altair-source-5"><div class="highlight"><pre><span></span><span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">transform_impute</span><span class="p">(</span>
+    <span class="n">impute</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">,</span>
+    <span class="n">key</span><span class="o">=</span><span class="s1">&#39;t&#39;</span><span class="p">,</span>
+    <span class="n">method</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span>
+    <span class="n">groupby</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;variable&#39;</span><span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">point</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;t:Q&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;value:Q&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;variable:N&#39;</span>
+<span class="p">)</span>
+<span class="n">background</span> <span class="o">+</span> <span class="n">chart</span>
+</pre></div>
+</div>
+
+<div id="impute-rst-altair-plot-5">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "line", "point": true}, "encoding": {"color": {"type": "nominal", "field": "variable"}, "opacity": {"value": 0.2}, "x": {"type": "quantitative", "field": "t"}, "y": {"type": "quantitative", "field": "value"}}}, {"mark": {"type": "line", "point": true}, "encoding": {"color": {"type": "nominal", "field": "variable"}, "x": {"type": "quantitative", "field": "t"}, "y": {"type": "quantitative", "field": "value"}}, "transform": [{"impute": "value", "key": "t", "groupby": ["variable"], "method": "mean"}]}], "data": {"name": "data-7be20e7420cc57bc379470ef15f02789"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json", "datasets": {"data-7be20e7420cc57bc379470ef15f02789": [{"t": 0, "variable": "x", "value": 2.0}, {"t": 2, "variable": "x", "value": 3.0}, {"t": 3, "variable": "x", "value": 1.0}, {"t": 4, "variable": "x", "value": 3.0}, {"t": 0, "variable": "y", "value": 5.0}, {"t": 1, "variable": "y", "value": 7.0}, {"t": 2, "variable": "y", "value": 5.0}, {"t": 4, "variable": "y", "value": 4.0}]}};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#impute-rst-altair-plot-5', spec, opt).catch(console.err);
+  });
+</script>
+</div><p>If you would like to use more localized imputed values, you can specify a
+<code class="docutils literal"><span class="pre">frame</span></code> parameter similar to the <a class="reference internal" href="window.html#user-guide-window-transform"><span class="std std-ref">Window Transform</span></a> that
+will control which values are used for the imputation. For example, here
+we impute missing values using the mean of the neighboring points on either
+side:</p>
+<div class="highlight-python" id="impute-rst-altair-source-6"><div class="highlight"><pre><span></span><span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">transform_impute</span><span class="p">(</span>
+    <span class="n">impute</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">,</span>
+    <span class="n">key</span><span class="o">=</span><span class="s1">&#39;t&#39;</span><span class="p">,</span>
+    <span class="n">method</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span>
+    <span class="n">frame</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="n">groupby</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;variable&#39;</span><span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">point</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;t:Q&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;value:Q&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;variable:N&#39;</span>
+<span class="p">)</span>
+<span class="n">background</span> <span class="o">+</span> <span class="n">chart</span>
+</pre></div>
+</div>
+
+<div id="impute-rst-altair-plot-6">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "line", "point": true}, "encoding": {"color": {"type": "nominal", "field": "variable"}, "opacity": {"value": 0.2}, "x": {"type": "quantitative", "field": "t"}, "y": {"type": "quantitative", "field": "value"}}}, {"mark": {"type": "line", "point": true}, "encoding": {"color": {"type": "nominal", "field": "variable"}, "x": {"type": "quantitative", "field": "t"}, "y": {"type": "quantitative", "field": "value"}}, "transform": [{"impute": "value", "key": "t", "frame": [-1, 1], "groupby": ["variable"], "method": "mean"}]}], "data": {"name": "data-7be20e7420cc57bc379470ef15f02789"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json", "datasets": {"data-7be20e7420cc57bc379470ef15f02789": [{"t": 0, "variable": "x", "value": 2.0}, {"t": 2, "variable": "x", "value": 3.0}, {"t": 3, "variable": "x", "value": 1.0}, {"t": 4, "variable": "x", "value": 3.0}, {"t": 0, "variable": "y", "value": 5.0}, {"t": 1, "variable": "y", "value": 7.0}, {"t": 2, "variable": "y", "value": 5.0}, {"t": 4, "variable": "y", "value": 4.0}]}};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#impute-rst-altair-plot-6', spec, opt).catch(console.err);
+  });
+</script>
+</div></div>
+<div class="section" id="transform-options">
+<h2>Transform Options<a class="headerlink" href="#transform-options" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference internal" href="../generated/toplevel/altair.Chart.html#altair.Chart.transform_impute" title="altair.Chart.transform_impute"><code class="xref py py-meth docutils literal"><span class="pre">transform_impute()</span></code></a> method is built on the <a class="reference internal" href="../generated/core/altair.ImputeTransform.html#altair.ImputeTransform" title="altair.ImputeTransform"><code class="xref py py-class docutils literal"><span class="pre">ImputeTransform</span></code></a>
+class, which has the following options:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="25%" />
+<col width="63%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Property</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td class="vl-prop">frame</td>
+<td>array(any)</td>
+<td class="vl-decsr"><p class="first">A frame specification as a two-element array used to control the window over which the specified method is applied. The array entries should either be a number indicating the offset from the current data object, or null to indicate unbounded rows preceding or following the current data object. For example, the value <code class="docutils literal"><span class="pre">[-5,</span> <span class="pre">5]</span></code> indicates that the window should include five objects preceding and five objects following the current object.</p>
+<p class="last"><strong>Default value:</strong>:  <code class="docutils literal"><span class="pre">[null,</span> <span class="pre">null]</span></code> indicating that the window includes all objects.</p>
+</td>
+</tr>
+<tr class="row-odd"><td class="vl-prop">groupby</td>
+<td>array(<a class="reference internal" href="../generated/core/altair.FieldName.html#altair.FieldName" title="altair.FieldName"><code class="xref py py-class docutils literal"><span class="pre">FieldName</span></code></a>)</td>
+<td class="vl-decsr">An optional array of fields by which to group the values.
+Imputation will then be performed on a per-group basis.</td>
+</tr>
+<tr class="row-even"><td class="vl-prop">impute</td>
+<td><a class="reference internal" href="../generated/core/altair.FieldName.html#altair.FieldName" title="altair.FieldName"><code class="xref py py-class docutils literal"><span class="pre">FieldName</span></code></a></td>
+<td class="vl-decsr">The data field for which the missing values should be imputed.</td>
+</tr>
+<tr class="row-odd"><td class="vl-prop">key</td>
+<td><a class="reference internal" href="../generated/core/altair.FieldName.html#altair.FieldName" title="altair.FieldName"><code class="xref py py-class docutils literal"><span class="pre">FieldName</span></code></a></td>
+<td class="vl-decsr">A key field that uniquely identifies data objects within a group.
+Missing key values (those occurring in the data but not in the current group) will be imputed.</td>
+</tr>
+<tr class="row-even"><td class="vl-prop">keyvals</td>
+<td>anyOf(array(any), <a class="reference internal" href="../generated/core/altair.ImputeSequence.html#altair.ImputeSequence" title="altair.ImputeSequence"><code class="xref py py-class docutils literal"><span class="pre">ImputeSequence</span></code></a>)</td>
+<td class="vl-decsr"><p class="first">Defines the key values that should be considered for imputation.
+An array of key values or an object defining a <a class="reference external" href="https://vega.github.io/vega-lite/docs/impute.html#sequence-def">number sequence</a>.</p>
+<p>If provided, this will be used in addition to the key values observed within the input data. If not provided, the values will be derived from all unique values of the <code class="docutils literal"><span class="pre">key</span></code> field. For <code class="docutils literal"><span class="pre">impute</span></code> in <code class="docutils literal"><span class="pre">encoding</span></code>, the key field is the x-field if the y-field is imputed, or vice versa.</p>
+<p class="last">If there is no impute grouping, this property <em>must</em> be specified.</p>
+</td>
+</tr>
+<tr class="row-odd"><td class="vl-prop">method</td>
+<td><a class="reference internal" href="../generated/core/altair.ImputeMethod.html#altair.ImputeMethod" title="altair.ImputeMethod"><code class="xref py py-class docutils literal"><span class="pre">ImputeMethod</span></code></a></td>
+<td class="vl-decsr"><p class="first">The imputation method to use for the field value of imputed data objects.
+One of <code class="docutils literal"><span class="pre">&quot;value&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;mean&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;median&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;max&quot;</span></code> or <code class="docutils literal"><span class="pre">&quot;min&quot;</span></code>.</p>
+<p class="last"><strong>Default value:</strong>  <code class="docutils literal"><span class="pre">&quot;value&quot;</span></code></p>
+</td>
+</tr>
+<tr class="row-even"><td class="vl-prop">value</td>
+<td>any</td>
+<td class="vl-decsr">The field value to use when the imputation <code class="docutils literal"><span class="pre">method</span></code> is <code class="docutils literal"><span class="pre">&quot;value&quot;</span></code>.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="joinaggregate.html" class="btn btn-neutral float-right" title="Join Aggregate Transform" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="fold.html" class="btn btn-neutral" title="Fold Transform" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016-2019, Altair Developers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'4.0.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.0.0"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

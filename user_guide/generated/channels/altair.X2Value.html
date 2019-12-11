@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>altair.X2Value &mdash; Altair 3.3.0 documentation</title>
+  <title>altair.X2Value &mdash; Altair 4.0.0 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                3.3.0
+                4.0.0
               </div>
             
           
@@ -95,6 +95,8 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/installation.html#dependencies">Dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/installation.html#development-install">Development Install</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/starting.html">Basic Statistical Visualization</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Gallery</span></p>
@@ -106,7 +108,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../data.html">Specifying Data in Altair</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../encoding.html">Encodings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../marks.html">Marks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../transform.html">Data Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../transform/index.html">Data Transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../interactions.html">Bindings, Selections, Conditions: Making Charts Interactive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../configuration.html">Top-Level Chart Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
@@ -116,7 +118,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../times_and_dates.html">Times and Dates in Altair</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../troubleshooting.html">Display Troubleshooting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../renderers.html">Altair Renderers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../internals.html">Altair Internals: Understanding the Library</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../API.html">API Reference</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../API.html#top-level-objects">Top-Level Objects</a></li>
@@ -160,6 +161,8 @@
 <li class="toctree-l3"><a class="reference internal" href="altair.TextValue.html">altair.TextValue</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.Tooltip.html">altair.Tooltip</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.TooltipValue.html">altair.TooltipValue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.Url.html">altair.Url</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.UrlValue.html">altair.UrlValue</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.X.html">altair.X</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.X2.html">altair.X2</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">altair.X2Value</a></li>
@@ -191,9 +194,14 @@
 <p class="caption"><span class="caption-text">Advanced Usage</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../importing.html">Importing Vega &amp; Vega-Lite Versions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../display_frontends.html">Displaying Charts in Various Frontends</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../display_frontends.html">Displaying Altair Charts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../display_frontends.html#renderer-api">Renderer API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../custom_renderers.html">Customizing Renderers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../data_transformers.html">Data transformers</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../releases/changes.html">Altair Change Log</a></li>
 </ul>
 
             
@@ -267,15 +275,17 @@
 <em class="property">class </em><code class="descclassname">altair.</code><code class="descname">X2Value</code><span class="sig-paren">(</span><em>value</em>, <em>**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.X2Value" title="Permalink to this definition">¶</a></dt>
 <dd><p>X2Value schema wrapper</p>
 <p>Mapping(required=[value])
-Definition object for a constant value of an encoding channel.</p>
+Definition object for a constant value (primitive value or gradient definition) of an
+encoding channel.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Attributes:</th><td class="field-body"><dl class="first last docutils">
 <dt><strong>value</strong> <span class="classifier-delimiter">:</span> <span class="classifier">anyOf(float, enum(‘width’))</span></dt>
-<dd><p class="first last">A constant value in visual domain (e.g., <code class="docutils literal"><span class="pre">&quot;red&quot;</span></code> / “#0099ff” for color, values
-between <code class="docutils literal"><span class="pre">0</span></code> to <code class="docutils literal"><span class="pre">1</span></code> for opacity).</p>
+<dd><p class="first last">A constant value in visual domain (e.g., <code class="docutils literal"><span class="pre">&quot;red&quot;</span></code> / <code class="docutils literal"><span class="pre">&quot;#0099ff&quot;</span></code> / <a class="reference external" href="https://vega.github.io/vega-lite/docs/types.html#gradient">gradient
+definition</a> for color,
+values between <code class="docutils literal"><span class="pre">0</span></code> to <code class="docutils literal"><span class="pre">1</span></code> for opacity).</p>
 </dd>
 </dl>
 </td>
@@ -512,7 +522,7 @@ rootschema</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2016-2018, Altair Developers.
+        &copy; Copyright 2016-2019, Altair Developers.
 
     </p>
   </div>
@@ -534,7 +544,7 @@ rootschema</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'3.3.0',
+            VERSION:'4.0.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -545,9 +555,9 @@ rootschema</p>
       <script type="text/javascript" src="../../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5.4"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.4"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@5.1"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.0.0"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
   
 

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Wilkinson Dot Plot &mdash; Altair 3.3.0 documentation</title>
+  <title>Wilkinson Dot Plot &mdash; Altair 4.0.0 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Specifying Data in Altair" href="../user_guide/data.html" />
-    <link rel="prev" title="Violinplot" href="violine_plot.html" /> 
+    <link rel="prev" title="Violin Plot" href="violin_plot.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                3.3.0
+                4.0.0
               </div>
             
           
@@ -95,6 +95,8 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html#dependencies">Dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html#development-install">Development Install</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/starting.html">Basic Statistical Visualization</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Gallery</span></p>
@@ -128,7 +130,7 @@
 <li class="toctree-l3"><a class="reference internal" href="sorted_error_bars_with_ci.html">Sorted Error Bars showing Confidence Interval</a></li>
 <li class="toctree-l3"><a class="reference internal" href="stem_and_leaf.html">Stem and Leaf Plot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="layered_heatmap_text.html">Text over a Heatmap</a></li>
-<li class="toctree-l3"><a class="reference internal" href="violine_plot.html">Violinplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="violin_plot.html">Violin Plot</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Wilkinson Dot Plot</a><ul class="simple">
 </ul>
 </li>
@@ -142,7 +144,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/data.html">Specifying Data in Altair</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/encoding.html">Encodings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/marks.html">Marks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/transform.html">Data Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/transform/index.html">Data Transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/interactions.html">Bindings, Selections, Conditions: Making Charts Interactive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/configuration.html">Top-Level Chart Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
@@ -152,7 +154,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/times_and_dates.html">Times and Dates in Altair</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/troubleshooting.html">Display Troubleshooting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/renderers.html">Altair Renderers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/internals.html">Altair Internals: Understanding the Library</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/API.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/ecosystem.html">Altair Ecosystem</a></li>
@@ -164,9 +165,14 @@
 <p class="caption"><span class="caption-text">Advanced Usage</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/importing.html">Importing Vega &amp; Vega-Lite Versions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/display_frontends.html">Displaying Charts in Various Frontends</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/display_frontends.html">Displaying Altair Charts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/display_frontends.html#renderer-api">Renderer API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/custom_renderers.html">Customizing Renderers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/data_transformers.html">Data transformers</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../releases/changes.html">Altair Change Log</a></li>
 </ul>
 
             
@@ -235,14 +241,14 @@
             
   <div class="section" id="wilkinson-dot-plot">
 <span id="gallery-wilkinson-dot-plot"></span><h1>Wilkinson Dot Plot<a class="headerlink" href="#wilkinson-dot-plot" title="Permalink to this headline">¶</a></h1>
-<p>An example of a [Wilkinson Dot Plot](<a class="reference external" href="https://en.wikipedia.org/wiki/Dot_plot_(statistics">https://en.wikipedia.org/wiki/Dot_plot_(statistics</a>))</p>
+<p>An example of a <a class="reference external" href="https://en.wikipedia.org/wiki/Dot_plot_(statistics)">Wilkinson Dot Plot</a></p>
 
 <div id="wilkinson-dot-plot-rst-altair-plot-0">
 <script>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"name": "data-e55c72ba8eccc1d7808978e728438806"}, "mark": {"type": "circle", "opacity": 1}, "encoding": {"x": {"type": "ordinal", "field": "data"}, "y": {"type": "ordinal", "axis": null, "field": "id", "sort": "descending"}}, "height": 100, "transform": [{"window": [{"op": "rank", "field": "", "as": "id"}], "groupby": ["data"]}], "$schema": "https://vega.github.io/schema/vega-lite/v3.4.0.json", "datasets": {"data-e55c72ba8eccc1d7808978e728438806": [{"data": 1}, {"data": 1}, {"data": 1}, {"data": 1}, {"data": 1}, {"data": 1}, {"data": 1}, {"data": 1}, {"data": 1}, {"data": 1}, {"data": 2}, {"data": 2}, {"data": 2}, {"data": 3}, {"data": 3}, {"data": 4}, {"data": 4}, {"data": 4}, {"data": 4}, {"data": 4}, {"data": 4}]}};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-e55c72ba8eccc1d7808978e728438806"}, "mark": {"type": "circle", "opacity": 1}, "encoding": {"x": {"type": "ordinal", "field": "data"}, "y": {"type": "ordinal", "axis": null, "field": "id", "sort": "descending"}}, "height": 100, "transform": [{"window": [{"op": "rank", "field": "", "as": "id"}], "groupby": ["data"]}], "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json", "datasets": {"data-e55c72ba8eccc1d7808978e728438806": [{"data": 1}, {"data": 1}, {"data": 1}, {"data": 1}, {"data": 1}, {"data": 1}, {"data": 1}, {"data": 1}, {"data": 1}, {"data": 1}, {"data": 2}, {"data": 2}, {"data": 2}, {"data": 3}, {"data": 3}, {"data": 4}, {"data": 4}, {"data": 4}, {"data": 4}, {"data": 4}, {"data": 4}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -251,8 +257,8 @@
       vegaEmbed('#wilkinson-dot-plot-rst-altair-plot-0', spec, opt).catch(console.err);
   });
 </script>
-</div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+</div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 <span class="n">source</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
     <span class="p">{</span><span class="s2">&quot;data&quot;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span>
@@ -268,7 +274,7 @@
 <span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;data:O&#39;</span><span class="p">),</span>
     <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;id:O&#39;</span><span class="p">,</span>
-          <span class="n">axis</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+          <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
           <span class="n">sort</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span><span class="p">)</span>
 <span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 </pre></div>
@@ -288,7 +294,7 @@
         <a href="../user_guide/data.html" class="btn btn-neutral float-right" title="Specifying Data in Altair" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="violine_plot.html" class="btn btn-neutral" title="Violinplot" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="violin_plot.html" class="btn btn-neutral" title="Violin Plot" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -297,7 +303,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2016-2018, Altair Developers.
+        &copy; Copyright 2016-2019, Altair Developers.
 
     </p>
   </div>
@@ -319,7 +325,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.3.0',
+            VERSION:'4.0.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -330,9 +336,9 @@
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5.4"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.4"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@5.1"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.0.0"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
   
 

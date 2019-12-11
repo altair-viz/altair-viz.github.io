@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Connected Scatterplot (Lines with Custom Paths) &mdash; Altair 3.3.0 documentation</title>
+  <title>Connected Scatterplot (Lines with Custom Paths) &mdash; Altair 4.0.0 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                3.3.0
+                4.0.0
               </div>
             
           
@@ -95,6 +95,8 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html#dependencies">Dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html#development-install">Development Install</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/starting.html">Basic Statistical Visualization</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Gallery</span></p>
@@ -113,7 +115,8 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="dot_dash_plot.html">Dot Dash Plot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="multifeature_scatter_plot.html">Multifeature Scatter Plot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="poly_fit.html">Polynomial Fit Plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="poly_fit_regression.html">Polynomial Fit Plot with Regression Transform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scatter_qq.html">Quantile-Quantile Plot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="scatter_matrix.html">Scatter Matrix</a></li>
 <li class="toctree-l3"><a class="reference internal" href="scatter_href.html">Scatter Plot with Href</a></li>
 <li class="toctree-l3"><a class="reference internal" href="scatter_with_rolling_mean.html">Scatter Plot with Rolling Mean</a></li>
@@ -137,7 +140,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/data.html">Specifying Data in Altair</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/encoding.html">Encodings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/marks.html">Marks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/transform.html">Data Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/transform/index.html">Data Transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/interactions.html">Bindings, Selections, Conditions: Making Charts Interactive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/configuration.html">Top-Level Chart Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
@@ -147,7 +150,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/times_and_dates.html">Times and Dates in Altair</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/troubleshooting.html">Display Troubleshooting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/renderers.html">Altair Renderers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/internals.html">Altair Internals: Understanding the Library</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/API.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/ecosystem.html">Altair Ecosystem</a></li>
@@ -159,9 +161,14 @@
 <p class="caption"><span class="caption-text">Advanced Usage</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/importing.html">Importing Vega &amp; Vega-Lite Versions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/display_frontends.html">Displaying Charts in Various Frontends</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/display_frontends.html">Displaying Altair Charts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/display_frontends.html#renderer-api">Renderer API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/custom_renderers.html">Customizing Renderers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/data_transformers.html">Data transformers</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../releases/changes.html">Altair Change Log</a></li>
 </ul>
 
             
@@ -238,7 +245,7 @@ It is based on Hannah Fairfield’s article ‘Driving Shifts Into Reverse’. S
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"name": "data-e24c277102dddc2eceb7d9aaeb087c70"}, "mark": {"type": "line", "point": true}, "encoding": {"order": {"type": "quantitative", "field": "year"}, "x": {"type": "quantitative", "field": "miles", "scale": {"zero": false}}, "y": {"type": "quantitative", "field": "gas", "scale": {"zero": false}}}, "$schema": "https://vega.github.io/schema/vega-lite/v3.4.0.json", "datasets": {"data-e24c277102dddc2eceb7d9aaeb087c70": [{"gas": 2.38, "miles": 3675, "side": "left", "year": 1956}, {"gas": 2.4, "miles": 3706, "side": "right", "year": 1957}, {"gas": 2.26, "miles": 3766, "side": "bottom", "year": 1958}, {"gas": 2.31, "miles": 3905, "side": "top", "year": 1959}, {"gas": 2.27, "miles": 3935, "side": "right", "year": 1960}, {"gas": 2.25, "miles": 3977, "side": "bottom", "year": 1961}, {"gas": 2.22, "miles": 4085, "side": "right", "year": 1962}, {"gas": 2.12, "miles": 4218, "side": "bottom", "year": 1963}, {"gas": 2.11, "miles": 4369, "side": "bottom", "year": 1964}, {"gas": 2.14, "miles": 4538, "side": "bottom", "year": 1965}, {"gas": 2.14, "miles": 4676, "side": "top", "year": 1966}, {"gas": 2.14, "miles": 4827, "side": "bottom", "year": 1967}, {"gas": 2.13, "miles": 5038, "side": "right", "year": 1968}, {"gas": 2.07, "miles": 5207, "side": "right", "year": 1969}, {"gas": 2.01, "miles": 5376, "side": "right", "year": 1970}, {"gas": 1.9300000000000002, "miles": 5617, "side": "bottom", "year": 1971}, {"gas": 1.87, "miles": 5973, "side": "bottom", "year": 1972}, {"gas": 1.9, "miles": 6154, "side": "right", "year": 1973}, {"gas": 2.34, "miles": 5943, "side": "left", "year": 1974}, {"gas": 2.31, "miles": 6111, "side": "bottom", "year": 1975}, {"gas": 2.32, "miles": 6389, "side": "bottom", "year": 1976}, {"gas": 2.36, "miles": 6630, "side": "top", "year": 1977}, {"gas": 2.23, "miles": 6883, "side": "bottom", "year": 1978}, {"gas": 2.68, "miles": 6744, "side": "left", "year": 1979}, {"gas": 3.3, "miles": 6672, "side": "left", "year": 1980}, {"gas": 3.3, "miles": 6732, "side": "right", "year": 1981}, {"gas": 2.92, "miles": 6835, "side": "right", "year": 1982}, {"gas": 2.66, "miles": 6943, "side": "right", "year": 1983}, {"gas": 2.48, "miles": 7130, "side": "right", "year": 1984}, {"gas": 2.36, "miles": 7323, "side": "right", "year": 1985}, {"gas": 1.76, "miles": 7558, "side": "left", "year": 1986}, {"gas": 1.76, "miles": 7770, "side": "top", "year": 1987}, {"gas": 1.6800000000000002, "miles": 8089, "side": "bottom", "year": 1988}, {"gas": 1.75, "miles": 8397, "side": "left", "year": 1989}, {"gas": 1.88, "miles": 8529, "side": "top", "year": 1990}, {"gas": 1.78, "miles": 8535, "side": "right", "year": 1991}, {"gas": 1.69, "miles": 8662, "side": "right", "year": 1992}, {"gas": 1.6, "miles": 8855, "side": "left", "year": 1993}, {"gas": 1.5899999999999999, "miles": 8909, "side": "bottom", "year": 1994}, {"gas": 1.6, "miles": 9150, "side": "bottom", "year": 1995}, {"gas": 1.67, "miles": 9192, "side": "top", "year": 1996}, {"gas": 1.65, "miles": 9416, "side": "right", "year": 1997}, {"gas": 1.3900000000000001, "miles": 9590, "side": "bottom", "year": 1998}, {"gas": 1.5, "miles": 9687, "side": "right", "year": 1999}, {"gas": 1.8900000000000001, "miles": 9717, "side": "top", "year": 2000}, {"gas": 1.77, "miles": 9699, "side": "left", "year": 2001}, {"gas": 1.6400000000000001, "miles": 9814, "side": "bottom", "year": 2002}, {"gas": 1.8599999999999999, "miles": 9868, "side": "right", "year": 2003}, {"gas": 2.14, "miles": 9994, "side": "left", "year": 2004}, {"gas": 2.5300000000000002, "miles": 10067, "side": "left", "year": 2005}, {"gas": 2.79, "miles": 10037, "side": "right", "year": 2006}, {"gas": 2.95, "miles": 10025, "side": "right", "year": 2007}, {"gas": 3.31, "miles": 9880, "side": "left", "year": 2008}, {"gas": 2.38, "miles": 9657, "side": "bottom", "year": 2009}, {"gas": 2.61, "miles": 9596, "side": "left", "year": 2010}]}};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-e24c277102dddc2eceb7d9aaeb087c70"}, "mark": {"type": "line", "point": true}, "encoding": {"order": {"type": "quantitative", "field": "year"}, "x": {"type": "quantitative", "field": "miles", "scale": {"zero": false}}, "y": {"type": "quantitative", "field": "gas", "scale": {"zero": false}}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json", "datasets": {"data-e24c277102dddc2eceb7d9aaeb087c70": [{"gas": 2.38, "miles": 3675, "side": "left", "year": 1956}, {"gas": 2.4, "miles": 3706, "side": "right", "year": 1957}, {"gas": 2.26, "miles": 3766, "side": "bottom", "year": 1958}, {"gas": 2.31, "miles": 3905, "side": "top", "year": 1959}, {"gas": 2.27, "miles": 3935, "side": "right", "year": 1960}, {"gas": 2.25, "miles": 3977, "side": "bottom", "year": 1961}, {"gas": 2.22, "miles": 4085, "side": "right", "year": 1962}, {"gas": 2.12, "miles": 4218, "side": "bottom", "year": 1963}, {"gas": 2.11, "miles": 4369, "side": "bottom", "year": 1964}, {"gas": 2.14, "miles": 4538, "side": "bottom", "year": 1965}, {"gas": 2.14, "miles": 4676, "side": "top", "year": 1966}, {"gas": 2.14, "miles": 4827, "side": "bottom", "year": 1967}, {"gas": 2.13, "miles": 5038, "side": "right", "year": 1968}, {"gas": 2.07, "miles": 5207, "side": "right", "year": 1969}, {"gas": 2.01, "miles": 5376, "side": "right", "year": 1970}, {"gas": 1.9300000000000002, "miles": 5617, "side": "bottom", "year": 1971}, {"gas": 1.87, "miles": 5973, "side": "bottom", "year": 1972}, {"gas": 1.9, "miles": 6154, "side": "right", "year": 1973}, {"gas": 2.34, "miles": 5943, "side": "left", "year": 1974}, {"gas": 2.31, "miles": 6111, "side": "bottom", "year": 1975}, {"gas": 2.32, "miles": 6389, "side": "bottom", "year": 1976}, {"gas": 2.36, "miles": 6630, "side": "top", "year": 1977}, {"gas": 2.23, "miles": 6883, "side": "bottom", "year": 1978}, {"gas": 2.68, "miles": 6744, "side": "left", "year": 1979}, {"gas": 3.3, "miles": 6672, "side": "left", "year": 1980}, {"gas": 3.3, "miles": 6732, "side": "right", "year": 1981}, {"gas": 2.92, "miles": 6835, "side": "right", "year": 1982}, {"gas": 2.66, "miles": 6943, "side": "right", "year": 1983}, {"gas": 2.48, "miles": 7130, "side": "right", "year": 1984}, {"gas": 2.36, "miles": 7323, "side": "right", "year": 1985}, {"gas": 1.76, "miles": 7558, "side": "left", "year": 1986}, {"gas": 1.76, "miles": 7770, "side": "top", "year": 1987}, {"gas": 1.6800000000000002, "miles": 8089, "side": "bottom", "year": 1988}, {"gas": 1.75, "miles": 8397, "side": "left", "year": 1989}, {"gas": 1.88, "miles": 8529, "side": "top", "year": 1990}, {"gas": 1.78, "miles": 8535, "side": "right", "year": 1991}, {"gas": 1.69, "miles": 8662, "side": "right", "year": 1992}, {"gas": 1.6, "miles": 8855, "side": "left", "year": 1993}, {"gas": 1.5899999999999999, "miles": 8909, "side": "bottom", "year": 1994}, {"gas": 1.6, "miles": 9150, "side": "bottom", "year": 1995}, {"gas": 1.67, "miles": 9192, "side": "top", "year": 1996}, {"gas": 1.65, "miles": 9416, "side": "right", "year": 1997}, {"gas": 1.3900000000000001, "miles": 9590, "side": "bottom", "year": 1998}, {"gas": 1.5, "miles": 9687, "side": "right", "year": 1999}, {"gas": 1.8900000000000001, "miles": 9717, "side": "top", "year": 2000}, {"gas": 1.77, "miles": 9699, "side": "left", "year": 2001}, {"gas": 1.6400000000000001, "miles": 9814, "side": "bottom", "year": 2002}, {"gas": 1.8599999999999999, "miles": 9868, "side": "right", "year": 2003}, {"gas": 2.14, "miles": 9994, "side": "left", "year": 2004}, {"gas": 2.5300000000000002, "miles": 10067, "side": "left", "year": 2005}, {"gas": 2.79, "miles": 10037, "side": "right", "year": 2006}, {"gas": 2.95, "miles": 10025, "side": "right", "year": 2007}, {"gas": 3.31, "miles": 9880, "side": "left", "year": 2008}, {"gas": 2.38, "miles": 9657, "side": "bottom", "year": 2009}, {"gas": 2.61, "miles": 9596, "side": "left", "year": 2010}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -247,14 +254,14 @@ It is based on Hannah Fairfield’s article ‘Driving Shifts Into Reverse’. S
       vegaEmbed('#connected_scatterplot-rst-altair-plot-0', spec, opt).catch(console.err);
   });
 </script>
-</div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
+</div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
 <span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
 
 <span class="n">source</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">driving</span><span class="p">()</span>
 
-<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">point</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;miles&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">zero</span><span class="o">=</span><span class="bp">False</span><span class="p">)),</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;gas&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">zero</span><span class="o">=</span><span class="bp">False</span><span class="p">)),</span>
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">point</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;miles&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">zero</span><span class="o">=</span><span class="kc">False</span><span class="p">)),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;gas&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">zero</span><span class="o">=</span><span class="kc">False</span><span class="p">)),</span>
     <span class="n">order</span><span class="o">=</span><span class="s1">&#39;year&#39;</span>
 <span class="p">)</span>
 </pre></div>
@@ -283,7 +290,7 @@ It is based on Hannah Fairfield’s article ‘Driving Shifts Into Reverse’. S
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2016-2018, Altair Developers.
+        &copy; Copyright 2016-2019, Altair Developers.
 
     </p>
   </div>
@@ -305,7 +312,7 @@ It is based on Hannah Fairfield’s article ‘Driving Shifts Into Reverse’. S
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.3.0',
+            VERSION:'4.0.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -316,9 +323,9 @@ It is based on Hannah Fairfield’s article ‘Driving Shifts Into Reverse’. S
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5.4"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.4"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@5.1"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.0.0"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
   
 

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>altair.Column &mdash; Altair 3.3.0 documentation</title>
+  <title>altair.Column &mdash; Altair 4.0.0 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                3.3.0
+                4.0.0
               </div>
             
           
@@ -95,6 +95,8 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/installation.html#dependencies">Dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/installation.html#development-install">Development Install</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/starting.html">Basic Statistical Visualization</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Gallery</span></p>
@@ -106,7 +108,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../data.html">Specifying Data in Altair</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../encoding.html">Encodings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../marks.html">Marks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../transform.html">Data Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../transform/index.html">Data Transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../interactions.html">Bindings, Selections, Conditions: Making Charts Interactive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../configuration.html">Top-Level Chart Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
@@ -116,7 +118,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../times_and_dates.html">Times and Dates in Altair</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../troubleshooting.html">Display Troubleshooting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../renderers.html">Altair Renderers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../internals.html">Altair Internals: Understanding the Library</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../API.html">API Reference</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../API.html#top-level-objects">Top-Level Objects</a></li>
@@ -160,6 +161,8 @@
 <li class="toctree-l3"><a class="reference internal" href="altair.TextValue.html">altair.TextValue</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.Tooltip.html">altair.Tooltip</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.TooltipValue.html">altair.TooltipValue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.Url.html">altair.Url</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.UrlValue.html">altair.UrlValue</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.X.html">altair.X</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.X2.html">altair.X2</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.X2Value.html">altair.X2Value</a></li>
@@ -191,9 +194,14 @@
 <p class="caption"><span class="caption-text">Advanced Usage</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../importing.html">Importing Vega &amp; Vega-Lite Versions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../display_frontends.html">Displaying Charts in Various Frontends</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../display_frontends.html">Displaying Altair Charts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../display_frontends.html#renderer-api">Renderer API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../custom_renderers.html">Customizing Renderers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../data_transformers.html">Data transformers</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../releases/changes.html">Altair Change Log</a></li>
 </ul>
 
             
@@ -264,7 +272,7 @@
 <h1>altair.Column<a class="headerlink" href="#altair-column" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="altair.Column">
-<em class="property">class </em><code class="descclassname">altair.</code><code class="descname">Column</code><span class="sig-paren">(</span><em>shorthand=Undefined</em>, <em>aggregate=Undefined</em>, <em>bin=Undefined</em>, <em>field=Undefined</em>, <em>header=Undefined</em>, <em>sort=Undefined</em>, <em>timeUnit=Undefined</em>, <em>title=Undefined</em>, <em>type=Undefined</em>, <em>**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Column" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">altair.</code><code class="descname">Column</code><span class="sig-paren">(</span><em>shorthand=Undefined</em>, <em>aggregate=Undefined</em>, <em>align=Undefined</em>, <em>bin=Undefined</em>, <em>center=Undefined</em>, <em>field=Undefined</em>, <em>header=Undefined</em>, <em>sort=Undefined</em>, <em>spacing=Undefined</em>, <em>timeUnit=Undefined</em>, <em>title=Undefined</em>, <em>type=Undefined</em>, <em>**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Column" title="Permalink to this definition">¶</a></dt>
 <dd><p>Column schema wrapper</p>
 <p>Mapping(required=[shorthand])</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -277,10 +285,24 @@
 </dd>
 <dt><strong>aggregate</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference internal" href="../core/altair.Aggregate.html#altair.Aggregate" title="altair.Aggregate"><code class="xref py py-class docutils literal"><span class="pre">Aggregate</span></code></a></span></dt>
 <dd><p class="first">Aggregation function for the field
-(e.g., <code class="docutils literal"><span class="pre">mean</span></code>, <code class="docutils literal"><span class="pre">sum</span></code>, <code class="docutils literal"><span class="pre">median</span></code>, <code class="docutils literal"><span class="pre">min</span></code>, <code class="docutils literal"><span class="pre">max</span></code>, <code class="docutils literal"><span class="pre">count</span></code> ).</p>
+(e.g., <code class="docutils literal"><span class="pre">&quot;mean&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;sum&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;median&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;min&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;max&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;count&quot;</span></code> ).</p>
 <p><strong>Default value:</strong> <code class="docutils literal"><span class="pre">undefined</span></code> (None)</p>
 <p class="last"><strong>See also:</strong> <a class="reference external" href="https://vega.github.io/vega-lite/docs/aggregate.html">aggregate</a>
 documentation.</p>
+</dd>
+<dt><strong>align</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference internal" href="../core/altair.LayoutAlign.html#altair.LayoutAlign" title="altair.LayoutAlign"><code class="xref py py-class docutils literal"><span class="pre">LayoutAlign</span></code></a></span></dt>
+<dd><p class="first">The alignment to apply to row/column facet’s subplot.
+The supported string values are <code class="docutils literal"><span class="pre">&quot;all&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;each&quot;</span></code>, and <code class="docutils literal"><span class="pre">&quot;none&quot;</span></code>.</p>
+<ul class="simple">
+<li>For <code class="docutils literal"><span class="pre">&quot;none&quot;</span></code>, a flow layout will be used, in which adjacent subviews are simply
+placed one after the other.</li>
+<li>For <code class="docutils literal"><span class="pre">&quot;each&quot;</span></code>, subviews will be aligned into a clean grid structure, but each row
+or column may be of variable size.</li>
+<li>For <code class="docutils literal"><span class="pre">&quot;all&quot;</span></code>, subviews will be aligned and each row or column will be sized
+identically based on the maximum observed size. String values for this property
+will be applied to both grid rows and columns.</li>
+</ul>
+<p class="last"><strong>Default value:</strong> <code class="docutils literal"><span class="pre">&quot;all&quot;</span></code>.</p>
 </dd>
 <dt><strong>bin</strong> <span class="classifier-delimiter">:</span> <span class="classifier">anyOf(boolean, <a class="reference internal" href="../core/altair.BinParams.html#altair.BinParams" title="altair.BinParams"><code class="xref py py-class docutils literal"><span class="pre">BinParams</span></code></a>, None)</span></dt>
 <dd><p class="first">A flag for binning a <code class="docutils literal"><span class="pre">quantitative</span></code> field, <a class="reference external" href="https://vega.github.io/vega-lite/docs/bin.html#params">an object defining binning parameters</a>, or indicating that the
@@ -290,11 +312,16 @@ data for <code class="docutils literal"><span class="pre">x</span></code> or <co
 <p>If <code class="docutils literal"><span class="pre">&quot;binned&quot;</span></code>, this indicates that the data for the <code class="docutils literal"><span class="pre">x</span></code> (or <code class="docutils literal"><span class="pre">y</span></code> ) channel are
 already binned. You can map the bin-start field to <code class="docutils literal"><span class="pre">x</span></code> (or <code class="docutils literal"><span class="pre">y</span></code> ) and the bin-end
 field to <code class="docutils literal"><span class="pre">x2</span></code> (or <code class="docutils literal"><span class="pre">y2</span></code> ). The scale and axis will be formatted similar to
-binning in Vega-lite.  To adjust the axis ticks based on the bin step, you can also
+binning in Vega-Lite.  To adjust the axis ticks based on the bin step, you can also
 set the axis’s <a class="reference external" href="https://vega.github.io/vega-lite/docs/axis.html#ticks">tickMinStep</a> property.</p>
 <p><strong>Default value:</strong> <code class="docutils literal"><span class="pre">false</span></code></p>
 <p class="last"><strong>See also:</strong> <a class="reference external" href="https://vega.github.io/vega-lite/docs/bin.html">bin</a>
 documentation.</p>
+</dd>
+<dt><strong>center</strong> <span class="classifier-delimiter">:</span> <span class="classifier">boolean</span></dt>
+<dd><p class="first">Boolean flag indicating if facet’s subviews should be centered relative to their
+respective rows or columns.</p>
+<p class="last"><strong>Default value:</strong> <code class="docutils literal"><span class="pre">false</span></code></p>
 </dd>
 <dt><strong>field</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference internal" href="../core/altair.Field.html#altair.Field" title="altair.Field"><code class="xref py py-class docutils literal"><span class="pre">Field</span></code></a></span></dt>
 <dd><p class="first"><strong>Required.</strong> A string defining the name of the field from which to pull a data
@@ -320,12 +347,12 @@ See more details about escaping in the <a class="reference external" href="https
 <p>For discrete fields, <code class="docutils literal"><span class="pre">sort</span></code> can be one of the following:</p>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">&quot;ascending&quot;</span></code> or <code class="docutils literal"><span class="pre">&quot;descending&quot;</span></code> – for sorting by the values’ natural order in
-Javascript.</li>
+JavaScript.</li>
 <li><a class="reference external" href="https://vega.github.io/vega-lite/docs/sort.html#sort-field">A sort field definition</a> for sorting by
 another field.</li>
 <li><a class="reference external" href="https://vega.github.io/vega-lite/docs/sort.html#sort-array">An array specifying the field values in preferred order</a>. In this case, the
 sort order will obey the values in the array, followed by any unspecified values
-in their original order.  For discrete time field, values in the sort array can be
+in their original order. For discrete time field, values in the sort array can be
 <a class="reference external" href="types#datetime">date-time definition objects</a>. In addition, for time units
 <code class="docutils literal"><span class="pre">&quot;month&quot;</span></code> and <code class="docutils literal"><span class="pre">&quot;day&quot;</span></code>, the values can be the month or day names (case
 insensitive) or their 3-letter initials (e.g., <code class="docutils literal"><span class="pre">&quot;Mon&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;Tue&quot;</span></code> ).</li>
@@ -333,6 +360,12 @@ insensitive) or their 3-letter initials (e.g., <code class="docutils literal"><s
 </ul>
 <p><strong>Default value:</strong> <code class="docutils literal"><span class="pre">&quot;ascending&quot;</span></code></p>
 <p class="last"><strong>Note:</strong> <code class="docutils literal"><span class="pre">null</span></code> is not supported for <code class="docutils literal"><span class="pre">row</span></code> and <code class="docutils literal"><span class="pre">column</span></code>.</p>
+</dd>
+<dt><strong>spacing</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first">The spacing in pixels between facet’s sub-views.</p>
+<p class="last"><strong>Default value</strong> : Depends on <code class="docutils literal"><span class="pre">&quot;spacing&quot;</span></code> property of <a class="reference external" href="https://vega.github.io/vega-lite/docs/config.html#view-config">the view composition
+configuration</a> (
+<code class="docutils literal"><span class="pre">20</span></code> by default)</p>
 </dd>
 <dt><strong>timeUnit</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference internal" href="../core/altair.TimeUnit.html#altair.TimeUnit" title="altair.TimeUnit"><code class="xref py py-class docutils literal"><span class="pre">TimeUnit</span></code></a></span></dt>
 <dd><p class="first">Time unit (e.g., <code class="docutils literal"><span class="pre">year</span></code>, <code class="docutils literal"><span class="pre">yearmonth</span></code>, <code class="docutils literal"><span class="pre">month</span></code>, <code class="docutils literal"><span class="pre">hours</span></code> ) for a temporal
@@ -342,10 +375,10 @@ or <a class="reference external" href="https://vega.github.io/vega-lite/docs/typ
 <p class="last"><strong>See also:</strong> <a class="reference external" href="https://vega.github.io/vega-lite/docs/timeunit.html">timeUnit</a>
 documentation.</p>
 </dd>
-<dt><strong>title</strong> <span class="classifier-delimiter">:</span> <span class="classifier">anyOf(string, None)</span></dt>
+<dt><strong>title</strong> <span class="classifier-delimiter">:</span> <span class="classifier">anyOf(<a class="reference internal" href="../core/altair.Text.html#altair.Text" title="altair.Text"><code class="xref py py-class docutils literal"><span class="pre">Text</span></code></a>, None)</span></dt>
 <dd><p class="first">A title for the field. If <code class="docutils literal"><span class="pre">null</span></code>, the title will be removed.</p>
 <p><strong>Default value:</strong>  derived from the field’s name and transformation function (
-<code class="docutils literal"><span class="pre">aggregate</span></code>, <code class="docutils literal"><span class="pre">bin</span></code> and <code class="docutils literal"><span class="pre">timeUnit</span></code> ).  If the field has an aggregate function,
+<code class="docutils literal"><span class="pre">aggregate</span></code>, <code class="docutils literal"><span class="pre">bin</span></code> and <code class="docutils literal"><span class="pre">timeUnit</span></code> ). If the field has an aggregate function,
 the function is displayed as part of the title (e.g., <code class="docutils literal"><span class="pre">&quot;Sum</span> <span class="pre">of</span> <span class="pre">Profit&quot;</span></code> ). If the
 field is binned or has a time unit applied, the applied function is shown in
 parentheses (e.g., <code class="docutils literal"><span class="pre">&quot;Profit</span> <span class="pre">(binned)&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;Transaction</span> <span class="pre">Date</span> <span class="pre">(year-month)&quot;</span></code> ).
@@ -367,9 +400,9 @@ It can also be a <code class="docutils literal"><span class="pre">&quot;geojson&
 <code class="docutils literal"><span class="pre">&quot;2015-03-07</span> <span class="pre">12:32:17&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;17:01&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;2015-03-16&quot;</span></code>. <code class="docutils literal"><span class="pre">&quot;2015&quot;</span></code> ) or a
 timestamp number (e.g., <code class="docutils literal"><span class="pre">1552199579097</span></code> ).</li>
 <li>Data <code class="docutils literal"><span class="pre">type</span></code> describes the semantics of the data rather than the primitive data
-types ( <code class="docutils literal"><span class="pre">number</span></code>, <code class="docutils literal"><span class="pre">string</span></code>, etc.). The same primitive data type can have
-different types of measurement. For example, numeric data can represent
-quantitative, ordinal, or nominal data.</li>
+types (number, string, etc.). The same primitive data type can have different
+types of measurement. For example, numeric data can represent quantitative,
+ordinal, or nominal data.</li>
 <li>When using with <a class="reference external" href="https://vega.github.io/vega-lite/docs/bin.html">bin</a>, the
 <code class="docutils literal"><span class="pre">type</span></code> property can be either <code class="docutils literal"><span class="pre">&quot;quantitative&quot;</span></code> (for using a linear bin scale)
 or <a class="reference external" href="https://vega.github.io/vega-lite/docs/type.html#cast-bin">“ordinal” (for using an ordinal bin scale)</a>.</li>
@@ -395,7 +428,7 @@ documentation.</p>
 </table>
 <dl class="method">
 <dt id="altair.Column.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><em>shorthand=Undefined</em>, <em>aggregate=Undefined</em>, <em>bin=Undefined</em>, <em>field=Undefined</em>, <em>header=Undefined</em>, <em>sort=Undefined</em>, <em>timeUnit=Undefined</em>, <em>title=Undefined</em>, <em>type=Undefined</em>, <em>**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Column.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>shorthand=Undefined</em>, <em>aggregate=Undefined</em>, <em>align=Undefined</em>, <em>bin=Undefined</em>, <em>center=Undefined</em>, <em>field=Undefined</em>, <em>header=Undefined</em>, <em>sort=Undefined</em>, <em>spacing=Undefined</em>, <em>timeUnit=Undefined</em>, <em>title=Undefined</em>, <em>type=Undefined</em>, <em>**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.Column.__init__" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p class="rubric">Methods</p>
@@ -405,7 +438,7 @@ documentation.</p>
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#altair.Column.__init__" title="altair.Column.__init__"><code class="xref py py-obj docutils literal"><span class="pre">__init__</span></code></a>([shorthand,&nbsp;aggregate,&nbsp;bin,&nbsp;field,&nbsp;…])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#altair.Column.__init__" title="altair.Column.__init__"><code class="xref py py-obj docutils literal"><span class="pre">__init__</span></code></a>([shorthand,&nbsp;aggregate,&nbsp;align,&nbsp;bin,&nbsp;…])</td>
 <td></td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#altair.Column.copy" title="altair.Column.copy"><code class="xref py py-obj docutils literal"><span class="pre">copy</span></code></a>([deep,&nbsp;ignore])</td>
@@ -623,7 +656,7 @@ rootschema</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2016-2018, Altair Developers.
+        &copy; Copyright 2016-2019, Altair Developers.
 
     </p>
   </div>
@@ -645,7 +678,7 @@ rootschema</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'3.3.0',
+            VERSION:'4.0.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -656,9 +689,9 @@ rootschema</p>
       <script type="text/javascript" src="../../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5.4"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.4"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@5.1"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.0.0"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
   
 

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Isotype Visualization with Emoji &mdash; Altair 3.3.0 documentation</title>
+  <title>Isotype Visualization with Emoji &mdash; Altair 4.0.0 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                3.3.0
+                4.0.0
               </div>
             
           
@@ -95,6 +95,8 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html#dependencies">Dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html#development-install">Development Install</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/starting.html">Basic Statistical Visualization</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Gallery</span></p>
@@ -148,7 +150,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/data.html">Specifying Data in Altair</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/encoding.html">Encodings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/marks.html">Marks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/transform.html">Data Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/transform/index.html">Data Transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/interactions.html">Bindings, Selections, Conditions: Making Charts Interactive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/configuration.html">Top-Level Chart Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
@@ -158,7 +160,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/times_and_dates.html">Times and Dates in Altair</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/troubleshooting.html">Display Troubleshooting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/renderers.html">Altair Renderers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/internals.html">Altair Internals: Understanding the Library</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/API.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/ecosystem.html">Altair Ecosystem</a></li>
@@ -170,9 +171,14 @@
 <p class="caption"><span class="caption-text">Advanced Usage</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/importing.html">Importing Vega &amp; Vega-Lite Versions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/display_frontends.html">Displaying Charts in Various Frontends</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/display_frontends.html">Displaying Altair Charts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/display_frontends.html#renderer-api">Renderer API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/custom_renderers.html">Customizing Renderers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/data_transformers.html">Data transformers</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../releases/changes.html">Altair Change Log</a></li>
 </ul>
 
             
@@ -250,7 +256,7 @@ This is adapted from Vega-Lite example <a class="reference external" href="https
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"name": "data-006229bd86d4a5200814600dc915ef80"}, "mark": {"type": "text", "baseline": "middle", "size": 45}, "encoding": {"row": {"type": "nominal", "field": "country", "header": {"title": ""}}, "text": {"type": "nominal", "field": "emoji"}, "x": {"type": "ordinal", "axis": null, "field": "x"}, "y": {"type": "ordinal", "axis": null, "field": "animal"}}, "height": 140, "transform": [{"calculate": "{'cattle': '\ud83d\udc04', 'pigs': '\ud83d\udc16', 'sheep': '\ud83d\udc0f'}[datum.animal]", "as": "emoji"}, {"window": [{"op": "rank", "field": "", "as": "x"}], "groupby": ["country", "animal"]}], "width": 550, "$schema": "https://vega.github.io/schema/vega-lite/v3.4.0.json", "datasets": {"data-006229bd86d4a5200814600dc915ef80": [{"animal": "cattle", "country": "Great Britain"}, {"animal": "cattle", "country": "Great Britain"}, {"animal": "cattle", "country": "Great Britain"}, {"animal": "pigs", "country": "Great Britain"}, {"animal": "pigs", "country": "Great Britain"}, {"animal": "sheep", "country": "Great Britain"}, {"animal": "sheep", "country": "Great Britain"}, {"animal": "sheep", "country": "Great Britain"}, {"animal": "sheep", "country": "Great Britain"}, {"animal": "sheep", "country": "Great Britain"}, {"animal": "sheep", "country": "Great Britain"}, {"animal": "sheep", "country": "Great Britain"}, {"animal": "sheep", "country": "Great Britain"}, {"animal": "sheep", "country": "Great Britain"}, {"animal": "sheep", "country": "Great Britain"}, {"animal": "cattle", "country": "United States"}, {"animal": "cattle", "country": "United States"}, {"animal": "cattle", "country": "United States"}, {"animal": "cattle", "country": "United States"}, {"animal": "cattle", "country": "United States"}, {"animal": "cattle", "country": "United States"}, {"animal": "cattle", "country": "United States"}, {"animal": "cattle", "country": "United States"}, {"animal": "cattle", "country": "United States"}, {"animal": "pigs", "country": "United States"}, {"animal": "pigs", "country": "United States"}, {"animal": "pigs", "country": "United States"}, {"animal": "pigs", "country": "United States"}, {"animal": "pigs", "country": "United States"}, {"animal": "pigs", "country": "United States"}, {"animal": "sheep", "country": "United States"}, {"animal": "sheep", "country": "United States"}, {"animal": "sheep", "country": "United States"}, {"animal": "sheep", "country": "United States"}, {"animal": "sheep", "country": "United States"}, {"animal": "sheep", "country": "United States"}, {"animal": "sheep", "country": "United States"}]}};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-006229bd86d4a5200814600dc915ef80"}, "mark": {"type": "text", "baseline": "middle", "size": 45}, "encoding": {"row": {"type": "nominal", "field": "country", "header": {"title": ""}}, "text": {"type": "nominal", "field": "emoji"}, "x": {"type": "ordinal", "axis": null, "field": "x"}, "y": {"type": "ordinal", "axis": null, "field": "animal"}}, "height": 140, "transform": [{"calculate": "{'cattle': '\ud83d\udc04', 'pigs': '\ud83d\udc16', 'sheep': '\ud83d\udc0f'}[datum.animal]", "as": "emoji"}, {"window": [{"op": "rank", "field": "", "as": "x"}], "groupby": ["country", "animal"]}], "width": 550, "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json", "datasets": {"data-006229bd86d4a5200814600dc915ef80": [{"animal": "cattle", "country": "Great Britain"}, {"animal": "cattle", "country": "Great Britain"}, {"animal": "cattle", "country": "Great Britain"}, {"animal": "pigs", "country": "Great Britain"}, {"animal": "pigs", "country": "Great Britain"}, {"animal": "sheep", "country": "Great Britain"}, {"animal": "sheep", "country": "Great Britain"}, {"animal": "sheep", "country": "Great Britain"}, {"animal": "sheep", "country": "Great Britain"}, {"animal": "sheep", "country": "Great Britain"}, {"animal": "sheep", "country": "Great Britain"}, {"animal": "sheep", "country": "Great Britain"}, {"animal": "sheep", "country": "Great Britain"}, {"animal": "sheep", "country": "Great Britain"}, {"animal": "sheep", "country": "Great Britain"}, {"animal": "cattle", "country": "United States"}, {"animal": "cattle", "country": "United States"}, {"animal": "cattle", "country": "United States"}, {"animal": "cattle", "country": "United States"}, {"animal": "cattle", "country": "United States"}, {"animal": "cattle", "country": "United States"}, {"animal": "cattle", "country": "United States"}, {"animal": "cattle", "country": "United States"}, {"animal": "cattle", "country": "United States"}, {"animal": "pigs", "country": "United States"}, {"animal": "pigs", "country": "United States"}, {"animal": "pigs", "country": "United States"}, {"animal": "pigs", "country": "United States"}, {"animal": "pigs", "country": "United States"}, {"animal": "pigs", "country": "United States"}, {"animal": "sheep", "country": "United States"}, {"animal": "sheep", "country": "United States"}, {"animal": "sheep", "country": "United States"}, {"animal": "sheep", "country": "United States"}, {"animal": "sheep", "country": "United States"}, {"animal": "sheep", "country": "United States"}, {"animal": "sheep", "country": "United States"}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -259,8 +265,8 @@ This is adapted from Vega-Lite example <a class="reference external" href="https
       vegaEmbed('#isotype_emoji-rst-altair-plot-0', spec, opt).catch(console.err);
   });
 </script>
-</div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+</div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 <span class="n">source</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span>
       <span class="p">{</span><span class="s1">&#39;country&#39;</span><span class="p">:</span> <span class="s1">&#39;Great Britain&#39;</span><span class="p">,</span> <span class="s1">&#39;animal&#39;</span><span class="p">:</span> <span class="s1">&#39;cattle&#39;</span><span class="p">},</span>
@@ -304,8 +310,8 @@ This is adapted from Vega-Lite example <a class="reference external" href="https
 
 
 <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">mark_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">baseline</span><span class="o">=</span><span class="s1">&#39;middle&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;x:O&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="bp">None</span><span class="p">),</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;animal:O&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="bp">None</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;x:O&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;animal:O&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span>
     <span class="n">alt</span><span class="o">.</span><span class="n">Row</span><span class="p">(</span><span class="s1">&#39;country:N&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Header</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)),</span>
     <span class="n">alt</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="s1">&#39;emoji:N&#39;</span><span class="p">)</span>
 <span class="p">)</span><span class="o">.</span><span class="n">transform_calculate</span><span class="p">(</span>
@@ -340,7 +346,7 @@ This is adapted from Vega-Lite example <a class="reference external" href="https
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2016-2018, Altair Developers.
+        &copy; Copyright 2016-2019, Altair Developers.
 
     </p>
   </div>
@@ -362,7 +368,7 @@ This is adapted from Vega-Lite example <a class="reference external" href="https
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.3.0',
+            VERSION:'4.0.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -373,9 +379,9 @@ This is adapted from Vega-Lite example <a class="reference external" href="https
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5.4"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.4"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@5.1"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.0.0"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
   
 

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>API Reference &mdash; Altair 3.3.0 documentation</title>
+  <title>API Reference &mdash; Altair 4.0.0 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                3.3.0
+                4.0.0
               </div>
             
           
@@ -95,6 +95,8 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html#dependencies">Dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html#development-install">Development Install</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/starting.html">Basic Statistical Visualization</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Gallery</span></p>
@@ -106,7 +108,7 @@
 <li class="toctree-l1"><a class="reference internal" href="data.html">Specifying Data in Altair</a></li>
 <li class="toctree-l1"><a class="reference internal" href="encoding.html">Encodings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="marks.html">Marks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="transform.html">Data Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transform/index.html">Data Transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="interactions.html">Bindings, Selections, Conditions: Making Charts Interactive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configuration.html">Top-Level Chart Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
@@ -116,7 +118,6 @@
 <li class="toctree-l1"><a class="reference internal" href="times_and_dates.html">Times and Dates in Altair</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Display Troubleshooting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="renderers.html">Altair Renderers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="internals.html">Altair Internals: Understanding the Library</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#top-level-objects">Top-Level Objects</a><ul>
@@ -170,6 +171,8 @@
 <li class="toctree-l3"><a class="reference internal" href="generated/channels/altair.TextValue.html">altair.TextValue</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/channels/altair.Tooltip.html">altair.Tooltip</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/channels/altair.TooltipValue.html">altair.TooltipValue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/channels/altair.Url.html">altair.Url</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/channels/altair.UrlValue.html">altair.UrlValue</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/channels/altair.X.html">altair.X</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/channels/altair.X2.html">altair.X2</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/channels/altair.X2Value.html">altair.X2Value</a></li>
@@ -218,6 +221,7 @@
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.AggregateTransform.html">altair.AggregateTransform</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.AggregatedFieldDef.html">altair.AggregatedFieldDef</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.Align.html">altair.Align</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.AllSortString.html">altair.AllSortString</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.AnyMark.html">altair.AnyMark</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.AreaConfig.html">altair.AreaConfig</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ArgmaxDef.html">altair.ArgmaxDef</a></li>
@@ -230,8 +234,9 @@
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.AxisResolveMap.html">altair.AxisResolveMap</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.BaseLegendLayout.html">altair.BaseLegendLayout</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.BaseMarkConfig.html">altair.BaseMarkConfig</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.BaseTitleConfig.html">altair.BaseTitleConfig</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.BaseTitleNoValueRefs.html">altair.BaseTitleNoValueRefs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.Baseline.html">altair.Baseline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.BinExtent.html">altair.BinExtent</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.BinParams.html">altair.BinParams</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.BinTransform.html">altair.BinTransform</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.BindCheckbox.html">altair.BindCheckbox</a></li>
@@ -243,41 +248,75 @@
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.BoxPlotDef.html">altair.BoxPlotDef</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.BrushConfig.html">altair.BrushConfig</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.CalculateTransform.html">altair.CalculateTransform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.Categorical.html">altair.Categorical</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.Color.html">altair.Color</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ColorGradientFieldDefWithCondition.html">altair.ColorGradientFieldDefWithCondition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ColorGradientValueDefWithCondition.html">altair.ColorGradientValueDefWithCondition</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ColorName.html">altair.ColorName</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ColorScheme.html">altair.ColorScheme</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.CompositeMark.html">altair.CompositeMark</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.CompositeMarkDef.html">altair.CompositeMarkDef</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.CompositionConfig.html">altair.CompositionConfig</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ConcatSpec.html">altair.ConcatSpec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ConditionalAxisColor.html">altair.ConditionalAxisColor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ConditionalAxisLabelBaseline.html">altair.ConditionalAxisLabelBaseline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ConditionalAxisLabelFontStyle.html">altair.ConditionalAxisLabelFontStyle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ConditionalAxisLabelFontWeight.html">altair.ConditionalAxisLabelFontWeight</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ConditionalAxisNumber.html">altair.ConditionalAxisNumber</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ConditionalAxisNumberArray.html">altair.ConditionalAxisNumberArray</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ConditionalAxisPropertyColornull.html">altair.ConditionalAxisPropertyColornull</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ConditionalAxisPropertyFontStylenull.html">altair.ConditionalAxisPropertyFontStylenull</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ConditionalAxisPropertyFontWeightnull.html">altair.ConditionalAxisPropertyFontWeightnull</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ConditionalAxisPropertyTextBaselinenull.html">altair.ConditionalAxisPropertyTextBaselinenull</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ConditionalAxisPropertynumbernull.html">altair.ConditionalAxisPropertynumbernull</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ConditionalAxisPropertystringnull.html">altair.ConditionalAxisPropertystringnull</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ConditionalAxisString.html">altair.ConditionalAxisString</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ConditionalMarkPropFieldDef.html">altair.ConditionalMarkPropFieldDef</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ConditionalMarkPropFieldDefTypeForShape.html">altair.ConditionalMarkPropFieldDefTypeForShape</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ConditionalNumberValueDef.html">altair.ConditionalNumberValueDef</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ConditionalPredicateMarkPropFieldDef.html">altair.ConditionalPredicateMarkPropFieldDef</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ConditionalPredicateMarkPropFieldDefTypeForShape.html">altair.ConditionalPredicateMarkPropFieldDefTypeForShape</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ConditionalPredicateNumberValueDef.html">altair.ConditionalPredicateNumberValueDef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ConditionalPredicateStringFieldDef.html">altair.ConditionalPredicateStringFieldDef</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ConditionalPredicateStringValueDef.html">altair.ConditionalPredicateStringValueDef</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ConditionalPredicateTextFieldDef.html">altair.ConditionalPredicateTextFieldDef</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ConditionalPredicateValueDef.html">altair.ConditionalPredicateValueDef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ConditionalPredicateValueDefColornull.html">altair.ConditionalPredicateValueDefColornull</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ConditionalPredicateValueDefFontStylenull.html">altair.ConditionalPredicateValueDefFontStylenull</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ConditionalPredicateValueDefFontWeightnull.html">altair.ConditionalPredicateValueDefFontWeightnull</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ConditionalPredicateValueDefGradientstringnull.html">altair.ConditionalPredicateValueDefGradientstringnull</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ConditionalPredicateValueDefText.html">altair.ConditionalPredicateValueDefText</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ConditionalPredicateValueDefTextBaselinenull.html">altair.ConditionalPredicateValueDefTextBaselinenull</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ConditionalPredicateValueDefnumbernull.html">altair.ConditionalPredicateValueDefnumbernull</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ConditionalPredicateValueDefstring.html">altair.ConditionalPredicateValueDefstring</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ConditionalSelectionMarkPropFieldDef.html">altair.ConditionalSelectionMarkPropFieldDef</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ConditionalSelectionMarkPropFieldDefTypeForShape.html">altair.ConditionalSelectionMarkPropFieldDefTypeForShape</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ConditionalSelectionNumberValueDef.html">altair.ConditionalSelectionNumberValueDef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ConditionalSelectionStringFieldDef.html">altair.ConditionalSelectionStringFieldDef</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ConditionalSelectionStringValueDef.html">altair.ConditionalSelectionStringValueDef</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ConditionalSelectionTextFieldDef.html">altair.ConditionalSelectionTextFieldDef</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ConditionalSelectionValueDef.html">altair.ConditionalSelectionValueDef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ConditionalSelectionValueDefGradientstringnull.html">altair.ConditionalSelectionValueDefGradientstringnull</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ConditionalSelectionValueDefText.html">altair.ConditionalSelectionValueDefText</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ConditionalSelectionValueDefstring.html">altair.ConditionalSelectionValueDefstring</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ConditionalStringFieldDef.html">altair.ConditionalStringFieldDef</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ConditionalStringValueDef.html">altair.ConditionalStringValueDef</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ConditionalTextFieldDef.html">altair.ConditionalTextFieldDef</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ConditionalValueDef.html">altair.ConditionalValueDef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ConditionalValueDefGradientstringnull.html">altair.ConditionalValueDefGradientstringnull</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ConditionalValueDefText.html">altair.ConditionalValueDefText</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ConditionalValueDefstring.html">altair.ConditionalValueDefstring</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.Config.html">altair.Config</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.CsvDataFormat.html">altair.CsvDataFormat</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.Cursor.html">altair.Cursor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.Cyclical.html">altair.Cyclical</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.Data.html">altair.Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.DataFormat.html">altair.DataFormat</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.DataSource.html">altair.DataSource</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.Datasets.html">altair.Datasets</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.DateTime.html">altair.DateTime</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.Day.html">altair.Day</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.DensityTransform.html">altair.DensityTransform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.DerivedStream.html">altair.DerivedStream</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.DictInlineDataset.html">altair.DictInlineDataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.DictSelectionInit.html">altair.DictSelectionInit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.DictSelectionInitInterval.html">altair.DictSelectionInitInterval</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.Dir.html">altair.Dir</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.Diverging.html">altair.Diverging</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.DsvDataFormat.html">altair.DsvDataFormat</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.Element.html">altair.Element</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.Encoding.html">altair.Encoding</a></li>
@@ -290,16 +329,21 @@
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ErrorBarDef.html">altair.ErrorBarDef</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ErrorBarExtent.html">altair.ErrorBarExtent</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.EventStream.html">altair.EventStream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.EventType.html">altair.EventType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ExcludeMappedValueRefBaseTitle.html">altair.ExcludeMappedValueRefBaseTitle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.Expr.html">altair.Expr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.FacetEncodingFieldDef.html">altair.FacetEncodingFieldDef</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.FacetFieldDef.html">altair.FacetFieldDef</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.FacetMapping.html">altair.FacetMapping</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.FacetSpec.html">altair.FacetSpec</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.FacetedEncoding.html">altair.FacetedEncoding</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.FacetedUnitSpec.html">altair.FacetedUnitSpec</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.Field.html">altair.Field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.FieldDefWithConditionMarkPropFieldDefGradientstringnull.html">altair.FieldDefWithConditionMarkPropFieldDefGradientstringnull</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.FieldDefWithConditionMarkPropFieldDefTypeForShapestringnull.html">altair.FieldDefWithConditionMarkPropFieldDefTypeForShapestringnull</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.FieldDefWithConditionMarkPropFieldDefnumber.html">altair.FieldDefWithConditionMarkPropFieldDefnumber</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.FieldDefWithConditionMarkPropFieldDefstringnull.html">altair.FieldDefWithConditionMarkPropFieldDefstringnull</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.FieldDefWithConditionTextFieldDefValue.html">altair.FieldDefWithConditionTextFieldDefValue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.FieldDefWithConditionStringFieldDefText.html">altair.FieldDefWithConditionStringFieldDefText</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.FieldDefWithConditionStringFieldDefstring.html">altair.FieldDefWithConditionStringFieldDefstring</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.FieldDefWithoutScale.html">altair.FieldDefWithoutScale</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.FieldEqualPredicate.html">altair.FieldEqualPredicate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.FieldGTEPredicate.html">altair.FieldGTEPredicate</a></li>
@@ -311,12 +355,15 @@
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.FieldRangePredicate.html">altair.FieldRangePredicate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.FieldValidPredicate.html">altair.FieldValidPredicate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.FilterTransform.html">altair.FilterTransform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.FitType.html">altair.FitType</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.FlattenTransform.html">altair.FlattenTransform</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.FoldTransform.html">altair.FoldTransform</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.FontStyle.html">altair.FontStyle</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.FontWeight.html">altair.FontWeight</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.Generator.html">altair.Generator</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.GenericUnitSpecEncodingAnyMark.html">altair.GenericUnitSpecEncodingAnyMark</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.Gradient.html">altair.Gradient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.GradientStop.html">altair.GradientStop</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.GraticuleGenerator.html">altair.GraticuleGenerator</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.GraticuleParams.html">altair.GraticuleParams</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.HConcatSpec.html">altair.HConcatSpec</a></li>
@@ -342,28 +389,36 @@
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.LayoutAlign.html">altair.LayoutAlign</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.LayoutBounds.html">altair.LayoutBounds</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.Legend.html">altair.Legend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.LegendBinding.html">altair.LegendBinding</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.LegendConfig.html">altair.LegendConfig</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.LegendLayout.html">altair.LegendLayout</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.LegendOrient.html">altair.LegendOrient</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.LegendResolveMap.html">altair.LegendResolveMap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.LegendStreamBinding.html">altair.LegendStreamBinding</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.LineConfig.html">altair.LineConfig</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.LinearGradient.html">altair.LinearGradient</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.LocalMultiTimeUnit.html">altair.LocalMultiTimeUnit</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.LocalSingleTimeUnit.html">altair.LocalSingleTimeUnit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.LoessTransform.html">altair.LoessTransform</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.LogicalAndPredicate.html">altair.LogicalAndPredicate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.LogicalNotPredicate.html">altair.LogicalNotPredicate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.LogicalOperandPredicate.html">altair.LogicalOperandPredicate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.LogicalOrPredicate.html">altair.LogicalOrPredicate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.LookupData.html">altair.LookupData</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.LookupSelection.html">altair.LookupSelection</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.LookupTransform.html">altair.LookupTransform</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.Mark.html">altair.Mark</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.MarkConfig.html">altair.MarkConfig</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.MarkDef.html">altair.MarkDef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.MarkType.html">altair.MarkType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.MergedStream.html">altair.MergedStream</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.Month.html">altair.Month</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.MultiSelection.html">altair.MultiSelection</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.MultiSelectionConfig.html">altair.MultiSelectionConfig</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.MultiTimeUnit.html">altair.MultiTimeUnit</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.NamedData.html">altair.NamedData</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.NiceTime.html">altair.NiceTime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.NonArgAggregateOp.html">altair.NonArgAggregateOp</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.NumberValueDef.html">altair.NumberValueDef</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.NumericFieldDefWithCondition.html">altair.NumericFieldDefWithCondition</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.NumericValueDefWithCondition.html">altair.NumericValueDefWithCondition</a></li>
@@ -377,14 +432,21 @@
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.PartsMixinsBoxPlotPart.html">altair.PartsMixinsBoxPlotPart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.PartsMixinsErrorBandPart.html">altair.PartsMixinsErrorBandPart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.PartsMixinsErrorBarPart.html">altair.PartsMixinsErrorBarPart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.PivotTransform.html">altair.PivotTransform</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.PositionFieldDef.html">altair.PositionFieldDef</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.Predicate.html">altair.Predicate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.Projection.html">altair.Projection</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ProjectionConfig.html">altair.ProjectionConfig</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ProjectionType.html">altair.ProjectionType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.QuantileTransform.html">altair.QuantileTransform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.RadialGradient.html">altair.RadialGradient</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.RangeConfig.html">altair.RangeConfig</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.RangeConfigValue.html">altair.RangeConfigValue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.RangeEnum.html">altair.RangeEnum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.RangeRaw.html">altair.RangeRaw</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.RangeRawArray.html">altair.RangeRawArray</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.RangeScheme.html">altair.RangeScheme</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.RectConfig.html">altair.RectConfig</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.RegressionTransform.html">altair.RegressionTransform</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.RepeatMapping.html">altair.RepeatMapping</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.RepeatRef.html">altair.RepeatRef</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.RepeatSpec.html">altair.RepeatSpec</a></li>
@@ -394,6 +456,7 @@
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.RowColLayoutAlign.html">altair.RowColLayoutAlign</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.RowColboolean.html">altair.RowColboolean</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.RowColnumber.html">altair.RowColnumber</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.RowColumnEncodingFieldDef.html">altair.RowColumnEncodingFieldDef</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.SampleTransform.html">altair.SampleTransform</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.Scale.html">altair.Scale</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ScaleConfig.html">altair.ScaleConfig</a></li>
@@ -402,13 +465,12 @@
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ScaleResolveMap.html">altair.ScaleResolveMap</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ScaleType.html">altair.ScaleType</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.SchemaBase.html">altair.SchemaBase</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.SchemeConfig.html">altair.SchemeConfig</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.SchemeParams.html">altair.SchemeParams</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.SecondaryFieldDef.html">altair.SecondaryFieldDef</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.SelectionAnd.html">altair.SelectionAnd</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.SelectionConfig.html">altair.SelectionConfig</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.SelectionDef.html">altair.SelectionDef</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.SelectionDomain.html">altair.SelectionDomain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.SelectionExtent.html">altair.SelectionExtent</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.SelectionInit.html">altair.SelectionInit</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.SelectionInitInterval.html">altair.SelectionInitInterval</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.SelectionInitIntervalMapping.html">altair.SelectionInitIntervalMapping</a></li>
@@ -420,6 +482,8 @@
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.SelectionResolution.html">altair.SelectionResolution</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.SequenceGenerator.html">altair.SequenceGenerator</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.SequenceParams.html">altair.SequenceParams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.SequentialMultiHue.html">altair.SequentialMultiHue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.SequentialSingleHue.html">altair.SequentialSingleHue</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ShapeFieldDefWithCondition.html">altair.ShapeFieldDefWithCondition</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ShapeValueDefWithCondition.html">altair.ShapeValueDefWithCondition</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.SignalRef.html">altair.SignalRef</a></li>
@@ -429,6 +493,8 @@
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.SingleTimeUnit.html">altair.SingleTimeUnit</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.Sort.html">altair.Sort</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.SortArray.html">altair.SortArray</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.SortByChannel.html">altair.SortByChannel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.SortByChannelDesc.html">altair.SortByChannelDesc</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.SortByEncoding.html">altair.SortByEncoding</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.SortField.html">altair.SortField</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.SortOrder.html">altair.SortOrder</a></li>
@@ -437,20 +503,22 @@
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.StackOffset.html">altair.StackOffset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.StackTransform.html">altair.StackTransform</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.StandardType.html">altair.StandardType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.Step.html">altair.Step</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.Stream.html">altair.Stream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.StringFieldDef.html">altair.StringFieldDef</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.StringFieldDefWithCondition.html">altair.StringFieldDefWithCondition</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.StringFieldDefWithConditionTypeForShape.html">altair.StringFieldDefWithConditionTypeForShape</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.StringValueDefWithCondition.html">altair.StringValueDefWithCondition</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.StringValueDefWithConditionTypeForShape.html">altair.StringValueDefWithConditionTypeForShape</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.StrokeCap.html">altair.StrokeCap</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.StrokeJoin.html">altair.StrokeJoin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.StyleConfigIndex.html">altair.StyleConfigIndex</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.SymbolShape.html">altair.SymbolShape</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.Text.html">altair.Text</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.TextBaseline.html">altair.TextBaseline</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.TextConfig.html">altair.TextConfig</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.TextFieldDef.html">altair.TextFieldDef</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.TextFieldDefWithCondition.html">altair.TextFieldDefWithCondition</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.TextValueDefWithCondition.html">altair.TextValueDefWithCondition</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.TickConfig.html">altair.TickConfig</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.TimeInterval.html">altair.TimeInterval</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.TimeUnit.html">altair.TimeUnit</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.TimeUnitTransform.html">altair.TimeUnitTransform</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.TitleAnchor.html">altair.TitleAnchor</a></li>
@@ -477,13 +545,21 @@
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.UtcSingleTimeUnit.html">altair.UtcSingleTimeUnit</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.VConcatSpec.html">altair.VConcatSpec</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.Value.html">altair.Value</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ValueDefWithConditionMarkPropFieldDefGradientstringnull.html">altair.ValueDefWithConditionMarkPropFieldDefGradientstringnull</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ValueDefWithConditionMarkPropFieldDefTypeForShapestringnull.html">altair.ValueDefWithConditionMarkPropFieldDefTypeForShapestringnull</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ValueDefWithConditionMarkPropFieldDefnumber.html">altair.ValueDefWithConditionMarkPropFieldDefnumber</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ValueDefWithConditionMarkPropFieldDefstringnull.html">altair.ValueDefWithConditionMarkPropFieldDefstringnull</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ValueDefWithConditionTextFieldDefValue.html">altair.ValueDefWithConditionTextFieldDefValue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ValueDefWithConditionStringFieldDefText.html">altair.ValueDefWithConditionStringFieldDefText</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.Vector2DateTime.html">altair.Vector2DateTime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.Vector2Vector2number.html">altair.Vector2Vector2number</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.Vector2boolean.html">altair.Vector2boolean</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.Vector2number.html">altair.Vector2number</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.Vector2string.html">altair.Vector2string</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.Vector3number.html">altair.Vector3number</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.VegaLiteSchema.html">altair.VegaLiteSchema</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ViewBackground.html">altair.ViewBackground</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.ViewConfig.html">altair.ViewConfig</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/core/altair.WindowEventType.html">altair.WindowEventType</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.WindowFieldDef.html">altair.WindowFieldDef</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.WindowOnlyOp.html">altair.WindowOnlyOp</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/core/altair.WindowTransform.html">altair.WindowTransform</a></li>
@@ -502,9 +578,14 @@
 <p class="caption"><span class="caption-text">Advanced Usage</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="importing.html">Importing Vega &amp; Vega-Lite Versions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="display_frontends.html">Displaying Charts in Various Frontends</a></li>
+<li class="toctree-l1"><a class="reference internal" href="display_frontends.html">Displaying Altair Charts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="display_frontends.html#renderer-api">Renderer API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="custom_renderers.html">Customizing Renderers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_transformers.html">Data transformers</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../releases/changes.html">Altair Change Log</a></li>
 </ul>
 
             
@@ -724,7 +805,7 @@ full guidelines on their use.</p>
 <tr class="row-odd"><td><a class="reference internal" href="generated/channels/altair.StrokeWidthValue.html#altair.StrokeWidthValue" title="altair.StrokeWidthValue"><code class="xref py py-obj docutils literal"><span class="pre">StrokeWidthValue</span></code></a></td>
 <td>StrokeWidthValue schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/channels/altair.Text.html#altair.Text" title="altair.Text"><code class="xref py py-obj docutils literal"><span class="pre">Text</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.Text.html#altair.Text" title="altair.Text"><code class="xref py py-obj docutils literal"><span class="pre">Text</span></code></a></td>
 <td>Text schema wrapper</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="generated/channels/altair.TextValue.html#altair.TextValue" title="altair.TextValue"><code class="xref py py-obj docutils literal"><span class="pre">TextValue</span></code></a></td>
@@ -735,6 +816,12 @@ full guidelines on their use.</p>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="generated/channels/altair.TooltipValue.html#altair.TooltipValue" title="altair.TooltipValue"><code class="xref py py-obj docutils literal"><span class="pre">TooltipValue</span></code></a></td>
 <td>TooltipValue schema wrapper</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/channels/altair.Url.html#altair.Url" title="altair.Url"><code class="xref py py-obj docutils literal"><span class="pre">Url</span></code></a></td>
+<td>Url schema wrapper</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/channels/altair.UrlValue.html#altair.UrlValue" title="altair.UrlValue"><code class="xref py py-obj docutils literal"><span class="pre">UrlValue</span></code></a></td>
+<td>UrlValue schema wrapper</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="generated/channels/altair.X.html#altair.X" title="altair.X"><code class="xref py py-obj docutils literal"><span class="pre">X</span></code></a></td>
 <td>X schema wrapper</td>
@@ -884,47 +971,53 @@ full guidelines on their use.</p>
 <tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.Align.html#altair.Align" title="altair.Align"><code class="xref py py-obj docutils literal"><span class="pre">Align</span></code></a></td>
 <td>Align schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.AnyMark.html#altair.AnyMark" title="altair.AnyMark"><code class="xref py py-obj docutils literal"><span class="pre">AnyMark</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.AllSortString.html#altair.AllSortString" title="altair.AllSortString"><code class="xref py py-obj docutils literal"><span class="pre">AllSortString</span></code></a></td>
+<td>AllSortString schema wrapper</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.AnyMark.html#altair.AnyMark" title="altair.AnyMark"><code class="xref py py-obj docutils literal"><span class="pre">AnyMark</span></code></a></td>
 <td>AnyMark schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.AreaConfig.html#altair.AreaConfig" title="altair.AreaConfig"><code class="xref py py-obj docutils literal"><span class="pre">AreaConfig</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.AreaConfig.html#altair.AreaConfig" title="altair.AreaConfig"><code class="xref py py-obj docutils literal"><span class="pre">AreaConfig</span></code></a></td>
 <td>AreaConfig schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.ArgmaxDef.html#altair.ArgmaxDef" title="altair.ArgmaxDef"><code class="xref py py-obj docutils literal"><span class="pre">ArgmaxDef</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.ArgmaxDef.html#altair.ArgmaxDef" title="altair.ArgmaxDef"><code class="xref py py-obj docutils literal"><span class="pre">ArgmaxDef</span></code></a></td>
 <td>ArgmaxDef schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.ArgminDef.html#altair.ArgminDef" title="altair.ArgminDef"><code class="xref py py-obj docutils literal"><span class="pre">ArgminDef</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.ArgminDef.html#altair.ArgminDef" title="altair.ArgminDef"><code class="xref py py-obj docutils literal"><span class="pre">ArgminDef</span></code></a></td>
 <td>ArgminDef schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.AutoSizeParams.html#altair.AutoSizeParams" title="altair.AutoSizeParams"><code class="xref py py-obj docutils literal"><span class="pre">AutoSizeParams</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.AutoSizeParams.html#altair.AutoSizeParams" title="altair.AutoSizeParams"><code class="xref py py-obj docutils literal"><span class="pre">AutoSizeParams</span></code></a></td>
 <td>AutoSizeParams schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.AutosizeType.html#altair.AutosizeType" title="altair.AutosizeType"><code class="xref py py-obj docutils literal"><span class="pre">AutosizeType</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.AutosizeType.html#altair.AutosizeType" title="altair.AutosizeType"><code class="xref py py-obj docutils literal"><span class="pre">AutosizeType</span></code></a></td>
 <td>AutosizeType schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.Axis.html#altair.Axis" title="altair.Axis"><code class="xref py py-obj docutils literal"><span class="pre">Axis</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.Axis.html#altair.Axis" title="altair.Axis"><code class="xref py py-obj docutils literal"><span class="pre">Axis</span></code></a></td>
 <td>Axis schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.AxisConfig.html#altair.AxisConfig" title="altair.AxisConfig"><code class="xref py py-obj docutils literal"><span class="pre">AxisConfig</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.AxisConfig.html#altair.AxisConfig" title="altair.AxisConfig"><code class="xref py py-obj docutils literal"><span class="pre">AxisConfig</span></code></a></td>
 <td>AxisConfig schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.AxisOrient.html#altair.AxisOrient" title="altair.AxisOrient"><code class="xref py py-obj docutils literal"><span class="pre">AxisOrient</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.AxisOrient.html#altair.AxisOrient" title="altair.AxisOrient"><code class="xref py py-obj docutils literal"><span class="pre">AxisOrient</span></code></a></td>
 <td>AxisOrient schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.AxisResolveMap.html#altair.AxisResolveMap" title="altair.AxisResolveMap"><code class="xref py py-obj docutils literal"><span class="pre">AxisResolveMap</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.AxisResolveMap.html#altair.AxisResolveMap" title="altair.AxisResolveMap"><code class="xref py py-obj docutils literal"><span class="pre">AxisResolveMap</span></code></a></td>
 <td>AxisResolveMap schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.BaseLegendLayout.html#altair.BaseLegendLayout" title="altair.BaseLegendLayout"><code class="xref py py-obj docutils literal"><span class="pre">BaseLegendLayout</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.BaseLegendLayout.html#altair.BaseLegendLayout" title="altair.BaseLegendLayout"><code class="xref py py-obj docutils literal"><span class="pre">BaseLegendLayout</span></code></a></td>
 <td>BaseLegendLayout schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.BaseMarkConfig.html#altair.BaseMarkConfig" title="altair.BaseMarkConfig"><code class="xref py py-obj docutils literal"><span class="pre">BaseMarkConfig</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.BaseMarkConfig.html#altair.BaseMarkConfig" title="altair.BaseMarkConfig"><code class="xref py py-obj docutils literal"><span class="pre">BaseMarkConfig</span></code></a></td>
 <td>BaseMarkConfig schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.BaseTitleConfig.html#altair.BaseTitleConfig" title="altair.BaseTitleConfig"><code class="xref py py-obj docutils literal"><span class="pre">BaseTitleConfig</span></code></a></td>
-<td>BaseTitleConfig schema wrapper</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.BaseTitleNoValueRefs.html#altair.BaseTitleNoValueRefs" title="altair.BaseTitleNoValueRefs"><code class="xref py py-obj docutils literal"><span class="pre">BaseTitleNoValueRefs</span></code></a></td>
+<td>BaseTitleNoValueRefs schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.Baseline.html#altair.Baseline" title="altair.Baseline"><code class="xref py py-obj docutils literal"><span class="pre">Baseline</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.Baseline.html#altair.Baseline" title="altair.Baseline"><code class="xref py py-obj docutils literal"><span class="pre">Baseline</span></code></a></td>
 <td>Baseline schema wrapper</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.BinExtent.html#altair.BinExtent" title="altair.BinExtent"><code class="xref py py-obj docutils literal"><span class="pre">BinExtent</span></code></a></td>
+<td>BinExtent schema wrapper</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="generated/core/altair.BinParams.html#altair.BinParams" title="altair.BinParams"><code class="xref py py-obj docutils literal"><span class="pre">BinParams</span></code></a></td>
 <td>BinParams schema wrapper</td>
@@ -959,11 +1052,23 @@ full guidelines on their use.</p>
 <tr class="row-even"><td><a class="reference internal" href="generated/core/altair.CalculateTransform.html#altair.CalculateTransform" title="altair.CalculateTransform"><code class="xref py py-obj docutils literal"><span class="pre">CalculateTransform</span></code></a></td>
 <td>CalculateTransform schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.Color.html#altair.Color" title="altair.Color"><code class="xref py py-obj docutils literal"><span class="pre">Color</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.Categorical.html#altair.Categorical" title="altair.Categorical"><code class="xref py py-obj docutils literal"><span class="pre">Categorical</span></code></a></td>
+<td>Categorical schema wrapper</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.Color.html#altair.Color" title="altair.Color"><code class="xref py py-obj docutils literal"><span class="pre">Color</span></code></a></td>
 <td>Color schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.ColorName.html#altair.ColorName" title="altair.ColorName"><code class="xref py py-obj docutils literal"><span class="pre">ColorName</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.ColorGradientFieldDefWithCondition.html#altair.ColorGradientFieldDefWithCondition" title="altair.ColorGradientFieldDefWithCondition"><code class="xref py py-obj docutils literal"><span class="pre">ColorGradientFieldDefWithCondition</span></code></a></td>
+<td>ColorGradientFieldDefWithCondition schema wrapper</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.ColorGradientValueDefWithCondition.html#altair.ColorGradientValueDefWithCondition" title="altair.ColorGradientValueDefWithCondition"><code class="xref py py-obj docutils literal"><span class="pre">ColorGradientValueDefWithCondition</span></code></a></td>
+<td>ColorGradientValueDefWithCondition schema wrapper</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.ColorName.html#altair.ColorName" title="altair.ColorName"><code class="xref py py-obj docutils literal"><span class="pre">ColorName</span></code></a></td>
 <td>ColorName schema wrapper</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.ColorScheme.html#altair.ColorScheme" title="altair.ColorScheme"><code class="xref py py-obj docutils literal"><span class="pre">ColorScheme</span></code></a></td>
+<td>ColorScheme schema wrapper</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.CompositeMark.html#altair.CompositeMark" title="altair.CompositeMark"><code class="xref py py-obj docutils literal"><span class="pre">CompositeMark</span></code></a></td>
 <td>CompositeMark schema wrapper</td>
@@ -977,32 +1082,92 @@ full guidelines on their use.</p>
 <tr class="row-even"><td><a class="reference internal" href="generated/core/altair.ConcatSpec.html#altair.ConcatSpec" title="altair.ConcatSpec"><code class="xref py py-obj docutils literal"><span class="pre">ConcatSpec</span></code></a></td>
 <td>ConcatSpec schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.ConditionalMarkPropFieldDef.html#altair.ConditionalMarkPropFieldDef" title="altair.ConditionalMarkPropFieldDef"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalMarkPropFieldDef</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.ConditionalAxisColor.html#altair.ConditionalAxisColor" title="altair.ConditionalAxisColor"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalAxisColor</span></code></a></td>
+<td>ConditionalAxisColor schema wrapper</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.ConditionalAxisLabelBaseline.html#altair.ConditionalAxisLabelBaseline" title="altair.ConditionalAxisLabelBaseline"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalAxisLabelBaseline</span></code></a></td>
+<td>ConditionalAxisLabelBaseline schema wrapper</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.ConditionalAxisLabelFontStyle.html#altair.ConditionalAxisLabelFontStyle" title="altair.ConditionalAxisLabelFontStyle"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalAxisLabelFontStyle</span></code></a></td>
+<td>ConditionalAxisLabelFontStyle schema wrapper</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.ConditionalAxisLabelFontWeight.html#altair.ConditionalAxisLabelFontWeight" title="altair.ConditionalAxisLabelFontWeight"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalAxisLabelFontWeight</span></code></a></td>
+<td>ConditionalAxisLabelFontWeight schema wrapper</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.ConditionalAxisNumber.html#altair.ConditionalAxisNumber" title="altair.ConditionalAxisNumber"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalAxisNumber</span></code></a></td>
+<td>ConditionalAxisNumber schema wrapper</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.ConditionalAxisNumberArray.html#altair.ConditionalAxisNumberArray" title="altair.ConditionalAxisNumberArray"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalAxisNumberArray</span></code></a></td>
+<td>ConditionalAxisNumberArray schema wrapper</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.ConditionalAxisPropertyColornull.html#altair.ConditionalAxisPropertyColornull" title="altair.ConditionalAxisPropertyColornull"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalAxisPropertyColornull</span></code></a></td>
+<td>ConditionalAxisPropertyColornull schema wrapper</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.ConditionalAxisPropertyFontStylenull.html#altair.ConditionalAxisPropertyFontStylenull" title="altair.ConditionalAxisPropertyFontStylenull"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalAxisPropertyFontStylenull</span></code></a></td>
+<td>ConditionalAxisPropertyFontStylenull schema wrapper</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.ConditionalAxisPropertyFontWeightnull.html#altair.ConditionalAxisPropertyFontWeightnull" title="altair.ConditionalAxisPropertyFontWeightnull"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalAxisPropertyFontWeightnull</span></code></a></td>
+<td>ConditionalAxisPropertyFontWeightnull schema wrapper</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.ConditionalAxisPropertyTextBaselinenull.html#altair.ConditionalAxisPropertyTextBaselinenull" title="altair.ConditionalAxisPropertyTextBaselinenull"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalAxisPropertyTextBaselinenull</span></code></a></td>
+<td>ConditionalAxisPropertyTextBaselinenull schema wrapper</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.ConditionalAxisPropertynumbernull.html#altair.ConditionalAxisPropertynumbernull" title="altair.ConditionalAxisPropertynumbernull"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalAxisPropertynumbernull</span></code></a></td>
+<td>ConditionalAxisPropertynumbernull schema wrapper</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.ConditionalAxisPropertystringnull.html#altair.ConditionalAxisPropertystringnull" title="altair.ConditionalAxisPropertystringnull"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalAxisPropertystringnull</span></code></a></td>
+<td>ConditionalAxisPropertystringnull schema wrapper</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.ConditionalAxisString.html#altair.ConditionalAxisString" title="altair.ConditionalAxisString"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalAxisString</span></code></a></td>
+<td>ConditionalAxisString schema wrapper</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.ConditionalMarkPropFieldDef.html#altair.ConditionalMarkPropFieldDef" title="altair.ConditionalMarkPropFieldDef"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalMarkPropFieldDef</span></code></a></td>
 <td>ConditionalMarkPropFieldDef schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.ConditionalMarkPropFieldDefTypeForShape.html#altair.ConditionalMarkPropFieldDefTypeForShape" title="altair.ConditionalMarkPropFieldDefTypeForShape"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalMarkPropFieldDefTypeForShape</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.ConditionalMarkPropFieldDefTypeForShape.html#altair.ConditionalMarkPropFieldDefTypeForShape" title="altair.ConditionalMarkPropFieldDefTypeForShape"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalMarkPropFieldDefTypeForShape</span></code></a></td>
 <td>ConditionalMarkPropFieldDefTypeForShape schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.ConditionalNumberValueDef.html#altair.ConditionalNumberValueDef" title="altair.ConditionalNumberValueDef"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalNumberValueDef</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.ConditionalNumberValueDef.html#altair.ConditionalNumberValueDef" title="altair.ConditionalNumberValueDef"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalNumberValueDef</span></code></a></td>
 <td>ConditionalNumberValueDef schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.ConditionalPredicateMarkPropFieldDef.html#altair.ConditionalPredicateMarkPropFieldDef" title="altair.ConditionalPredicateMarkPropFieldDef"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalPredicateMarkPropFieldDef</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.ConditionalPredicateMarkPropFieldDef.html#altair.ConditionalPredicateMarkPropFieldDef" title="altair.ConditionalPredicateMarkPropFieldDef"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalPredicateMarkPropFieldDef</span></code></a></td>
 <td>ConditionalPredicateMarkPropFieldDef schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.ConditionalPredicateMarkPropFieldDefTypeForShape.html#altair.ConditionalPredicateMarkPropFieldDefTypeForShape" title="altair.ConditionalPredicateMarkPropFieldDefTypeForShape"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalPredicateMarkPropFieldDefTypeForShape</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.ConditionalPredicateMarkPropFieldDefTypeForShape.html#altair.ConditionalPredicateMarkPropFieldDefTypeForShape" title="altair.ConditionalPredicateMarkPropFieldDefTypeForShape"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalPredicateMarkPropFieldDefTypeForShape</span></code></a></td>
 <td>ConditionalPredicateMarkPropFieldDefTypeForShape schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.ConditionalPredicateNumberValueDef.html#altair.ConditionalPredicateNumberValueDef" title="altair.ConditionalPredicateNumberValueDef"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalPredicateNumberValueDef</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.ConditionalPredicateNumberValueDef.html#altair.ConditionalPredicateNumberValueDef" title="altair.ConditionalPredicateNumberValueDef"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalPredicateNumberValueDef</span></code></a></td>
 <td>ConditionalPredicateNumberValueDef schema wrapper</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.ConditionalPredicateStringFieldDef.html#altair.ConditionalPredicateStringFieldDef" title="altair.ConditionalPredicateStringFieldDef"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalPredicateStringFieldDef</span></code></a></td>
+<td>ConditionalPredicateStringFieldDef schema wrapper</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.ConditionalPredicateStringValueDef.html#altair.ConditionalPredicateStringValueDef" title="altair.ConditionalPredicateStringValueDef"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalPredicateStringValueDef</span></code></a></td>
 <td>ConditionalPredicateStringValueDef schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.ConditionalPredicateTextFieldDef.html#altair.ConditionalPredicateTextFieldDef" title="altair.ConditionalPredicateTextFieldDef"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalPredicateTextFieldDef</span></code></a></td>
-<td>ConditionalPredicateTextFieldDef schema wrapper</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.ConditionalPredicateValueDefColornull.html#altair.ConditionalPredicateValueDefColornull" title="altair.ConditionalPredicateValueDefColornull"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalPredicateValueDefColornull</span></code></a></td>
+<td>ConditionalPredicateValueDefColornull schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.ConditionalPredicateValueDef.html#altair.ConditionalPredicateValueDef" title="altair.ConditionalPredicateValueDef"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalPredicateValueDef</span></code></a></td>
-<td>ConditionalPredicateValueDef schema wrapper</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.ConditionalPredicateValueDefFontStylenull.html#altair.ConditionalPredicateValueDefFontStylenull" title="altair.ConditionalPredicateValueDefFontStylenull"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalPredicateValueDefFontStylenull</span></code></a></td>
+<td>ConditionalPredicateValueDefFontStylenull schema wrapper</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.ConditionalPredicateValueDefFontWeightnull.html#altair.ConditionalPredicateValueDefFontWeightnull" title="altair.ConditionalPredicateValueDefFontWeightnull"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalPredicateValueDefFontWeightnull</span></code></a></td>
+<td>ConditionalPredicateValueDefFontWeightnull schema wrapper</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.ConditionalPredicateValueDefGradientstringnull.html#altair.ConditionalPredicateValueDefGradientstringnull" title="altair.ConditionalPredicateValueDefGradientstringnull"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalPredicateValueDefGradientstringnull</span></code></a></td>
+<td>ConditionalPredicateValueDefGradientstringnull schema wrapper</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.ConditionalPredicateValueDefText.html#altair.ConditionalPredicateValueDefText" title="altair.ConditionalPredicateValueDefText"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalPredicateValueDefText</span></code></a></td>
+<td>ConditionalPredicateValueDefText schema wrapper</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.ConditionalPredicateValueDefTextBaselinenull.html#altair.ConditionalPredicateValueDefTextBaselinenull" title="altair.ConditionalPredicateValueDefTextBaselinenull"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalPredicateValueDefTextBaselinenull</span></code></a></td>
+<td>ConditionalPredicateValueDefTextBaselinenull schema wrapper</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.ConditionalPredicateValueDefnumbernull.html#altair.ConditionalPredicateValueDefnumbernull" title="altair.ConditionalPredicateValueDefnumbernull"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalPredicateValueDefnumbernull</span></code></a></td>
+<td>ConditionalPredicateValueDefnumbernull schema wrapper</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.ConditionalPredicateValueDefstring.html#altair.ConditionalPredicateValueDefstring" title="altair.ConditionalPredicateValueDefstring"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalPredicateValueDefstring</span></code></a></td>
+<td>ConditionalPredicateValueDefstring schema wrapper</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="generated/core/altair.ConditionalSelectionMarkPropFieldDef.html#altair.ConditionalSelectionMarkPropFieldDef" title="altair.ConditionalSelectionMarkPropFieldDef"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalSelectionMarkPropFieldDef</span></code></a></td>
 <td>ConditionalSelectionMarkPropFieldDef schema wrapper</td>
@@ -1013,23 +1178,35 @@ full guidelines on their use.</p>
 <tr class="row-even"><td><a class="reference internal" href="generated/core/altair.ConditionalSelectionNumberValueDef.html#altair.ConditionalSelectionNumberValueDef" title="altair.ConditionalSelectionNumberValueDef"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalSelectionNumberValueDef</span></code></a></td>
 <td>ConditionalSelectionNumberValueDef schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.ConditionalSelectionStringValueDef.html#altair.ConditionalSelectionStringValueDef" title="altair.ConditionalSelectionStringValueDef"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalSelectionStringValueDef</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.ConditionalSelectionStringFieldDef.html#altair.ConditionalSelectionStringFieldDef" title="altair.ConditionalSelectionStringFieldDef"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalSelectionStringFieldDef</span></code></a></td>
+<td>ConditionalSelectionStringFieldDef schema wrapper</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.ConditionalSelectionStringValueDef.html#altair.ConditionalSelectionStringValueDef" title="altair.ConditionalSelectionStringValueDef"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalSelectionStringValueDef</span></code></a></td>
 <td>ConditionalSelectionStringValueDef schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.ConditionalSelectionTextFieldDef.html#altair.ConditionalSelectionTextFieldDef" title="altair.ConditionalSelectionTextFieldDef"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalSelectionTextFieldDef</span></code></a></td>
-<td>ConditionalSelectionTextFieldDef schema wrapper</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.ConditionalSelectionValueDefGradientstringnull.html#altair.ConditionalSelectionValueDefGradientstringnull" title="altair.ConditionalSelectionValueDefGradientstringnull"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalSelectionValueDefGradientstringnull</span></code></a></td>
+<td>ConditionalSelectionValueDefGradientstringnull schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.ConditionalSelectionValueDef.html#altair.ConditionalSelectionValueDef" title="altair.ConditionalSelectionValueDef"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalSelectionValueDef</span></code></a></td>
-<td>ConditionalSelectionValueDef schema wrapper</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.ConditionalSelectionValueDefText.html#altair.ConditionalSelectionValueDefText" title="altair.ConditionalSelectionValueDefText"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalSelectionValueDefText</span></code></a></td>
+<td>ConditionalSelectionValueDefText schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.ConditionalStringValueDef.html#altair.ConditionalStringValueDef" title="altair.ConditionalStringValueDef"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalStringValueDef</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.ConditionalSelectionValueDefstring.html#altair.ConditionalSelectionValueDefstring" title="altair.ConditionalSelectionValueDefstring"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalSelectionValueDefstring</span></code></a></td>
+<td>ConditionalSelectionValueDefstring schema wrapper</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.ConditionalStringFieldDef.html#altair.ConditionalStringFieldDef" title="altair.ConditionalStringFieldDef"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalStringFieldDef</span></code></a></td>
+<td>ConditionalStringFieldDef schema wrapper</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.ConditionalStringValueDef.html#altair.ConditionalStringValueDef" title="altair.ConditionalStringValueDef"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalStringValueDef</span></code></a></td>
 <td>ConditionalStringValueDef schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.ConditionalTextFieldDef.html#altair.ConditionalTextFieldDef" title="altair.ConditionalTextFieldDef"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalTextFieldDef</span></code></a></td>
-<td>ConditionalTextFieldDef schema wrapper</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.ConditionalValueDefGradientstringnull.html#altair.ConditionalValueDefGradientstringnull" title="altair.ConditionalValueDefGradientstringnull"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalValueDefGradientstringnull</span></code></a></td>
+<td>ConditionalValueDefGradientstringnull schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.ConditionalValueDef.html#altair.ConditionalValueDef" title="altair.ConditionalValueDef"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalValueDef</span></code></a></td>
-<td>ConditionalValueDef schema wrapper</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.ConditionalValueDefText.html#altair.ConditionalValueDefText" title="altair.ConditionalValueDefText"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalValueDefText</span></code></a></td>
+<td>ConditionalValueDefText schema wrapper</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.ConditionalValueDefstring.html#altair.ConditionalValueDefstring" title="altair.ConditionalValueDefstring"><code class="xref py py-obj docutils literal"><span class="pre">ConditionalValueDefstring</span></code></a></td>
+<td>ConditionalValueDefstring schema wrapper</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.Config.html#altair.Config" title="altair.Config"><code class="xref py py-obj docutils literal"><span class="pre">Config</span></code></a></td>
 <td>Config schema wrapper</td>
@@ -1040,29 +1217,47 @@ full guidelines on their use.</p>
 <tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.Cursor.html#altair.Cursor" title="altair.Cursor"><code class="xref py py-obj docutils literal"><span class="pre">Cursor</span></code></a></td>
 <td>Cursor schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.Data.html#altair.Data" title="altair.Data"><code class="xref py py-obj docutils literal"><span class="pre">Data</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.Cyclical.html#altair.Cyclical" title="altair.Cyclical"><code class="xref py py-obj docutils literal"><span class="pre">Cyclical</span></code></a></td>
+<td>Cyclical schema wrapper</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.Data.html#altair.Data" title="altair.Data"><code class="xref py py-obj docutils literal"><span class="pre">Data</span></code></a></td>
 <td>Data schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.DataFormat.html#altair.DataFormat" title="altair.DataFormat"><code class="xref py py-obj docutils literal"><span class="pre">DataFormat</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.DataFormat.html#altair.DataFormat" title="altair.DataFormat"><code class="xref py py-obj docutils literal"><span class="pre">DataFormat</span></code></a></td>
 <td>DataFormat schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.DataSource.html#altair.DataSource" title="altair.DataSource"><code class="xref py py-obj docutils literal"><span class="pre">DataSource</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.DataSource.html#altair.DataSource" title="altair.DataSource"><code class="xref py py-obj docutils literal"><span class="pre">DataSource</span></code></a></td>
 <td>DataSource schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.Datasets.html#altair.Datasets" title="altair.Datasets"><code class="xref py py-obj docutils literal"><span class="pre">Datasets</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.Datasets.html#altair.Datasets" title="altair.Datasets"><code class="xref py py-obj docutils literal"><span class="pre">Datasets</span></code></a></td>
 <td>Datasets schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.DateTime.html#altair.DateTime" title="altair.DateTime"><code class="xref py py-obj docutils literal"><span class="pre">DateTime</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.DateTime.html#altair.DateTime" title="altair.DateTime"><code class="xref py py-obj docutils literal"><span class="pre">DateTime</span></code></a></td>
 <td>DateTime schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.Day.html#altair.Day" title="altair.Day"><code class="xref py py-obj docutils literal"><span class="pre">Day</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.Day.html#altair.Day" title="altair.Day"><code class="xref py py-obj docutils literal"><span class="pre">Day</span></code></a></td>
 <td>Day schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.DictInlineDataset.html#altair.DictInlineDataset" title="altair.DictInlineDataset"><code class="xref py py-obj docutils literal"><span class="pre">DictInlineDataset</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.DensityTransform.html#altair.DensityTransform" title="altair.DensityTransform"><code class="xref py py-obj docutils literal"><span class="pre">DensityTransform</span></code></a></td>
+<td>DensityTransform schema wrapper</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.DerivedStream.html#altair.DerivedStream" title="altair.DerivedStream"><code class="xref py py-obj docutils literal"><span class="pre">DerivedStream</span></code></a></td>
+<td>DerivedStream schema wrapper</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.DictInlineDataset.html#altair.DictInlineDataset" title="altair.DictInlineDataset"><code class="xref py py-obj docutils literal"><span class="pre">DictInlineDataset</span></code></a></td>
 <td>DictInlineDataset schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.Dir.html#altair.Dir" title="altair.Dir"><code class="xref py py-obj docutils literal"><span class="pre">Dir</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.DictSelectionInit.html#altair.DictSelectionInit" title="altair.DictSelectionInit"><code class="xref py py-obj docutils literal"><span class="pre">DictSelectionInit</span></code></a></td>
+<td>DictSelectionInit schema wrapper</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.DictSelectionInitInterval.html#altair.DictSelectionInitInterval" title="altair.DictSelectionInitInterval"><code class="xref py py-obj docutils literal"><span class="pre">DictSelectionInitInterval</span></code></a></td>
+<td>DictSelectionInitInterval schema wrapper</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.Dir.html#altair.Dir" title="altair.Dir"><code class="xref py py-obj docutils literal"><span class="pre">Dir</span></code></a></td>
 <td>Dir schema wrapper</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.Diverging.html#altair.Diverging" title="altair.Diverging"><code class="xref py py-obj docutils literal"><span class="pre">Diverging</span></code></a></td>
+<td>Diverging schema wrapper</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="generated/core/altair.DsvDataFormat.html#altair.DsvDataFormat" title="altair.DsvDataFormat"><code class="xref py py-obj docutils literal"><span class="pre">DsvDataFormat</span></code></a></td>
 <td>DsvDataFormat schema wrapper</td>
@@ -1100,6 +1295,18 @@ full guidelines on their use.</p>
 <tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.EventStream.html#altair.EventStream" title="altair.EventStream"><code class="xref py py-obj docutils literal"><span class="pre">EventStream</span></code></a></td>
 <td>EventStream schema wrapper</td>
 </tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.EventType.html#altair.EventType" title="altair.EventType"><code class="xref py py-obj docutils literal"><span class="pre">EventType</span></code></a></td>
+<td>EventType schema wrapper</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.ExcludeMappedValueRefBaseTitle.html#altair.ExcludeMappedValueRefBaseTitle" title="altair.ExcludeMappedValueRefBaseTitle"><code class="xref py py-obj docutils literal"><span class="pre">ExcludeMappedValueRefBaseTitle</span></code></a></td>
+<td>ExcludeMappedValueRefBaseTitle schema wrapper</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.Expr.html#altair.Expr" title="altair.Expr"><code class="xref py py-obj docutils literal"><span class="pre">Expr</span></code></a></td>
+<td>Expr schema wrapper</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.FacetEncodingFieldDef.html#altair.FacetEncodingFieldDef" title="altair.FacetEncodingFieldDef"><code class="xref py py-obj docutils literal"><span class="pre">FacetEncodingFieldDef</span></code></a></td>
+<td>FacetEncodingFieldDef schema wrapper</td>
+</tr>
 <tr class="row-even"><td><a class="reference internal" href="generated/core/altair.FacetFieldDef.html#altair.FacetFieldDef" title="altair.FacetFieldDef"><code class="xref py py-obj docutils literal"><span class="pre">FacetFieldDef</span></code></a></td>
 <td>FacetFieldDef schema wrapper</td>
 </tr>
@@ -1118,50 +1325,56 @@ full guidelines on their use.</p>
 <tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.Field.html#altair.Field" title="altair.Field"><code class="xref py py-obj docutils literal"><span class="pre">Field</span></code></a></td>
 <td>Field schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.FieldDefWithConditionMarkPropFieldDefTypeForShapestringnull.html#altair.FieldDefWithConditionMarkPropFieldDefTypeForShapestringnull" title="altair.FieldDefWithConditionMarkPropFieldDefTypeForShapestringnull"><code class="xref py py-obj docutils literal"><span class="pre">FieldDefWithConditionMarkPropFieldDefTypeForShapestringnull</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.FieldDefWithConditionMarkPropFieldDefGradientstringnull.html#altair.FieldDefWithConditionMarkPropFieldDefGradientstringnull" title="altair.FieldDefWithConditionMarkPropFieldDefGradientstringnull"><code class="xref py py-obj docutils literal"><span class="pre">FieldDefWithConditionMarkPropFieldDefGradientstringnull</span></code></a></td>
+<td>FieldDefWithConditionMarkPropFieldDefGradientstringnull schema wrapper</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.FieldDefWithConditionMarkPropFieldDefTypeForShapestringnull.html#altair.FieldDefWithConditionMarkPropFieldDefTypeForShapestringnull" title="altair.FieldDefWithConditionMarkPropFieldDefTypeForShapestringnull"><code class="xref py py-obj docutils literal"><span class="pre">FieldDefWithConditionMarkPropFieldDefTypeForShapestringnull</span></code></a></td>
 <td>FieldDefWithConditionMarkPropFieldDefTypeForShapestringnull schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.FieldDefWithConditionMarkPropFieldDefnumber.html#altair.FieldDefWithConditionMarkPropFieldDefnumber" title="altair.FieldDefWithConditionMarkPropFieldDefnumber"><code class="xref py py-obj docutils literal"><span class="pre">FieldDefWithConditionMarkPropFieldDefnumber</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.FieldDefWithConditionMarkPropFieldDefnumber.html#altair.FieldDefWithConditionMarkPropFieldDefnumber" title="altair.FieldDefWithConditionMarkPropFieldDefnumber"><code class="xref py py-obj docutils literal"><span class="pre">FieldDefWithConditionMarkPropFieldDefnumber</span></code></a></td>
 <td>FieldDefWithConditionMarkPropFieldDefnumber schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.FieldDefWithConditionMarkPropFieldDefstringnull.html#altair.FieldDefWithConditionMarkPropFieldDefstringnull" title="altair.FieldDefWithConditionMarkPropFieldDefstringnull"><code class="xref py py-obj docutils literal"><span class="pre">FieldDefWithConditionMarkPropFieldDefstringnull</span></code></a></td>
-<td>FieldDefWithConditionMarkPropFieldDefstringnull schema wrapper</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.FieldDefWithConditionStringFieldDefText.html#altair.FieldDefWithConditionStringFieldDefText" title="altair.FieldDefWithConditionStringFieldDefText"><code class="xref py py-obj docutils literal"><span class="pre">FieldDefWithConditionStringFieldDefText</span></code></a></td>
+<td>FieldDefWithConditionStringFieldDefText schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.FieldDefWithConditionTextFieldDefValue.html#altair.FieldDefWithConditionTextFieldDefValue" title="altair.FieldDefWithConditionTextFieldDefValue"><code class="xref py py-obj docutils literal"><span class="pre">FieldDefWithConditionTextFieldDefValue</span></code></a></td>
-<td>FieldDefWithConditionTextFieldDefValue schema wrapper</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.FieldDefWithConditionStringFieldDefstring.html#altair.FieldDefWithConditionStringFieldDefstring" title="altair.FieldDefWithConditionStringFieldDefstring"><code class="xref py py-obj docutils literal"><span class="pre">FieldDefWithConditionStringFieldDefstring</span></code></a></td>
+<td>FieldDefWithConditionStringFieldDefstring schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.FieldDefWithoutScale.html#altair.FieldDefWithoutScale" title="altair.FieldDefWithoutScale"><code class="xref py py-obj docutils literal"><span class="pre">FieldDefWithoutScale</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.FieldDefWithoutScale.html#altair.FieldDefWithoutScale" title="altair.FieldDefWithoutScale"><code class="xref py py-obj docutils literal"><span class="pre">FieldDefWithoutScale</span></code></a></td>
 <td>FieldDefWithoutScale schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.FieldEqualPredicate.html#altair.FieldEqualPredicate" title="altair.FieldEqualPredicate"><code class="xref py py-obj docutils literal"><span class="pre">FieldEqualPredicate</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.FieldEqualPredicate.html#altair.FieldEqualPredicate" title="altair.FieldEqualPredicate"><code class="xref py py-obj docutils literal"><span class="pre">FieldEqualPredicate</span></code></a></td>
 <td>FieldEqualPredicate schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.FieldGTEPredicate.html#altair.FieldGTEPredicate" title="altair.FieldGTEPredicate"><code class="xref py py-obj docutils literal"><span class="pre">FieldGTEPredicate</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.FieldGTEPredicate.html#altair.FieldGTEPredicate" title="altair.FieldGTEPredicate"><code class="xref py py-obj docutils literal"><span class="pre">FieldGTEPredicate</span></code></a></td>
 <td>FieldGTEPredicate schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.FieldGTPredicate.html#altair.FieldGTPredicate" title="altair.FieldGTPredicate"><code class="xref py py-obj docutils literal"><span class="pre">FieldGTPredicate</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.FieldGTPredicate.html#altair.FieldGTPredicate" title="altair.FieldGTPredicate"><code class="xref py py-obj docutils literal"><span class="pre">FieldGTPredicate</span></code></a></td>
 <td>FieldGTPredicate schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.FieldLTEPredicate.html#altair.FieldLTEPredicate" title="altair.FieldLTEPredicate"><code class="xref py py-obj docutils literal"><span class="pre">FieldLTEPredicate</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.FieldLTEPredicate.html#altair.FieldLTEPredicate" title="altair.FieldLTEPredicate"><code class="xref py py-obj docutils literal"><span class="pre">FieldLTEPredicate</span></code></a></td>
 <td>FieldLTEPredicate schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.FieldLTPredicate.html#altair.FieldLTPredicate" title="altair.FieldLTPredicate"><code class="xref py py-obj docutils literal"><span class="pre">FieldLTPredicate</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.FieldLTPredicate.html#altair.FieldLTPredicate" title="altair.FieldLTPredicate"><code class="xref py py-obj docutils literal"><span class="pre">FieldLTPredicate</span></code></a></td>
 <td>FieldLTPredicate schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.FieldName.html#altair.FieldName" title="altair.FieldName"><code class="xref py py-obj docutils literal"><span class="pre">FieldName</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.FieldName.html#altair.FieldName" title="altair.FieldName"><code class="xref py py-obj docutils literal"><span class="pre">FieldName</span></code></a></td>
 <td>FieldName schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.FieldOneOfPredicate.html#altair.FieldOneOfPredicate" title="altair.FieldOneOfPredicate"><code class="xref py py-obj docutils literal"><span class="pre">FieldOneOfPredicate</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.FieldOneOfPredicate.html#altair.FieldOneOfPredicate" title="altair.FieldOneOfPredicate"><code class="xref py py-obj docutils literal"><span class="pre">FieldOneOfPredicate</span></code></a></td>
 <td>FieldOneOfPredicate schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.FieldRangePredicate.html#altair.FieldRangePredicate" title="altair.FieldRangePredicate"><code class="xref py py-obj docutils literal"><span class="pre">FieldRangePredicate</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.FieldRangePredicate.html#altair.FieldRangePredicate" title="altair.FieldRangePredicate"><code class="xref py py-obj docutils literal"><span class="pre">FieldRangePredicate</span></code></a></td>
 <td>FieldRangePredicate schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.FieldValidPredicate.html#altair.FieldValidPredicate" title="altair.FieldValidPredicate"><code class="xref py py-obj docutils literal"><span class="pre">FieldValidPredicate</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.FieldValidPredicate.html#altair.FieldValidPredicate" title="altair.FieldValidPredicate"><code class="xref py py-obj docutils literal"><span class="pre">FieldValidPredicate</span></code></a></td>
 <td>FieldValidPredicate schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.FilterTransform.html#altair.FilterTransform" title="altair.FilterTransform"><code class="xref py py-obj docutils literal"><span class="pre">FilterTransform</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.FilterTransform.html#altair.FilterTransform" title="altair.FilterTransform"><code class="xref py py-obj docutils literal"><span class="pre">FilterTransform</span></code></a></td>
 <td>FilterTransform schema wrapper</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.FitType.html#altair.FitType" title="altair.FitType"><code class="xref py py-obj docutils literal"><span class="pre">FitType</span></code></a></td>
+<td>FitType schema wrapper</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.FlattenTransform.html#altair.FlattenTransform" title="altair.FlattenTransform"><code class="xref py py-obj docutils literal"><span class="pre">FlattenTransform</span></code></a></td>
 <td>FlattenTransform schema wrapper</td>
@@ -1180,6 +1393,12 @@ full guidelines on their use.</p>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="generated/core/altair.GenericUnitSpecEncodingAnyMark.html#altair.GenericUnitSpecEncodingAnyMark" title="altair.GenericUnitSpecEncodingAnyMark"><code class="xref py py-obj docutils literal"><span class="pre">GenericUnitSpecEncodingAnyMark</span></code></a></td>
 <td>GenericUnitSpecEncodingAnyMark schema wrapper</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.Gradient.html#altair.Gradient" title="altair.Gradient"><code class="xref py py-obj docutils literal"><span class="pre">Gradient</span></code></a></td>
+<td>Gradient schema wrapper</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.GradientStop.html#altair.GradientStop" title="altair.GradientStop"><code class="xref py py-obj docutils literal"><span class="pre">GradientStop</span></code></a></td>
+<td>GradientStop schema wrapper</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.GraticuleGenerator.html#altair.GraticuleGenerator" title="altair.GraticuleGenerator"><code class="xref py py-obj docutils literal"><span class="pre">GraticuleGenerator</span></code></a></td>
 <td>GraticuleGenerator schema wrapper</td>
@@ -1256,26 +1475,38 @@ full guidelines on their use.</p>
 <tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.Legend.html#altair.Legend" title="altair.Legend"><code class="xref py py-obj docutils literal"><span class="pre">Legend</span></code></a></td>
 <td>Legend schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.LegendConfig.html#altair.LegendConfig" title="altair.LegendConfig"><code class="xref py py-obj docutils literal"><span class="pre">LegendConfig</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.LegendBinding.html#altair.LegendBinding" title="altair.LegendBinding"><code class="xref py py-obj docutils literal"><span class="pre">LegendBinding</span></code></a></td>
+<td>LegendBinding schema wrapper</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.LegendConfig.html#altair.LegendConfig" title="altair.LegendConfig"><code class="xref py py-obj docutils literal"><span class="pre">LegendConfig</span></code></a></td>
 <td>LegendConfig schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.LegendLayout.html#altair.LegendLayout" title="altair.LegendLayout"><code class="xref py py-obj docutils literal"><span class="pre">LegendLayout</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.LegendLayout.html#altair.LegendLayout" title="altair.LegendLayout"><code class="xref py py-obj docutils literal"><span class="pre">LegendLayout</span></code></a></td>
 <td>LegendLayout schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.LegendOrient.html#altair.LegendOrient" title="altair.LegendOrient"><code class="xref py py-obj docutils literal"><span class="pre">LegendOrient</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.LegendOrient.html#altair.LegendOrient" title="altair.LegendOrient"><code class="xref py py-obj docutils literal"><span class="pre">LegendOrient</span></code></a></td>
 <td>LegendOrient schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.LegendResolveMap.html#altair.LegendResolveMap" title="altair.LegendResolveMap"><code class="xref py py-obj docutils literal"><span class="pre">LegendResolveMap</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.LegendResolveMap.html#altair.LegendResolveMap" title="altair.LegendResolveMap"><code class="xref py py-obj docutils literal"><span class="pre">LegendResolveMap</span></code></a></td>
 <td>LegendResolveMap schema wrapper</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.LegendStreamBinding.html#altair.LegendStreamBinding" title="altair.LegendStreamBinding"><code class="xref py py-obj docutils literal"><span class="pre">LegendStreamBinding</span></code></a></td>
+<td>LegendStreamBinding schema wrapper</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="generated/core/altair.LineConfig.html#altair.LineConfig" title="altair.LineConfig"><code class="xref py py-obj docutils literal"><span class="pre">LineConfig</span></code></a></td>
 <td>LineConfig schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.LocalMultiTimeUnit.html#altair.LocalMultiTimeUnit" title="altair.LocalMultiTimeUnit"><code class="xref py py-obj docutils literal"><span class="pre">LocalMultiTimeUnit</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.LinearGradient.html#altair.LinearGradient" title="altair.LinearGradient"><code class="xref py py-obj docutils literal"><span class="pre">LinearGradient</span></code></a></td>
+<td>LinearGradient schema wrapper</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.LocalMultiTimeUnit.html#altair.LocalMultiTimeUnit" title="altair.LocalMultiTimeUnit"><code class="xref py py-obj docutils literal"><span class="pre">LocalMultiTimeUnit</span></code></a></td>
 <td>LocalMultiTimeUnit schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.LocalSingleTimeUnit.html#altair.LocalSingleTimeUnit" title="altair.LocalSingleTimeUnit"><code class="xref py py-obj docutils literal"><span class="pre">LocalSingleTimeUnit</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.LocalSingleTimeUnit.html#altair.LocalSingleTimeUnit" title="altair.LocalSingleTimeUnit"><code class="xref py py-obj docutils literal"><span class="pre">LocalSingleTimeUnit</span></code></a></td>
 <td>LocalSingleTimeUnit schema wrapper</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.LoessTransform.html#altair.LoessTransform" title="altair.LoessTransform"><code class="xref py py-obj docutils literal"><span class="pre">LoessTransform</span></code></a></td>
+<td>LoessTransform schema wrapper</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.LogicalAndPredicate.html#altair.LogicalAndPredicate" title="altair.LogicalAndPredicate"><code class="xref py py-obj docutils literal"><span class="pre">LogicalAndPredicate</span></code></a></td>
 <td>LogicalAndPredicate schema wrapper</td>
@@ -1292,35 +1523,47 @@ full guidelines on their use.</p>
 <tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.LookupData.html#altair.LookupData" title="altair.LookupData"><code class="xref py py-obj docutils literal"><span class="pre">LookupData</span></code></a></td>
 <td>LookupData schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.LookupTransform.html#altair.LookupTransform" title="altair.LookupTransform"><code class="xref py py-obj docutils literal"><span class="pre">LookupTransform</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.LookupSelection.html#altair.LookupSelection" title="altair.LookupSelection"><code class="xref py py-obj docutils literal"><span class="pre">LookupSelection</span></code></a></td>
+<td>LookupSelection schema wrapper</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.LookupTransform.html#altair.LookupTransform" title="altair.LookupTransform"><code class="xref py py-obj docutils literal"><span class="pre">LookupTransform</span></code></a></td>
 <td>LookupTransform schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.Mark.html#altair.Mark" title="altair.Mark"><code class="xref py py-obj docutils literal"><span class="pre">Mark</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.Mark.html#altair.Mark" title="altair.Mark"><code class="xref py py-obj docutils literal"><span class="pre">Mark</span></code></a></td>
 <td>Mark schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.MarkConfig.html#altair.MarkConfig" title="altair.MarkConfig"><code class="xref py py-obj docutils literal"><span class="pre">MarkConfig</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.MarkConfig.html#altair.MarkConfig" title="altair.MarkConfig"><code class="xref py py-obj docutils literal"><span class="pre">MarkConfig</span></code></a></td>
 <td>MarkConfig schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.MarkDef.html#altair.MarkDef" title="altair.MarkDef"><code class="xref py py-obj docutils literal"><span class="pre">MarkDef</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.MarkDef.html#altair.MarkDef" title="altair.MarkDef"><code class="xref py py-obj docutils literal"><span class="pre">MarkDef</span></code></a></td>
 <td>MarkDef schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.Month.html#altair.Month" title="altair.Month"><code class="xref py py-obj docutils literal"><span class="pre">Month</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.MarkType.html#altair.MarkType" title="altair.MarkType"><code class="xref py py-obj docutils literal"><span class="pre">MarkType</span></code></a></td>
+<td>MarkType schema wrapper</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.MergedStream.html#altair.MergedStream" title="altair.MergedStream"><code class="xref py py-obj docutils literal"><span class="pre">MergedStream</span></code></a></td>
+<td>MergedStream schema wrapper</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.Month.html#altair.Month" title="altair.Month"><code class="xref py py-obj docutils literal"><span class="pre">Month</span></code></a></td>
 <td>Month schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.MultiSelection.html#altair.MultiSelection" title="altair.MultiSelection"><code class="xref py py-obj docutils literal"><span class="pre">MultiSelection</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.MultiSelection.html#altair.MultiSelection" title="altair.MultiSelection"><code class="xref py py-obj docutils literal"><span class="pre">MultiSelection</span></code></a></td>
 <td>MultiSelection schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.MultiSelectionConfig.html#altair.MultiSelectionConfig" title="altair.MultiSelectionConfig"><code class="xref py py-obj docutils literal"><span class="pre">MultiSelectionConfig</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.MultiSelectionConfig.html#altair.MultiSelectionConfig" title="altair.MultiSelectionConfig"><code class="xref py py-obj docutils literal"><span class="pre">MultiSelectionConfig</span></code></a></td>
 <td>MultiSelectionConfig schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.MultiTimeUnit.html#altair.MultiTimeUnit" title="altair.MultiTimeUnit"><code class="xref py py-obj docutils literal"><span class="pre">MultiTimeUnit</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.MultiTimeUnit.html#altair.MultiTimeUnit" title="altair.MultiTimeUnit"><code class="xref py py-obj docutils literal"><span class="pre">MultiTimeUnit</span></code></a></td>
 <td>MultiTimeUnit schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.NamedData.html#altair.NamedData" title="altair.NamedData"><code class="xref py py-obj docutils literal"><span class="pre">NamedData</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.NamedData.html#altair.NamedData" title="altair.NamedData"><code class="xref py py-obj docutils literal"><span class="pre">NamedData</span></code></a></td>
 <td>NamedData schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.NiceTime.html#altair.NiceTime" title="altair.NiceTime"><code class="xref py py-obj docutils literal"><span class="pre">NiceTime</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.NiceTime.html#altair.NiceTime" title="altair.NiceTime"><code class="xref py py-obj docutils literal"><span class="pre">NiceTime</span></code></a></td>
 <td>NiceTime schema wrapper</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.NonArgAggregateOp.html#altair.NonArgAggregateOp" title="altair.NonArgAggregateOp"><code class="xref py py-obj docutils literal"><span class="pre">NonArgAggregateOp</span></code></a></td>
+<td>NonArgAggregateOp schema wrapper</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="generated/core/altair.NumberValueDef.html#altair.NumberValueDef" title="altair.NumberValueDef"><code class="xref py py-obj docutils literal"><span class="pre">NumberValueDef</span></code></a></td>
 <td>NumberValueDef schema wrapper</td>
@@ -1361,56 +1604,80 @@ full guidelines on their use.</p>
 <tr class="row-even"><td><a class="reference internal" href="generated/core/altair.PartsMixinsErrorBarPart.html#altair.PartsMixinsErrorBarPart" title="altair.PartsMixinsErrorBarPart"><code class="xref py py-obj docutils literal"><span class="pre">PartsMixinsErrorBarPart</span></code></a></td>
 <td>PartsMixinsErrorBarPart schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.PositionFieldDef.html#altair.PositionFieldDef" title="altair.PositionFieldDef"><code class="xref py py-obj docutils literal"><span class="pre">PositionFieldDef</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.PivotTransform.html#altair.PivotTransform" title="altair.PivotTransform"><code class="xref py py-obj docutils literal"><span class="pre">PivotTransform</span></code></a></td>
+<td>PivotTransform schema wrapper</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.PositionFieldDef.html#altair.PositionFieldDef" title="altair.PositionFieldDef"><code class="xref py py-obj docutils literal"><span class="pre">PositionFieldDef</span></code></a></td>
 <td>PositionFieldDef schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.Predicate.html#altair.Predicate" title="altair.Predicate"><code class="xref py py-obj docutils literal"><span class="pre">Predicate</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.Predicate.html#altair.Predicate" title="altair.Predicate"><code class="xref py py-obj docutils literal"><span class="pre">Predicate</span></code></a></td>
 <td>Predicate schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.Projection.html#altair.Projection" title="altair.Projection"><code class="xref py py-obj docutils literal"><span class="pre">Projection</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.Projection.html#altair.Projection" title="altair.Projection"><code class="xref py py-obj docutils literal"><span class="pre">Projection</span></code></a></td>
 <td>Projection schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.ProjectionConfig.html#altair.ProjectionConfig" title="altair.ProjectionConfig"><code class="xref py py-obj docutils literal"><span class="pre">ProjectionConfig</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.ProjectionConfig.html#altair.ProjectionConfig" title="altair.ProjectionConfig"><code class="xref py py-obj docutils literal"><span class="pre">ProjectionConfig</span></code></a></td>
 <td>ProjectionConfig schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.ProjectionType.html#altair.ProjectionType" title="altair.ProjectionType"><code class="xref py py-obj docutils literal"><span class="pre">ProjectionType</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.ProjectionType.html#altair.ProjectionType" title="altair.ProjectionType"><code class="xref py py-obj docutils literal"><span class="pre">ProjectionType</span></code></a></td>
 <td>ProjectionType schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.RangeConfig.html#altair.RangeConfig" title="altair.RangeConfig"><code class="xref py py-obj docutils literal"><span class="pre">RangeConfig</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.QuantileTransform.html#altair.QuantileTransform" title="altair.QuantileTransform"><code class="xref py py-obj docutils literal"><span class="pre">QuantileTransform</span></code></a></td>
+<td>QuantileTransform schema wrapper</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.RadialGradient.html#altair.RadialGradient" title="altair.RadialGradient"><code class="xref py py-obj docutils literal"><span class="pre">RadialGradient</span></code></a></td>
+<td>RadialGradient schema wrapper</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.RangeConfig.html#altair.RangeConfig" title="altair.RangeConfig"><code class="xref py py-obj docutils literal"><span class="pre">RangeConfig</span></code></a></td>
 <td>RangeConfig schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.RangeConfigValue.html#altair.RangeConfigValue" title="altair.RangeConfigValue"><code class="xref py py-obj docutils literal"><span class="pre">RangeConfigValue</span></code></a></td>
-<td>RangeConfigValue schema wrapper</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.RangeEnum.html#altair.RangeEnum" title="altair.RangeEnum"><code class="xref py py-obj docutils literal"><span class="pre">RangeEnum</span></code></a></td>
+<td>RangeEnum schema wrapper</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.RangeRaw.html#altair.RangeRaw" title="altair.RangeRaw"><code class="xref py py-obj docutils literal"><span class="pre">RangeRaw</span></code></a></td>
+<td>RangeRaw schema wrapper</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.RangeRawArray.html#altair.RangeRawArray" title="altair.RangeRawArray"><code class="xref py py-obj docutils literal"><span class="pre">RangeRawArray</span></code></a></td>
+<td>RangeRawArray schema wrapper</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.RangeScheme.html#altair.RangeScheme" title="altair.RangeScheme"><code class="xref py py-obj docutils literal"><span class="pre">RangeScheme</span></code></a></td>
+<td>RangeScheme schema wrapper</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="generated/core/altair.RectConfig.html#altair.RectConfig" title="altair.RectConfig"><code class="xref py py-obj docutils literal"><span class="pre">RectConfig</span></code></a></td>
 <td>RectConfig schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.RepeatMapping.html#altair.RepeatMapping" title="altair.RepeatMapping"><code class="xref py py-obj docutils literal"><span class="pre">RepeatMapping</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.RegressionTransform.html#altair.RegressionTransform" title="altair.RegressionTransform"><code class="xref py py-obj docutils literal"><span class="pre">RegressionTransform</span></code></a></td>
+<td>RegressionTransform schema wrapper</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.RepeatMapping.html#altair.RepeatMapping" title="altair.RepeatMapping"><code class="xref py py-obj docutils literal"><span class="pre">RepeatMapping</span></code></a></td>
 <td>RepeatMapping schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.RepeatRef.html#altair.RepeatRef" title="altair.RepeatRef"><code class="xref py py-obj docutils literal"><span class="pre">RepeatRef</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.RepeatRef.html#altair.RepeatRef" title="altair.RepeatRef"><code class="xref py py-obj docutils literal"><span class="pre">RepeatRef</span></code></a></td>
 <td>RepeatRef schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.RepeatSpec.html#altair.RepeatSpec" title="altair.RepeatSpec"><code class="xref py py-obj docutils literal"><span class="pre">RepeatSpec</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.RepeatSpec.html#altair.RepeatSpec" title="altair.RepeatSpec"><code class="xref py py-obj docutils literal"><span class="pre">RepeatSpec</span></code></a></td>
 <td>RepeatSpec schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.Resolve.html#altair.Resolve" title="altair.Resolve"><code class="xref py py-obj docutils literal"><span class="pre">Resolve</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.Resolve.html#altair.Resolve" title="altair.Resolve"><code class="xref py py-obj docutils literal"><span class="pre">Resolve</span></code></a></td>
 <td>Resolve schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.ResolveMode.html#altair.ResolveMode" title="altair.ResolveMode"><code class="xref py py-obj docutils literal"><span class="pre">ResolveMode</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.ResolveMode.html#altair.ResolveMode" title="altair.ResolveMode"><code class="xref py py-obj docutils literal"><span class="pre">ResolveMode</span></code></a></td>
 <td>ResolveMode schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.Root.html#altair.Root" title="altair.Root"><code class="xref py py-obj docutils literal"><span class="pre">Root</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.Root.html#altair.Root" title="altair.Root"><code class="xref py py-obj docutils literal"><span class="pre">Root</span></code></a></td>
 <td>Root schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.RowColLayoutAlign.html#altair.RowColLayoutAlign" title="altair.RowColLayoutAlign"><code class="xref py py-obj docutils literal"><span class="pre">RowColLayoutAlign</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.RowColLayoutAlign.html#altair.RowColLayoutAlign" title="altair.RowColLayoutAlign"><code class="xref py py-obj docutils literal"><span class="pre">RowColLayoutAlign</span></code></a></td>
 <td>RowColLayoutAlign schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.RowColboolean.html#altair.RowColboolean" title="altair.RowColboolean"><code class="xref py py-obj docutils literal"><span class="pre">RowColboolean</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.RowColboolean.html#altair.RowColboolean" title="altair.RowColboolean"><code class="xref py py-obj docutils literal"><span class="pre">RowColboolean</span></code></a></td>
 <td>RowColboolean schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.RowColnumber.html#altair.RowColnumber" title="altair.RowColnumber"><code class="xref py py-obj docutils literal"><span class="pre">RowColnumber</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.RowColnumber.html#altair.RowColnumber" title="altair.RowColnumber"><code class="xref py py-obj docutils literal"><span class="pre">RowColnumber</span></code></a></td>
 <td>RowColnumber schema wrapper</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.RowColumnEncodingFieldDef.html#altair.RowColumnEncodingFieldDef" title="altair.RowColumnEncodingFieldDef"><code class="xref py py-obj docutils literal"><span class="pre">RowColumnEncodingFieldDef</span></code></a></td>
+<td>RowColumnEncodingFieldDef schema wrapper</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="generated/core/altair.SampleTransform.html#altair.SampleTransform" title="altair.SampleTransform"><code class="xref py py-obj docutils literal"><span class="pre">SampleTransform</span></code></a></td>
 <td>SampleTransform schema wrapper</td>
@@ -1436,143 +1703,155 @@ full guidelines on their use.</p>
 <tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.SchemaBase.html#altair.SchemaBase" title="altair.SchemaBase"><code class="xref py py-obj docutils literal"><span class="pre">SchemaBase</span></code></a></td>
 <td>Base class for schema wrappers.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.SchemeConfig.html#altair.SchemeConfig" title="altair.SchemeConfig"><code class="xref py py-obj docutils literal"><span class="pre">SchemeConfig</span></code></a></td>
-<td>SchemeConfig schema wrapper</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.SchemeParams.html#altair.SchemeParams" title="altair.SchemeParams"><code class="xref py py-obj docutils literal"><span class="pre">SchemeParams</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.SchemeParams.html#altair.SchemeParams" title="altair.SchemeParams"><code class="xref py py-obj docutils literal"><span class="pre">SchemeParams</span></code></a></td>
 <td>SchemeParams schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.SecondaryFieldDef.html#altair.SecondaryFieldDef" title="altair.SecondaryFieldDef"><code class="xref py py-obj docutils literal"><span class="pre">SecondaryFieldDef</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.SecondaryFieldDef.html#altair.SecondaryFieldDef" title="altair.SecondaryFieldDef"><code class="xref py py-obj docutils literal"><span class="pre">SecondaryFieldDef</span></code></a></td>
 <td>SecondaryFieldDef schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.SelectionAnd.html#altair.SelectionAnd" title="altair.SelectionAnd"><code class="xref py py-obj docutils literal"><span class="pre">SelectionAnd</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.SelectionAnd.html#altair.SelectionAnd" title="altair.SelectionAnd"><code class="xref py py-obj docutils literal"><span class="pre">SelectionAnd</span></code></a></td>
 <td>SelectionAnd schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.SelectionConfig.html#altair.SelectionConfig" title="altair.SelectionConfig"><code class="xref py py-obj docutils literal"><span class="pre">SelectionConfig</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.SelectionConfig.html#altair.SelectionConfig" title="altair.SelectionConfig"><code class="xref py py-obj docutils literal"><span class="pre">SelectionConfig</span></code></a></td>
 <td>SelectionConfig schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.SelectionDef.html#altair.SelectionDef" title="altair.SelectionDef"><code class="xref py py-obj docutils literal"><span class="pre">SelectionDef</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.SelectionDef.html#altair.SelectionDef" title="altair.SelectionDef"><code class="xref py py-obj docutils literal"><span class="pre">SelectionDef</span></code></a></td>
 <td>SelectionDef schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.SelectionDomain.html#altair.SelectionDomain" title="altair.SelectionDomain"><code class="xref py py-obj docutils literal"><span class="pre">SelectionDomain</span></code></a></td>
-<td>SelectionDomain schema wrapper</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.SelectionExtent.html#altair.SelectionExtent" title="altair.SelectionExtent"><code class="xref py py-obj docutils literal"><span class="pre">SelectionExtent</span></code></a></td>
+<td>SelectionExtent schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.SelectionInit.html#altair.SelectionInit" title="altair.SelectionInit"><code class="xref py py-obj docutils literal"><span class="pre">SelectionInit</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.SelectionInit.html#altair.SelectionInit" title="altair.SelectionInit"><code class="xref py py-obj docutils literal"><span class="pre">SelectionInit</span></code></a></td>
 <td>SelectionInit schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.SelectionInitInterval.html#altair.SelectionInitInterval" title="altair.SelectionInitInterval"><code class="xref py py-obj docutils literal"><span class="pre">SelectionInitInterval</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.SelectionInitInterval.html#altair.SelectionInitInterval" title="altair.SelectionInitInterval"><code class="xref py py-obj docutils literal"><span class="pre">SelectionInitInterval</span></code></a></td>
 <td>SelectionInitInterval schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.SelectionInitIntervalMapping.html#altair.SelectionInitIntervalMapping" title="altair.SelectionInitIntervalMapping"><code class="xref py py-obj docutils literal"><span class="pre">SelectionInitIntervalMapping</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.SelectionInitIntervalMapping.html#altair.SelectionInitIntervalMapping" title="altair.SelectionInitIntervalMapping"><code class="xref py py-obj docutils literal"><span class="pre">SelectionInitIntervalMapping</span></code></a></td>
 <td>SelectionInitIntervalMapping schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.SelectionInitMapping.html#altair.SelectionInitMapping" title="altair.SelectionInitMapping"><code class="xref py py-obj docutils literal"><span class="pre">SelectionInitMapping</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.SelectionInitMapping.html#altair.SelectionInitMapping" title="altair.SelectionInitMapping"><code class="xref py py-obj docutils literal"><span class="pre">SelectionInitMapping</span></code></a></td>
 <td>SelectionInitMapping schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.SelectionNot.html#altair.SelectionNot" title="altair.SelectionNot"><code class="xref py py-obj docutils literal"><span class="pre">SelectionNot</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.SelectionNot.html#altair.SelectionNot" title="altair.SelectionNot"><code class="xref py py-obj docutils literal"><span class="pre">SelectionNot</span></code></a></td>
 <td>SelectionNot schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.SelectionOperand.html#altair.SelectionOperand" title="altair.SelectionOperand"><code class="xref py py-obj docutils literal"><span class="pre">SelectionOperand</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.SelectionOperand.html#altair.SelectionOperand" title="altair.SelectionOperand"><code class="xref py py-obj docutils literal"><span class="pre">SelectionOperand</span></code></a></td>
 <td>SelectionOperand schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.SelectionOr.html#altair.SelectionOr" title="altair.SelectionOr"><code class="xref py py-obj docutils literal"><span class="pre">SelectionOr</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.SelectionOr.html#altair.SelectionOr" title="altair.SelectionOr"><code class="xref py py-obj docutils literal"><span class="pre">SelectionOr</span></code></a></td>
 <td>SelectionOr schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.SelectionPredicate.html#altair.SelectionPredicate" title="altair.SelectionPredicate"><code class="xref py py-obj docutils literal"><span class="pre">SelectionPredicate</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.SelectionPredicate.html#altair.SelectionPredicate" title="altair.SelectionPredicate"><code class="xref py py-obj docutils literal"><span class="pre">SelectionPredicate</span></code></a></td>
 <td>SelectionPredicate schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.SelectionResolution.html#altair.SelectionResolution" title="altair.SelectionResolution"><code class="xref py py-obj docutils literal"><span class="pre">SelectionResolution</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.SelectionResolution.html#altair.SelectionResolution" title="altair.SelectionResolution"><code class="xref py py-obj docutils literal"><span class="pre">SelectionResolution</span></code></a></td>
 <td>SelectionResolution schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.SequenceGenerator.html#altair.SequenceGenerator" title="altair.SequenceGenerator"><code class="xref py py-obj docutils literal"><span class="pre">SequenceGenerator</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.SequenceGenerator.html#altair.SequenceGenerator" title="altair.SequenceGenerator"><code class="xref py py-obj docutils literal"><span class="pre">SequenceGenerator</span></code></a></td>
 <td>SequenceGenerator schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.SequenceParams.html#altair.SequenceParams" title="altair.SequenceParams"><code class="xref py py-obj docutils literal"><span class="pre">SequenceParams</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.SequenceParams.html#altair.SequenceParams" title="altair.SequenceParams"><code class="xref py py-obj docutils literal"><span class="pre">SequenceParams</span></code></a></td>
 <td>SequenceParams schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.ShapeFieldDefWithCondition.html#altair.ShapeFieldDefWithCondition" title="altair.ShapeFieldDefWithCondition"><code class="xref py py-obj docutils literal"><span class="pre">ShapeFieldDefWithCondition</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.SequentialMultiHue.html#altair.SequentialMultiHue" title="altair.SequentialMultiHue"><code class="xref py py-obj docutils literal"><span class="pre">SequentialMultiHue</span></code></a></td>
+<td>SequentialMultiHue schema wrapper</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.SequentialSingleHue.html#altair.SequentialSingleHue" title="altair.SequentialSingleHue"><code class="xref py py-obj docutils literal"><span class="pre">SequentialSingleHue</span></code></a></td>
+<td>SequentialSingleHue schema wrapper</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.ShapeFieldDefWithCondition.html#altair.ShapeFieldDefWithCondition" title="altair.ShapeFieldDefWithCondition"><code class="xref py py-obj docutils literal"><span class="pre">ShapeFieldDefWithCondition</span></code></a></td>
 <td>ShapeFieldDefWithCondition schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.ShapeValueDefWithCondition.html#altair.ShapeValueDefWithCondition" title="altair.ShapeValueDefWithCondition"><code class="xref py py-obj docutils literal"><span class="pre">ShapeValueDefWithCondition</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.ShapeValueDefWithCondition.html#altair.ShapeValueDefWithCondition" title="altair.ShapeValueDefWithCondition"><code class="xref py py-obj docutils literal"><span class="pre">ShapeValueDefWithCondition</span></code></a></td>
 <td>ShapeValueDefWithCondition schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.SignalRef.html#altair.SignalRef" title="altair.SignalRef"><code class="xref py py-obj docutils literal"><span class="pre">SignalRef</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.SignalRef.html#altair.SignalRef" title="altair.SignalRef"><code class="xref py py-obj docutils literal"><span class="pre">SignalRef</span></code></a></td>
 <td>SignalRef schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.SingleDefUnitChannel.html#altair.SingleDefUnitChannel" title="altair.SingleDefUnitChannel"><code class="xref py py-obj docutils literal"><span class="pre">SingleDefUnitChannel</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.SingleDefUnitChannel.html#altair.SingleDefUnitChannel" title="altair.SingleDefUnitChannel"><code class="xref py py-obj docutils literal"><span class="pre">SingleDefUnitChannel</span></code></a></td>
 <td>SingleDefUnitChannel schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.SingleSelection.html#altair.SingleSelection" title="altair.SingleSelection"><code class="xref py py-obj docutils literal"><span class="pre">SingleSelection</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.SingleSelection.html#altair.SingleSelection" title="altair.SingleSelection"><code class="xref py py-obj docutils literal"><span class="pre">SingleSelection</span></code></a></td>
 <td>SingleSelection schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.SingleSelectionConfig.html#altair.SingleSelectionConfig" title="altair.SingleSelectionConfig"><code class="xref py py-obj docutils literal"><span class="pre">SingleSelectionConfig</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.SingleSelectionConfig.html#altair.SingleSelectionConfig" title="altair.SingleSelectionConfig"><code class="xref py py-obj docutils literal"><span class="pre">SingleSelectionConfig</span></code></a></td>
 <td>SingleSelectionConfig schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.SingleTimeUnit.html#altair.SingleTimeUnit" title="altair.SingleTimeUnit"><code class="xref py py-obj docutils literal"><span class="pre">SingleTimeUnit</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.SingleTimeUnit.html#altair.SingleTimeUnit" title="altair.SingleTimeUnit"><code class="xref py py-obj docutils literal"><span class="pre">SingleTimeUnit</span></code></a></td>
 <td>SingleTimeUnit schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.Sort.html#altair.Sort" title="altair.Sort"><code class="xref py py-obj docutils literal"><span class="pre">Sort</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.Sort.html#altair.Sort" title="altair.Sort"><code class="xref py py-obj docutils literal"><span class="pre">Sort</span></code></a></td>
 <td>Sort schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.SortArray.html#altair.SortArray" title="altair.SortArray"><code class="xref py py-obj docutils literal"><span class="pre">SortArray</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.SortArray.html#altair.SortArray" title="altair.SortArray"><code class="xref py py-obj docutils literal"><span class="pre">SortArray</span></code></a></td>
 <td>SortArray schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.SortByEncoding.html#altair.SortByEncoding" title="altair.SortByEncoding"><code class="xref py py-obj docutils literal"><span class="pre">SortByEncoding</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.SortByChannel.html#altair.SortByChannel" title="altair.SortByChannel"><code class="xref py py-obj docutils literal"><span class="pre">SortByChannel</span></code></a></td>
+<td>SortByChannel schema wrapper</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.SortByChannelDesc.html#altair.SortByChannelDesc" title="altair.SortByChannelDesc"><code class="xref py py-obj docutils literal"><span class="pre">SortByChannelDesc</span></code></a></td>
+<td>SortByChannelDesc schema wrapper</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.SortByEncoding.html#altair.SortByEncoding" title="altair.SortByEncoding"><code class="xref py py-obj docutils literal"><span class="pre">SortByEncoding</span></code></a></td>
 <td>SortByEncoding schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.SortField.html#altair.SortField" title="altair.SortField"><code class="xref py py-obj docutils literal"><span class="pre">SortField</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.SortField.html#altair.SortField" title="altair.SortField"><code class="xref py py-obj docutils literal"><span class="pre">SortField</span></code></a></td>
 <td>SortField schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.SortOrder.html#altair.SortOrder" title="altair.SortOrder"><code class="xref py py-obj docutils literal"><span class="pre">SortOrder</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.SortOrder.html#altair.SortOrder" title="altair.SortOrder"><code class="xref py py-obj docutils literal"><span class="pre">SortOrder</span></code></a></td>
 <td>SortOrder schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.Spec.html#altair.Spec" title="altair.Spec"><code class="xref py py-obj docutils literal"><span class="pre">Spec</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.Spec.html#altair.Spec" title="altair.Spec"><code class="xref py py-obj docutils literal"><span class="pre">Spec</span></code></a></td>
 <td>Spec schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.SphereGenerator.html#altair.SphereGenerator" title="altair.SphereGenerator"><code class="xref py py-obj docutils literal"><span class="pre">SphereGenerator</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.SphereGenerator.html#altair.SphereGenerator" title="altair.SphereGenerator"><code class="xref py py-obj docutils literal"><span class="pre">SphereGenerator</span></code></a></td>
 <td>SphereGenerator schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.StackOffset.html#altair.StackOffset" title="altair.StackOffset"><code class="xref py py-obj docutils literal"><span class="pre">StackOffset</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.StackOffset.html#altair.StackOffset" title="altair.StackOffset"><code class="xref py py-obj docutils literal"><span class="pre">StackOffset</span></code></a></td>
 <td>StackOffset schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.StackTransform.html#altair.StackTransform" title="altair.StackTransform"><code class="xref py py-obj docutils literal"><span class="pre">StackTransform</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.StackTransform.html#altair.StackTransform" title="altair.StackTransform"><code class="xref py py-obj docutils literal"><span class="pre">StackTransform</span></code></a></td>
 <td>StackTransform schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.StandardType.html#altair.StandardType" title="altair.StandardType"><code class="xref py py-obj docutils literal"><span class="pre">StandardType</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.StandardType.html#altair.StandardType" title="altair.StandardType"><code class="xref py py-obj docutils literal"><span class="pre">StandardType</span></code></a></td>
 <td>StandardType schema wrapper</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.Step.html#altair.Step" title="altair.Step"><code class="xref py py-obj docutils literal"><span class="pre">Step</span></code></a></td>
+<td>Step schema wrapper</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.Stream.html#altair.Stream" title="altair.Stream"><code class="xref py py-obj docutils literal"><span class="pre">Stream</span></code></a></td>
+<td>Stream schema wrapper</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.StringFieldDef.html#altair.StringFieldDef" title="altair.StringFieldDef"><code class="xref py py-obj docutils literal"><span class="pre">StringFieldDef</span></code></a></td>
+<td>StringFieldDef schema wrapper</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.StringFieldDefWithCondition.html#altair.StringFieldDefWithCondition" title="altair.StringFieldDefWithCondition"><code class="xref py py-obj docutils literal"><span class="pre">StringFieldDefWithCondition</span></code></a></td>
 <td>StringFieldDefWithCondition schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.StringFieldDefWithConditionTypeForShape.html#altair.StringFieldDefWithConditionTypeForShape" title="altair.StringFieldDefWithConditionTypeForShape"><code class="xref py py-obj docutils literal"><span class="pre">StringFieldDefWithConditionTypeForShape</span></code></a></td>
-<td>StringFieldDefWithConditionTypeForShape schema wrapper</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.StringValueDefWithCondition.html#altair.StringValueDefWithCondition" title="altair.StringValueDefWithCondition"><code class="xref py py-obj docutils literal"><span class="pre">StringValueDefWithCondition</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.StringValueDefWithCondition.html#altair.StringValueDefWithCondition" title="altair.StringValueDefWithCondition"><code class="xref py py-obj docutils literal"><span class="pre">StringValueDefWithCondition</span></code></a></td>
 <td>StringValueDefWithCondition schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.StringValueDefWithConditionTypeForShape.html#altair.StringValueDefWithConditionTypeForShape" title="altair.StringValueDefWithConditionTypeForShape"><code class="xref py py-obj docutils literal"><span class="pre">StringValueDefWithConditionTypeForShape</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.StringValueDefWithConditionTypeForShape.html#altair.StringValueDefWithConditionTypeForShape" title="altair.StringValueDefWithConditionTypeForShape"><code class="xref py py-obj docutils literal"><span class="pre">StringValueDefWithConditionTypeForShape</span></code></a></td>
 <td>StringValueDefWithConditionTypeForShape schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.StrokeCap.html#altair.StrokeCap" title="altair.StrokeCap"><code class="xref py py-obj docutils literal"><span class="pre">StrokeCap</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.StrokeCap.html#altair.StrokeCap" title="altair.StrokeCap"><code class="xref py py-obj docutils literal"><span class="pre">StrokeCap</span></code></a></td>
 <td>StrokeCap schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.StrokeJoin.html#altair.StrokeJoin" title="altair.StrokeJoin"><code class="xref py py-obj docutils literal"><span class="pre">StrokeJoin</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.StrokeJoin.html#altair.StrokeJoin" title="altair.StrokeJoin"><code class="xref py py-obj docutils literal"><span class="pre">StrokeJoin</span></code></a></td>
 <td>StrokeJoin schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.StyleConfigIndex.html#altair.StyleConfigIndex" title="altair.StyleConfigIndex"><code class="xref py py-obj docutils literal"><span class="pre">StyleConfigIndex</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.StyleConfigIndex.html#altair.StyleConfigIndex" title="altair.StyleConfigIndex"><code class="xref py py-obj docutils literal"><span class="pre">StyleConfigIndex</span></code></a></td>
 <td>StyleConfigIndex schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.SymbolShape.html#altair.SymbolShape" title="altair.SymbolShape"><code class="xref py py-obj docutils literal"><span class="pre">SymbolShape</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.SymbolShape.html#altair.SymbolShape" title="altair.SymbolShape"><code class="xref py py-obj docutils literal"><span class="pre">SymbolShape</span></code></a></td>
 <td>SymbolShape schema wrapper</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.Text.html#altair.Text" title="altair.Text"><code class="xref py py-obj docutils literal"><span class="pre">Text</span></code></a></td>
+<td>Text schema wrapper</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.TextBaseline.html#altair.TextBaseline" title="altair.TextBaseline"><code class="xref py py-obj docutils literal"><span class="pre">TextBaseline</span></code></a></td>
 <td>TextBaseline schema wrapper</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.TextConfig.html#altair.TextConfig" title="altair.TextConfig"><code class="xref py py-obj docutils literal"><span class="pre">TextConfig</span></code></a></td>
-<td>TextConfig schema wrapper</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.TextFieldDef.html#altair.TextFieldDef" title="altair.TextFieldDef"><code class="xref py py-obj docutils literal"><span class="pre">TextFieldDef</span></code></a></td>
-<td>TextFieldDef schema wrapper</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="generated/core/altair.TextFieldDefWithCondition.html#altair.TextFieldDefWithCondition" title="altair.TextFieldDefWithCondition"><code class="xref py py-obj docutils literal"><span class="pre">TextFieldDefWithCondition</span></code></a></td>
 <td>TextFieldDefWithCondition schema wrapper</td>
@@ -1583,83 +1862,89 @@ full guidelines on their use.</p>
 <tr class="row-even"><td><a class="reference internal" href="generated/core/altair.TickConfig.html#altair.TickConfig" title="altair.TickConfig"><code class="xref py py-obj docutils literal"><span class="pre">TickConfig</span></code></a></td>
 <td>TickConfig schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.TimeUnit.html#altair.TimeUnit" title="altair.TimeUnit"><code class="xref py py-obj docutils literal"><span class="pre">TimeUnit</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.TimeInterval.html#altair.TimeInterval" title="altair.TimeInterval"><code class="xref py py-obj docutils literal"><span class="pre">TimeInterval</span></code></a></td>
+<td>TimeInterval schema wrapper</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.TimeUnit.html#altair.TimeUnit" title="altair.TimeUnit"><code class="xref py py-obj docutils literal"><span class="pre">TimeUnit</span></code></a></td>
 <td>TimeUnit schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.TimeUnitTransform.html#altair.TimeUnitTransform" title="altair.TimeUnitTransform"><code class="xref py py-obj docutils literal"><span class="pre">TimeUnitTransform</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.TimeUnitTransform.html#altair.TimeUnitTransform" title="altair.TimeUnitTransform"><code class="xref py py-obj docutils literal"><span class="pre">TimeUnitTransform</span></code></a></td>
 <td>TimeUnitTransform schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.TitleAnchor.html#altair.TitleAnchor" title="altair.TitleAnchor"><code class="xref py py-obj docutils literal"><span class="pre">TitleAnchor</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.TitleAnchor.html#altair.TitleAnchor" title="altair.TitleAnchor"><code class="xref py py-obj docutils literal"><span class="pre">TitleAnchor</span></code></a></td>
 <td>TitleAnchor schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.TitleConfig.html#altair.TitleConfig" title="altair.TitleConfig"><code class="xref py py-obj docutils literal"><span class="pre">TitleConfig</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.TitleConfig.html#altair.TitleConfig" title="altair.TitleConfig"><code class="xref py py-obj docutils literal"><span class="pre">TitleConfig</span></code></a></td>
 <td>TitleConfig schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.TitleFrame.html#altair.TitleFrame" title="altair.TitleFrame"><code class="xref py py-obj docutils literal"><span class="pre">TitleFrame</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.TitleFrame.html#altair.TitleFrame" title="altair.TitleFrame"><code class="xref py py-obj docutils literal"><span class="pre">TitleFrame</span></code></a></td>
 <td>TitleFrame schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.TitleOrient.html#altair.TitleOrient" title="altair.TitleOrient"><code class="xref py py-obj docutils literal"><span class="pre">TitleOrient</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.TitleOrient.html#altair.TitleOrient" title="altair.TitleOrient"><code class="xref py py-obj docutils literal"><span class="pre">TitleOrient</span></code></a></td>
 <td>TitleOrient schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.TitleParams.html#altair.TitleParams" title="altair.TitleParams"><code class="xref py py-obj docutils literal"><span class="pre">TitleParams</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.TitleParams.html#altair.TitleParams" title="altair.TitleParams"><code class="xref py py-obj docutils literal"><span class="pre">TitleParams</span></code></a></td>
 <td>TitleParams schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.TooltipContent.html#altair.TooltipContent" title="altair.TooltipContent"><code class="xref py py-obj docutils literal"><span class="pre">TooltipContent</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.TooltipContent.html#altair.TooltipContent" title="altair.TooltipContent"><code class="xref py py-obj docutils literal"><span class="pre">TooltipContent</span></code></a></td>
 <td>TooltipContent schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.TopLevelConcatSpec.html#altair.TopLevelConcatSpec" title="altair.TopLevelConcatSpec"><code class="xref py py-obj docutils literal"><span class="pre">TopLevelConcatSpec</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.TopLevelConcatSpec.html#altair.TopLevelConcatSpec" title="altair.TopLevelConcatSpec"><code class="xref py py-obj docutils literal"><span class="pre">TopLevelConcatSpec</span></code></a></td>
 <td>TopLevelConcatSpec schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.TopLevelFacetSpec.html#altair.TopLevelFacetSpec" title="altair.TopLevelFacetSpec"><code class="xref py py-obj docutils literal"><span class="pre">TopLevelFacetSpec</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.TopLevelFacetSpec.html#altair.TopLevelFacetSpec" title="altair.TopLevelFacetSpec"><code class="xref py py-obj docutils literal"><span class="pre">TopLevelFacetSpec</span></code></a></td>
 <td>TopLevelFacetSpec schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.TopLevelHConcatSpec.html#altair.TopLevelHConcatSpec" title="altair.TopLevelHConcatSpec"><code class="xref py py-obj docutils literal"><span class="pre">TopLevelHConcatSpec</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.TopLevelHConcatSpec.html#altair.TopLevelHConcatSpec" title="altair.TopLevelHConcatSpec"><code class="xref py py-obj docutils literal"><span class="pre">TopLevelHConcatSpec</span></code></a></td>
 <td>TopLevelHConcatSpec schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.TopLevelLayerSpec.html#altair.TopLevelLayerSpec" title="altair.TopLevelLayerSpec"><code class="xref py py-obj docutils literal"><span class="pre">TopLevelLayerSpec</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.TopLevelLayerSpec.html#altair.TopLevelLayerSpec" title="altair.TopLevelLayerSpec"><code class="xref py py-obj docutils literal"><span class="pre">TopLevelLayerSpec</span></code></a></td>
 <td>TopLevelLayerSpec schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.TopLevelRepeatSpec.html#altair.TopLevelRepeatSpec" title="altair.TopLevelRepeatSpec"><code class="xref py py-obj docutils literal"><span class="pre">TopLevelRepeatSpec</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.TopLevelRepeatSpec.html#altair.TopLevelRepeatSpec" title="altair.TopLevelRepeatSpec"><code class="xref py py-obj docutils literal"><span class="pre">TopLevelRepeatSpec</span></code></a></td>
 <td>TopLevelRepeatSpec schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.TopLevelSpec.html#altair.TopLevelSpec" title="altair.TopLevelSpec"><code class="xref py py-obj docutils literal"><span class="pre">TopLevelSpec</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.TopLevelSpec.html#altair.TopLevelSpec" title="altair.TopLevelSpec"><code class="xref py py-obj docutils literal"><span class="pre">TopLevelSpec</span></code></a></td>
 <td>TopLevelSpec schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.TopLevelUnitSpec.html#altair.TopLevelUnitSpec" title="altair.TopLevelUnitSpec"><code class="xref py py-obj docutils literal"><span class="pre">TopLevelUnitSpec</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.TopLevelUnitSpec.html#altair.TopLevelUnitSpec" title="altair.TopLevelUnitSpec"><code class="xref py py-obj docutils literal"><span class="pre">TopLevelUnitSpec</span></code></a></td>
 <td>TopLevelUnitSpec schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.TopLevelVConcatSpec.html#altair.TopLevelVConcatSpec" title="altair.TopLevelVConcatSpec"><code class="xref py py-obj docutils literal"><span class="pre">TopLevelVConcatSpec</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.TopLevelVConcatSpec.html#altair.TopLevelVConcatSpec" title="altair.TopLevelVConcatSpec"><code class="xref py py-obj docutils literal"><span class="pre">TopLevelVConcatSpec</span></code></a></td>
 <td>TopLevelVConcatSpec schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.TopoDataFormat.html#altair.TopoDataFormat" title="altair.TopoDataFormat"><code class="xref py py-obj docutils literal"><span class="pre">TopoDataFormat</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.TopoDataFormat.html#altair.TopoDataFormat" title="altair.TopoDataFormat"><code class="xref py py-obj docutils literal"><span class="pre">TopoDataFormat</span></code></a></td>
 <td>TopoDataFormat schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.Transform.html#altair.Transform" title="altair.Transform"><code class="xref py py-obj docutils literal"><span class="pre">Transform</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.Transform.html#altair.Transform" title="altair.Transform"><code class="xref py py-obj docutils literal"><span class="pre">Transform</span></code></a></td>
 <td>Transform schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.TypeForShape.html#altair.TypeForShape" title="altair.TypeForShape"><code class="xref py py-obj docutils literal"><span class="pre">TypeForShape</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.TypeForShape.html#altair.TypeForShape" title="altair.TypeForShape"><code class="xref py py-obj docutils literal"><span class="pre">TypeForShape</span></code></a></td>
 <td>TypeForShape schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.TypedFieldDef.html#altair.TypedFieldDef" title="altair.TypedFieldDef"><code class="xref py py-obj docutils literal"><span class="pre">TypedFieldDef</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.TypedFieldDef.html#altair.TypedFieldDef" title="altair.TypedFieldDef"><code class="xref py py-obj docutils literal"><span class="pre">TypedFieldDef</span></code></a></td>
 <td>TypedFieldDef schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.UnitSpec.html#altair.UnitSpec" title="altair.UnitSpec"><code class="xref py py-obj docutils literal"><span class="pre">UnitSpec</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.UnitSpec.html#altair.UnitSpec" title="altair.UnitSpec"><code class="xref py py-obj docutils literal"><span class="pre">UnitSpec</span></code></a></td>
 <td>UnitSpec schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.UrlData.html#altair.UrlData" title="altair.UrlData"><code class="xref py py-obj docutils literal"><span class="pre">UrlData</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.UrlData.html#altair.UrlData" title="altair.UrlData"><code class="xref py py-obj docutils literal"><span class="pre">UrlData</span></code></a></td>
 <td>UrlData schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.UtcMultiTimeUnit.html#altair.UtcMultiTimeUnit" title="altair.UtcMultiTimeUnit"><code class="xref py py-obj docutils literal"><span class="pre">UtcMultiTimeUnit</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.UtcMultiTimeUnit.html#altair.UtcMultiTimeUnit" title="altair.UtcMultiTimeUnit"><code class="xref py py-obj docutils literal"><span class="pre">UtcMultiTimeUnit</span></code></a></td>
 <td>UtcMultiTimeUnit schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.UtcSingleTimeUnit.html#altair.UtcSingleTimeUnit" title="altair.UtcSingleTimeUnit"><code class="xref py py-obj docutils literal"><span class="pre">UtcSingleTimeUnit</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.UtcSingleTimeUnit.html#altair.UtcSingleTimeUnit" title="altair.UtcSingleTimeUnit"><code class="xref py py-obj docutils literal"><span class="pre">UtcSingleTimeUnit</span></code></a></td>
 <td>UtcSingleTimeUnit schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.VConcatSpec.html#altair.VConcatSpec" title="altair.VConcatSpec"><code class="xref py py-obj docutils literal"><span class="pre">VConcatSpec</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.VConcatSpec.html#altair.VConcatSpec" title="altair.VConcatSpec"><code class="xref py py-obj docutils literal"><span class="pre">VConcatSpec</span></code></a></td>
 <td>VConcatSpec schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.Value.html#altair.Value" title="altair.Value"><code class="xref py py-obj docutils literal"><span class="pre">Value</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.Value.html#altair.Value" title="altair.Value"><code class="xref py py-obj docutils literal"><span class="pre">Value</span></code></a></td>
 <td>Value schema wrapper</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.ValueDefWithConditionMarkPropFieldDefGradientstringnull.html#altair.ValueDefWithConditionMarkPropFieldDefGradientstringnull" title="altair.ValueDefWithConditionMarkPropFieldDefGradientstringnull"><code class="xref py py-obj docutils literal"><span class="pre">ValueDefWithConditionMarkPropFieldDefGradientstringnull</span></code></a></td>
+<td>ValueDefWithConditionMarkPropFieldDefGradientstringnull schema wrapper</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.ValueDefWithConditionMarkPropFieldDefTypeForShapestringnull.html#altair.ValueDefWithConditionMarkPropFieldDefTypeForShapestringnull" title="altair.ValueDefWithConditionMarkPropFieldDefTypeForShapestringnull"><code class="xref py py-obj docutils literal"><span class="pre">ValueDefWithConditionMarkPropFieldDefTypeForShapestringnull</span></code></a></td>
 <td>ValueDefWithConditionMarkPropFieldDefTypeForShapestringnull schema wrapper</td>
@@ -1670,8 +1955,26 @@ full guidelines on their use.</p>
 <tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.ValueDefWithConditionMarkPropFieldDefstringnull.html#altair.ValueDefWithConditionMarkPropFieldDefstringnull" title="altair.ValueDefWithConditionMarkPropFieldDefstringnull"><code class="xref py py-obj docutils literal"><span class="pre">ValueDefWithConditionMarkPropFieldDefstringnull</span></code></a></td>
 <td>ValueDefWithConditionMarkPropFieldDefstringnull schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.ValueDefWithConditionTextFieldDefValue.html#altair.ValueDefWithConditionTextFieldDefValue" title="altair.ValueDefWithConditionTextFieldDefValue"><code class="xref py py-obj docutils literal"><span class="pre">ValueDefWithConditionTextFieldDefValue</span></code></a></td>
-<td>ValueDefWithConditionTextFieldDefValue schema wrapper</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.ValueDefWithConditionStringFieldDefText.html#altair.ValueDefWithConditionStringFieldDefText" title="altair.ValueDefWithConditionStringFieldDefText"><code class="xref py py-obj docutils literal"><span class="pre">ValueDefWithConditionStringFieldDefText</span></code></a></td>
+<td>ValueDefWithConditionStringFieldDefText schema wrapper</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.Vector2DateTime.html#altair.Vector2DateTime" title="altair.Vector2DateTime"><code class="xref py py-obj docutils literal"><span class="pre">Vector2DateTime</span></code></a></td>
+<td>Vector2DateTime schema wrapper</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.Vector2Vector2number.html#altair.Vector2Vector2number" title="altair.Vector2Vector2number"><code class="xref py py-obj docutils literal"><span class="pre">Vector2Vector2number</span></code></a></td>
+<td>Vector2Vector2number schema wrapper</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.Vector2boolean.html#altair.Vector2boolean" title="altair.Vector2boolean"><code class="xref py py-obj docutils literal"><span class="pre">Vector2boolean</span></code></a></td>
+<td>Vector2boolean schema wrapper</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.Vector2number.html#altair.Vector2number" title="altair.Vector2number"><code class="xref py py-obj docutils literal"><span class="pre">Vector2number</span></code></a></td>
+<td>Vector2number schema wrapper</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.Vector2string.html#altair.Vector2string" title="altair.Vector2string"><code class="xref py py-obj docutils literal"><span class="pre">Vector2string</span></code></a></td>
+<td>Vector2string schema wrapper</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.Vector3number.html#altair.Vector3number" title="altair.Vector3number"><code class="xref py py-obj docutils literal"><span class="pre">Vector3number</span></code></a></td>
+<td>Vector3number schema wrapper</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.VegaLiteSchema.html#altair.VegaLiteSchema" title="altair.VegaLiteSchema"><code class="xref py py-obj docutils literal"><span class="pre">VegaLiteSchema</span></code></a></td>
 <td></td>
@@ -1682,19 +1985,22 @@ full guidelines on their use.</p>
 <tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.ViewConfig.html#altair.ViewConfig" title="altair.ViewConfig"><code class="xref py py-obj docutils literal"><span class="pre">ViewConfig</span></code></a></td>
 <td>ViewConfig schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.WindowFieldDef.html#altair.WindowFieldDef" title="altair.WindowFieldDef"><code class="xref py py-obj docutils literal"><span class="pre">WindowFieldDef</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.WindowEventType.html#altair.WindowEventType" title="altair.WindowEventType"><code class="xref py py-obj docutils literal"><span class="pre">WindowEventType</span></code></a></td>
+<td>WindowEventType schema wrapper</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.WindowFieldDef.html#altair.WindowFieldDef" title="altair.WindowFieldDef"><code class="xref py py-obj docutils literal"><span class="pre">WindowFieldDef</span></code></a></td>
 <td>WindowFieldDef schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.WindowOnlyOp.html#altair.WindowOnlyOp" title="altair.WindowOnlyOp"><code class="xref py py-obj docutils literal"><span class="pre">WindowOnlyOp</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.WindowOnlyOp.html#altair.WindowOnlyOp" title="altair.WindowOnlyOp"><code class="xref py py-obj docutils literal"><span class="pre">WindowOnlyOp</span></code></a></td>
 <td>WindowOnlyOp schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.WindowTransform.html#altair.WindowTransform" title="altair.WindowTransform"><code class="xref py py-obj docutils literal"><span class="pre">WindowTransform</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.WindowTransform.html#altair.WindowTransform" title="altair.WindowTransform"><code class="xref py py-obj docutils literal"><span class="pre">WindowTransform</span></code></a></td>
 <td>WindowTransform schema wrapper</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.XValueDef.html#altair.XValueDef" title="altair.XValueDef"><code class="xref py py-obj docutils literal"><span class="pre">XValueDef</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.XValueDef.html#altair.XValueDef" title="altair.XValueDef"><code class="xref py py-obj docutils literal"><span class="pre">XValueDef</span></code></a></td>
 <td>XValueDef schema wrapper</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/core/altair.YValueDef.html#altair.YValueDef" title="altair.YValueDef"><code class="xref py py-obj docutils literal"><span class="pre">YValueDef</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/core/altair.YValueDef.html#altair.YValueDef" title="altair.YValueDef"><code class="xref py py-obj docutils literal"><span class="pre">YValueDef</span></code></a></td>
 <td>YValueDef schema wrapper</td>
 </tr>
 </tbody>
@@ -1722,7 +2028,7 @@ full guidelines on their use.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2016-2018, Altair Developers.
+        &copy; Copyright 2016-2019, Altair Developers.
 
     </p>
   </div>
@@ -1744,7 +2050,7 @@ full guidelines on their use.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.3.0',
+            VERSION:'4.0.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -1755,9 +2061,9 @@ full guidelines on their use.</p>
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5.4"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.4"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@5.1"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.0.0"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
   
 

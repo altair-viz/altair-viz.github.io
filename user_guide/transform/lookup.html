@@ -1,0 +1,515 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Lookup Transform &mdash; Altair 4.0.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/altair-plot.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/altair-gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="LOESS Transform" href="loess.html" />
+    <link rel="prev" title="Join Aggregate Transform" href="joinaggregate.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Altair
+          
+
+          
+            
+            <img src="../../_static/altair-logo-light.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/installation.html#dependencies">Dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/installation.html#development-install">Development Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/starting.html">Basic Statistical Visualization</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Gallery</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../gallery/index.html">Example Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../data.html">Specifying Data in Altair</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../encoding.html">Encodings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../marks.html">Marks</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Data Transformations</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="aggregate.html">Aggregate Transforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bin.html">Bin transforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="calculate.html">Calculate Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="density.html">Density Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filter.html">Filter Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flatten.html">Flatten Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fold.html">Fold Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="impute.html">Impute Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="joinaggregate.html">Join Aggregate Transform</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Lookup Transform</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#combining-datasets-with-pandas-merge">Combining Datasets with pandas.merge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#combining-datasets-with-a-lookup-transform">Combining Datasets with a Lookup Transform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-lookup-transforms-for-geographical-visualization">Example: Lookup Transforms for Geographical Visualization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#transform-options">Transform Options</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="loess.html">LOESS Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pivot.html">Pivot Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quantile.html">Quantile Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regression.html">Regression Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sample.html">Sample Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stack.html">Stack Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="timeunit.html">TimeUnit Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="window.html">Window Transform</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../interactions.html">Bindings, Selections, Conditions: Making Charts Interactive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Top-Level Chart Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scale_resolve.html">Scale and Guide Resolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../saving_charts.html">Saving Altair Charts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../customization.html">Customizing Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../times_and_dates.html">Times and Dates in Altair</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Display Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internals.html">Altair Internals: Understanding the Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ecosystem.html">Altair Ecosystem</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Case Studies</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../case_studies/exploring-weather.html">Exploring Seattle Weather</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../importing.html">Importing Vega &amp; Vega-Lite Versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../display_frontends.html">Displaying Altair Charts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../display_frontends.html#renderer-api">Renderer API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom_renderers.html">Customizing Renderers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_transformers.html">Data transformers</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../releases/changes.html">Altair Change Log</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Altair</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Data Transformations</a> &raquo;</li>
+        
+      <li>Lookup Transform</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/user_guide/transform/lookup.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="lookup-transform">
+<span id="user-guide-lookup-transform"></span><h1>Lookup Transform<a class="headerlink" href="#lookup-transform" title="Permalink to this headline">¶</a></h1>
+<p>The Lookup transform extends a primary data source by looking up values from
+another data source; it is similar to a one-sided join. A lookup can be added
+at the top level of a chart using the <a class="reference internal" href="../generated/toplevel/altair.Chart.html#altair.Chart.transform_lookup" title="altair.Chart.transform_lookup"><code class="xref py py-meth docutils literal"><span class="pre">Chart.transform_lookup()</span></code></a> method.</p>
+<p>By way of example, imagine you have two sources of data that you would like
+to combine and plot: one is a list of names of people along with their height
+and weight, and the other is some information about which groups they belong
+to. This example data is available in <code class="docutils literal"><span class="pre">vega_datasets</span></code>:</p>
+<div class="highlight-python" id="lookup-rst-altair-source-0"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+<span class="n">people</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">lookup_people</span><span class="p">()</span>
+<span class="n">groups</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">lookup_groups</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>We know how to visualize each of these datasets separately; for example:</p>
+<div class="highlight-python" id="lookup-rst-altair-source-1"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+
+<span class="n">top</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">people</span><span class="p">)</span><span class="o">.</span><span class="n">mark_square</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;age:Q&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">zero</span><span class="o">=</span><span class="kc">False</span><span class="p">)),</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;height:Q&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">zero</span><span class="o">=</span><span class="kc">False</span><span class="p">)),</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;name:N&#39;</span><span class="p">,</span>
+    <span class="n">tooltip</span><span class="o">=</span><span class="s1">&#39;name:N&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">200</span>
+<span class="p">)</span>
+
+<span class="n">bottom</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">groups</span><span class="p">)</span><span class="o">.</span><span class="n">mark_rect</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;person:N&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;group:O&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">100</span>
+<span class="p">)</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">vconcat</span><span class="p">(</span><span class="n">top</span><span class="p">,</span> <span class="n">bottom</span><span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="lookup-rst-altair-plot-1">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "vconcat": [{"data": {"name": "data-59fcb3ae476d760b9995707aff1a6876"}, "mark": {"type": "square", "size": 200}, "encoding": {"color": {"type": "nominal", "field": "name"}, "tooltip": {"type": "nominal", "field": "name"}, "x": {"type": "quantitative", "field": "age", "scale": {"zero": false}}, "y": {"type": "quantitative", "field": "height", "scale": {"zero": false}}}, "height": 200, "width": 400}, {"data": {"name": "data-733965e67b2edf1f86cd8d2aa1bfc4e1"}, "mark": "rect", "encoding": {"x": {"type": "nominal", "field": "person"}, "y": {"type": "ordinal", "field": "group"}}, "height": 100, "width": 400}], "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json", "datasets": {"data-59fcb3ae476d760b9995707aff1a6876": [{"name": "Alan", "age": 25, "height": 180}, {"name": "George", "age": 32, "height": 174}, {"name": "Fred", "age": 39, "height": 182}, {"name": "Steve", "age": 42, "height": 161}, {"name": "Nick", "age": 23, "height": 180}, {"name": "Will", "age": 21, "height": 168}, {"name": "Cole", "age": 51, "height": 160}, {"name": "Rick", "age": 63, "height": 181}, {"name": "Tom", "age": 54, "height": 179}], "data-733965e67b2edf1f86cd8d2aa1bfc4e1": [{"group": 1, "person": "Alan"}, {"group": 1, "person": "George"}, {"group": 1, "person": "Fred"}, {"group": 2, "person": "Steve"}, {"group": 2, "person": "Nick"}, {"group": 2, "person": "Will"}, {"group": 3, "person": "Cole"}, {"group": 3, "person": "Rick"}, {"group": 3, "person": "Tom"}]}};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#lookup-rst-altair-plot-1', spec, opt).catch(console.err);
+  });
+</script>
+</div><p>If we would like to plot features that reference both datasets (for example, the
+average age within each group), we need to combine the two datasets.
+This can be done either as a data preprocessing step, using tools available
+in Pandas, or as part of the visualization using a <a class="reference internal" href="../generated/core/altair.LookupTransform.html#altair.LookupTransform" title="altair.LookupTransform"><code class="xref py py-class docutils literal"><span class="pre">LookupTransform</span></code></a>
+in Altair.</p>
+<div class="section" id="combining-datasets-with-pandas-merge">
+<h2>Combining Datasets with pandas.merge<a class="headerlink" href="#combining-datasets-with-pandas-merge" title="Permalink to this headline">¶</a></h2>
+<p>Pandas provides a wide range of tools for merging and joining datasets; see
+<a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/merging.html">Merge, Join, and Concatenate</a>
+for some detailed examples.
+For the above data, we can merge the data and create a combined chart as follows:</p>
+<div class="highlight-python" id="lookup-rst-altair-source-2"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">merged</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">groups</span><span class="p">,</span> <span class="n">people</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span>
+                  <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;person&#39;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">merged</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;mean(age):Q&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;group:O&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="lookup-rst-altair-plot-2">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-012c730680c958500c1ff1e1531590f9"}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "aggregate": "mean", "field": "age"}, "y": {"type": "ordinal", "field": "group"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json", "datasets": {"data-012c730680c958500c1ff1e1531590f9": [{"group": 1, "person": "Alan", "name": "Alan", "age": 25, "height": 180}, {"group": 1, "person": "George", "name": "George", "age": 32, "height": 174}, {"group": 1, "person": "Fred", "name": "Fred", "age": 39, "height": 182}, {"group": 2, "person": "Steve", "name": "Steve", "age": 42, "height": 161}, {"group": 2, "person": "Nick", "name": "Nick", "age": 23, "height": 180}, {"group": 2, "person": "Will", "name": "Will", "age": 21, "height": 168}, {"group": 3, "person": "Cole", "name": "Cole", "age": 51, "height": 160}, {"group": 3, "person": "Rick", "name": "Rick", "age": 63, "height": 181}, {"group": 3, "person": "Tom", "name": "Tom", "age": 54, "height": 179}]}};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#lookup-rst-altair-plot-2', spec, opt).catch(console.err);
+  });
+</script>
+</div><p>We specify a left join, meaning that for each entry of the “person” column in
+the groups, we seek the “name” column in people and add the entry to the data.
+From this, we can easily create a bar chart representing the mean age in each group.</p>
+</div>
+<div class="section" id="combining-datasets-with-a-lookup-transform">
+<h2>Combining Datasets with a Lookup Transform<a class="headerlink" href="#combining-datasets-with-a-lookup-transform" title="Permalink to this headline">¶</a></h2>
+<p>For some data sources (e.g. data available at a URL, or data that is streaming),
+it is desirable to have a means of joining data without having to download
+it for pre-processing in Pandas.
+This is where Altair’s <a class="reference internal" href="../generated/toplevel/altair.Chart.html#altair.Chart.transform_lookup" title="altair.Chart.transform_lookup"><code class="xref py py-meth docutils literal"><span class="pre">transform_lookup()</span></code></a> comes in.
+To reproduce the above combined plot by combining datasets within the
+chart specification itself, we can do the following:</p>
+<div class="highlight-python" id="lookup-rst-altair-source-3"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">groups</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;mean(age):Q&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;group:O&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_lookup</span><span class="p">(</span>
+    <span class="n">lookup</span><span class="o">=</span><span class="s1">&#39;person&#39;</span><span class="p">,</span>
+    <span class="n">from_</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">LookupData</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">people</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">&#39;name&#39;</span><span class="p">,</span>
+                         <span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;height&#39;</span><span class="p">])</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="lookup-rst-altair-plot-3">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-733965e67b2edf1f86cd8d2aa1bfc4e1"}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "aggregate": "mean", "field": "age"}, "y": {"type": "ordinal", "field": "group"}}, "transform": [{"lookup": "person", "from": {"data": {"name": "data-59fcb3ae476d760b9995707aff1a6876"}, "key": "name", "fields": ["age", "height"]}}], "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json", "datasets": {"data-733965e67b2edf1f86cd8d2aa1bfc4e1": [{"group": 1, "person": "Alan"}, {"group": 1, "person": "George"}, {"group": 1, "person": "Fred"}, {"group": 2, "person": "Steve"}, {"group": 2, "person": "Nick"}, {"group": 2, "person": "Will"}, {"group": 3, "person": "Cole"}, {"group": 3, "person": "Rick"}, {"group": 3, "person": "Tom"}], "data-59fcb3ae476d760b9995707aff1a6876": [{"name": "Alan", "age": 25, "height": 180}, {"name": "George", "age": 32, "height": 174}, {"name": "Fred", "age": 39, "height": 182}, {"name": "Steve", "age": 42, "height": 161}, {"name": "Nick", "age": 23, "height": 180}, {"name": "Will", "age": 21, "height": 168}, {"name": "Cole", "age": 51, "height": 160}, {"name": "Rick", "age": 63, "height": 181}, {"name": "Tom", "age": 54, "height": 179}]}};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#lookup-rst-altair-plot-3', spec, opt).catch(console.err);
+  });
+</script>
+</div><p>Here <code class="docutils literal"><span class="pre">lookup</span></code> names the field in the groups dataset on which we will match,
+and the <code class="docutils literal"><span class="pre">from_</span></code> argument specifies a <a class="reference internal" href="../generated/core/altair.LookupData.html#altair.LookupData" title="altair.LookupData"><code class="xref py py-class docutils literal"><span class="pre">LookupData</span></code></a> structure where
+we supply the second dataset, the lookup key, and the fields we would like to
+extract.</p>
+</div>
+<div class="section" id="example-lookup-transforms-for-geographical-visualization">
+<h2>Example: Lookup Transforms for Geographical Visualization<a class="headerlink" href="#example-lookup-transforms-for-geographical-visualization" title="Permalink to this headline">¶</a></h2>
+<p>Lookup transforms are often particularly important for geographic visualization,
+where it is common to combine tabular datasets with datasets that specify
+geographic boundaries to be visualized; for example, here is a visualization
+of unemployment rates per county in the US:</p>
+<div class="highlight-python" id="lookup-rst-altair-source-4"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+
+<span class="n">counties</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">topo_feature</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">us_10m</span><span class="o">.</span><span class="n">url</span><span class="p">,</span> <span class="s1">&#39;counties&#39;</span><span class="p">)</span>
+<span class="n">unemp_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">unemployment</span><span class="o">.</span><span class="n">url</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">counties</span><span class="p">)</span><span class="o">.</span><span class="n">mark_geoshape</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;rate:Q&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_lookup</span><span class="p">(</span>
+    <span class="n">lookup</span><span class="o">=</span><span class="s1">&#39;id&#39;</span><span class="p">,</span>
+    <span class="n">from_</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">LookupData</span><span class="p">(</span><span class="n">unemp_data</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;rate&#39;</span><span class="p">])</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">projection</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;albersUsa&#39;</span><span class="p">},</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">300</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="lookup-rst-altair-plot-4">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/us-10m.json", "format": {"feature": "counties", "type": "topojson"}}, "mark": "geoshape", "encoding": {"color": {"type": "quantitative", "field": "rate"}}, "height": 300, "projection": {"type": "albersUsa"}, "transform": [{"lookup": "id", "from": {"data": {"url": "https://vega.github.io/vega-datasets/data/unemployment.tsv"}, "key": "id", "fields": ["rate"]}}], "width": 500, "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#lookup-rst-altair-plot-4', spec, opt).catch(console.err);
+  });
+</script>
+</div></div>
+<div class="section" id="transform-options">
+<h2>Transform Options<a class="headerlink" href="#transform-options" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference internal" href="../generated/toplevel/altair.Chart.html#altair.Chart.transform_lookup" title="altair.Chart.transform_lookup"><code class="xref py py-meth docutils literal"><span class="pre">transform_lookup()</span></code></a> method is built on the <a class="reference internal" href="../generated/core/altair.LookupTransform.html#altair.LookupTransform" title="altair.LookupTransform"><code class="xref py py-class docutils literal"><span class="pre">LookupTransform</span></code></a>
+class, which has the following options:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="25%" />
+<col width="63%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Property</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td class="vl-prop">as</td>
+<td>anyOf(<a class="reference internal" href="../generated/core/altair.FieldName.html#altair.FieldName" title="altair.FieldName"><code class="xref py py-class docutils literal"><span class="pre">FieldName</span></code></a>, array(<a class="reference internal" href="../generated/core/altair.FieldName.html#altair.FieldName" title="altair.FieldName"><code class="xref py py-class docutils literal"><span class="pre">FieldName</span></code></a>))</td>
+<td class="vl-decsr"><p class="first">The output fields on which to store the looked up data values.</p>
+<p>For data lookups, this property may be left blank if <code class="docutils literal"><span class="pre">from.fields</span></code>
+has been specified (those field names will be used); if <code class="docutils literal"><span class="pre">from.fields</span></code>
+has not been specified, <code class="docutils literal"><span class="pre">as</span></code> must be a string.</p>
+<p class="last">For selection lookups, this property is optional: if unspecified,
+looked up values will be stored under a property named for the selection;
+and if specified, it must correspond to <code class="docutils literal"><span class="pre">from.fields</span></code>.</p>
+</td>
+</tr>
+<tr class="row-odd"><td class="vl-prop">default</td>
+<td><code class="docutils literal"><span class="pre">string</span></code></td>
+<td class="vl-decsr"><p class="first">The default value to use if lookup fails.</p>
+<p class="last"><strong>Default value:</strong> <code class="docutils literal"><span class="pre">null</span></code></p>
+</td>
+</tr>
+<tr class="row-even"><td class="vl-prop">from</td>
+<td>anyOf(<a class="reference internal" href="../generated/core/altair.LookupData.html#altair.LookupData" title="altair.LookupData"><code class="xref py py-class docutils literal"><span class="pre">LookupData</span></code></a>, <a class="reference internal" href="../generated/core/altair.LookupSelection.html#altair.LookupSelection" title="altair.LookupSelection"><code class="xref py py-class docutils literal"><span class="pre">LookupSelection</span></code></a>)</td>
+<td class="vl-decsr">Data source or selection for secondary data reference.</td>
+</tr>
+<tr class="row-odd"><td class="vl-prop">lookup</td>
+<td><code class="docutils literal"><span class="pre">string</span></code></td>
+<td class="vl-decsr">Key in primary data source.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="loess.html" class="btn btn-neutral float-right" title="LOESS Transform" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="joinaggregate.html" class="btn btn-neutral" title="Join Aggregate Transform" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016-2019, Altair Developers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'4.0.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.0.0"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

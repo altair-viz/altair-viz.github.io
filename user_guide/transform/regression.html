@@ -1,0 +1,414 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Regression Transform &mdash; Altair 4.0.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/altair-plot.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/altair-gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Sample Transform" href="sample.html" />
+    <link rel="prev" title="Quantile Transform" href="quantile.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Altair
+          
+
+          
+            
+            <img src="../../_static/altair-logo-light.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/installation.html#dependencies">Dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/installation.html#development-install">Development Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/starting.html">Basic Statistical Visualization</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Gallery</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../gallery/index.html">Example Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../data.html">Specifying Data in Altair</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../encoding.html">Encodings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../marks.html">Marks</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Data Transformations</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="aggregate.html">Aggregate Transforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bin.html">Bin transforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="calculate.html">Calculate Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="density.html">Density Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filter.html">Filter Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flatten.html">Flatten Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fold.html">Fold Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="impute.html">Impute Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="joinaggregate.html">Join Aggregate Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lookup.html">Lookup Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loess.html">LOESS Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pivot.html">Pivot Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quantile.html">Quantile Transform</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Regression Transform</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#transform-options">Transform Options</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sample.html">Sample Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stack.html">Stack Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="timeunit.html">TimeUnit Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="window.html">Window Transform</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../interactions.html">Bindings, Selections, Conditions: Making Charts Interactive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Top-Level Chart Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scale_resolve.html">Scale and Guide Resolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../saving_charts.html">Saving Altair Charts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../customization.html">Customizing Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../times_and_dates.html">Times and Dates in Altair</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Display Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internals.html">Altair Internals: Understanding the Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ecosystem.html">Altair Ecosystem</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Case Studies</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../case_studies/exploring-weather.html">Exploring Seattle Weather</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../importing.html">Importing Vega &amp; Vega-Lite Versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../display_frontends.html">Displaying Altair Charts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../display_frontends.html#renderer-api">Renderer API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom_renderers.html">Customizing Renderers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_transformers.html">Data transformers</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../releases/changes.html">Altair Change Log</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Altair</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Data Transformations</a> &raquo;</li>
+        
+      <li>Regression Transform</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/user_guide/transform/regression.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="regression-transform">
+<span id="user-guide-regression-transform"></span><h1>Regression Transform<a class="headerlink" href="#regression-transform" title="Permalink to this headline">¶</a></h1>
+<p>The regression transform fits two-dimensional regression models to smooth and
+predict data. This transform can fit multiple models for input data (one per group)
+and generates new data objects that represent points for summary trend lines.
+Alternatively, this transform can be used to generate a set of objects containing
+regression model parameters, one per group.</p>
+<p>This transform supports parametric models for the following functional forms:</p>
+<ul class="simple">
+<li>linear (<code class="docutils literal"><span class="pre">linear</span></code>): <em>y = a + b * x</em></li>
+<li>logarithmic (<code class="docutils literal"><span class="pre">log</span></code>): <em>y = a + b * log(x)</em></li>
+<li>exponential (<code class="docutils literal"><span class="pre">exp</span></code>): <em>y = a + eb * x</em></li>
+<li>power (<code class="docutils literal"><span class="pre">pow</span></code>): <em>y = a * xb</em></li>
+<li>quadratic (<code class="docutils literal"><span class="pre">quad</span></code>): <em>y = a + b * x + c * x2</em></li>
+<li>polynomial (<code class="docutils literal"><span class="pre">poly</span></code>): <em>y = a + b * x + … + k * xorder</em></li>
+</ul>
+<p>All models are fit using ordinary least squares.
+For non-parametric locally weighted regression, see the
+<a class="reference internal" href="loess.html#user-guide-loess-transform"><span class="std std-ref">LOESS Transform</span></a>.</p>
+<p>Here is an example of a simple linear regression plotted on top of data:</p>
+<div class="highlight-python" id="regression-rst-altair-source-0"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">5</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="n">y</span><span class="p">})</span>
+
+<span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span>
+<span class="p">)</span>
+
+<span class="n">chart</span> <span class="o">+</span> <span class="n">chart</span><span class="o">.</span><span class="n">transform_regression</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span>
+</pre></div>
+</div>
+
+<div id="regression-rst-altair-plot-0">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": "point", "encoding": {"x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "y"}}}, {"mark": "line", "encoding": {"x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "y"}}, "transform": [{"on": "x", "regression": "y"}]}], "data": {"name": "data-04295185ddde84f7f1fd8ac63d0a1a89"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json", "datasets": {"data-04295185ddde84f7f1fd8ac63d0a1a89": [{"x": 0.0, "y": -4.503285846988767}, {"x": 0.20408163265306123, "y": -4.934182668518123}, {"x": 0.40816326530612246, "y": -3.9441481965931855}, {"x": 0.6122448979591837, "y": -2.8647252456327905}, {"x": 0.8163265306122449, "y": -4.417826844111091}, {"x": 1.0204081632653061, "y": -4.213728793683875}, {"x": 1.2244897959183674, "y": -2.196297388574241}, {"x": 1.4285714285714286, "y": -2.8039938422756623}, {"x": 1.6326530612244898, "y": -3.836821324710462}, {"x": 1.836734693877551, "y": -2.6207052625364846}, {"x": 2.0408163265306123, "y": -3.42260136628185}, {"x": 2.2448979591836737, "y": -3.220831794386583}, {"x": 2.4489795918367347, "y": -2.309058136597231}, {"x": 2.6530612244897958, "y": -4.260219020168002}, {"x": 2.857142857142857, "y": -3.8677749753701756}, {"x": 3.0612244897959187, "y": -2.501063039445054}, {"x": 3.2653061224489797, "y": -2.747524997885444}, {"x": 3.4693877551020407, "y": -1.2163649123026854}, {"x": 3.673469387755102, "y": -2.2345546877661087}, {"x": 3.8775510204081636, "y": -2.534752680927128}, {"x": 4.081632653061225, "y": 0.5472814219827786}, {"x": 4.285714285714286, "y": -0.94006201477225}, {"x": 4.4897959183673475, "y": -0.44267587694472865}, {"x": 4.6938775510204085, "y": -1.7308706351930483}, {"x": 4.8979591836734695, "y": -0.6464235408517132}, {"x": 5.1020408163265305, "y": 0.21296340603639657}, {"x": 5.3061224489795915, "y": -0.8448711284427113}, {"x": 5.510204081632653, "y": 0.8859020999783254}, {"x": 5.714285714285714, "y": 0.11364702436690943}, {"x": 5.918367346938775, "y": 0.6266735971454986}, {"x": 6.122448979591837, "y": 0.5207423673624404}, {"x": 6.326530612244898, "y": 3.1788087967538363}, {"x": 6.530612244897959, "y": 1.5171150201600254}, {"x": 6.73469387755102, "y": 0.67698294859512}, {"x": 6.938775510204081, "y": 2.7613204223072705}, {"x": 7.142857142857143, "y": 0.922013492886121}, {"x": 7.346938775510204, "y": 2.5558023705149595}, {"x": 7.551020408163265, "y": 0.5913502842834897}, {"x": 7.755102040816327, "y": 1.4269159919178966}, {"x": 7.959183673469388, "y": 3.1560449093385117}, {"x": 8.16326530612245, "y": 3.90173188611786}, {"x": 8.36734693877551, "y": 3.5387152199654808}, {"x": 8.571428571428571, "y": 3.4557802890403306}, {"x": 8.775510204081632, "y": 3.4744065084923434}, {"x": 8.979591836734695, "y": 2.5010698463672676}, {"x": 9.183673469387756, "y": 3.463829260993047}, {"x": 9.387755102040817, "y": 3.9271163310810295}, {"x": 9.591836734693878, "y": 5.648958960912793}, {"x": 9.795918367346939, "y": 5.1395366569154}, {"x": 10.0, "y": 3.236959844637266}]}};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#regression-rst-altair-plot-0', spec, opt).catch(console.err);
+  });
+</script>
+</div><div class="section" id="transform-options">
+<h2>Transform Options<a class="headerlink" href="#transform-options" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference internal" href="../generated/toplevel/altair.Chart.html#altair.Chart.transform_regression" title="altair.Chart.transform_regression"><code class="xref py py-meth docutils literal"><span class="pre">transform_regression()</span></code></a> method is built on the <a class="reference internal" href="../generated/core/altair.RegressionTransform.html#altair.RegressionTransform" title="altair.RegressionTransform"><code class="xref py py-class docutils literal"><span class="pre">RegressionTransform</span></code></a>
+class, which has the following options:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="25%" />
+<col width="63%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Property</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td class="vl-prop">as</td>
+<td>array(any)</td>
+<td class="vl-decsr"><p class="first">The output field names for the smoothed points generated by the regression transform.</p>
+<p class="last"><strong>Default value:</strong> The field names of the input x and y values.</p>
+</td>
+</tr>
+<tr class="row-odd"><td class="vl-prop">extent</td>
+<td>array(any)</td>
+<td class="vl-decsr">A [min, max] domain over the independent (x) field for the starting and ending points of the generated trend line.</td>
+</tr>
+<tr class="row-even"><td class="vl-prop">groupby</td>
+<td>array(<a class="reference internal" href="../generated/core/altair.FieldName.html#altair.FieldName" title="altair.FieldName"><code class="xref py py-class docutils literal"><span class="pre">FieldName</span></code></a>)</td>
+<td class="vl-decsr">The data fields to group by. If not specified, a single group containing all data objects will be used.</td>
+</tr>
+<tr class="row-odd"><td class="vl-prop">method</td>
+<td>[‘linear’, ‘log’, ‘exp’, ‘pow’, ‘quad’, ‘poly’]</td>
+<td class="vl-decsr"><p class="first">The functional form of the regression model. One of <code class="docutils literal"><span class="pre">&quot;linear&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;log&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;exp&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;pow&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;quad&quot;</span></code>, or <code class="docutils literal"><span class="pre">&quot;poly&quot;</span></code>.</p>
+<p class="last"><strong>Default value:</strong> <code class="docutils literal"><span class="pre">&quot;linear&quot;</span></code></p>
+</td>
+</tr>
+<tr class="row-even"><td class="vl-prop">on</td>
+<td><a class="reference internal" href="../generated/core/altair.FieldName.html#altair.FieldName" title="altair.FieldName"><code class="xref py py-class docutils literal"><span class="pre">FieldName</span></code></a></td>
+<td class="vl-decsr">The data field of the independent variable to use a predictor.</td>
+</tr>
+<tr class="row-odd"><td class="vl-prop">order</td>
+<td><code class="docutils literal"><span class="pre">number</span></code></td>
+<td class="vl-decsr"><p class="first">The polynomial order (number of coefficients) for the ‘poly’ method.</p>
+<p class="last"><strong>Default value:</strong> <code class="docutils literal"><span class="pre">3</span></code></p>
+</td>
+</tr>
+<tr class="row-even"><td class="vl-prop">params</td>
+<td><code class="docutils literal"><span class="pre">boolean</span></code></td>
+<td class="vl-decsr"><p class="first">A boolean flag indicating if the transform should return the regression model parameters (one object per group), rather than trend line points.
+The resulting objects include a <code class="docutils literal"><span class="pre">coef</span></code> array of fitted coefficient values (starting with the intercept term and then including terms of increasing order)
+and an <code class="docutils literal"><span class="pre">rSquared</span></code> value (indicating the total variance explained by the model).</p>
+<p class="last"><strong>Default value:</strong> <code class="docutils literal"><span class="pre">false</span></code></p>
+</td>
+</tr>
+<tr class="row-odd"><td class="vl-prop">regression</td>
+<td><a class="reference internal" href="../generated/core/altair.FieldName.html#altair.FieldName" title="altair.FieldName"><code class="xref py py-class docutils literal"><span class="pre">FieldName</span></code></a></td>
+<td class="vl-decsr">The data field of the dependent variable to predict.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="sample.html" class="btn btn-neutral float-right" title="Sample Transform" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="quantile.html" class="btn btn-neutral" title="Quantile Transform" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016-2019, Altair Developers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'4.0.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.0.0"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

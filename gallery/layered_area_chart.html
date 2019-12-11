@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Layered Area Chart &mdash; Altair 3.3.0 documentation</title>
+  <title>Layered Area Chart &mdash; Altair 4.0.0 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                3.3.0
+                4.0.0
               </div>
             
           
@@ -95,6 +95,8 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html#dependencies">Dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html#development-install">Development Install</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/starting.html">Basic Statistical Visualization</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Gallery</span></p>
@@ -105,12 +107,14 @@
 <li class="toctree-l2"><a class="reference internal" href="index.html#line-charts">Line Charts</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html#area-charts">Area Charts</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="cumulative_count_chart.html">Cumulative Count Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="density_facet.html">Faceted Density Estimates</a></li>
 <li class="toctree-l3"><a class="reference internal" href="horizon_graph.html">Horizon Graph</a></li>
 <li class="toctree-l3"><a class="reference internal" href="interval_selection.html">Interval Selection Example</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Layered Area Chart</a><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="normalized_stacked_area_chart.html">Normalized Stacked Area Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="density_stack.html">Stacked Density Estimates</a></li>
 <li class="toctree-l3"><a class="reference internal" href="streamgraph.html">Streamgraph</a></li>
 <li class="toctree-l3"><a class="reference internal" href="trellis_area.html">Trellis Area Chart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="trellis_area_sort_array.html">Trellis Area Sort Chart</a></li>
@@ -130,7 +134,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/data.html">Specifying Data in Altair</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/encoding.html">Encodings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/marks.html">Marks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/transform.html">Data Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/transform/index.html">Data Transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/interactions.html">Bindings, Selections, Conditions: Making Charts Interactive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/configuration.html">Top-Level Chart Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
@@ -140,7 +144,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/times_and_dates.html">Times and Dates in Altair</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/troubleshooting.html">Display Troubleshooting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/renderers.html">Altair Renderers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/internals.html">Altair Internals: Understanding the Library</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/API.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/ecosystem.html">Altair Ecosystem</a></li>
@@ -152,9 +155,14 @@
 <p class="caption"><span class="caption-text">Advanced Usage</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/importing.html">Importing Vega &amp; Vega-Lite Versions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/display_frontends.html">Displaying Charts in Various Frontends</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/display_frontends.html">Displaying Altair Charts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/display_frontends.html#renderer-api">Renderer API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/custom_renderers.html">Customizing Renderers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/data_transformers.html">Data transformers</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../releases/changes.html">Altair Change Log</a></li>
 </ul>
 
             
@@ -230,7 +238,7 @@
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"name": "data-bb61008ba0c766c5601afa5323d12ad4"}, "mark": {"type": "area", "opacity": 0.3}, "encoding": {"color": {"type": "nominal", "field": "source"}, "x": {"type": "temporal", "field": "year"}, "y": {"type": "quantitative", "field": "net_generation", "stack": null}}, "$schema": "https://vega.github.io/schema/vega-lite/v3.4.0.json", "datasets": {"data-bb61008ba0c766c5601afa5323d12ad4": [{"year": "2001-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 35361}, {"year": "2002-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 35991}, {"year": "2003-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 36234}, {"year": "2004-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 36205}, {"year": "2005-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 36883}, {"year": "2006-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 37014}, {"year": "2007-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 41389}, {"year": "2008-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 42734}, {"year": "2009-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 38620}, {"year": "2010-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 42750}, {"year": "2011-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 39361}, {"year": "2012-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 37379}, {"year": "2013-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 34873}, {"year": "2014-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 35250}, {"year": "2015-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 32319}, {"year": "2016-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 28437}, {"year": "2017-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 29329}, {"year": "2001-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 3853}, {"year": "2002-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 4574}, {"year": "2003-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 3988}, {"year": "2004-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 4929}, {"year": "2005-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 4538}, {"year": "2006-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 5095}, {"year": "2007-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 4519}, {"year": "2008-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 5282}, {"year": "2009-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 4679}, {"year": "2010-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 4451}, {"year": "2011-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 5215}, {"year": "2012-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 4347}, {"year": "2013-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 5321}, {"year": "2014-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 4152}, {"year": "2015-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 5243}, {"year": "2016-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 4703}, {"year": "2017-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 5214}, {"year": "2001-01-01T00:00:00", "source": "Renewables", "net_generation": 1437}, {"year": "2002-01-01T00:00:00", "source": "Renewables", "net_generation": 1963}, {"year": "2003-01-01T00:00:00", "source": "Renewables", "net_generation": 1885}, {"year": "2004-01-01T00:00:00", "source": "Renewables", "net_generation": 2102}, {"year": "2005-01-01T00:00:00", "source": "Renewables", "net_generation": 2724}, {"year": "2006-01-01T00:00:00", "source": "Renewables", "net_generation": 3364}, {"year": "2007-01-01T00:00:00", "source": "Renewables", "net_generation": 3870}, {"year": "2008-01-01T00:00:00", "source": "Renewables", "net_generation": 5070}, {"year": "2009-01-01T00:00:00", "source": "Renewables", "net_generation": 8560}, {"year": "2010-01-01T00:00:00", "source": "Renewables", "net_generation": 10308}, {"year": "2011-01-01T00:00:00", "source": "Renewables", "net_generation": 11795}, {"year": "2012-01-01T00:00:00", "source": "Renewables", "net_generation": 14949}, {"year": "2013-01-01T00:00:00", "source": "Renewables", "net_generation": 16476}, {"year": "2014-01-01T00:00:00", "source": "Renewables", "net_generation": 17452}, {"year": "2015-01-01T00:00:00", "source": "Renewables", "net_generation": 19091}, {"year": "2016-01-01T00:00:00", "source": "Renewables", "net_generation": 21241}, {"year": "2017-01-01T00:00:00", "source": "Renewables", "net_generation": 21933}]}};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-bb61008ba0c766c5601afa5323d12ad4"}, "mark": {"type": "area", "opacity": 0.3}, "encoding": {"color": {"type": "nominal", "field": "source"}, "x": {"type": "temporal", "field": "year"}, "y": {"type": "quantitative", "field": "net_generation", "stack": null}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json", "datasets": {"data-bb61008ba0c766c5601afa5323d12ad4": [{"year": "2001-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 35361}, {"year": "2002-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 35991}, {"year": "2003-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 36234}, {"year": "2004-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 36205}, {"year": "2005-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 36883}, {"year": "2006-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 37014}, {"year": "2007-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 41389}, {"year": "2008-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 42734}, {"year": "2009-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 38620}, {"year": "2010-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 42750}, {"year": "2011-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 39361}, {"year": "2012-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 37379}, {"year": "2013-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 34873}, {"year": "2014-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 35250}, {"year": "2015-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 32319}, {"year": "2016-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 28437}, {"year": "2017-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 29329}, {"year": "2001-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 3853}, {"year": "2002-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 4574}, {"year": "2003-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 3988}, {"year": "2004-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 4929}, {"year": "2005-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 4538}, {"year": "2006-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 5095}, {"year": "2007-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 4519}, {"year": "2008-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 5282}, {"year": "2009-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 4679}, {"year": "2010-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 4451}, {"year": "2011-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 5215}, {"year": "2012-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 4347}, {"year": "2013-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 5321}, {"year": "2014-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 4152}, {"year": "2015-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 5243}, {"year": "2016-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 4703}, {"year": "2017-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 5214}, {"year": "2001-01-01T00:00:00", "source": "Renewables", "net_generation": 1437}, {"year": "2002-01-01T00:00:00", "source": "Renewables", "net_generation": 1963}, {"year": "2003-01-01T00:00:00", "source": "Renewables", "net_generation": 1885}, {"year": "2004-01-01T00:00:00", "source": "Renewables", "net_generation": 2102}, {"year": "2005-01-01T00:00:00", "source": "Renewables", "net_generation": 2724}, {"year": "2006-01-01T00:00:00", "source": "Renewables", "net_generation": 3364}, {"year": "2007-01-01T00:00:00", "source": "Renewables", "net_generation": 3870}, {"year": "2008-01-01T00:00:00", "source": "Renewables", "net_generation": 5070}, {"year": "2009-01-01T00:00:00", "source": "Renewables", "net_generation": 8560}, {"year": "2010-01-01T00:00:00", "source": "Renewables", "net_generation": 10308}, {"year": "2011-01-01T00:00:00", "source": "Renewables", "net_generation": 11795}, {"year": "2012-01-01T00:00:00", "source": "Renewables", "net_generation": 14949}, {"year": "2013-01-01T00:00:00", "source": "Renewables", "net_generation": 16476}, {"year": "2014-01-01T00:00:00", "source": "Renewables", "net_generation": 17452}, {"year": "2015-01-01T00:00:00", "source": "Renewables", "net_generation": 19091}, {"year": "2016-01-01T00:00:00", "source": "Renewables", "net_generation": 21241}, {"year": "2017-01-01T00:00:00", "source": "Renewables", "net_generation": 21933}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -239,14 +247,14 @@
       vegaEmbed('#layered_area_chart-rst-altair-plot-0', spec, opt).catch(console.err);
   });
 </script>
-</div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
+</div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
 <span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
 
 <span class="n">source</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">iowa_electricity</span><span class="p">()</span>
 
 <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">mark_area</span><span class="p">(</span><span class="n">opacity</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="s2">&quot;year:T&quot;</span><span class="p">,</span>
-    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;net_generation:Q&quot;</span><span class="p">,</span> <span class="n">stack</span><span class="o">=</span><span class="bp">None</span><span class="p">),</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;net_generation:Q&quot;</span><span class="p">,</span> <span class="n">stack</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span>
     <span class="n">color</span><span class="o">=</span><span class="s2">&quot;source:N&quot;</span>
 <span class="p">)</span>
 </pre></div>
@@ -275,7 +283,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2016-2018, Altair Developers.
+        &copy; Copyright 2016-2019, Altair Developers.
 
     </p>
   </div>
@@ -297,7 +305,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.3.0',
+            VERSION:'4.0.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -308,9 +316,9 @@
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5.4"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@3.4"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@5.1"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.0.0"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
   
 
