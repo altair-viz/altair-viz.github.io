@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Data transformers &mdash; Altair 4.0.0 documentation</title>
+  <title>Data transformers &mdash; Altair 4.1.0 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                4.0.0
+                4.1.0
               </div>
             
           
@@ -273,7 +273,7 @@ of the data transformer.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": "line", "encoding": {"x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "y"}}}, {"mark": "point", "encoding": {"x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "y"}}}], "data": {"name": "data-137453ccbb3f929636eb2f9dd7052f16"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json", "datasets": {"data-137453ccbb3f929636eb2f9dd7052f16": [{"x": 0, "y": 1}, {"x": 1, "y": 3}, {"x": 2, "y": 4}, {"x": 3, "y": 3}, {"x": 4, "y": 5}]}};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": "line", "encoding": {"x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "y"}}}, {"mark": "point", "encoding": {"x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "y"}}}], "data": {"name": "data-137453ccbb3f929636eb2f9dd7052f16"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-137453ccbb3f929636eb2f9dd7052f16": [{"x": 0, "y": 1}, {"x": 1, "y": 3}, {"x": 2, "y": 4}, {"x": 3, "y": 3}, {"x": 4, "y": 5}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -288,7 +288,7 @@ was specified twice, only one copy of it is output in the spec:</p>
 <span class="n">pprint</span><span class="p">(</span><span class="n">chart</span><span class="o">.</span><span class="n">to_dict</span><span class="p">())</span>
 </pre></div>
 </div>
-<div class="highlight-none"><div class="highlight"><pre><span></span>{&#39;$schema&#39;: &#39;https://vega.github.io/schema/vega-lite/v4.0.0.json&#39;,
+<div class="highlight-none"><div class="highlight"><pre><span></span>{&#39;$schema&#39;: &#39;https://vega.github.io/schema/vega-lite/v4.8.1.json&#39;,
  &#39;config&#39;: {&#39;view&#39;: {&#39;continuousHeight&#39;: 300, &#39;continuousWidth&#39;: 400}},
  &#39;data&#39;: {&#39;name&#39;: &#39;data-137453ccbb3f929636eb2f9dd7052f16&#39;},
  &#39;datasets&#39;: {&#39;data-137453ccbb3f929636eb2f9dd7052f16&#39;: [{&#39;x&#39;: 0, &#39;y&#39;: 1},
@@ -313,7 +313,7 @@ by using the <code class="docutils literal"><span class="pre">enable()</span></c
     <span class="n">pprint</span><span class="p">(</span><span class="n">chart</span><span class="o">.</span><span class="n">to_dict</span><span class="p">())</span>
 </pre></div>
 </div>
-<div class="highlight-none"><div class="highlight"><pre><span></span>{&#39;$schema&#39;: &#39;https://vega.github.io/schema/vega-lite/v4.0.0.json&#39;,
+<div class="highlight-none"><div class="highlight"><pre><span></span>{&#39;$schema&#39;: &#39;https://vega.github.io/schema/vega-lite/v4.8.1.json&#39;,
  &#39;config&#39;: {&#39;view&#39;: {&#39;continuousHeight&#39;: 300, &#39;continuousWidth&#39;: 400}},
  &#39;data&#39;: {&#39;values&#39;: [{&#39;x&#39;: 0, &#39;y&#39;: 1},
                      {&#39;x&#39;: 1, &#39;y&#39;: 3},
@@ -360,7 +360,8 @@ consolidation is set to <code class="docutils literal"><span class="pre">True</s
 <div class="section" id="piping">
 <h2>Piping<a class="headerlink" href="#piping" title="Permalink to this headline">¶</a></h2>
 <p>Multiple data transformers can be piped together using <code class="docutils literal"><span class="pre">pipe</span></code>:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">altair</span> <span class="kn">import</span> <span class="n">pipe</span><span class="p">,</span> <span class="n">limit_rows</span><span class="p">,</span> <span class="n">to_values</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">altair</span> <span class="kn">import</span> <span class="n">limit_rows</span><span class="p">,</span> <span class="n">to_values</span>
+<span class="kn">from</span> <span class="nn">toolz.curried</span> <span class="kn">import</span> <span class="n">pipe</span>
 <span class="n">pipe</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">limit_rows</span><span class="p">(</span><span class="mi">10000</span><span class="p">),</span> <span class="n">to_values</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -415,11 +416,12 @@ working directory can get a bit cluttered. To avoid this we can build a simple
 custom data transformer that stores all JSON files in separate directory.:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">toolz.curried</span> <span class="kn">import</span> <span class="n">pipe</span>
 
 
 <span class="k">def</span> <span class="nf">json_dir</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">data_dir</span><span class="o">=</span><span class="s1">&#39;altairdata&#39;</span><span class="p">):</span>
     <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">alt</span><span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">alt</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">data_dir</span> <span class="o">+</span> <span class="s1">&#39;/</span><span class="si">{prefix}</span><span class="s1">-</span><span class="si">{hash}</span><span class="s1">.</span><span class="si">{extension}</span><span class="s1">&#39;</span><span class="p">)</span> <span class="p">)</span>
+    <span class="k">return</span> <span class="n">pipe</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">alt</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">data_dir</span> <span class="o">+</span> <span class="s1">&#39;/</span><span class="si">{prefix}</span><span class="s1">-</span><span class="si">{hash}</span><span class="s1">.</span><span class="si">{extension}</span><span class="s1">&#39;</span><span class="p">)</span> <span class="p">)</span>
 
 
 <span class="n">alt</span><span class="o">.</span><span class="n">data_transformers</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s1">&#39;json_dir&#39;</span><span class="p">,</span> <span class="n">json_dir</span><span class="p">)</span>
@@ -475,7 +477,7 @@ desired directory and make sure that the directory actually exists.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'4.0.0',
+            VERSION:'4.1.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -487,7 +489,7 @@ desired directory and make sure that the directory actually exists.</p>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.0.0"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.8.1"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
   

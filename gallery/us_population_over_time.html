@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>US Population Over Time &mdash; Altair 4.0.0 documentation</title>
+  <title>US Population Over Time &mdash; Altair 4.1.0 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                4.0.0
+                4.1.0
               </div>
             
           
@@ -256,7 +256,7 @@ distribution over time.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}, "facet": {"spacing": 8}}, "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "bar", "encoding": {"color": {"type": "nominal", "field": "sex", "scale": {"domain": ["Male", "Female"], "range": ["steelblue", "salmon"]}}, "column": {"type": "ordinal", "field": "age"}, "x": {"type": "nominal", "field": "sex", "title": null}, "y": {"type": "quantitative", "field": "people", "scale": {"domain": [0, 12000000]}}}, "selection": {"year": {"type": "single", "fields": ["year"], "bind": {"input": "range", "max": 2000, "min": 1900, "step": 10}, "init": {"year": 2000}}}, "transform": [{"calculate": "if((datum.sex === 1),'Male','Female')", "as": "sex"}, {"filter": {"selection": "year"}}], "width": 20, "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json"};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}, "facet": {"spacing": 8}}, "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "bar", "encoding": {"color": {"type": "nominal", "field": "sex", "scale": {"domain": ["Male", "Female"], "range": ["steelblue", "salmon"]}}, "column": {"type": "ordinal", "field": "age"}, "x": {"type": "nominal", "field": "sex", "title": null}, "y": {"type": "quantitative", "field": "people", "scale": {"domain": [0, 12000000]}}}, "selection": {"year": {"type": "single", "fields": ["year"], "bind": {"input": "range", "max": 2000, "min": 1900, "step": 10}, "init": {"year": 2000}}}, "transform": [{"calculate": "if((datum.sex === 1),'Male','Female')", "as": "sex"}, {"filter": {"selection": "year"}}], "width": 20, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -341,7 +341,7 @@ distribution over time.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'4.0.0',
+            VERSION:'4.1.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -353,7 +353,7 @@ distribution over time.</p>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.0.0"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.8.1"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
   

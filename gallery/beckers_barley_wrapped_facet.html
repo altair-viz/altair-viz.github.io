@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Becker’s Barley Trellis Plot (wrapped facet) &mdash; Altair 4.0.0 documentation</title>
+  <title>Becker’s Barley Trellis Plot (wrapped facet) &mdash; Altair 4.1.0 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                4.0.0
+                4.1.0
               </div>
             
           
@@ -124,6 +124,7 @@
 <li class="toctree-l3"><a class="reference internal" href="scatter_marginal_hist.html">Facetted Scatterplot with marginal histograms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="gantt_chart.html">Gantt Chart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="isotype_grid.html">Isotype Grid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layered_chart_with_dual_axis.html">Layered chart with Dual-Axis</a></li>
 <li class="toctree-l3"><a class="reference internal" href="multiple_marks.html">Multiple Marks</a></li>
 <li class="toctree-l3"><a class="reference internal" href="normed_parallel_coordinates.html">Normalized Parallel Coordinates Example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="parallel_coordinates.html">Parallel Coordinates Example</a></li>
@@ -250,7 +251,7 @@ demonstrating the usage of <cite>columns</cite> argument to create wrapped facet
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/barley.json"}, "mark": "point", "encoding": {"color": {"type": "nominal", "field": "year"}, "facet": {"type": "ordinal", "columns": 2, "field": "site"}, "x": {"type": "quantitative", "aggregate": "median", "field": "yield", "scale": {"zero": false}}, "y": {"type": "ordinal", "field": "variety"}}, "height": 100, "width": 200, "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json"};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/barley.json"}, "mark": "point", "encoding": {"color": {"type": "nominal", "field": "year"}, "facet": {"type": "ordinal", "columns": 2, "field": "site"}, "x": {"type": "quantitative", "aggregate": "median", "field": "yield", "scale": {"zero": false}}, "y": {"type": "ordinal", "field": "variety"}}, "height": 100, "width": 200, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -321,7 +322,7 @@ demonstrating the usage of <cite>columns</cite> argument to create wrapped facet
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'4.0.0',
+            VERSION:'4.1.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -333,7 +334,7 @@ demonstrating the usage of <cite>columns</cite> argument to create wrapped facet
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.0.0"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.8.1"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
   

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>TimeUnit Transform &mdash; Altair 4.0.0 documentation</title>
+  <title>TimeUnit Transform &mdash; Altair 4.1.0 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                4.0.0
+                4.1.0
               </div>
             
           
@@ -238,7 +238,7 @@ top-level transform.</p>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">&quot;year&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;yearquarter&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;yearquartermonth&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;yearmonth&quot;</span></code>,
 <code class="docutils literal"><span class="pre">&quot;yearmonthdate&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;yearmonthdatehours&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;yearmonthdatehoursminutes&quot;</span></code>,
-<code class="docutils literal"><span class="pre">&quot;yearmonthdatehoursseconds&quot;</span></code>.</li>
+<code class="docutils literal"><span class="pre">&quot;yearmonthdatehoursminutesseconds&quot;</span></code>.</li>
 <li><code class="docutils literal"><span class="pre">&quot;quarter&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;quartermonth&quot;</span></code></li>
 <li><code class="docutils literal"><span class="pre">&quot;month&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;monthdate&quot;</span></code></li>
 <li><code class="docutils literal"><span class="pre">&quot;date&quot;</span></code> (Day of month, i.e., 1 - 31)</li>
@@ -271,7 +271,7 @@ measurements in Seattle during the year 2010:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-temps.csv"}, "mark": "line", "encoding": {"x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "temp"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json"};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-temps.csv"}, "mark": "line", "encoding": {"x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "temp"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -295,7 +295,7 @@ and plotting only the mean monthly temperature:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-temps.csv"}, "mark": "line", "encoding": {"x": {"type": "temporal", "field": "date", "timeUnit": "month"}, "y": {"type": "quantitative", "aggregate": "mean", "field": "temp"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json"};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-temps.csv"}, "mark": "line", "encoding": {"x": {"type": "temporal", "field": "date", "timeUnit": "month"}, "y": {"type": "quantitative", "aggregate": "mean", "field": "temp"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -320,7 +320,7 @@ This can be useful when plotting a bar chart or other discrete chart type:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-temps.csv"}, "mark": "bar", "encoding": {"x": {"type": "ordinal", "field": "date", "timeUnit": "month"}, "y": {"type": "quantitative", "aggregate": "mean", "field": "temp"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json"};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-temps.csv"}, "mark": "bar", "encoding": {"x": {"type": "ordinal", "field": "date", "timeUnit": "month"}, "y": {"type": "quantitative", "aggregate": "mean", "field": "temp"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -347,7 +347,7 @@ to give a profile of Seattle temperatures through the year:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-temps.csv"}, "mark": "rect", "encoding": {"color": {"type": "quantitative", "aggregate": "max", "field": "temp"}, "x": {"type": "ordinal", "field": "date", "timeUnit": "date", "title": "day"}, "y": {"type": "ordinal", "field": "date", "timeUnit": "month", "title": "month"}}, "title": "2010 Daily High Temperatures in Seattle (F)", "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json"};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-temps.csv"}, "mark": "rect", "encoding": {"color": {"type": "quantitative", "aggregate": "max", "field": "temp"}, "x": {"type": "ordinal", "field": "date", "timeUnit": "date", "title": "day"}, "y": {"type": "ordinal", "field": "date", "timeUnit": "month", "title": "month"}}, "title": "2010 Daily High Temperatures in Seattle (F)", "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -377,7 +377,7 @@ method. For example:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-temps.csv"}, "mark": "line", "encoding": {"x": {"type": "temporal", "axis": {"format": "%b"}, "field": "month"}, "y": {"type": "quantitative", "aggregate": "mean", "field": "temp"}}, "transform": [{"field": "date", "timeUnit": "month", "as": "month"}], "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json"};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-temps.csv"}, "mark": "line", "encoding": {"x": {"type": "temporal", "axis": {"format": "%b"}, "field": "month"}, "y": {"type": "quantitative", "aggregate": "mean", "field": "temp"}}, "transform": [{"field": "date", "timeUnit": "month", "as": "month"}], "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -416,7 +416,7 @@ class, which has the following options:</p>
 <td class="vl-decsr">The data field to apply time unit.</td>
 </tr>
 <tr class="row-even"><td class="vl-prop">timeUnit</td>
-<td><a class="reference internal" href="../generated/core/altair.TimeUnit.html#altair.TimeUnit" title="altair.TimeUnit"><code class="xref py py-class docutils literal"><span class="pre">TimeUnit</span></code></a></td>
+<td>anyOf(<a class="reference internal" href="../generated/core/altair.TimeUnit.html#altair.TimeUnit" title="altair.TimeUnit"><code class="xref py py-class docutils literal"><span class="pre">TimeUnit</span></code></a>, <a class="reference internal" href="../generated/core/altair.TimeUnitParams.html#altair.TimeUnitParams" title="altair.TimeUnitParams"><code class="xref py py-class docutils literal"><span class="pre">TimeUnitParams</span></code></a>)</td>
 <td class="vl-decsr">The timeUnit.</td>
 </tr>
 </tbody>
@@ -466,7 +466,7 @@ class, which has the following options:</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'4.0.0',
+            VERSION:'4.1.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -478,7 +478,7 @@ class, which has the following options:</p>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.0.0"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.8.1"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
   

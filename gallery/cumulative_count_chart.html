@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Cumulative Count Chart &mdash; Altair 4.0.0 documentation</title>
+  <title>Cumulative Count Chart &mdash; Altair 4.1.0 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Faceted Density Estimates" href="density_facet.html" />
-    <link rel="prev" title="Step Chart" href="step_chart.html" /> 
+    <link rel="prev" title="Area Chart with Gradient" href="area_chart_gradient.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                4.0.0
+                4.1.0
               </div>
             
           
@@ -106,6 +106,7 @@
 <li class="toctree-l2"><a class="reference internal" href="index.html#bar-charts">Bar Charts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#line-charts">Line Charts</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html#area-charts">Area Charts</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="area_chart_gradient.html">Area Chart with Gradient</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Cumulative Count Chart</a><ul class="simple">
 </ul>
 </li>
@@ -239,7 +240,7 @@ Adapted from <a class="reference external" href="https://vega.github.io/vega-lit
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/movies.json"}, "mark": "area", "encoding": {"x": {"type": "quantitative", "field": "IMDB_Rating"}, "y": {"type": "quantitative", "field": "cumulative_count"}}, "transform": [{"window": [{"op": "count", "as": "cumulative_count"}], "sort": [{"field": "IMDB_Rating"}]}], "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json"};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/movies.json"}, "mark": "area", "encoding": {"x": {"type": "quantitative", "field": "IMDB_Rating"}, "y": {"type": "quantitative", "field": "cumulative_count"}}, "transform": [{"window": [{"op": "count", "as": "cumulative_count"}], "sort": [{"field": "IMDB_Rating"}]}], "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -277,7 +278,7 @@ Adapted from <a class="reference external" href="https://vega.github.io/vega-lit
         <a href="density_facet.html" class="btn btn-neutral float-right" title="Faceted Density Estimates" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="step_chart.html" class="btn btn-neutral" title="Step Chart" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="area_chart_gradient.html" class="btn btn-neutral" title="Area Chart with Gradient" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -308,7 +309,7 @@ Adapted from <a class="reference external" href="https://vega.github.io/vega-lit
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'4.0.0',
+            VERSION:'4.1.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -320,7 +321,7 @@ Adapted from <a class="reference external" href="https://vega.github.io/vega-lit
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.0.0"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.8.1"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
   

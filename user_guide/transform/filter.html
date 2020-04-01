@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Filter Transform &mdash; Altair 4.0.0 documentation</title>
+  <title>Filter Transform &mdash; Altair 4.1.0 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                4.0.0
+                4.1.0
               </div>
             
           
@@ -273,7 +273,7 @@ This can be useful when, for example, selecting only a subset of data.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "area", "encoding": {"x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "field": "people"}}, "transform": [{"filter": "((datum.year === 2000) && (datum.sex === 1))"}], "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json"};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "area", "encoding": {"x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "field": "people"}}, "transform": [{"filter": "((datum.year === 2000) && (datum.sex === 1))"}], "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -327,7 +327,7 @@ values from year 2000 as in the above chart:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "transform": [{"filter": {"equal": 2000, "field": "year"}}], "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json"};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "transform": [{"filter": {"equal": 2000, "field": "year"}}], "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -357,7 +357,7 @@ of specific values:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "transform": [{"filter": {"field": "year", "oneOf": [1900, 1950, 2000]}}], "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json"};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "transform": [{"filter": {"field": "year", "oneOf": [1900, 1950, 2000]}}], "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -387,7 +387,7 @@ particular continuous range:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "transform": [{"filter": {"field": "year", "range": [1960, 2000]}}], "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json"};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "transform": [{"filter": {"field": "year", "range": [1960, 2000]}}], "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -443,7 +443,7 @@ to select the data to be shown in the top chart:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "vconcat": [{"mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "height": 200, "transform": [{"filter": {"selection": "selector074"}}], "width": 600}, {"mark": "bar", "encoding": {"color": {"condition": {"value": "steelblue", "selection": "selector074"}, "value": "lightgray"}, "x": {"type": "ordinal", "field": "year"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "height": 100, "selection": {"selector074": {"type": "multi", "fields": ["year"]}}, "width": 600}], "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json"};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "vconcat": [{"mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "height": 200, "transform": [{"filter": {"selection": "selector076"}}], "width": 600}, {"mark": "bar", "encoding": {"color": {"condition": {"value": "steelblue", "selection": "selector076"}, "value": "lightgray"}, "x": {"type": "ordinal", "field": "year"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "height": 100, "selection": {"selector076": {"type": "multi", "fields": ["year"]}}, "width": 600}], "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -489,7 +489,7 @@ by applying a <code class="docutils literal"><span class="pre">LogicalNotPredica
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "height": 200, "transform": [{"filter": {"not": {"field": "year", "range": [1900, 1950]}}}], "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json"};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "mark": "line", "encoding": {"color": {"type": "ordinal", "field": "year"}, "x": {"type": "ordinal", "field": "age"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "people"}}, "height": 200, "transform": [{"filter": {"not": {"field": "year", "range": [1900, 1950]}}}], "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -517,21 +517,22 @@ class, which has the following options:</p>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td class="vl-prop">filter</td>
-<td><code class="xref py py-class docutils literal"><span class="pre">LogicalOperand&lt;Predicate&gt;</span></code></td>
-<td class="vl-decsr"><p class="first">The <code class="docutils literal"><span class="pre">filter</span></code> property must be one of the predicate definitions:</p>
+<td><a class="reference internal" href="../generated/core/altair.PredicateComposition.html#altair.PredicateComposition" title="altair.PredicateComposition"><code class="xref py py-class docutils literal"><span class="pre">PredicateComposition</span></code></a></td>
+<td class="vl-decsr"><p class="first">The <code class="docutils literal"><span class="pre">filter</span></code> property must be a predication definition, which can takes one of the following forms:</p>
 <ol class="last simple">
 <li>an <a class="reference external" href="https://vega.github.io/vega-lite/docs/types.html#expression">expression</a> string,
-where <code class="docutils literal"><span class="pre">datum</span></code> can be used to refer to the current data object</li>
-<li>one of the field predicates: <a class="reference external" href="https://vega.github.io/vega-lite/docs/filter.html#equal-predicate"><code class="docutils literal"><span class="pre">equal</span></code></a>,
-<a class="reference external" href="https://vega.github.io/vega-lite/docs/filter.html#lt-predicate"><code class="docutils literal"><span class="pre">lt</span></code></a>,
-<a class="reference external" href="https://vega.github.io/vega-lite/docs/filter.html#lte-predicate"><code class="docutils literal"><span class="pre">lte</span></code></a>,
-<a class="reference external" href="https://vega.github.io/vega-lite/docs/filter.html#gt-predicate"><code class="docutils literal"><span class="pre">gt</span></code></a>,
-<a class="reference external" href="https://vega.github.io/vega-lite/docs/filter.html#gte-predicate"><code class="docutils literal"><span class="pre">gte</span></code></a>,
-<a class="reference external" href="https://vega.github.io/vega-lite/docs/filter.html#range-predicate"><code class="docutils literal"><span class="pre">range</span></code></a>,
-<a class="reference external" href="https://vega.github.io/vega-lite/docs/filter.html#one-of-predicate"><code class="docutils literal"><span class="pre">oneOf</span></code></a>,
-or <a class="reference external" href="https://vega.github.io/vega-lite/docs/filter.html#valid-predicate"><code class="docutils literal"><span class="pre">valid</span></code></a>,</li>
-<li>a <a class="reference external" href="https://vega.github.io/vega-lite/docs/filter.html#selection-predicate">selection predicate</a></li>
-<li>a logical operand that combines (1), (2), or (3).</li>
+where <code class="docutils literal"><span class="pre">datum</span></code> can be used to refer to the current data object.
+For example, <code class="docutils literal"><span class="pre">{filter:</span> <span class="pre">&quot;datum.b2</span> <span class="pre">&gt;</span> <span class="pre">60&quot;}</span></code> would make the output data includes only items that have values in the field <code class="docutils literal"><span class="pre">b2</span></code> over 60.</li>
+<li>one of the <a class="reference external" href="https://vega.github.io/vega-lite/docs/predicate.html#field-predicate">field predicates</a>: [<code class="docutils literal"><span class="pre">equal</span></code>](https://vega.github.io/* vega-lite/docs/predicate.html#field-equal-predicate),
+<a class="reference external" href="https://vega.github.io/vega-lite/docs/predicate.html#lt-predicate"><code class="docutils literal"><span class="pre">lt</span></code></a>,
+<a class="reference external" href="https://vega.github.io/vega-lite/docs/predicate.html#lte-predicate"><code class="docutils literal"><span class="pre">lte</span></code></a>,
+<a class="reference external" href="https://vega.github.io/vega-lite/docs/predicate.html#gt-predicate"><code class="docutils literal"><span class="pre">gt</span></code></a>,
+<a class="reference external" href="https://vega.github.io/vega-lite/docs/predicate.html#gte-predicate"><code class="docutils literal"><span class="pre">gte</span></code></a>,
+<a class="reference external" href="https://vega.github.io/vega-lite/docs/predicate.html#range-predicate"><code class="docutils literal"><span class="pre">range</span></code></a>,
+<a class="reference external" href="https://vega.github.io/vega-lite/docs/predicate.html#one-of-predicate"><code class="docutils literal"><span class="pre">oneOf</span></code></a>,
+or <a class="reference external" href="https://vega.github.io/vega-lite/docs/predicate.html#valid-predicate"><code class="docutils literal"><span class="pre">valid</span></code></a>,</li>
+<li>a <a class="reference external" href="https://vega.github.io/vega-lite/docs/predicate.html#selection-predicate">selection predicate</a>, which define the names of a selection that the data point should belong to (or a logical composition of selections).</li>
+<li>a <a class="reference external" href="https://vega.github.io/vega-lite/docs/predicate.html#composition">logical composition</a> of (1), (2), or (3).</li>
 </ol>
 </td>
 </tr>
@@ -582,7 +583,7 @@ or <a class="reference external" href="https://vega.github.io/vega-lite/docs/fil
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'4.0.0',
+            VERSION:'4.1.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -594,7 +595,7 @@ or <a class="reference external" href="https://vega.github.io/vega-lite/docs/fil
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.0.0"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.8.1"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
   

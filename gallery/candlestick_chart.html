@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Candlestick Chart &mdash; Altair 4.0.0 documentation</title>
+  <title>Candlestick Chart &mdash; Altair 4.1.0 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                4.0.0
+                4.1.0
               </div>
             
           
@@ -124,6 +124,7 @@
 <li class="toctree-l3"><a class="reference internal" href="scatter_marginal_hist.html">Facetted Scatterplot with marginal histograms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="gantt_chart.html">Gantt Chart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="isotype_grid.html">Isotype Grid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layered_chart_with_dual_axis.html">Layered chart with Dual-Axis</a></li>
 <li class="toctree-l3"><a class="reference internal" href="multiple_marks.html">Multiple Marks</a></li>
 <li class="toctree-l3"><a class="reference internal" href="normed_parallel_coordinates.html">Normalized Parallel Coordinates Example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="parallel_coordinates.html">Parallel Coordinates Example</a></li>
@@ -241,14 +242,17 @@
             
   <div class="section" id="candlestick-chart">
 <span id="gallery-candlestick-chart"></span><h1>Candlestick Chart<a class="headerlink" href="#candlestick-chart" title="Permalink to this headline">¶</a></h1>
-<p>A candlestick chart inspired from Protovis (<a class="reference external" href="http://mbostock.github.io/protovis/ex/candlestick.html">http://mbostock.github.io/protovis/ex/candlestick.html</a>). This example shows the performance of the Chicago Board Options Exchange Volatility Index (VIX) in the summer of 2009. The thick bar represents the opening and closing prices, while the thin bar shows intraday high and low prices; if the index closed higher on a given day, the bars are colored green rather than red.</p>
+<p>A candlestick chart inspired from <a class="reference external" href="http://mbostock.github.io/protovis/ex/candlestick.html">Protovis</a>.
+This example shows the performance of the Chicago Board Options Exchange <a class="reference external" href="https://en.wikipedia.org/wiki/VIX">Volatility Index</a> (VIX)
+in the summer of 2009. The thick bar represents the opening and closing prices,
+while the thin bar shows intraday high and low prices; if the index closed higher on a given day, the bars are colored green rather than red.</p>
 
 <div id="candlestick_chart-rst-altair-plot-0">
 <script>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": "rule", "encoding": {"color": {"condition": {"value": "#06982d", "test": "datum.open < datum.close"}, "value": "#ae1325"}, "x": {"type": "temporal", "axis": {"format": "%m/%d", "title": "Date in 2009"}, "field": "date", "scale": {"domain": [{"month": 5, "date": 31, "year": 2009}, {"month": 7, "date": 1, "year": 2009}]}, "timeUnit": "yearmonthdate"}, "y": {"type": "quantitative", "field": "low", "scale": {"zero": false}, "title": "Price"}, "y2": {"field": "high"}}}, {"mark": "bar", "encoding": {"color": {"condition": {"value": "#06982d", "test": "datum.open < datum.close"}, "value": "#ae1325"}, "x": {"type": "temporal", "field": "date", "timeUnit": "yearmonthdate"}, "y": {"type": "quantitative", "field": "open"}, "y2": {"field": "close"}}}], "data": {"name": "data-e43e82da555daf870355e8af29d7a511"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json", "datasets": {"data-e43e82da555daf870355e8af29d7a511": [{"close": 30.04, "date": "2009-06-01", "high": 30.05, "low": 28.45, "open": 28.7, "ret": -4.89396411092985, "signal": "short"}, {"close": 29.63, "date": "2009-06-02", "high": 30.13, "low": 28.3, "open": 30.04, "ret": -0.322580645161295, "signal": "short"}, {"close": 31.02, "date": "2009-06-03", "high": 31.79, "low": 29.62, "open": 29.62, "ret": 3.68663594470045, "signal": "short"}, {"close": 30.18, "date": "2009-06-04", "high": 31.02, "low": 29.92, "open": 31.02, "ret": 4.51010886469673, "signal": "short"}, {"close": 29.62, "date": "2009-06-05", "high": 30.81, "low": 28.85, "open": 29.39, "ret": 6.08424336973478, "signal": "short"}, {"close": 29.77, "date": "2009-06-08", "high": 31.82, "low": 26.41, "open": 30.84, "ret": 1.2539184952978, "signal": "short"}, {"close": 28.27, "date": "2009-06-09", "high": 29.77, "low": 27.79, "open": 29.77, "ret": -5.02431118314424, "signal": "short"}, {"close": 28.46, "date": "2009-06-10", "high": 29.74, "low": 26.9, "open": 26.9, "ret": -5.46623794212217, "signal": "short"}, {"close": 28.11, "date": "2009-06-11", "high": 28.11, "low": 26.81, "open": 27.36, "ret": -8.3743842364532, "signal": "short"}, {"close": 28.15, "date": "2009-06-12", "high": 28.5, "low": 27.73, "open": 28.08, "ret": -5.52763819095477, "signal": "short"}, {"close": 30.81, "date": "2009-06-15", "high": 31.09, "low": 29.64, "open": 29.7, "ret": 3.4920634920635, "signal": "long"}, {"close": 32.68, "date": "2009-06-16", "high": 32.75, "low": 30.07, "open": 30.81, "ret": 0.155038759689914, "signal": "short"}, {"close": 31.54, "date": "2009-06-17", "high": 32.77, "low": 30.64, "open": 31.19, "ret": 5.82822085889571, "signal": "short"}, {"close": 30.03, "date": "2009-06-18", "high": 31.54, "low": 29.6, "open": 31.54, "ret": 8.17610062893082, "signal": "short"}, {"close": 27.99, "date": "2009-06-19", "high": 29.32, "low": 27.56, "open": 29.16, "ret": 8.59872611464968, "signal": "short"}, {"close": 31.17, "date": "2009-06-22", "high": 32.05, "low": 30.3, "open": 30.4, "ret": 15.4907975460123, "signal": "short"}, {"close": 30.58, "date": "2009-06-23", "high": 31.54, "low": 27.83, "open": 31.3, "ret": 11.7370892018779, "signal": "short"}, {"close": 29.05, "date": "2009-06-24", "high": 30.58, "low": 28.79, "open": 30.58, "ret": -10.4234527687296, "signal": "long"}, {"close": 26.36, "date": "2009-06-25", "high": 29.56, "low": 26.3, "open": 29.45, "ret": 0.0, "signal": "long"}, {"close": 25.93, "date": "2009-06-26", "high": 27.22, "low": 25.76, "open": 27.09, "ret": 0.0, "signal": "long"}, {"close": 25.35, "date": "2009-06-29", "high": 27.18, "low": 25.29, "open": 25.93, "ret": 5.26315789473684, "signal": "long"}, {"close": 26.35, "date": "2009-06-30", "high": 27.38, "low": 25.02, "open": 25.36, "ret": 6.73758865248228, "signal": "long"}]}};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": "rule", "encoding": {"color": {"condition": {"value": "#06982d", "test": "datum.open <= datum.close"}, "value": "#ae1325"}, "x": {"type": "temporal", "axis": {"format": "%m/%d", "labelAngle": -45, "title": "Date in 2009"}, "field": "date"}, "y": {"type": "quantitative", "field": "low", "scale": {"zero": false}, "title": "Price"}, "y2": {"field": "high"}}}, {"mark": "bar", "encoding": {"color": {"condition": {"value": "#06982d", "test": "datum.open <= datum.close"}, "value": "#ae1325"}, "x": {"type": "temporal", "axis": {"format": "%m/%d", "labelAngle": -45, "title": "Date in 2009"}, "field": "date"}, "y": {"type": "quantitative", "field": "open"}, "y2": {"field": "close"}}}], "data": {"name": "data-6095c1ec4d89ad64750a63772b69643b"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-6095c1ec4d89ad64750a63772b69643b": [{"date": "2009-06-01T00:00:00", "open": 28.7, "high": 30.05, "low": 28.45, "close": 30.04, "signal": "short", "ret": -4.89396411092985}, {"date": "2009-06-02T00:00:00", "open": 30.04, "high": 30.13, "low": 28.3, "close": 29.63, "signal": "short", "ret": -0.32258064516129503}, {"date": "2009-06-03T00:00:00", "open": 29.62, "high": 31.79, "low": 29.62, "close": 31.02, "signal": "short", "ret": 3.68663594470045}, {"date": "2009-06-04T00:00:00", "open": 31.02, "high": 31.02, "low": 29.92, "close": 30.18, "signal": "short", "ret": 4.51010886469673}, {"date": "2009-06-05T00:00:00", "open": 29.39, "high": 30.81, "low": 28.85, "close": 29.62, "signal": "short", "ret": 6.08424336973478}, {"date": "2009-06-08T00:00:00", "open": 30.84, "high": 31.82, "low": 26.41, "close": 29.77, "signal": "short", "ret": 1.2539184952978}, {"date": "2009-06-09T00:00:00", "open": 29.77, "high": 29.77, "low": 27.79, "close": 28.27, "signal": "short", "ret": -5.02431118314424}, {"date": "2009-06-10T00:00:00", "open": 26.9, "high": 29.74, "low": 26.9, "close": 28.46, "signal": "short", "ret": -5.46623794212217}, {"date": "2009-06-11T00:00:00", "open": 27.36, "high": 28.11, "low": 26.81, "close": 28.11, "signal": "short", "ret": -8.3743842364532}, {"date": "2009-06-12T00:00:00", "open": 28.08, "high": 28.5, "low": 27.73, "close": 28.15, "signal": "short", "ret": -5.52763819095477}, {"date": "2009-06-15T00:00:00", "open": 29.7, "high": 31.09, "low": 29.64, "close": 30.81, "signal": "long", "ret": 3.4920634920635}, {"date": "2009-06-16T00:00:00", "open": 30.81, "high": 32.75, "low": 30.07, "close": 32.68, "signal": "short", "ret": 0.155038759689914}, {"date": "2009-06-17T00:00:00", "open": 31.19, "high": 32.77, "low": 30.64, "close": 31.54, "signal": "short", "ret": 5.82822085889571}, {"date": "2009-06-18T00:00:00", "open": 31.54, "high": 31.54, "low": 29.6, "close": 30.03, "signal": "short", "ret": 8.17610062893082}, {"date": "2009-06-19T00:00:00", "open": 29.16, "high": 29.32, "low": 27.56, "close": 27.99, "signal": "short", "ret": 8.59872611464968}, {"date": "2009-06-22T00:00:00", "open": 30.4, "high": 32.05, "low": 30.3, "close": 31.17, "signal": "short", "ret": 15.4907975460123}, {"date": "2009-06-23T00:00:00", "open": 31.3, "high": 31.54, "low": 27.83, "close": 30.58, "signal": "short", "ret": 11.7370892018779}, {"date": "2009-06-24T00:00:00", "open": 30.58, "high": 30.58, "low": 28.79, "close": 29.05, "signal": "long", "ret": -10.4234527687296}, {"date": "2009-06-25T00:00:00", "open": 29.45, "high": 29.56, "low": 26.3, "close": 26.36, "signal": "long", "ret": 0.0}, {"date": "2009-06-26T00:00:00", "open": 27.09, "high": 27.22, "low": 25.76, "close": 25.93, "signal": "long", "ret": 0.0}, {"date": "2009-06-29T00:00:00", "open": 25.93, "high": 27.18, "low": 25.29, "close": 25.35, "signal": "long", "ret": 5.26315789473684}, {"date": "2009-06-30T00:00:00", "open": 25.36, "high": 27.38, "low": 25.02, "close": 26.35, "signal": "long", "ret": 6.73758865248228}, {"date": "2009-07-01T00:00:00", "open": 25.73, "high": 26.31, "low": 24.8, "close": 26.22, "signal": "long", "ret": 7.83645655877341}, {"date": "2009-07-02T00:00:00", "open": 26.22, "high": 28.62, "low": 26.22, "close": 27.95, "signal": "long", "ret": 2.7642276422764303}, {"date": "2009-07-06T00:00:00", "open": 30.32, "high": 30.6, "low": 28.99, "close": 29.0, "signal": "short", "ret": -2.14521452145214}, {"date": "2009-07-07T00:00:00", "open": 29.0, "high": 30.94, "low": 28.9, "close": 30.85, "signal": "short", "ret": 3.03514376996805}, {"date": "2009-07-08T00:00:00", "open": 30.85, "high": 33.05, "low": 30.43, "close": 31.3, "signal": "short", "ret": 5.68720379146919}, {"date": "2009-07-09T00:00:00", "open": 30.23, "high": 30.49, "low": 29.28, "close": 29.78, "signal": "short", "ret": 8.22784810126583}, {"date": "2009-07-10T00:00:00", "open": 29.78, "high": 30.34, "low": 28.82, "close": 29.02, "signal": "short", "ret": 8.64779874213836}, {"date": "2009-07-13T00:00:00", "open": 28.36, "high": 29.24, "low": 25.42, "close": 26.31, "signal": "short", "ret": 7.32899022801303}, {"date": "2009-07-14T00:00:00", "open": 26.31, "high": 26.84, "low": 24.99, "close": 25.02, "signal": "short", "ret": 7.30897009966778}, {"date": "2009-07-15T00:00:00", "open": 25.05, "high": 26.06, "low": 23.83, "close": 25.89, "signal": "neutral", "ret": 0.0}, {"date": "2009-07-16T00:00:00", "open": 25.96, "high": 26.18, "low": 24.51, "close": 25.42, "signal": "long", "ret": -9.82758620689656}, {"date": "2009-07-17T00:00:00", "open": 25.42, "high": 25.55, "low": 23.88, "close": 24.34, "signal": "long", "ret": -10.8433734939759}, {"date": "2009-07-20T00:00:00", "open": 25.06, "high": 25.42, "low": 24.26, "close": 24.4, "signal": "long", "ret": -7.55711775043936}, {"date": "2009-07-21T00:00:00", "open": 24.28, "high": 25.14, "low": 23.81, "close": 23.87, "signal": "long", "ret": -2.5089605734767}, {"date": "2009-07-22T00:00:00", "open": 24.05, "high": 24.14, "low": 23.24, "close": 23.47, "signal": "long", "ret": 0.915750915750916}, {"date": "2009-07-23T00:00:00", "open": 23.71, "high": 24.05, "low": 23.21, "close": 23.43, "signal": "long", "ret": 2.47148288973383}, {"date": "2009-07-24T00:00:00", "open": 23.87, "high": 23.87, "low": 23.0, "close": 23.09, "signal": "long", "ret": 4.22264875239922}, {"date": "2009-07-27T00:00:00", "open": 24.06, "high": 24.86, "low": 24.02, "close": 24.28, "signal": "long", "ret": -0.189393939393929}, {"date": "2009-07-28T00:00:00", "open": 24.28, "high": 25.61, "low": 24.28, "close": 25.01, "signal": "long", "ret": -4.3795620437956195}, {"date": "2009-07-29T00:00:00", "open": 25.47, "high": 26.18, "low": 25.41, "close": 25.61, "signal": "long", "ret": -4.48504983388705}, {"date": "2009-07-30T00:00:00", "open": 25.4, "high": 25.76, "low": 24.85, "close": 25.4, "signal": "long", "ret": -1.70357751277683}, {"date": "2009-07-31T00:00:00", "open": 25.4, "high": 26.22, "low": 24.93, "close": 25.92, "signal": "short", "ret": 5.06756756756757}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -258,235 +262,37 @@
   });
 </script>
 </div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
 
-<span class="n">source</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-<span class="p">[</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2009-06-01&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;open&quot;</span><span class="p">:</span> <span class="mf">28.7</span><span class="p">,</span>
-        <span class="s2">&quot;high&quot;</span><span class="p">:</span> <span class="mf">30.05</span><span class="p">,</span>
-        <span class="s2">&quot;low&quot;</span><span class="p">:</span> <span class="mf">28.45</span><span class="p">,</span>
-        <span class="s2">&quot;close&quot;</span><span class="p">:</span> <span class="mf">30.04</span><span class="p">,</span>
-        <span class="s2">&quot;signal&quot;</span><span class="p">:</span> <span class="s2">&quot;short&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;ret&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">4.89396411092985</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2009-06-02&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;open&quot;</span><span class="p">:</span> <span class="mf">30.04</span><span class="p">,</span>
-        <span class="s2">&quot;high&quot;</span><span class="p">:</span> <span class="mf">30.13</span><span class="p">,</span>
-        <span class="s2">&quot;low&quot;</span><span class="p">:</span> <span class="mf">28.3</span><span class="p">,</span>
-        <span class="s2">&quot;close&quot;</span><span class="p">:</span> <span class="mf">29.63</span><span class="p">,</span>
-        <span class="s2">&quot;signal&quot;</span><span class="p">:</span> <span class="s2">&quot;short&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;ret&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.322580645161295</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2009-06-03&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;open&quot;</span><span class="p">:</span> <span class="mf">29.62</span><span class="p">,</span>
-        <span class="s2">&quot;high&quot;</span><span class="p">:</span> <span class="mf">31.79</span><span class="p">,</span>
-        <span class="s2">&quot;low&quot;</span><span class="p">:</span> <span class="mf">29.62</span><span class="p">,</span>
-        <span class="s2">&quot;close&quot;</span><span class="p">:</span> <span class="mf">31.02</span><span class="p">,</span>
-        <span class="s2">&quot;signal&quot;</span><span class="p">:</span> <span class="s2">&quot;short&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;ret&quot;</span><span class="p">:</span> <span class="mf">3.68663594470045</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2009-06-04&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;open&quot;</span><span class="p">:</span> <span class="mf">31.02</span><span class="p">,</span>
-        <span class="s2">&quot;high&quot;</span><span class="p">:</span> <span class="mf">31.02</span><span class="p">,</span>
-        <span class="s2">&quot;low&quot;</span><span class="p">:</span> <span class="mf">29.92</span><span class="p">,</span>
-        <span class="s2">&quot;close&quot;</span><span class="p">:</span> <span class="mf">30.18</span><span class="p">,</span>
-        <span class="s2">&quot;signal&quot;</span><span class="p">:</span> <span class="s2">&quot;short&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;ret&quot;</span><span class="p">:</span> <span class="mf">4.51010886469673</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2009-06-05&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;open&quot;</span><span class="p">:</span> <span class="mf">29.39</span><span class="p">,</span>
-        <span class="s2">&quot;high&quot;</span><span class="p">:</span> <span class="mf">30.81</span><span class="p">,</span>
-        <span class="s2">&quot;low&quot;</span><span class="p">:</span> <span class="mf">28.85</span><span class="p">,</span>
-        <span class="s2">&quot;close&quot;</span><span class="p">:</span> <span class="mf">29.62</span><span class="p">,</span>
-        <span class="s2">&quot;signal&quot;</span><span class="p">:</span> <span class="s2">&quot;short&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;ret&quot;</span><span class="p">:</span> <span class="mf">6.08424336973478</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2009-06-08&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;open&quot;</span><span class="p">:</span> <span class="mf">30.84</span><span class="p">,</span>
-        <span class="s2">&quot;high&quot;</span><span class="p">:</span> <span class="mf">31.82</span><span class="p">,</span>
-        <span class="s2">&quot;low&quot;</span><span class="p">:</span> <span class="mf">26.41</span><span class="p">,</span>
-        <span class="s2">&quot;close&quot;</span><span class="p">:</span> <span class="mf">29.77</span><span class="p">,</span>
-        <span class="s2">&quot;signal&quot;</span><span class="p">:</span> <span class="s2">&quot;short&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;ret&quot;</span><span class="p">:</span> <span class="mf">1.2539184952978</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2009-06-09&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;open&quot;</span><span class="p">:</span> <span class="mf">29.77</span><span class="p">,</span>
-        <span class="s2">&quot;high&quot;</span><span class="p">:</span> <span class="mf">29.77</span><span class="p">,</span>
-        <span class="s2">&quot;low&quot;</span><span class="p">:</span> <span class="mf">27.79</span><span class="p">,</span>
-        <span class="s2">&quot;close&quot;</span><span class="p">:</span> <span class="mf">28.27</span><span class="p">,</span>
-        <span class="s2">&quot;signal&quot;</span><span class="p">:</span> <span class="s2">&quot;short&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;ret&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">5.02431118314424</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2009-06-10&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;open&quot;</span><span class="p">:</span> <span class="mf">26.9</span><span class="p">,</span>
-        <span class="s2">&quot;high&quot;</span><span class="p">:</span> <span class="mf">29.74</span><span class="p">,</span>
-        <span class="s2">&quot;low&quot;</span><span class="p">:</span> <span class="mf">26.9</span><span class="p">,</span>
-        <span class="s2">&quot;close&quot;</span><span class="p">:</span> <span class="mf">28.46</span><span class="p">,</span>
-        <span class="s2">&quot;signal&quot;</span><span class="p">:</span> <span class="s2">&quot;short&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;ret&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">5.46623794212217</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2009-06-11&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;open&quot;</span><span class="p">:</span> <span class="mf">27.36</span><span class="p">,</span>
-        <span class="s2">&quot;high&quot;</span><span class="p">:</span> <span class="mf">28.11</span><span class="p">,</span>
-        <span class="s2">&quot;low&quot;</span><span class="p">:</span> <span class="mf">26.81</span><span class="p">,</span>
-        <span class="s2">&quot;close&quot;</span><span class="p">:</span> <span class="mf">28.11</span><span class="p">,</span>
-        <span class="s2">&quot;signal&quot;</span><span class="p">:</span> <span class="s2">&quot;short&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;ret&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">8.3743842364532</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2009-06-12&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;open&quot;</span><span class="p">:</span> <span class="mf">28.08</span><span class="p">,</span>
-        <span class="s2">&quot;high&quot;</span><span class="p">:</span> <span class="mf">28.5</span><span class="p">,</span>
-        <span class="s2">&quot;low&quot;</span><span class="p">:</span> <span class="mf">27.73</span><span class="p">,</span>
-        <span class="s2">&quot;close&quot;</span><span class="p">:</span> <span class="mf">28.15</span><span class="p">,</span>
-        <span class="s2">&quot;signal&quot;</span><span class="p">:</span> <span class="s2">&quot;short&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;ret&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">5.52763819095477</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2009-06-15&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;open&quot;</span><span class="p">:</span> <span class="mf">29.7</span><span class="p">,</span>
-        <span class="s2">&quot;high&quot;</span><span class="p">:</span> <span class="mf">31.09</span><span class="p">,</span>
-        <span class="s2">&quot;low&quot;</span><span class="p">:</span> <span class="mf">29.64</span><span class="p">,</span>
-        <span class="s2">&quot;close&quot;</span><span class="p">:</span> <span class="mf">30.81</span><span class="p">,</span>
-        <span class="s2">&quot;signal&quot;</span><span class="p">:</span> <span class="s2">&quot;long&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;ret&quot;</span><span class="p">:</span> <span class="mf">3.4920634920635</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2009-06-16&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;open&quot;</span><span class="p">:</span> <span class="mf">30.81</span><span class="p">,</span>
-        <span class="s2">&quot;high&quot;</span><span class="p">:</span> <span class="mf">32.75</span><span class="p">,</span>
-        <span class="s2">&quot;low&quot;</span><span class="p">:</span> <span class="mf">30.07</span><span class="p">,</span>
-        <span class="s2">&quot;close&quot;</span><span class="p">:</span> <span class="mf">32.68</span><span class="p">,</span>
-        <span class="s2">&quot;signal&quot;</span><span class="p">:</span> <span class="s2">&quot;short&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;ret&quot;</span><span class="p">:</span> <span class="mf">0.155038759689914</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2009-06-17&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;open&quot;</span><span class="p">:</span> <span class="mf">31.19</span><span class="p">,</span>
-        <span class="s2">&quot;high&quot;</span><span class="p">:</span> <span class="mf">32.77</span><span class="p">,</span>
-        <span class="s2">&quot;low&quot;</span><span class="p">:</span> <span class="mf">30.64</span><span class="p">,</span>
-        <span class="s2">&quot;close&quot;</span><span class="p">:</span> <span class="mf">31.54</span><span class="p">,</span>
-        <span class="s2">&quot;signal&quot;</span><span class="p">:</span> <span class="s2">&quot;short&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;ret&quot;</span><span class="p">:</span> <span class="mf">5.82822085889571</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2009-06-18&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;open&quot;</span><span class="p">:</span> <span class="mf">31.54</span><span class="p">,</span>
-        <span class="s2">&quot;high&quot;</span><span class="p">:</span> <span class="mf">31.54</span><span class="p">,</span>
-        <span class="s2">&quot;low&quot;</span><span class="p">:</span> <span class="mf">29.6</span><span class="p">,</span>
-        <span class="s2">&quot;close&quot;</span><span class="p">:</span> <span class="mf">30.03</span><span class="p">,</span>
-        <span class="s2">&quot;signal&quot;</span><span class="p">:</span> <span class="s2">&quot;short&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;ret&quot;</span><span class="p">:</span> <span class="mf">8.17610062893082</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2009-06-19&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;open&quot;</span><span class="p">:</span> <span class="mf">29.16</span><span class="p">,</span>
-        <span class="s2">&quot;high&quot;</span><span class="p">:</span> <span class="mf">29.32</span><span class="p">,</span>
-        <span class="s2">&quot;low&quot;</span><span class="p">:</span> <span class="mf">27.56</span><span class="p">,</span>
-        <span class="s2">&quot;close&quot;</span><span class="p">:</span> <span class="mf">27.99</span><span class="p">,</span>
-        <span class="s2">&quot;signal&quot;</span><span class="p">:</span> <span class="s2">&quot;short&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;ret&quot;</span><span class="p">:</span> <span class="mf">8.59872611464968</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2009-06-22&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;open&quot;</span><span class="p">:</span> <span class="mf">30.4</span><span class="p">,</span>
-        <span class="s2">&quot;high&quot;</span><span class="p">:</span> <span class="mf">32.05</span><span class="p">,</span>
-        <span class="s2">&quot;low&quot;</span><span class="p">:</span> <span class="mf">30.3</span><span class="p">,</span>
-        <span class="s2">&quot;close&quot;</span><span class="p">:</span> <span class="mf">31.17</span><span class="p">,</span>
-        <span class="s2">&quot;signal&quot;</span><span class="p">:</span> <span class="s2">&quot;short&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;ret&quot;</span><span class="p">:</span> <span class="mf">15.4907975460123</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2009-06-23&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;open&quot;</span><span class="p">:</span> <span class="mf">31.3</span><span class="p">,</span>
-        <span class="s2">&quot;high&quot;</span><span class="p">:</span> <span class="mf">31.54</span><span class="p">,</span>
-        <span class="s2">&quot;low&quot;</span><span class="p">:</span> <span class="mf">27.83</span><span class="p">,</span>
-        <span class="s2">&quot;close&quot;</span><span class="p">:</span> <span class="mf">30.58</span><span class="p">,</span>
-        <span class="s2">&quot;signal&quot;</span><span class="p">:</span> <span class="s2">&quot;short&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;ret&quot;</span><span class="p">:</span> <span class="mf">11.7370892018779</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2009-06-24&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;open&quot;</span><span class="p">:</span> <span class="mf">30.58</span><span class="p">,</span>
-        <span class="s2">&quot;high&quot;</span><span class="p">:</span> <span class="mf">30.58</span><span class="p">,</span>
-        <span class="s2">&quot;low&quot;</span><span class="p">:</span> <span class="mf">28.79</span><span class="p">,</span>
-        <span class="s2">&quot;close&quot;</span><span class="p">:</span> <span class="mf">29.05</span><span class="p">,</span>
-        <span class="s2">&quot;signal&quot;</span><span class="p">:</span> <span class="s2">&quot;long&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;ret&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">10.4234527687296</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2009-06-25&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;open&quot;</span><span class="p">:</span> <span class="mf">29.45</span><span class="p">,</span>
-        <span class="s2">&quot;high&quot;</span><span class="p">:</span> <span class="mf">29.56</span><span class="p">,</span>
-        <span class="s2">&quot;low&quot;</span><span class="p">:</span> <span class="mf">26.3</span><span class="p">,</span>
-        <span class="s2">&quot;close&quot;</span><span class="p">:</span> <span class="mf">26.36</span><span class="p">,</span>
-        <span class="s2">&quot;signal&quot;</span><span class="p">:</span> <span class="s2">&quot;long&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;ret&quot;</span><span class="p">:</span> <span class="mi">0</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2009-06-26&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;open&quot;</span><span class="p">:</span> <span class="mf">27.09</span><span class="p">,</span>
-        <span class="s2">&quot;high&quot;</span><span class="p">:</span> <span class="mf">27.22</span><span class="p">,</span>
-        <span class="s2">&quot;low&quot;</span><span class="p">:</span> <span class="mf">25.76</span><span class="p">,</span>
-        <span class="s2">&quot;close&quot;</span><span class="p">:</span> <span class="mf">25.93</span><span class="p">,</span>
-        <span class="s2">&quot;signal&quot;</span><span class="p">:</span> <span class="s2">&quot;long&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;ret&quot;</span><span class="p">:</span> <span class="mi">0</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2009-06-29&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;open&quot;</span><span class="p">:</span> <span class="mf">25.93</span><span class="p">,</span>
-        <span class="s2">&quot;high&quot;</span><span class="p">:</span> <span class="mf">27.18</span><span class="p">,</span>
-        <span class="s2">&quot;low&quot;</span><span class="p">:</span> <span class="mf">25.29</span><span class="p">,</span>
-        <span class="s2">&quot;close&quot;</span><span class="p">:</span> <span class="mf">25.35</span><span class="p">,</span>
-        <span class="s2">&quot;signal&quot;</span><span class="p">:</span> <span class="s2">&quot;long&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;ret&quot;</span><span class="p">:</span> <span class="mf">5.26315789473684</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2009-06-30&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;open&quot;</span><span class="p">:</span> <span class="mf">25.36</span><span class="p">,</span>
-        <span class="s2">&quot;high&quot;</span><span class="p">:</span> <span class="mf">27.38</span><span class="p">,</span>
-        <span class="s2">&quot;low&quot;</span><span class="p">:</span> <span class="mf">25.02</span><span class="p">,</span>
-        <span class="s2">&quot;close&quot;</span><span class="p">:</span> <span class="mf">26.35</span><span class="p">,</span>
-        <span class="s2">&quot;signal&quot;</span><span class="p">:</span> <span class="s2">&quot;long&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;ret&quot;</span><span class="p">:</span> <span class="mf">6.73758865248228</span>
-      <span class="p">}</span>
-    <span class="p">]</span>
-<span class="p">)</span>
-<span class="n">open_close_color</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span><span class="s2">&quot;datum.open &lt; datum.close&quot;</span><span class="p">,</span>
+<span class="n">source</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">ohlc</span><span class="p">()</span>
+
+<span class="n">open_close_color</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span><span class="s2">&quot;datum.open &lt;= datum.close&quot;</span><span class="p">,</span>
                                  <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s2">&quot;#06982d&quot;</span><span class="p">),</span>
                                  <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s2">&quot;#ae1325&quot;</span><span class="p">))</span>
 
-<span class="n">rule</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">mark_rule</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span>
-        <span class="s1">&#39;yearmonthdate(date):T&#39;</span><span class="p">,</span>
-        <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">[{</span><span class="s2">&quot;month&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span> <span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2009</span><span class="p">},</span>
-                                <span class="p">{</span><span class="s2">&quot;month&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2009</span><span class="p">}]),</span>
-        <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%m/</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Date in 2009&#39;</span><span class="p">)</span>
+<span class="n">base</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;date:T&#39;</span><span class="p">,</span>
+          <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span>
+              <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%m/</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span>
+              <span class="n">labelAngle</span><span class="o">=-</span><span class="mi">45</span><span class="p">,</span>
+              <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Date in 2009&#39;</span>
+          <span class="p">)</span>
     <span class="p">),</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span>
-        <span class="s1">&#39;low&#39;</span><span class="p">,</span>
-        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Price&#39;</span><span class="p">,</span>
-        <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">zero</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
-    <span class="p">),</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Y2</span><span class="p">(</span><span class="s1">&#39;high&#39;</span><span class="p">),</span>
     <span class="n">color</span><span class="o">=</span><span class="n">open_close_color</span>
 <span class="p">)</span>
 
-<span class="n">bar</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;yearmonthdate(date):T&#39;</span><span class="p">,</span>
-    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;open&#39;</span><span class="p">,</span>
-    <span class="n">y2</span><span class="o">=</span><span class="s1">&#39;close&#39;</span><span class="p">,</span>
-    <span class="n">color</span><span class="o">=</span><span class="n">open_close_color</span>
+<span class="n">rule</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">mark_rule</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span>
+        <span class="s1">&#39;low:Q&#39;</span><span class="p">,</span>
+        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Price&#39;</span><span class="p">,</span>
+        <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">zero</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+    <span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Y2</span><span class="p">(</span><span class="s1">&#39;high:Q&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">bar</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;open:Q&#39;</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Y2</span><span class="p">(</span><span class="s1">&#39;close:Q&#39;</span><span class="p">)</span>
 <span class="p">)</span>
 
 <span class="n">rule</span> <span class="o">+</span> <span class="n">bar</span>
@@ -538,7 +344,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'4.0.0',
+            VERSION:'4.1.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -550,7 +356,7 @@
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.0.0"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.8.1"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
   

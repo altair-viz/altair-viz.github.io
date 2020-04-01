@@ -22,7 +22,8 @@ This example shows how to make a multi series line chart of the daily closing st
     alt.Chart(source).mark_line().encode(
         x='date',
         y='price',
-        color='symbol'
+        color='symbol',
+        strokeDash='symbol',
     )
 
 

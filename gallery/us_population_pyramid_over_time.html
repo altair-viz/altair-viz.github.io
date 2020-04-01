@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>US Population Pyramid Over Time &mdash; Altair 4.0.0 documentation</title>
+  <title>US Population Pyramid Over Time &mdash; Altair 4.1.0 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                4.0.0
+                4.1.0
               </div>
             
           
@@ -256,7 +256,7 @@ distribution over time.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "concat": [{"mark": "bar", "encoding": {"color": {"type": "nominal", "field": "gender", "legend": null, "scale": {"domain": ["Male", "Female"], "range": ["#1f77b4", "#e377c2"]}}, "x": {"type": "quantitative", "aggregate": "sum", "field": "people", "sort": "descending", "title": "population"}, "y": {"type": "ordinal", "axis": null, "field": "age"}}, "selection": {"year": {"type": "single", "fields": ["year"], "bind": {"input": "range", "max": 2000, "min": 1850, "step": 10}, "init": {"year": 2000}}}, "title": "Female", "transform": [{"filter": {"selection": "year"}}, {"calculate": "if((datum.sex === 1),'Male','Female')", "as": "gender"}, {"filter": "(datum.gender === 'Female')"}], "width": 250}, {"mark": "text", "encoding": {"text": {"type": "quantitative", "field": "age"}, "y": {"type": "ordinal", "axis": null, "field": "age"}}, "selection": {"year": {"type": "single", "fields": ["year"], "bind": {"input": "range", "max": 2000, "min": 1850, "step": 10}, "init": {"year": 2000}}}, "transform": [{"filter": {"selection": "year"}}, {"calculate": "if((datum.sex === 1),'Male','Female')", "as": "gender"}], "width": 20}, {"mark": "bar", "encoding": {"color": {"type": "nominal", "field": "gender", "legend": null, "scale": {"domain": ["Male", "Female"], "range": ["#1f77b4", "#e377c2"]}}, "x": {"type": "quantitative", "aggregate": "sum", "field": "people", "title": "population"}, "y": {"type": "ordinal", "axis": null, "field": "age"}}, "selection": {"year": {"type": "single", "fields": ["year"], "bind": {"input": "range", "max": 2000, "min": 1850, "step": 10}, "init": {"year": 2000}}}, "title": "Male", "transform": [{"filter": {"selection": "year"}}, {"calculate": "if((datum.sex === 1),'Male','Female')", "as": "gender"}, {"filter": "(datum.gender === 'Male')"}], "width": 250}], "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "spacing": 5, "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json"};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "concat": [{"mark": "bar", "encoding": {"color": {"type": "nominal", "field": "gender", "legend": null, "scale": {"domain": ["Male", "Female"], "range": ["#1f77b4", "#e377c2"]}}, "x": {"type": "quantitative", "aggregate": "sum", "field": "people", "sort": "descending", "title": "population"}, "y": {"type": "ordinal", "axis": null, "field": "age"}}, "selection": {"year": {"type": "single", "fields": ["year"], "bind": {"input": "range", "max": 2000, "min": 1850, "step": 10}, "init": {"year": 2000}}}, "title": "Female", "transform": [{"filter": {"selection": "year"}}, {"calculate": "if((datum.sex === 1),'Male','Female')", "as": "gender"}, {"filter": "(datum.gender === 'Female')"}], "width": 250}, {"mark": "text", "encoding": {"text": {"type": "quantitative", "field": "age"}, "y": {"type": "ordinal", "axis": null, "field": "age"}}, "selection": {"year": {"type": "single", "fields": ["year"], "bind": {"input": "range", "max": 2000, "min": 1850, "step": 10}, "init": {"year": 2000}}}, "transform": [{"filter": {"selection": "year"}}, {"calculate": "if((datum.sex === 1),'Male','Female')", "as": "gender"}], "width": 20}, {"mark": "bar", "encoding": {"color": {"type": "nominal", "field": "gender", "legend": null, "scale": {"domain": ["Male", "Female"], "range": ["#1f77b4", "#e377c2"]}}, "x": {"type": "quantitative", "aggregate": "sum", "field": "people", "title": "population"}, "y": {"type": "ordinal", "axis": null, "field": "age"}}, "selection": {"year": {"type": "single", "fields": ["year"], "bind": {"input": "range", "max": 2000, "min": 1850, "step": 10}, "init": {"year": 2000}}}, "title": "Male", "transform": [{"filter": {"selection": "year"}}, {"calculate": "if((datum.sex === 1),'Male','Female')", "as": "gender"}, {"filter": "(datum.gender === 'Male')"}], "width": 250}], "data": {"url": "https://vega.github.io/vega-datasets/data/population.json"}, "spacing": 5, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -360,7 +360,7 @@ distribution over time.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'4.0.0',
+            VERSION:'4.1.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -372,7 +372,7 @@ distribution over time.</p>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.0.0"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.8.1"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
   

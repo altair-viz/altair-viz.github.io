@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Top K Items &mdash; Altair 4.0.0 documentation</title>
+  <title>Top K Items &mdash; Altair 4.1.0 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                4.0.0
+                4.1.0
               </div>
             
           
@@ -256,7 +256,7 @@ Here we sort the top 10 highest ranking movies of IMDB.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/movies.json"}, "mark": "bar", "encoding": {"color": {"type": "quantitative", "field": "IMDB_Rating"}, "x": {"type": "nominal", "field": "Title", "sort": "-y"}, "y": {"type": "quantitative", "field": "IMDB_Rating"}}, "transform": [{"window": [{"op": "rank", "field": "IMDB_Rating", "as": "rank"}], "sort": [{"field": "IMDB_Rating", "order": "descending"}]}, {"filter": "(datum.rank < 10)"}], "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json"};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/movies.json"}, "mark": "bar", "encoding": {"color": {"type": "quantitative", "field": "IMDB_Rating"}, "x": {"type": "nominal", "field": "Title", "sort": "-y"}, "y": {"type": "quantitative", "field": "IMDB_Rating"}}, "transform": [{"window": [{"op": "rank", "field": "IMDB_Rating", "as": "rank"}], "sort": [{"field": "IMDB_Rating", "order": "descending"}]}, {"filter": "(datum.rank < 10)"}], "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -332,7 +332,7 @@ Here we sort the top 10 highest ranking movies of IMDB.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'4.0.0',
+            VERSION:'4.1.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -344,7 +344,7 @@ Here we sort the top 10 highest ranking movies of IMDB.</p>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.0.0"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.8.1"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
   

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Line Chart with Sequence Generator &mdash; Altair 4.0.0 documentation</title>
+  <title>Line Chart with Sequence Generator &mdash; Altair 4.1.0 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                4.0.0
+                4.1.0
               </div>
             
           
@@ -238,7 +238,7 @@
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"sequence": {"start": 0, "stop": 12.7, "step": 0.1, "as": "x"}}, "mark": "line", "encoding": {"color": {"type": "nominal", "field": "key"}, "x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "value"}}, "transform": [{"calculate": "sin(datum.x)", "as": "sin"}, {"calculate": "cos(datum.x)", "as": "cos"}, {"fold": ["sin", "cos"]}], "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json"};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"sequence": {"start": 0, "stop": 12.7, "step": 0.1, "as": "x"}}, "mark": "line", "encoding": {"color": {"type": "nominal", "field": "key"}, "x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "value"}}, "transform": [{"calculate": "sin(datum.x)", "as": "sin"}, {"calculate": "cos(datum.x)", "as": "cos"}, {"fold": ["sin", "cos"]}], "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -309,7 +309,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'4.0.0',
+            VERSION:'4.1.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -321,7 +321,7 @@
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.0.0"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.8.1"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
   

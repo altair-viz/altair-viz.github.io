@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>U.S. state capitals overlayed on a map of the U.S &mdash; Altair 4.0.0 documentation</title>
+  <title>U.S. state capitals overlayed on a map of the U.S &mdash; Altair 4.1.0 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                4.0.0
+                4.1.0
               </div>
             
           
@@ -255,7 +255,7 @@ overlayed on a map.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"data": {"url": "https://vega.github.io/vega-datasets/data/us-10m.json", "format": {"feature": "states", "type": "topojson"}}, "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"}, "height": 400, "projection": {"type": "albersUsa"}, "title": "US State Capitols", "width": 650}, {"data": {"url": "https://vega.github.io/vega-datasets/data/us-state-capitals.json"}, "mark": "point", "encoding": {"color": {"value": "black"}, "latitude": {"field": "lat", "type": "quantitative"}, "longitude": {"field": "lon", "type": "quantitative"}, "size": {"condition": {"value": 30, "selection": {"not": "selector054"}}, "value": 100}}, "selection": {"selector054": {"type": "single", "on": "mouseover", "nearest": true, "fields": ["lat", "lon"]}}}, {"data": {"url": "https://vega.github.io/vega-datasets/data/us-state-capitals.json"}, "mark": {"type": "text", "align": "right", "dy": -5}, "encoding": {"latitude": {"field": "lat", "type": "quantitative"}, "longitude": {"field": "lon", "type": "quantitative"}, "opacity": {"condition": {"value": 0, "selection": {"not": "selector054"}}, "value": 1}, "text": {"type": "nominal", "field": "city"}}}], "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json"};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"data": {"url": "https://vega.github.io/vega-datasets/data/us-10m.json", "format": {"feature": "states", "type": "topojson"}}, "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"}, "height": 400, "projection": {"type": "albersUsa"}, "title": "US State Capitols", "width": 650}, {"data": {"url": "https://vega.github.io/vega-datasets/data/us-state-capitals.json"}, "mark": "point", "encoding": {"color": {"value": "black"}, "latitude": {"field": "lat", "type": "quantitative"}, "longitude": {"field": "lon", "type": "quantitative"}, "size": {"condition": {"value": 30, "selection": {"not": "selector056"}}, "value": 100}}, "selection": {"selector056": {"type": "single", "on": "mouseover", "nearest": true, "fields": ["lat", "lon"]}}}, {"data": {"url": "https://vega.github.io/vega-datasets/data/us-state-capitals.json"}, "mark": {"type": "text", "align": "right", "dy": -5}, "encoding": {"latitude": {"field": "lat", "type": "quantitative"}, "longitude": {"field": "lon", "type": "quantitative"}, "opacity": {"condition": {"value": 0, "selection": {"not": "selector056"}}, "value": 1}, "text": {"type": "nominal", "field": "city"}}}], "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -348,7 +348,7 @@ overlayed on a map.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'4.0.0',
+            VERSION:'4.1.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -360,7 +360,7 @@ overlayed on a map.</p>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.0.0"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.8.1"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
   

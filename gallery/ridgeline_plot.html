@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Ridgeline plot Example &mdash; Altair 4.0.0 documentation</title>
+  <title>Ridgeline plot Example &mdash; Altair 4.1.0 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                4.0.0
+                4.1.0
               </div>
             
           
@@ -122,6 +122,7 @@
 <li class="toctree-l3"><a class="reference internal" href="scatter_marginal_hist.html">Facetted Scatterplot with marginal histograms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="gantt_chart.html">Gantt Chart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="isotype_grid.html">Isotype Grid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layered_chart_with_dual_axis.html">Layered chart with Dual-Axis</a></li>
 <li class="toctree-l3"><a class="reference internal" href="multiple_marks.html">Multiple Marks</a></li>
 <li class="toctree-l3"><a class="reference internal" href="normed_parallel_coordinates.html">Normalized Parallel Coordinates Example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="parallel_coordinates.html">Parallel Coordinates Example</a></li>
@@ -252,7 +253,7 @@ suitable representation.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300, "stroke": null}, "facet": {"spacing": 0}, "title": {"anchor": "end"}}, "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-weather.csv"}, "facet": {"row": {"type": "temporal", "field": "Month", "header": {"format": "%B", "labelAlign": "right", "labelAngle": 0}, "title": null}}, "spec": {"mark": {"type": "area", "fillOpacity": 0.8, "interpolate": "monotone", "stroke": "lightgray", "strokeWidth": 0.5}, "encoding": {"fill": {"type": "quantitative", "field": "mean_temp", "legend": null, "scale": {"domain": [30, 5], "scheme": "redyellowblue"}}, "x": {"type": "quantitative", "bin": "binned", "field": "bin_min", "title": "Maximum Daily Temperature (C)"}, "y": {"type": "quantitative", "axis": null, "field": "value", "scale": {"range": [20, -20]}}}, "height": 20, "transform": [{"field": "date", "timeUnit": "month", "as": "Month"}, {"joinaggregate": [{"op": "mean", "field": "temp_max", "as": "mean_temp"}], "groupby": ["Month"]}, {"bin": true, "field": "temp_max", "as": ["bin_max", "bin_min"]}, {"aggregate": [{"op": "count", "as": "value"}], "groupby": ["Month", "mean_temp", "bin_min", "bin_max"]}, {"impute": "value", "key": "bin_min", "groupby": ["Month", "mean_temp"], "value": 0}]}, "bounds": "flush", "title": "Seattle Weather", "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json"};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300, "stroke": null}, "facet": {"spacing": 0}, "title": {"anchor": "end"}}, "data": {"url": "https://vega.github.io/vega-datasets/data/seattle-weather.csv"}, "facet": {"row": {"type": "temporal", "field": "Month", "header": {"format": "%B", "labelAlign": "right", "labelAngle": 0}, "title": null}}, "spec": {"mark": {"type": "area", "fillOpacity": 0.8, "interpolate": "monotone", "stroke": "lightgray", "strokeWidth": 0.5}, "encoding": {"fill": {"type": "quantitative", "field": "mean_temp", "legend": null, "scale": {"domain": [30, 5], "scheme": "redyellowblue"}}, "x": {"type": "quantitative", "bin": "binned", "field": "bin_min", "title": "Maximum Daily Temperature (C)"}, "y": {"type": "quantitative", "axis": null, "field": "value", "scale": {"range": [20, -20]}}}, "height": 20, "transform": [{"field": "date", "timeUnit": "month", "as": "Month"}, {"joinaggregate": [{"op": "mean", "field": "temp_max", "as": "mean_temp"}], "groupby": ["Month"]}, {"bin": true, "field": "temp_max", "as": ["bin_max", "bin_min"]}, {"aggregate": [{"op": "count", "as": "value"}], "groupby": ["Month", "mean_temp", "bin_min", "bin_max"]}, {"impute": "value", "key": "bin_min", "groupby": ["Month", "mean_temp"], "value": 0}]}, "bounds": "flush", "title": "Seattle Weather", "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -360,7 +361,7 @@ suitable representation.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'4.0.0',
+            VERSION:'4.1.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -372,7 +373,7 @@ suitable representation.</p>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.0.0"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.8.1"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
   

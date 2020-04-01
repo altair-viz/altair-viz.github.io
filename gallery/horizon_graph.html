@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Horizon Graph &mdash; Altair 4.0.0 documentation</title>
+  <title>Horizon Graph &mdash; Altair 4.1.0 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                4.0.0
+                4.1.0
               </div>
             
           
@@ -106,6 +106,7 @@
 <li class="toctree-l2"><a class="reference internal" href="index.html#bar-charts">Bar Charts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#line-charts">Line Charts</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html#area-charts">Area Charts</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="area_chart_gradient.html">Area Chart with Gradient</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cumulative_count_chart.html">Cumulative Count Chart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="density_facet.html">Faceted Density Estimates</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Horizon Graph</a><ul class="simple">
@@ -238,7 +239,7 @@
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "area", "clip": true, "interpolate": "monotone"}, "encoding": {"opacity": {"value": 0.6}, "x": {"type": "quantitative", "field": "x", "scale": {"nice": false, "zero": false}}, "y": {"type": "quantitative", "field": "y", "scale": {"domain": [0, 50]}, "title": "y"}}, "height": 75, "width": 500}, {"mark": {"type": "area", "clip": true, "interpolate": "monotone"}, "encoding": {"opacity": {"value": 0.6}, "x": {"type": "quantitative", "field": "x", "scale": {"nice": false, "zero": false}}, "y": {"type": "quantitative", "field": "ny", "scale": {"domain": [0, 50]}}}, "height": 75, "transform": [{"calculate": "(datum.y - 50)", "as": "ny"}], "width": 500}], "data": {"name": "data-5f9e6e06c1ea70f051c1f4e739c3a610"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json", "datasets": {"data-5f9e6e06c1ea70f051c1f4e739c3a610": [{"x": 1, "y": 28}, {"x": 2, "y": 55}, {"x": 3, "y": 43}, {"x": 4, "y": 91}, {"x": 5, "y": 81}, {"x": 6, "y": 53}, {"x": 7, "y": 19}, {"x": 8, "y": 87}, {"x": 9, "y": 52}, {"x": 10, "y": 48}, {"x": 11, "y": 24}, {"x": 12, "y": 49}, {"x": 13, "y": 87}, {"x": 14, "y": 66}, {"x": 15, "y": 17}, {"x": 16, "y": 27}, {"x": 17, "y": 68}, {"x": 18, "y": 16}, {"x": 19, "y": 49}, {"x": 20, "y": 15}]}};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "area", "clip": true, "interpolate": "monotone"}, "encoding": {"opacity": {"value": 0.6}, "x": {"type": "quantitative", "field": "x", "scale": {"nice": false, "zero": false}}, "y": {"type": "quantitative", "field": "y", "scale": {"domain": [0, 50]}, "title": "y"}}, "height": 75, "width": 500}, {"mark": {"type": "area", "clip": true, "interpolate": "monotone"}, "encoding": {"opacity": {"value": 0.6}, "x": {"type": "quantitative", "field": "x", "scale": {"nice": false, "zero": false}}, "y": {"type": "quantitative", "field": "ny", "scale": {"domain": [0, 50]}}}, "height": 75, "transform": [{"calculate": "(datum.y - 50)", "as": "ny"}], "width": 500}], "data": {"name": "data-5f9e6e06c1ea70f051c1f4e739c3a610"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-5f9e6e06c1ea70f051c1f4e739c3a610": [{"x": 1, "y": 28}, {"x": 2, "y": 55}, {"x": 3, "y": 43}, {"x": 4, "y": 91}, {"x": 5, "y": 81}, {"x": 6, "y": 53}, {"x": 7, "y": 19}, {"x": 8, "y": 87}, {"x": 9, "y": 52}, {"x": 10, "y": 48}, {"x": 11, "y": 24}, {"x": 12, "y": 49}, {"x": 13, "y": 87}, {"x": 14, "y": 66}, {"x": 15, "y": 17}, {"x": 16, "y": 27}, {"x": 17, "y": 68}, {"x": 18, "y": 16}, {"x": 19, "y": 49}, {"x": 20, "y": 15}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -330,7 +331,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'4.0.0',
+            VERSION:'4.1.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -342,7 +343,7 @@
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.0.0"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.8.1"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
   

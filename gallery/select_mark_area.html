@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Using Selection Interval with mark_area &mdash; Altair 4.0.0 documentation</title>
+  <title>Using Selection Interval with mark_area &mdash; Altair 4.1.0 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                4.0.0
+                4.1.0
               </div>
             
           
@@ -246,7 +246,7 @@ selector will select the entire area instead of just one part of it.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "area", "color": "goldenrod", "opacity": 0.3}, "encoding": {"x": {"type": "temporal", "field": "date", "timeUnit": "yearmonth"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "count"}}, "selection": {"selector050": {"type": "interval", "encodings": ["x"], "empty": "all"}}}, {"mark": {"type": "area", "color": "goldenrod"}, "encoding": {"x": {"type": "temporal", "field": "date", "timeUnit": "yearmonth"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "count"}}, "transform": [{"filter": {"selection": "selector050"}}]}], "data": {"url": "https://vega.github.io/vega-datasets/data/unemployment-across-industries.json"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json"};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "area", "color": "goldenrod", "opacity": 0.3}, "encoding": {"x": {"type": "temporal", "field": "date", "timeUnit": "yearmonth"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "count"}}, "selection": {"selector052": {"type": "interval", "encodings": ["x"], "empty": "all"}}}, {"mark": {"type": "area", "color": "goldenrod"}, "encoding": {"x": {"type": "temporal", "field": "date", "timeUnit": "yearmonth"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "count"}}, "transform": [{"filter": {"selection": "selector052"}}]}], "data": {"url": "https://vega.github.io/vega-datasets/data/unemployment-across-industries.json"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -321,7 +321,7 @@ selector will select the entire area instead of just one part of it.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'4.0.0',
+            VERSION:'4.1.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -333,7 +333,7 @@ selector will select the entire area instead of just one part of it.</p>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.0.0"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.8.1"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
   

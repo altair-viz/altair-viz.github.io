@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Gantt Chart &mdash; Altair 4.0.0 documentation</title>
+  <title>Gantt Chart &mdash; Altair 4.1.0 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                4.0.0
+                4.1.0
               </div>
             
           
@@ -124,6 +124,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="isotype_grid.html">Isotype Grid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layered_chart_with_dual_axis.html">Layered chart with Dual-Axis</a></li>
 <li class="toctree-l3"><a class="reference internal" href="multiple_marks.html">Multiple Marks</a></li>
 <li class="toctree-l3"><a class="reference internal" href="normed_parallel_coordinates.html">Normalized Parallel Coordinates Example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="parallel_coordinates.html">Parallel Coordinates Example</a></li>
@@ -248,7 +249,7 @@
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-4492a6b5581ac40825aa8ece71020d8a"}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "field": "start"}, "x2": {"field": "end"}, "y": {"type": "nominal", "field": "task"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json", "datasets": {"data-4492a6b5581ac40825aa8ece71020d8a": [{"end": 3, "start": 1, "task": "A"}, {"end": 8, "start": 3, "task": "B"}, {"end": 10, "start": 8, "task": "C"}]}};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-4492a6b5581ac40825aa8ece71020d8a"}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "field": "start"}, "x2": {"field": "end"}, "y": {"type": "nominal", "field": "task"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-4492a6b5581ac40825aa8ece71020d8a": [{"task": "A", "start": 1, "end": 3}, {"task": "B", "start": 3, "end": 8}, {"task": "C", "start": 8, "end": 10}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -319,7 +320,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'4.0.0',
+            VERSION:'4.1.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -331,7 +332,7 @@
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.0.0"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.8.1"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
   
