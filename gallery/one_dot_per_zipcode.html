@@ -254,7 +254,7 @@
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/zipcodes.csv"}, "mark": {"type": "circle", "size": 3}, "encoding": {"color": {"type": "nominal", "field": "leading digit"}, "latitude": {"field": "latitude", "type": "quantitative"}, "longitude": {"field": "longitude", "type": "quantitative"}, "tooltip": {"type": "nominal", "field": "zip_code"}}, "height": 400, "projection": {"type": "albersUsa"}, "transform": [{"calculate": "substring(datum.zip_code,0,1)", "as": "leading digit"}], "width": 650, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/zipcodes.csv"}, "mark": {"type": "circle", "size": 3}, "encoding": {"color": {"type": "nominal", "field": "leading digit"}, "latitude": {"field": "latitude", "type": "quantitative"}, "longitude": {"field": "longitude", "type": "quantitative"}, "tooltip": {"type": "nominal", "field": "zip_code"}}, "height": 400, "projection": {"type": "albersUsa"}, "transform": [{"calculate": "substring(datum.zip_code,0,1)", "as": "leading digit"}], "width": 650, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",

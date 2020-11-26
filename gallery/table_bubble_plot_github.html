@@ -246,7 +246,7 @@
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/github.csv"}, "mark": "circle", "encoding": {"size": {"type": "quantitative", "aggregate": "sum", "field": "count"}, "x": {"type": "ordinal", "field": "time", "timeUnit": "hours"}, "y": {"type": "ordinal", "field": "time", "timeUnit": "day"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/github.csv"}, "mark": "circle", "encoding": {"size": {"type": "quantitative", "aggregate": "sum", "field": "count"}, "x": {"type": "ordinal", "field": "time", "timeUnit": "hours"}, "y": {"type": "ordinal", "field": "time", "timeUnit": "day"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",

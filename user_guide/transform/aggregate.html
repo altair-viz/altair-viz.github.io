@@ -255,7 +255,7 @@ grouped by the number of Cylinders.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "aggregate": "mean", "field": "Acceleration"}, "y": {"type": "ordinal", "field": "Cylinders"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "aggregate": "mean", "field": "Acceleration"}, "y": {"type": "ordinal", "field": "Cylinders"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -295,7 +295,7 @@ grouped by the number of Cylinders.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "field": "mean_acc"}, "y": {"type": "ordinal", "field": "Cylinders"}}, "transform": [{"aggregate": [{"op": "mean", "field": "Acceleration", "as": "mean_acc"}], "groupby": ["Cylinders"]}], "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "field": "mean_acc"}, "y": {"type": "ordinal", "field": "Cylinders"}}, "transform": [{"aggregate": [{"op": "mean", "field": "Acceleration", "as": "mean_acc"}], "groupby": ["Cylinders"]}], "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",

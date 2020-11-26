@@ -249,7 +249,7 @@ bin transform.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/movies.json"}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "bin": true, "field": "IMDB_Rating"}, "y": {"type": "quantitative", "aggregate": "count"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/movies.json"}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "bin": true, "field": "IMDB_Rating"}, "y": {"type": "quantitative", "aggregate": "count"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -278,7 +278,7 @@ bin a continuous field to create a discrete color map:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"type": "quantitative", "bin": {"maxbins": 5}, "field": "Acceleration"}, "x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": "point", "encoding": {"color": {"type": "quantitative", "bin": {"maxbins": 5}, "field": "Acceleration"}, "x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -313,7 +313,7 @@ method.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/movies.json"}, "mark": "bar", "encoding": {"x": {"type": "ordinal", "field": "binned_rating"}, "y": {"type": "quantitative", "aggregate": "count"}}, "transform": [{"bin": true, "field": "IMDB_Rating", "as": "binned_rating"}], "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/movies.json"}, "mark": "bar", "encoding": {"x": {"type": "ordinal", "field": "binned_rating"}, "y": {"type": "quantitative", "aggregate": "count"}}, "transform": [{"bin": true, "field": "IMDB_Rating", "as": "binned_rating"}], "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -343,7 +343,7 @@ method.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "point", "encoding": {"color": {"type": "ordinal", "field": "binned_acc"}, "x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "transform": [{"bin": {"maxbins": 5}, "field": "Acceleration", "as": "binned_acc"}], "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": "point", "encoding": {"color": {"type": "ordinal", "field": "binned_acc"}, "x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "transform": [{"bin": {"maxbins": 5}, "field": "Acceleration", "as": "binned_acc"}], "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",

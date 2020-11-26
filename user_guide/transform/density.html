@@ -251,7 +251,7 @@ dataset:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/movies.json"}, "mark": "area", "encoding": {"x": {"type": "quantitative", "field": "IMDB_Rating"}, "y": {"type": "quantitative", "field": "density"}}, "transform": [{"density": "IMDB_Rating", "as": ["IMDB_Rating", "density"]}], "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/movies.json"}, "mark": "area", "encoding": {"x": {"type": "quantitative", "field": "IMDB_Rating"}, "y": {"type": "quantitative", "field": "density"}}, "transform": [{"density": "IMDB_Rating", "as": ["IMDB_Rating", "density"]}], "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -291,7 +291,7 @@ argument. Here we split the above denity computation across movie genres:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/movies.json"}, "facet": {"type": "nominal", "field": "Major_Genre"}, "spec": {"mark": "area", "encoding": {"x": {"type": "quantitative", "field": "IMDB_Rating"}, "y": {"type": "quantitative", "field": "density"}}, "height": 80, "transform": [{"filter": "isValid(datum.Major_Genre)"}, {"density": "IMDB_Rating", "extent": [1, 10], "groupby": ["Major_Genre"], "as": ["IMDB_Rating", "density"]}], "width": 120}, "columns": 4, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/movies.json"}, "facet": {"type": "nominal", "field": "Major_Genre"}, "spec": {"mark": "area", "encoding": {"x": {"type": "quantitative", "field": "IMDB_Rating"}, "y": {"type": "quantitative", "field": "density"}}, "height": 80, "transform": [{"filter": "isValid(datum.Major_Genre)"}, {"density": "IMDB_Rating", "extent": [1, 10], "groupby": ["Major_Genre"], "as": ["IMDB_Rating", "density"]}], "width": 120}, "columns": 4, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",

@@ -256,7 +256,7 @@ Here we sort the top 10 highest ranking movies of IMDB.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/movies.json"}, "mark": "bar", "encoding": {"color": {"type": "quantitative", "field": "IMDB_Rating"}, "x": {"type": "nominal", "field": "Title", "sort": "-y"}, "y": {"type": "quantitative", "field": "IMDB_Rating"}}, "transform": [{"window": [{"op": "rank", "field": "IMDB_Rating", "as": "rank"}], "sort": [{"field": "IMDB_Rating", "order": "descending"}]}, {"filter": "(datum.rank < 10)"}], "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/movies.json"}, "mark": "bar", "encoding": {"color": {"type": "quantitative", "field": "IMDB_Rating"}, "x": {"type": "nominal", "field": "Title", "sort": "-y"}, "y": {"type": "quantitative", "field": "IMDB_Rating"}}, "transform": [{"window": [{"op": "rank", "field": "IMDB_Rating", "as": "rank"}], "sort": [{"field": "IMDB_Rating", "order": "descending"}]}, {"filter": "(datum.rank < 10)"}], "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
