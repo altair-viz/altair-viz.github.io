@@ -1,78 +1,46 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Histogram with Responsive Bins &mdash; Altair 4.1.0 documentation</title>
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-  
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Histogram with Responsive Bins &mdash; Altair 4.2.0rc1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/altair-plot.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/altair-gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/altair-plot.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/altair-gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.17.0"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Histogram with a Global Mean Overlay" href="histogram_with_a_global_mean_overlay.html" />
-    <link rel="prev" title="Trellis Scatter Plot" href="trellis_scatter_plot.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+    <link rel="prev" title="Wind Vector Map" href="wind_vector_map.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
-
-          
+        <div class="wy-side-nav-search" >
             <a href="../index.html" class="icon icon-home"> Altair
-          
-
-          
-            
             <img src="../_static/altair-logo-light.png" class="logo" alt="Logo"/>
-          
           </a>
-
-          
-            
-            
               <div class="version">
-                4.1.0
+                4.2.0rc1
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -80,18 +48,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installation</a></li>
@@ -99,13 +57,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html#development-install">Development Install</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/starting.html">Basic Statistical Visualization</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Gallery</span></p>
+<p class="caption" role="heading"><span class="caption-text">Gallery</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Example Gallery</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="index.html#simple-charts">Simple Charts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#bar-charts">Bar Charts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#line-charts">Line Charts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#area-charts">Area Charts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#circular-plots">Circular Plots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#scatter-plots">Scatter Plots</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html#histograms">Histograms</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Histogram with Responsive Bins</a><ul class="simple">
@@ -123,7 +82,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">User Guide</span></p>
+<p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/data.html">Specifying Data in Altair</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/encoding.html">Encodings</a></li>
@@ -142,11 +101,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/API.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/ecosystem.html">Altair Ecosystem</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Case Studies</span></p>
+<p class="caption" role="heading"><span class="caption-text">Case Studies</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../case_studies/exploring-weather.html">Exploring Seattle Weather</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Advanced Usage</span></p>
+<p class="caption" role="heading"><span class="caption-text">Advanced Usage</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/importing.html">Importing Vega &amp; Vega-Lite Versions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/display_frontends.html">Displaying Altair Charts</a></li>
@@ -154,77 +113,38 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/custom_renderers.html">Customizing Renderers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/data_transformers.html">Data transformers</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Release Notes</span></p>
+<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../releases/changes.html">Altair Change Log</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Altair</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="index.html">Example Gallery</a> &raquo;</li>
-        
       <li>Histogram with Responsive Bins</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-            
             <a href="../_sources/gallery/histogram_responsive.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="histogram-with-responsive-bins">
-<span id="gallery-histogram-responsive"></span><h1>Histogram with Responsive Bins<a class="headerlink" href="#histogram-with-responsive-bins" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="histogram-with-responsive-bins">
+<span id="gallery-histogram-responsive"></span><h1>Histogram with Responsive Bins<a class="headerlink" href="#histogram-with-responsive-bins" title="Permalink to this headline"></a></h1>
 <p>This shows an example of a histogram with bins that are responsive to a
 selection domain. Click and drag on the bottom panel to see the bins
 change on the top panel.</p>
@@ -234,7 +154,7 @@ change on the top panel.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "vconcat": [{"mark": "bar", "encoding": {"x": {"type": "quantitative", "bin": {"extent": {"selection": "selector032"}, "maxbins": 30}, "field": "time", "scale": {"domain": {"selection": "selector032"}}}, "y": {"type": "quantitative", "aggregate": "count"}}, "height": 100, "transform": [{"calculate": "hours(datum.date) + minutes(datum.date) / 60", "as": "time"}], "width": 600}, {"mark": "bar", "encoding": {"x": {"type": "quantitative", "bin": {"maxbins": 30}, "field": "time"}, "y": {"type": "quantitative", "aggregate": "count"}}, "height": 100, "selection": {"selector032": {"type": "interval", "encodings": ["x"]}}, "transform": [{"calculate": "hours(datum.date) + minutes(datum.date) / 60", "as": "time"}], "width": 600}], "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/flights-5k.json"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "vconcat": [{"mark": "bar", "encoding": {"x": {"bin": {"extent": {"selection": "selector032"}, "maxbins": 30}, "field": "time", "scale": {"domain": {"selection": "selector032"}}, "type": "quantitative"}, "y": {"aggregate": "count", "type": "quantitative"}}, "height": 100, "transform": [{"calculate": "hours(datum.date) + minutes(datum.date) / 60", "as": "time"}], "width": 600}, {"mark": "bar", "encoding": {"x": {"bin": {"maxbins": 30}, "field": "time", "type": "quantitative"}, "y": {"aggregate": "count", "type": "quantitative"}}, "height": 100, "selection": {"selector032": {"type": "interval", "encodings": ["x"]}}, "transform": [{"calculate": "hours(datum.date) + minutes(datum.date) / 60", "as": "time"}], "width": 600}], "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/flights-5k.json"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -243,7 +163,7 @@ change on the top panel.</p>
       vegaEmbed('#histogram_responsive-rst-altair-plot-0', spec, opt).catch(console.err);
   });
 </script>
-</div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+</div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
 <span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
 
 <span class="n">source</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">flights_5k</span><span class="o">.</span><span class="n">url</span>
@@ -274,70 +194,33 @@ change on the top panel.</p>
 </div>
 <div class="toctree-wrapper compound">
 </div>
-</div>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="histogram_with_a_global_mean_overlay.html" class="btn btn-neutral float-right" title="Histogram with a Global Mean Overlay" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="trellis_scatter_plot.html" class="btn btn-neutral" title="Trellis Scatter Plot" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="wind_vector_map.html" class="btn btn-neutral float-left" title="Wind Vector Map" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="histogram_with_a_global_mean_overlay.html" class="btn btn-neutral float-right" title="Histogram with a Global Mean Overlay" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2016-2019, Altair Developers.
-
-    </p>
+    <p>&#169; Copyright 2016-2020, Altair Developers.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'4.1.0',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.8.1"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-
-  
-
-  <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });

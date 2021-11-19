@@ -1,78 +1,46 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>altair.selection_interval &mdash; Altair 4.1.0 documentation</title>
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-  
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>altair.selection_interval &mdash; Altair 4.2.0rc1 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/altair-plot.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/altair-gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/theme_overrides.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/altair-plot.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/altair-gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/theme_overrides.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.17.0"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="altair.selection_multi" href="altair.selection_multi.html" />
     <link rel="prev" title="altair.selection" href="altair.selection.html" /> 
-
-  
-  <script src="../../../_static/js/modernizr.min.js"></script>
-
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
-
-          
+        <div class="wy-side-nav-search" >
             <a href="../../../index.html" class="icon icon-home"> Altair
-          
-
-          
-            
             <img src="../../../_static/altair-logo-light.png" class="logo" alt="Logo"/>
-          
           </a>
-
-          
-            
-            
               <div class="version">
-                4.1.0
+                4.2.0rc1
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -80,18 +48,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/installation.html">Installation</a></li>
@@ -99,11 +57,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/installation.html#development-install">Development Install</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/starting.html">Basic Statistical Visualization</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Gallery</span></p>
+<p class="caption" role="heading"><span class="caption-text">Gallery</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../gallery/index.html">Example Gallery</a></li>
 </ul>
-<p class="caption"><span class="caption-text">User Guide</span></p>
+<p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../data.html">Specifying Data in Altair</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../encoding.html">Encodings</a></li>
@@ -150,11 +108,11 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../ecosystem.html">Altair Ecosystem</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Case Studies</span></p>
+<p class="caption" role="heading"><span class="caption-text">Case Studies</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../case_studies/exploring-weather.html">Exploring Seattle Weather</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Advanced Usage</span></p>
+<p class="caption" role="heading"><span class="caption-text">Advanced Usage</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../importing.html">Importing Vega &amp; Vega-Lite Versions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../display_frontends.html">Displaying Altair Charts</a></li>
@@ -162,243 +120,146 @@
 <li class="toctree-l1"><a class="reference internal" href="../../custom_renderers.html">Customizing Renderers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../data_transformers.html">Data transformers</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Release Notes</span></p>
+<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../releases/changes.html">Altair Change Log</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../index.html">Altair</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../../index.html">Docs</a> &raquo;</li>
-        
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../../API.html">API Reference</a> &raquo;</li>
-        
       <li>altair.selection_interval</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-            
             <a href="../../../_sources/user_guide/generated/api/altair.selection_interval.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="altair-selection-interval">
-<h1>altair.selection_interval<a class="headerlink" href="#altair-selection-interval" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
-<dt id="altair.selection_interval">
-<code class="descclassname">altair.</code><code class="descname">selection_interval</code><span class="sig-paren">(</span><em>self</em>, <em>type=Undefined</em>, <em>bind=Undefined</em>, <em>clear=Undefined</em>, <em>empty=Undefined</em>, <em>encodings=Undefined</em>, <em>fields=Undefined</em>, <em>init=Undefined</em>, <em>mark=Undefined</em>, <em>on=Undefined</em>, <em>resolve=Undefined</em>, <em>translate=Undefined</em>, <em>zoom=Undefined</em>, <em>**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.selection_interval" title="Permalink to this definition">¶</a></dt>
+             
+  <section id="altair-selection-interval">
+<h1>altair.selection_interval<a class="headerlink" href="#altair-selection-interval" title="Permalink to this headline"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="altair.selection_interval">
+<span class="sig-prename descclassname"><span class="pre">altair.</span></span><span class="sig-name descname"><span class="pre">selection_interval</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Undefined</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bind</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Undefined</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clear</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Undefined</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">empty</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Undefined</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encodings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Undefined</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fields</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Undefined</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Undefined</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mark</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Undefined</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">on</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Undefined</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolve</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Undefined</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">translate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Undefined</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zoom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Undefined</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#altair.selection_interval" title="Permalink to this definition"></a></dt>
 <dd><p>Create a selection with type=’interval’
 Mapping(required=[type])</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Attributes:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>type</strong> <span class="classifier-delimiter">:</span> <span class="classifier">enum(‘interval’)</span></dt>
-<dd><p class="first">Determines the default event processing and data query for the selection. Vega-Lite
+<dl class="field-list">
+<dt class="field-odd">Attributes</dt>
+<dd class="field-odd"><dl>
+<dt><strong>type</strong><span class="classifier">string</span></dt><dd><p>Determines the default event processing and data query for the selection. Vega-Lite
 currently supports three selection types:</p>
-<ul class="last simple">
-<li><code class="docutils literal"><span class="pre">&quot;single&quot;</span></code> – to select a single discrete data value on <code class="docutils literal"><span class="pre">click</span></code>.</li>
-<li><code class="docutils literal"><span class="pre">&quot;multi&quot;</span></code> – to select multiple discrete data value; the first value is selected
-on <code class="docutils literal"><span class="pre">click</span></code> and additional values toggled on shift- <code class="docutils literal"><span class="pre">click</span></code>.</li>
-<li><code class="docutils literal"><span class="pre">&quot;interval&quot;</span></code> – to select a continuous range of data values on <code class="docutils literal"><span class="pre">drag</span></code>.</li>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;single&quot;</span></code> – to select a single discrete data value on <code class="docutils literal notranslate"><span class="pre">click</span></code>. - <code class="docutils literal notranslate"><span class="pre">&quot;multi&quot;</span></code>
+– to select multiple discrete data value; the first value is selected on
+<code class="docutils literal notranslate"><span class="pre">click</span></code> and additional values toggled on shift- <code class="docutils literal notranslate"><span class="pre">click</span></code>. - <code class="docutils literal notranslate"><span class="pre">&quot;interval&quot;</span></code> –
+to select a continuous range of data values on <code class="docutils literal notranslate"><span class="pre">drag</span></code>.</p></li>
 </ul>
 </dd>
-<dt><strong>bind</strong> <span class="classifier-delimiter">:</span> <span class="classifier">enum(‘scales’)</span></dt>
-<dd><p class="first">Establishes a two-way binding between the interval selection and the scales
-used within the same view. This allows a user to interactively pan and
-zoom the view.</p>
-<p class="last"><strong>See also:</strong> <a class="reference external" href="https://vega.github.io/vega-lite/docs/bind.html">bind</a>
+<dt><strong>bind</strong><span class="classifier">string</span></dt><dd><p>Establishes a two-way binding between the interval selection and the scales used
+within the same view. This allows a user to interactively pan and zoom the view.</p>
+<p><strong>See also:</strong> <a class="reference external" href="https://vega.github.io/vega-lite/docs/bind.html">bind</a>
 documentation.</p>
 </dd>
-<dt><strong>clear</strong> <span class="classifier-delimiter">:</span> <span class="classifier">anyOf(<a class="reference internal" href="../core/altair.Stream.html#altair.Stream" title="altair.Stream"><code class="xref py py-class docutils literal"><span class="pre">Stream</span></code></a>, string, boolean)</span></dt>
-<dd><p class="first">Clears the selection, emptying it of all values. Can be a
-<a class="reference external" href="https://vega.github.io/vega/docs/event-streams/">Event Stream</a> or <code class="docutils literal"><span class="pre">false</span></code> to
-disable.</p>
-<p><strong>Default value:</strong> <code class="docutils literal"><span class="pre">dblclick</span></code>.</p>
-<p class="last"><strong>See also:</strong> <a class="reference external" href="https://vega.github.io/vega-lite/docs/clear.html">clear</a>
+<dt><strong>clear</strong><span class="classifier">anyOf(<a class="reference internal" href="../core/altair.Stream.html#altair.Stream" title="altair.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stream</span></code></a>, string, boolean)</span></dt><dd><p>Clears the selection, emptying it of all values. Can be a <a class="reference external" href="https://vega.github.io/vega/docs/event-streams/">Event Stream</a> or <code class="docutils literal notranslate"><span class="pre">false</span></code> to disable.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">dblclick</span></code>.</p>
+<p><strong>See also:</strong> <a class="reference external" href="https://vega.github.io/vega-lite/docs/clear.html">clear</a>
 documentation.</p>
 </dd>
-<dt><strong>empty</strong> <span class="classifier-delimiter">:</span> <span class="classifier">enum(‘all’, ‘none’)</span></dt>
-<dd><p class="first last">By default, <code class="docutils literal"><span class="pre">all</span></code> data values are considered to lie within an empty selection.
-When set to <code class="docutils literal"><span class="pre">none</span></code>, empty selections contain no data values.</p>
+<dt><strong>empty</strong><span class="classifier">enum(‘all’, ‘none’)</span></dt><dd><p>By default, <code class="docutils literal notranslate"><span class="pre">all</span></code> data values are considered to lie within an empty selection.
+When set to <code class="docutils literal notranslate"><span class="pre">none</span></code>, empty selections contain no data values.</p>
 </dd>
-<dt><strong>encodings</strong> <span class="classifier-delimiter">:</span> <span class="classifier">List(<a class="reference internal" href="../core/altair.SingleDefUnitChannel.html#altair.SingleDefUnitChannel" title="altair.SingleDefUnitChannel"><code class="xref py py-class docutils literal"><span class="pre">SingleDefUnitChannel</span></code></a>)</span></dt>
-<dd><p class="first">An array of encoding channels. The corresponding data field values
-must match for a data tuple to fall within the selection.</p>
-<p class="last"><strong>See also:</strong> <a class="reference external" href="https://vega.github.io/vega-lite/docs/project.html">encodings</a>
+<dt><strong>encodings</strong><span class="classifier">List(<a class="reference internal" href="../core/altair.SingleDefUnitChannel.html#altair.SingleDefUnitChannel" title="altair.SingleDefUnitChannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">SingleDefUnitChannel</span></code></a>)</span></dt><dd><p>An array of encoding channels. The corresponding data field values must match for a
+data tuple to fall within the selection.</p>
+<p><strong>See also:</strong> <a class="reference external" href="https://vega.github.io/vega-lite/docs/project.html">encodings</a>
 documentation.</p>
 </dd>
-<dt><strong>fields</strong> <span class="classifier-delimiter">:</span> <span class="classifier">List(<a class="reference internal" href="../core/altair.FieldName.html#altair.FieldName" title="altair.FieldName"><code class="xref py py-class docutils literal"><span class="pre">FieldName</span></code></a>)</span></dt>
-<dd><p class="first">An array of field names whose values must match for a data tuple to
-fall within the selection.</p>
-<p class="last"><strong>See also:</strong> <a class="reference external" href="https://vega.github.io/vega-lite/docs/project.html">fields</a>
+<dt><strong>fields</strong><span class="classifier">List(<a class="reference internal" href="../core/altair.FieldName.html#altair.FieldName" title="altair.FieldName"><code class="xref py py-class docutils literal notranslate"><span class="pre">FieldName</span></code></a>)</span></dt><dd><p>An array of field names whose values must match for a data tuple to fall within the
+selection.</p>
+<p><strong>See also:</strong> <a class="reference external" href="https://vega.github.io/vega-lite/docs/project.html">fields</a>
 documentation.</p>
 </dd>
-<dt><strong>init</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference internal" href="../core/altair.SelectionInitIntervalMapping.html#altair.SelectionInitIntervalMapping" title="altair.SelectionInitIntervalMapping"><code class="xref py py-class docutils literal"><span class="pre">SelectionInitIntervalMapping</span></code></a></span></dt>
-<dd><p class="first">Initialize the selection with a mapping between <a class="reference external" href="https://vega.github.io/vega-lite/docs/project.html">projected channels or field names</a> and arrays of
-initial values.</p>
-<p class="last"><strong>See also:</strong> <a class="reference external" href="https://vega.github.io/vega-lite/docs/init.html">init</a>
+<dt><strong>init</strong><span class="classifier"><a class="reference internal" href="../core/altair.SelectionInitIntervalMapping.html#altair.SelectionInitIntervalMapping" title="altair.SelectionInitIntervalMapping"><code class="xref py py-class docutils literal notranslate"><span class="pre">SelectionInitIntervalMapping</span></code></a></span></dt><dd><p>Initialize the selection with a mapping between <a class="reference external" href="https://vega.github.io/vega-lite/docs/project.html">projected channels or field names</a> and arrays of initial
+values.</p>
+<p><strong>See also:</strong> <a class="reference external" href="https://vega.github.io/vega-lite/docs/init.html">init</a>
 documentation.</p>
 </dd>
-<dt><strong>mark</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference internal" href="../core/altair.BrushConfig.html#altair.BrushConfig" title="altair.BrushConfig"><code class="xref py py-class docutils literal"><span class="pre">BrushConfig</span></code></a></span></dt>
-<dd><p class="first">An interval selection also adds a rectangle mark to depict the
-extents of the interval. The <code class="docutils literal"><span class="pre">mark</span></code> property can be used to customize the
-appearance of the mark.</p>
-<p class="last"><strong>See also:</strong> <a class="reference external" href="https://vega.github.io/vega-lite/docs/selection-mark.html">mark</a>
+<dt><strong>mark</strong><span class="classifier"><a class="reference internal" href="../core/altair.BrushConfig.html#altair.BrushConfig" title="altair.BrushConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">BrushConfig</span></code></a></span></dt><dd><p>An interval selection also adds a rectangle mark to depict the extents of the
+interval. The <code class="docutils literal notranslate"><span class="pre">mark</span></code> property can be used to customize the appearance of the mark.</p>
+<p><strong>See also:</strong> <a class="reference external" href="https://vega.github.io/vega-lite/docs/selection-mark.html">mark</a>
 documentation.</p>
 </dd>
-<dt><strong>on</strong> <span class="classifier-delimiter">:</span> <span class="classifier">anyOf(<a class="reference internal" href="../core/altair.Stream.html#altair.Stream" title="altair.Stream"><code class="xref py py-class docutils literal"><span class="pre">Stream</span></code></a>, string)</span></dt>
-<dd><p class="first last">A <a class="reference external" href="https://vega.github.io/vega/docs/event-streams/">Vega event stream</a> (object or
-selector) that triggers the selection.
-For interval selections, the event stream must specify a <a class="reference external" href="https://vega.github.io/vega/docs/event-streams/#between-filters">start and end</a>.</p>
+<dt><strong>on</strong><span class="classifier">anyOf(<a class="reference internal" href="../core/altair.Stream.html#altair.Stream" title="altair.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stream</span></code></a>, string)</span></dt><dd><p>A <a class="reference external" href="https://vega.github.io/vega/docs/event-streams/">Vega event stream</a> (object or
+selector) that triggers the selection. For interval selections, the event stream
+must specify a <a class="reference external" href="https://vega.github.io/vega/docs/event-streams/#between-filters">start and end</a>.</p>
 </dd>
-<dt><strong>resolve</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference internal" href="../core/altair.SelectionResolution.html#altair.SelectionResolution" title="altair.SelectionResolution"><code class="xref py py-class docutils literal"><span class="pre">SelectionResolution</span></code></a></span></dt>
-<dd><p class="first">With layered and multi-view displays, a strategy that determines how
-selections’ data queries are resolved when applied in a filter transform,
-conditional encoding rule, or scale domain.</p>
-<p class="last"><strong>See also:</strong> <a class="reference external" href="https://vega.github.io/vega-lite/docs/selection-resolve.html">resolve</a> documentation.</p>
+<dt><strong>resolve</strong><span class="classifier"><a class="reference internal" href="../core/altair.SelectionResolution.html#altair.SelectionResolution" title="altair.SelectionResolution"><code class="xref py py-class docutils literal notranslate"><span class="pre">SelectionResolution</span></code></a></span></dt><dd><p>With layered and multi-view displays, a strategy that determines how selections’
+data queries are resolved when applied in a filter transform, conditional encoding
+rule, or scale domain.</p>
+<p><strong>See also:</strong> <a class="reference external" href="https://vega.github.io/vega-lite/docs/selection-resolve.html">resolve</a> documentation.</p>
 </dd>
-<dt><strong>translate</strong> <span class="classifier-delimiter">:</span> <span class="classifier">anyOf(string, boolean)</span></dt>
-<dd><p class="first">When truthy, allows a user to interactively move an interval selection
-back-and-forth. Can be <code class="docutils literal"><span class="pre">true</span></code>, <code class="docutils literal"><span class="pre">false</span></code> (to disable panning), or a
-<a class="reference external" href="https://vega.github.io/vega/docs/event-streams/">Vega event stream definition</a>
-which must include a start and end event to trigger continuous panning.</p>
-<p><strong>Default value:</strong> <code class="docutils literal"><span class="pre">true</span></code>, which corresponds to
-<code class="docutils literal"><span class="pre">[mousedown,</span> <span class="pre">window:mouseup]</span> <span class="pre">&gt;</span> <span class="pre">window:mousemove!</span></code> which corresponds to
-clicks and dragging within an interval selection to reposition it.</p>
-<p class="last"><strong>See also:</strong> <a class="reference external" href="https://vega.github.io/vega-lite/docs/translate.html">translate</a>
+<dt><strong>translate</strong><span class="classifier">anyOf(string, boolean)</span></dt><dd><p>When truthy, allows a user to interactively move an interval selection
+back-and-forth. Can be <code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">false</span></code> (to disable panning), or a <a class="reference external" href="https://vega.github.io/vega/docs/event-streams/">Vega event
+stream definition</a> which must
+include a start and end event to trigger continuous panning.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">true</span></code>, which corresponds to <code class="docutils literal notranslate"><span class="pre">[mousedown,</span> <span class="pre">window:mouseup]</span> <span class="pre">&gt;</span>
+<span class="pre">window:mousemove!</span></code> which corresponds to clicks and dragging within an interval
+selection to reposition it.</p>
+<p><strong>See also:</strong> <a class="reference external" href="https://vega.github.io/vega-lite/docs/translate.html">translate</a>
 documentation.</p>
 </dd>
-<dt><strong>zoom</strong> <span class="classifier-delimiter">:</span> <span class="classifier">anyOf(string, boolean)</span></dt>
-<dd><p class="first">When truthy, allows a user to interactively resize an interval selection.
-Can be <code class="docutils literal"><span class="pre">true</span></code>, <code class="docutils literal"><span class="pre">false</span></code> (to disable zooming), or a <a class="reference external" href="https://vega.github.io/vega/docs/event-streams/">Vega event stream
-definition</a>. Currently,
-only <code class="docutils literal"><span class="pre">wheel</span></code> events are supported.</p>
-<p><strong>Default value:</strong> <code class="docutils literal"><span class="pre">true</span></code>, which corresponds to <code class="docutils literal"><span class="pre">wheel!</span></code>.</p>
-<p class="last"><strong>See also:</strong> <a class="reference external" href="https://vega.github.io/vega-lite/docs/zoom.html">zoom</a>
+<dt><strong>zoom</strong><span class="classifier">anyOf(string, boolean)</span></dt><dd><p>When truthy, allows a user to interactively resize an interval selection. Can be
+<code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">false</span></code> (to disable zooming), or a <a class="reference external" href="https://vega.github.io/vega/docs/event-streams/">Vega event stream definition</a>. Currently, only <code class="docutils literal notranslate"><span class="pre">wheel</span></code>
+events are supported.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">true</span></code>, which corresponds to <code class="docutils literal notranslate"><span class="pre">wheel!</span></code>.</p>
+<p><strong>See also:</strong> <a class="reference external" href="https://vega.github.io/vega-lite/docs/zoom.html">zoom</a>
 documentation.</p>
 </dd>
 </dl>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-</div>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="altair.selection_multi.html" class="btn btn-neutral float-right" title="altair.selection_multi" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="altair.selection.html" class="btn btn-neutral" title="altair.selection" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="altair.selection.html" class="btn btn-neutral float-left" title="altair.selection" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="altair.selection_multi.html" class="btn btn-neutral float-right" title="altair.selection_multi" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2016-2019, Altair Developers.
-
-    </p>
+    <p>&#169; Copyright 2016-2020, Altair Developers.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../../',
-            VERSION:'4.1.0',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.8.1"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-
-  
-
-  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });

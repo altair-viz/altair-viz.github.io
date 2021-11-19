@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Comet Chart Example &mdash; Altair 4.2.0rc1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/altair-plot.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/altair-gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.17.0"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Error Bar with Standard Deviation" href="errorbars_with_std.html" />
+    <link rel="prev" title="Candlestick Chart" href="candlestick_chart.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Altair
+            <img src="../_static/altair-logo-light.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                4.2.0rc1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html#dependencies">Dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html#development-install">Development Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/starting.html">Basic Statistical Visualization</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Example Gallery</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#simple-charts">Simple Charts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#bar-charts">Bar Charts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#line-charts">Line Charts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#area-charts">Area Charts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#circular-plots">Circular Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#scatter-plots">Scatter Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#histograms">Histograms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#maps">Maps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#interactive-charts">Interactive Charts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#case-studies">Case Studies</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#other-charts">Other Charts</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="bar_chart_with_highlighted_segment.html">Bar Chart with Highlighted Segment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="beckers_barley_wrapped_facet.html">Becker’s Barley Trellis Plot (wrapped facet)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="binned_heatmap.html">Binned Heatmap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="boxplot.html">Boxplot with Min/Max Whiskers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="candlestick_chart.html">Candlestick Chart</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Comet Chart Example</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="errorbars_with_std.html">Error Bar with Standard Deviation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="errorbars_with_ci.html">Error Bars showing Confidence Interval</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scatter_marginal_hist.html">Facetted Scatterplot with marginal histograms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gantt_chart.html">Gantt Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hexbins.html">Hexbin Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="image_tooltip.html">Image tooltip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="isotype_grid.html">Isotype Grid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layered_chart_with_dual_axis.html">Layered chart with Dual-Axis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multiple_marks.html">Multiple Marks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="normed_parallel_coordinates.html">Normalized Parallel Coordinates Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="parallel_coordinates.html">Parallel Coordinates Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ranged_dot_plot.html">Ranged Dot Plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ridgeline_plot.html">Ridgeline plot Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sorted_error_bars_with_ci.html">Sorted Error Bars showing Confidence Interval</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stem_and_leaf.html">Stem and Leaf Plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layered_heatmap_text.html">Text over a Heatmap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="violin_plot.html">Violin Plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wilkinson-dot-plot.html">Wilkinson Dot Plot</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/data.html">Specifying Data in Altair</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/encoding.html">Encodings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/marks.html">Marks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/transform/index.html">Data Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/interactions.html">Bindings, Selections, Conditions: Making Charts Interactive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/configuration.html">Top-Level Chart Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/scale_resolve.html">Scale and Guide Resolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/saving_charts.html">Saving Altair Charts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/customization.html">Customizing Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/times_and_dates.html">Times and Dates in Altair</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/troubleshooting.html">Display Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/internals.html">Altair Internals: Understanding the Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/API.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/ecosystem.html">Altair Ecosystem</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Case Studies</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../case_studies/exploring-weather.html">Exploring Seattle Weather</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/importing.html">Importing Vega &amp; Vega-Lite Versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/display_frontends.html">Displaying Altair Charts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/display_frontends.html#renderer-api">Renderer API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/custom_renderers.html">Customizing Renderers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/data_transformers.html">Data transformers</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../releases/changes.html">Altair Change Log</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Altair</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Example Gallery</a> &raquo;</li>
+      <li>Comet Chart Example</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/gallery/comet_chart.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="comet-chart-example">
+<span id="gallery-comet-chart"></span><h1>Comet Chart Example<a class="headerlink" href="#comet-chart-example" title="Permalink to this headline"></a></h1>
+<p>Inspired by <a class="reference external" href="https://www.zanarmstrong.com/infovisresearch">Zan Armstrong’s comet chart</a>
+this plot uses <code class="docutils literal notranslate"><span class="pre">mark_trail</span></code> to visualize change of grouped data over time.
+A more elaborate example and explanation of creating comet charts in Altair
+is shown in <a class="reference external" href="https://medium.com/de-dataverbinders/comet-charts-in-python-visualizing-statistical-mix-effects-and-simpsons-paradox-with-altair-6cd51fb58b7c">this blogpost</a>.</p>
+
+<div id="comet_chart-rst-altair-plot-0">
+<script>
+  // embed when document is loaded, to ensure vega library is available
+  // this works on all modern browsers, except IE8 and older
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300, "stroke": null}, "legend": {"direction": "horizontal", "orient": "bottom"}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/barley.json"}, "mark": "trail", "encoding": {"color": {"field": "delta", "legend": {"title": "Yield Delta (%)"}, "scale": {"domainMid": 0}, "type": "quantitative"}, "column": {"field": "site", "title": "Site", "type": "nominal"}, "size": {"field": "yield", "legend": {"title": "Barley Yield (bushels/acre)", "values": [20, 60]}, "scale": {"range": [0, 12]}, "type": "quantitative"}, "tooltip": [{"field": "year", "type": "ordinal"}, {"field": "yield", "type": "quantitative"}], "x": {"field": "year", "title": null, "type": "ordinal"}, "y": {"field": "variety", "title": "Variety", "type": "nominal"}}, "title": "Barley Yield comparison between 1932 and 1931", "transform": [{"pivot": "year", "value": "yield", "groupby": ["variety", "site"]}, {"fold": ["1931", "1932"], "as": ["year", "yield"]}, {"calculate": "datum['1932'] - datum['1931']", "as": "delta"}], "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"};
+      var opt = {
+        "mode": "vega-lite",
+        "renderer": "canvas",
+        "actions": {"editor": true, "source": true, "export": true}
+      };
+      vegaEmbed('#comet_chart-rst-altair-plot-0', spec, opt).catch(console.err);
+  });
+</script>
+</div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">import</span> <span class="nn">vega_datasets</span>
+
+<span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">vega_datasets</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">barley</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">transform_pivot</span><span class="p">(</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;yield&quot;</span><span class="p">,</span> <span class="n">groupby</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;variety&quot;</span><span class="p">,</span> <span class="s2">&quot;site&quot;</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">transform_fold</span><span class="p">([</span><span class="s2">&quot;1931&quot;</span><span class="p">,</span> <span class="s2">&quot;1932&quot;</span><span class="p">],</span> <span class="n">as_</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;yield&quot;</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">transform_calculate</span><span class="p">(</span><span class="n">calculate</span><span class="o">=</span><span class="s2">&quot;datum[&#39;1932&#39;] - datum[&#39;1931&#39;]&quot;</span><span class="p">,</span> <span class="n">as_</span><span class="o">=</span><span class="s2">&quot;delta&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">mark_trail</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;year:O&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span>
+        <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;variety:N&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Variety&#39;</span><span class="p">),</span>
+        <span class="n">size</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span><span class="s1">&#39;yield:Q&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">]),</span> <span class="n">legend</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Legend</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">60</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Barley Yield (bushels/acre)&#39;</span><span class="p">)),</span>
+        <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;delta:Q&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domainMid</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">legend</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Yield Delta (%)&#39;</span><span class="p">)),</span>
+        <span class="n">tooltip</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Tooltip</span><span class="p">([</span><span class="s1">&#39;year:O&#39;</span><span class="p">,</span> <span class="s1">&#39;yield:Q&#39;</span><span class="p">]),</span>
+        <span class="n">column</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="s1">&#39;site:N&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Site&#39;</span><span class="p">)</span>
+
+    <span class="p">)</span>
+    <span class="o">.</span><span class="n">configure_view</span><span class="p">(</span><span class="n">stroke</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">configure_legend</span><span class="p">(</span><span class="n">orient</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Barley Yield comparison between 1932 and 1931&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="candlestick_chart.html" class="btn btn-neutral float-left" title="Candlestick Chart" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="errorbars_with_std.html" class="btn btn-neutral float-right" title="Error Bar with Standard Deviation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2016-2020, Altair Developers.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

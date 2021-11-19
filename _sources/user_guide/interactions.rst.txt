@@ -308,7 +308,7 @@ used to determine which points are part of the selection.
 
 For example, here we create a small chart that acts as an interactive legend,
 by targeting the Origin field using ``fields=['Origin']``. Clicking on points
-in the upper-left plot (the legend) will propagate a selection for all points
+in the upper-right plot (the legend) will propagate a selection for all points
 with a matching ``Origin``.
 
 .. altair-plot::
@@ -375,8 +375,8 @@ Binding: Adding Data Driven Inputs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 With an understanding of the selection types and conditions, you can now add data-driven input elements to the charts using the ``bind`` option. As specified by `Vega-lite binding <https://vega.github.io/vega-lite/docs/bind.html#input-element-binding>`_, selections can be bound two-ways:
 
-1. Single selections can be bound directly to an input elements. *For example, a radio button.*
-2. Interval selections which can be bound to scale. *for example, zooming in on a map.*
+1. Single selections can be bound directly to an input element, *for example, a radio button.*
+2. Interval selections which can be bound to scale, *for example, zooming in on a map.*
 
 Input Element Binding
 ^^^^^^^^^^^^^^^^^^^^^
@@ -386,8 +386,8 @@ For instance, using our example from above a dropdown can be used to highlight c
 
 .. altair-plot::
 
-    input_dropdown = alt.binding_select(options=['Europe','Japan','USA'])
-    selection = alt.selection_single(fields=['Origin'], bind=input_dropdown, name='Country of ')
+    input_dropdown = alt.binding_select(options=['Europe','Japan','USA'], name='Country')
+    selection = alt.selection_single(fields=['Origin'], bind=input_dropdown)
     color = alt.condition(selection,
                         alt.Color('Origin:N', legend=None),
                         alt.value('lightgray'))
@@ -423,12 +423,9 @@ Bindings and input elements can also be used to filter data on the client side. 
 
 .. altair-plot::
 
-    input_dropdown = alt.binding_select(options=['Europe','Japan','USA'])
-    selection = alt.selection_single(fields=['Origin'], bind=input_dropdown, name='Country of ')
-    color = alt.condition(selection,
-                        alt.Color('Origin:N', legend=None),
-                        alt.value('lightgray'))
-
+    input_dropdown = alt.binding_select(options=['Europe','Japan','USA'], name='Country')
+    selection = alt.selection_single(fields=['Origin'], bind=input_dropdown)
+    
     alt.Chart(cars).mark_point().encode(
         x='Horsepower:Q',
         y='Miles_per_Gallon:Q',

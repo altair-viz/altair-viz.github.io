@@ -1,78 +1,46 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Bar Chart with Line at Mean &mdash; Altair 4.1.0 documentation</title>
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-  
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bar Chart with Line at Mean &mdash; Altair 4.2.0rc1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/altair-plot.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/altair-gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/altair-plot.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/altair-gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.17.0"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Bar Chart with Line on Dual Axis" href="bar_and_line_with_dual_axis.html" />
     <link rel="prev" title="Bar Chart with Labels" href="bar_chart_with_labels.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
-
-          
+        <div class="wy-side-nav-search" >
             <a href="../index.html" class="icon icon-home"> Altair
-          
-
-          
-            
             <img src="../_static/altair-logo-light.png" class="logo" alt="Logo"/>
-          
           </a>
-
-          
-            
-            
               <div class="version">
-                4.1.0
+                4.2.0rc1
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -80,18 +48,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installation</a></li>
@@ -99,7 +57,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html#development-install">Development Install</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/starting.html">Basic Statistical Visualization</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Gallery</span></p>
+<p class="caption" role="heading"><span class="caption-text">Gallery</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Example Gallery</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="index.html#simple-charts">Simple Charts</a></li>
@@ -111,9 +69,11 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="bar_and_line_with_dual_axis.html">Bar Chart with Line on Dual Axis</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bar_chart_with_negatives.html">Bar Chart with Negative Values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bar_with_rolling_mean.html">Bar Chart with Rolling Mean</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bar_rounded.html">Bar Chart with rounded edges</a></li>
 <li class="toctree-l3"><a class="reference internal" href="layered_chart_bar_mark.html">Bar and Tick Chart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="percentage_of_total.html">Calculating Percentage of Total</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bar_chart_trellis_compact.html">Compact Trellis Grid of Bar Charts</a></li>
 <li class="toctree-l3"><a class="reference internal" href="diverging_stacked_bar_chart.html">Diverging Stacked Bar Chart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="grouped_bar_chart.html">Grouped Bar Chart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="grouped_bar_chart_with_error_bars.html">Grouped Bar Chart with Error Bars</a></li>
@@ -131,6 +91,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#line-charts">Line Charts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#area-charts">Area Charts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#circular-plots">Circular Plots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#scatter-plots">Scatter Plots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#histograms">Histograms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#maps">Maps</a></li>
@@ -140,7 +101,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">User Guide</span></p>
+<p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/data.html">Specifying Data in Altair</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/encoding.html">Encodings</a></li>
@@ -159,11 +120,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/API.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/ecosystem.html">Altair Ecosystem</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Case Studies</span></p>
+<p class="caption" role="heading"><span class="caption-text">Case Studies</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../case_studies/exploring-weather.html">Exploring Seattle Weather</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Advanced Usage</span></p>
+<p class="caption" role="heading"><span class="caption-text">Advanced Usage</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/importing.html">Importing Vega &amp; Vega-Lite Versions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/display_frontends.html">Displaying Altair Charts</a></li>
@@ -171,77 +132,38 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/custom_renderers.html">Customizing Renderers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/data_transformers.html">Data transformers</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Release Notes</span></p>
+<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../releases/changes.html">Altair Change Log</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Altair</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="index.html">Example Gallery</a> &raquo;</li>
-        
       <li>Bar Chart with Line at Mean</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-            
             <a href="../_sources/gallery/bar_chart_with_mean_line.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="bar-chart-with-line-at-mean">
-<span id="gallery-bar-chart-with-mean-line"></span><h1>Bar Chart with Line at Mean<a class="headerlink" href="#bar-chart-with-line-at-mean" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="bar-chart-with-line-at-mean">
+<span id="gallery-bar-chart-with-mean-line"></span><h1>Bar Chart with Line at Mean<a class="headerlink" href="#bar-chart-with-line-at-mean" title="Permalink to this headline"></a></h1>
 <p>This example shows the mean value overlayed on a bar chart.</p>
 
 <div id="bar_chart_with_mean_line-rst-altair-plot-0">
@@ -249,7 +171,7 @@
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": "bar", "encoding": {"x": {"type": "ordinal", "field": "year"}, "y": {"type": "quantitative", "field": "wheat"}}}, {"mark": {"type": "rule", "color": "red"}, "encoding": {"y": {"type": "quantitative", "aggregate": "mean", "field": "wheat"}}}], "data": {"name": "data-76d1ce26ea5761007c35827e1564d86c"}, "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-76d1ce26ea5761007c35827e1564d86c": [{"year": 1565, "wheat": 41.0, "wages": 5.0}, {"year": 1570, "wheat": 45.0, "wages": 5.05}, {"year": 1575, "wheat": 42.0, "wages": 5.08}, {"year": 1580, "wheat": 49.0, "wages": 5.12}, {"year": 1585, "wheat": 41.5, "wages": 5.15}, {"year": 1590, "wheat": 47.0, "wages": 5.25}, {"year": 1595, "wheat": 64.0, "wages": 5.54}, {"year": 1600, "wheat": 27.0, "wages": 5.61}, {"year": 1605, "wheat": 33.0, "wages": 5.69}, {"year": 1610, "wheat": 32.0, "wages": 5.78}, {"year": 1615, "wheat": 33.0, "wages": 5.94}, {"year": 1620, "wheat": 35.0, "wages": 6.01}, {"year": 1625, "wheat": 33.0, "wages": 6.12}, {"year": 1630, "wheat": 45.0, "wages": 6.22}, {"year": 1635, "wheat": 33.0, "wages": 6.3}, {"year": 1640, "wheat": 39.0, "wages": 6.37}, {"year": 1645, "wheat": 53.0, "wages": 6.45}, {"year": 1650, "wheat": 42.0, "wages": 6.5}, {"year": 1655, "wheat": 40.5, "wages": 6.6}, {"year": 1660, "wheat": 46.5, "wages": 6.75}, {"year": 1665, "wheat": 32.0, "wages": 6.8}, {"year": 1670, "wheat": 37.0, "wages": 6.9}, {"year": 1675, "wheat": 43.0, "wages": 7.0}, {"year": 1680, "wheat": 35.0, "wages": 7.3}, {"year": 1685, "wheat": 27.0, "wages": 7.6}, {"year": 1690, "wheat": 40.0, "wages": 8.0}, {"year": 1695, "wheat": 50.0, "wages": 8.5}, {"year": 1700, "wheat": 30.0, "wages": 9.0}, {"year": 1705, "wheat": 32.0, "wages": 10.0}, {"year": 1710, "wheat": 44.0, "wages": 11.0}, {"year": 1715, "wheat": 33.0, "wages": 11.75}, {"year": 1720, "wheat": 29.0, "wages": 12.5}, {"year": 1725, "wheat": 39.0, "wages": 13.0}, {"year": 1730, "wheat": 26.0, "wages": 13.3}, {"year": 1735, "wheat": 32.0, "wages": 13.6}, {"year": 1740, "wheat": 27.0, "wages": 14.0}, {"year": 1745, "wheat": 27.5, "wages": 14.5}, {"year": 1750, "wheat": 31.0, "wages": 15.0}, {"year": 1755, "wheat": 35.5, "wages": 15.7}, {"year": 1760, "wheat": 31.0, "wages": 16.5}, {"year": 1765, "wheat": 43.0, "wages": 17.6}, {"year": 1770, "wheat": 47.0, "wages": 18.5}, {"year": 1775, "wheat": 44.0, "wages": 19.5}, {"year": 1780, "wheat": 46.0, "wages": 21.0}, {"year": 1785, "wheat": 42.0, "wages": 23.0}, {"year": 1790, "wheat": 47.5, "wages": 25.5}, {"year": 1795, "wheat": 76.0, "wages": 27.5}, {"year": 1800, "wheat": 79.0, "wages": 28.5}, {"year": 1805, "wheat": 81.0, "wages": 29.5}, {"year": 1810, "wheat": 99.0, "wages": 30.0}, {"year": 1815, "wheat": 78.0, "wages": null}, {"year": 1820, "wheat": 54.0, "wages": null}]}};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": "bar", "encoding": {"x": {"field": "year", "type": "ordinal"}, "y": {"field": "wheat", "type": "quantitative"}}}, {"mark": {"type": "rule", "color": "red"}, "encoding": {"y": {"aggregate": "mean", "field": "wheat", "type": "quantitative"}}}], "data": {"name": "data-76d1ce26ea5761007c35827e1564d86c"}, "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-76d1ce26ea5761007c35827e1564d86c": [{"year": 1565, "wheat": 41.0, "wages": 5.0}, {"year": 1570, "wheat": 45.0, "wages": 5.05}, {"year": 1575, "wheat": 42.0, "wages": 5.08}, {"year": 1580, "wheat": 49.0, "wages": 5.12}, {"year": 1585, "wheat": 41.5, "wages": 5.15}, {"year": 1590, "wheat": 47.0, "wages": 5.25}, {"year": 1595, "wheat": 64.0, "wages": 5.54}, {"year": 1600, "wheat": 27.0, "wages": 5.61}, {"year": 1605, "wheat": 33.0, "wages": 5.69}, {"year": 1610, "wheat": 32.0, "wages": 5.78}, {"year": 1615, "wheat": 33.0, "wages": 5.94}, {"year": 1620, "wheat": 35.0, "wages": 6.01}, {"year": 1625, "wheat": 33.0, "wages": 6.12}, {"year": 1630, "wheat": 45.0, "wages": 6.22}, {"year": 1635, "wheat": 33.0, "wages": 6.3}, {"year": 1640, "wheat": 39.0, "wages": 6.37}, {"year": 1645, "wheat": 53.0, "wages": 6.45}, {"year": 1650, "wheat": 42.0, "wages": 6.5}, {"year": 1655, "wheat": 40.5, "wages": 6.6}, {"year": 1660, "wheat": 46.5, "wages": 6.75}, {"year": 1665, "wheat": 32.0, "wages": 6.8}, {"year": 1670, "wheat": 37.0, "wages": 6.9}, {"year": 1675, "wheat": 43.0, "wages": 7.0}, {"year": 1680, "wheat": 35.0, "wages": 7.3}, {"year": 1685, "wheat": 27.0, "wages": 7.6}, {"year": 1690, "wheat": 40.0, "wages": 8.0}, {"year": 1695, "wheat": 50.0, "wages": 8.5}, {"year": 1700, "wheat": 30.0, "wages": 9.0}, {"year": 1705, "wheat": 32.0, "wages": 10.0}, {"year": 1710, "wheat": 44.0, "wages": 11.0}, {"year": 1715, "wheat": 33.0, "wages": 11.75}, {"year": 1720, "wheat": 29.0, "wages": 12.5}, {"year": 1725, "wheat": 39.0, "wages": 13.0}, {"year": 1730, "wheat": 26.0, "wages": 13.3}, {"year": 1735, "wheat": 32.0, "wages": 13.6}, {"year": 1740, "wheat": 27.0, "wages": 14.0}, {"year": 1745, "wheat": 27.5, "wages": 14.5}, {"year": 1750, "wheat": 31.0, "wages": 15.0}, {"year": 1755, "wheat": 35.5, "wages": 15.7}, {"year": 1760, "wheat": 31.0, "wages": 16.5}, {"year": 1765, "wheat": 43.0, "wages": 17.6}, {"year": 1770, "wheat": 47.0, "wages": 18.5}, {"year": 1775, "wheat": 44.0, "wages": 19.5}, {"year": 1780, "wheat": 46.0, "wages": 21.0}, {"year": 1785, "wheat": 42.0, "wages": 23.0}, {"year": 1790, "wheat": 47.5, "wages": 25.5}, {"year": 1795, "wheat": 76.0, "wages": 27.5}, {"year": 1800, "wheat": 79.0, "wages": 28.5}, {"year": 1805, "wheat": 81.0, "wages": 29.5}, {"year": 1810, "wheat": 99.0, "wages": 30.0}, {"year": 1815, "wheat": 78.0, "wages": null}, {"year": 1820, "wheat": 54.0, "wages": null}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -258,7 +180,7 @@
       vegaEmbed('#bar_chart_with_mean_line-rst-altair-plot-0', spec, opt).catch(console.err);
   });
 </script>
-</div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+</div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
 <span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
 
 <span class="n">source</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">wheat</span><span class="p">()</span>
@@ -277,70 +199,33 @@
 </div>
 <div class="toctree-wrapper compound">
 </div>
-</div>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="bar_and_line_with_dual_axis.html" class="btn btn-neutral float-right" title="Bar Chart with Line on Dual Axis" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="bar_chart_with_labels.html" class="btn btn-neutral" title="Bar Chart with Labels" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="bar_chart_with_labels.html" class="btn btn-neutral float-left" title="Bar Chart with Labels" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="bar_and_line_with_dual_axis.html" class="btn btn-neutral float-right" title="Bar Chart with Line on Dual Axis" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2016-2019, Altair Developers.
-
-    </p>
+    <p>&#169; Copyright 2016-2020, Altair Developers.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'4.1.0',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.8.1"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-
-  
-
-  <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });

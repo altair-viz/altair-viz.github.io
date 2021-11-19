@@ -1,78 +1,46 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Connected Scatterplot (Lines with Custom Paths) &mdash; Altair 4.1.0 documentation</title>
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-  
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Connected Scatterplot (Lines with Custom Paths) &mdash; Altair 4.2.0rc1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/altair-plot.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/altair-gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/altair-plot.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/altair-gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.17.0"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Dot Dash Plot" href="dot_dash_plot.html" />
     <link rel="prev" title="Bubble Plot" href="bubble_plot.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
-
-          
+        <div class="wy-side-nav-search" >
             <a href="../index.html" class="icon icon-home"> Altair
-          
-
-          
-            
             <img src="../_static/altair-logo-light.png" class="logo" alt="Logo"/>
-          
           </a>
-
-          
-            
-            
               <div class="version">
-                4.1.0
+                4.2.0rc1
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -80,18 +48,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installation</a></li>
@@ -99,13 +57,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html#development-install">Development Install</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/starting.html">Basic Statistical Visualization</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Gallery</span></p>
+<p class="caption" role="heading"><span class="caption-text">Gallery</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Example Gallery</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="index.html#simple-charts">Simple Charts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#bar-charts">Bar Charts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#line-charts">Line Charts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#area-charts">Area Charts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#circular-plots">Circular Plots</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html#scatter-plots">Scatter Plots</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="binned_scatterplot.html">Binned Scatterplot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="scatter_linked_table.html">Brushing Scatter Plot to show data on a table</a></li>
@@ -127,6 +86,7 @@
 <li class="toctree-l3"><a class="reference internal" href="stripplot.html">Stripplot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="table_bubble_plot_github.html">Table Bubble Plot (Github Punch Card)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="trellis_scatter_plot.html">Trellis Scatter Plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wind_vector_map.html">Wind Vector Map</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#histograms">Histograms</a></li>
@@ -137,7 +97,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">User Guide</span></p>
+<p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/data.html">Specifying Data in Altair</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/encoding.html">Encodings</a></li>
@@ -156,11 +116,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/API.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/ecosystem.html">Altair Ecosystem</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Case Studies</span></p>
+<p class="caption" role="heading"><span class="caption-text">Case Studies</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../case_studies/exploring-weather.html">Exploring Seattle Weather</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Advanced Usage</span></p>
+<p class="caption" role="heading"><span class="caption-text">Advanced Usage</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/importing.html">Importing Vega &amp; Vega-Lite Versions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/display_frontends.html">Displaying Altair Charts</a></li>
@@ -168,77 +128,38 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/custom_renderers.html">Customizing Renderers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/data_transformers.html">Data transformers</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Release Notes</span></p>
+<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../releases/changes.html">Altair Change Log</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Altair</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="index.html">Example Gallery</a> &raquo;</li>
-        
       <li>Connected Scatterplot (Lines with Custom Paths)</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-            
             <a href="../_sources/gallery/connected_scatterplot.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="connected-scatterplot-lines-with-custom-paths">
-<span id="gallery-connected-scatterplot"></span><h1>Connected Scatterplot (Lines with Custom Paths)<a class="headerlink" href="#connected-scatterplot-lines-with-custom-paths" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="connected-scatterplot-lines-with-custom-paths">
+<span id="gallery-connected-scatterplot"></span><h1>Connected Scatterplot (Lines with Custom Paths)<a class="headerlink" href="#connected-scatterplot-lines-with-custom-paths" title="Permalink to this headline"></a></h1>
 <p>This example show how the order encoding can be used to draw a custom path. The dataset tracks miles driven per capita along with gas prices annually from 1956 to 2010.
 It is based on Hannah Fairfield’s article ‘Driving Shifts Into Reverse’. See <a class="reference external" href="https://archive.nytimes.com/www.nytimes.com/imagepages/2010/05/02/business/02metrics.html">https://archive.nytimes.com/www.nytimes.com/imagepages/2010/05/02/business/02metrics.html</a> for the original.</p>
 
@@ -247,7 +168,7 @@ It is based on Hannah Fairfield’s article ‘Driving Shifts Into Reverse’. S
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-e24c277102dddc2eceb7d9aaeb087c70"}, "mark": {"type": "line", "point": true}, "encoding": {"order": {"type": "quantitative", "field": "year"}, "x": {"type": "quantitative", "field": "miles", "scale": {"zero": false}}, "y": {"type": "quantitative", "field": "gas", "scale": {"zero": false}}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-e24c277102dddc2eceb7d9aaeb087c70": [{"side": "left", "year": 1956, "miles": 3675, "gas": 2.38}, {"side": "right", "year": 1957, "miles": 3706, "gas": 2.4}, {"side": "bottom", "year": 1958, "miles": 3766, "gas": 2.26}, {"side": "top", "year": 1959, "miles": 3905, "gas": 2.31}, {"side": "right", "year": 1960, "miles": 3935, "gas": 2.27}, {"side": "bottom", "year": 1961, "miles": 3977, "gas": 2.25}, {"side": "right", "year": 1962, "miles": 4085, "gas": 2.22}, {"side": "bottom", "year": 1963, "miles": 4218, "gas": 2.12}, {"side": "bottom", "year": 1964, "miles": 4369, "gas": 2.11}, {"side": "bottom", "year": 1965, "miles": 4538, "gas": 2.14}, {"side": "top", "year": 1966, "miles": 4676, "gas": 2.14}, {"side": "bottom", "year": 1967, "miles": 4827, "gas": 2.14}, {"side": "right", "year": 1968, "miles": 5038, "gas": 2.13}, {"side": "right", "year": 1969, "miles": 5207, "gas": 2.07}, {"side": "right", "year": 1970, "miles": 5376, "gas": 2.01}, {"side": "bottom", "year": 1971, "miles": 5617, "gas": 1.9300000000000002}, {"side": "bottom", "year": 1972, "miles": 5973, "gas": 1.87}, {"side": "right", "year": 1973, "miles": 6154, "gas": 1.9}, {"side": "left", "year": 1974, "miles": 5943, "gas": 2.34}, {"side": "bottom", "year": 1975, "miles": 6111, "gas": 2.31}, {"side": "bottom", "year": 1976, "miles": 6389, "gas": 2.32}, {"side": "top", "year": 1977, "miles": 6630, "gas": 2.36}, {"side": "bottom", "year": 1978, "miles": 6883, "gas": 2.23}, {"side": "left", "year": 1979, "miles": 6744, "gas": 2.68}, {"side": "left", "year": 1980, "miles": 6672, "gas": 3.3}, {"side": "right", "year": 1981, "miles": 6732, "gas": 3.3}, {"side": "right", "year": 1982, "miles": 6835, "gas": 2.92}, {"side": "right", "year": 1983, "miles": 6943, "gas": 2.66}, {"side": "right", "year": 1984, "miles": 7130, "gas": 2.48}, {"side": "right", "year": 1985, "miles": 7323, "gas": 2.36}, {"side": "left", "year": 1986, "miles": 7558, "gas": 1.76}, {"side": "top", "year": 1987, "miles": 7770, "gas": 1.76}, {"side": "bottom", "year": 1988, "miles": 8089, "gas": 1.6800000000000002}, {"side": "left", "year": 1989, "miles": 8397, "gas": 1.75}, {"side": "top", "year": 1990, "miles": 8529, "gas": 1.88}, {"side": "right", "year": 1991, "miles": 8535, "gas": 1.78}, {"side": "right", "year": 1992, "miles": 8662, "gas": 1.69}, {"side": "left", "year": 1993, "miles": 8855, "gas": 1.6}, {"side": "bottom", "year": 1994, "miles": 8909, "gas": 1.5899999999999999}, {"side": "bottom", "year": 1995, "miles": 9150, "gas": 1.6}, {"side": "top", "year": 1996, "miles": 9192, "gas": 1.67}, {"side": "right", "year": 1997, "miles": 9416, "gas": 1.65}, {"side": "bottom", "year": 1998, "miles": 9590, "gas": 1.3900000000000001}, {"side": "right", "year": 1999, "miles": 9687, "gas": 1.5}, {"side": "top", "year": 2000, "miles": 9717, "gas": 1.8900000000000001}, {"side": "left", "year": 2001, "miles": 9699, "gas": 1.77}, {"side": "bottom", "year": 2002, "miles": 9814, "gas": 1.6400000000000001}, {"side": "right", "year": 2003, "miles": 9868, "gas": 1.8599999999999999}, {"side": "left", "year": 2004, "miles": 9994, "gas": 2.14}, {"side": "left", "year": 2005, "miles": 10067, "gas": 2.5300000000000002}, {"side": "right", "year": 2006, "miles": 10037, "gas": 2.79}, {"side": "right", "year": 2007, "miles": 10025, "gas": 2.95}, {"side": "left", "year": 2008, "miles": 9880, "gas": 3.31}, {"side": "bottom", "year": 2009, "miles": 9657, "gas": 2.38}, {"side": "left", "year": 2010, "miles": 9596, "gas": 2.61}]}};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-e24c277102dddc2eceb7d9aaeb087c70"}, "mark": {"type": "line", "point": true}, "encoding": {"order": {"field": "year", "type": "quantitative"}, "x": {"field": "miles", "scale": {"zero": false}, "type": "quantitative"}, "y": {"field": "gas", "scale": {"zero": false}, "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-e24c277102dddc2eceb7d9aaeb087c70": [{"side": "left", "year": 1956, "miles": 3675, "gas": 2.38}, {"side": "right", "year": 1957, "miles": 3706, "gas": 2.4}, {"side": "bottom", "year": 1958, "miles": 3766, "gas": 2.26}, {"side": "top", "year": 1959, "miles": 3905, "gas": 2.31}, {"side": "right", "year": 1960, "miles": 3935, "gas": 2.27}, {"side": "bottom", "year": 1961, "miles": 3977, "gas": 2.25}, {"side": "right", "year": 1962, "miles": 4085, "gas": 2.22}, {"side": "bottom", "year": 1963, "miles": 4218, "gas": 2.12}, {"side": "bottom", "year": 1964, "miles": 4369, "gas": 2.11}, {"side": "bottom", "year": 1965, "miles": 4538, "gas": 2.14}, {"side": "top", "year": 1966, "miles": 4676, "gas": 2.14}, {"side": "bottom", "year": 1967, "miles": 4827, "gas": 2.14}, {"side": "right", "year": 1968, "miles": 5038, "gas": 2.13}, {"side": "right", "year": 1969, "miles": 5207, "gas": 2.07}, {"side": "right", "year": 1970, "miles": 5376, "gas": 2.01}, {"side": "bottom", "year": 1971, "miles": 5617, "gas": 1.9300000000000002}, {"side": "bottom", "year": 1972, "miles": 5973, "gas": 1.87}, {"side": "right", "year": 1973, "miles": 6154, "gas": 1.9}, {"side": "left", "year": 1974, "miles": 5943, "gas": 2.34}, {"side": "bottom", "year": 1975, "miles": 6111, "gas": 2.31}, {"side": "bottom", "year": 1976, "miles": 6389, "gas": 2.32}, {"side": "top", "year": 1977, "miles": 6630, "gas": 2.36}, {"side": "bottom", "year": 1978, "miles": 6883, "gas": 2.23}, {"side": "left", "year": 1979, "miles": 6744, "gas": 2.68}, {"side": "left", "year": 1980, "miles": 6672, "gas": 3.3}, {"side": "right", "year": 1981, "miles": 6732, "gas": 3.3}, {"side": "right", "year": 1982, "miles": 6835, "gas": 2.92}, {"side": "right", "year": 1983, "miles": 6943, "gas": 2.66}, {"side": "right", "year": 1984, "miles": 7130, "gas": 2.48}, {"side": "right", "year": 1985, "miles": 7323, "gas": 2.36}, {"side": "left", "year": 1986, "miles": 7558, "gas": 1.76}, {"side": "top", "year": 1987, "miles": 7770, "gas": 1.76}, {"side": "bottom", "year": 1988, "miles": 8089, "gas": 1.6800000000000002}, {"side": "left", "year": 1989, "miles": 8397, "gas": 1.75}, {"side": "top", "year": 1990, "miles": 8529, "gas": 1.88}, {"side": "right", "year": 1991, "miles": 8535, "gas": 1.78}, {"side": "right", "year": 1992, "miles": 8662, "gas": 1.69}, {"side": "left", "year": 1993, "miles": 8855, "gas": 1.6}, {"side": "bottom", "year": 1994, "miles": 8909, "gas": 1.5899999999999999}, {"side": "bottom", "year": 1995, "miles": 9150, "gas": 1.6}, {"side": "top", "year": 1996, "miles": 9192, "gas": 1.67}, {"side": "right", "year": 1997, "miles": 9416, "gas": 1.65}, {"side": "bottom", "year": 1998, "miles": 9590, "gas": 1.3900000000000001}, {"side": "right", "year": 1999, "miles": 9687, "gas": 1.5}, {"side": "top", "year": 2000, "miles": 9717, "gas": 1.8900000000000001}, {"side": "left", "year": 2001, "miles": 9699, "gas": 1.77}, {"side": "bottom", "year": 2002, "miles": 9814, "gas": 1.6400000000000001}, {"side": "right", "year": 2003, "miles": 9868, "gas": 1.8599999999999999}, {"side": "left", "year": 2004, "miles": 9994, "gas": 2.14}, {"side": "left", "year": 2005, "miles": 10067, "gas": 2.5300000000000002}, {"side": "right", "year": 2006, "miles": 10037, "gas": 2.79}, {"side": "right", "year": 2007, "miles": 10025, "gas": 2.95}, {"side": "left", "year": 2008, "miles": 9880, "gas": 3.31}, {"side": "bottom", "year": 2009, "miles": 9657, "gas": 2.38}, {"side": "left", "year": 2010, "miles": 9596, "gas": 2.61}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -256,7 +177,7 @@ It is based on Hannah Fairfield’s article ‘Driving Shifts Into Reverse’. S
       vegaEmbed('#connected_scatterplot-rst-altair-plot-0', spec, opt).catch(console.err);
   });
 </script>
-</div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+</div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
 <span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
 
 <span class="n">source</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">driving</span><span class="p">()</span>
@@ -270,70 +191,33 @@ It is based on Hannah Fairfield’s article ‘Driving Shifts Into Reverse’. S
 </div>
 <div class="toctree-wrapper compound">
 </div>
-</div>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="dot_dash_plot.html" class="btn btn-neutral float-right" title="Dot Dash Plot" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="bubble_plot.html" class="btn btn-neutral" title="Bubble Plot" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="bubble_plot.html" class="btn btn-neutral float-left" title="Bubble Plot" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="dot_dash_plot.html" class="btn btn-neutral float-right" title="Dot Dash Plot" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2016-2019, Altair Developers.
-
-    </p>
+    <p>&#169; Copyright 2016-2020, Altair Developers.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'4.1.0',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.8.1"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-
-  
-
-  <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });

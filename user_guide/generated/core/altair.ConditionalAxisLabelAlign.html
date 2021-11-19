@@ -1,78 +1,46 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>altair.ConditionalAxisLabelAlign &mdash; Altair 4.1.0 documentation</title>
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-  
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>altair.ConditionalAxisLabelAlign &mdash; Altair 4.2.0rc1 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/altair-plot.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/altair-gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/theme_overrides.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/altair-plot.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/altair-gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/theme_overrides.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.17.0"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="altair.ConditionalAxisLabelBaseline" href="altair.ConditionalAxisLabelBaseline.html" />
     <link rel="prev" title="altair.ConditionalAxisColor" href="altair.ConditionalAxisColor.html" /> 
-
-  
-  <script src="../../../_static/js/modernizr.min.js"></script>
-
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
-
-          
+        <div class="wy-side-nav-search" >
             <a href="../../../index.html" class="icon icon-home"> Altair
-          
-
-          
-            
             <img src="../../../_static/altair-logo-light.png" class="logo" alt="Logo"/>
-          
           </a>
-
-          
-            
-            
               <div class="version">
-                4.1.0
+                4.2.0rc1
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -80,18 +48,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/installation.html">Installation</a></li>
@@ -99,11 +57,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/installation.html#development-install">Development Install</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/starting.html">Basic Statistical Visualization</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Gallery</span></p>
+<p class="caption" role="heading"><span class="caption-text">Gallery</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../gallery/index.html">Example Gallery</a></li>
 </ul>
-<p class="caption"><span class="caption-text">User Guide</span></p>
+<p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../data.html">Specifying Data in Altair</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../encoding.html">Encodings</a></li>
@@ -159,8 +117,7 @@
 <li class="toctree-l3"><a class="reference internal" href="altair.CalculateTransform.html">altair.CalculateTransform</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.Categorical.html">altair.Categorical</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.Color.html">altair.Color</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.ColorGradientFieldDefWithCondition.html">altair.ColorGradientFieldDefWithCondition</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.ColorGradientValueWithCondition.html">altair.ColorGradientValueWithCondition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.ColorDef.html">altair.ColorDef</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.ColorName.html">altair.ColorName</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.ColorScheme.html">altair.ColorScheme</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.CompositeMark.html">altair.CompositeMark</a></li>
@@ -179,42 +136,47 @@
 <li class="toctree-l3"><a class="reference internal" href="altair.ConditionalAxisPropertyFontStylenull.html">altair.ConditionalAxisPropertyFontStylenull</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.ConditionalAxisPropertyFontWeightnull.html">altair.ConditionalAxisPropertyFontWeightnull</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.ConditionalAxisPropertyTextBaselinenull.html">altair.ConditionalAxisPropertyTextBaselinenull</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalAxisPropertynumberArraynull.html">altair.ConditionalAxisPropertynumberArraynull</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.ConditionalAxisPropertynumbernull.html">altair.ConditionalAxisPropertynumbernull</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.ConditionalAxisPropertystringnull.html">altair.ConditionalAxisPropertystringnull</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.ConditionalAxisString.html">altair.ConditionalAxisString</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalMarkPropFieldDef.html">altair.ConditionalMarkPropFieldDef</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalMarkPropFieldDefTypeForShape.html">altair.ConditionalMarkPropFieldDefTypeForShape</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalNumberValueDef.html">altair.ConditionalNumberValueDef</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalPredicateMarkPropFieldDef.html">altair.ConditionalPredicateMarkPropFieldDef</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalPredicateMarkPropFieldDefTypeForShape.html">altair.ConditionalPredicateMarkPropFieldDefTypeForShape</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalPredicateNumberValueDef.html">altair.ConditionalPredicateNumberValueDef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalMarkPropFieldOrDatumDef.html">altair.ConditionalMarkPropFieldOrDatumDef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalMarkPropFieldOrDatumDefTypeForShape.html">altair.ConditionalMarkPropFieldOrDatumDefTypeForShape</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalPredicateMarkPropFieldOrDatumDef.html">altair.ConditionalPredicateMarkPropFieldOrDatumDef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalPredicateMarkPropFieldOrDatumDefTypeForShape.html">altair.ConditionalPredicateMarkPropFieldOrDatumDefTypeForShape</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.ConditionalPredicateStringFieldDef.html">altair.ConditionalPredicateStringFieldDef</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalPredicateStringValueDef.html">altair.ConditionalPredicateStringValueDef</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalPredicateValueDefAlignnull.html">altair.ConditionalPredicateValueDefAlignnull</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalPredicateValueDefColornull.html">altair.ConditionalPredicateValueDefColornull</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalPredicateValueDefFontStylenull.html">altair.ConditionalPredicateValueDefFontStylenull</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalPredicateValueDefFontWeightnull.html">altair.ConditionalPredicateValueDefFontWeightnull</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalPredicateValueDefGradientstringnull.html">altair.ConditionalPredicateValueDefGradientstringnull</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalPredicateValueDefText.html">altair.ConditionalPredicateValueDefText</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalPredicateValueDefTextBaselinenull.html">altair.ConditionalPredicateValueDefTextBaselinenull</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalPredicateValueDefAlignnullExprRef.html">altair.ConditionalPredicateValueDefAlignnullExprRef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalPredicateValueDefColornullExprRef.html">altair.ConditionalPredicateValueDefColornullExprRef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalPredicateValueDefFontStylenullExprRef.html">altair.ConditionalPredicateValueDefFontStylenullExprRef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalPredicateValueDefFontWeightnullExprRef.html">altair.ConditionalPredicateValueDefFontWeightnullExprRef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalPredicateValueDefGradientstringnullExprRef.html">altair.ConditionalPredicateValueDefGradientstringnullExprRef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalPredicateValueDefTextBaselinenullExprRef.html">altair.ConditionalPredicateValueDefTextBaselinenullExprRef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalPredicateValueDefTextExprRef.html">altair.ConditionalPredicateValueDefTextExprRef</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.ConditionalPredicateValueDefnumber.html">altair.ConditionalPredicateValueDefnumber</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalPredicateValueDefnumbernull.html">altair.ConditionalPredicateValueDefnumbernull</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalPredicateValueDefstring.html">altair.ConditionalPredicateValueDefstring</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalSelectionMarkPropFieldDef.html">altair.ConditionalSelectionMarkPropFieldDef</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalSelectionMarkPropFieldDefTypeForShape.html">altair.ConditionalSelectionMarkPropFieldDefTypeForShape</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalSelectionNumberValueDef.html">altair.ConditionalSelectionNumberValueDef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalPredicateValueDefnumberArrayExprRef.html">altair.ConditionalPredicateValueDefnumberArrayExprRef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalPredicateValueDefnumberArraynullExprRef.html">altair.ConditionalPredicateValueDefnumberArraynullExprRef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalPredicateValueDefnumberExprRef.html">altair.ConditionalPredicateValueDefnumberExprRef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalPredicateValueDefnumbernullExprRef.html">altair.ConditionalPredicateValueDefnumbernullExprRef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalPredicateValueDefstringExprRef.html">altair.ConditionalPredicateValueDefstringExprRef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalPredicateValueDefstringnullExprRef.html">altair.ConditionalPredicateValueDefstringnullExprRef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalSelectionMarkPropFieldOrDatumDef.html">altair.ConditionalSelectionMarkPropFieldOrDatumDef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalSelectionMarkPropFieldOrDatumDefTypeForShape.html">altair.ConditionalSelectionMarkPropFieldOrDatumDefTypeForShape</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.ConditionalSelectionStringFieldDef.html">altair.ConditionalSelectionStringFieldDef</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalSelectionStringValueDef.html">altair.ConditionalSelectionStringValueDef</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalSelectionValueDefGradientstringnull.html">altair.ConditionalSelectionValueDefGradientstringnull</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalSelectionValueDefText.html">altair.ConditionalSelectionValueDefText</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalSelectionValueDefGradientstringnullExprRef.html">altair.ConditionalSelectionValueDefGradientstringnullExprRef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalSelectionValueDefTextExprRef.html">altair.ConditionalSelectionValueDefTextExprRef</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.ConditionalSelectionValueDefnumber.html">altair.ConditionalSelectionValueDefnumber</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalSelectionValueDefstring.html">altair.ConditionalSelectionValueDefstring</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalSelectionValueDefnumberArrayExprRef.html">altair.ConditionalSelectionValueDefnumberArrayExprRef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalSelectionValueDefnumberExprRef.html">altair.ConditionalSelectionValueDefnumberExprRef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalSelectionValueDefstringExprRef.html">altair.ConditionalSelectionValueDefstringExprRef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalSelectionValueDefstringnullExprRef.html">altair.ConditionalSelectionValueDefstringnullExprRef</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.ConditionalStringFieldDef.html">altair.ConditionalStringFieldDef</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalStringValueDef.html">altair.ConditionalStringValueDef</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalValueDefGradientstringnull.html">altair.ConditionalValueDefGradientstringnull</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalValueDefText.html">altair.ConditionalValueDefText</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalValueDefGradientstringnullExprRef.html">altair.ConditionalValueDefGradientstringnullExprRef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalValueDefTextExprRef.html">altair.ConditionalValueDefTextExprRef</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.ConditionalValueDefnumber.html">altair.ConditionalValueDefnumber</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalValueDefstring.html">altair.ConditionalValueDefstring</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalValueDefnumberArrayExprRef.html">altair.ConditionalValueDefnumberArrayExprRef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalValueDefnumberExprRef.html">altair.ConditionalValueDefnumberExprRef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalValueDefstringExprRef.html">altair.ConditionalValueDefstringExprRef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.ConditionalValueDefstringnullExprRef.html">altair.ConditionalValueDefstringnullExprRef</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.Config.html">altair.Config</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.CsvDataFormat.html">altair.CsvDataFormat</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.Cursor.html">altair.Cursor</a></li>
@@ -224,12 +186,14 @@
 <li class="toctree-l3"><a class="reference internal" href="altair.DataSource.html">altair.DataSource</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.Datasets.html">altair.Datasets</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.DateTime.html">altair.DateTime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.DatumDef.html">altair.DatumDef</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.Day.html">altair.Day</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.DensityTransform.html">altair.DensityTransform</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.DerivedStream.html">altair.DerivedStream</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.DictInlineDataset.html">altair.DictInlineDataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.DictSelectionInit.html">altair.DictSelectionInit</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.DictSelectionInitInterval.html">altair.DictSelectionInitInterval</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.Dictunknown.html">altair.Dictunknown</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.Diverging.html">altair.Diverging</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.DomainUnionWith.html">altair.DomainUnionWith</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.DsvDataFormat.html">altair.DsvDataFormat</a></li>
@@ -247,6 +211,8 @@
 <li class="toctree-l3"><a class="reference internal" href="altair.EventStream.html">altair.EventStream</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.EventType.html">altair.EventType</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.Expr.html">altair.Expr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.ExprOrSignalRef.html">altair.ExprOrSignalRef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.ExprRef.html">altair.ExprRef</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.FacetEncodingFieldDef.html">altair.FacetEncodingFieldDef</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.FacetFieldDef.html">altair.FacetFieldDef</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.FacetFieldDefFieldName.html">altair.FacetFieldDefFieldName</a></li>
@@ -256,11 +222,6 @@
 <li class="toctree-l3"><a class="reference internal" href="altair.FacetedEncoding.html">altair.FacetedEncoding</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.FacetedUnitSpec.html">altair.FacetedUnitSpec</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.Field.html">altair.Field</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.FieldDefWithConditionMarkPropFieldDefGradientstringnull.html">altair.FieldDefWithConditionMarkPropFieldDefGradientstringnull</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.FieldDefWithConditionMarkPropFieldDefTypeForShapestringnull.html">altair.FieldDefWithConditionMarkPropFieldDefTypeForShapestringnull</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.FieldDefWithConditionMarkPropFieldDefnumber.html">altair.FieldDefWithConditionMarkPropFieldDefnumber</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.FieldDefWithConditionStringFieldDefText.html">altair.FieldDefWithConditionStringFieldDefText</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.FieldDefWithConditionStringFieldDefstring.html">altair.FieldDefWithConditionStringFieldDefstring</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.FieldDefWithoutScale.html">altair.FieldDefWithoutScale</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.FieldEqualPredicate.html">altair.FieldEqualPredicate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.FieldGTEPredicate.html">altair.FieldGTEPredicate</a></li>
@@ -269,6 +230,17 @@
 <li class="toctree-l3"><a class="reference internal" href="altair.FieldLTPredicate.html">altair.FieldLTPredicate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.FieldName.html">altair.FieldName</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.FieldOneOfPredicate.html">altair.FieldOneOfPredicate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.FieldOrDatumDefWithConditionDatumDefGradientstringnull.html">altair.FieldOrDatumDefWithConditionDatumDefGradientstringnull</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.FieldOrDatumDefWithConditionDatumDefnumber.html">altair.FieldOrDatumDefWithConditionDatumDefnumber</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.FieldOrDatumDefWithConditionDatumDefnumberArray.html">altair.FieldOrDatumDefWithConditionDatumDefnumberArray</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.FieldOrDatumDefWithConditionDatumDefstringnull.html">altair.FieldOrDatumDefWithConditionDatumDefstringnull</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.FieldOrDatumDefWithConditionMarkPropFieldDefGradientstringnull.html">altair.FieldOrDatumDefWithConditionMarkPropFieldDefGradientstringnull</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.FieldOrDatumDefWithConditionMarkPropFieldDefTypeForShapestringnull.html">altair.FieldOrDatumDefWithConditionMarkPropFieldDefTypeForShapestringnull</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.FieldOrDatumDefWithConditionMarkPropFieldDefnumber.html">altair.FieldOrDatumDefWithConditionMarkPropFieldDefnumber</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.FieldOrDatumDefWithConditionMarkPropFieldDefnumberArray.html">altair.FieldOrDatumDefWithConditionMarkPropFieldDefnumberArray</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.FieldOrDatumDefWithConditionStringDatumDefText.html">altair.FieldOrDatumDefWithConditionStringDatumDefText</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.FieldOrDatumDefWithConditionStringFieldDefText.html">altair.FieldOrDatumDefWithConditionStringFieldDefText</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.FieldOrDatumDefWithConditionStringFieldDefstring.html">altair.FieldOrDatumDefWithConditionStringFieldDefstring</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.FieldRangePredicate.html">altair.FieldRangePredicate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.FieldValidPredicate.html">altair.FieldValidPredicate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.FilterTransform.html">altair.FilterTransform</a></li>
@@ -302,7 +274,10 @@
 <li class="toctree-l3"><a class="reference internal" href="altair.JoinAggregateTransform.html">altair.JoinAggregateTransform</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.JsonDataFormat.html">altair.JsonDataFormat</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.LabelOverlap.html">altair.LabelOverlap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.LatLongDef.html">altair.LatLongDef</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.LatLongFieldDef.html">altair.LatLongFieldDef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.LayerRepeatMapping.html">altair.LayerRepeatMapping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.LayerRepeatSpec.html">altair.LayerRepeatSpec</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.LayerSpec.html">altair.LayerSpec</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.LayoutAlign.html">altair.LayoutAlign</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.Legend.html">altair.Legend</a></li>
@@ -324,7 +299,12 @@
 <li class="toctree-l3"><a class="reference internal" href="altair.LookupTransform.html">altair.LookupTransform</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.Mark.html">altair.Mark</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.MarkConfig.html">altair.MarkConfig</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.MarkConfigExprOrSignalRef.html">altair.MarkConfigExprOrSignalRef</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.MarkDef.html">altair.MarkDef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.MarkPropDefGradientstringnull.html">altair.MarkPropDefGradientstringnull</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.MarkPropDefnumber.html">altair.MarkPropDefnumber</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.MarkPropDefnumberArray.html">altair.MarkPropDefnumberArray</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.MarkPropDefstringnullTypeForShape.html">altair.MarkPropDefstringnullTypeForShape</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.MarkType.html">altair.MarkType</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.MergedStream.html">altair.MergedStream</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.Month.html">altair.Month</a></li>
@@ -333,27 +313,36 @@
 <li class="toctree-l3"><a class="reference internal" href="altair.MultiTimeUnit.html">altair.MultiTimeUnit</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.NamedData.html">altair.NamedData</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.NonArgAggregateOp.html">altair.NonArgAggregateOp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.NonLayerRepeatSpec.html">altair.NonLayerRepeatSpec</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.NormalizedConcatSpecGenericSpec.html">altair.NormalizedConcatSpecGenericSpec</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.NormalizedFacetSpec.html">altair.NormalizedFacetSpec</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.NormalizedHConcatSpecGenericSpec.html">altair.NormalizedHConcatSpecGenericSpec</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.NormalizedSpec.html">altair.NormalizedSpec</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.NormalizedVConcatSpecGenericSpec.html">altair.NormalizedVConcatSpecGenericSpec</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.NumberValueDef.html">altair.NumberValueDef</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.NumericArrayFieldDefWithCondition.html">altair.NumericArrayFieldDefWithCondition</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.NumericArrayValueDefWithCondition.html">altair.NumericArrayValueDefWithCondition</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.NumericFieldDefWithCondition.html">altair.NumericFieldDefWithCondition</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.NumericValueWithCondition.html">altair.NumericValueWithCondition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.NumericArrayMarkPropDef.html">altair.NumericArrayMarkPropDef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.NumericMarkPropDef.html">altair.NumericMarkPropDef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.NumericValueDef.html">altair.NumericValueDef</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.OrderFieldDef.html">altair.OrderFieldDef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.OrderValueDef.html">altair.OrderValueDef</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.Orient.html">altair.Orient</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.Orientation.html">altair.Orientation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.OverlayMarkDef.html">altair.OverlayMarkDef</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.Padding.html">altair.Padding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.Parameter.html">altair.Parameter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.Parse.html">altair.Parse</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.ParseValue.html">altair.ParseValue</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.PivotTransform.html">altair.PivotTransform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.PolarDef.html">altair.PolarDef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.Position2Def.html">altair.Position2Def</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.PositionDatumDef.html">altair.PositionDatumDef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.PositionDatumDefBase.html">altair.PositionDatumDefBase</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.PositionDef.html">altair.PositionDef</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.PositionFieldDef.html">altair.PositionFieldDef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.PositionFieldDefBase.html">altair.PositionFieldDefBase</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.PositionValueDef.html">altair.PositionValueDef</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.Predicate.html">altair.Predicate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.PredicateComposition.html">altair.PredicateComposition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.PrimitiveValue.html">altair.PrimitiveValue</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.Projection.html">altair.Projection</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.ProjectionConfig.html">altair.ProjectionConfig</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.ProjectionType.html">altair.ProjectionType</a></li>
@@ -405,8 +394,8 @@
 <li class="toctree-l3"><a class="reference internal" href="altair.SequenceParams.html">altair.SequenceParams</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.SequentialMultiHue.html">altair.SequentialMultiHue</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.SequentialSingleHue.html">altair.SequentialSingleHue</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.ShapeFieldDefWithCondition.html">altair.ShapeFieldDefWithCondition</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.ShapeValueWithCondition.html">altair.ShapeValueWithCondition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.ShapeDef.html">altair.ShapeDef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.SharedEncoding.html">altair.SharedEncoding</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.SingleDefUnitChannel.html">altair.SingleDefUnitChannel</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.SingleSelection.html">altair.SingleSelection</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.SingleSelectionConfig.html">altair.SingleSelectionConfig</a></li>
@@ -427,15 +416,15 @@
 <li class="toctree-l3"><a class="reference internal" href="altair.Stream.html">altair.Stream</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.StringFieldDef.html">altair.StringFieldDef</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.StringFieldDefWithCondition.html">altair.StringFieldDefWithCondition</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.StringValueWithCondition.html">altair.StringValueWithCondition</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.StringValueWithConditionTypeForShape.html">altair.StringValueWithConditionTypeForShape</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.StringValueDefWithCondition.html">altair.StringValueDefWithCondition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.StrokeCap.html">altair.StrokeCap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.StrokeJoin.html">altair.StrokeJoin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.StyleConfigIndex.html">altair.StyleConfigIndex</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.SymbolShape.html">altair.SymbolShape</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.Text.html">altair.Text</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.TextBaseline.html">altair.TextBaseline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.TextDef.html">altair.TextDef</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.TextDirection.html">altair.TextDirection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.TextFieldDefWithCondition.html">altair.TextFieldDefWithCondition</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.TextValueWithCondition.html">altair.TextValueWithCondition</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.TickConfig.html">altair.TickConfig</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.TickCount.html">altair.TickCount</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.TimeInterval.html">altair.TimeInterval</a></li>
@@ -459,30 +448,25 @@
 <li class="toctree-l3"><a class="reference internal" href="altair.TopLevelUnitSpec.html">altair.TopLevelUnitSpec</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.TopoDataFormat.html">altair.TopoDataFormat</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.Transform.html">altair.Transform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.Type.html">altair.Type</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.TypeForShape.html">altair.TypeForShape</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.TypedFieldDef.html">altair.TypedFieldDef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.URI.html">altair.URI</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.UnitSpec.html">altair.UnitSpec</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.UnitSpecWithFrame.html">altair.UnitSpecWithFrame</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.UrlData.html">altair.UrlData</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.UtcMultiTimeUnit.html">altair.UtcMultiTimeUnit</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.UtcSingleTimeUnit.html">altair.UtcSingleTimeUnit</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.VConcatSpecGenericSpec.html">altair.VConcatSpecGenericSpec</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.Value.html">altair.Value</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.ValueConditionGradientstringnull.html">altair.ValueConditionGradientstringnull</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.ValueConditionText.html">altair.ValueConditionText</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.ValueConditionnumber.html">altair.ValueConditionnumber</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.ValueConditionstring.html">altair.ValueConditionstring</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.ValueConditionstringnull.html">altair.ValueConditionstringnull</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.ValueDefWithConditionMarkPropFieldDefGradientstringnull.html">altair.ValueDefWithConditionMarkPropFieldDefGradientstringnull</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.ValueDefWithConditionMarkPropFieldDefTypeForShapestringnull.html">altair.ValueDefWithConditionMarkPropFieldDefTypeForShapestringnull</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.ValueDefWithConditionMarkPropFieldDefnumber.html">altair.ValueDefWithConditionMarkPropFieldDefnumber</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.ValueDefWithConditionMarkPropFieldDefstringnull.html">altair.ValueDefWithConditionMarkPropFieldDefstringnull</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.ValueDefWithConditionMarkPropFieldOrDatumDefGradientstringnull.html">altair.ValueDefWithConditionMarkPropFieldOrDatumDefGradientstringnull</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.ValueDefWithConditionMarkPropFieldOrDatumDefTypeForShapestringnull.html">altair.ValueDefWithConditionMarkPropFieldOrDatumDefTypeForShapestringnull</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.ValueDefWithConditionMarkPropFieldOrDatumDefnumber.html">altair.ValueDefWithConditionMarkPropFieldOrDatumDefnumber</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.ValueDefWithConditionMarkPropFieldOrDatumDefnumberArray.html">altair.ValueDefWithConditionMarkPropFieldOrDatumDefnumberArray</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.ValueDefWithConditionMarkPropFieldOrDatumDefstringnull.html">altair.ValueDefWithConditionMarkPropFieldOrDatumDefstringnull</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.ValueDefWithConditionStringFieldDefText.html">altair.ValueDefWithConditionStringFieldDefText</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.ValueWithConditionMarkPropFieldDefGradientstringnull.html">altair.ValueWithConditionMarkPropFieldDefGradientstringnull</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.ValueWithConditionMarkPropFieldDefTypeForShapestringnull.html">altair.ValueWithConditionMarkPropFieldDefTypeForShapestringnull</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.ValueWithConditionMarkPropFieldDefnumber.html">altair.ValueWithConditionMarkPropFieldDefnumber</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.ValueWithConditionMarkPropFieldDefstringnull.html">altair.ValueWithConditionMarkPropFieldDefstringnull</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.ValueWithConditionStringFieldDefText.html">altair.ValueWithConditionStringFieldDefText</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.ValueDefnumber.html">altair.ValueDefnumber</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.ValueDefnumberExprRef.html">altair.ValueDefnumberExprRef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="altair.ValueDefnumberwidthheightExprRef.html">altair.ValueDefnumberwidthheightExprRef</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.Vector2DateTime.html">altair.Vector2DateTime</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.Vector2Vector2number.html">altair.Vector2Vector2number</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.Vector2boolean.html">altair.Vector2boolean</a></li>
@@ -496,19 +480,17 @@
 <li class="toctree-l3"><a class="reference internal" href="altair.WindowFieldDef.html">altair.WindowFieldDef</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.WindowOnlyOp.html">altair.WindowOnlyOp</a></li>
 <li class="toctree-l3"><a class="reference internal" href="altair.WindowTransform.html">altair.WindowTransform</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.XValueDef.html">altair.XValueDef</a></li>
-<li class="toctree-l3"><a class="reference internal" href="altair.YValueDef.html">altair.YValueDef</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../ecosystem.html">Altair Ecosystem</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Case Studies</span></p>
+<p class="caption" role="heading"><span class="caption-text">Case Studies</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../case_studies/exploring-weather.html">Exploring Seattle Weather</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Advanced Usage</span></p>
+<p class="caption" role="heading"><span class="caption-text">Advanced Usage</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../importing.html">Importing Vega &amp; Vega-Lite Versions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../display_frontends.html">Displaying Altair Charts</a></li>
@@ -516,417 +498,113 @@
 <li class="toctree-l1"><a class="reference internal" href="../../custom_renderers.html">Customizing Renderers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../data_transformers.html">Data transformers</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Release Notes</span></p>
+<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../releases/changes.html">Altair Change Log</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../index.html">Altair</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../../index.html">Docs</a> &raquo;</li>
-        
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../../API.html">API Reference</a> &raquo;</li>
-        
       <li>altair.ConditionalAxisLabelAlign</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-            
             <a href="../../../_sources/user_guide/generated/core/altair.ConditionalAxisLabelAlign.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="altair-conditionalaxislabelalign">
-<h1>altair.ConditionalAxisLabelAlign<a class="headerlink" href="#altair-conditionalaxislabelalign" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
-<dt id="altair.ConditionalAxisLabelAlign">
-<em class="property">class </em><code class="descclassname">altair.</code><code class="descname">ConditionalAxisLabelAlign</code><span class="sig-paren">(</span><em>condition=Undefined</em>, <em>value=Undefined</em>, <em>**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.ConditionalAxisLabelAlign" title="Permalink to this definition">¶</a></dt>
+             
+  <section id="altair-conditionalaxislabelalign">
+<h1>altair.ConditionalAxisLabelAlign<a class="headerlink" href="#altair-conditionalaxislabelalign" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="altair.ConditionalAxisLabelAlign">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">altair.</span></span><span class="sig-name descname"><span class="pre">ConditionalAxisLabelAlign</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#altair.ConditionalAxisLabelAlign" title="Permalink to this definition"></a></dt>
 <dd><p>ConditionalAxisLabelAlign schema wrapper</p>
-<p>Mapping(required=[condition, value])</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Attributes:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>condition</strong> <span class="classifier-delimiter">:</span> <span class="classifier">anyOf(<a class="reference internal" href="altair.ConditionalPredicateValueDefAlignnull.html#altair.ConditionalPredicateValueDefAlignnull" title="altair.ConditionalPredicateValueDefAlignnull"><code class="xref py py-class docutils literal"><span class="pre">ConditionalPredicateValueDefAlignnull</span></code></a>,</span></dt>
-<dd></dd>
-<dt><strong>List(:class:`ConditionalPredicateValueDefAlignnull`))</strong></dt>
-<dd></dd>
-<dt><strong>value</strong> <span class="classifier-delimiter">:</span> <span class="classifier">anyOf(<a class="reference internal" href="altair.Align.html#altair.Align" title="altair.Align"><code class="xref py py-class docutils literal"><span class="pre">Align</span></code></a>, None)</span></dt>
-<dd><p class="first last">A constant value in visual domain (e.g., <code class="docutils literal"><span class="pre">&quot;red&quot;</span></code> / <code class="docutils literal"><span class="pre">&quot;#0099ff&quot;</span></code> / <a class="reference external" href="https://vega.github.io/vega-lite/docs/types.html#gradient">gradient
-definition</a> for color,
-values between <code class="docutils literal"><span class="pre">0</span></code> to <code class="docutils literal"><span class="pre">1</span></code> for opacity).</p>
-</dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="altair.ConditionalAxisLabelAlign.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><em>condition=Undefined</em>, <em>value=Undefined</em>, <em>**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.ConditionalAxisLabelAlign.__init__" title="Permalink to this definition">¶</a></dt>
+<p>anyOf(Mapping(required=[condition, value]), Mapping(required=[condition, expr]))</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="altair.ConditionalAxisLabelAlign.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#altair.ConditionalAxisLabelAlign.__init__" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
+<table class="longtable docutils align-default">
 <colgroup>
-<col width="10%" />
-<col width="90%" />
+<col style="width: 10%" />
+<col style="width: 90%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#altair.ConditionalAxisLabelAlign.__init__" title="altair.ConditionalAxisLabelAlign.__init__"><code class="xref py py-obj docutils literal"><span class="pre">__init__</span></code></a>([condition,&nbsp;value])</td>
-<td></td>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#altair.ConditionalAxisLabelAlign.__init__" title="altair.ConditionalAxisLabelAlign.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(*args, **kwds)</p></td>
+<td><p></p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#altair.ConditionalAxisLabelAlign.copy" title="altair.ConditionalAxisLabelAlign.copy"><code class="xref py py-obj docutils literal"><span class="pre">copy</span></code></a>([deep,&nbsp;ignore])</td>
-<td>Return a copy of the object</td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy</span></code>([deep, ignore])</p></td>
+<td><p>Return a copy of the object</p></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#altair.ConditionalAxisLabelAlign.from_dict" title="altair.ConditionalAxisLabelAlign.from_dict"><code class="xref py py-obj docutils literal"><span class="pre">from_dict</span></code></a>(dct[,&nbsp;validate,&nbsp;_wrapper_classes])</td>
-<td>Construct class from a dictionary representation</td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_dict</span></code>(dct[, validate, _wrapper_classes])</p></td>
+<td><p>Construct class from a dictionary representation</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#altair.ConditionalAxisLabelAlign.from_json" title="altair.ConditionalAxisLabelAlign.from_json"><code class="xref py py-obj docutils literal"><span class="pre">from_json</span></code></a>(json_string[,&nbsp;validate])</td>
-<td>Instantiate the object from a valid JSON string</td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_json</span></code>(json_string[, validate])</p></td>
+<td><p>Instantiate the object from a valid JSON string</p></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#altair.ConditionalAxisLabelAlign.resolve_references" title="altair.ConditionalAxisLabelAlign.resolve_references"><code class="xref py py-obj docutils literal"><span class="pre">resolve_references</span></code></a>([schema])</td>
-<td>Resolve references in the context of this object’s schema or root schema.</td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">resolve_references</span></code>([schema])</p></td>
+<td><p>Resolve references in the context of this object's schema or root schema.</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#altair.ConditionalAxisLabelAlign.to_dict" title="altair.ConditionalAxisLabelAlign.to_dict"><code class="xref py py-obj docutils literal"><span class="pre">to_dict</span></code></a>([validate,&nbsp;ignore,&nbsp;context])</td>
-<td>Return a dictionary representation of the object</td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_dict</span></code>([validate, ignore, context])</p></td>
+<td><p>Return a dictionary representation of the object</p></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#altair.ConditionalAxisLabelAlign.to_json" title="altair.ConditionalAxisLabelAlign.to_json"><code class="xref py py-obj docutils literal"><span class="pre">to_json</span></code></a>([validate,&nbsp;ignore,&nbsp;context,&nbsp;indent,&nbsp;…])</td>
-<td>Emit the JSON representation for this object as a string.</td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_json</span></code>([validate, ignore, context, indent, ...])</p></td>
+<td><p>Emit the JSON representation for this object as a string.</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#altair.ConditionalAxisLabelAlign.validate" title="altair.ConditionalAxisLabelAlign.validate"><code class="xref py py-obj docutils literal"><span class="pre">validate</span></code></a>(instance[,&nbsp;schema])</td>
-<td>Validate the instance against the class schema in the context of the rootschema.</td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate</span></code>(instance[, schema])</p></td>
+<td><p>Validate the instance against the class schema in the context of the rootschema.</p></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#altair.ConditionalAxisLabelAlign.validate_property" title="altair.ConditionalAxisLabelAlign.validate_property"><code class="xref py py-obj docutils literal"><span class="pre">validate_property</span></code></a>(name,&nbsp;value[,&nbsp;schema])</td>
-<td>Validate a property against property schema in the context of the</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="altair.ConditionalAxisLabelAlign.copy">
-<code class="descname">copy</code><span class="sig-paren">(</span><em>deep=True</em>, <em>ignore=()</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.ConditionalAxisLabelAlign.copy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a copy of the object</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>deep</strong> <span class="classifier-delimiter">:</span> <span class="classifier">boolean or list, optional</span></dt>
-<dd><p class="first last">If True (default) then return a deep copy of all dict, list, and
-SchemaBase objects within the object structure.
-If False, then only copy the top object.
-If a list or iterable, then only copy the listed attributes.</p>
-</dd>
-<dt><strong>ignore</strong> <span class="classifier-delimiter">:</span> <span class="classifier">list, optional</span></dt>
-<dd><p class="first last">A list of keys for which the contents should not be copied, but
-only stored by reference.</p>
-</dd>
-</dl>
-</td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_property</span></code>(name, value[, schema])</p></td>
+<td><p>Validate a property against property schema in the context of the rootschema</p></td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
-<dl class="method">
-<dt id="altair.ConditionalAxisLabelAlign.from_dict">
-<code class="descname">from_dict</code><span class="sig-paren">(</span><em>dct</em>, <em>validate=True</em>, <em>_wrapper_classes=None</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.ConditionalAxisLabelAlign.from_dict" title="Permalink to this definition">¶</a></dt>
-<dd><p>Construct class from a dictionary representation</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>dct</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dictionary</span></dt>
-<dd><p class="first last">The dict from which to construct the class</p>
-</dd>
-<dt><strong>validate</strong> <span class="classifier-delimiter">:</span> <span class="classifier">boolean</span></dt>
-<dd><p class="first last">If True (default), then validate the input against the schema.</p>
-</dd>
-<dt><strong>_wrapper_classes</strong> <span class="classifier-delimiter">:</span> <span class="classifier">list (optional)</span></dt>
-<dd><p class="first last">The set of SchemaBase classes to use when constructing wrappers
-of the dict inputs. If not specified, the result of
-cls._default_wrapper_classes will be used.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>obj</strong> <span class="classifier-delimiter">:</span> <span class="classifier">Schema object</span></dt>
-<dd><p class="first last">The wrapped schema</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>jsonschema.ValidationError :</strong></dt>
-<dd><p class="first last">if validate=True and dct does not conform to the schema</p>
-</dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="altair.ConditionalAxisLabelAlign.from_json">
-<code class="descname">from_json</code><span class="sig-paren">(</span><em>json_string</em>, <em>validate=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.ConditionalAxisLabelAlign.from_json" title="Permalink to this definition">¶</a></dt>
-<dd><p>Instantiate the object from a valid JSON string</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>json_string</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string</span></dt>
-<dd><p class="first last">The string containing a valid JSON chart specification.</p>
-</dd>
-<dt><strong>validate</strong> <span class="classifier-delimiter">:</span> <span class="classifier">boolean</span></dt>
-<dd><p class="first last">If True (default), then validate the input against the schema.</p>
-</dd>
-<dt><strong>**kwargs :</strong></dt>
-<dd><p class="first last">Additional keyword arguments are passed to json.loads</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>chart</strong> <span class="classifier-delimiter">:</span> <span class="classifier">Chart object</span></dt>
-<dd><p class="first last">The altair Chart object built from the specification.</p>
-</dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="altair.ConditionalAxisLabelAlign.resolve_references">
-<code class="descname">resolve_references</code><span class="sig-paren">(</span><em>schema=None</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.ConditionalAxisLabelAlign.resolve_references" title="Permalink to this definition">¶</a></dt>
-<dd><p>Resolve references in the context of this object’s schema or root schema.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="altair.ConditionalAxisLabelAlign.to_dict">
-<code class="descname">to_dict</code><span class="sig-paren">(</span><em>validate=True</em>, <em>ignore=None</em>, <em>context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.ConditionalAxisLabelAlign.to_dict" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a dictionary representation of the object</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>validate</strong> <span class="classifier-delimiter">:</span> <span class="classifier">boolean or string</span></dt>
-<dd><p class="first last">If True (default), then validate the output dictionary
-against the schema. If “deep” then recursively validate
-all objects in the spec. This takes much more time, but
-it results in friendlier tracebacks for large objects.</p>
-</dd>
-<dt><strong>ignore</strong> <span class="classifier-delimiter">:</span> <span class="classifier">list</span></dt>
-<dd><p class="first last">A list of keys to ignore. This will <em>not</em> passed to child to_dict
-function calls.</p>
-</dd>
-<dt><strong>context</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dict (optional)</span></dt>
-<dd><p class="first last">A context dictionary that will be passed to all child to_dict
-function calls</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>dct</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dictionary</span></dt>
-<dd><p class="first last">The dictionary representation of this object</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>jsonschema.ValidationError :</strong></dt>
-<dd><p class="first last">if validate=True and the dict does not conform to the schema</p>
-</dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="altair.ConditionalAxisLabelAlign.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><em>validate=True</em>, <em>ignore=[]</em>, <em>context={}</em>, <em>indent=2</em>, <em>sort_keys=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.ConditionalAxisLabelAlign.to_json" title="Permalink to this definition">¶</a></dt>
-<dd><p>Emit the JSON representation for this object as a string.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>validate</strong> <span class="classifier-delimiter">:</span> <span class="classifier">boolean or string</span></dt>
-<dd><p class="first last">If True (default), then validate the output dictionary
-against the schema. If “deep” then recursively validate
-all objects in the spec. This takes much more time, but
-it results in friendlier tracebacks for large objects.</p>
-</dd>
-<dt><strong>ignore</strong> <span class="classifier-delimiter">:</span> <span class="classifier">list</span></dt>
-<dd><p class="first last">A list of keys to ignore. This will <em>not</em> passed to child to_dict
-function calls.</p>
-</dd>
-<dt><strong>context</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dict (optional)</span></dt>
-<dd><p class="first last">A context dictionary that will be passed to all child to_dict
-function calls</p>
-</dd>
-<dt><strong>indent</strong> <span class="classifier-delimiter">:</span> <span class="classifier">integer, default 2</span></dt>
-<dd><p class="first last">the number of spaces of indentation to use</p>
-</dd>
-<dt><strong>sort_keys</strong> <span class="classifier-delimiter">:</span> <span class="classifier">boolean, default True</span></dt>
-<dd><p class="first last">if True, sort keys in the output</p>
-</dd>
-<dt><strong>**kwargs</strong></dt>
-<dd><p class="first last">Additional keyword arguments are passed to <code class="docutils literal"><span class="pre">json.dumps()</span></code></p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>spec</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string</span></dt>
-<dd><p class="first last">The JSON specification of the chart object.</p>
-</dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="altair.ConditionalAxisLabelAlign.validate">
-<code class="descname">validate</code><span class="sig-paren">(</span><em>instance</em>, <em>schema=None</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.ConditionalAxisLabelAlign.validate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Validate the instance against the class schema in the context of the
-rootschema.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="altair.ConditionalAxisLabelAlign.validate_property">
-<code class="descname">validate_property</code><span class="sig-paren">(</span><em>name</em>, <em>value</em>, <em>schema=None</em><span class="sig-paren">)</span><a class="headerlink" href="#altair.ConditionalAxisLabelAlign.validate_property" title="Permalink to this definition">¶</a></dt>
-<dd><p>Validate a property against property schema in the context of the
-rootschema</p>
-</dd></dl>
-
-</dd></dl>
-
-</div>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="altair.ConditionalAxisLabelBaseline.html" class="btn btn-neutral float-right" title="altair.ConditionalAxisLabelBaseline" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="altair.ConditionalAxisColor.html" class="btn btn-neutral" title="altair.ConditionalAxisColor" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="altair.ConditionalAxisColor.html" class="btn btn-neutral float-left" title="altair.ConditionalAxisColor" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="altair.ConditionalAxisLabelBaseline.html" class="btn btn-neutral float-right" title="altair.ConditionalAxisLabelBaseline" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2016-2019, Altair Developers.
-
-    </p>
+    <p>&#169; Copyright 2016-2020, Altair Developers.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../../',
-            VERSION:'4.1.0',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.8.1"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-
-  
-
-  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });

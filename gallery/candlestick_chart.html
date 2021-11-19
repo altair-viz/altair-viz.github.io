@@ -1,78 +1,46 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Candlestick Chart &mdash; Altair 4.1.0 documentation</title>
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-  
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Candlestick Chart &mdash; Altair 4.2.0rc1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/altair-plot.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/altair-gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/altair-plot.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/altair-gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.17.0"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Error Bar with Standard Deviation" href="errorbars_with_std.html" />
-    <link rel="prev" title="Box Plot with Min/Max Whiskers" href="boxplot.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+    <link rel="next" title="Comet Chart Example" href="comet_chart.html" />
+    <link rel="prev" title="Boxplot with Min/Max Whiskers" href="boxplot.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
-
-          
+        <div class="wy-side-nav-search" >
             <a href="../index.html" class="icon icon-home"> Altair
-          
-
-          
-            
             <img src="../_static/altair-logo-light.png" class="logo" alt="Logo"/>
-          
           </a>
-
-          
-            
-            
               <div class="version">
-                4.1.0
+                4.2.0rc1
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -80,18 +48,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installation</a></li>
@@ -99,13 +57,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html#development-install">Development Install</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/starting.html">Basic Statistical Visualization</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Gallery</span></p>
+<p class="caption" role="heading"><span class="caption-text">Gallery</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Example Gallery</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="index.html#simple-charts">Simple Charts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#bar-charts">Bar Charts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#line-charts">Line Charts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#area-charts">Area Charts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#circular-plots">Circular Plots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#scatter-plots">Scatter Plots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#histograms">Histograms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#maps">Maps</a></li>
@@ -115,14 +74,17 @@
 <li class="toctree-l3"><a class="reference internal" href="bar_chart_with_highlighted_segment.html">Bar Chart with Highlighted Segment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="beckers_barley_wrapped_facet.html">Becker’s Barley Trellis Plot (wrapped facet)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="binned_heatmap.html">Binned Heatmap</a></li>
-<li class="toctree-l3"><a class="reference internal" href="boxplot.html">Box Plot with Min/Max Whiskers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="boxplot.html">Boxplot with Min/Max Whiskers</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Candlestick Chart</a><ul class="simple">
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="comet_chart.html">Comet Chart Example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="errorbars_with_std.html">Error Bar with Standard Deviation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="errorbars_with_ci.html">Error Bars showing Confidence Interval</a></li>
 <li class="toctree-l3"><a class="reference internal" href="scatter_marginal_hist.html">Facetted Scatterplot with marginal histograms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="gantt_chart.html">Gantt Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hexbins.html">Hexbin Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="image_tooltip.html">Image tooltip</a></li>
 <li class="toctree-l3"><a class="reference internal" href="isotype_grid.html">Isotype Grid</a></li>
 <li class="toctree-l3"><a class="reference internal" href="layered_chart_with_dual_axis.html">Layered chart with Dual-Axis</a></li>
 <li class="toctree-l3"><a class="reference internal" href="multiple_marks.html">Multiple Marks</a></li>
@@ -140,7 +102,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">User Guide</span></p>
+<p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/data.html">Specifying Data in Altair</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/encoding.html">Encodings</a></li>
@@ -159,11 +121,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/API.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/ecosystem.html">Altair Ecosystem</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Case Studies</span></p>
+<p class="caption" role="heading"><span class="caption-text">Case Studies</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../case_studies/exploring-weather.html">Exploring Seattle Weather</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Advanced Usage</span></p>
+<p class="caption" role="heading"><span class="caption-text">Advanced Usage</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/importing.html">Importing Vega &amp; Vega-Lite Versions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/display_frontends.html">Displaying Altair Charts</a></li>
@@ -171,77 +133,38 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/custom_renderers.html">Customizing Renderers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/data_transformers.html">Data transformers</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Release Notes</span></p>
+<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../releases/changes.html">Altair Change Log</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Altair</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="index.html">Example Gallery</a> &raquo;</li>
-        
       <li>Candlestick Chart</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-            
             <a href="../_sources/gallery/candlestick_chart.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="candlestick-chart">
-<span id="gallery-candlestick-chart"></span><h1>Candlestick Chart<a class="headerlink" href="#candlestick-chart" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="candlestick-chart">
+<span id="gallery-candlestick-chart"></span><h1>Candlestick Chart<a class="headerlink" href="#candlestick-chart" title="Permalink to this headline"></a></h1>
 <p>A candlestick chart inspired from <a class="reference external" href="http://mbostock.github.io/protovis/ex/candlestick.html">Protovis</a>.
 This example shows the performance of the Chicago Board Options Exchange <a class="reference external" href="https://en.wikipedia.org/wiki/VIX">Volatility Index</a> (VIX)
 in the summer of 2009. The thick bar represents the opening and closing prices,
@@ -252,7 +175,7 @@ while the thin bar shows intraday high and low prices; if the index closed highe
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": "rule", "encoding": {"color": {"condition": {"value": "#06982d", "test": "datum.open <= datum.close"}, "value": "#ae1325"}, "x": {"type": "temporal", "axis": {"format": "%m/%d", "labelAngle": -45, "title": "Date in 2009"}, "field": "date"}, "y": {"type": "quantitative", "field": "low", "scale": {"zero": false}, "title": "Price"}, "y2": {"field": "high"}}}, {"mark": "bar", "encoding": {"color": {"condition": {"value": "#06982d", "test": "datum.open <= datum.close"}, "value": "#ae1325"}, "x": {"type": "temporal", "axis": {"format": "%m/%d", "labelAngle": -45, "title": "Date in 2009"}, "field": "date"}, "y": {"type": "quantitative", "field": "open"}, "y2": {"field": "close"}}}], "data": {"name": "data-6095c1ec4d89ad64750a63772b69643b"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-6095c1ec4d89ad64750a63772b69643b": [{"date": "2009-06-01T00:00:00", "open": 28.7, "high": 30.05, "low": 28.45, "close": 30.04, "signal": "short", "ret": -4.89396411092985}, {"date": "2009-06-02T00:00:00", "open": 30.04, "high": 30.13, "low": 28.3, "close": 29.63, "signal": "short", "ret": -0.32258064516129503}, {"date": "2009-06-03T00:00:00", "open": 29.62, "high": 31.79, "low": 29.62, "close": 31.02, "signal": "short", "ret": 3.68663594470045}, {"date": "2009-06-04T00:00:00", "open": 31.02, "high": 31.02, "low": 29.92, "close": 30.18, "signal": "short", "ret": 4.51010886469673}, {"date": "2009-06-05T00:00:00", "open": 29.39, "high": 30.81, "low": 28.85, "close": 29.62, "signal": "short", "ret": 6.08424336973478}, {"date": "2009-06-08T00:00:00", "open": 30.84, "high": 31.82, "low": 26.41, "close": 29.77, "signal": "short", "ret": 1.2539184952978}, {"date": "2009-06-09T00:00:00", "open": 29.77, "high": 29.77, "low": 27.79, "close": 28.27, "signal": "short", "ret": -5.02431118314424}, {"date": "2009-06-10T00:00:00", "open": 26.9, "high": 29.74, "low": 26.9, "close": 28.46, "signal": "short", "ret": -5.46623794212217}, {"date": "2009-06-11T00:00:00", "open": 27.36, "high": 28.11, "low": 26.81, "close": 28.11, "signal": "short", "ret": -8.3743842364532}, {"date": "2009-06-12T00:00:00", "open": 28.08, "high": 28.5, "low": 27.73, "close": 28.15, "signal": "short", "ret": -5.52763819095477}, {"date": "2009-06-15T00:00:00", "open": 29.7, "high": 31.09, "low": 29.64, "close": 30.81, "signal": "long", "ret": 3.4920634920635}, {"date": "2009-06-16T00:00:00", "open": 30.81, "high": 32.75, "low": 30.07, "close": 32.68, "signal": "short", "ret": 0.155038759689914}, {"date": "2009-06-17T00:00:00", "open": 31.19, "high": 32.77, "low": 30.64, "close": 31.54, "signal": "short", "ret": 5.82822085889571}, {"date": "2009-06-18T00:00:00", "open": 31.54, "high": 31.54, "low": 29.6, "close": 30.03, "signal": "short", "ret": 8.17610062893082}, {"date": "2009-06-19T00:00:00", "open": 29.16, "high": 29.32, "low": 27.56, "close": 27.99, "signal": "short", "ret": 8.59872611464968}, {"date": "2009-06-22T00:00:00", "open": 30.4, "high": 32.05, "low": 30.3, "close": 31.17, "signal": "short", "ret": 15.4907975460123}, {"date": "2009-06-23T00:00:00", "open": 31.3, "high": 31.54, "low": 27.83, "close": 30.58, "signal": "short", "ret": 11.7370892018779}, {"date": "2009-06-24T00:00:00", "open": 30.58, "high": 30.58, "low": 28.79, "close": 29.05, "signal": "long", "ret": -10.4234527687296}, {"date": "2009-06-25T00:00:00", "open": 29.45, "high": 29.56, "low": 26.3, "close": 26.36, "signal": "long", "ret": 0.0}, {"date": "2009-06-26T00:00:00", "open": 27.09, "high": 27.22, "low": 25.76, "close": 25.93, "signal": "long", "ret": 0.0}, {"date": "2009-06-29T00:00:00", "open": 25.93, "high": 27.18, "low": 25.29, "close": 25.35, "signal": "long", "ret": 5.26315789473684}, {"date": "2009-06-30T00:00:00", "open": 25.36, "high": 27.38, "low": 25.02, "close": 26.35, "signal": "long", "ret": 6.73758865248228}, {"date": "2009-07-01T00:00:00", "open": 25.73, "high": 26.31, "low": 24.8, "close": 26.22, "signal": "long", "ret": 7.83645655877341}, {"date": "2009-07-02T00:00:00", "open": 26.22, "high": 28.62, "low": 26.22, "close": 27.95, "signal": "long", "ret": 2.7642276422764303}, {"date": "2009-07-06T00:00:00", "open": 30.32, "high": 30.6, "low": 28.99, "close": 29.0, "signal": "short", "ret": -2.14521452145214}, {"date": "2009-07-07T00:00:00", "open": 29.0, "high": 30.94, "low": 28.9, "close": 30.85, "signal": "short", "ret": 3.03514376996805}, {"date": "2009-07-08T00:00:00", "open": 30.85, "high": 33.05, "low": 30.43, "close": 31.3, "signal": "short", "ret": 5.68720379146919}, {"date": "2009-07-09T00:00:00", "open": 30.23, "high": 30.49, "low": 29.28, "close": 29.78, "signal": "short", "ret": 8.22784810126583}, {"date": "2009-07-10T00:00:00", "open": 29.78, "high": 30.34, "low": 28.82, "close": 29.02, "signal": "short", "ret": 8.64779874213836}, {"date": "2009-07-13T00:00:00", "open": 28.36, "high": 29.24, "low": 25.42, "close": 26.31, "signal": "short", "ret": 7.32899022801303}, {"date": "2009-07-14T00:00:00", "open": 26.31, "high": 26.84, "low": 24.99, "close": 25.02, "signal": "short", "ret": 7.30897009966778}, {"date": "2009-07-15T00:00:00", "open": 25.05, "high": 26.06, "low": 23.83, "close": 25.89, "signal": "neutral", "ret": 0.0}, {"date": "2009-07-16T00:00:00", "open": 25.96, "high": 26.18, "low": 24.51, "close": 25.42, "signal": "long", "ret": -9.82758620689656}, {"date": "2009-07-17T00:00:00", "open": 25.42, "high": 25.55, "low": 23.88, "close": 24.34, "signal": "long", "ret": -10.8433734939759}, {"date": "2009-07-20T00:00:00", "open": 25.06, "high": 25.42, "low": 24.26, "close": 24.4, "signal": "long", "ret": -7.55711775043936}, {"date": "2009-07-21T00:00:00", "open": 24.28, "high": 25.14, "low": 23.81, "close": 23.87, "signal": "long", "ret": -2.5089605734767}, {"date": "2009-07-22T00:00:00", "open": 24.05, "high": 24.14, "low": 23.24, "close": 23.47, "signal": "long", "ret": 0.915750915750916}, {"date": "2009-07-23T00:00:00", "open": 23.71, "high": 24.05, "low": 23.21, "close": 23.43, "signal": "long", "ret": 2.47148288973383}, {"date": "2009-07-24T00:00:00", "open": 23.87, "high": 23.87, "low": 23.0, "close": 23.09, "signal": "long", "ret": 4.22264875239922}, {"date": "2009-07-27T00:00:00", "open": 24.06, "high": 24.86, "low": 24.02, "close": 24.28, "signal": "long", "ret": -0.189393939393929}, {"date": "2009-07-28T00:00:00", "open": 24.28, "high": 25.61, "low": 24.28, "close": 25.01, "signal": "long", "ret": -4.3795620437956195}, {"date": "2009-07-29T00:00:00", "open": 25.47, "high": 26.18, "low": 25.41, "close": 25.61, "signal": "long", "ret": -4.48504983388705}, {"date": "2009-07-30T00:00:00", "open": 25.4, "high": 25.76, "low": 24.85, "close": 25.4, "signal": "long", "ret": -1.70357751277683}, {"date": "2009-07-31T00:00:00", "open": 25.4, "high": 26.22, "low": 24.93, "close": 25.92, "signal": "short", "ret": 5.06756756756757}]}};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": "rule", "encoding": {"color": {"condition": {"value": "#06982d", "test": "datum.open <= datum.close"}, "value": "#ae1325"}, "x": {"axis": {"format": "%m/%d", "labelAngle": -45, "title": "Date in 2009"}, "field": "date", "type": "temporal"}, "y": {"field": "low", "scale": {"zero": false}, "title": "Price", "type": "quantitative"}, "y2": {"field": "high"}}}, {"mark": "bar", "encoding": {"color": {"condition": {"value": "#06982d", "test": "datum.open <= datum.close"}, "value": "#ae1325"}, "x": {"axis": {"format": "%m/%d", "labelAngle": -45, "title": "Date in 2009"}, "field": "date", "type": "temporal"}, "y": {"field": "open", "type": "quantitative"}, "y2": {"field": "close"}}}], "data": {"name": "data-6095c1ec4d89ad64750a63772b69643b"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-6095c1ec4d89ad64750a63772b69643b": [{"date": "2009-06-01T00:00:00", "open": 28.7, "high": 30.05, "low": 28.45, "close": 30.04, "signal": "short", "ret": -4.89396411092985}, {"date": "2009-06-02T00:00:00", "open": 30.04, "high": 30.13, "low": 28.3, "close": 29.63, "signal": "short", "ret": -0.32258064516129503}, {"date": "2009-06-03T00:00:00", "open": 29.62, "high": 31.79, "low": 29.62, "close": 31.02, "signal": "short", "ret": 3.68663594470045}, {"date": "2009-06-04T00:00:00", "open": 31.02, "high": 31.02, "low": 29.92, "close": 30.18, "signal": "short", "ret": 4.51010886469673}, {"date": "2009-06-05T00:00:00", "open": 29.39, "high": 30.81, "low": 28.85, "close": 29.62, "signal": "short", "ret": 6.08424336973478}, {"date": "2009-06-08T00:00:00", "open": 30.84, "high": 31.82, "low": 26.41, "close": 29.77, "signal": "short", "ret": 1.2539184952978}, {"date": "2009-06-09T00:00:00", "open": 29.77, "high": 29.77, "low": 27.79, "close": 28.27, "signal": "short", "ret": -5.02431118314424}, {"date": "2009-06-10T00:00:00", "open": 26.9, "high": 29.74, "low": 26.9, "close": 28.46, "signal": "short", "ret": -5.46623794212217}, {"date": "2009-06-11T00:00:00", "open": 27.36, "high": 28.11, "low": 26.81, "close": 28.11, "signal": "short", "ret": -8.3743842364532}, {"date": "2009-06-12T00:00:00", "open": 28.08, "high": 28.5, "low": 27.73, "close": 28.15, "signal": "short", "ret": -5.52763819095477}, {"date": "2009-06-15T00:00:00", "open": 29.7, "high": 31.09, "low": 29.64, "close": 30.81, "signal": "long", "ret": 3.4920634920635}, {"date": "2009-06-16T00:00:00", "open": 30.81, "high": 32.75, "low": 30.07, "close": 32.68, "signal": "short", "ret": 0.155038759689914}, {"date": "2009-06-17T00:00:00", "open": 31.19, "high": 32.77, "low": 30.64, "close": 31.54, "signal": "short", "ret": 5.82822085889571}, {"date": "2009-06-18T00:00:00", "open": 31.54, "high": 31.54, "low": 29.6, "close": 30.03, "signal": "short", "ret": 8.17610062893082}, {"date": "2009-06-19T00:00:00", "open": 29.16, "high": 29.32, "low": 27.56, "close": 27.99, "signal": "short", "ret": 8.59872611464968}, {"date": "2009-06-22T00:00:00", "open": 30.4, "high": 32.05, "low": 30.3, "close": 31.17, "signal": "short", "ret": 15.4907975460123}, {"date": "2009-06-23T00:00:00", "open": 31.3, "high": 31.54, "low": 27.83, "close": 30.58, "signal": "short", "ret": 11.7370892018779}, {"date": "2009-06-24T00:00:00", "open": 30.58, "high": 30.58, "low": 28.79, "close": 29.05, "signal": "long", "ret": -10.4234527687296}, {"date": "2009-06-25T00:00:00", "open": 29.45, "high": 29.56, "low": 26.3, "close": 26.36, "signal": "long", "ret": 0.0}, {"date": "2009-06-26T00:00:00", "open": 27.09, "high": 27.22, "low": 25.76, "close": 25.93, "signal": "long", "ret": 0.0}, {"date": "2009-06-29T00:00:00", "open": 25.93, "high": 27.18, "low": 25.29, "close": 25.35, "signal": "long", "ret": 5.26315789473684}, {"date": "2009-06-30T00:00:00", "open": 25.36, "high": 27.38, "low": 25.02, "close": 26.35, "signal": "long", "ret": 6.73758865248228}, {"date": "2009-07-01T00:00:00", "open": 25.73, "high": 26.31, "low": 24.8, "close": 26.22, "signal": "long", "ret": 7.83645655877341}, {"date": "2009-07-02T00:00:00", "open": 26.22, "high": 28.62, "low": 26.22, "close": 27.95, "signal": "long", "ret": 2.7642276422764303}, {"date": "2009-07-06T00:00:00", "open": 30.32, "high": 30.6, "low": 28.99, "close": 29.0, "signal": "short", "ret": -2.14521452145214}, {"date": "2009-07-07T00:00:00", "open": 29.0, "high": 30.94, "low": 28.9, "close": 30.85, "signal": "short", "ret": 3.03514376996805}, {"date": "2009-07-08T00:00:00", "open": 30.85, "high": 33.05, "low": 30.43, "close": 31.3, "signal": "short", "ret": 5.68720379146919}, {"date": "2009-07-09T00:00:00", "open": 30.23, "high": 30.49, "low": 29.28, "close": 29.78, "signal": "short", "ret": 8.22784810126583}, {"date": "2009-07-10T00:00:00", "open": 29.78, "high": 30.34, "low": 28.82, "close": 29.02, "signal": "short", "ret": 8.64779874213836}, {"date": "2009-07-13T00:00:00", "open": 28.36, "high": 29.24, "low": 25.42, "close": 26.31, "signal": "short", "ret": 7.32899022801303}, {"date": "2009-07-14T00:00:00", "open": 26.31, "high": 26.84, "low": 24.99, "close": 25.02, "signal": "short", "ret": 7.30897009966778}, {"date": "2009-07-15T00:00:00", "open": 25.05, "high": 26.06, "low": 23.83, "close": 25.89, "signal": "neutral", "ret": 0.0}, {"date": "2009-07-16T00:00:00", "open": 25.96, "high": 26.18, "low": 24.51, "close": 25.42, "signal": "long", "ret": -9.82758620689656}, {"date": "2009-07-17T00:00:00", "open": 25.42, "high": 25.55, "low": 23.88, "close": 24.34, "signal": "long", "ret": -10.8433734939759}, {"date": "2009-07-20T00:00:00", "open": 25.06, "high": 25.42, "low": 24.26, "close": 24.4, "signal": "long", "ret": -7.55711775043936}, {"date": "2009-07-21T00:00:00", "open": 24.28, "high": 25.14, "low": 23.81, "close": 23.87, "signal": "long", "ret": -2.5089605734767}, {"date": "2009-07-22T00:00:00", "open": 24.05, "high": 24.14, "low": 23.24, "close": 23.47, "signal": "long", "ret": 0.915750915750916}, {"date": "2009-07-23T00:00:00", "open": 23.71, "high": 24.05, "low": 23.21, "close": 23.43, "signal": "long", "ret": 2.47148288973383}, {"date": "2009-07-24T00:00:00", "open": 23.87, "high": 23.87, "low": 23.0, "close": 23.09, "signal": "long", "ret": 4.22264875239922}, {"date": "2009-07-27T00:00:00", "open": 24.06, "high": 24.86, "low": 24.02, "close": 24.28, "signal": "long", "ret": -0.189393939393929}, {"date": "2009-07-28T00:00:00", "open": 24.28, "high": 25.61, "low": 24.28, "close": 25.01, "signal": "long", "ret": -4.3795620437956195}, {"date": "2009-07-29T00:00:00", "open": 25.47, "high": 26.18, "low": 25.41, "close": 25.61, "signal": "long", "ret": -4.48504983388705}, {"date": "2009-07-30T00:00:00", "open": 25.4, "high": 25.76, "low": 24.85, "close": 25.4, "signal": "long", "ret": -1.70357751277683}, {"date": "2009-07-31T00:00:00", "open": 25.4, "high": 26.22, "low": 24.93, "close": 25.92, "signal": "short", "ret": 5.06756756756757}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -261,7 +184,7 @@ while the thin bar shows intraday high and low prices; if the index closed highe
       vegaEmbed('#candlestick_chart-rst-altair-plot-0', spec, opt).catch(console.err);
   });
 </script>
-</div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+</div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
 <span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
 
 <span class="n">source</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">ohlc</span><span class="p">()</span>
@@ -300,70 +223,33 @@ while the thin bar shows intraday high and low prices; if the index closed highe
 </div>
 <div class="toctree-wrapper compound">
 </div>
-</div>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="errorbars_with_std.html" class="btn btn-neutral float-right" title="Error Bar with Standard Deviation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="boxplot.html" class="btn btn-neutral" title="Box Plot with Min/Max Whiskers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="boxplot.html" class="btn btn-neutral float-left" title="Boxplot with Min/Max Whiskers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="comet_chart.html" class="btn btn-neutral float-right" title="Comet Chart Example" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2016-2019, Altair Developers.
-
-    </p>
+    <p>&#169; Copyright 2016-2020, Altair Developers.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'4.1.0',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.8.1"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-
-  
-
-  <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });

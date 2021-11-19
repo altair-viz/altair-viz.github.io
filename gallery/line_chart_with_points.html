@@ -1,78 +1,46 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Line Chart with Points &mdash; Altair 4.1.0 documentation</title>
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-  
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Line Chart with Points &mdash; Altair 4.2.0rc1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/altair-plot.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/altair-gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/altair-plot.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/altair-gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.17.0"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Line Chart with Sequence Generator" href="line_chart_with_generator.html" />
     <link rel="prev" title="Line Chart with Percent axis" href="line_percent.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
-
-          
+        <div class="wy-side-nav-search" >
             <a href="../index.html" class="icon icon-home"> Altair
-          
-
-          
-            
             <img src="../_static/altair-logo-light.png" class="logo" alt="Logo"/>
-          
           </a>
-
-          
-            
-            
               <div class="version">
-                4.1.0
+                4.2.0rc1
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -80,18 +48,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installation</a></li>
@@ -99,27 +57,33 @@
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html#development-install">Development Install</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/starting.html">Basic Statistical Visualization</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Gallery</span></p>
+<p class="caption" role="heading"><span class="caption-text">Gallery</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Example Gallery</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="index.html#simple-charts">Simple Charts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#bar-charts">Bar Charts</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html#line-charts">Line Charts</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="bump_chart.html">Bump Chart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="filled_step_chart.html">Filled Step Chart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="line_with_ci.html">Line Chart with Confidence Interval Band</a></li>
+<li class="toctree-l3"><a class="reference internal" href="line_chart_with_cumsum.html">Line Chart with Cumulative Sum</a></li>
 <li class="toctree-l3"><a class="reference internal" href="layer_line_color_rule.html">Line Chart with Layered Aggregates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="line_with_log_scale.html">Line Chart with Logarithmic Scale</a></li>
 <li class="toctree-l3"><a class="reference internal" href="line_percent.html">Line Chart with Percent axis</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Line Chart with Points</a><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="line_chart_with_generator.html">Line Chart with Sequence Generator</a></li>
 <li class="toctree-l3"><a class="reference internal" href="trail_marker.html">Line Chart with Varying Size</a></li>
+<li class="toctree-l3"><a class="reference internal" href="line_chart_with_datum.html">Line Chart with datum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="line_chart_with_color_datum.html">Line Chart with datum for color</a></li>
 <li class="toctree-l3"><a class="reference internal" href="multi_series_line.html">Multi Series Line Chart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="slope_graph.html">Slope Graph</a></li>
 <li class="toctree-l3"><a class="reference internal" href="step_chart.html">Step Chart</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#area-charts">Area Charts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#circular-plots">Circular Plots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#scatter-plots">Scatter Plots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#histograms">Histograms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#maps">Maps</a></li>
@@ -129,7 +93,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">User Guide</span></p>
+<p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/data.html">Specifying Data in Altair</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/encoding.html">Encodings</a></li>
@@ -148,11 +112,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/API.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/ecosystem.html">Altair Ecosystem</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Case Studies</span></p>
+<p class="caption" role="heading"><span class="caption-text">Case Studies</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../case_studies/exploring-weather.html">Exploring Seattle Weather</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Advanced Usage</span></p>
+<p class="caption" role="heading"><span class="caption-text">Advanced Usage</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/importing.html">Importing Vega &amp; Vega-Lite Versions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/display_frontends.html">Displaying Altair Charts</a></li>
@@ -160,85 +124,48 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/custom_renderers.html">Customizing Renderers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/data_transformers.html">Data transformers</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Release Notes</span></p>
+<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../releases/changes.html">Altair Change Log</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Altair</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="index.html">Example Gallery</a> &raquo;</li>
-        
       <li>Line Chart with Points</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-            
             <a href="../_sources/gallery/line_chart_with_points.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="line-chart-with-points">
-<span id="gallery-line-chart-with-points"></span><h1>Line Chart with Points<a class="headerlink" href="#line-chart-with-points" title="Permalink to this headline">¶</a></h1>
-<p>This chart shows a simple line chart with points marking each value.</p>
+             
+  <section id="line-chart-with-points">
+<span id="gallery-line-chart-with-points"></span><h1>Line Chart with Points<a class="headerlink" href="#line-chart-with-points" title="Permalink to this headline"></a></h1>
+<p>This chart shows a simple line chart with points marking each value. Use
+<code class="docutils literal notranslate"><span class="pre">point=True</span></code> for points with default appearance or customize it with
+<code class="docutils literal notranslate"><span class="pre">OverlayMarkDef()</span></code>.</p>
 
 <div id="line_chart_with_points-rst-altair-plot-0">
 <script>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-1dade804818bb4a87ac30f362092e342"}, "mark": {"type": "line", "point": true}, "encoding": {"x": {"type": "quantitative", "field": "x"}, "y": {"type": "quantitative", "field": "f(x)"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-1dade804818bb4a87ac30f362092e342": [{"x": 0, "f(x)": 0.0}, {"x": 1, "f(x)": 0.19866933079506122}, {"x": 2, "f(x)": 0.3894183423086505}, {"x": 3, "f(x)": 0.5646424733950354}, {"x": 4, "f(x)": 0.7173560908995228}, {"x": 5, "f(x)": 0.8414709848078965}, {"x": 6, "f(x)": 0.9320390859672263}, {"x": 7, "f(x)": 0.9854497299884601}, {"x": 8, "f(x)": 0.9995736030415051}, {"x": 9, "f(x)": 0.9738476308781951}, {"x": 10, "f(x)": 0.9092974268256817}, {"x": 11, "f(x)": 0.8084964038195901}, {"x": 12, "f(x)": 0.675463180551151}, {"x": 13, "f(x)": 0.5155013718214642}, {"x": 14, "f(x)": 0.33498815015590505}, {"x": 15, "f(x)": 0.1411200080598672}, {"x": 16, "f(x)": -0.058374143427580086}, {"x": 17, "f(x)": -0.2555411020268312}, {"x": 18, "f(x)": -0.44252044329485246}, {"x": 19, "f(x)": -0.6118578909427189}, {"x": 20, "f(x)": -0.7568024953079282}, {"x": 21, "f(x)": -0.8715757724135881}, {"x": 22, "f(x)": -0.9516020738895161}, {"x": 23, "f(x)": -0.9936910036334644}, {"x": 24, "f(x)": -0.9961646088358407}, {"x": 25, "f(x)": -0.9589242746631385}, {"x": 26, "f(x)": -0.8834546557201531}, {"x": 27, "f(x)": -0.7727644875559871}, {"x": 28, "f(x)": -0.6312666378723216}, {"x": 29, "f(x)": -0.46460217941375737}, {"x": 30, "f(x)": -0.27941549819892586}, {"x": 31, "f(x)": -0.08308940281749641}, {"x": 32, "f(x)": 0.11654920485049364}, {"x": 33, "f(x)": 0.31154136351337786}, {"x": 34, "f(x)": 0.4941133511386082}, {"x": 35, "f(x)": 0.6569865987187891}, {"x": 36, "f(x)": 0.7936678638491531}, {"x": 37, "f(x)": 0.8987080958116269}, {"x": 38, "f(x)": 0.9679196720314863}, {"x": 39, "f(x)": 0.998543345374605}, {"x": 40, "f(x)": 0.9893582466233818}, {"x": 41, "f(x)": 0.9407305566797731}, {"x": 42, "f(x)": 0.8545989080882805}, {"x": 43, "f(x)": 0.7343970978741134}, {"x": 44, "f(x)": 0.5849171928917617}, {"x": 45, "f(x)": 0.4121184852417566}, {"x": 46, "f(x)": 0.22288991410024764}, {"x": 47, "f(x)": 0.024775425453357765}, {"x": 48, "f(x)": -0.17432678122297965}, {"x": 49, "f(x)": -0.3664791292519284}, {"x": 50, "f(x)": -0.5440211108893699}, {"x": 51, "f(x)": -0.6998746875935424}, {"x": 52, "f(x)": -0.8278264690856536}, {"x": 53, "f(x)": -0.9227754216128066}, {"x": 54, "f(x)": -0.9809362300664916}, {"x": 55, "f(x)": -0.9999902065507035}, {"x": 56, "f(x)": -0.9791777291513174}, {"x": 57, "f(x)": -0.9193285256646757}, {"x": 58, "f(x)": -0.8228285949687089}, {"x": 59, "f(x)": -0.6935250847771224}, {"x": 60, "f(x)": -0.5365729180004349}, {"x": 61, "f(x)": -0.3582292822368287}, {"x": 62, "f(x)": -0.1656041754483094}, {"x": 63, "f(x)": 0.03362304722113669}, {"x": 64, "f(x)": 0.23150982510153895}, {"x": 65, "f(x)": 0.4201670368266409}, {"x": 66, "f(x)": 0.592073514707223}, {"x": 67, "f(x)": 0.7403758899524486}, {"x": 68, "f(x)": 0.8591618148564959}, {"x": 69, "f(x)": 0.9436956694441048}, {"x": 70, "f(x)": 0.9906073556948704}, {"x": 71, "f(x)": 0.9980266527163617}, {"x": 72, "f(x)": 0.9656577765492775}, {"x": 73, "f(x)": 0.8947911721405042}, {"x": 74, "f(x)": 0.7882520673753163}, {"x": 75, "f(x)": 0.6502878401571169}, {"x": 76, "f(x)": 0.4863986888537997}, {"x": 77, "f(x)": 0.30311835674570226}, {"x": 78, "f(x)": 0.10775365229944406}, {"x": 79, "f(x)": -0.09190685022768165}, {"x": 80, "f(x)": -0.2879033166650653}, {"x": 81, "f(x)": -0.47242198639846616}, {"x": 82, "f(x)": -0.6381066823479474}, {"x": 83, "f(x)": -0.7783520785342986}, {"x": 84, "f(x)": -0.8875670335815046}, {"x": 85, "f(x)": -0.9613974918795568}, {"x": 86, "f(x)": -0.9969000660415961}, {"x": 87, "f(x)": -0.9926593804706332}, {"x": 88, "f(x)": -0.948844497918124}, {"x": 89, "f(x)": -0.8672021794855813}, {"x": 90, "f(x)": -0.750987246771676}, {"x": 91, "f(x)": -0.6048328224062841}, {"x": 92, "f(x)": -0.4345656220718967}, {"x": 93, "f(x)": -0.2469736617366209}, {"x": 94, "f(x)": -0.04953564087836742}, {"x": 95, "f(x)": 0.14987720966295234}, {"x": 96, "f(x)": 0.3433149288198954}, {"x": 97, "f(x)": 0.5230657651576964}, {"x": 98, "f(x)": 0.6819636200681355}, {"x": 99, "f(x)": 0.8136737375071054}]}};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-1dade804818bb4a87ac30f362092e342"}, "mark": {"type": "line", "point": {"color": "red"}}, "encoding": {"x": {"field": "x", "type": "quantitative"}, "y": {"field": "f(x)", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-1dade804818bb4a87ac30f362092e342": [{"x": 0, "f(x)": 0.0}, {"x": 1, "f(x)": 0.19866933079506122}, {"x": 2, "f(x)": 0.3894183423086505}, {"x": 3, "f(x)": 0.5646424733950354}, {"x": 4, "f(x)": 0.7173560908995228}, {"x": 5, "f(x)": 0.8414709848078965}, {"x": 6, "f(x)": 0.9320390859672263}, {"x": 7, "f(x)": 0.9854497299884601}, {"x": 8, "f(x)": 0.9995736030415051}, {"x": 9, "f(x)": 0.9738476308781951}, {"x": 10, "f(x)": 0.9092974268256817}, {"x": 11, "f(x)": 0.8084964038195901}, {"x": 12, "f(x)": 0.675463180551151}, {"x": 13, "f(x)": 0.5155013718214642}, {"x": 14, "f(x)": 0.33498815015590505}, {"x": 15, "f(x)": 0.1411200080598672}, {"x": 16, "f(x)": -0.058374143427580086}, {"x": 17, "f(x)": -0.2555411020268312}, {"x": 18, "f(x)": -0.44252044329485246}, {"x": 19, "f(x)": -0.6118578909427189}, {"x": 20, "f(x)": -0.7568024953079282}, {"x": 21, "f(x)": -0.8715757724135881}, {"x": 22, "f(x)": -0.9516020738895161}, {"x": 23, "f(x)": -0.9936910036334644}, {"x": 24, "f(x)": -0.9961646088358407}, {"x": 25, "f(x)": -0.9589242746631385}, {"x": 26, "f(x)": -0.8834546557201531}, {"x": 27, "f(x)": -0.7727644875559871}, {"x": 28, "f(x)": -0.6312666378723216}, {"x": 29, "f(x)": -0.46460217941375737}, {"x": 30, "f(x)": -0.27941549819892586}, {"x": 31, "f(x)": -0.08308940281749641}, {"x": 32, "f(x)": 0.11654920485049364}, {"x": 33, "f(x)": 0.31154136351337786}, {"x": 34, "f(x)": 0.4941133511386082}, {"x": 35, "f(x)": 0.6569865987187891}, {"x": 36, "f(x)": 0.7936678638491531}, {"x": 37, "f(x)": 0.8987080958116269}, {"x": 38, "f(x)": 0.9679196720314863}, {"x": 39, "f(x)": 0.998543345374605}, {"x": 40, "f(x)": 0.9893582466233818}, {"x": 41, "f(x)": 0.9407305566797731}, {"x": 42, "f(x)": 0.8545989080882805}, {"x": 43, "f(x)": 0.7343970978741134}, {"x": 44, "f(x)": 0.5849171928917617}, {"x": 45, "f(x)": 0.4121184852417566}, {"x": 46, "f(x)": 0.22288991410024764}, {"x": 47, "f(x)": 0.024775425453357765}, {"x": 48, "f(x)": -0.17432678122297965}, {"x": 49, "f(x)": -0.3664791292519284}, {"x": 50, "f(x)": -0.5440211108893699}, {"x": 51, "f(x)": -0.6998746875935424}, {"x": 52, "f(x)": -0.8278264690856536}, {"x": 53, "f(x)": -0.9227754216128066}, {"x": 54, "f(x)": -0.9809362300664916}, {"x": 55, "f(x)": -0.9999902065507035}, {"x": 56, "f(x)": -0.9791777291513174}, {"x": 57, "f(x)": -0.9193285256646757}, {"x": 58, "f(x)": -0.8228285949687089}, {"x": 59, "f(x)": -0.6935250847771224}, {"x": 60, "f(x)": -0.5365729180004349}, {"x": 61, "f(x)": -0.3582292822368287}, {"x": 62, "f(x)": -0.1656041754483094}, {"x": 63, "f(x)": 0.03362304722113669}, {"x": 64, "f(x)": 0.23150982510153895}, {"x": 65, "f(x)": 0.4201670368266409}, {"x": 66, "f(x)": 0.592073514707223}, {"x": 67, "f(x)": 0.7403758899524486}, {"x": 68, "f(x)": 0.8591618148564959}, {"x": 69, "f(x)": 0.9436956694441048}, {"x": 70, "f(x)": 0.9906073556948704}, {"x": 71, "f(x)": 0.9980266527163617}, {"x": 72, "f(x)": 0.9656577765492775}, {"x": 73, "f(x)": 0.8947911721405042}, {"x": 74, "f(x)": 0.7882520673753163}, {"x": 75, "f(x)": 0.6502878401571169}, {"x": 76, "f(x)": 0.4863986888537997}, {"x": 77, "f(x)": 0.30311835674570226}, {"x": 78, "f(x)": 0.10775365229944406}, {"x": 79, "f(x)": -0.09190685022768165}, {"x": 80, "f(x)": -0.2879033166650653}, {"x": 81, "f(x)": -0.47242198639846616}, {"x": 82, "f(x)": -0.6381066823479474}, {"x": 83, "f(x)": -0.7783520785342986}, {"x": 84, "f(x)": -0.8875670335815046}, {"x": 85, "f(x)": -0.9613974918795568}, {"x": 86, "f(x)": -0.9969000660415961}, {"x": 87, "f(x)": -0.9926593804706332}, {"x": 88, "f(x)": -0.948844497918124}, {"x": 89, "f(x)": -0.8672021794855813}, {"x": 90, "f(x)": -0.750987246771676}, {"x": 91, "f(x)": -0.6048328224062841}, {"x": 92, "f(x)": -0.4345656220718967}, {"x": 93, "f(x)": -0.2469736617366209}, {"x": 94, "f(x)": -0.04953564087836742}, {"x": 95, "f(x)": 0.14987720966295234}, {"x": 96, "f(x)": 0.3433149288198954}, {"x": 97, "f(x)": 0.5230657651576964}, {"x": 98, "f(x)": 0.6819636200681355}, {"x": 99, "f(x)": 0.8136737375071054}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -247,7 +174,7 @@
       vegaEmbed('#line_chart_with_points-rst-altair-plot-0', spec, opt).catch(console.err);
   });
 </script>
-</div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+</div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
@@ -257,7 +184,9 @@
   <span class="s1">&#39;f(x)&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="mi">5</span><span class="p">)</span>
 <span class="p">})</span>
 
-<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">point</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span>
+    <span class="n">point</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">OverlayMarkDef</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="s1">&#39;f(x)&#39;</span>
 <span class="p">)</span>
@@ -265,70 +194,33 @@
 </div>
 <div class="toctree-wrapper compound">
 </div>
-</div>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="line_chart_with_generator.html" class="btn btn-neutral float-right" title="Line Chart with Sequence Generator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="line_percent.html" class="btn btn-neutral" title="Line Chart with Percent axis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="line_percent.html" class="btn btn-neutral float-left" title="Line Chart with Percent axis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="line_chart_with_generator.html" class="btn btn-neutral float-right" title="Line Chart with Sequence Generator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2016-2019, Altair Developers.
-
-    </p>
+    <p>&#169; Copyright 2016-2020, Altair Developers.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'4.1.0',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@4.8.1"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-
-  
-
-  <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
