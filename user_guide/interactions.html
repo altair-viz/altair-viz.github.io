@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bindings, Selections, Conditions: Making Charts Interactive &mdash; Altair 4.2.0rc1 documentation</title>
+  <title>Bindings, Selections, Conditions: Making Charts Interactive &mdash; Altair 4.2.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/altair-plot.css" type="text/css" />
@@ -39,7 +39,7 @@
             <img src="../_static/altair-logo-light.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                4.2.0rc1
+                4.2.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -212,7 +212,7 @@ property:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": "point", "encoding": {"color": {"field": "Origin", "type": "nominal"}, "x": {"field": "Miles_per_Gallon", "type": "quantitative"}, "y": {"field": "Horsepower", "type": "quantitative"}}, "selection": {"selector037": {"type": "interval"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": "point", "encoding": {"color": {"field": "Origin", "type": "nominal"}, "x": {"field": "Miles_per_Gallon", "type": "quantitative"}, "y": {"field": "Horsepower", "type": "quantitative"}}, "selection": {"selector064": {"type": "interval"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -248,7 +248,7 @@ for points outside the selection:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": "point", "encoding": {"color": {"condition": {"field": "Origin", "type": "nominal", "selection": "selector037"}, "value": "lightgray"}, "x": {"field": "Miles_per_Gallon", "type": "quantitative"}, "y": {"field": "Horsepower", "type": "quantitative"}}, "selection": {"selector037": {"type": "interval"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": "point", "encoding": {"color": {"condition": {"field": "Origin", "type": "nominal", "selection": "selector064"}, "value": "lightgray"}, "x": {"field": "Miles_per_Gallon", "type": "quantitative"}, "y": {"field": "Horsepower", "type": "quantitative"}}, "selection": {"selector064": {"type": "interval"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -284,7 +284,7 @@ tied to <code class="docutils literal notranslate"><span class="pre">&quot;Miles
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "hconcat": [{"mark": "point", "encoding": {"color": {"condition": {"field": "Origin", "type": "nominal", "selection": "selector037"}, "value": "lightgray"}, "x": {"field": "Acceleration", "type": "quantitative"}, "y": {"field": "Horsepower", "type": "quantitative"}}, "height": 250, "selection": {"selector037": {"type": "interval"}}, "width": 250}, {"mark": "point", "encoding": {"color": {"condition": {"field": "Origin", "type": "nominal", "selection": "selector037"}, "value": "lightgray"}, "x": {"field": "Miles_per_Gallon", "type": "quantitative"}, "y": {"field": "Horsepower", "type": "quantitative"}}, "height": 250, "selection": {"selector037": {"type": "interval"}}, "width": 250}], "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "hconcat": [{"mark": "point", "encoding": {"color": {"condition": {"field": "Origin", "type": "nominal", "selection": "selector064"}, "value": "lightgray"}, "x": {"field": "Acceleration", "type": "quantitative"}, "y": {"field": "Horsepower", "type": "quantitative"}}, "height": 250, "selection": {"selector064": {"type": "interval"}}, "width": 250}, {"mark": "point", "encoding": {"color": {"condition": {"field": "Origin", "type": "nominal", "selection": "selector064"}, "value": "lightgray"}, "x": {"field": "Miles_per_Gallon", "type": "quantitative"}, "y": {"field": "Horsepower", "type": "quantitative"}}, "height": 250, "selection": {"selector064": {"type": "interval"}}, "width": 250}], "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -322,7 +322,7 @@ We can modify the brush definition, and leave the rest of the code unchanged:</p
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "hconcat": [{"mark": "point", "encoding": {"color": {"condition": {"field": "Origin", "type": "nominal", "selection": "selector038"}, "value": "lightgray"}, "x": {"field": "Acceleration", "type": "quantitative"}, "y": {"field": "Horsepower", "type": "quantitative"}}, "height": 250, "selection": {"selector038": {"type": "interval", "encodings": ["x"]}}, "width": 250}, {"mark": "point", "encoding": {"color": {"condition": {"field": "Origin", "type": "nominal", "selection": "selector038"}, "value": "lightgray"}, "x": {"field": "Miles_per_Gallon", "type": "quantitative"}, "y": {"field": "Horsepower", "type": "quantitative"}}, "height": 250, "selection": {"selector038": {"type": "interval", "encodings": ["x"]}}, "width": 250}], "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "hconcat": [{"mark": "point", "encoding": {"color": {"condition": {"field": "Origin", "type": "nominal", "selection": "selector065"}, "value": "lightgray"}, "x": {"field": "Acceleration", "type": "quantitative"}, "y": {"field": "Horsepower", "type": "quantitative"}}, "height": 250, "selection": {"selector065": {"type": "interval", "encodings": ["x"]}}, "width": 250}, {"mark": "point", "encoding": {"color": {"condition": {"field": "Origin", "type": "nominal", "selection": "selector065"}, "value": "lightgray"}, "x": {"field": "Miles_per_Gallon", "type": "quantitative"}, "y": {"field": "Horsepower", "type": "quantitative"}}, "height": 250, "selection": {"selector065": {"type": "interval", "encodings": ["x"]}}, "width": 250}], "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -371,7 +371,7 @@ You can create such a selection using the <a class="reference internal" href="ge
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": "rect", "encoding": {"color": {"condition": {"aggregate": "count", "type": "quantitative", "selection": "selector039"}, "value": "lightgray"}, "x": {"field": "Cylinders", "type": "ordinal"}, "y": {"field": "Origin", "type": "nominal"}}, "height": 180, "selection": {"selector039": {"type": "interval"}}, "width": 300, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": "rect", "encoding": {"color": {"condition": {"aggregate": "count", "type": "quantitative", "selection": "selector066"}, "value": "lightgray"}, "x": {"field": "Cylinders", "type": "ordinal"}, "y": {"field": "Origin", "type": "nominal"}}, "height": 180, "selection": {"selector066": {"type": "interval"}}, "width": 300, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -395,7 +395,7 @@ empty selection contains none of the points:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": "rect", "encoding": {"color": {"condition": {"aggregate": "count", "type": "quantitative", "selection": "selector040"}, "value": "lightgray"}, "x": {"field": "Cylinders", "type": "ordinal"}, "y": {"field": "Origin", "type": "nominal"}}, "height": 180, "selection": {"selector040": {"type": "interval", "encodings": ["x"], "empty": "none"}}, "width": 300, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": "rect", "encoding": {"color": {"condition": {"aggregate": "count", "type": "quantitative", "selection": "selector067"}, "value": "lightgray"}, "x": {"field": "Cylinders", "type": "ordinal"}, "y": {"field": "Origin", "type": "nominal"}}, "height": 180, "selection": {"selector067": {"type": "interval", "encodings": ["x"], "empty": "none"}}, "width": 300, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -423,7 +423,7 @@ chart scales; this is how Altair plots can be made interactive:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": "point", "encoding": {"color": {"field": "Origin", "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "selection": {"selector041": {"type": "interval", "bind": "scales"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": "point", "encoding": {"color": {"field": "Origin", "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "selection": {"selector068": {"type": "interval", "bind": "scales"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -449,7 +449,7 @@ mouse actions. By default, points are selected on click:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": "rect", "encoding": {"color": {"condition": {"aggregate": "count", "type": "quantitative", "selection": "selector042"}, "value": "lightgray"}, "x": {"field": "Cylinders", "type": "ordinal"}, "y": {"field": "Origin", "type": "nominal"}}, "height": 180, "selection": {"selector042": {"type": "single"}}, "width": 300, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": "rect", "encoding": {"color": {"condition": {"aggregate": "count", "type": "quantitative", "selection": "selector069"}, "value": "lightgray"}, "x": {"field": "Cylinders", "type": "ordinal"}, "y": {"field": "Origin", "type": "nominal"}}, "height": 180, "selection": {"selector069": {"type": "single"}}, "width": 300, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -471,7 +471,7 @@ point is highlighted:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": "rect", "encoding": {"color": {"condition": {"aggregate": "count", "type": "quantitative", "selection": "selector043"}, "value": "lightgray"}, "x": {"field": "Cylinders", "type": "ordinal"}, "y": {"field": "Origin", "type": "nominal"}}, "height": 180, "selection": {"selector043": {"type": "single", "on": "mouseover", "nearest": true}}, "width": 300, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": "rect", "encoding": {"color": {"condition": {"aggregate": "count", "type": "quantitative", "selection": "selector070"}, "value": "lightgray"}, "x": {"field": "Cylinders", "type": "ordinal"}, "y": {"field": "Origin", "type": "nominal"}}, "height": 180, "selection": {"selector070": {"type": "single", "on": "mouseover", "nearest": true}}, "width": 300, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -497,7 +497,7 @@ by clicking on them while holding the <em>shift</em> key:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": "rect", "encoding": {"color": {"condition": {"aggregate": "count", "type": "quantitative", "selection": "selector044"}, "value": "lightgray"}, "x": {"field": "Cylinders", "type": "ordinal"}, "y": {"field": "Origin", "type": "nominal"}}, "height": 180, "selection": {"selector044": {"type": "multi"}}, "width": 300, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": "rect", "encoding": {"color": {"condition": {"aggregate": "count", "type": "quantitative", "selection": "selector071"}, "value": "lightgray"}, "x": {"field": "Cylinders", "type": "ordinal"}, "y": {"field": "Origin", "type": "nominal"}}, "height": 180, "selection": {"selector071": {"type": "multi"}}, "width": 300, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -521,7 +521,7 @@ over them with your mouse:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": "rect", "encoding": {"color": {"condition": {"aggregate": "count", "type": "quantitative", "selection": "selector045"}, "value": "lightgray"}, "x": {"field": "Cylinders", "type": "ordinal"}, "y": {"field": "Origin", "type": "nominal"}}, "height": 180, "selection": {"selector045": {"type": "multi", "on": "mouseover", "toggle": false, "empty": "none"}}, "width": 300, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": "rect", "encoding": {"color": {"condition": {"aggregate": "count", "type": "quantitative", "selection": "selector072"}, "value": "lightgray"}, "x": {"field": "Cylinders", "type": "ordinal"}, "y": {"field": "Origin", "type": "nominal"}}, "height": 180, "selection": {"selector072": {"type": "multi", "on": "mouseover", "toggle": false, "empty": "none"}}, "width": 300, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -628,7 +628,7 @@ with a matching <code class="docutils literal notranslate"><span class="pre">Ori
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "hconcat": [{"mark": "point", "encoding": {"color": {"condition": {"field": "Origin", "legend": null, "type": "nominal", "selection": "selector046"}, "value": "lightgray"}, "tooltip": {"field": "Name", "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}}, {"mark": "point", "encoding": {"color": {"condition": {"field": "Origin", "legend": null, "type": "nominal", "selection": "selector046"}, "value": "lightgray"}, "y": {"axis": {"orient": "right"}, "field": "Origin", "type": "nominal"}}, "selection": {"selector046": {"type": "multi", "fields": ["Origin"]}}}], "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "hconcat": [{"mark": "point", "encoding": {"color": {"condition": {"field": "Origin", "legend": null, "type": "nominal", "selection": "selector073"}, "value": "lightgray"}, "tooltip": {"field": "Name", "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}}, {"mark": "point", "encoding": {"color": {"condition": {"field": "Origin", "legend": null, "type": "nominal", "selection": "selector073"}, "value": "lightgray"}, "y": {"axis": {"orient": "right"}, "field": "Origin", "type": "nominal"}}, "selection": {"selector073": {"type": "multi", "fields": ["Origin"]}}}], "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -674,7 +674,7 @@ cylinders:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "hconcat": [{"mark": "point", "encoding": {"color": {"condition": {"field": "Origin", "legend": null, "type": "nominal", "selection": "selector047"}, "value": "lightgray"}, "tooltip": {"field": "Name", "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}}, {"mark": "rect", "encoding": {"color": {"condition": {"field": "Origin", "legend": null, "type": "nominal", "selection": "selector047"}, "value": "lightgray"}, "x": {"field": "Cylinders", "type": "ordinal"}, "y": {"axis": {"orient": "right"}, "field": "Origin", "type": "nominal"}}, "selection": {"selector047": {"type": "multi", "fields": ["Origin", "Cylinders"]}}}], "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "hconcat": [{"mark": "point", "encoding": {"color": {"condition": {"field": "Origin", "legend": null, "type": "nominal", "selection": "selector074"}, "value": "lightgray"}, "tooltip": {"field": "Name", "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}}, {"mark": "rect", "encoding": {"color": {"condition": {"field": "Origin", "legend": null, "type": "nominal", "selection": "selector074"}, "value": "lightgray"}, "x": {"field": "Cylinders", "type": "ordinal"}, "y": {"axis": {"orient": "right"}, "field": "Origin", "type": "nominal"}}, "selection": {"selector074": {"type": "multi", "fields": ["Origin", "Cylinders"]}}}], "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -719,7 +719,7 @@ create a wide variety of linked interactive chart types.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": "point", "encoding": {"color": {"condition": {"field": "Origin", "legend": null, "type": "nominal", "selection": "selector048"}, "value": "lightgray"}, "tooltip": {"field": "Name", "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "selection": {"selector048": {"type": "single", "fields": ["Origin"], "bind": {"input": "select", "options": ["Europe", "Japan", "USA"], "name": "Country"}}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": "point", "encoding": {"color": {"condition": {"field": "Origin", "legend": null, "type": "nominal", "selection": "selector075"}, "value": "lightgray"}, "tooltip": {"field": "Name", "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "selection": {"selector075": {"type": "single", "fields": ["Origin"], "bind": {"input": "select", "options": ["Europe", "Japan", "USA"], "name": "Country"}}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -783,7 +783,7 @@ create a wide variety of linked interactive chart types.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": "point", "encoding": {"color": {"field": "Origin", "type": "nominal"}, "tooltip": {"field": "Name", "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "selection": {"selector049": {"type": "single", "fields": ["Origin"], "bind": {"input": "select", "options": ["Europe", "Japan", "USA"], "name": "Country"}}}, "transform": [{"filter": {"selection": "selector049"}}], "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": "point", "encoding": {"color": {"field": "Origin", "type": "nominal"}, "tooltip": {"field": "Name", "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "selection": {"selector076": {"type": "single", "fields": ["Origin"], "bind": {"input": "select", "options": ["Europe", "Japan", "USA"], "name": "Country"}}}, "transform": [{"filter": {"selection": "selector076"}}], "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -814,7 +814,7 @@ create a wide variety of linked interactive chart types.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": "point", "encoding": {"color": {"field": "Origin", "type": "nominal"}, "tooltip": {"field": "Name", "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "selection": {"selector050": {"type": "interval", "bind": "scales"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": "point", "encoding": {"color": {"field": "Origin", "type": "nominal"}, "tooltip": {"field": "Name", "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "selection": {"selector077": {"type": "interval", "bind": "scales"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",

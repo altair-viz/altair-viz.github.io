@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ranged Dot Plot &mdash; Altair 4.2.0rc1 documentation</title>
+  <title>Ranged Dot Plot &mdash; Altair 4.2.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/altair-plot.css" type="text/css" />
@@ -27,7 +27,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Ridgeline plot Example" href="ridgeline_plot.html" />
-    <link rel="prev" title="Parallel Coordinates Example" href="parallel_coordinates.html" /> 
+    <link rel="prev" title="Pyramid Pie Chart" href="pyramid.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -39,7 +39,7 @@
             <img src="../_static/altair-logo-light.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                4.2.0rc1
+                4.2.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -88,6 +88,7 @@
 <li class="toctree-l3"><a class="reference internal" href="multiple_marks.html">Multiple Marks</a></li>
 <li class="toctree-l3"><a class="reference internal" href="normed_parallel_coordinates.html">Normalized Parallel Coordinates Example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="parallel_coordinates.html">Parallel Coordinates Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyramid.html">Pyramid Pie Chart</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Ranged Dot Plot</a><ul class="simple">
 </ul>
 </li>
@@ -172,7 +173,7 @@
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "line", "color": "#db646f"}, "encoding": {"detail": {"field": "country", "type": "nominal"}, "x": {"field": "life_expect", "type": "quantitative"}, "y": {"field": "country", "type": "nominal"}}}, {"mark": {"type": "point", "filled": true, "opacity": 1, "size": 100}, "encoding": {"color": {"field": "year", "scale": {"domain": ["1955", "2000"], "range": ["#e6959c", "#911a24"]}, "type": "ordinal"}, "x": {"field": "life_expect", "type": "quantitative"}, "y": {"field": "country", "type": "nominal"}}, "selection": {"selector014": {"type": "interval", "bind": "scales", "encodings": ["x", "y"]}}}], "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/countries.json"}, "transform": [{"filter": {"field": "country", "oneOf": ["China", "India", "United States", "Indonesia", "Brazil"]}}, {"filter": {"field": "year", "oneOf": [1955, 2000]}}], "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"};
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "line", "color": "#db646f"}, "encoding": {"detail": {"field": "country", "type": "nominal"}, "x": {"field": "life_expect", "type": "quantitative"}, "y": {"field": "country", "type": "nominal"}}}, {"mark": {"type": "point", "filled": true, "opacity": 1, "size": 100}, "encoding": {"color": {"field": "year", "scale": {"domain": ["1955", "2000"], "range": ["#e6959c", "#911a24"]}, "type": "ordinal"}, "x": {"field": "life_expect", "type": "quantitative"}, "y": {"field": "country", "type": "nominal"}}, "selection": {"selector041": {"type": "interval", "bind": "scales", "encodings": ["x", "y"]}}}], "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/countries.json"}, "transform": [{"filter": {"field": "country", "oneOf": ["China", "India", "United States", "Indonesia", "Brazil"]}}, {"filter": {"field": "year", "oneOf": [1955, 2000]}}], "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -228,7 +229,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="parallel_coordinates.html" class="btn btn-neutral float-left" title="Parallel Coordinates Example" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pyramid.html" class="btn btn-neutral float-left" title="Pyramid Pie Chart" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="ridgeline_plot.html" class="btn btn-neutral float-right" title="Ridgeline plot Example" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
