@@ -1,161 +1,439 @@
-<!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Line Chart with Sequence Generator &mdash; Altair 4.2.2 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/altair-plot.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/altair-gallery.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-    <link rel="shortcut icon" href="../_static/favicon.ico"/>
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-theme="light">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Line Chart with Sequence Generator &#8212; Vega-Altair 5.0.0rc1 documentation</title>
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.17.0"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-    <script src="../_static/js/theme.js"></script>
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/altair-plot.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/altair-gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.6.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'gallery/line_chart_with_generator';</script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Line Chart with Varying Size" href="trail_marker.html" />
-    <link rel="prev" title="Line Chart with Points" href="line_chart_with_points.html" /> 
-</head>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="light">
 
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> Altair
-            <img src="../_static/altair-logo-light.png" class="logo" alt="Logo"/>
-          </a>
-              <div class="version">
-                4.2.2
-              </div>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+
+  <div class="bd-header-announcement container-fluid bd-header-announcement">
+    <div class="bd-header-announcement__content">This website is for the release candidate of version 5 <code class="docutils literal notranslate"><span class="pre">pip install altair==5.0.0rc1</span></code> <span class="pre">(more info <a href='https://github.com/altair-viz/altair/issues/2937'>#2937</a>)</span>. You can find the documentation for version 4 <a href='https://altair-viz.github.io/altair-viz-v4/'>here</a>.</div>
+  </div>
+
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  <div class="navbar-header-items__start">
+    
+      <div class="navbar-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+    
+    <img src="../_static/altair-logo-light.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/altair-logo-light.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+    
+      <div class="navbar-item"><a class="navbar-brand" href="../index.html">
+<p class="title">Vega-Altair</p>
+</a>
 </div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html#dependencies">Dependencies</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html#development-install">Development Install</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/starting.html">Basic Statistical Visualization</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Gallery</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Example Gallery</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="index.html#simple-charts">Simple Charts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#bar-charts">Bar Charts</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="index.html#line-charts">Line Charts</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="bump_chart.html">Bump Chart</a></li>
-<li class="toctree-l3"><a class="reference internal" href="filled_step_chart.html">Filled Step Chart</a></li>
-<li class="toctree-l3"><a class="reference internal" href="line_with_ci.html">Line Chart with Confidence Interval Band</a></li>
-<li class="toctree-l3"><a class="reference internal" href="line_chart_with_cumsum.html">Line Chart with Cumulative Sum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="layer_line_color_rule.html">Line Chart with Layered Aggregates</a></li>
-<li class="toctree-l3"><a class="reference internal" href="line_with_log_scale.html">Line Chart with Logarithmic Scale</a></li>
-<li class="toctree-l3"><a class="reference internal" href="line_percent.html">Line Chart with Percent axis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="line_chart_with_points.html">Line Chart with Points</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Line Chart with Sequence Generator</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="trail_marker.html">Line Chart with Varying Size</a></li>
-<li class="toctree-l3"><a class="reference internal" href="line_chart_with_datum.html">Line Chart with datum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="line_chart_with_color_datum.html">Line Chart with datum for color</a></li>
-<li class="toctree-l3"><a class="reference internal" href="multi_series_line.html">Multi Series Line Chart</a></li>
-<li class="toctree-l3"><a class="reference internal" href="slope_graph.html">Slope Graph</a></li>
-<li class="toctree-l3"><a class="reference internal" href="step_chart.html">Step Chart</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#area-charts">Area Charts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#circular-plots">Circular Plots</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#scatter-plots">Scatter Plots</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#histograms">Histograms</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#maps">Maps</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#interactive-charts">Interactive Charts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#case-studies">Case Studies</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#other-charts">Other Charts</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/data.html">Specifying Data in Altair</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/encoding.html">Encodings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/marks.html">Marks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/transform/index.html">Data Transformations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/interactions.html">Bindings, Selections, Conditions: Making Charts Interactive</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/configuration.html">Top-Level Chart Configuration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/scale_resolve.html">Scale and Guide Resolution</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/saving_charts.html">Saving Altair Charts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/customization.html">Customizing Visualizations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/times_and_dates.html">Times and Dates in Altair</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/faq.html">Frequently Asked Questions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/troubleshooting.html">Display Troubleshooting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/internals.html">Altair Internals: Understanding the Library</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/API.html">API Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/ecosystem.html">Altair Ecosystem</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Case Studies</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../case_studies/exploring-weather.html">Exploring Seattle Weather</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Advanced Usage</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/importing.html">Importing Vega &amp; Vega-Lite Versions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/display_frontends.html">Displaying Altair Charts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/display_frontends.html#renderer-api">Renderer API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/custom_renderers.html">Customizing Renderers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/data_transformers.html">Data transformers</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../releases/changes.html">Altair Change Log</a></li>
-</ul>
+    
+  </div>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../getting_started/overview.html">
+                        Getting Started
+                      </a>
+                    </li>
+                
 
-        </div>
-      </div>
-    </nav>
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../user_guide/data.html">
+                        User Guide
+                      </a>
+                    </li>
+                
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Altair</a>
-      </nav>
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="index.html">
+                        Examples
+                      </a>
+                    </li>
+                
 
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="index.html">Example Gallery</a> &raquo;</li>
-      <li>Line Chart with Sequence Generator</li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/gallery/line_chart_with_generator.rst.txt" rel="nofollow"> View page source</a>
-      </li>
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../user_guide/API.html">
+                        API Reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../user_guide/ecosystem.html">
+                        Ecosystem
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../releases/changes.html">
+                        Release Notes
+                      </a>
+                    </li>
+                
   </ul>
-  <hr/>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/altair-viz/altair" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-github fa-lg"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://stackoverflow.com/tags/altair" title="StackOverflow" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-stack-overflow fa-xl"></i></span>
+            <label class="sr-only">StackOverflow</label></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+    </div>
+  
+
+  
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../getting_started/overview.html">
+                        Getting Started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../user_guide/data.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="index.html">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../user_guide/API.html">
+                        API Reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../user_guide/ecosystem.html">
+                        Ecosystem
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../releases/changes.html">
+                        Release Notes
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/altair-viz/altair" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-github fa-lg"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://stackoverflow.com/tags/altair" title="StackOverflow" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-stack-overflow fa-xl"></i></span>
+            <label class="sr-only">StackOverflow</label></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumbs">
+  <ul class="bd-breadcrumbs" role="navigation" aria-label="Breadcrumb">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">Line Chart with Sequence Generator</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section id="line-chart-with-sequence-generator">
-<span id="gallery-line-chart-with-generator"></span><h1>Line Chart with Sequence Generator<a class="headerlink" href="#line-chart-with-sequence-generator" title="Permalink to this headline"></a></h1>
+<span id="gallery-line-chart-with-generator"></span><h1>Line Chart with Sequence Generator<a class="headerlink" href="#line-chart-with-sequence-generator" title="Permalink to this heading">#</a></h1>
 <p>This examples shows how to create multiple lines using the sequence generator.</p>
 
 <div id="line_chart_with_generator-rst-altair-plot-0">
@@ -163,7 +441,7 @@
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"sequence": {"start": 0, "stop": 12.7, "step": 0.1, "as": "x"}}, "mark": "line", "encoding": {"color": {"field": "key", "type": "nominal"}, "x": {"field": "x", "type": "quantitative"}, "y": {"field": "value", "type": "quantitative"}}, "transform": [{"calculate": "sin(datum.x)", "as": "sin"}, {"calculate": "cos(datum.x)", "as": "cos"}, {"fold": ["sin", "cos"]}], "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"sequence": {"start": 0, "stop": 12.7, "step": 0.1, "as": "x"}}, "mark": {"type": "line"}, "encoding": {"color": {"field": "key", "type": "nominal"}, "x": {"field": "x", "type": "quantitative"}, "y": {"field": "value", "type": "quantitative"}}, "transform": [{"calculate": "sin(datum.x)", "as": "sin"}, {"calculate": "cos(datum.x)", "as": "cos"}, {"fold": ["sin", "cos"]}], "$schema": "https://vega.github.io/schema/vega-lite/v5.6.1.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -188,39 +466,71 @@
 <span class="p">)</span>
 </pre></div>
 </div>
-<div class="toctree-wrapper compound">
-</div>
 </section>
 
 
-           </div>
+                </article>
+              
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="line_chart_with_points.html" class="btn btn-neutral float-left" title="Line Chart with Points" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="trail_marker.html" class="btn btn-neutral float-right" title="Line Chart with Varying Size" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner"></div>
+          </footer>
+        
+      </main>
     </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright 2016-2020, Altair Developers.</p>
   </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
 
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
+    
+      © Copyright 2016-2023, Vega-Altair Developers.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+  <p class="sphinx-version">
+    Created using <a href="https://sphinx-doc.org/">Sphinx</a> 5.3.0.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.0.
+</p></div>
+      
+    </div>
+  
+</div>
 
-</footer>
-        </div>
-      </div>
-    </section>
-  </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
-
-</body>
+  </footer>
+  </body>
 </html>
