@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Top-Level Chart Configuration &#8212; Vega-Altair 5.0.0rc1 documentation</title>
+    <title>Top-Level Chart Configuration &#8212; Vega-Altair 5.0.0dev documentation</title>
   
   
   
@@ -32,8 +32,10 @@
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/altair-plot.css" />
     <link rel="stylesheet" type="text/css" href="../_static/altair-gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
@@ -45,9 +47,12 @@
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.6.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'user_guide/configuration';</script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -173,14 +178,14 @@
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="API.html">
-                        API Reference
+                        API
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="ecosystem.html">
-                        Ecosystem
+                        Resources
                       </a>
                     </li>
                 
@@ -319,14 +324,14 @@ document.write(`
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="API.html">
-                        API Reference
+                        API
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="ecosystem.html">
-                        Ecosystem
+                        Resources
                       </a>
                     </li>
                 
@@ -937,15 +942,19 @@ over general options.</p>
 <tbody>
 <tr class="row-even"><td class="vl-prop"><p>aria</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">boolean</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>A boolean flag indicating if <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA">ARIA attributes</a> should be included (SVG output only). If <code class="docutils literal notranslate"><span class="pre">false</span></code>, the “aria-hidden” attribute will be set on the output SVG group, removing the axis from the ARIA accessibility tree.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">true</span></code></p>
+</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>bandPosition</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>An interpolation fraction indicating where, for <code class="docutils literal notranslate"><span class="pre">band</span></code> scales, axis ticks should be positioned. A value of <code class="docutils literal notranslate"><span class="pre">0</span></code> places ticks at the left edge of their bands. A value of <code class="docutils literal notranslate"><span class="pre">0.5</span></code> places ticks in the middle of their bands.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">0.5</span></code></p>
+</td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>description</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">string</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>A text description of this axis for <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA">ARIA accessibility</a> (SVG output only). If the <code class="docutils literal notranslate"><span class="pre">aria</span></code> property is true, for SVG output the <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute">“aria-label” attribute</a> will be set to this description. If the description is unspecified it will be automatically generated.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>disable</p></td>
 <td class="vl-type-def"><p><code class="docutils literal notranslate"><span class="pre">boolean</span></code></p></td>
@@ -959,27 +968,33 @@ over general options.</p>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>domainCap</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/core/altair.StrokeCap.html#altair.StrokeCap" title="altair.StrokeCap"><code class="xref py py-class docutils literal notranslate"><span class="pre">StrokeCap</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The stroke cap for the domain line’s ending style. One of <code class="docutils literal notranslate"><span class="pre">&quot;butt&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;round&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;square&quot;</span></code>.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">&quot;butt&quot;</span></code></p>
+</td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>domainColor</p></td>
 <td class="vl-type-def"><p>anyOf(anyOf(<code class="docutils literal notranslate"><span class="pre">null</span></code>, <a class="reference internal" href="generated/channels/altair.Color.html#altair.Color" title="altair.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">Color</span></code></a>), <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Color of axis domain line.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">&quot;gray&quot;</span></code>.</p>
+</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>domainDash</p></td>
 <td class="vl-type-def"><p>anyOf(array(<code class="docutils literal notranslate"><span class="pre">number</span></code>), <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>An array of alternating [stroke, space] lengths for dashed domain lines.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>domainDashOffset</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The pixel offset at which to start drawing with the domain dash array.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>domainOpacity</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Opacity of the axis domain line.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>domainWidth</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Stroke width of axis domain line</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>format</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">string</span></code>, <a class="reference internal" href="generated/core/altair.Dict.html#altair.Dict" title="altair.Dict"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>)</p></td>
@@ -1011,47 +1026,59 @@ over general options.</p>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>gridCap</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/core/altair.StrokeCap.html#altair.StrokeCap" title="altair.StrokeCap"><code class="xref py py-class docutils literal notranslate"><span class="pre">StrokeCap</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The stroke cap for grid lines’ ending style. One of <code class="docutils literal notranslate"><span class="pre">&quot;butt&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;round&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;square&quot;</span></code>.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">&quot;butt&quot;</span></code></p>
+</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>gridColor</p></td>
 <td class="vl-type-def"><p>anyOf(anyOf(<code class="docutils literal notranslate"><span class="pre">null</span></code>, <a class="reference internal" href="generated/channels/altair.Color.html#altair.Color" title="altair.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">Color</span></code></a>), <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>, <a class="reference internal" href="generated/core/altair.ConditionalAxisColor.html#altair.ConditionalAxisColor" title="altair.ConditionalAxisColor"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConditionalAxisColor</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Color of gridlines.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">&quot;lightGray&quot;</span></code>.</p>
+</td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>gridDash</p></td>
 <td class="vl-type-def"><p>anyOf(array(<code class="docutils literal notranslate"><span class="pre">number</span></code>), <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>, <a class="reference internal" href="generated/core/altair.ConditionalAxisNumberArray.html#altair.ConditionalAxisNumberArray" title="altair.ConditionalAxisNumberArray"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConditionalAxisNumberArray</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>An array of alternating [stroke, space] lengths for dashed grid lines.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>gridDashOffset</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>, <a class="reference internal" href="generated/core/altair.ConditionalAxisNumber.html#altair.ConditionalAxisNumber" title="altair.ConditionalAxisNumber"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConditionalAxisNumber</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The pixel offset at which to start drawing with the grid dash array.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>gridOpacity</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>, <a class="reference internal" href="generated/core/altair.ConditionalAxisNumber.html#altair.ConditionalAxisNumber" title="altair.ConditionalAxisNumber"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConditionalAxisNumber</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The stroke opacity of grid (value between [0,1])</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>gridWidth</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>, <a class="reference internal" href="generated/core/altair.ConditionalAxisNumber.html#altair.ConditionalAxisNumber" title="altair.ConditionalAxisNumber"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConditionalAxisNumber</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The grid width, in pixels.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+</td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>labelAlign</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/core/altair.Align.html#altair.Align" title="altair.Align"><code class="xref py py-class docutils literal notranslate"><span class="pre">Align</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>, <a class="reference internal" href="generated/core/altair.ConditionalAxisLabelAlign.html#altair.ConditionalAxisLabelAlign" title="altair.ConditionalAxisLabelAlign"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConditionalAxisLabelAlign</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Horizontal text alignment of axis tick labels, overriding the default setting for the current axis orientation.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>labelAngle</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The rotation angle of the axis labels.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">-90</span></code> for nominal and ordinal fields; <code class="docutils literal notranslate"><span class="pre">0</span></code> otherwise.</p>
+</td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>labelBaseline</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/core/altair.TextBaseline.html#altair.TextBaseline" title="altair.TextBaseline"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextBaseline</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>, <a class="reference internal" href="generated/core/altair.ConditionalAxisLabelBaseline.html#altair.ConditionalAxisLabelBaseline" title="altair.ConditionalAxisLabelBaseline"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConditionalAxisLabelBaseline</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Vertical text baseline of axis tick labels, overriding the default setting for the current axis orientation. One of <code class="docutils literal notranslate"><span class="pre">&quot;alphabetic&quot;</span></code> (default), <code class="docutils literal notranslate"><span class="pre">&quot;top&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;middle&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;bottom&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;line-top&quot;</span></code>, or <code class="docutils literal notranslate"><span class="pre">&quot;line-bottom&quot;</span></code>. The <code class="docutils literal notranslate"><span class="pre">&quot;line-top&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;line-bottom&quot;</span></code> values operate similarly to <code class="docutils literal notranslate"><span class="pre">&quot;top&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;bottom&quot;</span></code>, but are calculated relative to the <em>lineHeight</em> rather than <em>fontSize</em> alone.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>labelBound</p></td>
 <td class="vl-type-def"><p>anyOf([number, boolean], <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Indicates if labels should be hidden if they exceed the axis range. If <code class="docutils literal notranslate"><span class="pre">false</span></code> (the default) no bounds overlap analysis is performed. If <code class="docutils literal notranslate"><span class="pre">true</span></code>, labels will be hidden if they exceed the axis range by more than 1 pixel. If this property is a number, it specifies the pixel tolerance: the maximum amount by which a label bounding box may exceed the axis range.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+</td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>labelColor</p></td>
 <td class="vl-type-def"><p>anyOf(anyOf(<code class="docutils literal notranslate"><span class="pre">null</span></code>, <a class="reference internal" href="generated/channels/altair.Color.html#altair.Color" title="altair.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">Color</span></code></a>), <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>, <a class="reference internal" href="generated/core/altair.ConditionalAxisColor.html#altair.ConditionalAxisColor" title="altair.ConditionalAxisColor"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConditionalAxisColor</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The color of the tick label, can be in hex color code or regular color name.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>labelExpr</p></td>
 <td class="vl-type-def"><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
@@ -1067,39 +1094,45 @@ over general options.</p>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>labelFlushOffset</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Indicates the number of pixels by which to offset flush-adjusted labels. For example, a value of <code class="docutils literal notranslate"><span class="pre">2</span></code> will push flush-adjusted labels 2 pixels outward from the center of the axis. Offsets can help the labels better visually group with corresponding axis ticks.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+</td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>labelFont</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">string</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>, <a class="reference internal" href="generated/core/altair.ConditionalAxisString.html#altair.ConditionalAxisString" title="altair.ConditionalAxisString"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConditionalAxisString</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The font of the tick label.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>labelFontSize</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>, <a class="reference internal" href="generated/core/altair.ConditionalAxisNumber.html#altair.ConditionalAxisNumber" title="altair.ConditionalAxisNumber"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConditionalAxisNumber</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The font size of the label, in pixels.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>labelFontStyle</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/core/altair.FontStyle.html#altair.FontStyle" title="altair.FontStyle"><code class="xref py py-class docutils literal notranslate"><span class="pre">FontStyle</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>, <a class="reference internal" href="generated/core/altair.ConditionalAxisLabelFontStyle.html#altair.ConditionalAxisLabelFontStyle" title="altair.ConditionalAxisLabelFontStyle"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConditionalAxisLabelFontStyle</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Font style of the title.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>labelFontWeight</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/core/altair.FontWeight.html#altair.FontWeight" title="altair.FontWeight"><code class="xref py py-class docutils literal notranslate"><span class="pre">FontWeight</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>, <a class="reference internal" href="generated/core/altair.ConditionalAxisLabelFontWeight.html#altair.ConditionalAxisLabelFontWeight" title="altair.ConditionalAxisLabelFontWeight"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConditionalAxisLabelFontWeight</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Font weight of axis tick labels.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>labelLimit</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Maximum allowed pixel width of axis tick labels.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">180</span></code></p>
+</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>labelLineHeight</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Line height in pixels for multi-line label text or label text with <code class="docutils literal notranslate"><span class="pre">&quot;line-top&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;line-bottom&quot;</span></code> baseline.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>labelOffset</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>, <a class="reference internal" href="generated/core/altair.ConditionalAxisNumber.html#altair.ConditionalAxisNumber" title="altair.ConditionalAxisNumber"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConditionalAxisNumber</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Position offset in pixels to apply to labels, in addition to tickOffset.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>labelOpacity</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>, <a class="reference internal" href="generated/core/altair.ConditionalAxisNumber.html#altair.ConditionalAxisNumber" title="altair.ConditionalAxisNumber"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConditionalAxisNumber</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The opacity of the labels.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>labelOverlap</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/core/altair.LabelOverlap.html#altair.LabelOverlap" title="altair.LabelOverlap"><code class="xref py py-class docutils literal notranslate"><span class="pre">LabelOverlap</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
@@ -1109,11 +1142,13 @@ over general options.</p>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>labelPadding</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>, <a class="reference internal" href="generated/core/altair.ConditionalAxisNumber.html#altair.ConditionalAxisNumber" title="altair.ConditionalAxisNumber"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConditionalAxisNumber</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The padding in pixels between labels and ticks.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">2</span></code></p>
+</td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>labelSeparation</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The minimum separation that must be between label bounding boxes for them to be considered non-overlapping (default <code class="docutils literal notranslate"><span class="pre">0</span></code>). This property is ignored if <em>labelOverlap</em> resolution is not enabled.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>labels</p></td>
 <td class="vl-type-def"><p><code class="docutils literal notranslate"><span class="pre">boolean</span></code></p></td>
@@ -1123,11 +1158,15 @@ over general options.</p>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>maxExtent</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The maximum extent in pixels that axis ticks and labels should use. This determines a maximum offset value for axis titles.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">undefined</span></code>.</p>
+</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>minExtent</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The minimum extent in pixels that axis ticks and labels should use. This determines a minimum offset value for axis titles.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">30</span></code> for y-axis; <code class="docutils literal notranslate"><span class="pre">undefined</span></code> for x-axis.</p>
+</td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>offset</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
@@ -1155,15 +1194,19 @@ over general options.</p>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>tickBand</p></td>
 <td class="vl-type-def"><p>anyOf([‘center’, ‘extent’], <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>For band scales, indicates if ticks and grid lines should be placed at the <code class="docutils literal notranslate"><span class="pre">&quot;center&quot;</span></code> of a band (default) or at the band <code class="docutils literal notranslate"><span class="pre">&quot;extent&quot;</span></code>s to indicate intervals</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>tickCap</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/core/altair.StrokeCap.html#altair.StrokeCap" title="altair.StrokeCap"><code class="xref py py-class docutils literal notranslate"><span class="pre">StrokeCap</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The stroke cap for the tick lines’ ending style. One of <code class="docutils literal notranslate"><span class="pre">&quot;butt&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;round&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;square&quot;</span></code>.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">&quot;butt&quot;</span></code></p>
+</td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>tickColor</p></td>
 <td class="vl-type-def"><p>anyOf(anyOf(<code class="docutils literal notranslate"><span class="pre">null</span></code>, <a class="reference internal" href="generated/channels/altair.Color.html#altair.Color" title="altair.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">Color</span></code></a>), <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>, <a class="reference internal" href="generated/core/altair.ConditionalAxisColor.html#altair.ConditionalAxisColor" title="altair.ConditionalAxisColor"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConditionalAxisColor</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The color of the axis’s tick.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">&quot;gray&quot;</span></code></p>
+</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>tickCount</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.TimeInterval.html#altair.TimeInterval" title="altair.TimeInterval"><code class="xref py py-class docutils literal notranslate"><span class="pre">TimeInterval</span></code></a>, <a class="reference internal" href="generated/core/altair.TimeIntervalStep.html#altair.TimeIntervalStep" title="altair.TimeIntervalStep"><code class="xref py py-class docutils literal notranslate"><span class="pre">TimeIntervalStep</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
@@ -1174,11 +1217,11 @@ over general options.</p>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>tickDash</p></td>
 <td class="vl-type-def"><p>anyOf(array(<code class="docutils literal notranslate"><span class="pre">number</span></code>), <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>, <a class="reference internal" href="generated/core/altair.ConditionalAxisNumberArray.html#altair.ConditionalAxisNumberArray" title="altair.ConditionalAxisNumberArray"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConditionalAxisNumberArray</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>An array of alternating [stroke, space] lengths for dashed tick mark lines.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>tickDashOffset</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>, <a class="reference internal" href="generated/core/altair.ConditionalAxisNumber.html#altair.ConditionalAxisNumber" title="altair.ConditionalAxisNumber"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConditionalAxisNumber</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The pixel offset at which to start drawing with the tick mark dash array.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>tickExtra</p></td>
 <td class="vl-type-def"><p><code class="docutils literal notranslate"><span class="pre">boolean</span></code></p></td>
@@ -1190,11 +1233,11 @@ over general options.</p>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>tickOffset</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Position offset in pixels to apply to ticks, labels, and gridlines.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>tickOpacity</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>, <a class="reference internal" href="generated/core/altair.ConditionalAxisNumber.html#altair.ConditionalAxisNumber" title="altair.ConditionalAxisNumber"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConditionalAxisNumber</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Opacity of the ticks.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>tickRound</p></td>
 <td class="vl-type-def"><p><code class="docutils literal notranslate"><span class="pre">boolean</span></code></p></td>
@@ -1204,11 +1247,15 @@ over general options.</p>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>tickSize</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>, <a class="reference internal" href="generated/core/altair.ConditionalAxisNumber.html#altair.ConditionalAxisNumber" title="altair.ConditionalAxisNumber"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConditionalAxisNumber</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The size in pixels of axis ticks.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">5</span></code></p>
+</td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>tickWidth</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>, <a class="reference internal" href="generated/core/altair.ConditionalAxisNumber.html#altair.ConditionalAxisNumber" title="altair.ConditionalAxisNumber"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConditionalAxisNumber</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The width, in pixels, of ticks.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>ticks</p></td>
 <td class="vl-type-def"><p><code class="docutils literal notranslate"><span class="pre">boolean</span></code></p></td>
@@ -1229,67 +1276,69 @@ over general options.</p>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>titleAlign</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/core/altair.Align.html#altair.Align" title="altair.Align"><code class="xref py py-class docutils literal notranslate"><span class="pre">Align</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Horizontal text alignment of axis titles.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>titleAnchor</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/core/altair.TitleAnchor.html#altair.TitleAnchor" title="altair.TitleAnchor"><code class="xref py py-class docutils literal notranslate"><span class="pre">TitleAnchor</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Text anchor position for placing axis titles.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>titleAngle</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Angle in degrees of axis titles.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>titleBaseline</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/core/altair.TextBaseline.html#altair.TextBaseline" title="altair.TextBaseline"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextBaseline</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Vertical text baseline for axis titles. One of <code class="docutils literal notranslate"><span class="pre">&quot;alphabetic&quot;</span></code> (default), <code class="docutils literal notranslate"><span class="pre">&quot;top&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;middle&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;bottom&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;line-top&quot;</span></code>, or <code class="docutils literal notranslate"><span class="pre">&quot;line-bottom&quot;</span></code>. The <code class="docutils literal notranslate"><span class="pre">&quot;line-top&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;line-bottom&quot;</span></code> values operate similarly to <code class="docutils literal notranslate"><span class="pre">&quot;top&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;bottom&quot;</span></code>, but are calculated relative to the <em>lineHeight</em> rather than <em>fontSize</em> alone.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>titleColor</p></td>
 <td class="vl-type-def"><p>anyOf(anyOf(<code class="docutils literal notranslate"><span class="pre">null</span></code>, <a class="reference internal" href="generated/channels/altair.Color.html#altair.Color" title="altair.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">Color</span></code></a>), <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Color of the title, can be in hex color code or regular color name.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>titleFont</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">string</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Font of the title. (e.g., <code class="docutils literal notranslate"><span class="pre">&quot;Helvetica</span> <span class="pre">Neue&quot;</span></code>).</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>titleFontSize</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Font size of the title.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>titleFontStyle</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/core/altair.FontStyle.html#altair.FontStyle" title="altair.FontStyle"><code class="xref py py-class docutils literal notranslate"><span class="pre">FontStyle</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Font style of the title.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>titleFontWeight</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/core/altair.FontWeight.html#altair.FontWeight" title="altair.FontWeight"><code class="xref py py-class docutils literal notranslate"><span class="pre">FontWeight</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Font weight of the title. This can be either a string (e.g <code class="docutils literal notranslate"><span class="pre">&quot;bold&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;normal&quot;</span></code>) or a number (<code class="docutils literal notranslate"><span class="pre">100</span></code>, <code class="docutils literal notranslate"><span class="pre">200</span></code>, <code class="docutils literal notranslate"><span class="pre">300</span></code>, …, <code class="docutils literal notranslate"><span class="pre">900</span></code> where <code class="docutils literal notranslate"><span class="pre">&quot;normal&quot;</span></code> = <code class="docutils literal notranslate"><span class="pre">400</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;bold&quot;</span></code> = <code class="docutils literal notranslate"><span class="pre">700</span></code>).</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>titleLimit</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Maximum allowed pixel width of axis titles.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>titleLineHeight</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Line height in pixels for multi-line title text or title text with <code class="docutils literal notranslate"><span class="pre">&quot;line-top&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;line-bottom&quot;</span></code> baseline.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>titleOpacity</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Opacity of the axis title.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>titlePadding</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The padding, in pixels, between title and axis.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>titleX</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>X-coordinate of the axis title relative to the axis group.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>titleY</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Y-coordinate of the axis title relative to the axis group.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>translate</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Coordinate space translation offset for axis layout. By default, axes are translated by a 0.5 pixel offset for both the x and y coordinates in order to align stroked lines with the pixel grid. However, for vector graphics output these pixel-specific adjustments may be undesirable, in which case translate can be changed (for example, to zero).</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">0.5</span></code></p>
+</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>values</p></td>
 <td class="vl-type-def"><p>anyOf(array(<code class="docutils literal notranslate"><span class="pre">number</span></code>), array(<code class="docutils literal notranslate"><span class="pre">string</span></code>), array(<code class="docutils literal notranslate"><span class="pre">boolean</span></code>), array(<a class="reference internal" href="generated/core/altair.DateTime.html#altair.DateTime" title="altair.DateTime"><code class="xref py py-class docutils literal notranslate"><span class="pre">DateTime</span></code></a>), <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
@@ -1577,27 +1626,31 @@ Here is an example:</p>
 <tbody>
 <tr class="row-even"><td class="vl-prop"><p>aria</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">boolean</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>A boolean flag indicating if <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA">ARIA attributes</a> should be included (SVG output only). If <code class="docutils literal notranslate"><span class="pre">false</span></code>, the “aria-hidden” attribute will be set on the output SVG group, removing the legend from the ARIA accessibility tree.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">true</span></code></p>
+</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>clipHeight</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The height in pixels to clip symbol legend entries and limit their size.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>columnPadding</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The horizontal padding in pixels between symbol legend entries.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">10</span></code>.</p>
+</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>columns</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The number of columns in which to arrange symbol legend entries. A value of <code class="docutils literal notranslate"><span class="pre">0</span></code> or lower indicates a single row with one column per entry.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>cornerRadius</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Corner radius for the full legend.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>description</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">string</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>A text description of this legend for <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA">ARIA accessibility</a> (SVG output only). If the <code class="docutils literal notranslate"><span class="pre">aria</span></code> property is true, for SVG output the <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute">“aria-label” attribute</a> will be set to this description. If the description is unspecified it will be automatically generated.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>direction</p></td>
 <td class="vl-type-def"><p><a class="reference internal" href="generated/core/altair.Orientation.html#altair.Orientation" title="altair.Orientation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Orientation</span></code></a></p></td>
@@ -1616,11 +1669,13 @@ Here is an example:</p>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>fillColor</p></td>
 <td class="vl-type-def"><p>anyOf(anyOf(<code class="docutils literal notranslate"><span class="pre">null</span></code>, <a class="reference internal" href="generated/channels/altair.Color.html#altair.Color" title="altair.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">Color</span></code></a>), <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Background fill color for the full legend.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>gradientDirection</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/core/altair.Orientation.html#altair.Orientation" title="altair.Orientation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Orientation</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The default direction (<code class="docutils literal notranslate"><span class="pre">&quot;horizontal&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;vertical&quot;</span></code>) for gradient legends.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">&quot;vertical&quot;</span></code>.</p>
+</td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>gradientHorizontalMaxLength</p></td>
 <td class="vl-type-def"><p><code class="docutils literal notranslate"><span class="pre">number</span></code></p></td>
@@ -1636,31 +1691,41 @@ Here is an example:</p>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>gradientLabelLimit</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The maximum allowed length in pixels of color ramp gradient labels.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>gradientLabelOffset</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Vertical offset in pixels for color ramp gradient labels.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">2</span></code>.</p>
+</td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>gradientLength</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The length in pixels of the primary axis of a color gradient. This value corresponds to the height of a vertical gradient or the width of a horizontal gradient.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">200</span></code>.</p>
+</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>gradientOpacity</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Opacity of the color gradient.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>gradientStrokeColor</p></td>
 <td class="vl-type-def"><p>anyOf(anyOf(<code class="docutils literal notranslate"><span class="pre">null</span></code>, <a class="reference internal" href="generated/channels/altair.Color.html#altair.Color" title="altair.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">Color</span></code></a>), <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The color of the gradient stroke, can be in hex color code or regular color name.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">&quot;lightGray&quot;</span></code>.</p>
+</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>gradientStrokeWidth</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The width of the gradient stroke, in pixels.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+</td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>gradientThickness</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The thickness in pixels of the color gradient. This value corresponds to the width of a vertical gradient or the height of a horizontal gradient.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">16</span></code>.</p>
+</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>gradientVerticalMaxLength</p></td>
 <td class="vl-type-def"><p><code class="docutils literal notranslate"><span class="pre">number</span></code></p></td>
@@ -1676,47 +1741,57 @@ Here is an example:</p>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>gridAlign</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/core/altair.LayoutAlign.html#altair.LayoutAlign" title="altair.LayoutAlign"><code class="xref py py-class docutils literal notranslate"><span class="pre">LayoutAlign</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The alignment to apply to symbol legends rows and columns. The supported string values are <code class="docutils literal notranslate"><span class="pre">&quot;all&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;each&quot;</span></code> (the default), and <code class="docutils literal notranslate"><span class="pre">none</span></code>. For more information, see the <a class="reference external" href="https://vega.github.io/vega/docs/layout">grid layout documentation</a>.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">&quot;each&quot;</span></code>.</p>
+</td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>labelAlign</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/core/altair.Align.html#altair.Align" title="altair.Align"><code class="xref py py-class docutils literal notranslate"><span class="pre">Align</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The alignment of the legend label, can be left, center, or right.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>labelBaseline</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/core/altair.TextBaseline.html#altair.TextBaseline" title="altair.TextBaseline"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextBaseline</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The position of the baseline of legend label, can be <code class="docutils literal notranslate"><span class="pre">&quot;top&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;middle&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;bottom&quot;</span></code>, or <code class="docutils literal notranslate"><span class="pre">&quot;alphabetic&quot;</span></code>.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">&quot;middle&quot;</span></code>.</p>
+</td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>labelColor</p></td>
 <td class="vl-type-def"><p>anyOf(anyOf(<code class="docutils literal notranslate"><span class="pre">null</span></code>, <a class="reference internal" href="generated/channels/altair.Color.html#altair.Color" title="altair.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">Color</span></code></a>), <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The color of the legend label, can be in hex color code or regular color name.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>labelFont</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">string</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The font of the legend label.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>labelFontSize</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The font size of legend label.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">10</span></code>.</p>
+</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>labelFontStyle</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/core/altair.FontStyle.html#altair.FontStyle" title="altair.FontStyle"><code class="xref py py-class docutils literal notranslate"><span class="pre">FontStyle</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The font style of legend label.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>labelFontWeight</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/core/altair.FontWeight.html#altair.FontWeight" title="altair.FontWeight"><code class="xref py py-class docutils literal notranslate"><span class="pre">FontWeight</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The font weight of legend label.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>labelLimit</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Maximum allowed pixel width of legend tick labels.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">160</span></code>.</p>
+</td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>labelOffset</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The offset of the legend label.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">4</span></code>.</p>
+</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>labelOpacity</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Opacity of labels.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>labelOverlap</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/core/altair.LabelOverlap.html#altair.LabelOverlap" title="altair.LabelOverlap"><code class="xref py py-class docutils literal notranslate"><span class="pre">LabelOverlap</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
@@ -1726,11 +1801,11 @@ Here is an example:</p>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>labelPadding</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Padding in pixels between the legend and legend labels.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>labelSeparation</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The minimum separation that must be between label bounding boxes for them to be considered non-overlapping (default <code class="docutils literal notranslate"><span class="pre">0</span></code>). This property is ignored if <em>labelOverlap</em> resolution is not enabled.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>layout</p></td>
 <td class="vl-type-def"><p><a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a></p></td>
@@ -1738,15 +1813,17 @@ Here is an example:</p>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>legendX</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Custom x-position for legend with orient “none”.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>legendY</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Custom y-position for legend with orient “none”.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>offset</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The offset in pixels by which to displace the legend from the data rectangle and axes.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">18</span></code>.</p>
+</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>orient</p></td>
 <td class="vl-type-def"><p><a class="reference internal" href="generated/core/altair.LegendOrient.html#altair.LegendOrient" title="altair.LegendOrient"><code class="xref py py-class docutils literal notranslate"><span class="pre">LegendOrient</span></code></a></p></td>
@@ -1756,79 +1833,97 @@ Here is an example:</p>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>padding</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The padding between the border and content of the legend group.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>rowPadding</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The vertical padding in pixels between symbol legend entries.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">2</span></code>.</p>
+</td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>strokeColor</p></td>
 <td class="vl-type-def"><p>anyOf(anyOf(<code class="docutils literal notranslate"><span class="pre">null</span></code>, <a class="reference internal" href="generated/channels/altair.Color.html#altair.Color" title="altair.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">Color</span></code></a>), <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Border stroke color for the full legend.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>strokeDash</p></td>
 <td class="vl-type-def"><p>anyOf(array(<code class="docutils literal notranslate"><span class="pre">number</span></code>), <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Border stroke dash pattern for the full legend.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>strokeWidth</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Border stroke width for the full legend.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>symbolBaseFillColor</p></td>
 <td class="vl-type-def"><p>anyOf(anyOf(<code class="docutils literal notranslate"><span class="pre">null</span></code>, <a class="reference internal" href="generated/channels/altair.Color.html#altair.Color" title="altair.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">Color</span></code></a>), <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Default fill color for legend symbols. Only applied if there is no <code class="docutils literal notranslate"><span class="pre">&quot;fill&quot;</span></code> scale color encoding for the legend.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">&quot;transparent&quot;</span></code>.</p>
+</td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>symbolBaseStrokeColor</p></td>
 <td class="vl-type-def"><p>anyOf(anyOf(<code class="docutils literal notranslate"><span class="pre">null</span></code>, <a class="reference internal" href="generated/channels/altair.Color.html#altair.Color" title="altair.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">Color</span></code></a>), <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Default stroke color for legend symbols. Only applied if there is no <code class="docutils literal notranslate"><span class="pre">&quot;fill&quot;</span></code> scale color encoding for the legend.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">&quot;gray&quot;</span></code>.</p>
+</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>symbolDash</p></td>
 <td class="vl-type-def"><p>anyOf(array(<code class="docutils literal notranslate"><span class="pre">number</span></code>), <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>An array of alternating [stroke, space] lengths for dashed symbol strokes.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>symbolDashOffset</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The pixel offset at which to start drawing with the symbol stroke dash array.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>symbolDirection</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/core/altair.Orientation.html#altair.Orientation" title="altair.Orientation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Orientation</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The default direction (<code class="docutils literal notranslate"><span class="pre">&quot;horizontal&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;vertical&quot;</span></code>) for symbol legends.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">&quot;vertical&quot;</span></code>.</p>
+</td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>symbolFillColor</p></td>
 <td class="vl-type-def"><p>anyOf(anyOf(<code class="docutils literal notranslate"><span class="pre">null</span></code>, <a class="reference internal" href="generated/channels/altair.Color.html#altair.Color" title="altair.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">Color</span></code></a>), <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The color of the legend symbol,</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>symbolLimit</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The maximum number of allowed entries for a symbol legend. Additional entries will be dropped.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>symbolOffset</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Horizontal pixel offset for legend symbols.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>symbolOpacity</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Opacity of the legend symbols.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>symbolSize</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The size of the legend symbol, in pixels.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">100</span></code>.</p>
+</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>symbolStrokeColor</p></td>
 <td class="vl-type-def"><p>anyOf(anyOf(<code class="docutils literal notranslate"><span class="pre">null</span></code>, <a class="reference internal" href="generated/channels/altair.Color.html#altair.Color" title="altair.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">Color</span></code></a>), <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Stroke color for legend symbols.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>symbolStrokeWidth</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The width of the symbol’s stroke.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">1.5</span></code>.</p>
+</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>symbolType</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/core/altair.SymbolShape.html#altair.SymbolShape" title="altair.SymbolShape"><code class="xref py py-class docutils literal notranslate"><span class="pre">SymbolShape</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The symbol shape. One of the plotting shapes <code class="docutils literal notranslate"><span class="pre">circle</span></code> (default), <code class="docutils literal notranslate"><span class="pre">square</span></code>, <code class="docutils literal notranslate"><span class="pre">cross</span></code>, <code class="docutils literal notranslate"><span class="pre">diamond</span></code>, <code class="docutils literal notranslate"><span class="pre">triangle-up</span></code>, <code class="docutils literal notranslate"><span class="pre">triangle-down</span></code>, <code class="docutils literal notranslate"><span class="pre">triangle-right</span></code>, or <code class="docutils literal notranslate"><span class="pre">triangle-left</span></code>, the line symbol <code class="docutils literal notranslate"><span class="pre">stroke</span></code>, or one of the centered directional shapes <code class="docutils literal notranslate"><span class="pre">arrow</span></code>, <code class="docutils literal notranslate"><span class="pre">wedge</span></code>, or <code class="docutils literal notranslate"><span class="pre">triangle</span></code>. Alternatively, a custom <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths">SVG path string</a> can be provided. For correct sizing, custom shape paths should be defined within a square bounding box with coordinates ranging from -1 to 1 along both the x and y dimensions.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">&quot;circle&quot;</span></code>.</p>
+</td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>tickCount</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/core/altair.TickCount.html#altair.TickCount" title="altair.TickCount"><code class="xref py py-class docutils literal notranslate"><span class="pre">TickCount</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The desired number of tick values for quantitative legends.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>title</p></td>
 <td class="vl-type-def"><p><code class="docutils literal notranslate"><span class="pre">null</span></code></p></td>
@@ -1836,55 +1931,63 @@ Here is an example:</p>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>titleAlign</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/core/altair.Align.html#altair.Align" title="altair.Align"><code class="xref py py-class docutils literal notranslate"><span class="pre">Align</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Horizontal text alignment for legend titles.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">&quot;left&quot;</span></code>.</p>
+</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>titleAnchor</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/core/altair.TitleAnchor.html#altair.TitleAnchor" title="altair.TitleAnchor"><code class="xref py py-class docutils literal notranslate"><span class="pre">TitleAnchor</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Text anchor position for placing legend titles.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>titleBaseline</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/core/altair.TextBaseline.html#altair.TextBaseline" title="altair.TextBaseline"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextBaseline</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Vertical text baseline for legend titles.  One of <code class="docutils literal notranslate"><span class="pre">&quot;alphabetic&quot;</span></code> (default), <code class="docutils literal notranslate"><span class="pre">&quot;top&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;middle&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;bottom&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;line-top&quot;</span></code>, or <code class="docutils literal notranslate"><span class="pre">&quot;line-bottom&quot;</span></code>. The <code class="docutils literal notranslate"><span class="pre">&quot;line-top&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;line-bottom&quot;</span></code> values operate similarly to <code class="docutils literal notranslate"><span class="pre">&quot;top&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;bottom&quot;</span></code>, but are calculated relative to the <em>lineHeight</em> rather than <em>fontSize</em> alone.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">&quot;top&quot;</span></code>.</p>
+</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>titleColor</p></td>
 <td class="vl-type-def"><p>anyOf(anyOf(<code class="docutils literal notranslate"><span class="pre">null</span></code>, <a class="reference internal" href="generated/channels/altair.Color.html#altair.Color" title="altair.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">Color</span></code></a>), <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The color of the legend title, can be in hex color code or regular color name.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>titleFont</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">string</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The font of the legend title.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>titleFontSize</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The font size of the legend title.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>titleFontStyle</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/core/altair.FontStyle.html#altair.FontStyle" title="altair.FontStyle"><code class="xref py py-class docutils literal notranslate"><span class="pre">FontStyle</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The font style of the legend title.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>titleFontWeight</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/core/altair.FontWeight.html#altair.FontWeight" title="altair.FontWeight"><code class="xref py py-class docutils literal notranslate"><span class="pre">FontWeight</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The font weight of the legend title. This can be either a string (e.g <code class="docutils literal notranslate"><span class="pre">&quot;bold&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;normal&quot;</span></code>) or a number (<code class="docutils literal notranslate"><span class="pre">100</span></code>, <code class="docutils literal notranslate"><span class="pre">200</span></code>, <code class="docutils literal notranslate"><span class="pre">300</span></code>, …, <code class="docutils literal notranslate"><span class="pre">900</span></code> where <code class="docutils literal notranslate"><span class="pre">&quot;normal&quot;</span></code> = <code class="docutils literal notranslate"><span class="pre">400</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;bold&quot;</span></code> = <code class="docutils literal notranslate"><span class="pre">700</span></code>).</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>titleLimit</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Maximum allowed pixel width of legend titles.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">180</span></code>.</p>
+</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>titleLineHeight</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Line height in pixels for multi-line title text or title text with <code class="docutils literal notranslate"><span class="pre">&quot;line-top&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;line-bottom&quot;</span></code> baseline.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>titleOpacity</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Opacity of the legend title.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>titleOrient</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/core/altair.Orient.html#altair.Orient" title="altair.Orient"><code class="xref py py-class docutils literal notranslate"><span class="pre">Orient</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Orientation of the legend title.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>titlePadding</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The padding, in pixels, between title and legend.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">5</span></code>.</p>
+</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>unselectedOpacity</p></td>
 <td class="vl-type-def"><p><code class="docutils literal notranslate"><span class="pre">number</span></code></p></td>
@@ -1894,7 +1997,7 @@ Here is an example:</p>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>zindex</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The integer z-index indicating the layering of the legend group relative to other axis, mark, and legend groups.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1947,23 +2050,23 @@ defining default properties for each mark.</p>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>angle</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The rotation angle of the text, in degrees.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>aria</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">boolean</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>A boolean flag indicating if <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA">ARIA attributes</a> should be included (SVG output only). If <code class="docutils literal notranslate"><span class="pre">false</span></code>, the “aria-hidden” attribute will be set on the output SVG element, removing the mark item from the ARIA accessibility tree.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>ariaRole</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">string</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Sets the type of user interface element of the mark item for <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA">ARIA accessibility</a> (SVG output only). If specified, this property determines the “role” attribute. Warning: this property is experimental and may be changed in the future.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>ariaRoleDescription</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">string</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>A human-readable, author-localized description for the role of the mark item for <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA">ARIA accessibility</a> (SVG output only). If specified, this property determines the “aria-roledescription” attribute. Warning: this property is experimental and may be changed in the future.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>aspect</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">boolean</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Whether to keep aspect ratio of image marks.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>baseline</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/core/altair.TextBaseline.html#altair.TextBaseline" title="altair.TextBaseline"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextBaseline</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
@@ -1974,7 +2077,9 @@ defining default properties for each mark.</p>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>blend</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/core/altair.Blend.html#altair.Blend" title="altair.Blend"><code class="xref py py-class docutils literal notranslate"><span class="pre">Blend</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The color blend mode for drawing an item on its current background. Any valid <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/CSS/mix-blend-mode">CSS mix-blend-mode</a> value can be used.</p>
+<p>__Default value: <code class="docutils literal notranslate"><span class="pre">&quot;source-over&quot;</span></code></p>
+</td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>color</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/channels/altair.Color.html#altair.Color" title="altair.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">Color</span></code></a>, <a class="reference internal" href="generated/core/altair.Gradient.html#altair.Gradient" title="altair.Gradient"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gradient</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
@@ -1989,51 +2094,65 @@ defining default properties for each mark.</p>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>cornerRadius</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The radius in pixels of rounded rectangles or arcs’ corners.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>cornerRadiusBottomLeft</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The radius in pixels of rounded rectangles’ bottom left corner.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>cornerRadiusBottomRight</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The radius in pixels of rounded rectangles’ bottom right corner.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>cornerRadiusTopLeft</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The radius in pixels of rounded rectangles’ top right corner.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>cornerRadiusTopRight</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The radius in pixels of rounded rectangles’ top left corner.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>cursor</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/core/altair.Cursor.html#altair.Cursor" title="altair.Cursor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cursor</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The mouse cursor used over the mark. Any valid <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/CSS/cursor#Values">CSS cursor type</a> can be used.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>description</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">string</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>A text description of the mark item for <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA">ARIA accessibility</a> (SVG output only). If specified, this property determines the <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute">“aria-label” attribute</a>.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>dir</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/core/altair.TextDirection.html#altair.TextDirection" title="altair.TextDirection"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextDirection</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The direction of the text. One of <code class="docutils literal notranslate"><span class="pre">&quot;ltr&quot;</span></code> (left-to-right) or <code class="docutils literal notranslate"><span class="pre">&quot;rtl&quot;</span></code> (right-to-left). This property determines on which side is truncated in response to the limit parameter.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">&quot;ltr&quot;</span></code></p>
+</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>dx</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The horizontal offset, in pixels, between the text label and its anchor point. The offset is applied after rotation by the <em>angle</em> property.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>dy</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The vertical offset, in pixels, between the text label and its anchor point. The offset is applied after rotation by the <em>angle</em> property.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>ellipsis</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">string</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The ellipsis string for text truncated in response to the limit parameter.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">&quot;…&quot;</span></code></p>
+</td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>endAngle</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The end angle in radians for arc marks. A value of <code class="docutils literal notranslate"><span class="pre">0</span></code> indicates up (north), increasing values proceed clockwise.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>fill</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/channels/altair.Color.html#altair.Color" title="altair.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">Color</span></code></a>, <a class="reference internal" href="generated/core/altair.Gradient.html#altair.Gradient" title="altair.Gradient"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gradient</span></code></a>, <code class="docutils literal notranslate"><span class="pre">null</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
@@ -2043,7 +2162,9 @@ defining default properties for each mark.</p>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>fillOpacity</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The fill opacity (value between [0,1]).</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>filled</p></td>
 <td class="vl-type-def"><p><code class="docutils literal notranslate"><span class="pre">boolean</span></code></p></td>
@@ -2054,27 +2175,29 @@ defining default properties for each mark.</p>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>font</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">string</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The typeface to set the text in (e.g., <code class="docutils literal notranslate"><span class="pre">&quot;Helvetica</span> <span class="pre">Neue&quot;</span></code>).</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>fontSize</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The font size, in pixels.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">11</span></code></p>
+</td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>fontStyle</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/core/altair.FontStyle.html#altair.FontStyle" title="altair.FontStyle"><code class="xref py py-class docutils literal notranslate"><span class="pre">FontStyle</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The font style (e.g., <code class="docutils literal notranslate"><span class="pre">&quot;italic&quot;</span></code>).</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>fontWeight</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/core/altair.FontWeight.html#altair.FontWeight" title="altair.FontWeight"><code class="xref py py-class docutils literal notranslate"><span class="pre">FontWeight</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The font weight. This can be either a string (e.g <code class="docutils literal notranslate"><span class="pre">&quot;bold&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;normal&quot;</span></code>) or a number (<code class="docutils literal notranslate"><span class="pre">100</span></code>, <code class="docutils literal notranslate"><span class="pre">200</span></code>, <code class="docutils literal notranslate"><span class="pre">300</span></code>, …, <code class="docutils literal notranslate"><span class="pre">900</span></code> where <code class="docutils literal notranslate"><span class="pre">&quot;normal&quot;</span></code> = <code class="docutils literal notranslate"><span class="pre">400</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;bold&quot;</span></code> = <code class="docutils literal notranslate"><span class="pre">700</span></code>).</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>height</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Height of the marks.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>href</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/core/altair.URI.html#altair.URI" title="altair.URI"><code class="xref py py-class docutils literal notranslate"><span class="pre">URI</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>A URL to load upon mouse click. If defined, the mark acts as a hyperlink.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>innerRadius</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
@@ -2084,7 +2207,23 @@ defining default properties for each mark.</p>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>interpolate</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/core/altair.Interpolate.html#altair.Interpolate" title="altair.Interpolate"><code class="xref py py-class docutils literal notranslate"><span class="pre">Interpolate</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The line interpolation method to use for line and area marks. One of the following:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;linear&quot;</span></code>: piecewise linear segments, as in a polyline.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;linear-closed&quot;</span></code>: close the linear segments to form a polygon.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;step&quot;</span></code>: alternate between horizontal and vertical segments, as in a step function.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;step-before&quot;</span></code>: alternate between vertical and horizontal segments, as in a step function.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;step-after&quot;</span></code>: alternate between horizontal and vertical segments, as in a step function.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;basis&quot;</span></code>: a B-spline, with control point duplication on the ends.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;basis-open&quot;</span></code>: an open B-spline; may not intersect the start or end.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;basis-closed&quot;</span></code>: a closed B-spline, as in a loop.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;cardinal&quot;</span></code>: a Cardinal spline, with control point duplication on the ends.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;cardinal-open&quot;</span></code>: an open Cardinal spline; may not intersect the start or end, but will intersect other control points.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;cardinal-closed&quot;</span></code>: a closed Cardinal spline, as in a loop.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;bundle&quot;</span></code>: equivalent to basis, except the tension parameter is used to straighten the spline.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;monotone&quot;</span></code>: cubic interpolation that preserves monotonicity in y.</p></li>
+</ul>
+</td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>invalid</p></td>
 <td class="vl-type-def"><p>[‘filter’, None]</p></td>
@@ -2097,15 +2236,17 @@ defining default properties for each mark.</p>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>limit</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The maximum length of the text mark in pixels. The text value will be automatically truncated if the rendered size exceeds the limit.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">0</span></code> – indicating no limit</p>
+</td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>lineBreak</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">string</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>A delimiter, such as a newline character, upon which to break text strings into multiple lines. This property is ignored if the text is array-valued.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>lineHeight</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The line height in pixels (the spacing between subsequent lines of text) for multi-line text marks.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>opacity</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
@@ -2135,7 +2276,7 @@ defining default properties for each mark.</p>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>padAngle</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The angular padding applied to sides of the arc, in radians.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>radius</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
@@ -2152,7 +2293,15 @@ defining default properties for each mark.</p>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>shape</p></td>
 <td class="vl-type-def"><p>anyOf(anyOf(<a class="reference internal" href="generated/core/altair.SymbolShape.html#altair.SymbolShape" title="altair.SymbolShape"><code class="xref py py-class docutils literal notranslate"><span class="pre">SymbolShape</span></code></a>, <code class="docutils literal notranslate"><span class="pre">string</span></code>), <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Shape of the point marks. Supported values include:</p>
+<ul class="simple">
+<li><p>plotting shapes: <code class="docutils literal notranslate"><span class="pre">&quot;circle&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;square&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;cross&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;diamond&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;triangle-up&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;triangle-down&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;triangle-right&quot;</span></code>, or <code class="docutils literal notranslate"><span class="pre">&quot;triangle-left&quot;</span></code>.</p></li>
+<li><p>the line symbol <code class="docutils literal notranslate"><span class="pre">&quot;stroke&quot;</span></code></p></li>
+<li><p>centered directional shapes <code class="docutils literal notranslate"><span class="pre">&quot;arrow&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;wedge&quot;</span></code>, or <code class="docutils literal notranslate"><span class="pre">&quot;triangle&quot;</span></code></p></li>
+<li><p>a custom <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths">SVG path string</a> (For correct sizing, custom shape paths should be defined within a square bounding box with coordinates ranging from -1 to 1 along both the x and y dimensions.)</p></li>
+</ul>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">&quot;circle&quot;</span></code></p>
+</td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>size</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
@@ -2173,11 +2322,11 @@ defining default properties for each mark.</p>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>smooth</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">boolean</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>A boolean flag (default true) indicating if the image should be smoothed when resized. If false, individual pixels should be scaled directly rather than interpolated with smoothing. For SVG rendering, this option may not work in some browsers due to lack of standardization.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>startAngle</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The start angle in radians for arc marks. A value of <code class="docutils literal notranslate"><span class="pre">0</span></code> indicates up (north), increasing values proceed clockwise.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>stroke</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/channels/altair.Color.html#altair.Color" title="altair.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">Color</span></code></a>, <a class="reference internal" href="generated/core/altair.Gradient.html#altair.Gradient" title="altair.Gradient"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gradient</span></code></a>, <code class="docutils literal notranslate"><span class="pre">null</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
@@ -2187,43 +2336,49 @@ defining default properties for each mark.</p>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>strokeCap</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/core/altair.StrokeCap.html#altair.StrokeCap" title="altair.StrokeCap"><code class="xref py py-class docutils literal notranslate"><span class="pre">StrokeCap</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The stroke cap for line ending style. One of <code class="docutils literal notranslate"><span class="pre">&quot;butt&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;round&quot;</span></code>, or <code class="docutils literal notranslate"><span class="pre">&quot;square&quot;</span></code>.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">&quot;butt&quot;</span></code></p>
+</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>strokeDash</p></td>
 <td class="vl-type-def"><p>anyOf(array(<code class="docutils literal notranslate"><span class="pre">number</span></code>), <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>An array of alternating stroke, space lengths for creating dashed or dotted lines.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>strokeDashOffset</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The offset (in pixels) into which to begin drawing with the stroke dash array.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>strokeJoin</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/core/altair.StrokeJoin.html#altair.StrokeJoin" title="altair.StrokeJoin"><code class="xref py py-class docutils literal notranslate"><span class="pre">StrokeJoin</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The stroke line join method. One of <code class="docutils literal notranslate"><span class="pre">&quot;miter&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;round&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;bevel&quot;</span></code>.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">&quot;miter&quot;</span></code></p>
+</td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>strokeMiterLimit</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The miter limit at which to bevel a line join.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>strokeOffset</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The offset in pixels at which to draw the group stroke and fill. If unspecified, the default behavior is to dynamically offset stroked groups such that 1 pixel stroke widths align with the pixel grid.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>strokeOpacity</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The stroke opacity (value between [0,1]).</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>strokeWidth</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The stroke width, in pixels.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>tension</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Depending on the interpolation type, sets the tension parameter (for line and area marks).</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>text</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/channels/altair.Text.html#altair.Text" title="altair.Text"><code class="xref py py-class docutils literal notranslate"><span class="pre">Text</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Placeholder text if the <code class="docutils literal notranslate"><span class="pre">text</span></code> channel is not specified</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>theta</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
@@ -2259,11 +2414,11 @@ defining default properties for each mark.</p>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>url</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/core/altair.URI.html#altair.URI" title="altair.URI"><code class="xref py py-class docutils literal notranslate"><span class="pre">URI</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The URL of the image file for image marks.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>width</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Width of the marks.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>x</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <code class="docutils literal notranslate"><span class="pre">string</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
@@ -2526,23 +2681,29 @@ which has the following properties:</p>
 <tbody>
 <tr class="row-even"><td class="vl-prop"><p>center</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="xref py py-class docutils literal notranslate"><span class="pre">Vector2&lt;number&gt;</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The projection’s center, a two-element array of longitude and latitude in degrees.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">0]</span></code></p>
+</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>clipAngle</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The projection’s clipping circle radius to the specified angle in degrees. If <code class="docutils literal notranslate"><span class="pre">null</span></code>, switches to <a class="reference external" href="http://bl.ocks.org/mbostock/3788999">antimeridian</a> cutting rather than small-circle clipping.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>clipExtent</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="xref py py-class docutils literal notranslate"><span class="pre">Vector2&lt;Vector2&lt;number&gt;&gt;</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The projection’s viewport clip extent to the specified bounds in pixels. The extent bounds are specified as an array <code class="docutils literal notranslate"><span class="pre">[[x0,</span> <span class="pre">y0],</span> <span class="pre">[x1,</span> <span class="pre">y1]]</span></code>, where <code class="docutils literal notranslate"><span class="pre">x0</span></code> is the left-side of the viewport, <code class="docutils literal notranslate"><span class="pre">y0</span></code> is the top, <code class="docutils literal notranslate"><span class="pre">x1</span></code> is the right and <code class="docutils literal notranslate"><span class="pre">y1</span></code> is the bottom. If <code class="docutils literal notranslate"><span class="pre">null</span></code>, no viewport clipping is performed.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>coefficient</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The coefficient parameter for the <code class="docutils literal notranslate"><span class="pre">hammer</span></code> projection.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">2</span></code></p>
+</td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>distance</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>For the <code class="docutils literal notranslate"><span class="pre">satellite</span></code> projection, the distance from the center of the sphere to the point of view, as a proportion of the sphere’s radius. The recommended maximum clip angle for a given <code class="docutils literal notranslate"><span class="pre">distance</span></code> is acos(1 / distance) converted to degrees. If tilt is also applied, then more conservative clipping may be necessary.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">2.0</span></code></p>
+</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>extent</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="xref py py-class docutils literal notranslate"><span class="pre">Vector2&lt;Vector2&lt;number&gt;&gt;</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
@@ -2554,47 +2715,53 @@ which has the following properties:</p>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>fraction</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The fraction parameter for the <code class="docutils literal notranslate"><span class="pre">bottomley</span></code> projection.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">0.5</span></code>, corresponding to a sin(ψ) where ψ = π/6.</p>
+</td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>lobes</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The number of lobes in projections that support multi-lobe views: <code class="docutils literal notranslate"><span class="pre">berghaus</span></code>, <code class="docutils literal notranslate"><span class="pre">gingery</span></code>, or <code class="docutils literal notranslate"><span class="pre">healpix</span></code>. The default value varies based on the projection type.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>parallel</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The parallel parameter for projections that support it: <code class="docutils literal notranslate"><span class="pre">armadillo</span></code>, <code class="docutils literal notranslate"><span class="pre">bonne</span></code>, <code class="docutils literal notranslate"><span class="pre">craig</span></code>, <code class="docutils literal notranslate"><span class="pre">cylindricalEqualArea</span></code>, <code class="docutils literal notranslate"><span class="pre">cylindricalStereographic</span></code>, <code class="docutils literal notranslate"><span class="pre">hammerRetroazimuthal</span></code>, <code class="docutils literal notranslate"><span class="pre">loximuthal</span></code>, or <code class="docutils literal notranslate"><span class="pre">rectangularPolyconic</span></code>. The default value varies based on the projection type.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>parallels</p></td>
 <td class="vl-type-def"><p>anyOf(array(<code class="docutils literal notranslate"><span class="pre">number</span></code>), <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>For conic projections, the <a class="reference external" href="https://en.wikipedia.org/wiki/Map_projection#Conic">two standard parallels</a> that define the map layout. The default depends on the specific conic projection used.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>pointRadius</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The default radius (in pixels) to use when drawing GeoJSON <code class="docutils literal notranslate"><span class="pre">Point</span></code> and <code class="docutils literal notranslate"><span class="pre">MultiPoint</span></code> geometries. This parameter sets a constant default value. To modify the point radius in response to data, see the corresponding parameter of the GeoPath and GeoShape transforms.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">4.5</span></code></p>
+</td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>precision</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The threshold for the projection’s <a class="reference external" href="http://bl.ocks.org/mbostock/3795544">adaptive resampling</a> to the specified value in pixels. This value corresponds to the <a class="reference external" href="http://en.wikipedia.org/wiki/Ramer%E2%80%93Douglas%E2%80%93Peucker_algorithm">Douglas–Peucker distance</a>. If precision is not specified, returns the projection’s current resampling precision which defaults to <code class="docutils literal notranslate"><span class="pre">√0.5</span> <span class="pre">≅</span> <span class="pre">0.70710…</span></code>.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>radius</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The radius parameter for the <code class="docutils literal notranslate"><span class="pre">airy</span></code> or <code class="docutils literal notranslate"><span class="pre">gingery</span></code> projection. The default value varies based on the projection type.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>ratio</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The ratio parameter for the <code class="docutils literal notranslate"><span class="pre">hill</span></code>, <code class="docutils literal notranslate"><span class="pre">hufnagel</span></code>, or <code class="docutils literal notranslate"><span class="pre">wagner</span></code> projections. The default value varies based on the projection type.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>reflectX</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">boolean</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Sets whether or not the x-dimension is reflected (negated) in the output.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>reflectY</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">boolean</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Sets whether or not the y-dimension is reflected (negated) in the output.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>rotate</p></td>
 <td class="vl-type-def"><p>anyOf(anyOf(<code class="xref py py-class docutils literal notranslate"><span class="pre">Vector2&lt;number&gt;</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Vector3&lt;number&gt;</span></code>), <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The projection’s three-axis rotation to the specified angles, which must be a two- or three-element array of numbers [<code class="docutils literal notranslate"><span class="pre">lambda</span></code>, <code class="docutils literal notranslate"><span class="pre">phi</span></code>, <code class="docutils literal notranslate"><span class="pre">gamma</span></code>] specifying the rotation angles in degrees about each spherical axis. (These correspond to yaw, pitch and roll.)</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></p>
+</td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>scale</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
@@ -2602,15 +2769,19 @@ which has the following properties:</p>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>size</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="xref py py-class docutils literal notranslate"><span class="pre">Vector2&lt;number&gt;</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Used in conjunction with fit, provides the width and height in pixels of the area to which the projection should be automatically fit.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>spacing</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The spacing parameter for the <code class="docutils literal notranslate"><span class="pre">lagrange</span></code> projection.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">0.5</span></code></p>
+</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>tilt</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The tilt angle (in degrees) for the <code class="docutils literal notranslate"><span class="pre">satellite</span></code> projection.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+</td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>translate</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="xref py py-class docutils literal notranslate"><span class="pre">Vector2&lt;number&gt;</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
@@ -2745,15 +2916,17 @@ Here is an example:</p>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>anchor</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/core/altair.TitleAnchor.html#altair.TitleAnchor" title="altair.TitleAnchor"><code class="xref py py-class docutils literal notranslate"><span class="pre">TitleAnchor</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The anchor position for placing the title and subtitle text. One of <code class="docutils literal notranslate"><span class="pre">&quot;start&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;middle&quot;</span></code>, or <code class="docutils literal notranslate"><span class="pre">&quot;end&quot;</span></code>. For example, with an orientation of top these anchor positions map to a left-, center-, or right-aligned title.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>angle</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Angle in degrees of title and subtitle text.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>aria</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">boolean</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>A boolean flag indicating if <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA">ARIA attributes</a> should be included (SVG output only). If <code class="docutils literal notranslate"><span class="pre">false</span></code>, the “aria-hidden” attribute will be set on the output SVG group, removing the title from the ARIA accessibility tree.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">true</span></code></p>
+</td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>baseline</p></td>
 <td class="vl-type-def"><p><a class="reference internal" href="generated/core/altair.TextBaseline.html#altair.TextBaseline" title="altair.TextBaseline"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextBaseline</span></code></a></p></td>
@@ -2761,83 +2934,85 @@ Here is an example:</p>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>color</p></td>
 <td class="vl-type-def"><p>anyOf(anyOf(<code class="docutils literal notranslate"><span class="pre">null</span></code>, <a class="reference internal" href="generated/channels/altair.Color.html#altair.Color" title="altair.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">Color</span></code></a>), <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Text color for title text.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>dx</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Delta offset for title and subtitle text x-coordinate.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>dy</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Delta offset for title and subtitle text y-coordinate.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>font</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">string</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Font name for title text.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>fontSize</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Font size in pixels for title text.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>fontStyle</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/core/altair.FontStyle.html#altair.FontStyle" title="altair.FontStyle"><code class="xref py py-class docutils literal notranslate"><span class="pre">FontStyle</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Font style for title text.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>fontWeight</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/core/altair.FontWeight.html#altair.FontWeight" title="altair.FontWeight"><code class="xref py py-class docutils literal notranslate"><span class="pre">FontWeight</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Font weight for title text. This can be either a string (e.g <code class="docutils literal notranslate"><span class="pre">&quot;bold&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;normal&quot;</span></code>) or a number (<code class="docutils literal notranslate"><span class="pre">100</span></code>, <code class="docutils literal notranslate"><span class="pre">200</span></code>, <code class="docutils literal notranslate"><span class="pre">300</span></code>, …, <code class="docutils literal notranslate"><span class="pre">900</span></code> where <code class="docutils literal notranslate"><span class="pre">&quot;normal&quot;</span></code> = <code class="docutils literal notranslate"><span class="pre">400</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;bold&quot;</span></code> = <code class="docutils literal notranslate"><span class="pre">700</span></code>).</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>frame</p></td>
 <td class="vl-type-def"><p>anyOf(anyOf(<a class="reference internal" href="generated/core/altair.TitleFrame.html#altair.TitleFrame" title="altair.TitleFrame"><code class="xref py py-class docutils literal notranslate"><span class="pre">TitleFrame</span></code></a>, <code class="docutils literal notranslate"><span class="pre">string</span></code>), <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The reference frame for the anchor position, one of <code class="docutils literal notranslate"><span class="pre">&quot;bounds&quot;</span></code> (to anchor relative to the full bounding box) or <code class="docutils literal notranslate"><span class="pre">&quot;group&quot;</span></code> (to anchor relative to the group width or height).</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>limit</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The maximum allowed length in pixels of title and subtitle text.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>lineHeight</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Line height in pixels for multi-line title text or title text with <code class="docutils literal notranslate"><span class="pre">&quot;line-top&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;line-bottom&quot;</span></code> baseline.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>offset</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The orthogonal offset in pixels by which to displace the title group from its position along the edge of the chart.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>orient</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/core/altair.TitleOrient.html#altair.TitleOrient" title="altair.TitleOrient"><code class="xref py py-class docutils literal notranslate"><span class="pre">TitleOrient</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Default title orientation (<code class="docutils literal notranslate"><span class="pre">&quot;top&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;bottom&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;left&quot;</span></code>, or <code class="docutils literal notranslate"><span class="pre">&quot;right&quot;</span></code>)</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>subtitleColor</p></td>
 <td class="vl-type-def"><p>anyOf(anyOf(<code class="docutils literal notranslate"><span class="pre">null</span></code>, <a class="reference internal" href="generated/channels/altair.Color.html#altair.Color" title="altair.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">Color</span></code></a>), <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Text color for subtitle text.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>subtitleFont</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">string</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Font name for subtitle text.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>subtitleFontSize</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Font size in pixels for subtitle text.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>subtitleFontStyle</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/core/altair.FontStyle.html#altair.FontStyle" title="altair.FontStyle"><code class="xref py py-class docutils literal notranslate"><span class="pre">FontStyle</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Font style for subtitle text.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>subtitleFontWeight</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/core/altair.FontWeight.html#altair.FontWeight" title="altair.FontWeight"><code class="xref py py-class docutils literal notranslate"><span class="pre">FontWeight</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Font weight for subtitle text. This can be either a string (e.g <code class="docutils literal notranslate"><span class="pre">&quot;bold&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;normal&quot;</span></code>) or a number (<code class="docutils literal notranslate"><span class="pre">100</span></code>, <code class="docutils literal notranslate"><span class="pre">200</span></code>, <code class="docutils literal notranslate"><span class="pre">300</span></code>, …, <code class="docutils literal notranslate"><span class="pre">900</span></code> where <code class="docutils literal notranslate"><span class="pre">&quot;normal&quot;</span></code> = <code class="docutils literal notranslate"><span class="pre">400</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;bold&quot;</span></code> = <code class="docutils literal notranslate"><span class="pre">700</span></code>).</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>subtitleLineHeight</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Line height in pixels for multi-line subtitle text.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>subtitlePadding</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The padding in pixels between title and subtitle text.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>zindex</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The integer z-index indicating the layering of the title group relative to other axis, mark, and legend groups.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -2909,7 +3084,9 @@ be controlled:</p>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>cornerRadius</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The radius in pixels of rounded rectangles or arcs’ corners.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>cursor</p></td>
 <td class="vl-type-def"><p><a class="reference internal" href="generated/core/altair.Cursor.html#altair.Cursor" title="altair.Cursor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cursor</span></code></a></p></td>
@@ -2935,7 +3112,9 @@ be controlled:</p>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>fillOpacity</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The fill opacity (value between [0,1]).</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>opacity</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
@@ -2955,31 +3134,37 @@ be controlled:</p>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>strokeCap</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/core/altair.StrokeCap.html#altair.StrokeCap" title="altair.StrokeCap"><code class="xref py py-class docutils literal notranslate"><span class="pre">StrokeCap</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The stroke cap for line ending style. One of <code class="docutils literal notranslate"><span class="pre">&quot;butt&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;round&quot;</span></code>, or <code class="docutils literal notranslate"><span class="pre">&quot;square&quot;</span></code>.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">&quot;butt&quot;</span></code></p>
+</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>strokeDash</p></td>
 <td class="vl-type-def"><p>anyOf(array(<code class="docutils literal notranslate"><span class="pre">number</span></code>), <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>An array of alternating stroke, space lengths for creating dashed or dotted lines.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>strokeDashOffset</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The offset (in pixels) into which to begin drawing with the stroke dash array.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>strokeJoin</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/core/altair.StrokeJoin.html#altair.StrokeJoin" title="altair.StrokeJoin"><code class="xref py py-class docutils literal notranslate"><span class="pre">StrokeJoin</span></code></a>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The stroke line join method. One of <code class="docutils literal notranslate"><span class="pre">&quot;miter&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;round&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;bevel&quot;</span></code>.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">&quot;miter&quot;</span></code></p>
+</td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>strokeMiterLimit</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The miter limit at which to bevel a line join.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>strokeOpacity</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The stroke opacity (value between [0,1]).</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+</td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>strokeWidth</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The stroke width, in pixels.</p></td>
 </tr>
 </tbody>
 </table>
@@ -3085,7 +3270,7 @@ be controlled:</p>
     <div class="footer-items__end">
       
         <div class="footer-item"><p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.0.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.1.
 </p></div>
       
     </div>

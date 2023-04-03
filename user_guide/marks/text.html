@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Text &#8212; Vega-Altair 5.0.0rc1 documentation</title>
+    <title>Text &#8212; Vega-Altair 5.0.0dev documentation</title>
   
   
   
@@ -32,8 +32,10 @@
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/altair-plot.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/altair-gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
@@ -45,9 +47,12 @@
     <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.6.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="../../_static/design-tabs.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'user_guide/marks/text';</script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -173,14 +178,14 @@
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../API.html">
-                        API Reference
+                        API
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../ecosystem.html">
-                        Ecosystem
+                        Resources
                       </a>
                     </li>
                 
@@ -319,14 +324,14 @@ document.write(`
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../API.html">
-                        API Reference
+                        API
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../ecosystem.html">
-                        Ecosystem
+                        Resources
                       </a>
                     </li>
                 
@@ -584,8 +589,8 @@ document.write(`
 <span class="p">)</span>
 
 <span class="n">base</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;a:Q&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">labelAngle</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">])),</span>
-    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;b:Q&quot;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">])),</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;a:Q&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="n">labelAngle</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">]),</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;b:Q&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">]),</span>
 <span class="p">)</span>
 
 <span class="n">pts</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span>
@@ -648,7 +653,7 @@ and the following special properties:</p>
 <tbody>
 <tr class="row-even"><td class="vl-prop"><p>angle</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="../generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The rotation angle of the text, in degrees.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>align</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="../generated/core/altair.Align.html#altair.Align" title="altair.Align"><code class="xref py py-class docutils literal notranslate"><span class="pre">Align</span></code></a>, <a class="reference internal" href="../generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
@@ -665,43 +670,51 @@ and the following special properties:</p>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>dir</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="../generated/core/altair.TextDirection.html#altair.TextDirection" title="altair.TextDirection"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextDirection</span></code></a>, <a class="reference internal" href="../generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The direction of the text. One of <code class="docutils literal notranslate"><span class="pre">&quot;ltr&quot;</span></code> (left-to-right) or <code class="docutils literal notranslate"><span class="pre">&quot;rtl&quot;</span></code> (right-to-left). This property determines on which side is truncated in response to the limit parameter.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">&quot;ltr&quot;</span></code></p>
+</td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>dx</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="../generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The horizontal offset, in pixels, between the text label and its anchor point. The offset is applied after rotation by the <em>angle</em> property.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>dy</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="../generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The vertical offset, in pixels, between the text label and its anchor point. The offset is applied after rotation by the <em>angle</em> property.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>ellipsis</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">string</span></code>, <a class="reference internal" href="../generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The ellipsis string for text truncated in response to the limit parameter.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">&quot;…&quot;</span></code></p>
+</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>font</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">string</span></code>, <a class="reference internal" href="../generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The typeface to set the text in (e.g., <code class="docutils literal notranslate"><span class="pre">&quot;Helvetica</span> <span class="pre">Neue&quot;</span></code>).</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>fontSize</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="../generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The font size, in pixels.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">11</span></code></p>
+</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>fontStyle</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="../generated/core/altair.FontStyle.html#altair.FontStyle" title="altair.FontStyle"><code class="xref py py-class docutils literal notranslate"><span class="pre">FontStyle</span></code></a>, <a class="reference internal" href="../generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The font style (e.g., <code class="docutils literal notranslate"><span class="pre">&quot;italic&quot;</span></code>).</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>fontWeight</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="../generated/core/altair.FontWeight.html#altair.FontWeight" title="altair.FontWeight"><code class="xref py py-class docutils literal notranslate"><span class="pre">FontWeight</span></code></a>, <a class="reference internal" href="../generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The font weight. This can be either a string (e.g <code class="docutils literal notranslate"><span class="pre">&quot;bold&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;normal&quot;</span></code>) or a number (<code class="docutils literal notranslate"><span class="pre">100</span></code>, <code class="docutils literal notranslate"><span class="pre">200</span></code>, <code class="docutils literal notranslate"><span class="pre">300</span></code>, …, <code class="docutils literal notranslate"><span class="pre">900</span></code> where <code class="docutils literal notranslate"><span class="pre">&quot;normal&quot;</span></code> = <code class="docutils literal notranslate"><span class="pre">400</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;bold&quot;</span></code> = <code class="docutils literal notranslate"><span class="pre">700</span></code>).</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>limit</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="../generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The maximum length of the text mark in pixels. The text value will be automatically truncated if the rendered size exceeds the limit.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">0</span></code> – indicating no limit</p>
+</td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>lineHeight</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="../generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The line height in pixels (the spacing between subsequent lines of text) for multi-line text marks.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>radius</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="../generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
@@ -712,7 +725,7 @@ and the following special properties:</p>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>text</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="../generated/channels/altair.Text.html#altair.Text" title="altair.Text"><code class="xref py py-class docutils literal notranslate"><span class="pre">Text</span></code></a>, <a class="reference internal" href="../generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>Placeholder text if the <code class="docutils literal notranslate"><span class="pre">text</span></code> channel is not specified</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>theta</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="../generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
@@ -738,16 +751,14 @@ and the following special properties:</p>
     <span class="n">num_cars</span><span class="o">=</span><span class="s2">&quot;count()&quot;</span><span class="p">,</span>
     <span class="n">groupby</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Origin&quot;</span><span class="p">,</span> <span class="s2">&quot;Cylinders&quot;</span><span class="p">],</span>
 <span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;Cylinders:O&quot;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">paddingInner</span><span class="o">=</span><span class="mi">0</span><span class="p">)),</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;Origin:O&quot;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">paddingInner</span><span class="o">=</span><span class="mi">0</span><span class="p">)),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;Cylinders:O&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">paddingInner</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;Origin:O&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">paddingInner</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
 <span class="p">)</span>
 
 <span class="n">heatmap</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">mark_rect</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span>
-        <span class="s2">&quot;num_cars:Q&quot;</span><span class="p">,</span>
-        <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">scheme</span><span class="o">=</span><span class="s2">&quot;viridis&quot;</span><span class="p">),</span>
-        <span class="n">legend</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Legend</span><span class="p">(</span><span class="n">direction</span><span class="o">=</span><span class="s2">&quot;horizontal&quot;</span><span class="p">),</span>
-    <span class="p">)</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;num_cars:Q&quot;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">scheme</span><span class="o">=</span><span class="s2">&quot;viridis&quot;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">direction</span><span class="o">=</span><span class="s2">&quot;horizontal&quot;</span><span class="p">)</span>
 <span class="p">)</span>
 
 <span class="n">text</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">mark_text</span><span class="p">(</span><span class="n">baseline</span><span class="o">=</span><span class="s2">&quot;middle&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
@@ -791,7 +802,7 @@ and the following special properties:</p>
 
 <span class="n">bar</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">y</span><span class="o">=</span><span class="s2">&quot;a:N&quot;</span><span class="p">,</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;b:Q&quot;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">60</span><span class="p">]))</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;b:Q&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">60</span><span class="p">])</span>
 <span class="p">)</span>
 <span class="n">text</span> <span class="o">=</span> <span class="n">bar</span><span class="o">.</span><span class="n">mark_text</span><span class="p">(</span>
     <span class="n">align</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span>
@@ -998,7 +1009,7 @@ and the following special properties:</p>
     <div class="footer-items__end">
       
         <div class="footer-item"><p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.0.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.1.
 </p></div>
       
     </div>

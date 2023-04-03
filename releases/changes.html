@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Release Notes &#8212; Vega-Altair 5.0.0rc1 documentation</title>
+    <title>Release Notes &#8212; Vega-Altair 5.0.0dev documentation</title>
   
   
   
@@ -32,8 +32,10 @@
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/altair-plot.css" />
     <link rel="stylesheet" type="text/css" href="../_static/altair-gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
@@ -45,14 +47,17 @@
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.6.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'releases/changes';</script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Ecosystem" href="../user_guide/ecosystem.html" />
+    <link rel="prev" title="Resources" href="../user_guide/ecosystem.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -172,14 +177,14 @@
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../user_guide/API.html">
-                        API Reference
+                        API
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../user_guide/ecosystem.html">
-                        Ecosystem
+                        Resources
                       </a>
                     </li>
                 
@@ -318,14 +323,14 @@ document.write(`
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../user_guide/API.html">
-                        API Reference
+                        API
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../user_guide/ecosystem.html">
-                        Ecosystem
+                        Resources
                       </a>
                     </li>
                 
@@ -460,12 +465,13 @@ see <a class="reference external" href="https://github.com/vega/vega-lite/releas
 <li><p>Substantially improved error handling. Both in terms of finding the more relevant error (#2842), and in terms of improving the formatting and clarity of the error messages (#2824, #2568).</p></li>
 <li><p>Include experimental support for the DataFrame Interchange Protocol (through <code class="docutils literal notranslate"><span class="pre">__dataframe__</span></code> attribute). This requires <code class="docutils literal notranslate"><span class="pre">pyarrow&gt;=11.0.0</span></code> (#2888).</p></li>
 <li><p>Support data type inference for columns with special characters (#2905).</p></li>
+<li><p>Changed error message to be more informative when two field strings are using in a condition (#2979).</p></li>
 </ul>
 </section>
 <section id="grammar-changes">
 <h3>Grammar Changes<a class="headerlink" href="#grammar-changes" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p>Channel options can now be set via a method based syntax in addition to the previous helper class syntax. For example, in addition to <code class="docutils literal notranslate"><span class="pre">alt.X(...,</span> <span class="pre">bin=alt.Bin(...))</span></code> it is now possible to do <code class="docutils literal notranslate"><span class="pre">alt.X(...).bin(...)`</span></code>) (#2795). See <a class="reference internal" href="../user_guide/encodings/index.html#method-based-attribute-setting"><span class="std std-ref">Alternative Syntax for Channel Options</span></a> for details.</p></li>
+<li><p>Channel options can now be set via a more convenient method-based syntax in addition to the previous attribute-based syntax. For example, instead of <code class="docutils literal notranslate"><span class="pre">alt.X(...,</span> <span class="pre">bin=alt.Bin(...))</span></code> it is now recommend to use <code class="docutils literal notranslate"><span class="pre">alt.X(...).bin(...)`</span></code>) (#2795). See <a class="reference internal" href="../user_guide/encodings/index.html#method-based-attribute-setting"><span class="std std-ref">Method-Based Syntax</span></a> for details.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">selection_single</span></code> and <code class="docutils literal notranslate"><span class="pre">selection_multi</span></code> are now deprecated; use <code class="docutils literal notranslate"><span class="pre">selection_point</span></code> instead.  Similarly, <code class="docutils literal notranslate"><span class="pre">type=point</span></code> should be used instead of <code class="docutils literal notranslate"><span class="pre">type=single</span></code> and <code class="docutils literal notranslate"><span class="pre">type=multi</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">add_selection</span></code> is deprecated; use <code class="docutils literal notranslate"><span class="pre">add_params</span></code> instead.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">selection</span></code> keyword argument must in many cases be replaced by <code class="docutils literal notranslate"><span class="pre">param</span></code> (e.g., when specifying a filter transform).</p></li>
@@ -1038,7 +1044,7 @@ Node is installed) PNG and SVG. See
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Ecosystem</p>
+        <p class="prev-next-title">Resources</p>
       </div>
     </a>
 </div>
@@ -1206,7 +1212,7 @@ Node is installed) PNG and SVG. See
     <div class="footer-items__end">
       
         <div class="footer-item"><p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.0.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.1.
 </p></div>
       
     </div>

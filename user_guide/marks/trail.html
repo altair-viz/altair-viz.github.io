@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Trail &#8212; Vega-Altair 5.0.0rc1 documentation</title>
+    <title>Trail &#8212; Vega-Altair 5.0.0dev documentation</title>
   
   
   
@@ -32,8 +32,10 @@
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/altair-plot.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/altair-gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
@@ -45,9 +47,12 @@
     <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.6.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="../../_static/design-tabs.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'user_guide/marks/trail';</script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -173,14 +178,14 @@
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../API.html">
-                        API Reference
+                        API
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../ecosystem.html">
-                        Ecosystem
+                        Resources
                       </a>
                     </li>
                 
@@ -319,14 +324,14 @@ document.write(`
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../API.html">
-                        API Reference
+                        API
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../ecosystem.html">
-                        Ecosystem
+                        Resources
                       </a>
                     </li>
                 
@@ -595,38 +600,37 @@ and the following special properties:</p>
 <section id="comet-chart-showing-changes-between-two-states">
 <h3>Comet Chart Showing Changes Between Two States<a class="headerlink" href="#comet-chart-showing-changes-between-two-states" title="Permalink to this heading">#</a></h3>
 <div class="highlight-python notranslate" id="trail-rst-altair-source-1"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
-<span class="kn">import</span> <span class="nn">vega_datasets</span>
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
 
-<span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">vega_datasets</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">barley</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">transform_pivot</span><span class="p">(</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;yield&quot;</span><span class="p">,</span> <span class="n">groupby</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;variety&quot;</span><span class="p">,</span> <span class="s2">&quot;site&quot;</span><span class="p">])</span>
-    <span class="o">.</span><span class="n">transform_fold</span><span class="p">([</span><span class="s2">&quot;1931&quot;</span><span class="p">,</span> <span class="s2">&quot;1932&quot;</span><span class="p">],</span> <span class="n">as_</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;yield&quot;</span><span class="p">])</span>
-    <span class="o">.</span><span class="n">transform_calculate</span><span class="p">(</span><span class="n">calculate</span><span class="o">=</span><span class="s2">&quot;datum[&#39;1932&#39;] - datum[&#39;1931&#39;]&quot;</span><span class="p">,</span> <span class="n">as_</span><span class="o">=</span><span class="s2">&quot;delta&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">mark_trail</span><span class="p">()</span>
-    <span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-        <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;year:O&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span>
-        <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;variety:N&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Variety&quot;</span><span class="p">),</span>
-        <span class="n">size</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span>
-            <span class="s2">&quot;yield:Q&quot;</span><span class="p">,</span>
-            <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">]),</span>
-            <span class="n">legend</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Legend</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">60</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Barley Yield (bushels/acre)&quot;</span><span class="p">),</span>
-        <span class="p">),</span>
-        <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span>
-            <span class="s2">&quot;delta:Q&quot;</span><span class="p">,</span>
-            <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domainMid</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
-            <span class="n">legend</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Yield Delta (%)&quot;</span><span class="p">),</span>
-        <span class="p">),</span>
-        <span class="n">tooltip</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Tooltip</span><span class="p">([</span><span class="s2">&quot;year:O&quot;</span><span class="p">,</span> <span class="s2">&quot;yield:Q&quot;</span><span class="p">]),</span>
-        <span class="n">column</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="s2">&quot;site:N&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Site&quot;</span><span class="p">),</span>
-    <span class="p">)</span>
-    <span class="o">.</span><span class="n">configure_view</span><span class="p">(</span><span class="n">stroke</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">configure_legend</span><span class="p">(</span>
-        <span class="n">orient</span><span class="o">=</span><span class="s2">&quot;bottom&quot;</span><span class="p">,</span>
-        <span class="n">direction</span><span class="o">=</span><span class="s2">&quot;horizontal&quot;</span>
-    <span class="p">)</span>
-    <span class="o">.</span><span class="n">properties</span><span class="p">(</span>
-        <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Barley Yield comparison between 1932 and 1931&quot;</span>
-    <span class="p">)</span>
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">barley</span><span class="o">.</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">transform_pivot</span><span class="p">(</span>
+    <span class="s2">&quot;year&quot;</span><span class="p">,</span>
+    <span class="n">value</span><span class="o">=</span><span class="s2">&quot;yield&quot;</span><span class="p">,</span>
+    <span class="n">groupby</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;variety&quot;</span><span class="p">,</span> <span class="s2">&quot;site&quot;</span><span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_fold</span><span class="p">(</span>
+    <span class="p">[</span><span class="s2">&quot;1931&quot;</span><span class="p">,</span> <span class="s2">&quot;1932&quot;</span><span class="p">],</span>
+    <span class="n">as_</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;yield&quot;</span><span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_calculate</span><span class="p">(</span>
+    <span class="n">calculate</span><span class="o">=</span><span class="s2">&quot;datum[&#39;1932&#39;] - datum[&#39;1931&#39;]&quot;</span><span class="p">,</span>
+    <span class="n">as_</span><span class="o">=</span><span class="s2">&quot;delta&quot;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">mark_trail</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;year:O&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="kc">None</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;variety:N&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Variety&quot;</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span><span class="s2">&quot;yield:Q&quot;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">])</span>
+        <span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">60</span><span class="p">])</span>
+        <span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Barley Yield (bushels/acre)&quot;</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;delta:Q&quot;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">domainMid</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Yield Delta (%)&quot;</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Tooltip</span><span class="p">([</span><span class="s2">&quot;year:O&quot;</span><span class="p">,</span> <span class="s2">&quot;yield:Q&quot;</span><span class="p">]),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="s2">&quot;site:N&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Site&quot;</span><span class="p">),</span>
+<span class="p">)</span><span class="o">.</span><span class="n">configure_legend</span><span class="p">(</span>
+    <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">,</span>
+    <span class="n">direction</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">configure_view</span><span class="p">(</span>
+    <span class="n">stroke</span><span class="o">=</span><span class="kc">None</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Barley Yield comparison between 1932 and 1931&quot;</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -636,7 +640,7 @@ and the following special properties:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300, "stroke": null}, "legend": {"direction": "horizontal", "orient": "bottom"}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/barley.json"}, "mark": {"type": "trail"}, "encoding": {"color": {"field": "delta", "legend": {"title": "Yield Delta (%)"}, "scale": {"domainMid": 0}, "type": "quantitative"}, "column": {"field": "site", "title": "Site", "type": "nominal"}, "size": {"field": "yield", "legend": {"title": "Barley Yield (bushels/acre)", "values": [20, 60]}, "scale": {"range": [0, 12]}, "type": "quantitative"}, "tooltip": [{"field": "year", "type": "ordinal"}, {"field": "yield", "type": "quantitative"}], "x": {"field": "year", "title": null, "type": "ordinal"}, "y": {"field": "variety", "title": "Variety", "type": "nominal"}}, "title": "Barley Yield comparison between 1932 and 1931", "transform": [{"pivot": "year", "value": "yield", "groupby": ["variety", "site"]}, {"fold": ["1931", "1932"], "as": ["year", "yield"]}, {"calculate": "datum['1932'] - datum['1931']", "as": "delta"}], "$schema": "https://vega.github.io/schema/vega-lite/v5.6.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300, "stroke": null}, "legend": {"direction": "horizontal", "orient": "bottom"}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/barley.json"}, "mark": {"type": "trail"}, "encoding": {"color": {"field": "delta", "scale": {"domainMid": 0}, "title": "Yield Delta (%)", "type": "quantitative"}, "column": {"field": "site", "title": "Site", "type": "nominal"}, "size": {"field": "yield", "legend": {"values": [20, 60]}, "scale": {"range": [0, 12]}, "title": "Barley Yield (bushels/acre)", "type": "quantitative"}, "tooltip": [{"field": "year", "type": "ordinal"}, {"field": "yield", "type": "quantitative"}], "x": {"field": "year", "title": null, "type": "ordinal"}, "y": {"field": "variety", "title": "Variety", "type": "nominal"}}, "title": "Barley Yield comparison between 1932 and 1931", "transform": [{"pivot": "year", "value": "yield", "groupby": ["variety", "site"]}, {"fold": ["1931", "1932"], "as": ["year", "yield"]}, {"calculate": "datum['1932'] - datum['1931']", "as": "delta"}], "$schema": "https://vega.github.io/schema/vega-lite/v5.6.1.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -742,7 +746,7 @@ and the following special properties:</p>
     <div class="footer-items__end">
       
         <div class="footer-item"><p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.0.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.1.
 </p></div>
       
     </div>

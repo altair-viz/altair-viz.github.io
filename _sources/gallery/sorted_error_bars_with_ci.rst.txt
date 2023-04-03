@@ -13,10 +13,10 @@ This example shows how to show error bars using confidence intervals, while also
 
 
 .. altair-plot::
-    :code-below:
+    :remove-code:
     
 
-    
+
 
     import altair as alt
     from vega_datasets import data
@@ -47,3 +47,78 @@ This example shows how to show error bars using confidence intervals, while also
     )
 
     points + error_bars
+
+
+.. tab-set::
+
+    .. tab-item:: Method syntax
+        :sync: method
+
+        .. code:: python
+
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            source = data.barley()
+
+            points = alt.Chart(source).mark_point(
+                filled=True,
+                color='black'
+            ).encode(
+                x=alt.X('mean(yield)').title('Barley Yield'),
+                y=alt.Y('variety').sort(
+                    field='yield',
+                    op='mean',
+                    order='descending'
+                )
+            ).properties(
+                width=400,
+                height=250
+            )
+
+            error_bars = points.mark_rule().encode(
+                x='ci0(yield)',
+                x2='ci1(yield)',
+            )
+
+            points + error_bars
+
+
+    .. tab-item:: Attribute syntax
+        :sync: attribute
+
+        .. code:: python
+
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            source = data.barley()
+
+            points = alt.Chart(source).mark_point(
+                filled=True,
+                color='black'
+            ).encode(
+                x=alt.X('mean(yield)', title='Barley Yield'),
+                y=alt.Y(
+                    'variety',
+                     sort=alt.EncodingSortField(
+                         field='yield',
+                         op='mean',
+                         order='descending'
+                     )
+                )
+            ).properties(
+                width=400,
+                height=250
+            )
+
+            error_bars = points.mark_rule().encode(
+                x='ci0(yield)',
+                x2='ci1(yield)',
+            )
+
+            points + error_bars

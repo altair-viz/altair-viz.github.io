@@ -18,10 +18,10 @@ The full list of interpolation options includes 'linear',
 
 
 .. altair-plot::
-    :code-below:
+    :remove-code:
     
 
-    
+
     import altair as alt
     from vega_datasets import data
 
@@ -33,3 +33,47 @@ The full list of interpolation options includes 'linear',
     ).transform_filter(
         alt.datum.symbol == 'GOOG'
     )
+    # No channel encoding options are specified in this chart
+    # so the code is the same as for the method-based syntax.
+
+
+.. tab-set::
+
+    .. tab-item:: Method syntax
+        :sync: method
+
+        .. code:: python
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            source = data.stocks()
+
+            alt.Chart(source).mark_line(interpolate='step-after').encode(
+                x='date',
+                y='price'
+            ).transform_filter(
+                alt.datum.symbol == 'GOOG'
+            )
+
+
+    .. tab-item:: Attribute syntax
+        :sync: attribute
+
+        .. code:: python
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            source = data.stocks()
+
+            alt.Chart(source).mark_line(interpolate='step-after').encode(
+                x='date',
+                y='price'
+            ).transform_filter(
+                alt.datum.symbol == 'GOOG'
+            )
+            # No channel encoding options are specified in this chart
+            # so the code is the same as for the method-based syntax.

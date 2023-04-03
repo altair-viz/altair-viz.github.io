@@ -13,10 +13,10 @@ This example shows how to make a normalized stacked area chart.
 
 
 .. altair-plot::
-    :code-below:
+    :remove-code:
     
 
-    
+
     import altair as alt
     from vega_datasets import data
 
@@ -27,3 +27,41 @@ This example shows how to make a normalized stacked area chart.
         y=alt.Y("net_generation:Q", stack="normalize"),
         color="source:N"
     )
+
+
+.. tab-set::
+
+    .. tab-item:: Method syntax
+        :sync: method
+
+        .. code:: python
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            source = data.iowa_electricity()
+
+            alt.Chart(source).mark_area().encode(
+                x="year:T",
+                y=alt.Y("net_generation:Q").stack("normalize"),
+                color="source:N"
+            )
+
+
+    .. tab-item:: Attribute syntax
+        :sync: attribute
+
+        .. code:: python
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            source = data.iowa_electricity()
+
+            alt.Chart(source).mark_area().encode(
+                x="year:T",
+                y=alt.Y("net_generation:Q", stack="normalize"),
+                color="source:N"
+            )

@@ -13,10 +13,10 @@ This example is a bar chart drawn horizontally by putting the quantitative value
 
 
 .. altair-plot::
-    :code-below:
+    :remove-code:
     
 
-    
+
     import altair as alt
     from vega_datasets import data
 
@@ -26,3 +26,43 @@ This example is a bar chart drawn horizontally by putting the quantitative value
         x='wheat:Q',
         y="year:O"
     ).properties(height=700)
+    # No channel encoding options are specified in this chart
+    # so the code is the same as for the method-based syntax.
+
+
+.. tab-set::
+
+    .. tab-item:: Method syntax
+        :sync: method
+
+        .. code:: python
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            source = data.wheat()
+
+            alt.Chart(source).mark_bar().encode(
+                x='wheat:Q',
+                y="year:O"
+            ).properties(height=700)
+
+
+    .. tab-item:: Attribute syntax
+        :sync: attribute
+
+        .. code:: python
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            source = data.wheat()
+
+            alt.Chart(source).mark_bar().encode(
+                x='wheat:Q',
+                y="year:O"
+            ).properties(height=700)
+            # No channel encoding options are specified in this chart
+            # so the code is the same as for the method-based syntax.

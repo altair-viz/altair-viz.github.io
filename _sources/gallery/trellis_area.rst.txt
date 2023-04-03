@@ -13,10 +13,10 @@ This example shows small multiples of an area chart.
 
 
 .. altair-plot::
-    :code-below:
+    :remove-code:
     
 
-    
+
     import altair as alt
     from vega_datasets import data
 
@@ -30,3 +30,51 @@ This example shows small multiples of an area chart.
     ).properties(
         height=100
     )
+    # No channel encoding options are specified in this chart
+    # so the code is the same as for the method-based syntax.
+
+
+.. tab-set::
+
+    .. tab-item:: Method syntax
+        :sync: method
+
+        .. code:: python
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            source = data.iowa_electricity()
+
+            alt.Chart(source).mark_area().encode(
+                x="year:T",
+                y="net_generation:Q",
+                color="source:N",
+                row="source:N"
+            ).properties(
+                height=100
+            )
+
+
+    .. tab-item:: Attribute syntax
+        :sync: attribute
+
+        .. code:: python
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            source = data.iowa_electricity()
+
+            alt.Chart(source).mark_area().encode(
+                x="year:T",
+                y="net_generation:Q",
+                color="source:N",
+                row="source:N"
+            ).properties(
+                height=100
+            )
+            # No channel encoding options are specified in this chart
+            # so the code is the same as for the method-based syntax.

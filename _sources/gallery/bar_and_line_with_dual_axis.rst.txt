@@ -15,10 +15,10 @@ For a more polished version of this chart, see :ref:`gallery_wheat_wages`.
 
 
 .. altair-plot::
-    :code-below:
+    :remove-code:
     
 
-    
+
     import altair as alt
     from vega_datasets import data
 
@@ -33,3 +33,53 @@ For a more polished version of this chart, see :ref:`gallery_wheat_wages`.
     )
 
     (bar + line).properties(width=600)
+    # No channel encoding options are specified in this chart
+    # so the code is the same as for the method-based syntax.
+
+
+.. tab-set::
+
+    .. tab-item:: Method syntax
+        :sync: method
+
+        .. code:: python
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            source = data.wheat()
+
+            base = alt.Chart(source).encode(x='year:O')
+
+            bar = base.mark_bar().encode(y='wheat:Q')
+
+            line =  base.mark_line(color='red').encode(
+                y='wages:Q'
+            )
+
+            (bar + line).properties(width=600)
+
+
+    .. tab-item:: Attribute syntax
+        :sync: attribute
+
+        .. code:: python
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            source = data.wheat()
+
+            base = alt.Chart(source).encode(x='year:O')
+
+            bar = base.mark_bar().encode(y='wheat:Q')
+
+            line =  base.mark_line(color='red').encode(
+                y='wages:Q'
+            )
+
+            (bar + line).properties(width=600)
+            # No channel encoding options are specified in this chart
+            # so the code is the same as for the method-based syntax.

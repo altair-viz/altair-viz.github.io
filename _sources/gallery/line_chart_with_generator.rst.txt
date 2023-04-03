@@ -13,10 +13,10 @@ This examples shows how to create multiple lines using the sequence generator.
 
 
 .. altair-plot::
-    :code-below:
+    :remove-code:
     
 
-    
+
 
     import altair as alt
 
@@ -32,3 +32,55 @@ This examples shows how to create multiple lines using the sequence generator.
         y='value:Q', 
         color='key:N'
     )
+    # No channel encoding options are specified in this chart
+    # so the code is the same as for the method-based syntax.
+
+
+.. tab-set::
+
+    .. tab-item:: Method syntax
+        :sync: method
+
+        .. code:: python
+
+
+
+            import altair as alt
+
+            source = alt.sequence(start=0, stop=12.7, step=0.1, as_='x')
+
+            alt.Chart(source).mark_line().transform_calculate(
+                sin='sin(datum.x)',
+                cos='cos(datum.x)'
+            ).transform_fold(
+                ['sin', 'cos']
+            ).encode(
+                x='x:Q', 
+                y='value:Q', 
+                color='key:N'
+            )
+
+
+    .. tab-item:: Attribute syntax
+        :sync: attribute
+
+        .. code:: python
+
+
+
+            import altair as alt
+
+            source = alt.sequence(start=0, stop=12.7, step=0.1, as_='x')
+
+            alt.Chart(source).mark_line().transform_calculate(
+                sin='sin(datum.x)',
+                cos='cos(datum.x)'
+            ).transform_fold(
+                ['sin', 'cos']
+            ).encode(
+                x='x:Q', 
+                y='value:Q', 
+                color='key:N'
+            )
+            # No channel encoding options are specified in this chart
+            # so the code is the same as for the method-based syntax.

@@ -13,10 +13,10 @@ How to make a line chart on a `Logarithmic scale <https://en.wikipedia.org/wiki/
 
 
 .. altair-plot::
-    :code-below:
+    :remove-code:
     
 
-    
+
     import altair as alt
     from vega_datasets import data
 
@@ -29,3 +29,41 @@ How to make a line chart on a `Logarithmic scale <https://en.wikipedia.org/wiki/
             scale=alt.Scale(type="log")  # Here the scale is applied
         )
     )
+
+.. tab-set::
+
+    .. tab-item:: Method syntax
+        :sync: method
+
+        .. code:: python
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            source = data.population()
+
+            alt.Chart(source).mark_line().encode(
+                x='year:O',
+                y=alt.Y('sum(people)').scale(type="log")
+            )
+
+
+    .. tab-item:: Attribute syntax
+        :sync: attribute
+
+        .. code:: python
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            source = data.population()
+
+            alt.Chart(source).mark_line().encode(
+                x='year:O',
+                y=alt.Y(
+                    'sum(people)',
+                    scale=alt.Scale(type="log")  # Here the scale is applied
+                )
+            )

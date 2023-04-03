@@ -15,10 +15,10 @@ of items in each category within the selection.
 
 
 .. altair-plot::
-    :code-below:
+    :remove-code:
     
 
-    
+
     import altair as alt
     from vega_datasets import data
 
@@ -43,3 +43,73 @@ of items in each category within the selection.
     )
 
     points & bars
+    # No channel encoding options are specified in this chart
+    # so the code is the same as for the method-based syntax.
+
+
+.. tab-set::
+
+    .. tab-item:: Method syntax
+        :sync: method
+
+        .. code:: python
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            source = data.cars()
+
+            brush = alt.selection_interval()
+
+            points = alt.Chart(source).mark_point().encode(
+                x='Horsepower:Q',
+                y='Miles_per_Gallon:Q',
+                color=alt.condition(brush, 'Origin:N', alt.value('lightgray'))
+            ).add_params(
+                brush
+            )
+
+            bars = alt.Chart(source).mark_bar().encode(
+                y='Origin:N',
+                color='Origin:N',
+                x='count(Origin):Q'
+            ).transform_filter(
+                brush
+            )
+
+            points & bars
+
+
+    .. tab-item:: Attribute syntax
+        :sync: attribute
+
+        .. code:: python
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            source = data.cars()
+
+            brush = alt.selection_interval()
+
+            points = alt.Chart(source).mark_point().encode(
+                x='Horsepower:Q',
+                y='Miles_per_Gallon:Q',
+                color=alt.condition(brush, 'Origin:N', alt.value('lightgray'))
+            ).add_params(
+                brush
+            )
+
+            bars = alt.Chart(source).mark_bar().encode(
+                y='Origin:N',
+                color='Origin:N',
+                x='count(Origin):Q'
+            ).transform_filter(
+                brush
+            )
+
+            points & bars
+            # No channel encoding options are specified in this chart
+            # so the code is the same as for the method-based syntax.

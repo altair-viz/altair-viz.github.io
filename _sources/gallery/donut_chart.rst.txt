@@ -15,10 +15,10 @@ This is adapted from a corresponding Vega-Lite Example:
 
 
 .. altair-plot::
-    :code-below:
+    :remove-code:
     
 
-    
+
 
     import pandas as pd
     import altair as alt
@@ -29,3 +29,44 @@ This is adapted from a corresponding Vega-Lite Example:
         theta=alt.Theta(field="value", type="quantitative"),
         color=alt.Color(field="category", type="nominal"),
     )
+
+
+.. tab-set::
+
+    .. tab-item:: Method syntax
+        :sync: method
+
+        .. code:: python
+
+
+
+            import pandas as pd
+            import altair as alt
+
+            source = pd.DataFrame({
+                "category": [1, 2, 3, 4, 5, 6],
+                "value": [4, 6, 10, 3, 7, 8]
+            })
+
+            alt.Chart(source).mark_arc(innerRadius=50).encode(
+                theta="value",
+                color="category:N",
+            )
+
+
+    .. tab-item:: Attribute syntax
+        :sync: attribute
+
+        .. code:: python
+
+
+
+            import pandas as pd
+            import altair as alt
+
+            source = pd.DataFrame({"category": [1, 2, 3, 4, 5, 6], "value": [4, 6, 10, 3, 7, 8]})
+
+            alt.Chart(source).mark_arc(innerRadius=50).encode(
+                theta=alt.Theta(field="value", type="quantitative"),
+                color=alt.Color(field="category", type="nominal"),
+            )

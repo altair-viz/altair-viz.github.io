@@ -14,10 +14,10 @@ using a wrapped faceting of the data by decade.
 
 
 .. altair-plot::
-    :code-below:
+    :remove-code:
     
 
-    
+
     import altair as alt
     from vega_datasets import data
 
@@ -36,3 +36,52 @@ using a wrapped faceting of the data by decade.
         width=90,
         height=80
     )
+
+.. tab-set::
+
+    .. tab-item:: Method syntax
+        :sync: method
+
+        .. code:: python
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            source = data.population.url
+
+            alt.Chart(source).mark_area().encode(
+                x='age:O',
+                y=alt.Y('sum(people):Q').title('Population').axis(format='~s'),
+                facet=alt.Facet('year:O').columns(5),
+            ).properties(
+                title='US Age Distribution By Year',
+                width=90,
+                height=80
+            )
+
+
+    .. tab-item:: Attribute syntax
+        :sync: attribute
+
+        .. code:: python
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            source = data.population.url
+
+            alt.Chart(source).mark_area().encode(
+                x='age:O',
+                y=alt.Y(
+                    'sum(people):Q',
+                    title='Population',
+                    axis=alt.Axis(format='~s')
+                ),
+                facet=alt.Facet('year:O', columns=5),
+            ).properties(
+                title='US Age Distribution By Year',
+                width=90,
+                height=80
+            )

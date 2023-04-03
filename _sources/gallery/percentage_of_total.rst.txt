@@ -14,10 +14,10 @@ data values as a percentage of total.
 
 
 .. altair-plot::
-    :code-below:
+    :remove-code:
     
 
-    
+
     import altair as alt
     import pandas as pd
 
@@ -32,3 +32,51 @@ data values as a percentage of total.
         alt.X('PercentOfTotal:Q', axis=alt.Axis(format='.0%')),
         y='Activity:N'
     )
+
+
+.. tab-set::
+
+    .. tab-item:: Method syntax
+        :sync: method
+
+        .. code:: python
+
+
+            import altair as alt
+            import pandas as pd
+
+            source = pd.DataFrame({
+                'Activity': ['Sleeping', 'Eating', 'TV', 'Work', 'Exercise'],
+                'Time': [8, 2, 4, 8, 2]
+            })
+
+            alt.Chart(source).transform_joinaggregate(
+                TotalTime='sum(Time)',
+            ).transform_calculate(
+                PercentOfTotal="datum.Time / datum.TotalTime"
+            ).mark_bar().encode(
+                alt.X('PercentOfTotal:Q').axis(format='.0%'),
+                y='Activity:N'
+            )
+
+
+    .. tab-item:: Attribute syntax
+        :sync: attribute
+
+        .. code:: python
+
+
+            import altair as alt
+            import pandas as pd
+
+            source = pd.DataFrame({'Activity': ['Sleeping', 'Eating', 'TV', 'Work', 'Exercise'],
+                                       'Time': [8, 2, 4, 8, 2]})
+
+            alt.Chart(source).transform_joinaggregate(
+                TotalTime='sum(Time)',
+            ).transform_calculate(
+                PercentOfTotal="datum.Time / datum.TotalTime"
+            ).mark_bar().encode(
+                alt.X('PercentOfTotal:Q', axis=alt.Axis(format='.0%')),
+                y='Activity:N'
+            )

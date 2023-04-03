@@ -15,10 +15,10 @@ value within the selected interval.
 
 
 .. altair-plot::
-    :code-below:
+    :remove-code:
     
 
-    
+
     import altair as alt
     from vega_datasets import data
 
@@ -41,3 +41,69 @@ value within the selected interval.
     )
 
     alt.layer(bars, line, data=source)
+    # No channel encoding options are specified in this chart
+    # so the code is the same as for the method-based syntax.
+
+
+.. tab-set::
+
+    .. tab-item:: Method syntax
+        :sync: method
+
+        .. code:: python
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            source = data.seattle_weather()
+            brush = alt.selection_interval(encodings=['x'])
+
+            bars = alt.Chart().mark_bar().encode(
+                x='month(date):O',
+                y='mean(precipitation):Q',
+                opacity=alt.condition(brush, alt.OpacityValue(1), alt.OpacityValue(0.7)),
+            ).add_params(
+                brush
+            )
+
+            line = alt.Chart().mark_rule(color='firebrick').encode(
+                y='mean(precipitation):Q',
+                size=alt.SizeValue(3)
+            ).transform_filter(
+                brush
+            )
+
+            alt.layer(bars, line, data=source)
+
+
+    .. tab-item:: Attribute syntax
+        :sync: attribute
+
+        .. code:: python
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            source = data.seattle_weather()
+            brush = alt.selection_interval(encodings=['x'])
+
+            bars = alt.Chart().mark_bar().encode(
+                x='month(date):O',
+                y='mean(precipitation):Q',
+                opacity=alt.condition(brush, alt.OpacityValue(1), alt.OpacityValue(0.7)),
+            ).add_params(
+                brush
+            )
+
+            line = alt.Chart().mark_rule(color='firebrick').encode(
+                y='mean(precipitation):Q',
+                size=alt.SizeValue(3)
+            ).transform_filter(
+                brush
+            )
+
+            alt.layer(bars, line, data=source)
+            # No channel encoding options are specified in this chart
+            # so the code is the same as for the method-based syntax.

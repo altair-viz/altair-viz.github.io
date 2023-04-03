@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Line Chart with Point Markers &#8212; Vega-Altair 5.0.0rc1 documentation</title>
+    <title>Line Chart with Point Markers &#8212; Vega-Altair 5.0.0dev documentation</title>
   
   
   
@@ -32,8 +32,10 @@
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/altair-plot.css" />
     <link rel="stylesheet" type="text/css" href="../_static/altair-gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
@@ -45,9 +47,12 @@
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.6.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'gallery/line_chart_with_points';</script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -171,14 +176,14 @@
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../user_guide/API.html">
-                        API Reference
+                        API
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../user_guide/ecosystem.html">
-                        Ecosystem
+                        Resources
                       </a>
                     </li>
                 
@@ -313,14 +318,14 @@ document.write(`
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../user_guide/API.html">
-                        API Reference
+                        API
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../user_guide/ecosystem.html">
-                        Ecosystem
+                        Resources
                       </a>
                     </li>
                 
@@ -450,7 +455,11 @@ document.write(`
       vegaEmbed('#line_chart_with_points-rst-altair-plot-0', spec, opt).catch(console.err);
   });
 </script>
-</div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+</div><div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" data-sync-id="method" for="sd-tab-item-0">
+Method syntax</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
 <span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
 
 <span class="n">source</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">stocks</span><span class="p">()</span>
@@ -461,6 +470,25 @@ document.write(`
     <span class="n">color</span><span class="o">=</span><span class="s1">&#39;symbol:N&#39;</span>
 <span class="p">)</span>
 </pre></div>
+</div>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" data-sync-id="attribute" for="sd-tab-item-1">
+Attribute syntax</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+
+<span class="n">source</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">stocks</span><span class="p">()</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">point</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;date:T&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price:Q&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;symbol:N&#39;</span>
+<span class="p">)</span><span class="c1"># No channel encoding options are specified in this chart</span>
+<span class="c1"># so the code is the same as for the method-based syntax.</span>
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 
@@ -520,7 +548,7 @@ document.write(`
     <div class="footer-items__end">
       
         <div class="footer-item"><p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.0.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.1.
 </p></div>
       
     </div>

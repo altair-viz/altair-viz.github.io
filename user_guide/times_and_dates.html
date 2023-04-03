@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Times and Dates &#8212; Vega-Altair 5.0.0rc1 documentation</title>
+    <title>Times and Dates &#8212; Vega-Altair 5.0.0dev documentation</title>
   
   
   
@@ -32,8 +32,10 @@
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/altair-plot.css" />
     <link rel="stylesheet" type="text/css" href="../_static/altair-gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
@@ -45,9 +47,12 @@
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.6.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'user_guide/times_and_dates';</script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -173,14 +178,14 @@
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="API.html">
-                        API Reference
+                        API
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="ecosystem.html">
-                        Ecosystem
+                        Resources
                       </a>
                     </li>
                 
@@ -319,14 +324,14 @@ document.write(`
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="API.html">
-                        API Reference
+                        API
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="ecosystem.html">
-                        Ecosystem
+                        Resources
                       </a>
                     </li>
                 
@@ -603,9 +608,9 @@ In Altair, this can be done with a time unit transform, discussed in detail in
 For example, we might decide we want a heatmap with hour of the day on the
 x-axis, and day of the month on the y-axis:</p>
 <div class="highlight-python notranslate" id="times_and_dates-rst-altair-source-3"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">temps</span><span class="p">)</span><span class="o">.</span><span class="n">mark_rect</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;hoursminutes(date):O&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;hour of day&#39;</span><span class="p">),</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;monthdate(date):O&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">),</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;temp:Q&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;temperature (F)&#39;</span><span class="p">)</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;hoursminutes(date):O&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;hour of day&#39;</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;monthdate(date):O&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;temp:Q&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;temperature (F)&#39;</span><span class="p">)</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -656,9 +661,9 @@ timezone explicitly in the input dataframe. Since Seattle is in the
 If we repeat the above chart with this timezone-aware data, the result will
 render <strong>according to the timezone of the browser rendering it</strong>:</p>
 <div class="highlight-python notranslate" id="times_and_dates-rst-altair-source-5"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">temps</span><span class="p">)</span><span class="o">.</span><span class="n">mark_rect</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;hoursminutes(date_pacific):O&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;hour of day&#39;</span><span class="p">),</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;monthdate(date_pacific):O&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">),</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;temp:Q&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;temperature (F)&#39;</span><span class="p">)</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;hoursminutes(date_pacific):O&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;hour of day&#39;</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;monthdate(date_pacific):O&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;temp:Q&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;temperature (F)&#39;</span><span class="p">)</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -694,9 +699,9 @@ order to extract UTC time units.</p>
 <p>Here is the above chart visualized in UTC time, which will render the same way
 regardless of the system location:</p>
 <div class="highlight-python notranslate" id="times_and_dates-rst-altair-source-6"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">temps</span><span class="p">)</span><span class="o">.</span><span class="n">mark_rect</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;utchoursminutes(date_pacific):O&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;UTC hour of day&#39;</span><span class="p">),</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;utcmonthdate(date_pacific):O&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;UTC date&#39;</span><span class="p">),</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;temp:Q&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;temperature (F)&#39;</span><span class="p">)</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;utchoursminutes(date_pacific):O&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;UTC hour of day&#39;</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;utcmonthdate(date_pacific):O&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;UTC date&#39;</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;temp:Q&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;temperature (F)&#39;</span><span class="p">)</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -721,9 +726,9 @@ in UTC time, both on the Pandas side and on the Vega-Lite side:</p>
 <div class="highlight-python notranslate" id="times_and_dates-rst-altair-source-7"><div class="highlight"><pre><span></span><span class="n">temps</span><span class="p">[</span><span class="s1">&#39;date_utc&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">temps</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">tz_localize</span><span class="p">(</span><span class="s1">&#39;UTC&#39;</span><span class="p">)</span>
 
 <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">temps</span><span class="p">)</span><span class="o">.</span><span class="n">mark_rect</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;utchoursminutes(date_utc):O&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;hour of day&#39;</span><span class="p">),</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;utcmonthdate(date_utc):O&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">),</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;temp:Q&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;temperature (F)&#39;</span><span class="p">)</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;utchoursminutes(date_utc):O&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;hour of day&#39;</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;utcmonthdate(date_utc):O&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;temp:Q&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;temperature (F)&#39;</span><span class="p">)</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -935,7 +940,7 @@ the UTC+0 (GMT) timezone.</p>
     <div class="footer-items__end">
       
         <div class="footer-item"><p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.0.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.1.
 </p></div>
       
     </div>

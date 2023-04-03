@@ -14,10 +14,10 @@ faceted over income brackets
 
 
 .. altair-plot::
-    :code-below:
+    :remove-code:
     
 
-    
+
 
     import altair as alt
     from vega_datasets import data
@@ -39,4 +39,67 @@ faceted over income brackets
         height=175,
     ).project(
         type='albersUsa'
-    )
+    )# No channel encoding options are specified in this chart
+    # so the code is the same as for the method-based syntax.
+
+
+.. tab-set::
+
+    .. tab-item:: Method syntax
+        :sync: method
+
+        .. code:: python
+
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            states = alt.topo_feature(data.us_10m.url, 'states')
+            source = data.income.url
+
+            alt.Chart(source).mark_geoshape().encode(
+                shape='geo:G',
+                color='pct:Q',
+                tooltip=['name:N', 'pct:Q'],
+                facet=alt.Facet('group:N', columns=2),
+            ).transform_lookup(
+                lookup='id',
+                from_=alt.LookupData(data=states, key='id'),
+                as_='geo'
+            ).properties(
+                width=300,
+                height=175,
+            ).project(
+                type='albersUsa'
+            )
+
+    .. tab-item:: Attribute syntax
+        :sync: attribute
+
+        .. code:: python
+
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            states = alt.topo_feature(data.us_10m.url, 'states')
+            source = data.income.url
+
+            alt.Chart(source).mark_geoshape().encode(
+                shape='geo:G',
+                color='pct:Q',
+                tooltip=['name:N', 'pct:Q'],
+                facet=alt.Facet('group:N', columns=2),
+            ).transform_lookup(
+                lookup='id',
+                from_=alt.LookupData(data=states, key='id'),
+                as_='geo'
+            ).properties(
+                width=300,
+                height=175,
+            ).project(
+                type='albersUsa'
+            )# No channel encoding options are specified in this chart
+            # so the code is the same as for the method-based syntax.

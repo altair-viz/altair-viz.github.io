@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Impute &#8212; Vega-Altair 5.0.0rc1 documentation</title>
+    <title>Impute &#8212; Vega-Altair 5.0.0dev documentation</title>
   
   
   
@@ -32,8 +32,10 @@
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/altair-plot.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/altair-gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
@@ -45,9 +47,12 @@
     <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.6.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="../../_static/design-tabs.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'user_guide/transform/impute';</script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -173,14 +178,14 @@
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../API.html">
-                        API Reference
+                        API
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../ecosystem.html">
-                        Ecosystem
+                        Resources
                       </a>
                     </li>
                 
@@ -319,14 +324,14 @@ document.write(`
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../API.html">
-                        API Reference
+                        API
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../ecosystem.html">
-                        Ecosystem
+                        Resources
                       </a>
                     </li>
                 
@@ -565,7 +570,7 @@ data directly, the line skips the missing entries:</p>
 <div class="highlight-python notranslate" id="impute-rst-altair-source-1"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
 
 <span class="n">raw</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">point</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;t:Q&#39;</span><span class="p">),</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;t:Q&#39;</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="s1">&#39;value:Q&#39;</span><span class="p">,</span>
     <span class="n">color</span><span class="o">=</span><span class="s1">&#39;variable:N&#39;</span>
 <span class="p">)</span>
@@ -591,13 +596,13 @@ data directly, the line skips the missing entries:</p>
 no points) it can imply the existence of data that is not there.</p>
 <section id="impute-via-encodings">
 <h2>Impute via Encodings<a class="headerlink" href="#impute-via-encodings" title="Permalink to this heading">#</a></h2>
-<p>To address this, you can use an impute argument to the encoding channel.
+<p>To address this, you can use the impute method of the encoding channel.
 For example, we can impute using a constant value (we’ll show the raw chart
 lightly in the background for reference):</p>
 <div class="highlight-python notranslate" id="impute-rst-altair-source-2"><div class="highlight"><pre><span></span><span class="n">background</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">opacity</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mf">0.2</span><span class="p">))</span>
 <span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">point</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="s1">&#39;t:Q&#39;</span><span class="p">,</span>
-    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;value:Q&#39;</span><span class="p">,</span> <span class="n">impute</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">ImputeParams</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">)),</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;value:Q&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">impute</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
     <span class="n">color</span><span class="o">=</span><span class="s1">&#39;variable:N&#39;</span>
 <span class="p">)</span>
 <span class="n">background</span> <span class="o">+</span> <span class="n">chart</span>
@@ -621,7 +626,7 @@ lightly in the background for reference):</p>
 </div><p>Or we can impute using any supported aggregate:</p>
 <div class="highlight-python notranslate" id="impute-rst-altair-source-3"><div class="highlight"><pre><span></span><span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">point</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="s1">&#39;t:Q&#39;</span><span class="p">,</span>
-    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;value:Q&#39;</span><span class="p">,</span> <span class="n">impute</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">ImputeParams</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">)),</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;value:Q&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">impute</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">),</span>
     <span class="n">color</span><span class="o">=</span><span class="s1">&#39;variable:N&#39;</span>
 <span class="p">)</span>
 <span class="n">background</span> <span class="o">+</span> <span class="n">chart</span>
@@ -881,7 +886,7 @@ class, which has the following options:</p>
     <div class="footer-items__end">
       
         <div class="footer-item"><p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.0.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.1.
 </p></div>
       
     </div>

@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Error Bar &#8212; Vega-Altair 5.0.0rc1 documentation</title>
+    <title>Error Bar &#8212; Vega-Altair 5.0.0dev documentation</title>
   
   
   
@@ -32,8 +32,10 @@
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/altair-plot.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/altair-gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
@@ -45,9 +47,12 @@
     <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.6.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="../../_static/design-tabs.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'user_guide/marks/errorbar';</script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -173,14 +178,14 @@
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../API.html">
-                        API Reference
+                        API
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../ecosystem.html">
-                        Ecosystem
+                        Resources
                       </a>
                     </li>
                 
@@ -319,14 +324,14 @@ document.write(`
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../API.html">
-                        API Reference
+                        API
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../ecosystem.html">
-                        Ecosystem
+                        Resources
                       </a>
                     </li>
                 
@@ -596,7 +601,7 @@ the underlying mark properties for different parts of the error bar as well.</p>
 <span class="n">source</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">barley</span><span class="p">()</span>
 
 <span class="n">error_bars</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">mark_errorbar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;yield:Q&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">zero</span><span class="o">=</span><span class="kc">False</span><span class="p">)),</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;yield:Q&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">zero</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
     <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;variety:N&#39;</span><span class="p">)</span>
 <span class="p">)</span>
 
@@ -604,7 +609,7 @@ the underlying mark properties for different parts of the error bar as well.</p>
     <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span>
 <span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;yield:Q&quot;</span><span class="p">,</span> <span class="n">aggregate</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span><span class="p">),</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;mean(yield)&quot;</span><span class="p">),</span>
     <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;variety:N&quot;</span><span class="p">),</span>
 <span class="p">)</span>
 
@@ -635,12 +640,12 @@ the underlying mark properties for different parts of the error bar as well.</p>
 <span class="n">source</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">barley</span><span class="p">()</span>
 
 <span class="n">error_bars</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">mark_errorbar</span><span class="p">(</span><span class="n">extent</span><span class="o">=</span><span class="s2">&quot;stdev&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;yield:Q&quot;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">zero</span><span class="o">=</span><span class="kc">False</span><span class="p">)),</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;yield:Q&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">zero</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
     <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;variety:N&quot;</span><span class="p">),</span>
 <span class="p">)</span>
 
 <span class="n">points</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">(</span><span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;yield:Q&quot;</span><span class="p">,</span> <span class="n">aggregate</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span><span class="p">),</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;mean(yield)&quot;</span><span class="p">),</span>
     <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;variety:N&quot;</span><span class="p">),</span>
 <span class="p">)</span>
 
@@ -671,7 +676,7 @@ the underlying mark properties for different parts of the error bar as well.</p>
 <span class="n">source</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">barley</span><span class="p">()</span>
 
 <span class="n">error_bars</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">mark_errorbar</span><span class="p">(</span><span class="n">extent</span><span class="o">=</span><span class="s2">&quot;iqr&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;yield:Q&quot;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">zero</span><span class="o">=</span><span class="kc">False</span><span class="p">)),</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;yield:Q&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">zero</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
     <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;variety:N&quot;</span><span class="p">),</span>
 <span class="p">)</span>
 
@@ -679,7 +684,7 @@ the underlying mark properties for different parts of the error bar as well.</p>
     <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span>
 <span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;yield:Q&quot;</span><span class="p">,</span> <span class="n">aggregate</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span><span class="p">),</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;mean(yield)&quot;</span><span class="p">),</span>
     <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;variety:N&quot;</span><span class="p">),</span>
 <span class="p">)</span>
 
@@ -717,7 +722,7 @@ If the data is already pre-aggregated with low and high values of the error bars
 <span class="p">})</span>
 
 <span class="n">bar</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">mark_errorbar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;upper_yield:Q&quot;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">zero</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;yield&quot;</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;upper_yield:Q&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">zero</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;yield&quot;</span><span class="p">),</span>
     <span class="n">alt</span><span class="o">.</span><span class="n">X2</span><span class="p">(</span><span class="s2">&quot;lower_yield:Q&quot;</span><span class="p">),</span>
     <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;variety:N&quot;</span><span class="p">),</span>
 <span class="p">)</span>
@@ -760,7 +765,7 @@ If the data is already pre-aggregated with center and error values of the error 
 <span class="p">})</span>
 
 <span class="n">bar</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">mark_errorbar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;yield_center:Q&quot;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">zero</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;yield&quot;</span><span class="p">),</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;yield_center:Q&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">zero</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;yield&quot;</span><span class="p">),</span>
     <span class="n">xError</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;yield_error:Q&quot;</span><span class="p">),</span>
     <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;variety:N&quot;</span><span class="p">),</span>
 <span class="p">)</span>
@@ -804,14 +809,14 @@ If the data is already pre-aggregated with center and error values of the error 
 <span class="n">source</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">barley</span><span class="p">()</span>
 
 <span class="n">error_bars</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">mark_errorbar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;yield:Q&quot;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">zero</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;yield:Q&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">zero</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="p">)</span>
 
 <span class="n">points</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">(</span>
     <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span>
 <span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;yield:Q&quot;</span><span class="p">,</span> <span class="n">aggregate</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span><span class="p">)</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;mean(yield)&quot;</span><span class="p">)</span>
 <span class="p">)</span>
 
 <span class="n">error_bars</span> <span class="o">+</span> <span class="n">points</span>
@@ -840,7 +845,7 @@ If the data is already pre-aggregated with center and error values of the error 
 <span class="n">source</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">barley</span><span class="p">()</span>
 
 <span class="n">error_bars</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">mark_errorbar</span><span class="p">(</span><span class="n">extent</span><span class="o">=</span><span class="s2">&quot;stdev&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;yield:Q&quot;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">zero</span><span class="o">=</span><span class="kc">False</span><span class="p">)),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;yield:Q&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">zero</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
     <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;variety:N&quot;</span><span class="p">),</span>
 <span class="p">)</span>
 
@@ -848,7 +853,7 @@ If the data is already pre-aggregated with center and error values of the error 
     <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span>
 <span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;yield:Q&quot;</span><span class="p">,</span> <span class="n">aggregate</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;mean(yield)&quot;</span><span class="p">),</span>
     <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;variety:N&quot;</span><span class="p">),</span>
 <span class="p">)</span>
 
@@ -881,7 +886,7 @@ If the data is already pre-aggregated with center and error values of the error 
 <span class="n">source</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">barley</span><span class="p">()</span>
 
 <span class="n">error_bars</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">mark_errorbar</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;yield:Q&quot;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">zero</span><span class="o">=</span><span class="kc">False</span><span class="p">)),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;yield:Q&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">zero</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
     <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;variety:N&quot;</span><span class="p">),</span>
     <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s2">&quot;#4682b4&quot;</span><span class="p">),</span>
 <span class="p">)</span>
@@ -890,7 +895,7 @@ If the data is already pre-aggregated with center and error values of the error 
     <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span>
 <span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;yield:Q&quot;</span><span class="p">,</span> <span class="n">aggregate</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;mean(yield)&quot;</span><span class="p">),</span>
     <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;variety:N&quot;</span><span class="p">),</span>
 <span class="p">)</span>
 
@@ -922,7 +927,7 @@ If the data is already pre-aggregated with center and error values of the error 
 <span class="n">source</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">barley</span><span class="p">()</span>
 
 <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">mark_errorbar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;yield:Q&quot;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">zero</span><span class="o">=</span><span class="kc">False</span><span class="p">)),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;yield:Q&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">zero</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
     <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;variety:N&quot;</span><span class="p">),</span>
     <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;variety:N&quot;</span><span class="p">,</span>
 <span class="p">)</span>
@@ -1039,7 +1044,7 @@ If the data is already pre-aggregated with center and error values of the error 
     <div class="footer-items__end">
       
         <div class="footer-item"><p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.0.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.1.
 </p></div>
       
     </div>

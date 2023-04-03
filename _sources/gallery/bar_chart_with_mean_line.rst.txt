@@ -13,10 +13,10 @@ This example shows the mean value overlayed on a bar chart.
 
 
 .. altair-plot::
-    :code-below:
+    :remove-code:
     
 
-    
+
     import altair as alt
     from vega_datasets import data
 
@@ -32,3 +32,55 @@ This example shows the mean value overlayed on a bar chart.
     )
 
     (bar + rule).properties(width=600)
+    # No channel encoding options are specified in this chart
+    # so the code is the same as for the method-based syntax.
+
+
+.. tab-set::
+
+    .. tab-item:: Method syntax
+        :sync: method
+
+        .. code:: python
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            source = data.wheat()
+
+            bar = alt.Chart(source).mark_bar().encode(
+                x='year:O',
+                y='wheat:Q'
+            )
+
+            rule = alt.Chart(source).mark_rule(color='red').encode(
+                y='mean(wheat):Q'
+            )
+
+            (bar + rule).properties(width=600)
+
+
+    .. tab-item:: Attribute syntax
+        :sync: attribute
+
+        .. code:: python
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            source = data.wheat()
+
+            bar = alt.Chart(source).mark_bar().encode(
+                x='year:O',
+                y='wheat:Q'
+            )
+
+            rule = alt.Chart(source).mark_rule(color='red').encode(
+                y='mean(wheat):Q'
+            )
+
+            (bar + rule).properties(width=600)
+            # No channel encoding options are specified in this chart
+            # so the code is the same as for the method-based syntax.

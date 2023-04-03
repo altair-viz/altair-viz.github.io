@@ -15,10 +15,10 @@ in Lisa Charlotte Rost's blog post `'One Chart, Twelve Charting Libraries' <http
 
 
 .. altair-plot::
-    :code-below:
+    :remove-code:
     
 
-    
+
     import altair as alt
     from vega_datasets import data
 
@@ -29,3 +29,41 @@ in Lisa Charlotte Rost's blog post `'One Chart, Twelve Charting Libraries' <http
         alt.Y('health:Q', scale=alt.Scale(zero=False)),
         size='population:Q'
     )
+
+
+.. tab-set::
+
+    .. tab-item:: Method syntax
+        :sync: method
+
+        .. code:: python
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            source = data.gapminder_health_income.url
+
+            alt.Chart(source).mark_circle().encode(
+                alt.X('income:Q').scale(type='log'),
+                alt.Y('health:Q').scale(zero=False),
+                size='population:Q'
+            )
+
+
+    .. tab-item:: Attribute syntax
+        :sync: attribute
+
+        .. code:: python
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            source = data.gapminder_health_income.url
+
+            alt.Chart(source).mark_circle().encode(
+                alt.X('income:Q', scale=alt.Scale(type='log')),
+                alt.Y('health:Q', scale=alt.Scale(zero=False)),
+                size='population:Q'
+            )

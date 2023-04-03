@@ -13,10 +13,10 @@ This example shows how to make a 2d histogram scatter plot.
 
 
 .. altair-plot::
-    :code-below:
+    :remove-code:
     
 
-    
+
     import altair as alt
     from vega_datasets import data
 
@@ -27,3 +27,41 @@ This example shows how to make a 2d histogram scatter plot.
         alt.Y('Rotten_Tomatoes_Rating:Q', bin=True),
         size='count()'
     )
+
+
+.. tab-set::
+
+    .. tab-item:: Method syntax
+        :sync: method
+
+        .. code:: python
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            source = data.movies.url
+
+            alt.Chart(source).mark_circle().encode(
+                alt.X('IMDB_Rating:Q').bin(),
+                alt.Y('Rotten_Tomatoes_Rating:Q').bin(),
+                size='count()'
+            )
+
+
+    .. tab-item:: Attribute syntax
+        :sync: attribute
+
+        .. code:: python
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            source = data.movies.url
+
+            alt.Chart(source).mark_circle().encode(
+                alt.X('IMDB_Rating:Q', bin=True),
+                alt.Y('Rotten_Tomatoes_Rating:Q', bin=True),
+                size='count()'
+            )

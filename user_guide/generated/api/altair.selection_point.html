@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>altair.selection_point &#8212; Vega-Altair 5.0.0rc1 documentation</title>
+    <title>altair.selection_point &#8212; Vega-Altair 5.0.0dev documentation</title>
   
   
   
@@ -32,8 +32,10 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/altair-plot.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/altair-gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
@@ -45,9 +47,12 @@
     <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.6.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="../../../_static/design-tabs.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'user_guide/generated/api/altair.selection_point';</script>
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -173,14 +178,14 @@
 
                     <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="../../API.html">
-                        API Reference
+                        API
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../../ecosystem.html">
-                        Ecosystem
+                        Resources
                       </a>
                     </li>
                 
@@ -319,14 +324,14 @@ document.write(`
 
                     <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="../../API.html">
-                        API Reference
+                        API
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../../ecosystem.html">
-                        Ecosystem
+                        Resources
                       </a>
                     </li>
                 
@@ -988,7 +993,7 @@ document.write(`
 <h1>altair.selection_point<a class="headerlink" href="#altair-selection-point" title="Permalink to this heading">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="altair.selection_point">
-<span class="sig-prename descclassname"><span class="pre">altair.</span></span><span class="sig-name descname"><span class="pre">selection_point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Undefined</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bind</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Undefined</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">empty</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Undefined</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Undefined</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encodings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Undefined</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">on</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Undefined</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clear</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Undefined</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolve</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Undefined</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">toggle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Undefined</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nearest</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Undefined</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#altair.selection_point" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">altair.</span></span><span class="sig-name descname"><span class="pre">selection_point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Undefined</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bind</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Undefined</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">empty</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Undefined</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Undefined</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encodings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Undefined</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fields</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Undefined</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">on</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Undefined</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clear</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Undefined</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolve</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Undefined</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">toggle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Undefined</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nearest</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Undefined</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#altair.selection_point" title="Permalink to this definition">#</a></dt>
 <dd><p>Create a point selection parameter. Selection parameters define data queries that are driven by direct manipulation from user input (e.g., mouse clicks or drags). Point selection parameters are used to select multiple discrete data values; the first value is selected on click and additional values toggled on shift-click. To select a continuous range of data values on drag interval selection parameters (<cite>selection_interval</cite>) can be used instead.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -996,11 +1001,11 @@ document.write(`
 <dt><strong>name</strong><span class="classifier">string (optional)</span></dt><dd><p>The name of the parameter. If not specified, a unique name will be
 created.</p>
 </dd>
-<dt><strong>bind</strong><span class="classifier"><a class="reference internal" href="../core/altair.Binding.html#altair.Binding" title="altair.Binding"><code class="xref py py-class docutils literal notranslate"><span class="pre">Binding</span></code></a> (optional)</span></dt><dd><p>Binds the parameter to an external input element such as a slider,
-selection list or radio button group.</p>
-</dd>
 <dt><strong>value</strong><span class="classifier">any (optional)</span></dt><dd><p>The default value of the parameter. If not specified, the parameter
 will be created without a default value.</p>
+</dd>
+<dt><strong>bind</strong><span class="classifier"><a class="reference internal" href="../core/altair.Binding.html#altair.Binding" title="altair.Binding"><code class="xref py py-class docutils literal notranslate"><span class="pre">Binding</span></code></a> (optional)</span></dt><dd><p>Binds the parameter to an external input element such as a slider,
+selection list or radio button group.</p>
 </dd>
 <dt><strong>empty</strong><span class="classifier">boolean (optional)</span></dt><dd><p>For selection parameters, the predicate of empty selections returns
 True by default. Override this behavior, by setting this property
@@ -1064,7 +1069,7 @@ added to the selection.  The default is False, which means that
 data values must be interacted with directly (e.g., clicked on)
 to be added to the selection.</p>
 </dd>
-<dt><strong>**kwds</strong></dt><dd><p>additional keywords to control the selection.</p>
+<dt><strong>**kwds</strong></dt><dd><p>Additional keywords to control the selection.</p>
 </dd>
 </dl>
 </dd>
@@ -1167,7 +1172,7 @@ to be added to the selection.</p>
     <div class="footer-items__end">
       
         <div class="footer-item"><p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.0.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.1.
 </p></div>
       
     </div>

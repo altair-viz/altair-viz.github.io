@@ -13,10 +13,10 @@ A bar chart overlayed with a rolling mean. In this example the average of values
 
 
 .. altair-plot::
-    :code-below:
+    :remove-code:
     
 
-    
+
     import altair as alt
     from vega_datasets import data
 
@@ -38,3 +38,67 @@ A bar chart overlayed with a rolling mean. In this example the average of values
     )
 
     (bar + line).properties(width=600)
+    # No channel encoding options are specified in this chart
+    # so the code is the same as for the method-based syntax.
+
+
+.. tab-set::
+
+    .. tab-item:: Method syntax
+        :sync: method
+
+        .. code:: python
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            source = data.wheat()
+
+            bar = alt.Chart(source).mark_bar().encode(
+                x='year:O',
+                y='wheat:Q'
+            )
+
+            line = alt.Chart(source).mark_line(color='red').transform_window(
+                # The field to average
+                rolling_mean='mean(wheat)',
+                # The number of values before and after the current value to include.
+                frame=[-9, 0]
+            ).encode(
+                x='year:O',
+                y='rolling_mean:Q'
+            )
+
+            (bar + line).properties(width=600)
+
+
+    .. tab-item:: Attribute syntax
+        :sync: attribute
+
+        .. code:: python
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            source = data.wheat()
+
+            bar = alt.Chart(source).mark_bar().encode(
+                x='year:O',
+                y='wheat:Q'
+            )
+
+            line = alt.Chart(source).mark_line(color='red').transform_window(
+                # The field to average
+                rolling_mean='mean(wheat)',
+                # The number of values before and after the current value to include.
+                frame=[-9, 0]
+            ).encode(
+                x='year:O',
+                y='rolling_mean:Q'
+            )
+
+            (bar + line).properties(width=600)
+            # No channel encoding options are specified in this chart
+            # so the code is the same as for the method-based syntax.

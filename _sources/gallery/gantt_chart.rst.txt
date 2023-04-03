@@ -13,10 +13,10 @@ This example shows how to make a simple Gantt chart.
 
 
 .. altair-plot::
-    :code-below:
+    :remove-code:
     
 
-    
+
     import altair as alt
     import pandas as pd
 
@@ -31,3 +31,53 @@ This example shows how to make a simple Gantt chart.
         x2='end',
         y='task'
     )
+    # No channel encoding options are specified in this chart
+    # so the code is the same as for the method-based syntax.
+
+
+.. tab-set::
+
+    .. tab-item:: Method syntax
+        :sync: method
+
+        .. code:: python
+
+
+            import altair as alt
+            import pandas as pd
+
+            source = pd.DataFrame([
+                {"task": "A", "start": 1, "end": 3},
+                {"task": "B", "start": 3, "end": 8},
+                {"task": "C", "start": 8, "end": 10}
+            ])
+
+            alt.Chart(source).mark_bar().encode(
+                x='start',
+                x2='end',
+                y='task'
+            )
+
+
+    .. tab-item:: Attribute syntax
+        :sync: attribute
+
+        .. code:: python
+
+
+            import altair as alt
+            import pandas as pd
+
+            source = pd.DataFrame([
+                {"task": "A", "start": 1, "end": 3},
+                {"task": "B", "start": 3, "end": 8},
+                {"task": "C", "start": 8, "end": 10}
+            ])
+
+            alt.Chart(source).mark_bar().encode(
+                x='start',
+                x2='end',
+                y='task'
+            )
+            # No channel encoding options are specified in this chart
+            # so the code is the same as for the method-based syntax.

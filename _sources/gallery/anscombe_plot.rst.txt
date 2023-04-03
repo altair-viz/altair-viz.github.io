@@ -14,10 +14,10 @@ This example shows how to use the column channel to make a trellis plot. Anscomb
 
 
 .. altair-plot::
-    :code-below:
+    :remove-code:
     
 
-    
+
     import altair as alt
     from vega_datasets import data
 
@@ -31,3 +31,47 @@ This example shows how to use the column channel to make a trellis plot. Anscomb
         width=180,
         height=180,
     )
+
+
+.. tab-set::
+
+    .. tab-item:: Method syntax
+        :sync: method
+
+        .. code:: python
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            source = data.anscombe()
+
+            alt.Chart(source).mark_circle().encode(
+                alt.X('X').scale(zero=False),
+                alt.Y('Y').scale(zero=False),
+                alt.Facet('Series', columns=2),
+            ).properties(
+                width=180,
+                height=180,
+            )
+
+
+    .. tab-item:: Attribute syntax
+        :sync: attribute
+
+        .. code:: python
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            source = data.anscombe()
+
+            alt.Chart(source).mark_circle().encode(
+                alt.X('X', scale=alt.Scale(zero=False)),
+                alt.Y('Y', scale=alt.Scale(zero=False)),
+                alt.Facet('Series', columns=2),
+            ).properties(
+                width=180,
+                height=180,
+            )

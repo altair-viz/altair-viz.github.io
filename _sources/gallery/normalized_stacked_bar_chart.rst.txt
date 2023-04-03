@@ -13,10 +13,10 @@ This is an example of a normalized stacked bar chart using data which contains c
 
 
 .. altair-plot::
-    :code-below:
+    :remove-code:
     
 
-    
+
     import altair as alt
     from vega_datasets import data
 
@@ -27,3 +27,41 @@ This is an example of a normalized stacked bar chart using data which contains c
         y='variety',
         color='site'
     )
+
+
+.. tab-set::
+
+    .. tab-item:: Method syntax
+        :sync: method
+
+        .. code:: python
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            source = data.barley()
+
+            alt.Chart(source).mark_bar().encode(
+                x=alt.X('sum(yield)').stack("normalize"),
+                y='variety',
+                color='site'
+            )
+
+
+    .. tab-item:: Attribute syntax
+        :sync: attribute
+
+        .. code:: python
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            source = data.barley()
+
+            alt.Chart(source).mark_bar().encode(
+                x=alt.X('sum(yield)', stack="normalize"),
+                y='variety',
+                color='site'
+            )

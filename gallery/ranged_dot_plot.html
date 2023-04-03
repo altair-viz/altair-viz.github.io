@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Ranged Dot Plot &#8212; Vega-Altair 5.0.0rc1 documentation</title>
+    <title>Ranged Dot Plot &#8212; Vega-Altair 5.0.0dev documentation</title>
   
   
   
@@ -32,8 +32,10 @@
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/altair-plot.css" />
     <link rel="stylesheet" type="text/css" href="../_static/altair-gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
@@ -45,9 +47,12 @@
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.6.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'gallery/ranged_dot_plot';</script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -171,14 +176,14 @@
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../user_guide/API.html">
-                        API Reference
+                        API
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../user_guide/ecosystem.html">
-                        Ecosystem
+                        Resources
                       </a>
                     </li>
                 
@@ -313,14 +318,14 @@ document.write(`
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../user_guide/API.html">
-                        API Reference
+                        API
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../user_guide/ecosystem.html">
-                        Ecosystem
+                        Resources
                       </a>
                     </li>
                 
@@ -441,7 +446,7 @@ document.write(`
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "layer": [{"mark": {"type": "line", "color": "#db646f"}, "encoding": {"detail": {"field": "country", "type": "nominal"}, "x": {"field": "life_expect", "type": "quantitative"}, "y": {"field": "country", "type": "nominal"}}, "transform": [{"filter": {"field": "country", "oneOf": ["China", "India", "United States", "Indonesia", "Brazil"]}}, {"filter": {"field": "year", "oneOf": [1955, 2000]}}]}, {"mark": {"type": "point", "filled": true, "opacity": 1, "size": 100}, "encoding": {"color": {"field": "year", "scale": {"domain": [1955, 2000], "range": ["#e6959c", "#911a24"]}, "type": "ordinal"}, "x": {"field": "life_expect", "type": "quantitative"}, "y": {"field": "country", "type": "nominal"}}, "name": "view_15", "transform": [{"filter": {"field": "country", "oneOf": ["China", "India", "United States", "Indonesia", "Brazil"]}}, {"filter": {"field": "year", "oneOf": [1955, 2000]}}]}], "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/countries.json"}, "params": [{"name": "param_18", "select": {"type": "interval", "encodings": ["x", "y"]}, "bind": "scales", "views": ["view_15"]}], "$schema": "https://vega.github.io/schema/vega-lite/v5.6.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "layer": [{"mark": {"type": "line", "color": "#db646f"}, "encoding": {"detail": {"field": "country", "type": "nominal"}, "x": {"field": "life_expect", "type": "quantitative"}, "y": {"field": "country", "type": "nominal"}}, "transform": [{"filter": {"field": "country", "oneOf": ["China", "India", "United States", "Indonesia", "Brazil"]}}, {"filter": {"field": "year", "oneOf": [1955, 2000]}}]}, {"mark": {"type": "point", "filled": true, "opacity": 1, "size": 100}, "encoding": {"color": {"field": "year", "scale": {"domain": [1955, 2000], "range": ["#e6959c", "#911a24"]}, "type": "ordinal"}, "x": {"field": "life_expect", "type": "quantitative"}, "y": {"field": "country", "type": "nominal"}}, "name": "view_48", "transform": [{"filter": {"field": "country", "oneOf": ["China", "India", "United States", "Indonesia", "Brazil"]}}, {"filter": {"field": "year", "oneOf": [1955, 2000]}}]}], "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/countries.json"}, "params": [{"name": "param_50", "select": {"type": "interval", "encodings": ["x", "y"]}, "bind": "scales", "views": ["view_48"]}], "$schema": "https://vega.github.io/schema/vega-lite/v5.6.1.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -450,7 +455,49 @@ document.write(`
       vegaEmbed('#ranged_dot_plot-rst-altair-plot-0', spec, opt).catch(console.err);
   });
 </script>
-</div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+</div><div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" data-sync-id="method" for="sd-tab-item-0">
+Method syntax</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+
+<span class="n">source</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">countries</span><span class="o">.</span><span class="n">url</span>
+
+<span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">source</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span>
+    <span class="nb">filter</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;field&quot;</span><span class="p">:</span> <span class="s1">&#39;country&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;oneOf&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;China&quot;</span><span class="p">,</span> <span class="s2">&quot;India&quot;</span><span class="p">,</span> <span class="s2">&quot;United States&quot;</span><span class="p">,</span> <span class="s2">&quot;Indonesia&quot;</span><span class="p">,</span> <span class="s2">&quot;Brazil&quot;</span><span class="p">]}</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span>
+    <span class="nb">filter</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;field&#39;</span><span class="p">:</span> <span class="s1">&#39;year&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;oneOf&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1955</span><span class="p">,</span> <span class="mi">2000</span><span class="p">]}</span>
+<span class="p">)</span>
+
+<span class="n">line</span> <span class="o">=</span> <span class="n">chart</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#db646f&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;life_expect:Q&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;country:N&#39;</span><span class="p">,</span>
+    <span class="n">detail</span><span class="o">=</span><span class="s1">&#39;country:N&#39;</span>
+<span class="p">)</span>
+<span class="c1"># Add points for life expectancy in 1955 &amp; 2000</span>
+<span class="n">points</span> <span class="o">=</span> <span class="n">chart</span><span class="o">.</span><span class="n">mark_point</span><span class="p">(</span>
+    <span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">opacity</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">filled</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;life_expect:Q&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;country:N&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;year:O&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mi">1955</span><span class="p">,</span> <span class="mi">2000</span><span class="p">],</span> <span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;#e6959c&#39;</span><span class="p">,</span> <span class="s1">&#39;#911a24&#39;</span><span class="p">])</span>
+<span class="p">)</span><span class="o">.</span><span class="n">interactive</span><span class="p">()</span>
+
+<span class="p">(</span><span class="n">line</span> <span class="o">+</span> <span class="n">points</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" data-sync-id="attribute" for="sd-tab-item-1">
+Attribute syntax</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
 <span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
 
 <span class="n">source</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">countries</span><span class="o">.</span><span class="n">url</span>
@@ -488,6 +535,8 @@ document.write(`
 
 <span class="p">(</span><span class="n">line</span> <span class="o">+</span> <span class="n">points</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
 </div>
 </section>
 
@@ -547,7 +596,7 @@ document.write(`
     <div class="footer-items__end">
       
         <div class="footer-item"><p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.0.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.1.
 </p></div>
       
     </div>

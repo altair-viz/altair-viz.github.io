@@ -17,10 +17,10 @@ the tooltip encoding.
 
 
 .. altair-plot::
-    :code-below:
+    :remove-code:
     
 
-    
+
 
     import altair as alt
     import pandas as pd
@@ -34,3 +34,51 @@ the tooltip encoding.
         y='b',
         tooltip=['image']  # Must be a list containing a field called "image"
     )
+    # No channel encoding options are specified in this chart
+    # so the code is the same as for the method-based syntax.
+
+
+.. tab-set::
+
+    .. tab-item:: Method syntax
+        :sync: method
+
+        .. code:: python
+
+
+
+            import altair as alt
+            import pandas as pd
+
+            source = pd.DataFrame.from_records(
+                [{'a': 1, 'b': 1, 'image': 'https://altair-viz.github.io/_static/altair-logo-light.png'},
+                 {'a': 2, 'b': 2, 'image': 'https://avatars.githubusercontent.com/u/11796929?s=200&v=4'}]
+            )
+            alt.Chart(source).mark_circle(size=200).encode(
+                x='a',
+                y='b',
+                tooltip=['image']  # Must be a list containing a field called "image"
+            )
+
+
+    .. tab-item:: Attribute syntax
+        :sync: attribute
+
+        .. code:: python
+
+
+
+            import altair as alt
+            import pandas as pd
+
+            source = pd.DataFrame.from_records(
+                [{'a': 1, 'b': 1, 'image': 'https://altair-viz.github.io/_static/altair-logo-light.png'},
+                 {'a': 2, 'b': 2, 'image': 'https://avatars.githubusercontent.com/u/11796929?s=200&v=4'}]
+            )
+            alt.Chart(source).mark_circle(size=200).encode(
+                x='a',
+                y='b',
+                tooltip=['image']  # Must be a list containing a field called "image"
+            )
+            # No channel encoding options are specified in this chart
+            # so the code is the same as for the method-based syntax.

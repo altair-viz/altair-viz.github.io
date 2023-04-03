@@ -15,10 +15,10 @@ This is adapted from this corresponding Vega-Lite Example:
 
 
 .. altair-plot::
-    :code-below:
+    :remove-code:
     
 
-    
+
 
     import altair as alt
     from vega_datasets import data
@@ -32,3 +32,49 @@ This is adapted from this corresponding Vega-Lite Example:
         ),
         color=alt.datum(alt.repeat("layer")),
     ).repeat(layer=["US_Gross", "Worldwide_Gross"])
+
+
+.. tab-set::
+
+    .. tab-item:: Method syntax
+        :sync: method
+
+        .. code:: python
+
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            source = data.movies()
+
+            alt.Chart(source).mark_line().encode(
+                alt.X("IMDB_Rating").bin(True),
+                alt.Y(alt.repeat("layer"))
+                    .aggregate("mean")
+                    .title("Mean of US and Worldwide Gross"),
+                color=alt.datum(alt.repeat("layer")),
+            ).repeat(
+                layer=["US_Gross", "Worldwide_Gross"]
+            )
+
+
+    .. tab-item:: Attribute syntax
+        :sync: attribute
+
+        .. code:: python
+
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            source = data.movies()
+
+            alt.Chart(source).mark_line().encode(
+                x=alt.X("IMDB_Rating", bin=True),
+                y=alt.Y(
+                    alt.repeat("layer"), aggregate="mean", title="Mean of US and Worldwide Gross"
+                ),
+                color=alt.datum(alt.repeat("layer")),
+            ).repeat(layer=["US_Gross", "Worldwide_Gross"])

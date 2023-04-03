@@ -24,11 +24,12 @@ Enhancements
 - Substantially improved error handling. Both in terms of finding the more relevant error (#2842), and in terms of improving the formatting and clarity of the error messages (#2824, #2568).
 - Include experimental support for the DataFrame Interchange Protocol (through ``__dataframe__`` attribute). This requires ``pyarrow>=11.0.0`` (#2888).
 - Support data type inference for columns with special characters (#2905).
+- Changed error message to be more informative when two field strings are using in a condition (#2979).
 
 Grammar Changes
 ~~~~~~~~~~~~~~~
 
-- Channel options can now be set via a method based syntax in addition to the previous helper class syntax. For example, in addition to ``alt.X(..., bin=alt.Bin(...))`` it is now possible to do ``alt.X(...).bin(...)```) (#2795). See :ref:`method-based-attribute-setting` for details.
+- Channel options can now be set via a more convenient method-based syntax in addition to the previous attribute-based syntax. For example, instead of ``alt.X(..., bin=alt.Bin(...))`` it is now recommend to use ``alt.X(...).bin(...)```) (#2795). See :ref:`method-based-attribute-setting` for details.
 - ``selection_single`` and ``selection_multi`` are now deprecated; use ``selection_point`` instead.  Similarly, ``type=point`` should be used instead of ``type=single`` and ``type=multi``.
 - ``add_selection`` is deprecated; use ``add_params`` instead.
 - The ``selection`` keyword argument must in many cases be replaced by ``param`` (e.g., when specifying a filter transform).

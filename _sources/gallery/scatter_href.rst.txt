@@ -15,10 +15,10 @@ a google search for the car name.
 
 
 .. altair-plot::
-    :code-below:
+    :remove-code:
     
 
-    
+
 
     import altair as alt
     from vega_datasets import data
@@ -34,3 +34,55 @@ a google search for the car name.
         href='url:N',
         tooltip=['Name:N', 'url:N']
     )
+    # No channel encoding options are specified in this chart
+    # so the code is the same as for the method-based syntax.
+
+
+.. tab-set::
+
+    .. tab-item:: Method syntax
+        :sync: method
+
+        .. code:: python
+
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            source = data.cars()
+
+            alt.Chart(source).transform_calculate(
+                url='https://www.google.com/search?q=' + alt.datum.Name
+            ).mark_point().encode(
+                x='Horsepower:Q',
+                y='Miles_per_Gallon:Q',
+                color='Origin:N',
+                href='url:N',
+                tooltip=['Name:N', 'url:N']
+            )
+
+
+    .. tab-item:: Attribute syntax
+        :sync: attribute
+
+        .. code:: python
+
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            source = data.cars()
+
+            alt.Chart(source).transform_calculate(
+                url='https://www.google.com/search?q=' + alt.datum.Name
+            ).mark_point().encode(
+                x='Horsepower:Q',
+                y='Miles_per_Gallon:Q',
+                color='Origin:N',
+                href='url:N',
+                tooltip=['Name:N', 'url:N']
+            )
+            # No channel encoding options are specified in this chart
+            # so the code is the same as for the method-based syntax.

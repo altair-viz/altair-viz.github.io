@@ -15,10 +15,10 @@ easier to hover over them.
 
 
 .. altair-plot::
-    :code-below:
+    :remove-code:
     
 
-    
+
 
     import altair as alt
     from vega_datasets import data
@@ -31,3 +31,49 @@ easier to hover over them.
         color='Origin',
         tooltip=['Name', 'Origin', 'Horsepower', 'Miles_per_Gallon']
     ).interactive()
+    # No channel encoding options are specified in this chart
+    # so the code is the same as for the method-based syntax.
+
+
+.. tab-set::
+
+    .. tab-item:: Method syntax
+        :sync: method
+
+        .. code:: python
+
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            source = data.cars()
+
+            alt.Chart(source).mark_circle(size=60).encode(
+                x='Horsepower',
+                y='Miles_per_Gallon',
+                color='Origin',
+                tooltip=['Name', 'Origin', 'Horsepower', 'Miles_per_Gallon']
+            ).interactive()
+
+
+    .. tab-item:: Attribute syntax
+        :sync: attribute
+
+        .. code:: python
+
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            source = data.cars()
+
+            alt.Chart(source).mark_circle(size=60).encode(
+                x='Horsepower',
+                y='Miles_per_Gallon',
+                color='Origin',
+                tooltip=['Name', 'Origin', 'Horsepower', 'Miles_per_Gallon']
+            ).interactive()
+            # No channel encoding options are specified in this chart
+            # so the code is the same as for the method-based syntax.

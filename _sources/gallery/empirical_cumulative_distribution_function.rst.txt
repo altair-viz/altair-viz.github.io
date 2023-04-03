@@ -13,10 +13,10 @@ This example shows an empirical cumulative distribution function.
 
 
 .. altair-plot::
-    :code-below:
+    :remove-code:
     
 
-    
+
     import altair as alt
     from vega_datasets import data
 
@@ -31,3 +31,53 @@ This example shows an empirical cumulative distribution function.
         x="IMDB_Rating:Q",
         y="ecdf:Q"
     )
+    # No channel encoding options are specified in this chart
+    # so the code is the same as for the method-based syntax.
+
+
+.. tab-set::
+
+    .. tab-item:: Method syntax
+        :sync: method
+
+        .. code:: python
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            source = data.movies.url
+
+            alt.Chart(source).transform_window(
+                ecdf="cume_dist()",
+                sort=[{"field": "IMDB_Rating"}],
+            ).mark_line(
+                interpolate="step-after"
+            ).encode(
+                x="IMDB_Rating:Q",
+                y="ecdf:Q"
+            )
+
+
+    .. tab-item:: Attribute syntax
+        :sync: attribute
+
+        .. code:: python
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            source = data.movies.url
+
+            alt.Chart(source).transform_window(
+                ecdf="cume_dist()",
+                sort=[{"field": "IMDB_Rating"}],
+            ).mark_line(
+                interpolate="step-after"
+            ).encode(
+                x="IMDB_Rating:Q",
+                y="ecdf:Q"
+            )
+            # No channel encoding options are specified in this chart
+            # so the code is the same as for the method-based syntax.

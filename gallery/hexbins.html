@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Hexbin Chart &#8212; Vega-Altair 5.0.0rc1 documentation</title>
+    <title>Hexbin Chart &#8212; Vega-Altair 5.0.0dev documentation</title>
   
   
   
@@ -32,8 +32,10 @@
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/altair-plot.css" />
     <link rel="stylesheet" type="text/css" href="../_static/altair-gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
@@ -45,9 +47,12 @@
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.6.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'gallery/hexbins';</script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -171,14 +176,14 @@
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../user_guide/API.html">
-                        API Reference
+                        API
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../user_guide/ecosystem.html">
-                        Ecosystem
+                        Resources
                       </a>
                     </li>
                 
@@ -313,14 +318,14 @@ document.write(`
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../user_guide/API.html">
-                        API Reference
+                        API
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../user_guide/ecosystem.html">
-                        Ecosystem
+                        Resources
                       </a>
                     </li>
                 
@@ -450,7 +455,57 @@ document.write(`
       vegaEmbed('#hexbins-rst-altair-plot-0', spec, opt).catch(console.err);
   });
 </script>
-</div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+</div><div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" data-sync-id="method" for="sd-tab-item-0">
+Method syntax</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+
+<span class="n">source</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">seattle_weather</span><span class="p">()</span>
+
+<span class="c1"># Size of the hexbins</span>
+<span class="n">size</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="c1"># Count of distinct x features</span>
+<span class="n">xFeaturesCount</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="c1"># Count of distinct y features</span>
+<span class="n">yFeaturesCount</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="c1"># Name of the x field</span>
+<span class="n">xField</span> <span class="o">=</span> <span class="s1">&#39;date&#39;</span>
+<span class="c1"># Name of the y field</span>
+<span class="n">yField</span> <span class="o">=</span> <span class="s1">&#39;date&#39;</span>
+
+<span class="c1"># the shape of a hexagon</span>
+<span class="n">hexagon</span> <span class="o">=</span> <span class="s2">&quot;M0,-2.3094010768L2,-1.1547005384 2,1.1547005384 0,2.3094010768 -2,1.1547005384 -2,-1.1547005384Z&quot;</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="n">hexagon</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;xFeaturePos:Q&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Month&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="n">grid</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">tickOpacity</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">domainOpacity</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;day(&#39;</span> <span class="o">+</span> <span class="n">yField</span> <span class="o">+</span> <span class="s1">&#39;):O&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Weekday&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="n">labelPadding</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">tickOpacity</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">domainOpacity</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+    <span class="n">stroke</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">),</span>
+    <span class="n">strokeWidth</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mf">0.2</span><span class="p">),</span>
+    <span class="n">fill</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;mean(temp_max):Q&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">scheme</span><span class="o">=</span><span class="s1">&#39;darkblue&#39;</span><span class="p">),</span>
+    <span class="n">tooltip</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;month(&#39;</span> <span class="o">+</span> <span class="n">xField</span> <span class="o">+</span> <span class="s1">&#39;):O&#39;</span><span class="p">,</span> <span class="s1">&#39;day(&#39;</span> <span class="o">+</span> <span class="n">yField</span> <span class="o">+</span> <span class="s1">&#39;):O&#39;</span><span class="p">,</span> <span class="s1">&#39;mean(temp_max):Q&#39;</span><span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_calculate</span><span class="p">(</span>
+    <span class="c1"># This field is required for the hexagonal X-Offset</span>
+    <span class="n">xFeaturePos</span><span class="o">=</span><span class="s1">&#39;(day(datum.&#39;</span> <span class="o">+</span> <span class="n">yField</span> <span class="o">+</span> <span class="s1">&#39;) % 2) / 2 + month(datum.&#39;</span> <span class="o">+</span> <span class="n">xField</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="c1"># Exact scaling factors to make the hexbins fit</span>
+    <span class="n">width</span><span class="o">=</span><span class="n">size</span> <span class="o">*</span> <span class="n">xFeaturesCount</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="n">size</span> <span class="o">*</span> <span class="n">yFeaturesCount</span> <span class="o">*</span> <span class="mf">1.7320508076</span><span class="p">,</span>  <span class="c1"># 1.7320508076 is approx. sin(60°)*2</span>
+<span class="p">)</span><span class="o">.</span><span class="n">configure_view</span><span class="p">(</span>
+    <span class="n">strokeWidth</span><span class="o">=</span><span class="mi">0</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" data-sync-id="attribute" for="sd-tab-item-1">
+Attribute syntax</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
 <span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
 
 <span class="n">source</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">seattle_weather</span><span class="p">()</span>
@@ -489,6 +544,8 @@ document.write(`
     <span class="n">strokeWidth</span><span class="o">=</span><span class="mi">0</span>
 <span class="p">)</span>
 </pre></div>
+</div>
+</div>
 </div>
 </section>
 
@@ -548,7 +605,7 @@ document.write(`
     <div class="footer-items__end">
       
         <div class="footer-item"><p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.0.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.1.
 </p></div>
       
     </div>

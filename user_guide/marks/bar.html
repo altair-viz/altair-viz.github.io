@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Bar &#8212; Vega-Altair 5.0.0rc1 documentation</title>
+    <title>Bar &#8212; Vega-Altair 5.0.0dev documentation</title>
   
   
   
@@ -32,8 +32,10 @@
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/altair-plot.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/altair-gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
@@ -45,9 +47,12 @@
     <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.6.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="../../_static/design-tabs.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'user_guide/marks/bar';</script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -173,14 +178,14 @@
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../API.html">
-                        API Reference
+                        API
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../ecosystem.html">
-                        Ecosystem
+                        Resources
                       </a>
                     </li>
                 
@@ -319,14 +324,14 @@ document.write(`
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../API.html">
-                        API Reference
+                        API
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../ecosystem.html">
-                        Ecosystem
+                        Resources
                       </a>
                     </li>
                 
@@ -550,7 +555,7 @@ document.write(`
 <span class="p">)</span>
 
 <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">(</span><span class="n">cornerRadius</span><span class="o">=</span><span class="n">corner_var</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;a:N&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">labelAngle</span><span class="o">=</span><span class="mi">0</span><span class="p">)),</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;a:N&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="n">labelAngle</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
     <span class="n">y</span><span class="o">=</span><span class="s2">&quot;b:Q&quot;</span><span class="p">,</span>
 <span class="p">)</span><span class="o">.</span><span class="n">add_params</span><span class="p">(</span><span class="n">corner_var</span><span class="p">)</span>
 </pre></div>
@@ -629,7 +634,9 @@ and the following special properties:</p>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>cornerRadius</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="../generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The radius in pixels of rounded rectangles or arcs’ corners.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>cornerRadiusEnd</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="../generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
@@ -641,19 +648,27 @@ and the following special properties:</p>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>cornerRadiusTopLeft</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="../generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The radius in pixels of rounded rectangles’ top right corner.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>cornerRadiusTopRight</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="../generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The radius in pixels of rounded rectangles’ top left corner.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>cornerRadiusBottomRight</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="../generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The radius in pixels of rounded rectangles’ bottom right corner.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>cornerRadiusBottomLeft</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="../generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The radius in pixels of rounded rectangles’ bottom left corner.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -670,7 +685,7 @@ and the following special properties:</p>
 <span class="n">source</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">population</span><span class="o">.</span><span class="n">url</span>
 
 <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;sum(people):Q&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Population&quot;</span><span class="p">)</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;sum(people):Q&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Population&quot;</span><span class="p">)</span>
 <span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span>
     <span class="n">datum</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2000</span>
 <span class="p">)</span>
@@ -702,7 +717,7 @@ and the following special properties:</p>
 <span class="n">source</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">population</span><span class="o">.</span><span class="n">url</span>
 
 <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;sum(people):Q&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Population&quot;</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;sum(people):Q&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Population&quot;</span><span class="p">),</span>
     <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;age:O&quot;</span><span class="p">),</span>
 <span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span>
     <span class="n">datum</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2000</span>
@@ -738,7 +753,7 @@ bars on continuous scales will be set based on the <code class="docutils literal
 <span class="n">source</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">seattle_weather</span><span class="p">()</span>
 
 <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;month(date):T&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Date&quot;</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;month(date):T&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Date&quot;</span><span class="p">),</span>
     <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;mean(precipitation):Q&quot;</span><span class="p">),</span>
 <span class="p">)</span>
 </pre></div>
@@ -768,7 +783,7 @@ bars on continuous scales will be set based on the <code class="docutils literal
 <span class="n">source</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">movies</span><span class="o">.</span><span class="n">url</span>
 
 <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;IMDB_Rating:Q&quot;</span><span class="p">,</span> <span class="nb">bin</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;IMDB_Rating:Q&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">bin</span><span class="p">(),</span>
     <span class="n">y</span><span class="o">=</span><span class="s1">&#39;count()&#39;</span><span class="p">,</span>
 <span class="p">)</span>
 </pre></div>
@@ -779,7 +794,7 @@ bars on continuous scales will be set based on the <code class="docutils literal
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/movies.json"}, "mark": {"type": "bar"}, "encoding": {"x": {"bin": true, "field": "IMDB_Rating", "type": "quantitative"}, "y": {"aggregate": "count", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.6.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/movies.json"}, "mark": {"type": "bar"}, "encoding": {"x": {"bin": {}, "field": "IMDB_Rating", "type": "quantitative"}, "y": {"aggregate": "count", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.6.1.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -957,7 +972,7 @@ bars on continuous scales will be set based on the <code class="docutils literal
     <div class="footer-items__end">
       
         <div class="footer-item"><p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.0.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.1.
 </p></div>
       
     </div>

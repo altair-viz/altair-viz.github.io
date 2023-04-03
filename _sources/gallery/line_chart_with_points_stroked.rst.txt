@@ -13,10 +13,10 @@ This example shows a simple line chart with points in a different color.
 
 
 .. altair-plot::
-    :code-below:
+    :remove-code:
     
 
-    
+
     import altair as alt
     from vega_datasets import data
 
@@ -29,3 +29,49 @@ This example shows a simple line chart with points in a different color.
         y='price:Q',
         color='symbol:N'
     )
+    # No channel encoding options are specified in this chart
+    # so the code is the same as for the method-based syntax.
+
+
+.. tab-set::
+
+    .. tab-item:: Method syntax
+        :sync: method
+
+        .. code:: python
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            source = data.stocks()
+
+            alt.Chart(source).mark_line(
+                point=alt.OverlayMarkDef(filled=False, fill="white")
+            ).encode(
+                x='date:T',
+                y='price:Q',
+                color='symbol:N'
+            )
+
+
+    .. tab-item:: Attribute syntax
+        :sync: attribute
+
+        .. code:: python
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            source = data.stocks()
+
+            alt.Chart(source).mark_line(
+                point=alt.OverlayMarkDef(filled=False, fill="white")
+            ).encode(
+                x='date:T',
+                y='price:Q',
+                color='symbol:N'
+            )
+            # No channel encoding options are specified in this chart
+            # so the code is the same as for the method-based syntax.

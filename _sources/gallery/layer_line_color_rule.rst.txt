@@ -15,10 +15,10 @@ with a layered rule showing the average values.
 
 
 .. altair-plot::
-    :code-below:
+    :remove-code:
     
 
-    
+
     import altair as alt
     from vega_datasets import data
 
@@ -39,3 +39,65 @@ with a layered rule showing the average values.
     )
 
     line + rule
+    # No channel encoding options are specified in this chart
+    # so the code is the same as for the method-based syntax.
+
+
+.. tab-set::
+
+    .. tab-item:: Method syntax
+        :sync: method
+
+        .. code:: python
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            source = data.stocks()
+
+            base = alt.Chart(source).properties(width=550)
+
+            line = base.mark_line().encode(
+                x='date',
+                y='price',
+                color='symbol'
+            )
+
+            rule = base.mark_rule().encode(
+                y='average(price)',
+                color='symbol',
+                size=alt.value(2)
+            )
+
+            line + rule
+
+
+    .. tab-item:: Attribute syntax
+        :sync: attribute
+
+        .. code:: python
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            source = data.stocks()
+
+            base = alt.Chart(source).properties(width=550)
+
+            line = base.mark_line().encode(
+                x='date',
+                y='price',
+                color='symbol'
+            )
+
+            rule = base.mark_rule().encode(
+                y='average(price)',
+                color='symbol',
+                size=alt.value(2)
+            )
+
+            line + rule
+            # No channel encoding options are specified in this chart
+            # so the code is the same as for the method-based syntax.

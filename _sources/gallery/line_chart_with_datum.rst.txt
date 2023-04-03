@@ -15,10 +15,10 @@ This is adapted from two corresponding Vega-Lite Examples:
 
 
 .. altair-plot::
-    :code-below:
+    :remove-code:
     
 
-    
+
 
     import altair as alt
     from vega_datasets import data
@@ -43,3 +43,73 @@ This is adapted from two corresponding Vega-Lite Examples:
 
 
     lines + yrule + xrule
+    # No channel encoding options are specified in this chart
+    # so the code is the same as for the method-based syntax.
+
+
+.. tab-set::
+
+    .. tab-item:: Method syntax
+        :sync: method
+
+        .. code:: python
+
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            source = data.stocks()
+
+            lines = (
+                alt.Chart(source)
+                .mark_line()
+                .encode(x="date", y="price", color="symbol")
+            )
+
+            xrule = (
+                alt.Chart()
+                .mark_rule(color="cyan", strokeWidth=2)
+                .encode(x=alt.datum(alt.DateTime(year=2006, month="November")))
+            )
+
+            yrule = (
+                alt.Chart().mark_rule(strokeDash=[12, 6], size=2).encode(y=alt.datum(350))
+            )
+
+
+            lines + yrule + xrule
+
+
+    .. tab-item:: Attribute syntax
+        :sync: attribute
+
+        .. code:: python
+
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            source = data.stocks()
+
+            lines = (
+                alt.Chart(source)
+                .mark_line()
+                .encode(x="date", y="price", color="symbol")
+            )
+
+            xrule = (
+                alt.Chart()
+                .mark_rule(color="cyan", strokeWidth=2)
+                .encode(x=alt.datum(alt.DateTime(year=2006, month="November")))
+            )
+
+            yrule = (
+                alt.Chart().mark_rule(strokeDash=[12, 6], size=2).encode(y=alt.datum(350))
+            )
+
+
+            lines + yrule + xrule
+            # No channel encoding options are specified in this chart
+            # so the code is the same as for the method-based syntax.

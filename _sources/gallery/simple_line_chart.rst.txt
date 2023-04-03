@@ -14,10 +14,10 @@ columns.
 
 
 .. altair-plot::
-    :code-below:
+    :remove-code:
     
 
-    
+
 
     import altair as alt
     import numpy as np
@@ -33,3 +33,55 @@ columns.
         x='x',
         y='f(x)'
     )
+    # No channel encoding options are specified in this chart
+    # so the code is the same as for the method-based syntax.
+
+
+.. tab-set::
+
+    .. tab-item:: Method syntax
+        :sync: method
+
+        .. code:: python
+
+
+
+            import altair as alt
+            import numpy as np
+            import pandas as pd
+
+            x = np.arange(100)
+            source = pd.DataFrame({
+              'x': x,
+              'f(x)': np.sin(x / 5)
+            })
+
+            alt.Chart(source).mark_line().encode(
+                x='x',
+                y='f(x)'
+            )
+
+
+    .. tab-item:: Attribute syntax
+        :sync: attribute
+
+        .. code:: python
+
+
+
+            import altair as alt
+            import numpy as np
+            import pandas as pd
+
+            x = np.arange(100)
+            source = pd.DataFrame({
+              'x': x,
+              'f(x)': np.sin(x / 5)
+            })
+
+            alt.Chart(source).mark_line().encode(
+                x='x',
+                y='f(x)'
+            )
+            # No channel encoding options are specified in this chart
+            # so the code is the same as for the method-based syntax.

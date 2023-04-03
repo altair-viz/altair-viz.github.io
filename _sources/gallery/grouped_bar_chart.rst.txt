@@ -13,10 +13,10 @@ This example shows a grouped bar chart.
 
 
 .. altair-plot::
-    :code-below:
+    :remove-code:
     
 
-    
+
     import altair as alt
     from vega_datasets import data
 
@@ -28,3 +28,47 @@ This example shows a grouped bar chart.
         color='year:N',
         column='site:N'
     )
+    # No channel encoding options are specified in this chart
+    # so the code is the same as for the method-based syntax.
+
+
+.. tab-set::
+
+    .. tab-item:: Method syntax
+        :sync: method
+
+        .. code:: python
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            source = data.barley()
+
+            alt.Chart(source).mark_bar().encode(
+                x='year:O',
+                y='sum(yield):Q',
+                color='year:N',
+                column='site:N'
+            )
+
+
+    .. tab-item:: Attribute syntax
+        :sync: attribute
+
+        .. code:: python
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            source = data.barley()
+
+            alt.Chart(source).mark_bar().encode(
+                x='year:O',
+                y='sum(yield):Q',
+                color='year:N',
+                column='site:N'
+            )
+            # No channel encoding options are specified in this chart
+            # so the code is the same as for the method-based syntax.

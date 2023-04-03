@@ -14,10 +14,10 @@ the LOESS transform (LOcally Estimated Scatter Plot Smoothing).
 
 
 .. altair-plot::
-    :code-below:
+    :remove-code:
     
 
-    
+
 
     import altair as alt
     import pandas as pd
@@ -42,3 +42,73 @@ the LOESS transform (LOcally Estimated Scatter Plot Smoothing).
     )
 
     base + base.transform_loess('x', 'y', groupby=['category']).mark_line(size=4)
+    # No channel encoding options are specified in this chart
+    # so the code is the same as for the method-based syntax.
+
+
+.. tab-set::
+
+    .. tab-item:: Method syntax
+        :sync: method
+
+        .. code:: python
+
+
+
+            import altair as alt
+            import pandas as pd
+            import numpy as np
+
+            np.random.seed(1)
+
+            source = pd.DataFrame({
+                'x': np.arange(100),
+                'A': np.random.randn(100).cumsum(),
+                'B': np.random.randn(100).cumsum(),
+                'C': np.random.randn(100).cumsum(),
+            })
+
+            base = alt.Chart(source).mark_circle(opacity=0.5).transform_fold(
+                fold=['A', 'B', 'C'], 
+                as_=['category', 'y']
+            ).encode(
+                alt.X('x:Q'), 
+                alt.Y('y:Q'), 
+                alt.Color('category:N')
+            )
+
+            base + base.transform_loess('x', 'y', groupby=['category']).mark_line(size=4)
+
+
+    .. tab-item:: Attribute syntax
+        :sync: attribute
+
+        .. code:: python
+
+
+
+            import altair as alt
+            import pandas as pd
+            import numpy as np
+
+            np.random.seed(1)
+
+            source = pd.DataFrame({
+                'x': np.arange(100),
+                'A': np.random.randn(100).cumsum(),
+                'B': np.random.randn(100).cumsum(),
+                'C': np.random.randn(100).cumsum(),
+            })
+
+            base = alt.Chart(source).mark_circle(opacity=0.5).transform_fold(
+                fold=['A', 'B', 'C'], 
+                as_=['category', 'y']
+            ).encode(
+                alt.X('x:Q'), 
+                alt.Y('y:Q'), 
+                alt.Color('category:N')
+            )
+
+            base + base.transform_loess('x', 'y', groupby=['category']).mark_line(size=4)
+            # No channel encoding options are specified in this chart
+            # so the code is the same as for the method-based syntax.

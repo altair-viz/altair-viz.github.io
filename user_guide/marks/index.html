@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Marks &#8212; Vega-Altair 5.0.0rc1 documentation</title>
+    <title>Marks &#8212; Vega-Altair 5.0.0dev documentation</title>
   
   
   
@@ -32,8 +32,10 @@
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/altair-plot.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/altair-gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
@@ -45,9 +47,12 @@
     <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.6.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="../../_static/design-tabs.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'user_guide/marks/index';</script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -173,14 +178,14 @@
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../API.html">
-                        API Reference
+                        API
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../ecosystem.html">
-                        Ecosystem
+                        Resources
                       </a>
                     </li>
                 
@@ -319,14 +324,14 @@ document.write(`
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../API.html">
-                        API Reference
+                        API
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../ecosystem.html">
-                        Ecosystem
+                        Resources
                       </a>
                     </li>
                 
@@ -645,11 +650,11 @@ of the Chart object (e.g. <code class="docutils literal notranslate"><span class
 <tbody>
 <tr class="row-even"><td class="vl-prop"><p>aria</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">boolean</span></code>, <a class="reference internal" href="../generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>A boolean flag indicating if <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA">ARIA attributes</a> should be included (SVG output only). If <code class="docutils literal notranslate"><span class="pre">false</span></code>, the “aria-hidden” attribute will be set on the output SVG element, removing the mark item from the ARIA accessibility tree.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>description</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">string</span></code>, <a class="reference internal" href="../generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>A text description of the mark item for <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA">ARIA accessibility</a> (SVG output only). If specified, this property determines the <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute">“aria-label” attribute</a>.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>style</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">string</span></code>, array(<code class="docutils literal notranslate"><span class="pre">string</span></code>))</p></td>
@@ -802,7 +807,9 @@ of the Chart object (e.g. <code class="docutils literal notranslate"><span class
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>blend</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="../generated/core/altair.Blend.html#altair.Blend" title="altair.Blend"><code class="xref py py-class docutils literal notranslate"><span class="pre">Blend</span></code></a>, <a class="reference internal" href="../generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The color blend mode for drawing an item on its current background. Any valid <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/CSS/mix-blend-mode">CSS mix-blend-mode</a> value can be used.</p>
+<p>__Default value: <code class="docutils literal notranslate"><span class="pre">&quot;source-over&quot;</span></code></p>
+</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>opacity</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="../generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
@@ -812,11 +819,15 @@ of the Chart object (e.g. <code class="docutils literal notranslate"><span class
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>fillOpacity</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="../generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The fill opacity (value between [0,1]).</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>strokeOpacity</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="../generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The stroke opacity (value between [0,1]).</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -833,27 +844,31 @@ of the Chart object (e.g. <code class="docutils literal notranslate"><span class
 <tbody>
 <tr class="row-even"><td class="vl-prop"><p>strokeCap</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="../generated/core/altair.StrokeCap.html#altair.StrokeCap" title="altair.StrokeCap"><code class="xref py py-class docutils literal notranslate"><span class="pre">StrokeCap</span></code></a>, <a class="reference internal" href="../generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The stroke cap for line ending style. One of <code class="docutils literal notranslate"><span class="pre">&quot;butt&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;round&quot;</span></code>, or <code class="docutils literal notranslate"><span class="pre">&quot;square&quot;</span></code>.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">&quot;butt&quot;</span></code></p>
+</td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>strokeDash</p></td>
 <td class="vl-type-def"><p>anyOf(array(<code class="docutils literal notranslate"><span class="pre">number</span></code>), <a class="reference internal" href="../generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>An array of alternating stroke, space lengths for creating dashed or dotted lines.</p></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>strokeDashOffset</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="../generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The offset (in pixels) into which to begin drawing with the stroke dash array.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>strokeJoin</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="../generated/core/altair.StrokeJoin.html#altair.StrokeJoin" title="altair.StrokeJoin"><code class="xref py py-class docutils literal notranslate"><span class="pre">StrokeJoin</span></code></a>, <a class="reference internal" href="../generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The stroke line join method. One of <code class="docutils literal notranslate"><span class="pre">&quot;miter&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;round&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;bevel&quot;</span></code>.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">&quot;miter&quot;</span></code></p>
+</td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>strokeMiterLimit</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="../generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The miter limit at which to bevel a line join.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>strokeWidth</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="../generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The stroke width, in pixels.</p></td>
 </tr>
 </tbody>
 </table>
@@ -873,11 +888,11 @@ set to <code class="docutils literal notranslate"><span class="pre">&quot;pointe
 <tbody>
 <tr class="row-even"><td class="vl-prop"><p>href</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="../generated/core/altair.URI.html#altair.URI" title="altair.URI"><code class="xref py py-class docutils literal notranslate"><span class="pre">URI</span></code></a>, <a class="reference internal" href="../generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>A URL to load upon mouse click. If defined, the mark acts as a hyperlink.</p></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>cursor</p></td>
 <td class="vl-type-def"><p>anyOf(<a class="reference internal" href="../generated/core/altair.Cursor.html#altair.Cursor" title="altair.Cursor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cursor</span></code></a>, <a class="reference internal" href="../generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
-<td class="vl-decsr"></td>
+<td class="vl-decsr"><p>The mouse cursor used over the mark. Any valid <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/CSS/cursor#Values">CSS cursor type</a> can be used.</p></td>
 </tr>
 </tbody>
 </table>
@@ -982,7 +997,7 @@ set to <code class="docutils literal notranslate"><span class="pre">&quot;pointe
     <div class="footer-items__end">
       
         <div class="footer-item"><p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.0.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.1.
 </p></div>
       
     </div>

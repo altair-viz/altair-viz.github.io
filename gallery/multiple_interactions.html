@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Multiple Interactions &#8212; Vega-Altair 5.0.0rc1 documentation</title>
+    <title>Multiple Interactions &#8212; Vega-Altair 5.0.0dev documentation</title>
   
   
   
@@ -32,8 +32,10 @@
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/altair-plot.css" />
     <link rel="stylesheet" type="text/css" href="../_static/altair-gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
@@ -45,9 +47,12 @@
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.6.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'gallery/multiple_interactions';</script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -171,14 +176,14 @@
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../user_guide/API.html">
-                        API Reference
+                        API
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../user_guide/ecosystem.html">
-                        Ecosystem
+                        Resources
                       </a>
                     </li>
                 
@@ -313,14 +318,14 @@ document.write(`
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../user_guide/API.html">
-                        API Reference
+                        API
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../user_guide/ecosystem.html">
-                        Ecosystem
+                        Resources
                       </a>
                     </li>
                 
@@ -446,7 +451,7 @@ document.write(`
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "vconcat": [{"hconcat": [{"mark": {"type": "point", "filled": true}, "encoding": {"tooltip": {"field": "Title", "type": "nominal"}, "x": {"field": "Worldwide_Gross", "scale": {"clamp": true, "domain": [100000, 1000000000]}, "type": "quantitative"}, "y": {"field": "IMDB_Rating", "type": "quantitative"}}, "height": 200, "name": "view_12", "title": "Slider Filtering", "transform": [{"calculate": "floor(datum.IMDB_Rating)", "as": "Rounded_IMDB_Rating"}, {"calculate": "datum.Production_Budget > 100000000.0 ? 100 : 10", "as": "Hundred_Million_Production"}, {"calculate": "year(datum.Release_Date)", "as": "Release_Year"}, {"filter": "(datum.IMDB_Rating > 0)"}, {"filter": {"field": "MPAA_Rating", "oneOf": ["G", "NC-17", "PG", "PG-13", "R"]}}, {"filter": {"param": "param_14"}}], "width": 200}, {"mark": {"type": "point", "filled": true}, "encoding": {"tooltip": {"field": "Title", "type": "nominal"}, "x": {"field": "Worldwide_Gross", "scale": {"clamp": true, "domain": [100000, 1000000000]}, "type": "quantitative"}, "y": {"field": "IMDB_Rating", "type": "quantitative"}}, "height": 200, "name": "view_13", "title": "Dropdown Filtering", "transform": [{"calculate": "floor(datum.IMDB_Rating)", "as": "Rounded_IMDB_Rating"}, {"calculate": "datum.Production_Budget > 100000000.0 ? 100 : 10", "as": "Hundred_Million_Production"}, {"calculate": "year(datum.Release_Date)", "as": "Release_Year"}, {"filter": "(datum.IMDB_Rating > 0)"}, {"filter": {"field": "MPAA_Rating", "oneOf": ["G", "NC-17", "PG", "PG-13", "R"]}}, {"filter": {"param": "param_15"}}], "width": 200}]}, {"hconcat": [{"mark": {"type": "point", "filled": true}, "encoding": {"color": {"condition": {"param": "param_16", "field": "MPAA_Rating", "legend": null, "type": "nominal"}, "value": "lightgray"}, "tooltip": {"field": "Title", "type": "nominal"}, "x": {"field": "Worldwide_Gross", "scale": {"clamp": true, "domain": [100000, 1000000000]}, "type": "quantitative"}, "y": {"field": "IMDB_Rating", "type": "quantitative"}}, "height": 200, "name": "view_14", "title": "Radio Button Highlighting", "transform": [{"calculate": "floor(datum.IMDB_Rating)", "as": "Rounded_IMDB_Rating"}, {"calculate": "datum.Production_Budget > 100000000.0 ? 100 : 10", "as": "Hundred_Million_Production"}, {"calculate": "year(datum.Release_Date)", "as": "Release_Year"}, {"filter": "(datum.IMDB_Rating > 0)"}, {"filter": {"field": "MPAA_Rating", "oneOf": ["G", "NC-17", "PG", "PG-13", "R"]}}], "width": 200}, {"mark": {"type": "point", "filled": true}, "encoding": {"size": {"condition": {"param": "param_17", "field": "Hundred_Million_Production", "type": "quantitative"}, "value": 25}, "tooltip": {"field": "Title", "type": "nominal"}, "x": {"field": "Worldwide_Gross", "scale": {"clamp": true, "domain": [100000, 1000000000]}, "type": "quantitative"}, "y": {"field": "IMDB_Rating", "type": "quantitative"}}, "height": 200, "title": "Checkbox Formatting", "transform": [{"calculate": "floor(datum.IMDB_Rating)", "as": "Rounded_IMDB_Rating"}, {"calculate": "datum.Production_Budget > 100000000.0 ? 100 : 10", "as": "Hundred_Million_Production"}, {"calculate": "year(datum.Release_Date)", "as": "Release_Year"}, {"filter": "(datum.IMDB_Rating > 0)"}, {"filter": {"field": "MPAA_Rating", "oneOf": ["G", "NC-17", "PG", "PG-13", "R"]}}], "width": 200}]}], "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/movies.json", "format": {"parse": {"Release_Date": "date"}}}, "params": [{"name": "param_14", "select": {"type": "point", "fields": ["Release_Year"]}, "bind": {"input": "range", "max": 2018, "min": 1969, "name": "Release Year", "step": 1}, "views": ["view_12"]}, {"name": "param_15", "select": {"type": "point", "fields": ["Major_Genre"]}, "bind": {"input": "select", "options": ["Action", "Adventure", "Black Comedy", "Comedy", "Concert/Performance", "Documentary", "Drama", "Horror", "Musical", "Romantic Comedy", "Thriller/Suspense", "Western"], "name": "Genre"}, "views": ["view_13"]}, {"name": "param_16", "select": {"type": "point", "fields": ["MPAA_Rating"]}, "bind": {"input": "radio", "options": ["G", "NC-17", "PG", "PG-13", "R"], "name": "Rating"}, "views": ["view_14"]}, {"name": "param_17", "bind": {"input": "checkbox", "name": "Big Budget Films "}}], "$schema": "https://vega.github.io/schema/vega-lite/v5.6.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "vconcat": [{"hconcat": [{"mark": {"type": "point", "filled": true}, "encoding": {"tooltip": {"field": "Title", "type": "nominal"}, "x": {"field": "Worldwide_Gross", "scale": {"clamp": true, "domain": [100000, 1000000000]}, "type": "quantitative"}, "y": {"field": "IMDB_Rating", "type": "quantitative"}}, "height": 200, "name": "view_45", "title": "Slider Filtering", "transform": [{"calculate": "floor(datum.IMDB_Rating)", "as": "Rounded_IMDB_Rating"}, {"calculate": "datum.Production_Budget > 100000000.0 ? 100 : 10", "as": "Hundred_Million_Production"}, {"calculate": "year(datum.Release_Date)", "as": "Release_Year"}, {"filter": "(datum.IMDB_Rating > 0)"}, {"filter": {"field": "MPAA_Rating", "oneOf": ["G", "NC-17", "PG", "PG-13", "R"]}}, {"filter": {"param": "param_46"}}], "width": 200}, {"mark": {"type": "point", "filled": true}, "encoding": {"tooltip": {"field": "Title", "type": "nominal"}, "x": {"field": "Worldwide_Gross", "scale": {"clamp": true, "domain": [100000, 1000000000]}, "type": "quantitative"}, "y": {"field": "IMDB_Rating", "type": "quantitative"}}, "height": 200, "name": "view_46", "title": "Dropdown Filtering", "transform": [{"calculate": "floor(datum.IMDB_Rating)", "as": "Rounded_IMDB_Rating"}, {"calculate": "datum.Production_Budget > 100000000.0 ? 100 : 10", "as": "Hundred_Million_Production"}, {"calculate": "year(datum.Release_Date)", "as": "Release_Year"}, {"filter": "(datum.IMDB_Rating > 0)"}, {"filter": {"field": "MPAA_Rating", "oneOf": ["G", "NC-17", "PG", "PG-13", "R"]}}, {"filter": {"param": "param_47"}}], "width": 200}]}, {"hconcat": [{"mark": {"type": "point", "filled": true}, "encoding": {"color": {"condition": {"param": "param_48", "field": "MPAA_Rating", "legend": null, "type": "nominal"}, "value": "lightgray"}, "tooltip": {"field": "Title", "type": "nominal"}, "x": {"field": "Worldwide_Gross", "scale": {"clamp": true, "domain": [100000, 1000000000]}, "type": "quantitative"}, "y": {"field": "IMDB_Rating", "type": "quantitative"}}, "height": 200, "name": "view_47", "title": "Radio Button Highlighting", "transform": [{"calculate": "floor(datum.IMDB_Rating)", "as": "Rounded_IMDB_Rating"}, {"calculate": "datum.Production_Budget > 100000000.0 ? 100 : 10", "as": "Hundred_Million_Production"}, {"calculate": "year(datum.Release_Date)", "as": "Release_Year"}, {"filter": "(datum.IMDB_Rating > 0)"}, {"filter": {"field": "MPAA_Rating", "oneOf": ["G", "NC-17", "PG", "PG-13", "R"]}}], "width": 200}, {"mark": {"type": "point", "filled": true}, "encoding": {"size": {"condition": {"param": "param_49", "field": "Hundred_Million_Production", "type": "quantitative"}, "value": 25}, "tooltip": {"field": "Title", "type": "nominal"}, "x": {"field": "Worldwide_Gross", "scale": {"clamp": true, "domain": [100000, 1000000000]}, "type": "quantitative"}, "y": {"field": "IMDB_Rating", "type": "quantitative"}}, "height": 200, "title": "Checkbox Formatting", "transform": [{"calculate": "floor(datum.IMDB_Rating)", "as": "Rounded_IMDB_Rating"}, {"calculate": "datum.Production_Budget > 100000000.0 ? 100 : 10", "as": "Hundred_Million_Production"}, {"calculate": "year(datum.Release_Date)", "as": "Release_Year"}, {"filter": "(datum.IMDB_Rating > 0)"}, {"filter": {"field": "MPAA_Rating", "oneOf": ["G", "NC-17", "PG", "PG-13", "R"]}}], "width": 200}]}], "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/movies.json", "format": {"parse": {"Release_Date": "date"}}}, "params": [{"name": "param_46", "select": {"type": "point", "fields": ["Release_Year"]}, "bind": {"input": "range", "max": 2018, "min": 1969, "name": "Release Year", "step": 1}, "views": ["view_45"]}, {"name": "param_47", "select": {"type": "point", "fields": ["Major_Genre"]}, "bind": {"input": "select", "options": ["Action", "Adventure", "Black Comedy", "Comedy", "Concert/Performance", "Documentary", "Drama", "Horror", "Musical", "Romantic Comedy", "Thriller/Suspense", "Western"], "name": "Genre"}, "views": ["view_46"]}, {"name": "param_48", "select": {"type": "point", "fields": ["MPAA_Rating"]}, "bind": {"input": "radio", "options": ["G", "NC-17", "PG", "PG-13", "R"], "name": "Rating"}, "views": ["view_47"]}, {"name": "param_49", "bind": {"input": "checkbox", "name": "Big Budget Films "}}], "$schema": "https://vega.github.io/schema/vega-lite/v5.6.1.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -455,7 +460,98 @@ document.write(`
       vegaEmbed('#multiple_interactions-rst-altair-plot-0', spec, opt).catch(console.err);
   });
 </script>
-</div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+</div><div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" data-sync-id="method" for="sd-tab-item-0">
+Method syntax</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+
+<span class="n">movies</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">UrlData</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">movies</span><span class="o">.</span><span class="n">url</span><span class="p">,</span>
+    <span class="nb">format</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">DataFormat</span><span class="p">(</span><span class="n">parse</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Release_Date&quot;</span><span class="p">:</span><span class="s2">&quot;date&quot;</span><span class="p">})</span>
+<span class="p">)</span>
+<span class="n">ratings</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;NC-17&#39;</span><span class="p">,</span> <span class="s1">&#39;PG&#39;</span><span class="p">,</span> <span class="s1">&#39;PG-13&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">]</span>
+<span class="n">genres</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;Action&#39;</span><span class="p">,</span> <span class="s1">&#39;Adventure&#39;</span><span class="p">,</span> <span class="s1">&#39;Black Comedy&#39;</span><span class="p">,</span> <span class="s1">&#39;Comedy&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Concert/Performance&#39;</span><span class="p">,</span> <span class="s1">&#39;Documentary&#39;</span><span class="p">,</span> <span class="s1">&#39;Drama&#39;</span><span class="p">,</span> <span class="s1">&#39;Horror&#39;</span><span class="p">,</span> <span class="s1">&#39;Musical&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Romantic Comedy&#39;</span><span class="p">,</span> <span class="s1">&#39;Thriller/Suspense&#39;</span><span class="p">,</span> <span class="s1">&#39;Western&#39;</span>
+<span class="p">]</span>
+
+<span class="n">base</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">movies</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">(</span><span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">transform_calculate</span><span class="p">(</span>
+    <span class="n">Rounded_IMDB_Rating</span> <span class="o">=</span> <span class="s2">&quot;floor(datum.IMDB_Rating)&quot;</span><span class="p">,</span>
+    <span class="n">Hundred_Million_Production</span> <span class="o">=</span>  <span class="s2">&quot;datum.Production_Budget &gt; 100000000.0 ? 100 : 10&quot;</span><span class="p">,</span>
+    <span class="n">Release_Year</span> <span class="o">=</span> <span class="s2">&quot;year(datum.Release_Date)&quot;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">datum</span><span class="o">.</span><span class="n">IMDB_Rating</span> <span class="o">&gt;</span> <span class="mi">0</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">FieldOneOfPredicate</span><span class="p">(</span><span class="n">field</span><span class="o">=</span><span class="s1">&#39;MPAA_Rating&#39;</span><span class="p">,</span> <span class="n">oneOf</span><span class="o">=</span><span class="n">ratings</span><span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Worldwide_Gross:Q&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">100000</span><span class="p">,</span><span class="mi">10</span><span class="o">**</span><span class="mi">9</span><span class="p">),</span> <span class="n">clamp</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;IMDB_Rating:Q&#39;</span><span class="p">,</span>
+    <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;Title:N&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># A slider filter</span>
+<span class="n">year_slider</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">binding_range</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">1969</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">2018</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Release Year&quot;</span><span class="p">)</span>
+<span class="n">slider_selection</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection_point</span><span class="p">(</span><span class="n">bind</span><span class="o">=</span><span class="n">year_slider</span><span class="p">,</span> <span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Release_Year&#39;</span><span class="p">])</span>
+
+<span class="n">filter_year</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">add_params</span><span class="p">(</span>
+    <span class="n">slider_selection</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span>
+    <span class="n">slider_selection</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Slider Filtering&quot;</span><span class="p">)</span>
+
+<span class="c1"># A dropdown filter</span>
+<span class="n">genre_dropdown</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">binding_select</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="n">genres</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Genre&quot;</span><span class="p">)</span>
+<span class="n">genre_select</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection_point</span><span class="p">(</span><span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Major_Genre&#39;</span><span class="p">],</span> <span class="n">bind</span><span class="o">=</span><span class="n">genre_dropdown</span><span class="p">)</span>
+
+<span class="n">filter_genres</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">add_params</span><span class="p">(</span>
+    <span class="n">genre_select</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span>
+    <span class="n">genre_select</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Dropdown Filtering&quot;</span><span class="p">)</span>
+
+<span class="c1">#color changing marks</span>
+<span class="n">rating_radio</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">binding_radio</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="n">ratings</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Rating&quot;</span><span class="p">)</span>
+<span class="n">rating_select</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection_point</span><span class="p">(</span><span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;MPAA_Rating&#39;</span><span class="p">],</span> <span class="n">bind</span><span class="o">=</span><span class="n">rating_radio</span><span class="p">)</span>
+
+<span class="n">rating_color_condition</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span>
+    <span class="n">rating_select</span><span class="p">,</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;MPAA_Rating:N&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="kc">None</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;lightgray&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">highlight_ratings</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">add_params</span><span class="p">(</span>
+    <span class="n">rating_select</span>
+<span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">rating_color_condition</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Radio Button Highlighting&quot;</span><span class="p">)</span>
+
+<span class="c1"># Boolean selection for format changes</span>
+<span class="n">input_checkbox</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">binding_checkbox</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Big Budget Films &quot;</span><span class="p">)</span>
+<span class="n">checkbox_selection</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">param</span><span class="p">(</span><span class="n">bind</span><span class="o">=</span><span class="n">input_checkbox</span><span class="p">)</span>
+
+<span class="n">size_checkbox_condition</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span>
+    <span class="n">checkbox_selection</span><span class="p">,</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span><span class="s1">&#39;Hundred_Million_Production:Q&#39;</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">SizeValue</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">budget_sizing</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">add_params</span><span class="p">(</span>
+    <span class="n">checkbox_selection</span>
+<span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">size</span><span class="o">=</span><span class="n">size_checkbox_condition</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Checkbox Formatting&quot;</span><span class="p">)</span>
+
+<span class="p">(</span><span class="n">filter_year</span> <span class="o">|</span> <span class="n">filter_genres</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">highlight_ratings</span> <span class="o">|</span> <span class="n">budget_sizing</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" data-sync-id="attribute" for="sd-tab-item-1">
+Attribute syntax</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
 <span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
 
 <span class="n">movies</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">UrlData</span><span class="p">(</span>
@@ -536,6 +632,8 @@ document.write(`
 <span class="p">(</span><span class="n">filter_year</span> <span class="o">|</span> <span class="n">filter_genres</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">highlight_ratings</span> <span class="o">|</span> <span class="n">budget_sizing</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+</div>
 </section>
 
 
@@ -594,7 +692,7 @@ document.write(`
     <div class="footer-items__end">
       
         <div class="footer-item"><p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.0.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.1.
 </p></div>
       
     </div>

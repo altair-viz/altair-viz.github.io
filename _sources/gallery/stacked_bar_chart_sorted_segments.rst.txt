@@ -13,10 +13,10 @@ This is an example of a stacked-bar chart with the segments of each bar resorted
 
 
 .. altair-plot::
-    :code-below:
+    :remove-code:
     
 
-    
+
     import altair as alt
     from vega_datasets import data
 
@@ -32,3 +32,51 @@ This is an example of a stacked-bar chart with the segments of each bar resorted
           sort='ascending'
         )
     )
+
+
+.. tab-set::
+
+    .. tab-item:: Method syntax
+        :sync: method
+
+        .. code:: python
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            source = data.barley()
+
+            alt.Chart(source).mark_bar().encode(
+                x='sum(yield)',
+                y='variety',
+                color='site',
+                order=alt.Order(
+                  # Sort the segments of the bars by this field
+                  'site',
+                  sort='ascending'
+                )
+            )
+
+
+    .. tab-item:: Attribute syntax
+        :sync: attribute
+
+        .. code:: python
+
+
+            import altair as alt
+            from vega_datasets import data
+
+            source = data.barley()
+
+            alt.Chart(source).mark_bar().encode(
+                x='sum(yield)',
+                y='variety',
+                color='site',
+                order=alt.Order(
+                  # Sort the segments of the bars by this field
+                  'site',
+                  sort='ascending'
+                )
+            )

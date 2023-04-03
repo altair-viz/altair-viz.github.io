@@ -13,10 +13,10 @@ This example shows a basic bar chart created with Altair.
 
 
 .. altair-plot::
-    :code-below:
+    :remove-code:
     
 
-    
+
     import altair as alt
     import pandas as pd
 
@@ -29,3 +29,49 @@ This example shows a basic bar chart created with Altair.
         x='a',
         y='b'
     )
+    # No channel encoding options are specified in this chart
+    # so the code is the same as for the method-based syntax.
+
+
+.. tab-set::
+
+    .. tab-item:: Method syntax
+        :sync: method
+
+        .. code:: python
+
+
+            import altair as alt
+            import pandas as pd
+
+            source = pd.DataFrame({
+                'a': ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'],
+                'b': [28, 55, 43, 91, 81, 53, 19, 87, 52]
+            })
+
+            alt.Chart(source).mark_bar().encode(
+                x='a',
+                y='b'
+            )
+
+
+    .. tab-item:: Attribute syntax
+        :sync: attribute
+
+        .. code:: python
+
+
+            import altair as alt
+            import pandas as pd
+
+            source = pd.DataFrame({
+                'a': ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'],
+                'b': [28, 55, 43, 91, 81, 53, 19, 87, 52]
+            })
+
+            alt.Chart(source).mark_bar().encode(
+                x='a',
+                y='b'
+            )
+            # No channel encoding options are specified in this chart
+            # so the code is the same as for the method-based syntax.

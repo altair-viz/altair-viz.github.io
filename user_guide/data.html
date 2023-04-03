@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Specifying Data &#8212; Vega-Altair 5.0.0rc1 documentation</title>
+    <title>Specifying Data &#8212; Vega-Altair 5.0.0dev documentation</title>
   
   
   
@@ -32,8 +32,10 @@
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/altair-plot.css" />
     <link rel="stylesheet" type="text/css" href="../_static/altair-gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
@@ -45,9 +47,12 @@
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.6.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'user_guide/data';</script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -173,14 +178,14 @@
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="API.html">
-                        API Reference
+                        API
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="ecosystem.html">
-                        Ecosystem
+                        Resources
                       </a>
                     </li>
                 
@@ -319,14 +324,14 @@ document.write(`
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="API.html">
-                        API Reference
+                        API
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="ecosystem.html">
-                        Ecosystem
+                        Resources
                       </a>
                     </li>
                 
@@ -534,21 +539,20 @@ which may contain any number of named data fields (columns).
 Each top-level chart object (i.e. <a class="reference internal" href="generated/toplevel/altair.Chart.html#altair.Chart" title="altair.Chart"><code class="xref py py-class docutils literal notranslate"><span class="pre">Chart</span></code></a>, <a class="reference internal" href="generated/toplevel/altair.LayerChart.html#altair.LayerChart" title="altair.LayerChart"><code class="xref py py-class docutils literal notranslate"><span class="pre">LayerChart</span></code></a>,
 <a class="reference internal" href="generated/toplevel/altair.VConcatChart.html#altair.VConcatChart" title="altair.VConcatChart"><code class="xref py py-class docutils literal notranslate"><span class="pre">VConcatChart</span></code></a>, <a class="reference internal" href="generated/toplevel/altair.HConcatChart.html#altair.HConcatChart" title="altair.HConcatChart"><code class="xref py py-class docutils literal notranslate"><span class="pre">HConcatChart</span></code></a>, <a class="reference internal" href="generated/toplevel/altair.RepeatChart.html#altair.RepeatChart" title="altair.RepeatChart"><code class="xref py py-class docutils literal notranslate"><span class="pre">RepeatChart</span></code></a>,
 and <a class="reference internal" href="generated/toplevel/altair.FacetChart.html#altair.FacetChart" title="altair.FacetChart"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetChart</span></code></a>) accepts a dataset as its first argument.</p>
-<p>While the most common way to provide Altair with a dataset is via a pandas DataFrame,
-there are many different ways of specifying a dataset:</p>
+<p>There are many different ways of specifying a dataset:</p>
 <ul class="simple">
 <li><p>as a <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html">Pandas DataFrame</a></p></li>
+<li><p>as a DataFrame that supports the DataFrame Interchange Protocol (contains a <code class="docutils literal notranslate"><span class="pre">__dataframe__</span></code> attribute), e.g. polars and pyarrow. This is experimental.</p></li>
 <li><p>as a <a class="reference internal" href="generated/core/altair.Data.html#altair.Data" title="altair.Data"><code class="xref py py-class docutils literal notranslate"><span class="pre">Data</span></code></a> or related object (i.e. <a class="reference internal" href="generated/core/altair.UrlData.html#altair.UrlData" title="altair.UrlData"><code class="xref py py-class docutils literal notranslate"><span class="pre">UrlData</span></code></a>, <a class="reference internal" href="generated/core/altair.InlineData.html#altair.InlineData" title="altair.InlineData"><code class="xref py py-class docutils literal notranslate"><span class="pre">InlineData</span></code></a>, <a class="reference internal" href="generated/core/altair.NamedData.html#altair.NamedData" title="altair.NamedData"><code class="xref py py-class docutils literal notranslate"><span class="pre">NamedData</span></code></a>)</p></li>
 <li><p>as a url string pointing to a <code class="docutils literal notranslate"><span class="pre">json</span></code> or <code class="docutils literal notranslate"><span class="pre">csv</span></code> formatted text file</p></li>
 <li><p>as a <a class="reference external" href="http://geopandas.org/data_structures.html#geodataframe">geopandas GeoDataFrame</a>, <a class="reference external" href="https://shapely.readthedocs.io/en/latest/manual.html#geometric-objects">Shapely Geometries</a>, <a class="reference external" href="https://github.com/jazzband/geojson#geojson-objects">GeoJSON Objects</a> or other objects that support the <code class="docutils literal notranslate"><span class="pre">__geo_interface__</span></code></p></li>
 <li><p>as a generated dataset such as numerical sequences or geographic reference elements</p></li>
-<li><p>as a DataFrame that supports the DataFrame Interchange Protocol (contains a <code class="docutils literal notranslate"><span class="pre">__dataframe__</span></code> attribute). This is experimental.</p></li>
 </ul>
-<p>When data is specified as a DataFrame, the encoding is quite simple, as Altair
+<p>When data is specified as a pandas DataFrame, Altair
 uses the data type information provided by pandas to automatically determine
 the data types required in the encoding. For example, here we specify data via a pandas DataFrame
 and Altair automatically detects that the x-column should be visualized on a quantitative scale
-and that the y-column should be visualized on a categorical scale:</p>
+and that the y-column should be visualized on a categorical (nominal) scale:</p>
 <div class="highlight-python notranslate" id="data-rst-altair-source-0"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
@@ -575,7 +579,10 @@ and that the y-column should be visualized on a categorical scale:</p>
       vegaEmbed('#data-rst-altair-plot-0', spec, opt).catch(console.err);
   });
 </script>
-</div><p>By comparison, here we create the same chart using a <a class="reference internal" href="generated/core/altair.Data.html#altair.Data" title="altair.Data"><code class="xref py py-class docutils literal notranslate"><span class="pre">Data</span></code></a> object,
+</div><p>By comparison,
+all other ways of specifying the data (including non-pandas DataFrames)
+requires encoding types to be declared explicitly.
+Here we create the same chart as above using a <a class="reference internal" href="generated/core/altair.Data.html#altair.Data" title="altair.Data"><code class="xref py py-class docutils literal notranslate"><span class="pre">Data</span></code></a> object,
 with the data specified as a JSON-style list of records:</p>
 <div class="highlight-python notranslate" id="data-rst-altair-source-1"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
 
@@ -585,7 +592,7 @@ with the data specified as a JSON-style list of records:</p>
                         <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">7</span><span class="p">},</span>
                         <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}])</span>
 <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;x:O&#39;</span><span class="p">,</span>  <span class="c1"># specify ordinal data</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;x:N&#39;</span><span class="p">,</span>  <span class="c1"># specify nominal data</span>
     <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y:Q&#39;</span><span class="p">,</span>  <span class="c1"># specify quantitative data</span>
 <span class="p">)</span>
 </pre></div>
@@ -596,7 +603,7 @@ with the data specified as a JSON-style list of records:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"values": [{"x": "A", "y": 5}, {"x": "B", "y": 3}, {"x": "C", "y": 6}, {"x": "D", "y": 7}, {"x": "E", "y": 2}]}, "mark": {"type": "bar"}, "encoding": {"x": {"field": "x", "type": "ordinal"}, "y": {"field": "y", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.6.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"values": [{"x": "A", "y": 5}, {"x": "B", "y": 3}, {"x": "C", "y": 6}, {"x": "D", "y": 7}, {"x": "E", "y": 2}]}, "mark": {"type": "bar"}, "encoding": {"x": {"field": "x", "type": "nominal"}, "y": {"field": "y", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.6.1.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -607,7 +614,7 @@ with the data specified as a JSON-style list of records:</p>
 </script>
 </div><p>Notice the extra markup required in the encoding; because Altair cannot infer
 the types within a <a class="reference internal" href="generated/core/altair.Data.html#altair.Data" title="altair.Data"><code class="xref py py-class docutils literal notranslate"><span class="pre">Data</span></code></a> object, we must specify them manually
-(here we use <a class="reference internal" href="encodings/index.html#shorthand-description"><span class="std std-ref">Encoding Shorthands</span></a> to specify <em>ordinal</em> (<code class="docutils literal notranslate"><span class="pre">O</span></code>) for <code class="docutils literal notranslate"><span class="pre">x</span></code>
+(here we use <a class="reference internal" href="encodings/index.html#shorthand-description"><span class="std std-ref">Encoding Shorthands</span></a> to specify <em>nominal</em> (<code class="docutils literal notranslate"><span class="pre">N</span></code>) for <code class="docutils literal notranslate"><span class="pre">x</span></code>
 and <em>quantitative</em> (<code class="docutils literal notranslate"><span class="pre">Q</span></code>) for <code class="docutils literal notranslate"><span class="pre">y</span></code>; see <a class="reference internal" href="encodings/index.html#encoding-data-types"><span class="std std-ref">Encoding Data Types</span></a>).</p>
 <p>Similarly, we must also specify the data type when referencing data by URL:</p>
 <div class="highlight-python notranslate" id="data-rst-altair-source-2"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
@@ -635,7 +642,8 @@ and <em>quantitative</em> (<code class="docutils literal notranslate"><span clas
       vegaEmbed('#data-rst-altair-plot-2', spec, opt).catch(console.err);
   });
 </script>
-</div><p>We will further discuss encodings and associated types in <a class="reference internal" href="encodings/index.html#user-guide-encoding"><span class="std std-ref">Encodings</span></a>, next.</p>
+</div><p>Encodings and their associated types are further discussed in <a class="reference internal" href="encodings/index.html#user-guide-encoding"><span class="std std-ref">Encodings</span></a>.
+Below we go into more detail about the different ways of specifying data in an Altair chart.</p>
 <section id="id1">
 <h2>Pandas DataFrame<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
 <section id="including-index-data">
@@ -988,11 +996,11 @@ GeoDataFrame and visualize these using the <code class="docutils literal notrans
 </div>
 <p>Since the spatial data in our example is not geographic,
 we use <code class="docutils literal notranslate"><span class="pre">project</span></code> configuration <code class="docutils literal notranslate"><span class="pre">type=&quot;identity&quot;,</span> <span class="pre">reflectY=True</span></code> to draw the
-geometries without applying a geographic projection. By using <code class="docutils literal notranslate"><span class="pre">alt.Color(...,</span> <span class="pre">scale=None)</span></code> we
+geometries without applying a geographic projection. By using <code class="docutils literal notranslate"><span class="pre">alt.Color(...).scale(None)</span></code> we
 disable the automatic color assignment in Altair
 and instead directly use the provided Hex color codes.</p>
 <div class="highlight-python notranslate" id="data-rst-altair-source-15"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">gdf_geoms</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Vega-Altair&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mark_geoshape</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;color:N&quot;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;color:N&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
 <span class="p">)</span><span class="o">.</span><span class="n">project</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;identity&quot;</span><span class="p">,</span> <span class="n">reflectY</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1051,7 +1059,7 @@ The <code class="docutils literal notranslate"><span class="pre">:O</span></code
 and you can read more about it in the <a class="reference internal" href="encodings/index.html#encoding-data-types"><span class="std std-ref">Encoding Data Types</span></a> page.
 for the ordinal structured data.</p>
 <div class="highlight-python notranslate" id="data-rst-altair-source-17"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data_obj_geojson</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Vega-Altair - ordinal scale&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mark_geoshape</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;properties.location:O&quot;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">scheme</span><span class="o">=</span><span class="s1">&#39;magma&#39;</span><span class="p">))</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;properties.location:O&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">scheme</span><span class="o">=</span><span class="s1">&#39;magma&#39;</span><span class="p">)</span>
 <span class="p">)</span><span class="o">.</span><span class="n">project</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;identity&quot;</span><span class="p">,</span> <span class="n">reflectY</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1216,7 +1224,7 @@ as we hover over it with the mouse.</p>
 <div class="highlight-python notranslate" id="data-rst-altair-source-23"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data_url_topojson</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;London-Boroughs&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mark_geoshape</span><span class="p">(</span>
     <span class="n">tooltip</span><span class="o">=</span><span class="kc">True</span>
 <span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;id:N&quot;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">scheme</span><span class="o">=</span><span class="s1">&#39;tableau20&#39;</span><span class="p">),</span> <span class="n">legend</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Legend</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">symbolLimit</span><span class="o">=</span><span class="mi">33</span><span class="p">))</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;id:N&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">scheme</span><span class="o">=</span><span class="s1">&#39;tableau20&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">symbolLimit</span><span class="o">=</span><span class="mi">33</span><span class="p">)</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -1291,7 +1299,7 @@ in the list of dictionaries:</p>
 
 <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data_nested_features</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Vega-Altair&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mark_geoshape</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">shape</span><span class="o">=</span><span class="s2">&quot;geo:G&quot;</span><span class="p">,</span>
-    <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;color:N&quot;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;color:N&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
 <span class="p">)</span><span class="o">.</span><span class="n">project</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;identity&quot;</span><span class="p">,</span> <span class="n">reflectY</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1461,7 +1469,7 @@ data before usage in Altair using GeoPandas for example as such:</p>
     <div class="footer-items__end">
       
         <div class="footer-item"><p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.0.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.1.
 </p></div>
       
     </div>
