@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Calculate &#8212; Vega-Altair 5.0.0dev documentation</title>
+    <title>Calculate &#8212; Vega-Altair 5.0.0rc2 documentation</title>
   
   
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -35,26 +35,23 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.6.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.7.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     <script src="../../_static/design-tabs.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'user_guide/transform/calculate';</script>
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Density" href="density.html" />
@@ -105,7 +102,7 @@
 
 
   <div class="bd-header-announcement container-fluid bd-header-announcement">
-    <div class="bd-header-announcement__content">This website is for the release candidate of version 5 <code class="docutils literal notranslate"><span class="pre">pip install altair==5.0.0rc1</span></code> <span class="pre">(more info <a href='https://github.com/altair-viz/altair/issues/2937'>#2937</a>)</span>. You can find the documentation for version 4 <a href='https://altair-viz.github.io/altair-viz-v4/'>here</a>.</div>
+    <div class="bd-header-announcement__content">This website is for the release candidate of version 5 <code class="docutils literal notranslate"><span class="pre">pip install altair==5.0.0rc2</span></code> <span class="pre">(more info <a href='https://github.com/altair-viz/altair/issues/2937'>#2937</a>)</span>. You can find the documentation for version 4 <a href='https://altair-viz.github.io/altair-viz-v4/'>here</a>.</div>
   </div>
 
   
@@ -563,7 +560,7 @@ a some trigonometric quantities:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-154c237c455a7f8fb343ee63b47dd948"}, "mark": {"type": "line"}, "encoding": {"order": {"field": "t", "type": "quantitative"}, "x": {"field": "x", "type": "quantitative"}, "y": {"field": "y", "type": "quantitative"}}, "transform": [{"calculate": "cos(datum.t * PI / 50)", "as": "x"}, {"calculate": "sin(datum.t * PI / 25)", "as": "y"}], "$schema": "https://vega.github.io/schema/vega-lite/v5.6.1.json", "datasets": {"data-154c237c455a7f8fb343ee63b47dd948": [{"t": 0}, {"t": 1}, {"t": 2}, {"t": 3}, {"t": 4}, {"t": 5}, {"t": 6}, {"t": 7}, {"t": 8}, {"t": 9}, {"t": 10}, {"t": 11}, {"t": 12}, {"t": 13}, {"t": 14}, {"t": 15}, {"t": 16}, {"t": 17}, {"t": 18}, {"t": 19}, {"t": 20}, {"t": 21}, {"t": 22}, {"t": 23}, {"t": 24}, {"t": 25}, {"t": 26}, {"t": 27}, {"t": 28}, {"t": 29}, {"t": 30}, {"t": 31}, {"t": 32}, {"t": 33}, {"t": 34}, {"t": 35}, {"t": 36}, {"t": 37}, {"t": 38}, {"t": 39}, {"t": 40}, {"t": 41}, {"t": 42}, {"t": 43}, {"t": 44}, {"t": 45}, {"t": 46}, {"t": 47}, {"t": 48}, {"t": 49}, {"t": 50}, {"t": 51}, {"t": 52}, {"t": 53}, {"t": 54}, {"t": 55}, {"t": 56}, {"t": 57}, {"t": 58}, {"t": 59}, {"t": 60}, {"t": 61}, {"t": 62}, {"t": 63}, {"t": 64}, {"t": 65}, {"t": 66}, {"t": 67}, {"t": 68}, {"t": 69}, {"t": 70}, {"t": 71}, {"t": 72}, {"t": 73}, {"t": 74}, {"t": 75}, {"t": 76}, {"t": 77}, {"t": 78}, {"t": 79}, {"t": 80}, {"t": 81}, {"t": 82}, {"t": 83}, {"t": 84}, {"t": 85}, {"t": 86}, {"t": 87}, {"t": 88}, {"t": 89}, {"t": 90}, {"t": 91}, {"t": 92}, {"t": 93}, {"t": 94}, {"t": 95}, {"t": 96}, {"t": 97}, {"t": 98}, {"t": 99}, {"t": 100}]}};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-154c237c455a7f8fb343ee63b47dd948"}, "mark": {"type": "line"}, "encoding": {"order": {"field": "t", "type": "quantitative"}, "x": {"field": "x", "type": "quantitative"}, "y": {"field": "y", "type": "quantitative"}}, "transform": [{"calculate": "cos(datum.t * PI / 50)", "as": "x"}, {"calculate": "sin(datum.t * PI / 25)", "as": "y"}], "$schema": "https://vega.github.io/schema/vega-lite/v5.7.1.json", "datasets": {"data-154c237c455a7f8fb343ee63b47dd948": [{"t": 0}, {"t": 1}, {"t": 2}, {"t": 3}, {"t": 4}, {"t": 5}, {"t": 6}, {"t": 7}, {"t": 8}, {"t": 9}, {"t": 10}, {"t": 11}, {"t": 12}, {"t": 13}, {"t": 14}, {"t": 15}, {"t": 16}, {"t": 17}, {"t": 18}, {"t": 19}, {"t": 20}, {"t": 21}, {"t": 22}, {"t": 23}, {"t": 24}, {"t": 25}, {"t": 26}, {"t": 27}, {"t": 28}, {"t": 29}, {"t": 30}, {"t": 31}, {"t": 32}, {"t": 33}, {"t": 34}, {"t": 35}, {"t": 36}, {"t": 37}, {"t": 38}, {"t": 39}, {"t": 40}, {"t": 41}, {"t": 42}, {"t": 43}, {"t": 44}, {"t": 45}, {"t": 46}, {"t": 47}, {"t": 48}, {"t": 49}, {"t": 50}, {"t": 51}, {"t": 52}, {"t": 53}, {"t": 54}, {"t": 55}, {"t": 56}, {"t": 57}, {"t": 58}, {"t": 59}, {"t": 60}, {"t": 61}, {"t": 62}, {"t": 63}, {"t": 64}, {"t": 65}, {"t": 66}, {"t": 67}, {"t": 68}, {"t": 69}, {"t": 70}, {"t": 71}, {"t": 72}, {"t": 73}, {"t": 74}, {"t": 75}, {"t": 76}, {"t": 77}, {"t": 78}, {"t": 79}, {"t": 80}, {"t": 81}, {"t": 82}, {"t": 83}, {"t": 84}, {"t": 85}, {"t": 86}, {"t": 87}, {"t": 88}, {"t": 89}, {"t": 90}, {"t": 91}, {"t": 92}, {"t": 93}, {"t": 94}, {"t": 95}, {"t": 96}, {"t": 97}, {"t": 98}, {"t": 99}, {"t": 100}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -594,7 +591,7 @@ these expressions to be constructed with Python syntax; for example:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-154c237c455a7f8fb343ee63b47dd948"}, "mark": {"type": "line"}, "encoding": {"order": {"field": "t", "type": "quantitative"}, "x": {"field": "x", "type": "quantitative"}, "y": {"field": "y", "type": "quantitative"}}, "transform": [{"calculate": "cos(((datum.t * PI) / 50))", "as": "x"}, {"calculate": "sin(((datum.t * PI) / 25))", "as": "y"}], "$schema": "https://vega.github.io/schema/vega-lite/v5.6.1.json", "datasets": {"data-154c237c455a7f8fb343ee63b47dd948": [{"t": 0}, {"t": 1}, {"t": 2}, {"t": 3}, {"t": 4}, {"t": 5}, {"t": 6}, {"t": 7}, {"t": 8}, {"t": 9}, {"t": 10}, {"t": 11}, {"t": 12}, {"t": 13}, {"t": 14}, {"t": 15}, {"t": 16}, {"t": 17}, {"t": 18}, {"t": 19}, {"t": 20}, {"t": 21}, {"t": 22}, {"t": 23}, {"t": 24}, {"t": 25}, {"t": 26}, {"t": 27}, {"t": 28}, {"t": 29}, {"t": 30}, {"t": 31}, {"t": 32}, {"t": 33}, {"t": 34}, {"t": 35}, {"t": 36}, {"t": 37}, {"t": 38}, {"t": 39}, {"t": 40}, {"t": 41}, {"t": 42}, {"t": 43}, {"t": 44}, {"t": 45}, {"t": 46}, {"t": 47}, {"t": 48}, {"t": 49}, {"t": 50}, {"t": 51}, {"t": 52}, {"t": 53}, {"t": 54}, {"t": 55}, {"t": 56}, {"t": 57}, {"t": 58}, {"t": 59}, {"t": 60}, {"t": 61}, {"t": 62}, {"t": 63}, {"t": 64}, {"t": 65}, {"t": 66}, {"t": 67}, {"t": 68}, {"t": 69}, {"t": 70}, {"t": 71}, {"t": 72}, {"t": 73}, {"t": 74}, {"t": 75}, {"t": 76}, {"t": 77}, {"t": 78}, {"t": 79}, {"t": 80}, {"t": 81}, {"t": 82}, {"t": 83}, {"t": 84}, {"t": 85}, {"t": 86}, {"t": 87}, {"t": 88}, {"t": 89}, {"t": 90}, {"t": 91}, {"t": 92}, {"t": 93}, {"t": 94}, {"t": 95}, {"t": 96}, {"t": 97}, {"t": 98}, {"t": 99}, {"t": 100}]}};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-154c237c455a7f8fb343ee63b47dd948"}, "mark": {"type": "line"}, "encoding": {"order": {"field": "t", "type": "quantitative"}, "x": {"field": "x", "type": "quantitative"}, "y": {"field": "y", "type": "quantitative"}}, "transform": [{"calculate": "cos(((datum.t * PI) / 50))", "as": "x"}, {"calculate": "sin(((datum.t * PI) / 25))", "as": "y"}], "$schema": "https://vega.github.io/schema/vega-lite/v5.7.1.json", "datasets": {"data-154c237c455a7f8fb343ee63b47dd948": [{"t": 0}, {"t": 1}, {"t": 2}, {"t": 3}, {"t": 4}, {"t": 5}, {"t": 6}, {"t": 7}, {"t": 8}, {"t": 9}, {"t": 10}, {"t": 11}, {"t": 12}, {"t": 13}, {"t": 14}, {"t": 15}, {"t": 16}, {"t": 17}, {"t": 18}, {"t": 19}, {"t": 20}, {"t": 21}, {"t": 22}, {"t": 23}, {"t": 24}, {"t": 25}, {"t": 26}, {"t": 27}, {"t": 28}, {"t": 29}, {"t": 30}, {"t": 31}, {"t": 32}, {"t": 33}, {"t": 34}, {"t": 35}, {"t": 36}, {"t": 37}, {"t": 38}, {"t": 39}, {"t": 40}, {"t": 41}, {"t": 42}, {"t": 43}, {"t": 44}, {"t": 45}, {"t": 46}, {"t": 47}, {"t": 48}, {"t": 49}, {"t": 50}, {"t": 51}, {"t": 52}, {"t": 53}, {"t": 54}, {"t": 55}, {"t": 56}, {"t": 57}, {"t": 58}, {"t": 59}, {"t": 60}, {"t": 61}, {"t": 62}, {"t": 63}, {"t": 64}, {"t": 65}, {"t": 66}, {"t": 67}, {"t": 68}, {"t": 69}, {"t": 70}, {"t": 71}, {"t": 72}, {"t": 73}, {"t": 74}, {"t": 75}, {"t": 76}, {"t": 77}, {"t": 78}, {"t": 79}, {"t": 80}, {"t": 81}, {"t": 82}, {"t": 83}, {"t": 84}, {"t": 85}, {"t": 86}, {"t": 87}, {"t": 88}, {"t": 89}, {"t": 90}, {"t": 91}, {"t": 92}, {"t": 93}, {"t": 94}, {"t": 95}, {"t": 96}, {"t": 97}, {"t": 98}, {"t": 99}, {"t": 100}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -640,7 +637,10 @@ class, which has the following options:</p>
               
               
                 <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="bin.html"
@@ -660,7 +660,10 @@ class, which has the following options:</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -684,7 +687,7 @@ class, which has the following options:</p>
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner"></div>
+            
           </footer>
         
       </main>
@@ -692,8 +695,8 @@ class, which has the following options:</p>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -711,7 +714,7 @@ class, which has the following options:</p>
       
         <div class="footer-item">
   <p class="sphinx-version">
-    Created using <a href="https://sphinx-doc.org/">Sphinx</a> 5.3.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
     <br/>
   </p>
 </div>
@@ -722,7 +725,7 @@ class, which has the following options:</p>
     <div class="footer-items__end">
       
         <div class="footer-item"><p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.1.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.3.
 </p></div>
       
     </div>

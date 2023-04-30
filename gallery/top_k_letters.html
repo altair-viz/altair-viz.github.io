@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Top K Letters &#8212; Vega-Altair 5.0.0dev documentation</title>
+    <title>Top K Letters &#8212; Vega-Altair 5.0.0rc2 documentation</title>
   
   
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -35,26 +35,23 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.6.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.7.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     <script src="../_static/design-tabs.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'gallery/top_k_letters';</script>
-    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -103,7 +100,7 @@
 
 
   <div class="bd-header-announcement container-fluid bd-header-announcement">
-    <div class="bd-header-announcement__content">This website is for the release candidate of version 5 <code class="docutils literal notranslate"><span class="pre">pip install altair==5.0.0rc1</span></code> <span class="pre">(more info <a href='https://github.com/altair-viz/altair/issues/2937'>#2937</a>)</span>. You can find the documentation for version 4 <a href='https://altair-viz.github.io/altair-viz-v4/'>here</a>.</div>
+    <div class="bd-header-announcement__content">This website is for the release candidate of version 5 <code class="docutils literal notranslate"><span class="pre">pip install altair==5.0.0rc2</span></code> <span class="pre">(more info <a href='https://github.com/altair-viz/altair/issues/2937'>#2937</a>)</span>. You can find the documentation for version 4 <a href='https://altair-viz.github.io/altair-viz-v4/'>here</a>.</div>
   </div>
 
   
@@ -448,7 +445,7 @@ the first paragraph of Dickens’ <em>A Tale of Two Cities</em> by number of occ
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-0690aabffa48a310d75ff20b83fbedd4"}, "mark": {"type": "bar"}, "encoding": {"x": {"field": "count", "type": "quantitative"}, "y": {"field": "letters", "sort": "-x", "type": "nominal"}}, "transform": [{"aggregate": [{"op": "count", "as": "count"}], "groupby": ["letters"]}, {"window": [{"op": "rank", "field": "count", "as": "rank"}], "sort": [{"field": "count", "order": "descending"}]}, {"filter": "(datum.rank < 10)"}], "$schema": "https://vega.github.io/schema/vega-lite/v5.6.1.json", "datasets": {"data-0690aabffa48a310d75ff20b83fbedd4": [{"letters": "I"}, {"letters": "t"}, {"letters": "w"}, {"letters": "a"}, {"letters": "s"}, {"letters": "t"}, {"letters": "h"}, {"letters": "e"}, {"letters": "b"}, {"letters": "e"}, {"letters": "s"}, {"letters": "t"}, {"letters": "o"}, {"letters": "f"}, {"letters": "t"}, {"letters": "i"}, {"letters": "m"}, {"letters": "e"}, {"letters": "s"}, {"letters": "i"}, {"letters": "t"}, {"letters": "w"}, {"letters": "a"}, {"letters": "s"}, {"letters": "t"}, {"letters": "h"}, {"letters": "e"}, {"letters": "w"}, {"letters": "o"}, {"letters": "r"}, {"letters": "s"}, {"letters": "t"}, {"letters": "o"}, {"letters": "f"}, {"letters": "t"}, {"letters": "i"}, {"letters": "m"}, {"letters": "e"}, {"letters": "s"}, {"letters": "i"}, {"letters": "t"}, {"letters": "w"}, {"letters": "a"}, {"letters": "s"}, {"letters": "t"}, {"letters": "h"}, {"letters": "e"}, {"letters": "a"}, {"letters": "g"}, {"letters": "e"}, {"letters": "o"}, {"letters": "f"}, {"letters": "w"}, {"letters": "i"}, {"letters": "s"}, {"letters": "d"}, {"letters": "o"}, {"letters": "m"}, {"letters": "i"}, {"letters": "t"}, {"letters": "w"}, {"letters": "a"}, {"letters": "s"}, {"letters": "t"}, {"letters": "h"}, {"letters": "e"}, {"letters": "a"}, {"letters": "g"}, {"letters": "e"}, {"letters": "o"}, {"letters": "f"}, {"letters": "f"}, {"letters": "o"}, {"letters": "o"}, {"letters": "l"}, {"letters": "i"}, {"letters": "s"}, {"letters": "h"}, {"letters": "n"}, {"letters": "e"}, {"letters": "s"}, {"letters": "s"}, {"letters": "i"}, {"letters": "t"}, {"letters": "w"}, {"letters": "a"}, {"letters": "s"}, {"letters": "t"}, {"letters": "h"}, {"letters": "e"}, {"letters": "e"}, {"letters": "p"}, {"letters": "o"}, {"letters": "c"}, {"letters": "h"}, {"letters": "o"}, {"letters": "f"}, {"letters": "b"}, {"letters": "e"}, {"letters": "l"}, {"letters": "i"}, {"letters": "e"}, {"letters": "f"}, {"letters": "i"}, {"letters": "t"}, {"letters": "w"}, {"letters": "a"}, {"letters": "s"}, {"letters": "t"}, {"letters": "h"}, {"letters": "e"}, {"letters": "e"}, {"letters": "p"}, {"letters": "o"}, {"letters": "c"}, {"letters": "h"}, {"letters": "o"}, {"letters": "f"}, {"letters": "i"}, {"letters": "n"}, {"letters": "c"}, {"letters": "r"}, {"letters": "e"}, {"letters": "d"}, {"letters": "u"}, {"letters": "l"}, {"letters": "i"}, {"letters": "t"}, {"letters": "y"}, {"letters": "i"}, {"letters": "t"}, {"letters": "w"}, {"letters": "a"}, {"letters": "s"}, {"letters": "t"}, {"letters": "h"}, {"letters": "e"}, {"letters": "s"}, {"letters": "e"}, {"letters": "a"}, {"letters": "s"}, {"letters": "o"}, {"letters": "n"}, {"letters": "o"}, {"letters": "f"}, {"letters": "L"}, {"letters": "i"}, {"letters": "g"}, {"letters": "h"}, {"letters": "t"}, {"letters": "i"}, {"letters": "t"}, {"letters": "w"}, {"letters": "a"}, {"letters": "s"}, {"letters": "t"}, {"letters": "h"}, {"letters": "e"}, {"letters": "s"}, {"letters": "e"}, {"letters": "a"}, {"letters": "s"}, {"letters": "o"}, {"letters": "n"}, {"letters": "o"}, {"letters": "f"}, {"letters": "D"}, {"letters": "a"}, {"letters": "r"}, {"letters": "k"}, {"letters": "n"}, {"letters": "e"}, {"letters": "s"}, {"letters": "s"}, {"letters": "i"}, {"letters": "t"}, {"letters": "w"}, {"letters": "a"}, {"letters": "s"}, {"letters": "t"}, {"letters": "h"}, {"letters": "e"}, {"letters": "s"}, {"letters": "p"}, {"letters": "r"}, {"letters": "i"}, {"letters": "n"}, {"letters": "g"}, {"letters": "o"}, {"letters": "f"}, {"letters": "h"}, {"letters": "o"}, {"letters": "p"}, {"letters": "e"}, {"letters": "i"}, {"letters": "t"}, {"letters": "w"}, {"letters": "a"}, {"letters": "s"}, {"letters": "t"}, {"letters": "h"}, {"letters": "e"}, {"letters": "w"}, {"letters": "i"}, {"letters": "n"}, {"letters": "t"}, {"letters": "e"}, {"letters": "r"}, {"letters": "o"}, {"letters": "f"}, {"letters": "d"}, {"letters": "e"}, {"letters": "s"}, {"letters": "p"}, {"letters": "a"}, {"letters": "i"}, {"letters": "r"}, {"letters": "w"}, {"letters": "e"}, {"letters": "h"}, {"letters": "a"}, {"letters": "d"}, {"letters": "e"}, {"letters": "v"}, {"letters": "e"}, {"letters": "r"}, {"letters": "y"}, {"letters": "t"}, {"letters": "h"}, {"letters": "i"}, {"letters": "n"}, {"letters": "g"}, {"letters": "b"}, {"letters": "e"}, {"letters": "f"}, {"letters": "o"}, {"letters": "r"}, {"letters": "e"}, {"letters": "u"}, {"letters": "s"}, {"letters": "w"}, {"letters": "e"}, {"letters": "h"}, {"letters": "a"}, {"letters": "d"}, {"letters": "n"}, {"letters": "o"}, {"letters": "t"}, {"letters": "h"}, {"letters": "i"}, {"letters": "n"}, {"letters": "g"}, {"letters": "b"}, {"letters": "e"}, {"letters": "f"}, {"letters": "o"}, {"letters": "r"}, {"letters": "e"}, {"letters": "u"}, {"letters": "s"}, {"letters": "w"}, {"letters": "e"}, {"letters": "w"}, {"letters": "e"}, {"letters": "r"}, {"letters": "e"}, {"letters": "a"}, {"letters": "l"}, {"letters": "l"}, {"letters": "g"}, {"letters": "o"}, {"letters": "i"}, {"letters": "n"}, {"letters": "g"}, {"letters": "d"}, {"letters": "i"}, {"letters": "r"}, {"letters": "e"}, {"letters": "c"}, {"letters": "t"}, {"letters": "t"}, {"letters": "o"}, {"letters": "H"}, {"letters": "e"}, {"letters": "a"}, {"letters": "v"}, {"letters": "e"}, {"letters": "n"}, {"letters": "w"}, {"letters": "e"}, {"letters": "w"}, {"letters": "e"}, {"letters": "r"}, {"letters": "e"}, {"letters": "a"}, {"letters": "l"}, {"letters": "l"}, {"letters": "g"}, {"letters": "o"}, {"letters": "i"}, {"letters": "n"}, {"letters": "g"}, {"letters": "d"}, {"letters": "i"}, {"letters": "r"}, {"letters": "e"}, {"letters": "c"}, {"letters": "t"}, {"letters": "t"}, {"letters": "h"}, {"letters": "e"}, {"letters": "o"}, {"letters": "t"}, {"letters": "h"}, {"letters": "e"}, {"letters": "r"}, {"letters": "w"}, {"letters": "a"}, {"letters": "y"}, {"letters": "i"}, {"letters": "n"}, {"letters": "s"}, {"letters": "h"}, {"letters": "o"}, {"letters": "r"}, {"letters": "t"}, {"letters": "t"}, {"letters": "h"}, {"letters": "e"}, {"letters": "p"}, {"letters": "e"}, {"letters": "r"}, {"letters": "i"}, {"letters": "o"}, {"letters": "d"}, {"letters": "w"}, {"letters": "a"}, {"letters": "s"}, {"letters": "s"}, {"letters": "o"}, {"letters": "f"}, {"letters": "a"}, {"letters": "r"}, {"letters": "l"}, {"letters": "i"}, {"letters": "k"}, {"letters": "e"}, {"letters": "t"}, {"letters": "h"}, {"letters": "e"}, {"letters": "p"}, {"letters": "r"}, {"letters": "e"}, {"letters": "s"}, {"letters": "e"}, {"letters": "n"}, {"letters": "t"}, {"letters": "p"}, {"letters": "e"}, {"letters": "r"}, {"letters": "i"}, {"letters": "o"}, {"letters": "d"}, {"letters": "t"}, {"letters": "h"}, {"letters": "a"}, {"letters": "t"}, {"letters": "s"}, {"letters": "o"}, {"letters": "m"}, {"letters": "e"}, {"letters": "o"}, {"letters": "f"}, {"letters": "i"}, {"letters": "t"}, {"letters": "s"}, {"letters": "n"}, {"letters": "o"}, {"letters": "i"}, {"letters": "s"}, {"letters": "i"}, {"letters": "e"}, {"letters": "s"}, {"letters": "t"}, {"letters": "a"}, {"letters": "u"}, {"letters": "t"}, {"letters": "h"}, {"letters": "o"}, {"letters": "r"}, {"letters": "i"}, {"letters": "t"}, {"letters": "i"}, {"letters": "e"}, {"letters": "s"}, {"letters": "i"}, {"letters": "n"}, {"letters": "s"}, {"letters": "i"}, {"letters": "s"}, {"letters": "t"}, {"letters": "e"}, {"letters": "d"}, {"letters": "o"}, {"letters": "n"}, {"letters": "i"}, {"letters": "t"}, {"letters": "s"}, {"letters": "b"}, {"letters": "e"}, {"letters": "i"}, {"letters": "n"}, {"letters": "g"}, {"letters": "r"}, {"letters": "e"}, {"letters": "c"}, {"letters": "e"}, {"letters": "i"}, {"letters": "v"}, {"letters": "e"}, {"letters": "d"}, {"letters": "f"}, {"letters": "o"}, {"letters": "r"}, {"letters": "g"}, {"letters": "o"}, {"letters": "o"}, {"letters": "d"}, {"letters": "o"}, {"letters": "r"}, {"letters": "f"}, {"letters": "o"}, {"letters": "r"}, {"letters": "e"}, {"letters": "v"}, {"letters": "i"}, {"letters": "l"}, {"letters": "i"}, {"letters": "n"}, {"letters": "t"}, {"letters": "h"}, {"letters": "e"}, {"letters": "s"}, {"letters": "u"}, {"letters": "p"}, {"letters": "e"}, {"letters": "r"}, {"letters": "l"}, {"letters": "a"}, {"letters": "t"}, {"letters": "i"}, {"letters": "v"}, {"letters": "e"}, {"letters": "d"}, {"letters": "e"}, {"letters": "g"}, {"letters": "r"}, {"letters": "e"}, {"letters": "e"}, {"letters": "o"}, {"letters": "f"}, {"letters": "c"}, {"letters": "o"}, {"letters": "m"}, {"letters": "p"}, {"letters": "a"}, {"letters": "r"}, {"letters": "i"}, {"letters": "s"}, {"letters": "o"}, {"letters": "n"}, {"letters": "o"}, {"letters": "n"}, {"letters": "l"}, {"letters": "y"}]}};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-0690aabffa48a310d75ff20b83fbedd4"}, "mark": {"type": "bar"}, "encoding": {"x": {"field": "count", "type": "quantitative"}, "y": {"field": "letters", "sort": "-x", "type": "nominal"}}, "transform": [{"aggregate": [{"op": "count", "as": "count"}], "groupby": ["letters"]}, {"window": [{"op": "rank", "field": "count", "as": "rank"}], "sort": [{"field": "count", "order": "descending"}]}, {"filter": "(datum.rank < 10)"}], "$schema": "https://vega.github.io/schema/vega-lite/v5.7.1.json", "datasets": {"data-0690aabffa48a310d75ff20b83fbedd4": [{"letters": "I"}, {"letters": "t"}, {"letters": "w"}, {"letters": "a"}, {"letters": "s"}, {"letters": "t"}, {"letters": "h"}, {"letters": "e"}, {"letters": "b"}, {"letters": "e"}, {"letters": "s"}, {"letters": "t"}, {"letters": "o"}, {"letters": "f"}, {"letters": "t"}, {"letters": "i"}, {"letters": "m"}, {"letters": "e"}, {"letters": "s"}, {"letters": "i"}, {"letters": "t"}, {"letters": "w"}, {"letters": "a"}, {"letters": "s"}, {"letters": "t"}, {"letters": "h"}, {"letters": "e"}, {"letters": "w"}, {"letters": "o"}, {"letters": "r"}, {"letters": "s"}, {"letters": "t"}, {"letters": "o"}, {"letters": "f"}, {"letters": "t"}, {"letters": "i"}, {"letters": "m"}, {"letters": "e"}, {"letters": "s"}, {"letters": "i"}, {"letters": "t"}, {"letters": "w"}, {"letters": "a"}, {"letters": "s"}, {"letters": "t"}, {"letters": "h"}, {"letters": "e"}, {"letters": "a"}, {"letters": "g"}, {"letters": "e"}, {"letters": "o"}, {"letters": "f"}, {"letters": "w"}, {"letters": "i"}, {"letters": "s"}, {"letters": "d"}, {"letters": "o"}, {"letters": "m"}, {"letters": "i"}, {"letters": "t"}, {"letters": "w"}, {"letters": "a"}, {"letters": "s"}, {"letters": "t"}, {"letters": "h"}, {"letters": "e"}, {"letters": "a"}, {"letters": "g"}, {"letters": "e"}, {"letters": "o"}, {"letters": "f"}, {"letters": "f"}, {"letters": "o"}, {"letters": "o"}, {"letters": "l"}, {"letters": "i"}, {"letters": "s"}, {"letters": "h"}, {"letters": "n"}, {"letters": "e"}, {"letters": "s"}, {"letters": "s"}, {"letters": "i"}, {"letters": "t"}, {"letters": "w"}, {"letters": "a"}, {"letters": "s"}, {"letters": "t"}, {"letters": "h"}, {"letters": "e"}, {"letters": "e"}, {"letters": "p"}, {"letters": "o"}, {"letters": "c"}, {"letters": "h"}, {"letters": "o"}, {"letters": "f"}, {"letters": "b"}, {"letters": "e"}, {"letters": "l"}, {"letters": "i"}, {"letters": "e"}, {"letters": "f"}, {"letters": "i"}, {"letters": "t"}, {"letters": "w"}, {"letters": "a"}, {"letters": "s"}, {"letters": "t"}, {"letters": "h"}, {"letters": "e"}, {"letters": "e"}, {"letters": "p"}, {"letters": "o"}, {"letters": "c"}, {"letters": "h"}, {"letters": "o"}, {"letters": "f"}, {"letters": "i"}, {"letters": "n"}, {"letters": "c"}, {"letters": "r"}, {"letters": "e"}, {"letters": "d"}, {"letters": "u"}, {"letters": "l"}, {"letters": "i"}, {"letters": "t"}, {"letters": "y"}, {"letters": "i"}, {"letters": "t"}, {"letters": "w"}, {"letters": "a"}, {"letters": "s"}, {"letters": "t"}, {"letters": "h"}, {"letters": "e"}, {"letters": "s"}, {"letters": "e"}, {"letters": "a"}, {"letters": "s"}, {"letters": "o"}, {"letters": "n"}, {"letters": "o"}, {"letters": "f"}, {"letters": "L"}, {"letters": "i"}, {"letters": "g"}, {"letters": "h"}, {"letters": "t"}, {"letters": "i"}, {"letters": "t"}, {"letters": "w"}, {"letters": "a"}, {"letters": "s"}, {"letters": "t"}, {"letters": "h"}, {"letters": "e"}, {"letters": "s"}, {"letters": "e"}, {"letters": "a"}, {"letters": "s"}, {"letters": "o"}, {"letters": "n"}, {"letters": "o"}, {"letters": "f"}, {"letters": "D"}, {"letters": "a"}, {"letters": "r"}, {"letters": "k"}, {"letters": "n"}, {"letters": "e"}, {"letters": "s"}, {"letters": "s"}, {"letters": "i"}, {"letters": "t"}, {"letters": "w"}, {"letters": "a"}, {"letters": "s"}, {"letters": "t"}, {"letters": "h"}, {"letters": "e"}, {"letters": "s"}, {"letters": "p"}, {"letters": "r"}, {"letters": "i"}, {"letters": "n"}, {"letters": "g"}, {"letters": "o"}, {"letters": "f"}, {"letters": "h"}, {"letters": "o"}, {"letters": "p"}, {"letters": "e"}, {"letters": "i"}, {"letters": "t"}, {"letters": "w"}, {"letters": "a"}, {"letters": "s"}, {"letters": "t"}, {"letters": "h"}, {"letters": "e"}, {"letters": "w"}, {"letters": "i"}, {"letters": "n"}, {"letters": "t"}, {"letters": "e"}, {"letters": "r"}, {"letters": "o"}, {"letters": "f"}, {"letters": "d"}, {"letters": "e"}, {"letters": "s"}, {"letters": "p"}, {"letters": "a"}, {"letters": "i"}, {"letters": "r"}, {"letters": "w"}, {"letters": "e"}, {"letters": "h"}, {"letters": "a"}, {"letters": "d"}, {"letters": "e"}, {"letters": "v"}, {"letters": "e"}, {"letters": "r"}, {"letters": "y"}, {"letters": "t"}, {"letters": "h"}, {"letters": "i"}, {"letters": "n"}, {"letters": "g"}, {"letters": "b"}, {"letters": "e"}, {"letters": "f"}, {"letters": "o"}, {"letters": "r"}, {"letters": "e"}, {"letters": "u"}, {"letters": "s"}, {"letters": "w"}, {"letters": "e"}, {"letters": "h"}, {"letters": "a"}, {"letters": "d"}, {"letters": "n"}, {"letters": "o"}, {"letters": "t"}, {"letters": "h"}, {"letters": "i"}, {"letters": "n"}, {"letters": "g"}, {"letters": "b"}, {"letters": "e"}, {"letters": "f"}, {"letters": "o"}, {"letters": "r"}, {"letters": "e"}, {"letters": "u"}, {"letters": "s"}, {"letters": "w"}, {"letters": "e"}, {"letters": "w"}, {"letters": "e"}, {"letters": "r"}, {"letters": "e"}, {"letters": "a"}, {"letters": "l"}, {"letters": "l"}, {"letters": "g"}, {"letters": "o"}, {"letters": "i"}, {"letters": "n"}, {"letters": "g"}, {"letters": "d"}, {"letters": "i"}, {"letters": "r"}, {"letters": "e"}, {"letters": "c"}, {"letters": "t"}, {"letters": "t"}, {"letters": "o"}, {"letters": "H"}, {"letters": "e"}, {"letters": "a"}, {"letters": "v"}, {"letters": "e"}, {"letters": "n"}, {"letters": "w"}, {"letters": "e"}, {"letters": "w"}, {"letters": "e"}, {"letters": "r"}, {"letters": "e"}, {"letters": "a"}, {"letters": "l"}, {"letters": "l"}, {"letters": "g"}, {"letters": "o"}, {"letters": "i"}, {"letters": "n"}, {"letters": "g"}, {"letters": "d"}, {"letters": "i"}, {"letters": "r"}, {"letters": "e"}, {"letters": "c"}, {"letters": "t"}, {"letters": "t"}, {"letters": "h"}, {"letters": "e"}, {"letters": "o"}, {"letters": "t"}, {"letters": "h"}, {"letters": "e"}, {"letters": "r"}, {"letters": "w"}, {"letters": "a"}, {"letters": "y"}, {"letters": "i"}, {"letters": "n"}, {"letters": "s"}, {"letters": "h"}, {"letters": "o"}, {"letters": "r"}, {"letters": "t"}, {"letters": "t"}, {"letters": "h"}, {"letters": "e"}, {"letters": "p"}, {"letters": "e"}, {"letters": "r"}, {"letters": "i"}, {"letters": "o"}, {"letters": "d"}, {"letters": "w"}, {"letters": "a"}, {"letters": "s"}, {"letters": "s"}, {"letters": "o"}, {"letters": "f"}, {"letters": "a"}, {"letters": "r"}, {"letters": "l"}, {"letters": "i"}, {"letters": "k"}, {"letters": "e"}, {"letters": "t"}, {"letters": "h"}, {"letters": "e"}, {"letters": "p"}, {"letters": "r"}, {"letters": "e"}, {"letters": "s"}, {"letters": "e"}, {"letters": "n"}, {"letters": "t"}, {"letters": "p"}, {"letters": "e"}, {"letters": "r"}, {"letters": "i"}, {"letters": "o"}, {"letters": "d"}, {"letters": "t"}, {"letters": "h"}, {"letters": "a"}, {"letters": "t"}, {"letters": "s"}, {"letters": "o"}, {"letters": "m"}, {"letters": "e"}, {"letters": "o"}, {"letters": "f"}, {"letters": "i"}, {"letters": "t"}, {"letters": "s"}, {"letters": "n"}, {"letters": "o"}, {"letters": "i"}, {"letters": "s"}, {"letters": "i"}, {"letters": "e"}, {"letters": "s"}, {"letters": "t"}, {"letters": "a"}, {"letters": "u"}, {"letters": "t"}, {"letters": "h"}, {"letters": "o"}, {"letters": "r"}, {"letters": "i"}, {"letters": "t"}, {"letters": "i"}, {"letters": "e"}, {"letters": "s"}, {"letters": "i"}, {"letters": "n"}, {"letters": "s"}, {"letters": "i"}, {"letters": "s"}, {"letters": "t"}, {"letters": "e"}, {"letters": "d"}, {"letters": "o"}, {"letters": "n"}, {"letters": "i"}, {"letters": "t"}, {"letters": "s"}, {"letters": "b"}, {"letters": "e"}, {"letters": "i"}, {"letters": "n"}, {"letters": "g"}, {"letters": "r"}, {"letters": "e"}, {"letters": "c"}, {"letters": "e"}, {"letters": "i"}, {"letters": "v"}, {"letters": "e"}, {"letters": "d"}, {"letters": "f"}, {"letters": "o"}, {"letters": "r"}, {"letters": "g"}, {"letters": "o"}, {"letters": "o"}, {"letters": "d"}, {"letters": "o"}, {"letters": "r"}, {"letters": "f"}, {"letters": "o"}, {"letters": "r"}, {"letters": "e"}, {"letters": "v"}, {"letters": "i"}, {"letters": "l"}, {"letters": "i"}, {"letters": "n"}, {"letters": "t"}, {"letters": "h"}, {"letters": "e"}, {"letters": "s"}, {"letters": "u"}, {"letters": "p"}, {"letters": "e"}, {"letters": "r"}, {"letters": "l"}, {"letters": "a"}, {"letters": "t"}, {"letters": "i"}, {"letters": "v"}, {"letters": "e"}, {"letters": "d"}, {"letters": "e"}, {"letters": "g"}, {"letters": "r"}, {"letters": "e"}, {"letters": "e"}, {"letters": "o"}, {"letters": "f"}, {"letters": "c"}, {"letters": "o"}, {"letters": "m"}, {"letters": "p"}, {"letters": "a"}, {"letters": "r"}, {"letters": "i"}, {"letters": "s"}, {"letters": "o"}, {"letters": "n"}, {"letters": "o"}, {"letters": "n"}, {"letters": "l"}, {"letters": "y"}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -543,9 +540,15 @@ Attribute syntax</label><div class="sd-tab-content docutils">
               
               
                 <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -555,7 +558,7 @@ Attribute syntax</label><div class="sd-tab-content docutils">
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner"></div>
+            
           </footer>
         
       </main>
@@ -563,8 +566,8 @@ Attribute syntax</label><div class="sd-tab-content docutils">
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -582,7 +585,7 @@ Attribute syntax</label><div class="sd-tab-content docutils">
       
         <div class="footer-item">
   <p class="sphinx-version">
-    Created using <a href="https://sphinx-doc.org/">Sphinx</a> 5.3.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
     <br/>
   </p>
 </div>
@@ -593,7 +596,7 @@ Attribute syntax</label><div class="sd-tab-content docutils">
     <div class="footer-items__end">
       
         <div class="footer-item"><p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.1.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.3.
 </p></div>
       
     </div>

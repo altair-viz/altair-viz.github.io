@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Simple Line Chart &#8212; Vega-Altair 5.0.0dev documentation</title>
+    <title>Simple Line Chart &#8212; Vega-Altair 5.0.0rc2 documentation</title>
   
   
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -35,26 +35,23 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.6.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.7.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     <script src="../_static/design-tabs.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'gallery/simple_line_chart';</script>
-    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -103,7 +100,7 @@
 
 
   <div class="bd-header-announcement container-fluid bd-header-announcement">
-    <div class="bd-header-announcement__content">This website is for the release candidate of version 5 <code class="docutils literal notranslate"><span class="pre">pip install altair==5.0.0rc1</span></code> <span class="pre">(more info <a href='https://github.com/altair-viz/altair/issues/2937'>#2937</a>)</span>. You can find the documentation for version 4 <a href='https://altair-viz.github.io/altair-viz-v4/'>here</a>.</div>
+    <div class="bd-header-announcement__content">This website is for the release candidate of version 5 <code class="docutils literal notranslate"><span class="pre">pip install altair==5.0.0rc2</span></code> <span class="pre">(more info <a href='https://github.com/altair-viz/altair/issues/2937'>#2937</a>)</span>. You can find the documentation for version 4 <a href='https://altair-viz.github.io/altair-viz-v4/'>here</a>.</div>
   </div>
 
   
@@ -447,7 +444,7 @@ columns.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-cadbf0316cf2ce98a2ec0bd860df6593"}, "mark": {"type": "line"}, "encoding": {"x": {"field": "x", "type": "quantitative"}, "y": {"field": "f(x)", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.6.1.json", "datasets": {"data-cadbf0316cf2ce98a2ec0bd860df6593": [{"x": 0, "f(x)": 0.0}, {"x": 1, "f(x)": 0.19866933079506124}, {"x": 2, "f(x)": 0.3894183423086505}, {"x": 3, "f(x)": 0.5646424733950353}, {"x": 4, "f(x)": 0.7173560908995229}, {"x": 5, "f(x)": 0.8414709848078965}, {"x": 6, "f(x)": 0.9320390859672263}, {"x": 7, "f(x)": 0.9854497299884601}, {"x": 8, "f(x)": 0.9995736030415054}, {"x": 9, "f(x)": 0.9738476308781954}, {"x": 10, "f(x)": 0.9092974268256816}, {"x": 11, "f(x)": 0.8084964038195902}, {"x": 12, "f(x)": 0.675463180551151}, {"x": 13, "f(x)": 0.515501371821464}, {"x": 14, "f(x)": 0.3349881501559051}, {"x": 15, "f(x)": 0.1411200080598672}, {"x": 16, "f(x)": -0.058374143427580086}, {"x": 17, "f(x)": -0.2555411020268313}, {"x": 18, "f(x)": -0.44252044329485246}, {"x": 19, "f(x)": -0.6118578909427188}, {"x": 20, "f(x)": -0.7568024953079284}, {"x": 21, "f(x)": -0.8715757724135881}, {"x": 22, "f(x)": -0.9516020738895161}, {"x": 23, "f(x)": -0.9936910036334642}, {"x": 24, "f(x)": -0.9961646088358407}, {"x": 25, "f(x)": -0.9589242746631386}, {"x": 26, "f(x)": -0.883454655720153}, {"x": 27, "f(x)": -0.7727644875559873}, {"x": 28, "f(x)": -0.6312666378723215}, {"x": 29, "f(x)": -0.4646021794137573}, {"x": 30, "f(x)": -0.2794154981989259}, {"x": 31, "f(x)": -0.08308940281749641}, {"x": 32, "f(x)": 0.11654920485049364}, {"x": 33, "f(x)": 0.3115413635133779}, {"x": 34, "f(x)": 0.49411335113860816}, {"x": 35, "f(x)": 0.6569865987187891}, {"x": 36, "f(x)": 0.7936678638491533}, {"x": 37, "f(x)": 0.8987080958116268}, {"x": 38, "f(x)": 0.9679196720314865}, {"x": 39, "f(x)": 0.9985433453746051}, {"x": 40, "f(x)": 0.9893582466233817}, {"x": 41, "f(x)": 0.9407305566797732}, {"x": 42, "f(x)": 0.8545989080882804}, {"x": 43, "f(x)": 0.7343970978741134}, {"x": 44, "f(x)": 0.5849171928917616}, {"x": 45, "f(x)": 0.4121184852417566}, {"x": 46, "f(x)": 0.22288991410024767}, {"x": 47, "f(x)": 0.024775425453357765}, {"x": 48, "f(x)": -0.17432678122297965}, {"x": 49, "f(x)": -0.36647912925192844}, {"x": 50, "f(x)": -0.5440211108893698}, {"x": 51, "f(x)": -0.6998746875935424}, {"x": 52, "f(x)": -0.8278264690856537}, {"x": 53, "f(x)": -0.9227754216128065}, {"x": 54, "f(x)": -0.9809362300664916}, {"x": 55, "f(x)": -0.9999902065507034}, {"x": 56, "f(x)": -0.9791777291513174}, {"x": 57, "f(x)": -0.9193285256646756}, {"x": 58, "f(x)": -0.8228285949687089}, {"x": 59, "f(x)": -0.6935250847771224}, {"x": 60, "f(x)": -0.5365729180004348}, {"x": 61, "f(x)": -0.35822928223682876}, {"x": 62, "f(x)": -0.16560417544830944}, {"x": 63, "f(x)": 0.03362304722113669}, {"x": 64, "f(x)": 0.23150982510153897}, {"x": 65, "f(x)": 0.4201670368266409}, {"x": 66, "f(x)": 0.5920735147072229}, {"x": 67, "f(x)": 0.7403758899524487}, {"x": 68, "f(x)": 0.8591618148564959}, {"x": 69, "f(x)": 0.9436956694441049}, {"x": 70, "f(x)": 0.9906073556948702}, {"x": 71, "f(x)": 0.9980266527163618}, {"x": 72, "f(x)": 0.9656577765492776}, {"x": 73, "f(x)": 0.8947911721405041}, {"x": 74, "f(x)": 0.7882520673753164}, {"x": 75, "f(x)": 0.6502878401571168}, {"x": 76, "f(x)": 0.4863986888537997}, {"x": 77, "f(x)": 0.3031183567457023}, {"x": 78, "f(x)": 0.10775365229944407}, {"x": 79, "f(x)": -0.09190685022768165}, {"x": 80, "f(x)": -0.28790331666506536}, {"x": 81, "f(x)": -0.4724219863984661}, {"x": 82, "f(x)": -0.6381066823479474}, {"x": 83, "f(x)": -0.7783520785342986}, {"x": 84, "f(x)": -0.8875670335815045}, {"x": 85, "f(x)": -0.961397491879557}, {"x": 86, "f(x)": -0.996900066041596}, {"x": 87, "f(x)": -0.992659380470633}, {"x": 88, "f(x)": -0.9488444979181241}, {"x": 89, "f(x)": -0.8672021794855813}, {"x": 90, "f(x)": -0.7509872467716763}, {"x": 91, "f(x)": -0.6048328224062841}, {"x": 92, "f(x)": -0.4345656220718967}, {"x": 93, "f(x)": -0.24697366173662091}, {"x": 94, "f(x)": -0.04953564087836742}, {"x": 95, "f(x)": 0.14987720966295234}, {"x": 96, "f(x)": 0.34331492881989545}, {"x": 97, "f(x)": 0.5230657651576963}, {"x": 98, "f(x)": 0.6819636200681355}, {"x": 99, "f(x)": 0.8136737375071055}]}};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-cadbf0316cf2ce98a2ec0bd860df6593"}, "mark": {"type": "line"}, "encoding": {"x": {"field": "x", "type": "quantitative"}, "y": {"field": "f(x)", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.7.1.json", "datasets": {"data-cadbf0316cf2ce98a2ec0bd860df6593": [{"x": 0, "f(x)": 0.0}, {"x": 1, "f(x)": 0.19866933079506124}, {"x": 2, "f(x)": 0.3894183423086505}, {"x": 3, "f(x)": 0.5646424733950353}, {"x": 4, "f(x)": 0.7173560908995229}, {"x": 5, "f(x)": 0.8414709848078965}, {"x": 6, "f(x)": 0.9320390859672263}, {"x": 7, "f(x)": 0.9854497299884601}, {"x": 8, "f(x)": 0.9995736030415054}, {"x": 9, "f(x)": 0.9738476308781954}, {"x": 10, "f(x)": 0.9092974268256816}, {"x": 11, "f(x)": 0.8084964038195902}, {"x": 12, "f(x)": 0.675463180551151}, {"x": 13, "f(x)": 0.515501371821464}, {"x": 14, "f(x)": 0.3349881501559051}, {"x": 15, "f(x)": 0.1411200080598672}, {"x": 16, "f(x)": -0.058374143427580086}, {"x": 17, "f(x)": -0.2555411020268313}, {"x": 18, "f(x)": -0.44252044329485246}, {"x": 19, "f(x)": -0.6118578909427188}, {"x": 20, "f(x)": -0.7568024953079284}, {"x": 21, "f(x)": -0.8715757724135881}, {"x": 22, "f(x)": -0.9516020738895161}, {"x": 23, "f(x)": -0.9936910036334642}, {"x": 24, "f(x)": -0.9961646088358407}, {"x": 25, "f(x)": -0.9589242746631386}, {"x": 26, "f(x)": -0.883454655720153}, {"x": 27, "f(x)": -0.7727644875559873}, {"x": 28, "f(x)": -0.6312666378723215}, {"x": 29, "f(x)": -0.4646021794137573}, {"x": 30, "f(x)": -0.2794154981989259}, {"x": 31, "f(x)": -0.08308940281749641}, {"x": 32, "f(x)": 0.11654920485049364}, {"x": 33, "f(x)": 0.3115413635133779}, {"x": 34, "f(x)": 0.49411335113860816}, {"x": 35, "f(x)": 0.6569865987187891}, {"x": 36, "f(x)": 0.7936678638491533}, {"x": 37, "f(x)": 0.8987080958116268}, {"x": 38, "f(x)": 0.9679196720314865}, {"x": 39, "f(x)": 0.9985433453746051}, {"x": 40, "f(x)": 0.9893582466233817}, {"x": 41, "f(x)": 0.9407305566797732}, {"x": 42, "f(x)": 0.8545989080882804}, {"x": 43, "f(x)": 0.7343970978741134}, {"x": 44, "f(x)": 0.5849171928917616}, {"x": 45, "f(x)": 0.4121184852417566}, {"x": 46, "f(x)": 0.22288991410024767}, {"x": 47, "f(x)": 0.024775425453357765}, {"x": 48, "f(x)": -0.17432678122297965}, {"x": 49, "f(x)": -0.36647912925192844}, {"x": 50, "f(x)": -0.5440211108893698}, {"x": 51, "f(x)": -0.6998746875935424}, {"x": 52, "f(x)": -0.8278264690856537}, {"x": 53, "f(x)": -0.9227754216128065}, {"x": 54, "f(x)": -0.9809362300664916}, {"x": 55, "f(x)": -0.9999902065507034}, {"x": 56, "f(x)": -0.9791777291513174}, {"x": 57, "f(x)": -0.9193285256646756}, {"x": 58, "f(x)": -0.8228285949687089}, {"x": 59, "f(x)": -0.6935250847771224}, {"x": 60, "f(x)": -0.5365729180004348}, {"x": 61, "f(x)": -0.35822928223682876}, {"x": 62, "f(x)": -0.16560417544830944}, {"x": 63, "f(x)": 0.03362304722113669}, {"x": 64, "f(x)": 0.23150982510153897}, {"x": 65, "f(x)": 0.4201670368266409}, {"x": 66, "f(x)": 0.5920735147072229}, {"x": 67, "f(x)": 0.7403758899524487}, {"x": 68, "f(x)": 0.8591618148564959}, {"x": 69, "f(x)": 0.9436956694441049}, {"x": 70, "f(x)": 0.9906073556948702}, {"x": 71, "f(x)": 0.9980266527163618}, {"x": 72, "f(x)": 0.9656577765492776}, {"x": 73, "f(x)": 0.8947911721405041}, {"x": 74, "f(x)": 0.7882520673753164}, {"x": 75, "f(x)": 0.6502878401571168}, {"x": 76, "f(x)": 0.4863986888537997}, {"x": 77, "f(x)": 0.3031183567457023}, {"x": 78, "f(x)": 0.10775365229944407}, {"x": 79, "f(x)": -0.09190685022768165}, {"x": 80, "f(x)": -0.28790331666506536}, {"x": 81, "f(x)": -0.4724219863984661}, {"x": 82, "f(x)": -0.6381066823479474}, {"x": 83, "f(x)": -0.7783520785342986}, {"x": 84, "f(x)": -0.8875670335815045}, {"x": 85, "f(x)": -0.961397491879557}, {"x": 86, "f(x)": -0.996900066041596}, {"x": 87, "f(x)": -0.992659380470633}, {"x": 88, "f(x)": -0.9488444979181241}, {"x": 89, "f(x)": -0.8672021794855813}, {"x": 90, "f(x)": -0.7509872467716763}, {"x": 91, "f(x)": -0.6048328224062841}, {"x": 92, "f(x)": -0.4345656220718967}, {"x": 93, "f(x)": -0.24697366173662091}, {"x": 94, "f(x)": -0.04953564087836742}, {"x": 95, "f(x)": 0.14987720966295234}, {"x": 96, "f(x)": 0.34331492881989545}, {"x": 97, "f(x)": 0.5230657651576963}, {"x": 98, "f(x)": 0.6819636200681355}, {"x": 99, "f(x)": 0.8136737375071055}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -508,9 +505,15 @@ Attribute syntax</label><div class="sd-tab-content docutils">
               
               
                 <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -520,7 +523,7 @@ Attribute syntax</label><div class="sd-tab-content docutils">
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner"></div>
+            
           </footer>
         
       </main>
@@ -528,8 +531,8 @@ Attribute syntax</label><div class="sd-tab-content docutils">
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -547,7 +550,7 @@ Attribute syntax</label><div class="sd-tab-content docutils">
       
         <div class="footer-item">
   <p class="sphinx-version">
-    Created using <a href="https://sphinx-doc.org/">Sphinx</a> 5.3.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
     <br/>
   </p>
 </div>
@@ -558,7 +561,7 @@ Attribute syntax</label><div class="sd-tab-content docutils">
     <div class="footer-items__end">
       
         <div class="footer-item"><p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.1.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.3.
 </p></div>
       
     </div>

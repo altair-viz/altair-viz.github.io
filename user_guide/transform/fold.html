@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Fold &#8212; Vega-Altair 5.0.0dev documentation</title>
+    <title>Fold &#8212; Vega-Altair 5.0.0rc2 documentation</title>
   
   
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -35,26 +35,23 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.6.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.7.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     <script src="../../_static/design-tabs.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'user_guide/transform/fold';</script>
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Impute" href="impute.html" />
@@ -105,7 +102,7 @@
 
 
   <div class="bd-header-announcement container-fluid bd-header-announcement">
-    <div class="bd-header-announcement__content">This website is for the release candidate of version 5 <code class="docutils literal notranslate"><span class="pre">pip install altair==5.0.0rc1</span></code> <span class="pre">(more info <a href='https://github.com/altair-viz/altair/issues/2937'>#2937</a>)</span>. You can find the documentation for version 4 <a href='https://altair-viz.github.io/altair-viz-v4/'>here</a>.</div>
+    <div class="bd-header-announcement__content">This website is for the release candidate of version 5 <code class="docutils literal notranslate"><span class="pre">pip install altair==5.0.0rc2</span></code> <span class="pre">(more info <a href='https://github.com/altair-viz/altair/issues/2937'>#2937</a>)</span>. You can find the documentation for version 4 <a href='https://altair-viz.github.io/altair-viz-v4/'>here</a>.</div>
   </div>
 
   
@@ -571,7 +568,7 @@ on those categories:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-323bee835559f9f913139f56468205ce"}, "mark": {"type": "line"}, "encoding": {"color": {"field": "key", "type": "nominal"}, "x": {"field": "date", "type": "temporal"}, "y": {"field": "value", "type": "quantitative"}}, "transform": [{"fold": ["A", "B", "C"]}], "$schema": "https://vega.github.io/schema/vega-lite/v5.6.1.json", "datasets": {"data-323bee835559f9f913139f56468205ce": [{"date": "2019-01-01T00:00:00", "A": 1.764052345967664, "B": 0.1549474256969163, "C": -0.672460447775951}, {"date": "2019-01-02T00:00:00", "A": 2.1642095543348874, "B": 0.5331099452990898, "C": -1.0320136093164924}, {"date": "2019-01-03T00:00:00", "A": 3.1429475384406267, "B": -0.3546758023310229, "C": -1.8451598913609466}, {"date": "2019-01-04T00:00:00", "A": 5.3838407376420845, "B": -2.3354722705549498, "C": -3.5714424936926235}, {"date": "2019-01-05T00:00:00", "A": 7.251398727792052, "B": -2.6833844198811025, "C": -3.3940163514388706}, {"date": "2019-01-06T00:00:00", "A": 6.274120847915642, "B": -2.5270354507771224, "C": -3.7957972876471326}, {"date": "2019-01-07T00:00:00", "A": 7.224209265441231, "B": -1.2967447700494017, "C": -5.4259956346131775}, {"date": "2019-01-08T00:00:00", "A": 7.072852057143533, "B": -0.09436492126499041, "C": -4.963213379087403}, {"date": "2019-01-09T00:00:00", "A": 6.969633205349975, "B": -0.4816917386729427, "C": -5.8705117434706455}, {"date": "2019-01-10T00:00:00", "A": 7.380231707288347, "B": -0.7839944892482782, "C": -5.818566347674507}, {"date": "2019-01-11T00:00:00", "A": 7.524275278449225, "B": -1.8325474543153708, "C": -5.08947578549697}, {"date": "2019-01-12T00:00:00", "A": 8.9785487854122, "B": -3.252565391494346, "C": -4.960492874739559}, {"date": "2019-01-13T00:00:00", "A": 9.739586510559192, "B": -4.958835582119359, "C": -3.821092190196259}, {"date": "2019-01-14T00:00:00", "A": 9.86126152705202, "B": -3.008060186887569, "C": -5.055918010549911}, {"date": "2019-01-15T00:00:00", "A": 10.305124759797446, "B": -3.5177123686392227, "C": -4.653576369372362}, {"date": "2019-01-16T00:00:00", "A": 10.638799087171712, "B": -3.955786670250409, "C": -5.338386460312675}, {"date": "2019-01-17T00:00:00", "A": 12.132878160329318, "B": -5.208582030300335, "C": -6.2091836094945565}, {"date": "2019-01-18T00:00:00", "A": 11.927719896563516, "B": -4.4310916744684254, "C": -6.7880332742589715}, {"date": "2019-01-19T00:00:00", "A": 12.240787598214418, "B": -6.044989522026377, "C": -7.099585806386344}, {"date": "2019-01-20T00:00:00", "A": 11.386691858912693, "B": -6.257729802240346, "C": -7.043420464156599}, {"date": "2019-01-21T00:00:00", "A": 8.833702043078613, "B": -7.153196363434021, "C": -8.208570304939956}, {"date": "2019-01-22T00:00:00", "A": 9.487320638518973, "B": -6.766293865574759, "C": -7.307743817985768}, {"date": "2019-01-23T00:00:00", "A": 10.35175683737848, "B": -7.277099003143632, "C": -6.842081378255308}, {"date": "2019-01-24T00:00:00", "A": 9.609591816972037, "B": -8.457731187266043, "C": -8.378325064532532}, {"date": "2019-01-25T00:00:00", "A": 11.879346440959644, "B": -8.4859134156047, "C": -6.890072870736933}, {"date": "2019-01-26T00:00:00", "A": 10.424980766360878, "B": -8.057581545074282, "C": -4.99418369470635}, {"date": "2019-01-27T00:00:00", "A": 10.470739283662324, "B": -7.9910643226911136, "C": -3.815404123546699}, {"date": "2019-01-28T00:00:00", "A": 10.28355543363649, "B": -7.688592424951332, "C": -3.99532895935905}, {"date": "2019-01-29T00:00:00", "A": 11.816334647994948, "B": -8.322914518632295, "C": -5.066081580869593}, {"date": "2019-01-30T00:00:00", "A": 13.285693417895233, "B": -8.685655684619434, "C": -4.011629853938456}]}};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-323bee835559f9f913139f56468205ce"}, "mark": {"type": "line"}, "encoding": {"color": {"field": "key", "type": "nominal"}, "x": {"field": "date", "type": "temporal"}, "y": {"field": "value", "type": "quantitative"}}, "transform": [{"fold": ["A", "B", "C"]}], "$schema": "https://vega.github.io/schema/vega-lite/v5.7.1.json", "datasets": {"data-323bee835559f9f913139f56468205ce": [{"date": "2019-01-01T00:00:00", "A": 1.764052345967664, "B": 0.1549474256969163, "C": -0.672460447775951}, {"date": "2019-01-02T00:00:00", "A": 2.1642095543348874, "B": 0.5331099452990898, "C": -1.0320136093164924}, {"date": "2019-01-03T00:00:00", "A": 3.1429475384406267, "B": -0.3546758023310229, "C": -1.8451598913609466}, {"date": "2019-01-04T00:00:00", "A": 5.3838407376420845, "B": -2.3354722705549498, "C": -3.5714424936926235}, {"date": "2019-01-05T00:00:00", "A": 7.251398727792052, "B": -2.6833844198811025, "C": -3.3940163514388706}, {"date": "2019-01-06T00:00:00", "A": 6.274120847915642, "B": -2.5270354507771224, "C": -3.7957972876471326}, {"date": "2019-01-07T00:00:00", "A": 7.224209265441231, "B": -1.2967447700494017, "C": -5.4259956346131775}, {"date": "2019-01-08T00:00:00", "A": 7.072852057143533, "B": -0.09436492126499041, "C": -4.963213379087403}, {"date": "2019-01-09T00:00:00", "A": 6.969633205349975, "B": -0.4816917386729427, "C": -5.8705117434706455}, {"date": "2019-01-10T00:00:00", "A": 7.380231707288347, "B": -0.7839944892482782, "C": -5.818566347674507}, {"date": "2019-01-11T00:00:00", "A": 7.524275278449225, "B": -1.8325474543153708, "C": -5.08947578549697}, {"date": "2019-01-12T00:00:00", "A": 8.9785487854122, "B": -3.252565391494346, "C": -4.960492874739559}, {"date": "2019-01-13T00:00:00", "A": 9.739586510559192, "B": -4.958835582119359, "C": -3.821092190196259}, {"date": "2019-01-14T00:00:00", "A": 9.86126152705202, "B": -3.008060186887569, "C": -5.055918010549911}, {"date": "2019-01-15T00:00:00", "A": 10.305124759797446, "B": -3.5177123686392227, "C": -4.653576369372362}, {"date": "2019-01-16T00:00:00", "A": 10.638799087171712, "B": -3.955786670250409, "C": -5.338386460312675}, {"date": "2019-01-17T00:00:00", "A": 12.132878160329318, "B": -5.208582030300335, "C": -6.2091836094945565}, {"date": "2019-01-18T00:00:00", "A": 11.927719896563516, "B": -4.4310916744684254, "C": -6.7880332742589715}, {"date": "2019-01-19T00:00:00", "A": 12.240787598214418, "B": -6.044989522026377, "C": -7.099585806386344}, {"date": "2019-01-20T00:00:00", "A": 11.386691858912693, "B": -6.257729802240346, "C": -7.043420464156599}, {"date": "2019-01-21T00:00:00", "A": 8.833702043078613, "B": -7.153196363434021, "C": -8.208570304939956}, {"date": "2019-01-22T00:00:00", "A": 9.487320638518973, "B": -6.766293865574759, "C": -7.307743817985768}, {"date": "2019-01-23T00:00:00", "A": 10.35175683737848, "B": -7.277099003143632, "C": -6.842081378255308}, {"date": "2019-01-24T00:00:00", "A": 9.609591816972037, "B": -8.457731187266043, "C": -8.378325064532532}, {"date": "2019-01-25T00:00:00", "A": 11.879346440959644, "B": -8.4859134156047, "C": -6.890072870736933}, {"date": "2019-01-26T00:00:00", "A": 10.424980766360878, "B": -8.057581545074282, "C": -4.99418369470635}, {"date": "2019-01-27T00:00:00", "A": 10.470739283662324, "B": -7.9910643226911136, "C": -3.815404123546699}, {"date": "2019-01-28T00:00:00", "A": 10.28355543363649, "B": -7.688592424951332, "C": -3.99532895935905}, {"date": "2019-01-29T00:00:00", "A": 11.816334647994948, "B": -8.322914518632295, "C": -5.066081580869593}, {"date": "2019-01-30T00:00:00", "A": 13.285693417895233, "B": -8.685655684619434, "C": -4.011629853938456}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -615,7 +612,10 @@ class, which has the following options:</p>
               
               
                 <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="flatten.html"
@@ -635,7 +635,10 @@ class, which has the following options:</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -659,7 +662,7 @@ class, which has the following options:</p>
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner"></div>
+            
           </footer>
         
       </main>
@@ -667,8 +670,8 @@ class, which has the following options:</p>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -686,7 +689,7 @@ class, which has the following options:</p>
       
         <div class="footer-item">
   <p class="sphinx-version">
-    Created using <a href="https://sphinx-doc.org/">Sphinx</a> 5.3.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
     <br/>
   </p>
 </div>
@@ -697,7 +700,7 @@ class, which has the following options:</p>
     <div class="footer-items__end">
       
         <div class="footer-item"><p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.1.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.3.
 </p></div>
       
     </div>

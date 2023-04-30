@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Basic Statistical Visualization &#8212; Vega-Altair 5.0.0dev documentation</title>
+    <title>Basic Statistical Visualization &#8212; Vega-Altair 5.0.0rc2 documentation</title>
   
   
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -35,26 +35,23 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.6.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.7.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     <script src="../_static/design-tabs.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'getting_started/starting';</script>
-    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Getting Help" href="getting_help.html" />
@@ -105,7 +102,7 @@
 
 
   <div class="bd-header-announcement container-fluid bd-header-announcement">
-    <div class="bd-header-announcement__content">This website is for the release candidate of version 5 <code class="docutils literal notranslate"><span class="pre">pip install altair==5.0.0rc1</span></code> <span class="pre">(more info <a href='https://github.com/altair-viz/altair/issues/2937'>#2937</a>)</span>. You can find the documentation for version 4 <a href='https://altair-viz.github.io/altair-viz-v4/'>here</a>.</div>
+    <div class="bd-header-announcement__content">This website is for the release candidate of version 5 <code class="docutils literal notranslate"><span class="pre">pip install altair==5.0.0rc2</span></code> <span class="pre">(more info <a href='https://github.com/altair-viz/altair/issues/2937'>#2937</a>)</span>. You can find the documentation for version 4 <a href='https://altair-viz.github.io/altair-viz-v4/'>here</a>.</div>
   </div>
 
   
@@ -524,7 +521,7 @@ For example, we can show the data as a point using <code class="xref py py-meth 
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-347f1284ea3247c0f55cb966abbdd2d8"}, "mark": {"type": "point"}, "$schema": "https://vega.github.io/schema/vega-lite/v5.6.1.json", "datasets": {"data-347f1284ea3247c0f55cb966abbdd2d8": [{"a": "C", "b": 2}, {"a": "C", "b": 7}, {"a": "C", "b": 4}, {"a": "D", "b": 1}, {"a": "D", "b": 2}, {"a": "D", "b": 6}, {"a": "E", "b": 8}, {"a": "E", "b": 4}, {"a": "E", "b": 7}]}};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-347f1284ea3247c0f55cb966abbdd2d8"}, "mark": {"type": "point"}, "$schema": "https://vega.github.io/schema/vega-lite/v5.7.1.json", "datasets": {"data-347f1284ea3247c0f55cb966abbdd2d8": [{"a": "C", "b": 2}, {"a": "C", "b": 7}, {"a": "C", "b": 4}, {"a": "D", "b": 1}, {"a": "D", "b": 2}, {"a": "D", "b": 6}, {"a": "E", "b": 8}, {"a": "E", "b": 4}, {"a": "E", "b": 7}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -552,7 +549,7 @@ This can be done straightforwardly via the <code class="xref py py-meth docutils
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-347f1284ea3247c0f55cb966abbdd2d8"}, "mark": {"type": "point"}, "encoding": {"x": {"field": "a", "type": "nominal"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.6.1.json", "datasets": {"data-347f1284ea3247c0f55cb966abbdd2d8": [{"a": "C", "b": 2}, {"a": "C", "b": 7}, {"a": "C", "b": 4}, {"a": "D", "b": 1}, {"a": "D", "b": 2}, {"a": "D", "b": 6}, {"a": "E", "b": 8}, {"a": "E", "b": 4}, {"a": "E", "b": 7}]}};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-347f1284ea3247c0f55cb966abbdd2d8"}, "mark": {"type": "point"}, "encoding": {"x": {"field": "a", "type": "nominal"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.7.1.json", "datasets": {"data-347f1284ea3247c0f55cb966abbdd2d8": [{"a": "C", "b": 2}, {"a": "C", "b": 7}, {"a": "C", "b": 4}, {"a": "D", "b": 1}, {"a": "D", "b": 2}, {"a": "D", "b": 6}, {"a": "E", "b": 8}, {"a": "E", "b": 4}, {"a": "E", "b": 7}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -582,7 +579,7 @@ adding a <code class="docutils literal notranslate"><span class="pre">y</span></
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-347f1284ea3247c0f55cb966abbdd2d8"}, "mark": {"type": "point"}, "encoding": {"x": {"field": "a", "type": "nominal"}, "y": {"field": "b", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.6.1.json", "datasets": {"data-347f1284ea3247c0f55cb966abbdd2d8": [{"a": "C", "b": 2}, {"a": "C", "b": 7}, {"a": "C", "b": 4}, {"a": "D", "b": 1}, {"a": "D", "b": 2}, {"a": "D", "b": 6}, {"a": "E", "b": 8}, {"a": "E", "b": 4}, {"a": "E", "b": 7}]}};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-347f1284ea3247c0f55cb966abbdd2d8"}, "mark": {"type": "point"}, "encoding": {"x": {"field": "a", "type": "nominal"}, "y": {"field": "b", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.7.1.json", "datasets": {"data-347f1284ea3247c0f55cb966abbdd2d8": [{"a": "C", "b": 2}, {"a": "C", "b": 7}, {"a": "C", "b": 4}, {"a": "D", "b": 1}, {"a": "D", "b": 2}, {"a": "D", "b": 6}, {"a": "E", "b": 8}, {"a": "E", "b": 4}, {"a": "E", "b": 7}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -614,7 +611,7 @@ aggregate within the column identifier:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-347f1284ea3247c0f55cb966abbdd2d8"}, "mark": {"type": "point"}, "encoding": {"x": {"field": "a", "type": "nominal"}, "y": {"aggregate": "average", "field": "b", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.6.1.json", "datasets": {"data-347f1284ea3247c0f55cb966abbdd2d8": [{"a": "C", "b": 2}, {"a": "C", "b": 7}, {"a": "C", "b": 4}, {"a": "D", "b": 1}, {"a": "D", "b": 2}, {"a": "D", "b": 6}, {"a": "E", "b": 8}, {"a": "E", "b": 4}, {"a": "E", "b": 7}]}};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-347f1284ea3247c0f55cb966abbdd2d8"}, "mark": {"type": "point"}, "encoding": {"x": {"field": "a", "type": "nominal"}, "y": {"aggregate": "average", "field": "b", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.7.1.json", "datasets": {"data-347f1284ea3247c0f55cb966abbdd2d8": [{"a": "C", "b": 2}, {"a": "C", "b": 7}, {"a": "C", "b": 4}, {"a": "D", "b": 1}, {"a": "D", "b": 2}, {"a": "D", "b": 6}, {"a": "E", "b": 8}, {"a": "E", "b": 4}, {"a": "E", "b": 7}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -640,7 +637,7 @@ with <code class="xref py py-meth docutils literal notranslate"><span class="pre
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-347f1284ea3247c0f55cb966abbdd2d8"}, "mark": {"type": "bar"}, "encoding": {"x": {"field": "a", "type": "nominal"}, "y": {"aggregate": "average", "field": "b", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.6.1.json", "datasets": {"data-347f1284ea3247c0f55cb966abbdd2d8": [{"a": "C", "b": 2}, {"a": "C", "b": 7}, {"a": "C", "b": 4}, {"a": "D", "b": 1}, {"a": "D", "b": 2}, {"a": "D", "b": 6}, {"a": "E", "b": 8}, {"a": "E", "b": 4}, {"a": "E", "b": 7}]}};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-347f1284ea3247c0f55cb966abbdd2d8"}, "mark": {"type": "bar"}, "encoding": {"x": {"field": "a", "type": "nominal"}, "y": {"aggregate": "average", "field": "b", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.7.1.json", "datasets": {"data-347f1284ea3247c0f55cb966abbdd2d8": [{"a": "C", "b": 2}, {"a": "C", "b": 7}, {"a": "C", "b": 4}, {"a": "D", "b": 1}, {"a": "D", "b": 2}, {"a": "D", "b": 6}, {"a": "E", "b": 8}, {"a": "E", "b": 4}, {"a": "E", "b": 7}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -664,7 +661,7 @@ swap the <code class="docutils literal notranslate"><span class="pre">x</span></
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-347f1284ea3247c0f55cb966abbdd2d8"}, "mark": {"type": "bar"}, "encoding": {"x": {"aggregate": "average", "field": "b", "type": "quantitative"}, "y": {"field": "a", "type": "nominal"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.6.1.json", "datasets": {"data-347f1284ea3247c0f55cb966abbdd2d8": [{"a": "C", "b": 2}, {"a": "C", "b": 7}, {"a": "C", "b": 4}, {"a": "D", "b": 1}, {"a": "D", "b": 2}, {"a": "D", "b": 6}, {"a": "E", "b": 8}, {"a": "E", "b": 4}, {"a": "E", "b": 7}]}};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-347f1284ea3247c0f55cb966abbdd2d8"}, "mark": {"type": "bar"}, "encoding": {"x": {"aggregate": "average", "field": "b", "type": "quantitative"}, "y": {"field": "a", "type": "nominal"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.7.1.json", "datasets": {"data-347f1284ea3247c0f55cb966abbdd2d8": [{"a": "C", "b": 2}, {"a": "C", "b": 7}, {"a": "C", "b": 4}, {"a": "D", "b": 1}, {"a": "D", "b": 2}, {"a": "D", "b": 6}, {"a": "E", "b": 8}, {"a": "E", "b": 4}, {"a": "E", "b": 7}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -687,7 +684,7 @@ JSON specification that Altair is exporting and sending as JSON to Vega-Lite:</p
 </pre></div>
 </div>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{
-  &quot;$schema&quot;: &quot;https://vega.github.io/schema/vega-lite/v5.6.1.json&quot;,
+  &quot;$schema&quot;: &quot;https://vega.github.io/schema/vega-lite/v5.7.1.json&quot;,
   &quot;config&quot;: {
     &quot;view&quot;: {
       &quot;continuousHeight&quot;: 300,
@@ -791,7 +788,7 @@ of the more advanced field configurations:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-347f1284ea3247c0f55cb966abbdd2d8"}, "mark": {"type": "bar"}, "encoding": {"x": {"aggregate": "average", "field": "b", "type": "quantitative"}, "y": {"field": "a", "type": "nominal"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.6.1.json", "datasets": {"data-347f1284ea3247c0f55cb966abbdd2d8": [{"a": "C", "b": 2}, {"a": "C", "b": 7}, {"a": "C", "b": 4}, {"a": "D", "b": 1}, {"a": "D", "b": 2}, {"a": "D", "b": 6}, {"a": "E", "b": 8}, {"a": "E", "b": 4}, {"a": "E", "b": 7}]}};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-347f1284ea3247c0f55cb966abbdd2d8"}, "mark": {"type": "bar"}, "encoding": {"x": {"aggregate": "average", "field": "b", "type": "quantitative"}, "y": {"field": "a", "type": "nominal"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.7.1.json", "datasets": {"data-347f1284ea3247c0f55cb966abbdd2d8": [{"a": "C", "b": 2}, {"a": "C", "b": 7}, {"a": "C", "b": 4}, {"a": "D", "b": 1}, {"a": "D", "b": 2}, {"a": "D", "b": 6}, {"a": "E", "b": 8}, {"a": "E", "b": 4}, {"a": "E", "b": 7}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -823,7 +820,7 @@ color string:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-347f1284ea3247c0f55cb966abbdd2d8"}, "mark": {"type": "bar", "color": "firebrick"}, "encoding": {"x": {"aggregate": "average", "field": "b", "title": "avg(b) by category", "type": "quantitative"}, "y": {"field": "a", "title": "category", "type": "nominal"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.6.1.json", "datasets": {"data-347f1284ea3247c0f55cb966abbdd2d8": [{"a": "C", "b": 2}, {"a": "C", "b": 7}, {"a": "C", "b": 4}, {"a": "D", "b": 1}, {"a": "D", "b": 2}, {"a": "D", "b": 6}, {"a": "E", "b": 8}, {"a": "E", "b": 4}, {"a": "E", "b": 7}]}};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-347f1284ea3247c0f55cb966abbdd2d8"}, "mark": {"type": "bar", "color": "firebrick"}, "encoding": {"x": {"aggregate": "average", "field": "b", "title": "avg(b) by category", "type": "quantitative"}, "y": {"field": "a", "title": "category", "type": "nominal"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.7.1.json", "datasets": {"data-347f1284ea3247c0f55cb966abbdd2d8": [{"a": "C", "b": 2}, {"a": "C", "b": 7}, {"a": "C", "b": 4}, {"a": "D", "b": 1}, {"a": "D", "b": 2}, {"a": "D", "b": 6}, {"a": "E", "b": 8}, {"a": "E", "b": 4}, {"a": "E", "b": 7}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -880,7 +877,10 @@ For more information on embedding Altair/Vega-Lite, see the documentation of the
               
               
                 <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="installation.html"
@@ -900,7 +900,10 @@ For more information on embedding Altair/Vega-Lite, see the documentation of the
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -932,7 +935,7 @@ For more information on embedding Altair/Vega-Lite, see the documentation of the
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner"></div>
+            
           </footer>
         
       </main>
@@ -940,8 +943,8 @@ For more information on embedding Altair/Vega-Lite, see the documentation of the
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -959,7 +962,7 @@ For more information on embedding Altair/Vega-Lite, see the documentation of the
       
         <div class="footer-item">
   <p class="sphinx-version">
-    Created using <a href="https://sphinx-doc.org/">Sphinx</a> 5.3.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
     <br/>
   </p>
 </div>
@@ -970,7 +973,7 @@ For more information on embedding Altair/Vega-Lite, see the documentation of the
     <div class="footer-items__end">
       
         <div class="footer-item"><p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.1.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.3.
 </p></div>
       
     </div>
