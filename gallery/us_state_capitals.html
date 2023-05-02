@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>U.S. State Capitals Overlayed on a Map of the U.S &#8212; Vega-Altair 5.0.0rc2 documentation</title>
+    <title>U.S. State Capitals Overlayed on a Map of the U.S &#8212; Vega-Altair 5.0.0rc3 documentation</title>
   
   
   
@@ -47,7 +47,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.7.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.8.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     <script src="../_static/design-tabs.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'gallery/us_state_capitals';</script>
@@ -444,7 +444,7 @@ overlayed on a map.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "layer": [{"data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/us-10m.json", "format": {"feature": "states", "type": "topojson"}}, "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"}, "projection": {"type": "albersUsa"}, "title": "US State Capitols"}, {"data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/us-state-capitals.json"}, "mark": {"type": "point"}, "encoding": {"color": {"value": "black"}, "latitude": {"field": "lat", "type": "quantitative"}, "longitude": {"field": "lon", "type": "quantitative"}, "size": {"condition": {"test": {"not": {"param": "param_66"}}, "value": 30}, "value": 100}}, "name": "view_67"}, {"data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/us-state-capitals.json"}, "mark": {"type": "text", "align": "right", "dy": -5}, "encoding": {"latitude": {"field": "lat", "type": "quantitative"}, "longitude": {"field": "lon", "type": "quantitative"}, "opacity": {"condition": {"test": {"not": {"param": "param_66"}}, "value": 0}, "value": 1}, "text": {"field": "city", "type": "nominal"}}}], "height": 400, "params": [{"name": "param_66", "select": {"type": "point", "fields": ["lat", "lon"], "nearest": true, "on": "mouseover"}, "views": ["view_67"]}], "width": 650, "$schema": "https://vega.github.io/schema/vega-lite/v5.7.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "layer": [{"data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/us-10m.json", "format": {"feature": "states", "type": "topojson"}}, "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"}, "projection": {"type": "albersUsa"}, "title": "US State Capitols"}, {"data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/us-state-capitals.json"}, "mark": {"type": "point"}, "encoding": {"color": {"value": "black"}, "latitude": {"field": "lat", "type": "quantitative"}, "longitude": {"field": "lon", "type": "quantitative"}, "size": {"condition": {"test": {"not": {"param": "param_66"}}, "value": 30}, "value": 100}}, "name": "view_67"}, {"data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/us-state-capitals.json"}, "mark": {"type": "text", "align": "right", "dy": -5}, "encoding": {"latitude": {"field": "lat", "type": "quantitative"}, "longitude": {"field": "lon", "type": "quantitative"}, "opacity": {"condition": {"test": {"not": {"param": "param_66"}}, "value": 0}, "value": 1}, "text": {"field": "city", "type": "nominal"}}}], "height": 400, "params": [{"name": "param_66", "select": {"type": "point", "fields": ["lat", "lon"], "nearest": true, "on": "mouseover"}, "views": ["view_67"]}], "width": 650, "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",

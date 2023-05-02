@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Top-Level Chart Configuration &#8212; Vega-Altair 5.0.0rc2 documentation</title>
+    <title>Top-Level Chart Configuration &#8212; Vega-Altair 5.0.0rc3 documentation</title>
   
   
   
@@ -47,7 +47,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.7.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.8.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     <script src="../_static/design-tabs.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'user_guide/configuration';</script>
@@ -1384,7 +1384,7 @@ the <code class="xref py py-meth docutils literal notranslate"><span class="pre"
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}, "header": {"labelColor": "red", "labelFontSize": 14, "titleColor": "green", "titleFontSize": 14}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "point"}, "encoding": {"color": {"field": "Origin", "type": "nominal"}, "column": {"field": "Origin", "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "height": 180, "width": 180, "$schema": "https://vega.github.io/schema/vega-lite/v5.7.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}, "header": {"labelColor": "red", "labelFontSize": 14, "titleColor": "green", "titleFontSize": 14}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "point"}, "encoding": {"color": {"field": "Origin", "type": "nominal"}, "column": {"field": "Origin", "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "height": 180, "width": 180, "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -1603,7 +1603,7 @@ Here is an example:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}, "legend": {"cornerRadius": 10, "fillColor": "#EEEEEE", "orient": "top-right", "padding": 10, "strokeColor": "gray"}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "point"}, "encoding": {"color": {"field": "Origin", "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.7.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}, "legend": {"cornerRadius": 10, "fillColor": "#EEEEEE", "orient": "top-right", "padding": 10, "strokeColor": "gray"}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "point"}, "encoding": {"color": {"field": "Origin", "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -2707,7 +2707,7 @@ which has the following properties:</p>
 <td class="vl-decsr"></td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>fit</p></td>
-<td class="vl-type-def"><p>anyOf(array(<a class="reference internal" href="generated/core/altair.GeoJsonFeature.html#altair.GeoJsonFeature" title="altair.GeoJsonFeature"><code class="xref py py-class docutils literal notranslate"><span class="pre">GeoJsonFeature</span></code></a>), array(<a class="reference internal" href="generated/core/altair.Fit.html#altair.Fit" title="altair.Fit"><code class="xref py py-class docutils literal notranslate"><span class="pre">Fit</span></code></a>), <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
+<td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/core/altair.Fit.html#altair.Fit" title="altair.Fit"><code class="xref py py-class docutils literal notranslate"><span class="pre">Fit</span></code></a>, array(<a class="reference internal" href="generated/core/altair.Fit.html#altair.Fit" title="altair.Fit"><code class="xref py py-class docutils literal notranslate"><span class="pre">Fit</span></code></a>), <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
 <td class="vl-decsr"></td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>fraction</p></td>
@@ -2889,7 +2889,7 @@ Here is an example:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}, "title": {"anchor": "start", "color": "gray", "font": "Courier", "fontSize": 20}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "point"}, "encoding": {"x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "title": "Cars Data", "$schema": "https://vega.github.io/schema/vega-lite/v5.7.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}, "title": {"anchor": "start", "color": "gray", "font": "Courier", "fontSize": 20}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "point"}, "encoding": {"x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "title": "Cars Data", "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -3045,7 +3045,7 @@ be controlled:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 200, "continuousHeight": 200, "fill": "#FFEEDD", "stroke": "red", "strokeWidth": 4}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "point"}, "encoding": {"x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.7.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 200, "continuousHeight": 200, "fill": "#FFEEDD", "stroke": "red", "strokeWidth": 4}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "point"}, "encoding": {"x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",

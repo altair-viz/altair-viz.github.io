@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Join Aggregate &#8212; Vega-Altair 5.0.0rc2 documentation</title>
+    <title>Join Aggregate &#8212; Vega-Altair 5.0.0rc3 documentation</title>
   
   
   
@@ -47,7 +47,7 @@
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.7.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.8.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     <script src="../../_static/design-tabs.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'user_guide/transform/joinaggregate';</script>
@@ -623,7 +623,7 @@ standard deviation, which requires calculations on the joined data:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/movies.json"}, "mark": {"type": "point"}, "encoding": {"x": {"field": "IMDB_Deviation", "type": "quantitative"}, "y": {"field": "Rotten_Tomatoes_Deviation", "type": "quantitative"}}, "transform": [{"filter": "datum.IMDB_Rating != null  && datum.Rotten_Tomatoes_Rating != null"}, {"joinaggregate": [{"op": "mean", "field": "IMDB_Rating", "as": "IMDB_mean"}, {"op": "stdev", "field": "IMDB_Rating", "as": "IMDB_std"}, {"op": "mean", "field": "Rotten_Tomatoes_Rating", "as": "RT_mean"}, {"op": "stdev", "field": "Rotten_Tomatoes_Rating", "as": "RT_std"}]}, {"calculate": "(datum.IMDB_Rating - datum.IMDB_mean) / datum.IMDB_std", "as": "IMDB_Deviation"}, {"calculate": "(datum.Rotten_Tomatoes_Rating - datum.RT_mean) / datum.RT_std", "as": "Rotten_Tomatoes_Deviation"}], "$schema": "https://vega.github.io/schema/vega-lite/v5.7.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/movies.json"}, "mark": {"type": "point"}, "encoding": {"x": {"field": "IMDB_Deviation", "type": "quantitative"}, "y": {"field": "Rotten_Tomatoes_Deviation", "type": "quantitative"}}, "transform": [{"filter": "datum.IMDB_Rating != null  && datum.Rotten_Tomatoes_Rating != null"}, {"joinaggregate": [{"op": "mean", "field": "IMDB_Rating", "as": "IMDB_mean"}, {"op": "stdev", "field": "IMDB_Rating", "as": "IMDB_std"}, {"op": "mean", "field": "Rotten_Tomatoes_Rating", "as": "RT_mean"}, {"op": "stdev", "field": "Rotten_Tomatoes_Rating", "as": "RT_std"}]}, {"calculate": "(datum.IMDB_Rating - datum.IMDB_mean) / datum.IMDB_std", "as": "IMDB_Deviation"}, {"calculate": "(datum.Rotten_Tomatoes_Rating - datum.RT_mean) / datum.RT_std", "as": "Rotten_Tomatoes_Deviation"}], "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",

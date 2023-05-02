@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>US Income by State: Wrapped Facet &#8212; Vega-Altair 5.0.0rc2 documentation</title>
+    <title>US Income by State: Wrapped Facet &#8212; Vega-Altair 5.0.0rc3 documentation</title>
   
   
   
@@ -47,7 +47,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.7.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.8.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     <script src="../_static/design-tabs.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'gallery/us_incomebrackets_by_state_facet';</script>
@@ -444,7 +444,7 @@ faceted over income brackets</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/income.json"}, "mark": {"type": "geoshape"}, "encoding": {"color": {"field": "pct", "type": "quantitative"}, "facet": {"columns": 2, "field": "group", "type": "nominal"}, "shape": {"field": "geo", "type": "geojson"}, "tooltip": [{"field": "name", "type": "nominal"}, {"field": "pct", "type": "quantitative"}]}, "height": 175, "projection": {"type": "albersUsa"}, "transform": [{"lookup": "id", "as": "geo", "from": {"data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/us-10m.json", "format": {"feature": "states", "type": "topojson"}}, "key": "id"}}], "width": 300, "$schema": "https://vega.github.io/schema/vega-lite/v5.7.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/income.json"}, "mark": {"type": "geoshape"}, "encoding": {"color": {"field": "pct", "type": "quantitative"}, "facet": {"columns": 2, "field": "group", "type": "nominal"}, "shape": {"field": "geo", "type": "geojson"}, "tooltip": [{"field": "name", "type": "nominal"}, {"field": "pct", "type": "quantitative"}]}, "height": 175, "projection": {"type": "albersUsa"}, "transform": [{"lookup": "id", "as": "geo", "from": {"data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/us-10m.json", "format": {"feature": "states", "type": "topojson"}}, "key": "id"}}], "width": 300, "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",

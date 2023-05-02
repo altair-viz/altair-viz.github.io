@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Window Rank Line Chart &#8212; Vega-Altair 5.0.0rc2 documentation</title>
+    <title>Window Rank Line Chart &#8212; Vega-Altair 5.0.0rc3 documentation</title>
   
   
   
@@ -47,7 +47,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.7.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.8.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     <script src="../_static/design-tabs.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'gallery/window_rank';</script>
@@ -444,7 +444,7 @@ A window transformation is used to rank each after each match day, sorting by po
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-96c009ad35efb4334dc9c7e5dc8b77cc"}, "mark": {"type": "line"}, "encoding": {"color": {"field": "team", "scale": {"domain": ["Germany", "Mexico", "South Korea", "Sweden"], "range": ["#000000", "#127153", "#C91A3C", "#0C71AB"]}, "type": "nominal"}, "x": {"field": "matchday", "type": "ordinal"}, "y": {"field": "rank", "type": "ordinal"}}, "title": "World Cup 2018: Group F Rankings", "transform": [{"window": [{"op": "rank", "field": "", "as": "rank"}], "groupby": ["matchday"], "sort": [{"field": "point", "order": "descending"}, {"field": "diff", "order": "descending"}]}], "$schema": "https://vega.github.io/schema/vega-lite/v5.7.1.json", "datasets": {"data-96c009ad35efb4334dc9c7e5dc8b77cc": [{"team": "Germany", "matchday": 1, "point": 0, "diff": -1}, {"team": "Germany", "matchday": 2, "point": 3, "diff": 0}, {"team": "Germany", "matchday": 3, "point": 3, "diff": -2}, {"team": "Mexico", "matchday": 1, "point": 3, "diff": 1}, {"team": "Mexico", "matchday": 2, "point": 6, "diff": 2}, {"team": "Mexico", "matchday": 3, "point": 6, "diff": -1}, {"team": "South Korea", "matchday": 1, "point": 0, "diff": -1}, {"team": "South Korea", "matchday": 2, "point": 0, "diff": -2}, {"team": "South Korea", "matchday": 3, "point": 3, "diff": 0}, {"team": "Sweden", "matchday": 1, "point": 3, "diff": 1}, {"team": "Sweden", "matchday": 2, "point": 3, "diff": 0}, {"team": "Sweden", "matchday": 3, "point": 6, "diff": 3}]}};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-96c009ad35efb4334dc9c7e5dc8b77cc"}, "mark": {"type": "line"}, "encoding": {"color": {"field": "team", "scale": {"domain": ["Germany", "Mexico", "South Korea", "Sweden"], "range": ["#000000", "#127153", "#C91A3C", "#0C71AB"]}, "type": "nominal"}, "x": {"field": "matchday", "type": "ordinal"}, "y": {"field": "rank", "type": "ordinal"}}, "title": "World Cup 2018: Group F Rankings", "transform": [{"window": [{"op": "rank", "field": "", "as": "rank"}], "groupby": ["matchday"], "sort": [{"field": "point", "order": "descending"}, {"field": "diff", "order": "descending"}]}], "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-96c009ad35efb4334dc9c7e5dc8b77cc": [{"team": "Germany", "matchday": 1, "point": 0, "diff": -1}, {"team": "Germany", "matchday": 2, "point": 3, "diff": 0}, {"team": "Germany", "matchday": 3, "point": 3, "diff": -2}, {"team": "Mexico", "matchday": 1, "point": 3, "diff": 1}, {"team": "Mexico", "matchday": 2, "point": 6, "diff": 2}, {"team": "Mexico", "matchday": 3, "point": 6, "diff": -1}, {"team": "South Korea", "matchday": 1, "point": 0, "diff": -1}, {"team": "South Korea", "matchday": 2, "point": 0, "diff": -2}, {"team": "South Korea", "matchday": 3, "point": 3, "diff": 0}, {"team": "Sweden", "matchday": 1, "point": 3, "diff": 1}, {"team": "Sweden", "matchday": 2, "point": 3, "diff": 0}, {"team": "Sweden", "matchday": 3, "point": 6, "diff": 3}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",

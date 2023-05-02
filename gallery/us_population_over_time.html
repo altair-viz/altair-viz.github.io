@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>US Population by Age and Sex &#8212; Vega-Altair 5.0.0rc2 documentation</title>
+    <title>US Population by Age and Sex &#8212; Vega-Altair 5.0.0rc3 documentation</title>
   
   
   
@@ -47,7 +47,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.7.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.8.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     <script src="../_static/design-tabs.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'gallery/us_population_over_time';</script>
@@ -445,7 +445,7 @@ distribution over time.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}, "facet": {"spacing": 8}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/population.json"}, "mark": {"type": "bar"}, "encoding": {"color": {"field": "sex", "scale": {"domain": ["Male", "Female"], "range": ["steelblue", "salmon"]}, "title": "Sex", "type": "nominal"}, "column": {"field": "age", "title": "Age", "type": "ordinal"}, "x": {"axis": {"labels": false, "ticks": false, "title": null}, "field": "sex", "type": "nominal"}, "y": {"field": "people", "scale": {"domain": [0, 12000000]}, "title": "Population", "type": "quantitative"}}, "params": [{"name": "Year", "select": {"type": "point", "fields": ["year"]}, "bind": {"input": "range", "max": 2000, "min": 1900, "name": "Year", "step": 10}, "value": {"year": 2000}}], "title": "U.S. Population by Age and Sex", "transform": [{"calculate": "if((datum.sex === 1),'Male','Female')", "as": "sex"}, {"filter": {"param": "Year"}}], "width": 20, "$schema": "https://vega.github.io/schema/vega-lite/v5.7.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}, "facet": {"spacing": 8}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/population.json"}, "mark": {"type": "bar"}, "encoding": {"color": {"field": "sex", "scale": {"domain": ["Male", "Female"], "range": ["steelblue", "salmon"]}, "title": "Sex", "type": "nominal"}, "column": {"field": "age", "title": "Age", "type": "ordinal"}, "x": {"axis": {"labels": false, "ticks": false, "title": null}, "field": "sex", "type": "nominal"}, "y": {"field": "people", "scale": {"domain": [0, 12000000]}, "title": "Population", "type": "quantitative"}}, "params": [{"name": "Year", "select": {"type": "point", "fields": ["year"]}, "bind": {"input": "range", "max": 2000, "min": 1900, "name": "Year", "step": 10}, "value": {"year": 2000}}], "title": "U.S. Population by Age and Sex", "transform": [{"calculate": "if((datum.sex === 1),'Male','Female')", "as": "sex"}, {"filter": {"param": "Year"}}], "width": 20, "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",

@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Interactive Legend &#8212; Vega-Altair 5.0.0rc2 documentation</title>
+    <title>Interactive Legend &#8212; Vega-Altair 5.0.0rc3 documentation</title>
   
   
   
@@ -47,7 +47,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.7.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.8.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     <script src="../_static/design-tabs.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'gallery/interactive_legend';</script>
@@ -445,7 +445,7 @@ binding the selection to <code class="docutils literal notranslate"><span class=
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/unemployment-across-industries.json"}, "mark": {"type": "area"}, "encoding": {"color": {"field": "series", "scale": {"scheme": "category20b"}, "type": "nominal"}, "opacity": {"condition": {"param": "param_41", "value": 1}, "value": 0.2}, "x": {"axis": {"domain": false, "format": "%Y", "tickSize": 0}, "field": "date", "timeUnit": "yearmonth", "type": "temporal"}, "y": {"aggregate": "sum", "axis": null, "field": "count", "stack": "center", "type": "quantitative"}}, "params": [{"name": "param_41", "select": {"type": "point", "fields": ["series"]}, "bind": "legend"}], "$schema": "https://vega.github.io/schema/vega-lite/v5.7.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/unemployment-across-industries.json"}, "mark": {"type": "area"}, "encoding": {"color": {"field": "series", "scale": {"scheme": "category20b"}, "type": "nominal"}, "opacity": {"condition": {"param": "param_41", "value": 1}, "value": 0.2}, "x": {"axis": {"domain": false, "format": "%Y", "tickSize": 0}, "field": "date", "timeUnit": "yearmonth", "type": "temporal"}, "y": {"aggregate": "sum", "axis": null, "field": "count", "stack": "center", "type": "quantitative"}}, "params": [{"name": "param_41", "select": {"type": "point", "fields": ["series"]}, "bind": "legend"}], "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",

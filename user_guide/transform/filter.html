@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Filter &#8212; Vega-Altair 5.0.0rc2 documentation</title>
+    <title>Filter &#8212; Vega-Altair 5.0.0rc3 documentation</title>
   
   
   
@@ -47,7 +47,7 @@
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.7.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.8.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     <script src="../../_static/design-tabs.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'user_guide/transform/filter';</script>
@@ -576,7 +576,7 @@ This can be useful when, for example, selecting only a subset of data.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/population.json"}, "mark": {"type": "area"}, "encoding": {"x": {"field": "age", "type": "ordinal"}, "y": {"field": "people", "type": "quantitative"}}, "transform": [{"filter": "((datum.year === 2000) && (datum.sex === 1))"}], "$schema": "https://vega.github.io/schema/vega-lite/v5.7.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/population.json"}, "mark": {"type": "area"}, "encoding": {"x": {"field": "age", "type": "ordinal"}, "y": {"field": "people", "type": "quantitative"}}, "transform": [{"filter": "((datum.year === 2000) && (datum.sex === 1))"}], "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -630,7 +630,7 @@ values from year 2000 as in the above chart:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/population.json"}, "mark": {"type": "line"}, "encoding": {"color": {"field": "year", "type": "ordinal"}, "x": {"field": "age", "type": "ordinal"}, "y": {"aggregate": "sum", "field": "people", "type": "quantitative"}}, "transform": [{"filter": {"equal": 2000, "field": "year"}}], "$schema": "https://vega.github.io/schema/vega-lite/v5.7.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/population.json"}, "mark": {"type": "line"}, "encoding": {"color": {"field": "year", "type": "ordinal"}, "x": {"field": "age", "type": "ordinal"}, "y": {"aggregate": "sum", "field": "people", "type": "quantitative"}}, "transform": [{"filter": {"equal": 2000, "field": "year"}}], "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -660,7 +660,7 @@ of specific values:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/population.json"}, "mark": {"type": "line"}, "encoding": {"color": {"field": "year", "type": "ordinal"}, "x": {"field": "age", "type": "ordinal"}, "y": {"aggregate": "sum", "field": "people", "type": "quantitative"}}, "transform": [{"filter": {"field": "year", "oneOf": [1900, 1950, 2000]}}], "$schema": "https://vega.github.io/schema/vega-lite/v5.7.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/population.json"}, "mark": {"type": "line"}, "encoding": {"color": {"field": "year", "type": "ordinal"}, "x": {"field": "age", "type": "ordinal"}, "y": {"aggregate": "sum", "field": "people", "type": "quantitative"}}, "transform": [{"filter": {"field": "year", "oneOf": [1900, 1950, 2000]}}], "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -690,7 +690,7 @@ particular continuous range:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/population.json"}, "mark": {"type": "line"}, "encoding": {"color": {"field": "year", "type": "ordinal"}, "x": {"field": "age", "type": "ordinal"}, "y": {"aggregate": "sum", "field": "people", "type": "quantitative"}}, "transform": [{"filter": {"field": "year", "range": [1960, 2000]}}], "$schema": "https://vega.github.io/schema/vega-lite/v5.7.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/population.json"}, "mark": {"type": "line"}, "encoding": {"color": {"field": "year", "type": "ordinal"}, "x": {"field": "age", "type": "ordinal"}, "y": {"aggregate": "sum", "field": "people", "type": "quantitative"}}, "transform": [{"filter": {"field": "year", "range": [1960, 2000]}}], "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -746,7 +746,7 @@ to select the data to be shown in the top chart:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "vconcat": [{"mark": {"type": "line"}, "encoding": {"color": {"field": "year", "type": "ordinal"}, "x": {"field": "age", "type": "ordinal"}, "y": {"aggregate": "sum", "field": "people", "type": "quantitative"}}, "height": 200, "transform": [{"filter": {"param": "param_121"}}], "width": 600}, {"mark": {"type": "bar"}, "encoding": {"color": {"condition": {"param": "param_121", "value": "steelblue"}, "value": "lightgray"}, "x": {"field": "year", "type": "ordinal"}, "y": {"aggregate": "sum", "field": "people", "type": "quantitative"}}, "height": 100, "name": "view_87", "width": 600}], "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/population.json"}, "params": [{"name": "param_121", "select": {"type": "point", "fields": ["year"]}, "views": ["view_87"]}], "$schema": "https://vega.github.io/schema/vega-lite/v5.7.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "vconcat": [{"mark": {"type": "line"}, "encoding": {"color": {"field": "year", "type": "ordinal"}, "x": {"field": "age", "type": "ordinal"}, "y": {"aggregate": "sum", "field": "people", "type": "quantitative"}}, "height": 200, "transform": [{"filter": {"param": "param_121"}}], "width": 600}, {"mark": {"type": "bar"}, "encoding": {"color": {"condition": {"param": "param_121", "value": "steelblue"}, "value": "lightgray"}, "x": {"field": "year", "type": "ordinal"}, "y": {"aggregate": "sum", "field": "people", "type": "quantitative"}}, "height": 100, "name": "view_87", "width": 600}], "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/population.json"}, "params": [{"name": "param_121", "select": {"type": "point", "fields": ["year"]}, "views": ["view_87"]}], "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -792,7 +792,7 @@ by applying a <code class="docutils literal notranslate"><span class="pre">Logic
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/population.json"}, "mark": {"type": "line"}, "encoding": {"color": {"field": "year", "type": "ordinal"}, "x": {"field": "age", "type": "ordinal"}, "y": {"aggregate": "sum", "field": "people", "type": "quantitative"}}, "height": 200, "transform": [{"filter": {"not": {"field": "year", "range": [1950, 1960]}}}], "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v5.7.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/population.json"}, "mark": {"type": "line"}, "encoding": {"color": {"field": "year", "type": "ordinal"}, "x": {"field": "age", "type": "ordinal"}, "y": {"aggregate": "sum", "field": "people", "type": "quantitative"}}, "height": 200, "transform": [{"filter": {"not": {"field": "year", "range": [1950, 1960]}}}], "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",

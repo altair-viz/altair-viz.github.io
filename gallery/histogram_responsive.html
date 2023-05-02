@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Histogram with Responsive Bins &#8212; Vega-Altair 5.0.0rc2 documentation</title>
+    <title>Histogram with Responsive Bins &#8212; Vega-Altair 5.0.0rc3 documentation</title>
   
   
   
@@ -47,7 +47,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.7.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.8.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     <script src="../_static/design-tabs.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'gallery/histogram_responsive';</script>
@@ -445,7 +445,7 @@ change on the top panel.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "vconcat": [{"mark": {"type": "bar"}, "encoding": {"x": {"bin": {"extent": {"param": "param_37"}, "maxbins": 30}, "field": "time", "scale": {"domain": {"param": "param_37"}}, "type": "quantitative"}, "y": {"aggregate": "count", "type": "quantitative"}}, "height": 100, "transform": [{"calculate": "hours(datum.date) + minutes(datum.date) / 60", "as": "time"}], "width": 600}, {"mark": {"type": "bar"}, "encoding": {"x": {"bin": {"maxbins": 30}, "field": "time", "type": "quantitative"}, "y": {"aggregate": "count", "type": "quantitative"}}, "height": 100, "name": "view_39", "transform": [{"calculate": "hours(datum.date) + minutes(datum.date) / 60", "as": "time"}], "width": 600}], "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/flights-5k.json"}, "params": [{"name": "param_37", "select": {"type": "interval", "encodings": ["x"]}, "views": ["view_39"]}], "$schema": "https://vega.github.io/schema/vega-lite/v5.7.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "vconcat": [{"mark": {"type": "bar"}, "encoding": {"x": {"bin": {"extent": {"param": "param_37"}, "maxbins": 30}, "field": "time", "scale": {"domain": {"param": "param_37"}}, "type": "quantitative"}, "y": {"aggregate": "count", "type": "quantitative"}}, "height": 100, "transform": [{"calculate": "hours(datum.date) + minutes(datum.date) / 60", "as": "time"}], "width": 600}, {"mark": {"type": "bar"}, "encoding": {"x": {"bin": {"maxbins": 30}, "field": "time", "type": "quantitative"}, "y": {"aggregate": "count", "type": "quantitative"}}, "height": 100, "name": "view_39", "transform": [{"calculate": "hours(datum.date) + minutes(datum.date) / 60", "as": "time"}], "width": 600}], "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/flights-5k.json"}, "params": [{"name": "param_37", "select": {"type": "interval", "encodings": ["x"]}, "views": ["view_39"]}], "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",

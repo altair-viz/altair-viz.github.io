@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Global Deaths from Natural Disasters &#8212; Vega-Altair 5.0.0rc2 documentation</title>
+    <title>Global Deaths from Natural Disasters &#8212; Vega-Altair 5.0.0rc3 documentation</title>
   
   
   
@@ -47,7 +47,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.7.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.8.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     <script src="../_static/design-tabs.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'gallery/natural_disasters';</script>
@@ -443,7 +443,7 @@ document.write(`
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300, "stroke": null}, "axisX": {"grid": false}, "axisY": {"domain": false, "offset": 10, "ticks": false}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/disasters.csv"}, "mark": {"type": "circle", "opacity": 0.8, "stroke": "black", "strokeOpacity": 0.4, "strokeWidth": 1}, "encoding": {"color": {"field": "Entity", "legend": null, "type": "nominal"}, "size": {"field": "Deaths", "legend": {"clipHeight": 30, "format": "s", "title": "Deaths"}, "scale": {"range": [0, 2500]}, "type": "quantitative"}, "tooltip": [{"field": "Entity", "type": "nominal"}, {"field": "Year", "format": "%Y", "type": "temporal"}, {"field": "Deaths", "format": "~s", "type": "quantitative"}], "x": {"field": "Year", "scale": {"domain": ["1899", "2018"]}, "title": null, "type": "temporal"}, "y": {"field": "Entity", "sort": {"field": "Deaths", "op": "sum", "order": "descending"}, "title": null, "type": "nominal"}}, "height": 320, "title": {"text": "Global Deaths from Natural Disasters (1900-2017)", "anchor": "start", "subtitle": "The size of the bubble represents the total death count per year, by type of disaster"}, "transform": [{"filter": "(datum.Entity !== 'All natural disasters')"}], "width": 450, "$schema": "https://vega.github.io/schema/vega-lite/v5.7.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300, "stroke": null}, "axisX": {"grid": false}, "axisY": {"domain": false, "offset": 10, "ticks": false}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/disasters.csv"}, "mark": {"type": "circle", "opacity": 0.8, "stroke": "black", "strokeOpacity": 0.4, "strokeWidth": 1}, "encoding": {"color": {"field": "Entity", "legend": null, "type": "nominal"}, "size": {"field": "Deaths", "legend": {"clipHeight": 30, "format": "s", "title": "Deaths"}, "scale": {"range": [0, 2500]}, "type": "quantitative"}, "tooltip": [{"field": "Entity", "type": "nominal"}, {"field": "Year", "format": "%Y", "type": "temporal"}, {"field": "Deaths", "format": "~s", "type": "quantitative"}], "x": {"field": "Year", "scale": {"domain": ["1899", "2018"]}, "title": null, "type": "temporal"}, "y": {"field": "Entity", "sort": {"field": "Deaths", "op": "sum", "order": "descending"}, "title": null, "type": "nominal"}}, "height": 320, "title": {"text": "Global Deaths from Natural Disasters (1900-2017)", "anchor": "start", "subtitle": "The size of the bubble represents the total death count per year, by type of disaster"}, "transform": [{"filter": "(datum.Entity !== 'All natural disasters')"}], "width": 450, "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",

@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Comet Chart &#8212; Vega-Altair 5.0.0rc2 documentation</title>
+    <title>Comet Chart &#8212; Vega-Altair 5.0.0rc3 documentation</title>
   
   
   
@@ -47,7 +47,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.7.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.8.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     <script src="../_static/design-tabs.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'gallery/comet_chart';</script>
@@ -446,7 +446,7 @@ is shown in <a class="reference external" href="https://medium.com/de-dataverbin
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300, "stroke": null}, "legend": {"direction": "horizontal", "orient": "bottom"}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/barley.json"}, "mark": {"type": "trail"}, "encoding": {"color": {"field": "delta", "legend": {"title": "Yield Delta (%)"}, "scale": {"domainMid": 0}, "type": "quantitative"}, "column": {"field": "site", "title": "Site", "type": "nominal"}, "size": {"field": "yield", "legend": {"title": "Barley Yield (bushels/acre)", "values": [20, 60]}, "scale": {"range": [0, 12]}, "type": "quantitative"}, "tooltip": [{"field": "year", "type": "ordinal"}, {"field": "yield", "type": "quantitative"}], "x": {"field": "year", "title": null, "type": "ordinal"}, "y": {"field": "variety", "title": "Variety", "type": "nominal"}}, "title": "Barley Yield comparison between 1932 and 1931", "transform": [{"pivot": "year", "value": "yield", "groupby": ["variety", "site"]}, {"fold": ["1931", "1932"], "as": ["year", "yield"]}, {"calculate": "datum['1932'] - datum['1931']", "as": "delta"}], "$schema": "https://vega.github.io/schema/vega-lite/v5.7.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300, "stroke": null}, "legend": {"direction": "horizontal", "orient": "bottom"}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/barley.json"}, "mark": {"type": "trail"}, "encoding": {"color": {"field": "delta", "legend": {"title": "Yield Delta (%)"}, "scale": {"domainMid": 0}, "type": "quantitative"}, "column": {"field": "site", "title": "Site", "type": "nominal"}, "size": {"field": "yield", "legend": {"title": "Barley Yield (bushels/acre)", "values": [20, 60]}, "scale": {"range": [0, 12]}, "type": "quantitative"}, "tooltip": [{"field": "year", "type": "ordinal"}, {"field": "yield", "type": "quantitative"}], "x": {"field": "year", "title": null, "type": "ordinal"}, "y": {"field": "variety", "title": "Variety", "type": "nominal"}}, "title": "Barley Yield comparison between 1932 and 1931", "transform": [{"pivot": "year", "value": "yield", "groupby": ["variety", "site"]}, {"fold": ["1931", "1932"], "as": ["year", "yield"]}, {"calculate": "datum['1932'] - datum['1931']", "as": "delta"}], "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",

@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Horizon Graph &#8212; Vega-Altair 5.0.0rc2 documentation</title>
+    <title>Horizon Graph &#8212; Vega-Altair 5.0.0rc3 documentation</title>
   
   
   
@@ -47,7 +47,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.7.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.8.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     <script src="../_static/design-tabs.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'gallery/horizon_graph';</script>
@@ -443,7 +443,7 @@ document.write(`
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "layer": [{"mark": {"type": "area", "clip": true, "interpolate": "monotone"}, "encoding": {"opacity": {"value": 0.6}, "x": {"field": "x", "scale": {"nice": false, "zero": false}, "type": "quantitative"}, "y": {"field": "y", "scale": {"domain": [0, 50]}, "title": "y", "type": "quantitative"}}}, {"mark": {"type": "area", "clip": true, "interpolate": "monotone"}, "encoding": {"opacity": {"value": 0.6}, "x": {"field": "x", "scale": {"nice": false, "zero": false}, "type": "quantitative"}, "y": {"field": "ny", "scale": {"domain": [0, 50]}, "type": "quantitative"}}, "transform": [{"calculate": "(datum.y - 50)", "as": "ny"}]}], "data": {"name": "data-5f9e6e06c1ea70f051c1f4e739c3a610"}, "height": 75, "width": 500, "$schema": "https://vega.github.io/schema/vega-lite/v5.7.1.json", "datasets": {"data-5f9e6e06c1ea70f051c1f4e739c3a610": [{"x": 1, "y": 28}, {"x": 2, "y": 55}, {"x": 3, "y": 43}, {"x": 4, "y": 91}, {"x": 5, "y": 81}, {"x": 6, "y": 53}, {"x": 7, "y": 19}, {"x": 8, "y": 87}, {"x": 9, "y": 52}, {"x": 10, "y": 48}, {"x": 11, "y": 24}, {"x": 12, "y": 49}, {"x": 13, "y": 87}, {"x": 14, "y": 66}, {"x": 15, "y": 17}, {"x": 16, "y": 27}, {"x": 17, "y": 68}, {"x": 18, "y": 16}, {"x": 19, "y": 49}, {"x": 20, "y": 15}]}};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "layer": [{"mark": {"type": "area", "clip": true, "interpolate": "monotone"}, "encoding": {"opacity": {"value": 0.6}, "x": {"field": "x", "scale": {"nice": false, "zero": false}, "type": "quantitative"}, "y": {"field": "y", "scale": {"domain": [0, 50]}, "title": "y", "type": "quantitative"}}}, {"mark": {"type": "area", "clip": true, "interpolate": "monotone"}, "encoding": {"opacity": {"value": 0.6}, "x": {"field": "x", "scale": {"nice": false, "zero": false}, "type": "quantitative"}, "y": {"field": "ny", "scale": {"domain": [0, 50]}, "type": "quantitative"}}, "transform": [{"calculate": "(datum.y - 50)", "as": "ny"}]}], "data": {"name": "data-5f9e6e06c1ea70f051c1f4e739c3a610"}, "height": 75, "width": 500, "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-5f9e6e06c1ea70f051c1f4e739c3a610": [{"x": 1, "y": 28}, {"x": 2, "y": 55}, {"x": 3, "y": 43}, {"x": 4, "y": 91}, {"x": 5, "y": 81}, {"x": 6, "y": 53}, {"x": 7, "y": 19}, {"x": 8, "y": 87}, {"x": 9, "y": 52}, {"x": 10, "y": 48}, {"x": 11, "y": 24}, {"x": 12, "y": 49}, {"x": 13, "y": 87}, {"x": 14, "y": 66}, {"x": 15, "y": 17}, {"x": 16, "y": 27}, {"x": 17, "y": 68}, {"x": 18, "y": 16}, {"x": 19, "y": 49}, {"x": 20, "y": 15}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",

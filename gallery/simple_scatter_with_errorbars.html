@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Simple Scatter Plot with Errorbars &#8212; Vega-Altair 5.0.0rc2 documentation</title>
+    <title>Simple Scatter Plot with Errorbars &#8212; Vega-Altair 5.0.0rc3 documentation</title>
   
   
   
@@ -47,7 +47,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.7.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.8.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     <script src="../_static/design-tabs.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'gallery/simple_scatter_with_errorbars';</script>
@@ -443,7 +443,7 @@ document.write(`
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "layer": [{"mark": {"type": "point", "color": "black", "filled": true, "size": 50}, "encoding": {"x": {"field": "x", "scale": {"domain": [0, 6]}, "type": "quantitative"}, "y": {"field": "y", "scale": {"zero": false}, "type": "quantitative"}}, "transform": [{"calculate": "datum.y-datum.yerr", "as": "ymin"}, {"calculate": "datum.y+datum.yerr", "as": "ymax"}]}, {"mark": {"type": "errorbar"}, "encoding": {"x": {"field": "x", "type": "quantitative"}, "y": {"field": "ymin", "type": "quantitative"}, "y2": {"field": "ymax"}}, "transform": [{"calculate": "datum.y-datum.yerr", "as": "ymin"}, {"calculate": "datum.y+datum.yerr", "as": "ymax"}]}], "data": {"name": "data-306b2a55db0733ecb4dd5c7ef21bd267"}, "$schema": "https://vega.github.io/schema/vega-lite/v5.7.1.json", "datasets": {"data-306b2a55db0733ecb4dd5c7ef21bd267": [{"x": 1, "y": 10.882026172983831, "yerr": 0.2}, {"x": 2, "y": 10.200078604183611, "yerr": 0.2}, {"x": 3, "y": 10.489368992052869, "yerr": 0.2}, {"x": 4, "y": 11.12044659960073, "yerr": 0.2}, {"x": 5, "y": 10.933778995074984, "yerr": 0.2}]}};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "layer": [{"mark": {"type": "point", "color": "black", "filled": true, "size": 50}, "encoding": {"x": {"field": "x", "scale": {"domain": [0, 6]}, "type": "quantitative"}, "y": {"field": "y", "scale": {"zero": false}, "type": "quantitative"}}, "transform": [{"calculate": "datum.y-datum.yerr", "as": "ymin"}, {"calculate": "datum.y+datum.yerr", "as": "ymax"}]}, {"mark": {"type": "errorbar"}, "encoding": {"x": {"field": "x", "type": "quantitative"}, "y": {"field": "ymin", "type": "quantitative"}, "y2": {"field": "ymax"}}, "transform": [{"calculate": "datum.y-datum.yerr", "as": "ymin"}, {"calculate": "datum.y+datum.yerr", "as": "ymax"}]}], "data": {"name": "data-306b2a55db0733ecb4dd5c7ef21bd267"}, "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-306b2a55db0733ecb4dd5c7ef21bd267": [{"x": 1, "y": 10.882026172983831, "yerr": 0.2}, {"x": 2, "y": 10.200078604183611, "yerr": 0.2}, {"x": 3, "y": 10.489368992052869, "yerr": 0.2}, {"x": 4, "y": 11.12044659960073, "yerr": 0.2}, {"x": 5, "y": 10.933778995074984, "yerr": 0.2}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",

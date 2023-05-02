@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Ridgeline plot &#8212; Vega-Altair 5.0.0rc2 documentation</title>
+    <title>Ridgeline plot &#8212; Vega-Altair 5.0.0rc3 documentation</title>
   
   
   
@@ -47,7 +47,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.7.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.8.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     <script src="../_static/design-tabs.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'gallery/ridgeline_plot';</script>
@@ -447,7 +447,7 @@ suitable representation.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300, "stroke": null}, "facet": {"spacing": 0}, "title": {"anchor": "end"}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/seattle-weather.csv"}, "facet": {"row": {"field": "Month", "header": {"format": "%B", "labelAlign": "right", "labelAngle": 0}, "title": null, "type": "temporal"}}, "spec": {"mark": {"type": "area", "fillOpacity": 0.8, "interpolate": "monotone", "stroke": "lightgray", "strokeWidth": 0.5}, "encoding": {"fill": {"field": "mean_temp", "legend": null, "scale": {"domain": [30, 5], "scheme": "redyellowblue"}, "type": "quantitative"}, "x": {"bin": "binned", "field": "bin_min", "title": "Maximum Daily Temperature (C)", "type": "quantitative"}, "y": {"axis": null, "field": "value", "scale": {"range": [20, -20]}, "type": "quantitative"}}, "height": 20, "transform": [{"field": "date", "timeUnit": "month", "as": "Month"}, {"joinaggregate": [{"op": "mean", "field": "temp_max", "as": "mean_temp"}], "groupby": ["Month"]}, {"bin": true, "field": "temp_max", "as": ["bin_max", "bin_min"]}, {"aggregate": [{"op": "count", "as": "value"}], "groupby": ["Month", "mean_temp", "bin_min", "bin_max"]}, {"impute": "value", "key": "bin_min", "groupby": ["Month", "mean_temp"], "value": 0}]}, "bounds": "flush", "title": "Seattle Weather", "$schema": "https://vega.github.io/schema/vega-lite/v5.7.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300, "stroke": null}, "facet": {"spacing": 0}, "title": {"anchor": "end"}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/seattle-weather.csv"}, "facet": {"row": {"field": "Month", "header": {"format": "%B", "labelAlign": "right", "labelAngle": 0}, "title": null, "type": "temporal"}}, "spec": {"mark": {"type": "area", "fillOpacity": 0.8, "interpolate": "monotone", "stroke": "lightgray", "strokeWidth": 0.5}, "encoding": {"fill": {"field": "mean_temp", "legend": null, "scale": {"domain": [30, 5], "scheme": "redyellowblue"}, "type": "quantitative"}, "x": {"bin": "binned", "field": "bin_min", "title": "Maximum Daily Temperature (C)", "type": "quantitative"}, "y": {"axis": null, "field": "value", "scale": {"range": [20, -20]}, "type": "quantitative"}}, "height": 20, "transform": [{"field": "date", "timeUnit": "month", "as": "Month"}, {"joinaggregate": [{"op": "mean", "field": "temp_max", "as": "mean_temp"}], "groupby": ["Month"]}, {"bin": true, "field": "temp_max", "as": ["bin_max", "bin_min"]}, {"aggregate": [{"op": "count", "as": "value"}], "groupby": ["Month", "mean_temp", "bin_min", "bin_max"]}, {"impute": "value", "key": "bin_min", "groupby": ["Month", "mean_temp"], "value": 0}]}, "bounds": "flush", "title": "Seattle Weather", "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",

@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Calculating Percentage of Total &#8212; Vega-Altair 5.0.0rc2 documentation</title>
+    <title>Calculating Percentage of Total &#8212; Vega-Altair 5.0.0rc3 documentation</title>
   
   
   
@@ -47,7 +47,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.7.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.8.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     <script src="../_static/design-tabs.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'gallery/percentage_of_total';</script>
@@ -444,7 +444,7 @@ data values as a percentage of total.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-b65fb8da81d8d9141134bef309e2af20"}, "mark": {"type": "bar"}, "encoding": {"x": {"axis": {"format": ".0%"}, "field": "PercentOfTotal", "type": "quantitative"}, "y": {"field": "Activity", "type": "nominal"}}, "transform": [{"joinaggregate": [{"op": "sum", "field": "Time", "as": "TotalTime"}]}, {"calculate": "datum.Time / datum.TotalTime", "as": "PercentOfTotal"}], "$schema": "https://vega.github.io/schema/vega-lite/v5.7.1.json", "datasets": {"data-b65fb8da81d8d9141134bef309e2af20": [{"Activity": "Sleeping", "Time": 8}, {"Activity": "Eating", "Time": 2}, {"Activity": "TV", "Time": 4}, {"Activity": "Work", "Time": 8}, {"Activity": "Exercise", "Time": 2}]}};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-b65fb8da81d8d9141134bef309e2af20"}, "mark": {"type": "bar"}, "encoding": {"x": {"axis": {"format": ".0%"}, "field": "PercentOfTotal", "type": "quantitative"}, "y": {"field": "Activity", "type": "nominal"}}, "transform": [{"joinaggregate": [{"op": "sum", "field": "Time", "as": "TotalTime"}]}, {"calculate": "datum.Time / datum.TotalTime", "as": "PercentOfTotal"}], "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-b65fb8da81d8d9141134bef309e2af20": [{"Activity": "Sleeping", "Time": 8}, {"Activity": "Eating", "Time": 2}, {"Activity": "TV", "Time": 4}, {"Activity": "Work", "Time": 8}, {"Activity": "Exercise", "Time": 2}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
