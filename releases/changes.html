@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Release Notes &#8212; Vega-Altair 5.0.0rc3 documentation</title>
+    <title>Release Notes &#8212; Vega-Altair 5.0.0 documentation</title>
   
   
   
@@ -101,7 +101,7 @@
 
 
   <div class="bd-header-announcement container-fluid bd-header-announcement">
-    <div class="bd-header-announcement__content">This website is for the release candidate of version 5 <code class="docutils literal notranslate"><span class="pre">pip install altair==5.0.0rc3</span></code> <span class="pre">(more info <a href='https://github.com/altair-viz/altair/issues/2937'>#2937</a>)</span>. You can find the documentation for version 4 <a href='https://altair-viz.github.io/altair-viz-v4/'>here</a>.</div>
+    <div class="bd-header-announcement__content">This website is for version 5. You can find the documentation for version 4 <a href='https://altair-viz.github.io/altair-viz-v4/'>here</a>.</div>
   </div>
 
   
@@ -441,8 +441,8 @@ document.write(`
                   
   <section id="release-notes">
 <span id="changes"></span><h1>Release Notes<a class="headerlink" href="#release-notes" title="Permalink to this heading">#</a></h1>
-<section id="version-5-0-0-unreleased">
-<h2>Version 5.0.0 (unreleased)<a class="headerlink" href="#version-5-0-0-unreleased" title="Permalink to this heading">#</a></h2>
+<section id="version-5-0-0">
+<h2>Version 5.0.0<a class="headerlink" href="#version-5-0-0" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Update Vega-Lite from version 4.17.0 to version 5.8.0;
 see <a class="reference external" href="https://github.com/vega/vega-lite/releases">Vega-Lite Release Notes</a>.</p></li>
@@ -452,11 +452,11 @@ see <a class="reference external" href="https://github.com/vega/vega-lite/releas
 <ul class="simple">
 <li><p>As described in the release notes for <a class="reference external" href="https://github.com/vega/vega-lite/releases/tag/v5.0.0">Vega-Lite 5.0.0</a>, the primary change in this release of Altair is the introduction of parameters. There are two types of parameters, selection parameters and variable parameters.  Variable parameters are new to Altair, and while selections are not new, much of the old terminology has been deprecated.  See <a class="reference internal" href="../gallery/slider_cutoff.html#gallery-slider-cutoff"><span class="std std-ref">Slider Cutoff</span></a> for an application of variable parameters (#2528).</p></li>
 <li><p>Grouped bar charts and jitter are now supported using offset channels, see <a class="reference internal" href="../gallery/grouped_bar_chart2.html#gallery-grouped-bar-chart2"><span class="std std-ref">Grouped Bar Chart with xOffset</span></a> and <a class="reference internal" href="../gallery/strip_plot_jitter.html#gallery-strip-plot-jitter"><span class="std std-ref">Strip Plot with Jitter</span></a></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">vl-convert</span></code> is now used as the default backend for saving Altair charts as svg and png files, which should simplify saving chart as it does not require external dependencies like altair_saver does (#2701).</p></li>
+<li><p><a class="reference external" href="https://github.com/vega/vl-convert">vl-convert</a> is now used as the default backend for saving Altair charts as svg and png files, which simplifies saving chart as it does not require external dependencies like <a class="reference external" href="http://github.com/altair-viz/altair_saver">altair_saver</a> does (#2701). Currently, <a class="reference external" href="http://github.com/altair-viz/altair_saver">altair_saver</a> does not support Altair 5 and it is recommended to switch to <a class="reference external" href="https://github.com/vega/vl-convert">vl-convert</a>. See <a class="reference internal" href="../user_guide/saving_charts.html#saving-png"><span class="std std-ref">PNG, SVG, and PDF format</span></a> for more details.</p></li>
+<li><p>Saving charts with HTML inline is now supported without having <a class="reference external" href="http://github.com/altair-viz/altair_saver">altair_saver</a> installed (#2807).</p></li>
 <li><p>The default chart width was changed from 400 to 300 (#2785).</p></li>
 <li><p>Ordered pandas categorical data are now automatically encoded as sorted ordinal data (#2522)</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">Title</span></code> and <code class="docutils literal notranslate"><span class="pre">Impute</span></code> aliases were added for <code class="docutils literal notranslate"><span class="pre">TitleParams</span></code> and <code class="docutils literal notranslate"><span class="pre">ImputeParams</span></code>, respectively (#2732).</p></li>
-<li><p>Saving charts with HTML inline is now supported without having altair_saver installed (#2807).</p></li>
 <li><p>The documentation page has been revamped, both in terms of appearance and content.</p></li>
 <li><p>More informative autocompletion by removing deprecated methods (#2814) and for editors that rely on type hints (e.g. VS Code) we added support for completion in method chains (#2846) and extended keyword completion to cover additional methods (#2920).</p></li>
 <li><p>Substantially improved error handling. Both in terms of finding the more relevant error (#2842), and in terms of improving the formatting and clarity of the error messages (#2824, #2568, #2979, #3009).</p></li>
@@ -493,7 +493,6 @@ see <a class="reference external" href="https://github.com/vega/vega-lite/releas
 <li><p>Removed the Vega-Lite 3 and 4 wrappers (#2847).</p></li>
 <li><p>Removed the deprecated datasets.py (#3010).</p></li>
 <li><p>In regards to the grammar changes listed above, the old terminology will still work in many basic cases.  On the other hand, if that old terminology gets used at a lower level, then it most likely will not work.  For example, in the current version of <a class="reference internal" href="../gallery/scatter_with_minimap.html#gallery-scatter-with-minimap"><span class="std std-ref">Scatter Plot with Minimap</span></a>, two instances of the key <code class="docutils literal notranslate"><span class="pre">param</span></code> are used in dictionaries to specify axis domains.  Those used to be <code class="docutils literal notranslate"><span class="pre">selection</span></code>, but that usage is not compatible with the current Vega-Lite schema.</p></li>
-<li><p>Minimum requirement of <code class="docutils literal notranslate"><span class="pre">jsonschema</span></code> is <code class="docutils literal notranslate"><span class="pre">4.0.1</span></code> or higher (#3039).</p></li>
 </ul>
 </section>
 <section id="maintenance">
@@ -506,8 +505,8 @@ see <a class="reference external" href="https://github.com/vega/vega-lite/releas
 </section>
 <section id="version-4-2-2-released-jan-27-2023">
 <h2>Version 4.2.2 (released Jan 27, 2023)<a class="headerlink" href="#version-4-2-2-released-jan-27-2023" title="Permalink to this heading">#</a></h2>
-<section id="id1">
-<h3>Bug Fixes<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<section id="id4">
+<h3>Bug Fixes<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Fix incompatibility with jsonschema &lt; 4.5 which got introduced in Altair 4.2.1 (#2860).</p></li>
 </ul>
@@ -515,15 +514,15 @@ see <a class="reference external" href="https://github.com/vega/vega-lite/releas
 </section>
 <section id="version-4-2-1-released-jan-26-2023">
 <h2>Version 4.2.1 (released Jan 26, 2023)<a class="headerlink" href="#version-4-2-1-released-jan-26-2023" title="Permalink to this heading">#</a></h2>
-<section id="id2">
-<h3>Bug Fixes<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<section id="id5">
+<h3>Bug Fixes<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Disable uri-reference format check in jsonsschema (#2771).</p></li>
 <li><p>Replace <code class="docutils literal notranslate"><span class="pre">iteritems</span></code> with <code class="docutils literal notranslate"><span class="pre">items</span></code> due to pandas deprecation (#2683).</p></li>
 </ul>
 </section>
-<section id="id3">
-<h3>Maintenance<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<section id="id6">
+<h3>Maintenance<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Add deprecation and removal warnings for Vega-Lite v3 wrappers and Vega v5 wrappers (#2843).</p></li>
 </ul>
@@ -535,8 +534,8 @@ see <a class="reference external" href="https://github.com/vega/vega-lite/releas
 <li><p>Update Vega-Lite from version 4.8.1 to version 4.17.0;
 see <a class="reference external" href="https://github.com/vega/vega-lite/releases">Vega-Lite Release Notes</a>.</p></li>
 </ul>
-<section id="id5">
-<h3>Enhancements<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
+<section id="id8">
+<h3>Enhancements<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Pie charts are now supported through the use of <code class="docutils literal notranslate"><span class="pre">mark_arc</span></code>. (Examples: eg.
 <a class="reference internal" href="../gallery/pie_chart.html#gallery-pie-chart"><span class="std std-ref">Pie Chart</span></a> and <a class="reference internal" href="../gallery/radial_chart.html#gallery-radial-chart"><span class="std std-ref">Radial Chart</span></a>.)</p></li>
@@ -550,8 +549,8 @@ see <a class="reference external" href="https://github.com/vega/vega-lite/releas
 <li><p>Support deepcopy for charts (#2403).</p></li>
 </ul>
 </section>
-<section id="id6">
-<h3>Bug Fixes<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
+<section id="id9">
+<h3>Bug Fixes<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Fix <code class="docutils literal notranslate"><span class="pre">to_dict()</span></code> for nested selections (#2120).</p></li>
 <li><p>Fix item access for expressions (#2099).</p></li>
@@ -565,8 +564,8 @@ see <a class="reference external" href="https://github.com/vega/vega-lite/releas
 <li><p>Update Vega-Lite to version 4.8.1; many new features and bug fixes from Vega-Lite
 versions 4.1 through 4.8; see <a class="reference external" href="https://github.com/vega/vega-lite/releases">Vega-Lite Release Notes</a>.</p></li>
 </ul>
-<section id="id8">
-<h3>Enhancements<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h3>
+<section id="id11">
+<h3>Enhancements<a class="headerlink" href="#id11" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">strokeDash</span></code> encoding can now be used to control line styles (Example:
 <a class="reference external" href="https://altair-viz.github.io/gallery/multi_series_line.html">Multi Series Line Chart</a>)</p></li>
@@ -577,8 +576,8 @@ for more flexibility (#1943).</p></li>
 viewing of charts (#1988).</p></li>
 </ul>
 </section>
-<section id="id9">
-<h3>Bug Fixes<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h3>
+<section id="id13">
+<h3>Bug Fixes<a class="headerlink" href="#id13" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Support Python 3.8 (#1958)</p></li>
 <li><p>Support multiple views in JupyterLab (#1986)</p></li>
@@ -586,8 +585,8 @@ viewing of charts (#1988).</p></li>
 <li><p>Support pandas nullable ints and string types (#1924)</p></li>
 </ul>
 </section>
-<section id="id10">
-<h3>Maintenance<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h3>
+<section id="id14">
+<h3>Maintenance<a class="headerlink" href="#id14" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Altair now uses <a class="reference external" href="https://github.com/psf/black">black</a> and
 <a class="reference external" href="https://gitlab.com/pycqa/flake8">flake8</a> for maintaining code quality &amp; consistency.</p></li>
@@ -596,8 +595,8 @@ viewing of charts (#1988).</p></li>
 </section>
 <section id="version-4-0-1-released-jan-14-2020">
 <h2>Version 4.0.1 (released Jan 14, 2020)<a class="headerlink" href="#version-4-0-1-released-jan-14-2020" title="Permalink to this heading">#</a></h2>
-<section id="id11">
-<h3>Bug Fixes<a class="headerlink" href="#id11" title="Permalink to this heading">#</a></h3>
+<section id="id15">
+<h3>Bug Fixes<a class="headerlink" href="#id15" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Update Vega-Lite version to 4.0.2</p></li>
 <li><p>Fix issue with duplicate chart divs in HTML renderer (#1888)</p></li>
@@ -610,8 +609,8 @@ viewing of charts (#1988).</p></li>
 <a class="github reference external" href="https://github.com/vega/vega-lite/releases/tag/v4.0.0">vega/vega-lite</a>.</p>
 <p>It is the first version of Altair to drop Python 2 compatibility, and is tested
 on Python 3.5 and newer.</p>
-<section id="id12">
-<h3>Enhancements<a class="headerlink" href="#id12" title="Permalink to this heading">#</a></h3>
+<section id="id16">
+<h3>Enhancements<a class="headerlink" href="#id16" title="Permalink to this heading">#</a></h3>
 <ul>
 <li><p>Support for interactive legends: (see <a class="reference internal" href="../gallery/interactive_legend.html#gallery-interactive-legend"><span class="std std-ref">Interactive Legend</span></a>)</p></li>
 <li><p>Responsive chart width and height: (see <a class="reference internal" href="../user_guide/customization.html#customization-chart-size"><span class="std std-ref">Adjusting Chart Size</span></a>)</p></li>
@@ -633,8 +632,8 @@ Colab, Kaggle Kernels, and DataBricks. To enable the old default renderer, use:<
 <li><p>Support per-corner radius for bar marks: (see <a class="reference internal" href="../gallery/bar_rounded.html#gallery-bar-rounded"><span class="std std-ref">Bar Chart with Rounded Edges</span></a>)</p></li>
 </ul>
 </section>
-<section id="id13">
-<h3>Grammar Changes<a class="headerlink" href="#id13" title="Permalink to this heading">#</a></h3>
+<section id="id17">
+<h3>Grammar Changes<a class="headerlink" href="#id17" title="Permalink to this heading">#</a></h3>
 <ul>
 <li><p>Sort-by-field can now use the field name directly. So instead of:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;y:Q&#39;</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">EncodingSortField</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span><span class="p">))</span>
@@ -656,8 +655,8 @@ are moved to the encoding classes to which they refer.</p></li>
 <section id="version-3-3-0-released-nov-27-2019">
 <h2>Version 3.3.0 (released Nov 27, 2019)<a class="headerlink" href="#version-3-3-0-released-nov-27-2019" title="Permalink to this heading">#</a></h2>
 <p>Last release to support Python 2</p>
-<section id="id14">
-<h3>Enhancements<a class="headerlink" href="#id14" title="Permalink to this heading">#</a></h3>
+<section id="id18">
+<h3>Enhancements<a class="headerlink" href="#id18" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Add inheritance structure to low-level schema classes (#1803)</p></li>
 <li><p>Add <code class="docutils literal notranslate"><span class="pre">html</span></code> renderer which works across frontends (#1793)</p></li>
@@ -668,8 +667,8 @@ are moved to the encoding classes to which they refer.</p></li>
 <li><p>Support geographic data sources via <code class="docutils literal notranslate"><span class="pre">__geo_interface__</span></code> (#1664)</p></li>
 </ul>
 </section>
-<section id="id15">
-<h3>Bug Fixes<a class="headerlink" href="#id15" title="Permalink to this heading">#</a></h3>
+<section id="id19">
+<h3>Bug Fixes<a class="headerlink" href="#id19" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Support <code class="docutils literal notranslate"><span class="pre">pickle</span></code> and <code class="docutils literal notranslate"><span class="pre">copy.deepcopy</span></code> for chart objects (#1805)</p></li>
 <li><p>Fix bug when specifying <code class="docutils literal notranslate"><span class="pre">count()</span></code> within
@@ -686,16 +685,16 @@ are moved to the encoding classes to which they refer.</p></li>
 Notes</a>).</p>
 <p>Following are changes to Altair in addition to those that came with VL
 3.4:</p>
-<section id="id16">
-<h3>Enhancements<a class="headerlink" href="#id16" title="Permalink to this heading">#</a></h3>
+<section id="id20">
+<h3>Enhancements<a class="headerlink" href="#id20" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Selector values can be used directly in expressions (#1599)</p></li>
 <li><p>Top-level chart repr is now truncated to improve readability of error
 messages (#1572)</p></li>
 </ul>
 </section>
-<section id="id17">
-<h3>Bug Fixes<a class="headerlink" href="#id17" title="Permalink to this heading">#</a></h3>
+<section id="id21">
+<h3>Bug Fixes<a class="headerlink" href="#id21" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>top-level <code class="docutils literal notranslate"><span class="pre">add_selection</span></code> methods now delegate to sub-charts.
 Previously they produced invalid charts (#1607)</p></li>
@@ -705,8 +704,8 @@ Previously they produced invalid charts (#1607)</p></li>
 (#1587)</p></li>
 </ul>
 </section>
-<section id="id18">
-<h3>Backward-Incompatible Changes<a class="headerlink" href="#id18" title="Permalink to this heading">#</a></h3>
+<section id="id22">
+<h3>Backward-Incompatible Changes<a class="headerlink" href="#id22" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">alt.LayerChart</span></code> no longer has <code class="docutils literal notranslate"><span class="pre">mark_*()</span></code> methods, because they
 never produced valid chart specifications) (#1607)</p></li>
@@ -716,8 +715,8 @@ never produced valid chart specifications) (#1607)</p></li>
 <section id="version-3-1-0-released-june-6-2019">
 <h2>Version 3.1.0 (Released June 6, 2019)<a class="headerlink" href="#version-3-1-0-released-june-6-2019" title="Permalink to this heading">#</a></h2>
 <p>Update includes full compatibility with version 3.3 of Vega-Lite.</p>
-<section id="id19">
-<h3>Enhancements<a class="headerlink" href="#id19" title="Permalink to this heading">#</a></h3>
+<section id="id23">
+<h3>Enhancements<a class="headerlink" href="#id23" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Added support for <a class="reference external" href="https://github.com/vega/vega-themes">vega
 themes</a> via
@@ -741,8 +740,8 @@ specifies a mark at the top level, all child charts will inherit it
 complete example.</p></li>
 </ul>
 </section>
-<section id="id20">
-<h3>Bug fixes<a class="headerlink" href="#id20" title="Permalink to this heading">#</a></h3>
+<section id="id24">
+<h3>Bug fixes<a class="headerlink" href="#id24" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Make <code class="docutils literal notranslate"><span class="pre">chart.serve()</span></code> and <code class="docutils literal notranslate"><span class="pre">chart.save()</span></code> respect the data
 transformer setting (#1538)</p></li>
@@ -750,8 +749,8 @@ transformer setting (#1538)</p></li>
 (#1543)</p></li>
 </ul>
 </section>
-<section id="id21">
-<h3>Backward-Incompatible Changes<a class="headerlink" href="#id21" title="Permalink to this heading">#</a></h3>
+<section id="id25">
+<h3>Backward-Incompatible Changes<a class="headerlink" href="#id25" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">alt.Chart.facet()</span></code> now accepts a wrapped facet encoding as a first
 positional argument, rather than a row encoding. The following are
@@ -808,14 +807,14 @@ mark configuration.</p></li>
 </section>
 <section id="version-2-4-1-released-february-21-2019">
 <h2>Version 2.4.1 (Released February 21, 2019)<a class="headerlink" href="#version-2-4-1-released-february-21-2019" title="Permalink to this heading">#</a></h2>
-<section id="id22">
-<h3>Enhancements<a class="headerlink" href="#id22" title="Permalink to this heading">#</a></h3>
+<section id="id26">
+<h3>Enhancements<a class="headerlink" href="#id26" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Several documentation cleanups &amp; new examples</p></li>
 </ul>
 </section>
-<section id="id23">
-<h3>Bug Fixes<a class="headerlink" href="#id23" title="Permalink to this heading">#</a></h3>
+<section id="id27">
+<h3>Bug Fixes<a class="headerlink" href="#id27" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Fix incompatibility with pandas version 0.24 (#1315)</p></li>
 </ul>
@@ -824,8 +823,8 @@ mark configuration.</p></li>
 <section id="version-2-3-0-released-december-7-2018">
 <h2>Version 2.3.0 (Released December 7, 2018)<a class="headerlink" href="#version-2-3-0-released-december-7-2018" title="Permalink to this heading">#</a></h2>
 <p>Includes many reworked examples in the example gallery.</p>
-<section id="id24">
-<h3>Enhancements<a class="headerlink" href="#id24" title="Permalink to this heading">#</a></h3>
+<section id="id28">
+<h3>Enhancements<a class="headerlink" href="#id28" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Better errors for non-string column names, as well as automatic
 conversion of <code class="docutils literal notranslate"><span class="pre">pandas.RangeIndex</span></code> columns to strings (#1107)</p></li>
@@ -833,18 +832,18 @@ conversion of <code class="docutils literal notranslate"><span class="pre">panda
 <li><p>Added kaggle renderer &amp; more HTML output options (#1123)</p></li>
 </ul>
 </section>
-<section id="id25">
-<h3>Backward-incompatible changes<a class="headerlink" href="#id25" title="Permalink to this heading">#</a></h3>
+<section id="id29">
+<h3>Backward-incompatible changes<a class="headerlink" href="#id29" title="Permalink to this heading">#</a></h3>
 </section>
-<section id="id26">
-<h3>Maintenance<a class="headerlink" href="#id26" title="Permalink to this heading">#</a></h3>
+<section id="id30">
+<h3>Maintenance<a class="headerlink" href="#id30" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>fix typing requirement in Python 3.6+ (#1185)</p></li>
 <li><p>Added support &amp; CI testing for Python 3.7 (#1008)</p></li>
 </ul>
 </section>
-<section id="id27">
-<h3>Bug fixes<a class="headerlink" href="#id27" title="Permalink to this heading">#</a></h3>
+<section id="id31">
+<h3>Bug fixes<a class="headerlink" href="#id31" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Selection predicates now recognize all valid entries (#1143)</p></li>
 <li><p>Python 2 support for <code class="docutils literal notranslate"><span class="pre">chart.save()</span></code> (#1134)</p></li>
@@ -853,8 +852,8 @@ conversion of <code class="docutils literal notranslate"><span class="pre">panda
 </section>
 <section id="version-2-2-2-released-august-17-2018">
 <h2>Version 2.2.2 (Released August 17, 2018)<a class="headerlink" href="#version-2-2-2-released-august-17-2018" title="Permalink to this heading">#</a></h2>
-<section id="id28">
-<h3>Bug Fixes<a class="headerlink" href="#id28" title="Permalink to this heading">#</a></h3>
+<section id="id32">
+<h3>Bug Fixes<a class="headerlink" href="#id32" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>fix missing JSON resource in <code class="docutils literal notranslate"><span class="pre">altair.vega.v4</span></code> (#1097)</p></li>
 </ul>
@@ -862,8 +861,8 @@ conversion of <code class="docutils literal notranslate"><span class="pre">panda
 </section>
 <section id="version-2-2-1-released-august-15-2018">
 <h2>Version 2.2.1 (Released August 15, 2018)<a class="headerlink" href="#version-2-2-1-released-august-15-2018" title="Permalink to this heading">#</a></h2>
-<section id="id29">
-<h3>Bug Fixes<a class="headerlink" href="#id29" title="Permalink to this heading">#</a></h3>
+<section id="id33">
+<h3>Bug Fixes<a class="headerlink" href="#id33" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>appropriate handling of InlineData in dataset consolidation (#1092)</p></li>
 <li><p>fix admonition formatting in documentation page (#1094)</p></li>
@@ -872,8 +871,8 @@ conversion of <code class="docutils literal notranslate"><span class="pre">panda
 </section>
 <section id="version-2-2-0-released-august-14-2018">
 <h2>Version 2.2.0 (Released August 14, 2018):<a class="headerlink" href="#version-2-2-0-released-august-14-2018" title="Permalink to this heading">#</a></h2>
-<section id="id30">
-<h3>Enhancements<a class="headerlink" href="#id30" title="Permalink to this heading">#</a></h3>
+<section id="id34">
+<h3>Enhancements<a class="headerlink" href="#id34" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>better handling of datetimes and timezones (#1053)</p></li>
 <li><p>all inline datasets are now converted to named datasets and stored at
@@ -882,8 +881,8 @@ the top level of the chart. This behavior can be disabled by setting
 <li><p>more streamlined shorthand syntax for window transforms (#957)</p></li>
 </ul>
 </section>
-<section id="id31">
-<h3>Maintenance<a class="headerlink" href="#id31" title="Permalink to this heading">#</a></h3>
+<section id="id35">
+<h3>Maintenance<a class="headerlink" href="#id35" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>update from Vega-Lite 2.4.3 to Vega-Lite 2.6.0; see vega-lite
 change-logs
@@ -893,15 +892,15 @@ change-logs
 <a class="reference external" href="https://github.com/vega/vega-lite/releases/tag/v2.6.0">2.6.0</a></p></li>
 </ul>
 </section>
-<section id="id32">
-<h3>Backward-incompatible changes<a class="headerlink" href="#id32" title="Permalink to this heading">#</a></h3>
+<section id="id36">
+<h3>Backward-incompatible changes<a class="headerlink" href="#id36" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">alt.SortField</span></code> renamed to <code class="docutils literal notranslate"><span class="pre">alt.EncodingSortField</span></code> and
 <code class="docutils literal notranslate"><span class="pre">alt.WindowSortField</span></code> renamed to <code class="docutils literal notranslate"><span class="pre">alt.SortField</span></code> (#3741)</p></li>
 </ul>
 </section>
-<section id="id33">
-<h3>Bug Fixes<a class="headerlink" href="#id33" title="Permalink to this heading">#</a></h3>
+<section id="id37">
+<h3>Bug Fixes<a class="headerlink" href="#id37" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Fixed serialization of logical operands on selections within
 <code class="docutils literal notranslate"><span class="pre">transform_filter()</span></code>: (#1075)</p></li>
@@ -912,8 +911,8 @@ change-logs
 </section>
 <section id="version-2-1-0-released-june-6-2018">
 <h2>Version 2.1.0 (Released June 6, 2018):<a class="headerlink" href="#version-2-1-0-released-june-6-2018" title="Permalink to this heading">#</a></h2>
-<section id="id34">
-<h3>Enhancements<a class="headerlink" href="#id34" title="Permalink to this heading">#</a></h3>
+<section id="id38">
+<h3>Enhancements<a class="headerlink" href="#id38" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>add a <code class="docutils literal notranslate"><span class="pre">scale_factor</span></code> argument to <code class="docutils literal notranslate"><span class="pre">chart.save()</span></code> to allow the
 size/resolution of saved figures to be adjusted. (#918)</p></li>
@@ -941,8 +940,8 @@ match the semantics of <code class="docutils literal notranslate"><span class="p
 <code class="docutils literal notranslate"><span class="pre">alt.MarkConfig</span></code></p></li>
 </ul>
 </section>
-<section id="id35">
-<h3>Maintenance<a class="headerlink" href="#id35" title="Permalink to this heading">#</a></h3>
+<section id="id39">
+<h3>Maintenance<a class="headerlink" href="#id39" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>update vega to v3.3 &amp; vega-embed to v3.11 in html output &amp; colab
 renderer (#838)</p></li>
@@ -988,8 +987,8 @@ support (<a class="reference external" href="https://github.com/altair-viz/altai
 <li><p>Minor documentation revisions.</p></li>
 </ul>
 </section>
-<section id="id36">
-<h3>Bug fixes<a class="headerlink" href="#id36" title="Permalink to this heading">#</a></h3>
+<section id="id40">
+<h3>Bug fixes<a class="headerlink" href="#id40" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Make sure default mark is a point
 (<a class="reference external" href="https://github.com/altair-viz/altair/pull/344">#344</a>).</p></li>
@@ -998,8 +997,8 @@ support (<a class="reference external" href="https://github.com/altair-viz/altai
 </section>
 <section id="version-1-2-nov-7-2016">
 <h2>Version 1.2: Nov 7, 2016<a class="headerlink" href="#version-1-2-nov-7-2016" title="Permalink to this heading">#</a></h2>
-<section id="id37">
-<h3>Major additions<a class="headerlink" href="#id37" title="Permalink to this heading">#</a></h3>
+<section id="id41">
+<h3>Major additions<a class="headerlink" href="#id41" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Update to Vega-Lite 1.2 and make all its enhancements available to
 Altair</p></li>
@@ -1013,14 +1012,14 @@ Node is installed) PNG and SVG. See
 (<a class="reference external" href="https://github.com/altair-viz/altair/pull/213">#213</a>)</p></li>
 </ul>
 </section>
-<section id="id38">
-<h3>Bug fixes<a class="headerlink" href="#id38" title="Permalink to this heading">#</a></h3>
+<section id="id42">
+<h3>Bug fixes<a class="headerlink" href="#id42" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Countless minor bug fixes</p></li>
 </ul>
 </section>
-<section id="id39">
-<h3>maintenance:<a class="headerlink" href="#id39" title="Permalink to this heading">#</a></h3>
+<section id="id43">
+<h3>maintenance:<a class="headerlink" href="#id43" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Update to Vega-Lite 1.2.1 and add its supported features</p></li>
 <li><p>Create website: <a class="reference external" href="http://altair-viz.github.io/">http://altair-viz.github.io/</a></p></li>
@@ -1074,7 +1073,7 @@ Node is installed) PNG and SVG. See
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-5-0-0-unreleased">Version 5.0.0 (unreleased)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-5-0-0">Version 5.0.0</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enhancements">Enhancements</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grammar-changes">Grammar Changes</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bug-fixes">Bug Fixes</a></li>
@@ -1083,49 +1082,49 @@ Node is installed) PNG and SVG. See
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-4-2-2-released-jan-27-2023">Version 4.2.2 (released Jan 27, 2023)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Bug Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Bug Fixes</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-4-2-1-released-jan-26-2023">Version 4.2.1 (released Jan 26, 2023)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Bug Fixes</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Maintenance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Bug Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Maintenance</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-4-2-0-released-dec-29-2021">Version 4.2.0 (released Dec 29, 2021)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Enhancements</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Bug Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Enhancements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Bug Fixes</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-4-1-0-released-april-1-2020">Version 4.1.0 (released April 1, 2020)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Enhancements</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Bug Fixes</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Maintenance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Enhancements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Bug Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Maintenance</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-4-0-1-released-jan-14-2020">Version 4.0.1 (released Jan 14, 2020)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Bug Fixes</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-4-0-0-released-dec-10-2019">Version 4.0.0 (released Dec 10, 2019)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Enhancements</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Grammar Changes</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-3-3-0-released-nov-27-2019">Version 3.3.0 (released Nov 27, 2019)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Enhancements</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Bug Fixes</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-3-2-0-released-august-5-2019">Version 3.2.0 (released August 5, 2019)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-4-0-0-released-dec-10-2019">Version 4.0.0 (released Dec 10, 2019)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Enhancements</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">Bug Fixes</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">Backward-Incompatible Changes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">Grammar Changes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-3-3-0-released-nov-27-2019">Version 3.3.0 (released Nov 27, 2019)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">Enhancements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">Bug Fixes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-3-2-0-released-august-5-2019">Version 3.2.0 (released August 5, 2019)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">Enhancements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">Bug Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">Backward-Incompatible Changes</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-3-1-0-released-june-6-2019">Version 3.1.0 (Released June 6, 2019)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">Enhancements</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">Bug fixes</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">Backward-Incompatible Changes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">Enhancements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">Bug fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id25">Backward-Incompatible Changes</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-3-0-1-released-may-1-2019">Version 3.0.1 (Released May 1, 2019)</a></li>
@@ -1134,48 +1133,48 @@ Node is installed) PNG and SVG. See
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-2-4-1-released-february-21-2019">Version 2.4.1 (Released February 21, 2019)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">Enhancements</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">Bug Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id26">Enhancements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id27">Bug Fixes</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-2-3-0-released-december-7-2018">Version 2.3.0 (Released December 7, 2018)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">Enhancements</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id25">Backward-incompatible changes</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id26">Maintenance</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id27">Bug fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id28">Enhancements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id29">Backward-incompatible changes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id30">Maintenance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id31">Bug fixes</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-2-2-2-released-august-17-2018">Version 2.2.2 (Released August 17, 2018)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id28">Bug Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id32">Bug Fixes</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-2-2-1-released-august-15-2018">Version 2.2.1 (Released August 15, 2018)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id29">Bug Fixes</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-2-2-0-released-august-14-2018">Version 2.2.0 (Released August 14, 2018):</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id30">Enhancements</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id31">Maintenance</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id32">Backward-incompatible changes</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id33">Bug Fixes</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-2-1-0-released-june-6-2018">Version 2.1.0 (Released June 6, 2018):</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-2-2-0-released-august-14-2018">Version 2.2.0 (Released August 14, 2018):</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id34">Enhancements</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#breaking-changes">Breaking Changes</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id35">Maintenance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id36">Backward-incompatible changes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id37">Bug Fixes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-2-1-0-released-june-6-2018">Version 2.1.0 (Released June 6, 2018):</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id38">Enhancements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#breaking-changes">Breaking Changes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id39">Maintenance</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-2-0-0-may-2-2018">Version 2.0.0: May 2, 2018</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-1-2-1-october-29-2017">Version 1.2.1: October 29, 2017</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#major-additions">Major additions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id36">Bug fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id40">Bug fixes</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-1-2-nov-7-2016">Version 1.2: Nov 7, 2016</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id37">Major additions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id38">Bug fixes</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id39">maintenance:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id41">Major additions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id42">Bug fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id43">maintenance:</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-1-0-july-11-2016">Version 1.0: July 11, 2016</a></li>

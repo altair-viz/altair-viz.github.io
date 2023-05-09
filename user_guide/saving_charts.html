@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Saving Altair Charts &#8212; Vega-Altair 5.0.0rc3 documentation</title>
+    <title>Saving Altair Charts &#8212; Vega-Altair 5.0.0 documentation</title>
   
   
   
@@ -102,7 +102,7 @@
 
 
   <div class="bd-header-announcement container-fluid bd-header-announcement">
-    <div class="bd-header-announcement__content">This website is for the release candidate of version 5 <code class="docutils literal notranslate"><span class="pre">pip install altair==5.0.0rc3</span></code> <span class="pre">(more info <a href='https://github.com/altair-viz/altair/issues/2937'>#2937</a>)</span>. You can find the documentation for version 4 <a href='https://altair-viz.github.io/altair-viz-v4/'>here</a>.</div>
+    <div class="bd-header-announcement__content">This website is for version 5. You can find the documentation for version 4 <a href='https://altair-viz.github.io/altair-viz-v4/'>here</a>.</div>
   </div>
 
   
@@ -662,15 +662,24 @@ chart as a static <code class="docutils literal notranslate"><span class="pre">s
 <span class="n">chart</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;chart.pdf&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>However, saving these images requires some additional extensions to run the
+<p>Saving these images requires an additional extension to run the
 javascript code necessary to interpret the Vega-Lite specification and output
 it in the form of an image. There are two packages that can be used to enable
 image export: <a class="reference external" href="https://github.com/vega/vl-convert">vl-convert</a> or <a class="reference external" href="http://github.com/altair-viz/altair_saver/">altair_saver</a>.</p>
 <section id="vl-convert">
 <h3>vl-convert<a class="headerlink" href="#vl-convert" title="Permalink to this heading">#</a></h3>
 <p>The <a class="reference external" href="https://github.com/vega/vl-convert">vl-convert</a> package can be installed with:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install vl-convert-python
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">vl</span><span class="o">-</span><span class="n">convert</span><span class="o">-</span><span class="n">python</span>
 </pre></div>
+</div>
+<p>or:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">vl</span><span class="o">-</span><span class="n">convert</span><span class="o">-</span><span class="n">python</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Conda packages are not yet available for the Apple Silicon architecture.
+See <a class="reference external" href="https://github.com/conda-forge/vl-convert-python-feedstock/issues/9">conda-forge/vl-convert-python-feedstock#9</a>.</p>
 </div>
 <p>Unlike <a class="reference external" href="http://github.com/altair-viz/altair_saver/">altair_saver</a>, <a class="reference external" href="https://github.com/vega/vl-convert">vl-convert</a> does not require any external dependencies.
 However, it only supports saving charts to PNG and SVG formats. To save directly to
@@ -679,12 +688,16 @@ on other <a class="reference external" href="https://github.com/vega/vl-convert#
 </section>
 <section id="altair-saver">
 <h3>altair_saver<a class="headerlink" href="#altair-saver" title="Permalink to this heading">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>altair_saver does not yet support Altair 5.</p>
+</div>
 <p>The <a class="reference external" href="http://github.com/altair-viz/altair_saver/">altair_saver</a> package can be installed with:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda install altair_saver
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">altair_saver</span>
 </pre></div>
 </div>
 <p>or:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install altair_saver
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">altair_saver</span>
 </pre></div>
 </div>
 <p>See the <a class="reference external" href="http://github.com/altair-viz/altair_saver/">altair_saver</a> documentation for information about additional installation
