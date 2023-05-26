@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Release Notes &#8212; Vega-Altair 5.0.0 documentation</title>
+    <title>Release Notes &#8212; Vega-Altair 5.0.1 documentation</title>
   
   
   
@@ -173,7 +173,7 @@
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../user_guide/API.html">
+                      <a class="nav-link nav-internal" href="../user_guide/api.html">
                         API
                       </a>
                     </li>
@@ -319,7 +319,7 @@ document.write(`
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../user_guide/API.html">
+                      <a class="nav-link nav-internal" href="../user_guide/api.html">
                         API
                       </a>
                     </li>
@@ -441,8 +441,16 @@ document.write(`
                   
   <section id="release-notes">
 <span id="changes"></span><h1>Release Notes<a class="headerlink" href="#release-notes" title="Permalink to this heading">#</a></h1>
-<section id="version-5-0-0">
-<h2>Version 5.0.0<a class="headerlink" href="#version-5-0-0" title="Permalink to this heading">#</a></h2>
+<section id="version-5-0-1-released-may-26-2023">
+<h2>Version 5.0.1 (released May 26, 2023)<a class="headerlink" href="#version-5-0-1-released-may-26-2023" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Remove unwanted files during build to avoid littering site-packages folder (#3057).</p></li>
+<li><p>Deprecate the <code class="docutils literal notranslate"><span class="pre">.ref()</span></code> function for selections, instead of removing it (#3063).</p></li>
+<li><p>Fix bug in reconstructing layered charts with <code class="docutils literal notranslate"><span class="pre">Chart.from_json()</span></code>/<code class="docutils literal notranslate"><span class="pre">Chart.from_dict()</span></code> (#3068).</p></li>
+</ul>
+</section>
+<section id="version-5-0-0-released-may-9-2023">
+<h2>Version 5.0.0 (released May 9, 2023)<a class="headerlink" href="#version-5-0-0-released-may-9-2023" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Update Vega-Lite from version 4.17.0 to version 5.8.0;
 see <a class="reference external" href="https://github.com/vega/vega-lite/releases">Vega-Lite Release Notes</a>.</p></li>
@@ -493,6 +501,7 @@ see <a class="reference external" href="https://github.com/vega/vega-lite/releas
 <li><p>Removed the Vega-Lite 3 and 4 wrappers (#2847).</p></li>
 <li><p>Removed the deprecated datasets.py (#3010).</p></li>
 <li><p>In regards to the grammar changes listed above, the old terminology will still work in many basic cases.  On the other hand, if that old terminology gets used at a lower level, then it most likely will not work.  For example, in the current version of <a class="reference internal" href="../gallery/scatter_with_minimap.html#gallery-scatter-with-minimap"><span class="std std-ref">Scatter Plot with Minimap</span></a>, two instances of the key <code class="docutils literal notranslate"><span class="pre">param</span></code> are used in dictionaries to specify axis domains.  Those used to be <code class="docutils literal notranslate"><span class="pre">selection</span></code>, but that usage is not compatible with the current Vega-Lite schema.</p></li>
+<li><p>Removed the <code class="docutils literal notranslate"><span class="pre">altair.sphinxext</span></code> module (#2792). The <code class="docutils literal notranslate"><span class="pre">altair-plot</span></code> Sphinx directive is now part of the <a class="reference external" href="https://github.com/altair-viz/sphinxext-altair">sphinxext-altair</a> package.</p></li>
 </ul>
 </section>
 <section id="maintenance">
@@ -1073,7 +1082,8 @@ Node is installed) PNG and SVG. See
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-5-0-0">Version 5.0.0</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-5-0-1-released-may-26-2023">Version 5.0.1 (released May 26, 2023)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-5-0-0-released-may-9-2023">Version 5.0.0 (released May 9, 2023)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enhancements">Enhancements</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grammar-changes">Grammar Changes</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bug-fixes">Bug Fixes</a></li>

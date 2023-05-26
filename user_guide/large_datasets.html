@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Large Datasets &#8212; Vega-Altair 5.0.0 documentation</title>
+    <title>Large Datasets &#8212; Vega-Altair 5.0.1 documentation</title>
   
   
   
@@ -174,7 +174,7 @@
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="API.html">
+                      <a class="nav-link nav-internal" href="api.html">
                         API
                       </a>
                     </li>
@@ -320,7 +320,7 @@ document.write(`
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="API.html">
+                      <a class="nav-link nav-internal" href="api.html">
                         API
                       </a>
                     </li>
@@ -538,7 +538,7 @@ document.write(`
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">)})</span>
-<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span>
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span>
 </pre></div>
 </div>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>MaxRowsError: The number of rows in your dataset is greater than the maximum
@@ -891,13 +891,14 @@ summary statistics to Altair instead of the full dataset.</p>
 <section id="vegafusion">
 <h2>VegaFusion<a class="headerlink" href="#vegafusion" title="Permalink to this heading">#</a></h2>
 <p><a class="reference external" href="https://vegafusion.io">VegaFusion</a> is a third-party package that re-implements most Vega-Lite transforms for evaluation
-in the Python kernel.  This makes it possible to scale many Altair charts to millions of rows as long as
-they include some form of aggregation.</p>
-<p>VegaFusion 1.0 provides two rendering modes that are useful in different situations.</p>
+in the Python kernel, which makes it possible to scale Altair charts to millions of rows of data.
+VegaFusion provides two rendering modes that are useful in different situations.</p>
 <section id="mime-renderer">
 <h3>Mime Renderer<a class="headerlink" href="#mime-renderer" title="Permalink to this heading">#</a></h3>
-<p>The <a class="reference external" href="https://vegafusion.io/mime_renderer.html">VegaFusion mime renderer</a> is a good choice for charts that do not re-aggregate or re-filter data in response
-to selections. It is enabled with:</p>
+<p>The <a class="reference external" href="https://vegafusion.io/mime_renderer.html">VegaFusion mime renderer</a> is a good choice for charts that contain aggregations
+and that do not re-aggregate or re-filter data in response to selections
+(so it offers similar but more advanced functionality as the <code class="docutils literal notranslate"><span class="pre">altair-transform</span></code> package).
+It is enabled with:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">vegafusion</span> <span class="k">as</span> <span class="nn">vf</span>
 <span class="n">vf</span><span class="o">.</span><span class="n">enable</span><span class="p">()</span>
 </pre></div>
@@ -907,21 +908,25 @@ a chart is rendered, VegaFusion extracts the datasets and supported transforms a
 Python kernel. It then removes any unused columns and inlines the transformed data into the chart specification
 for rendering.</p>
 <p>Charts rendered this way are self-contained and do not require the Python kernel or a custom
-notebook extension to display.  They are rendered with the same frontend functionality that
+notebook extension to display. They are rendered with the same frontend functionality that
 is already used to display regular Altair charts.</p>
 </section>
 <section id="widget-renderer">
 <h3>Widget Renderer<a class="headerlink" href="#widget-renderer" title="Permalink to this heading">#</a></h3>
-<p>The <a class="reference external" href="https://vegafusion.io/widget_renderer.html">VegaFusion widget renderer</a> is a good choice for charts that re-aggregate or re-filter data in response
-to selections. It is enabled with:</p>
+<p>The <a class="reference external" href="https://vegafusion.io/widget_renderer.html">VegaFusion widget renderer</a> is a good choice for displaying unaggregated data
+and for aggregated charts that re-aggregate or re-filter data in response to selections
+(so it offers similar but more advanced functionality as the <code class="docutils literal notranslate"><span class="pre">altair-data-server</span></code> package).
+It is enabled with:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">vegafusion</span> <span class="k">as</span> <span class="nn">vf</span>
 <span class="n">vf</span><span class="o">.</span><span class="n">enable_widget</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>The widget renderer uses a Jupyter Widget extension to maintain a live connection between the displayed
-chart and the Python kernel. This makes it possible for transforms to be evaluated interactively in response to
-changes in selections. Charts rendered this way require a running Python kernel and Jupyter Widget extension to
-display.</p>
+<p>The widget renderer uses a Jupyter Widget extension to maintain a live connection between the displayed chart and the Python kernel.
+This makes it possible for transforms to be evaluated interactively in response to changes in selections,
+and to send the datasets to the client in arrow format separately instead of inlining them in the chart json spec.</p>
+<p>Charts rendered this way require a running Python kernel and Jupyter Widget extension to
+display, which works in many frontends including locally in the classic notebook, JupyterLab, and VSCode,
+as well as remotely in Colab and Binder.</p>
 </section>
 </section>
 </section>
