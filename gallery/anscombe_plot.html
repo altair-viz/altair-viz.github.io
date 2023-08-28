@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 
 
@@ -7,9 +6,9 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Anscombe’s Quartet &#8212; Vega-Altair 5.0.1 documentation</title>
+    <title>Anscombe’s Quartet &#8212; Vega-Altair 5.1.0 documentation</title>
   
   
   
@@ -29,27 +28,27 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/altair-plot.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/altair-gallery.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/altair-plot.css?v=a673d9d3" />
+    <link rel="stylesheet" type="text/css" href="../_static/altair-gallery.css?v=1975c9e6" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=9736ff9e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=1d452c66" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=19a850bc"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.8.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.14.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'gallery/anscombe_plot';</script>
     <link rel="icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -179,15 +178,15 @@
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../user_guide/ecosystem.html">
-                        Resources
+                      <a class="nav-link nav-internal" href="../releases/changes.html">
+                        Release Notes
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../releases/changes.html">
-                        Release Notes
+                      <a class="nav-link nav-internal" href="../about/roadmap.html">
+                        About
                       </a>
                     </li>
                 
@@ -321,15 +320,15 @@ document.write(`
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../user_guide/ecosystem.html">
-                        Resources
+                      <a class="nav-link nav-internal" href="../releases/changes.html">
+                        Release Notes
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../releases/changes.html">
-                        Release Notes
+                      <a class="nav-link nav-internal" href="../about/roadmap.html">
+                        About
                       </a>
                     </li>
                 
@@ -443,7 +442,7 @@ document.write(`
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-3d23a3381c61efd5a9c7a8abc82c6d65"}, "mark": {"type": "circle"}, "encoding": {"facet": {"columns": 2, "field": "Series", "type": "nominal"}, "x": {"field": "X", "scale": {"zero": false}, "type": "quantitative"}, "y": {"field": "Y", "scale": {"zero": false}, "type": "quantitative"}}, "height": 180, "width": 180, "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-3d23a3381c61efd5a9c7a8abc82c6d65": [{"Series": "I", "X": 10, "Y": 8.04}, {"Series": "I", "X": 8, "Y": 6.95}, {"Series": "I", "X": 13, "Y": 7.58}, {"Series": "I", "X": 9, "Y": 8.81}, {"Series": "I", "X": 11, "Y": 8.33}, {"Series": "I", "X": 14, "Y": 9.96}, {"Series": "I", "X": 6, "Y": 7.24}, {"Series": "I", "X": 4, "Y": 4.26}, {"Series": "I", "X": 12, "Y": 10.84}, {"Series": "I", "X": 7, "Y": 4.8100000000000005}, {"Series": "I", "X": 5, "Y": 5.68}, {"Series": "II", "X": 10, "Y": 9.14}, {"Series": "II", "X": 8, "Y": 8.14}, {"Series": "II", "X": 13, "Y": 8.74}, {"Series": "II", "X": 9, "Y": 8.77}, {"Series": "II", "X": 11, "Y": 9.26}, {"Series": "II", "X": 14, "Y": 8.1}, {"Series": "II", "X": 6, "Y": 6.13}, {"Series": "II", "X": 4, "Y": 3.1}, {"Series": "II", "X": 12, "Y": 9.13}, {"Series": "II", "X": 7, "Y": 7.26}, {"Series": "II", "X": 5, "Y": 4.74}, {"Series": "III", "X": 10, "Y": 7.46}, {"Series": "III", "X": 8, "Y": 6.77}, {"Series": "III", "X": 13, "Y": 12.74}, {"Series": "III", "X": 9, "Y": 7.11}, {"Series": "III", "X": 11, "Y": 7.8100000000000005}, {"Series": "III", "X": 14, "Y": 8.84}, {"Series": "III", "X": 6, "Y": 6.08}, {"Series": "III", "X": 4, "Y": 5.39}, {"Series": "III", "X": 12, "Y": 8.15}, {"Series": "III", "X": 7, "Y": 6.42}, {"Series": "III", "X": 5, "Y": 5.73}, {"Series": "IV", "X": 8, "Y": 6.58}, {"Series": "IV", "X": 8, "Y": 5.76}, {"Series": "IV", "X": 8, "Y": 7.71}, {"Series": "IV", "X": 8, "Y": 8.84}, {"Series": "IV", "X": 8, "Y": 8.47}, {"Series": "IV", "X": 8, "Y": 7.04}, {"Series": "IV", "X": 8, "Y": 5.25}, {"Series": "IV", "X": 19, "Y": 12.5}, {"Series": "IV", "X": 8, "Y": 5.5600000000000005}, {"Series": "IV", "X": 8, "Y": 7.91}, {"Series": "IV", "X": 8, "Y": 6.89}]}};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-3d23a3381c61efd5a9c7a8abc82c6d65"}, "mark": {"type": "circle"}, "encoding": {"facet": {"columns": 2, "field": "Series", "type": "nominal"}, "x": {"field": "X", "scale": {"zero": false}, "type": "quantitative"}, "y": {"field": "Y", "scale": {"zero": false}, "type": "quantitative"}}, "height": 180, "width": 180, "$schema": "https://vega.github.io/schema/vega-lite/v5.14.1.json", "datasets": {"data-3d23a3381c61efd5a9c7a8abc82c6d65": [{"Series": "I", "X": 10, "Y": 8.04}, {"Series": "I", "X": 8, "Y": 6.95}, {"Series": "I", "X": 13, "Y": 7.58}, {"Series": "I", "X": 9, "Y": 8.81}, {"Series": "I", "X": 11, "Y": 8.33}, {"Series": "I", "X": 14, "Y": 9.96}, {"Series": "I", "X": 6, "Y": 7.24}, {"Series": "I", "X": 4, "Y": 4.26}, {"Series": "I", "X": 12, "Y": 10.84}, {"Series": "I", "X": 7, "Y": 4.8100000000000005}, {"Series": "I", "X": 5, "Y": 5.68}, {"Series": "II", "X": 10, "Y": 9.14}, {"Series": "II", "X": 8, "Y": 8.14}, {"Series": "II", "X": 13, "Y": 8.74}, {"Series": "II", "X": 9, "Y": 8.77}, {"Series": "II", "X": 11, "Y": 9.26}, {"Series": "II", "X": 14, "Y": 8.1}, {"Series": "II", "X": 6, "Y": 6.13}, {"Series": "II", "X": 4, "Y": 3.1}, {"Series": "II", "X": 12, "Y": 9.13}, {"Series": "II", "X": 7, "Y": 7.26}, {"Series": "II", "X": 5, "Y": 4.74}, {"Series": "III", "X": 10, "Y": 7.46}, {"Series": "III", "X": 8, "Y": 6.77}, {"Series": "III", "X": 13, "Y": 12.74}, {"Series": "III", "X": 9, "Y": 7.11}, {"Series": "III", "X": 11, "Y": 7.8100000000000005}, {"Series": "III", "X": 14, "Y": 8.84}, {"Series": "III", "X": 6, "Y": 6.08}, {"Series": "III", "X": 4, "Y": 5.39}, {"Series": "III", "X": 12, "Y": 8.15}, {"Series": "III", "X": 7, "Y": 6.42}, {"Series": "III", "X": 5, "Y": 5.73}, {"Series": "IV", "X": 8, "Y": 6.58}, {"Series": "IV", "X": 8, "Y": 5.76}, {"Series": "IV", "X": 8, "Y": 7.71}, {"Series": "IV", "X": 8, "Y": 8.84}, {"Series": "IV", "X": 8, "Y": 8.47}, {"Series": "IV", "X": 8, "Y": 7.04}, {"Series": "IV", "X": 8, "Y": 5.25}, {"Series": "IV", "X": 19, "Y": 12.5}, {"Series": "IV", "X": 8, "Y": 5.5600000000000005}, {"Series": "IV", "X": 8, "Y": 7.91}, {"Series": "IV", "X": 8, "Y": 6.89}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -545,7 +544,7 @@ Attribute syntax</label><div class="sd-tab-content docutils">
       
         <div class="footer-item">
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
     <br/>
   </p>
 </div>

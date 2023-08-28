@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 
 
@@ -7,9 +6,9 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Data Transformations &#8212; Vega-Altair 5.0.1 documentation</title>
+    <title>Data Transformations &#8212; Vega-Altair 5.1.0 documentation</title>
   
   
   
@@ -29,27 +28,27 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/altair-plot.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/altair-gallery.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/altair-plot.css?v=a673d9d3" />
+    <link rel="stylesheet" type="text/css" href="../../_static/altair-gallery.css?v=1975c9e6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides.css?v=9736ff9e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=1d452c66" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=19a850bc"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.8.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.14.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-    <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'user_guide/transform/index';</script>
     <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -181,15 +180,15 @@
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../ecosystem.html">
-                        Resources
+                      <a class="nav-link nav-internal" href="../../releases/changes.html">
+                        Release Notes
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../../releases/changes.html">
-                        Release Notes
+                      <a class="nav-link nav-internal" href="../../about/roadmap.html">
+                        About
                       </a>
                     </li>
                 
@@ -269,6 +268,10 @@ document.write(`
   
 
   
+    <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
 </div>
 
     </nav>
@@ -323,15 +326,15 @@ document.write(`
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../ecosystem.html">
-                        Resources
+                      <a class="nav-link nav-internal" href="../../releases/changes.html">
+                        Release Notes
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../../releases/changes.html">
-                        Release Notes
+                      <a class="nav-link nav-internal" href="../../about/roadmap.html">
+                        About
                       </a>
                     </li>
                 
@@ -438,6 +441,7 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="bin.html">Bin</a></li>
 <li class="toctree-l2"><a class="reference internal" href="calculate.html">Calculate</a></li>
 <li class="toctree-l2"><a class="reference internal" href="density.html">Density</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extent.html">Extent</a></li>
 <li class="toctree-l2"><a class="reference internal" href="filter.html">Filter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="flatten.html">Flatten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fold.html">Fold</a></li>
@@ -461,6 +465,7 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="../customization.html">Customizing Visualizations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration.html">Top-Level Chart Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../saving_charts.html">Saving Altair Charts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter_chart.html">JupyterChart Interactivity</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Usage</span></p>
 <ul class="nav bd-sidenav">
@@ -569,66 +574,179 @@ methods of top-level objects:</p>
 <td><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">transform_density()</span></code></p></td>
 <td><p>Create a new data column with the kernel density estimate of the input.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="filter.html#user-guide-filter-transform"><span class="std std-ref">Filter</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="extent.html#user-guide-extent-transform"><span class="std std-ref">Extent</span></a></p></td>
+<td><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">transform_extent()</span></code></p></td>
+<td><p>Find the extent of a field and store the result in a parameter.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="filter.html#user-guide-filter-transform"><span class="std std-ref">Filter</span></a></p></td>
 <td><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">transform_filter()</span></code></p></td>
 <td><p>Select a subset of data based on a condition.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="flatten.html#user-guide-flatten-transform"><span class="std std-ref">Flatten</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="flatten.html#user-guide-flatten-transform"><span class="std std-ref">Flatten</span></a></p></td>
 <td><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">transform_flatten()</span></code></p></td>
 <td><p>Flatten array data into columns.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="fold.html#user-guide-fold-transform"><span class="std std-ref">Fold</span></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="fold.html#user-guide-fold-transform"><span class="std std-ref">Fold</span></a></p></td>
 <td><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">transform_fold()</span></code></p></td>
 <td><p>Convert wide-form data into long-form data (opposite of pivot).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="impute.html#user-guide-impute-transform"><span class="std std-ref">Impute</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="impute.html#user-guide-impute-transform"><span class="std std-ref">Impute</span></a></p></td>
 <td><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">transform_impute()</span></code></p></td>
 <td><p>Impute missing data.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="joinaggregate.html#user-guide-joinaggregate-transform"><span class="std std-ref">Join Aggregate</span></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="joinaggregate.html#user-guide-joinaggregate-transform"><span class="std std-ref">Join Aggregate</span></a></p></td>
 <td><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">transform_joinaggregate()</span></code></p></td>
 <td><p>Aggregate transform joined to original data.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="loess.html#user-guide-loess-transform"><span class="std std-ref">LOESS</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="loess.html#user-guide-loess-transform"><span class="std std-ref">LOESS</span></a></p></td>
 <td><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">transform_loess()</span></code></p></td>
 <td><p>Create a new column with LOESS smoothing of data.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="lookup.html#user-guide-lookup-transform"><span class="std std-ref">Lookup</span></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="lookup.html#user-guide-lookup-transform"><span class="std std-ref">Lookup</span></a></p></td>
 <td><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">transform_lookup()</span></code></p></td>
 <td><p>One-sided join of two datasets based on a lookup key.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pivot.html#user-guide-pivot-transform"><span class="std std-ref">Pivot</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pivot.html#user-guide-pivot-transform"><span class="std std-ref">Pivot</span></a></p></td>
 <td><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">transform_pivot()</span></code></p></td>
 <td><p>Convert long-form data into wide-form data (opposite of fold).</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="quantile.html#user-guide-quantile-transform"><span class="std std-ref">Quantile</span></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="quantile.html#user-guide-quantile-transform"><span class="std std-ref">Quantile</span></a></p></td>
 <td><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">transform_quantile()</span></code></p></td>
 <td><p>Compute empirical quantiles of a dataset.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="regression.html#user-guide-regression-transform"><span class="std std-ref">Regression</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="regression.html#user-guide-regression-transform"><span class="std std-ref">Regression</span></a></p></td>
 <td><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">transform_regression()</span></code></p></td>
 <td><p>Fit a regression model to a dataset.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="sample.html#user-guide-sample-transform"><span class="std std-ref">Sample</span></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="sample.html#user-guide-sample-transform"><span class="std std-ref">Sample</span></a></p></td>
 <td><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">transform_sample()</span></code></p></td>
 <td><p>Random sub-sample of the rows in the dataset.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="stack.html#user-guide-stack-transform"><span class="std std-ref">Stack</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="stack.html#user-guide-stack-transform"><span class="std std-ref">Stack</span></a></p></td>
 <td><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">transform_stack()</span></code></p></td>
 <td><p>Compute stacked version of values.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="timeunit.html#user-guide-timeunit-transform"><span class="std std-ref">TimeUnit</span></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="timeunit.html#user-guide-timeunit-transform"><span class="std std-ref">TimeUnit</span></a></p></td>
 <td><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">transform_timeunit()</span></code></p></td>
 <td><p>Discretize/group a date by a time unit (day, month, year, etc.)</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="window.html#user-guide-window-transform"><span class="std std-ref">Window</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="window.html#user-guide-window-transform"><span class="std std-ref">Window</span></a></p></td>
 <td><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">transform_window()</span></code></p></td>
 <td><p>Compute a windowed aggregation</p></td>
 </tr>
 </tbody>
 </table>
+<section id="accessing-transformed-data">
+<h2>Accessing Transformed Data<a class="headerlink" href="#accessing-transformed-data" title="Permalink to this heading">#</a></h2>
+<p>When charts are displayed, data transformations are performed in the browser by
+the Vega JavaScript library. It’s often helpful to inspect transformed data
+results in the process of building a chart. One approach is to display the
+transformed data results in a table composed of <a class="reference internal" href="../marks/text.html#user-guide-text-marks"><span class="std std-ref">Text</span></a>
+marks as in the <a class="reference internal" href="../../gallery/scatter_linked_table.html#gallery-scatter-linked-table"><span class="std std-ref">Brushing Scatter Plot to Show Data on a Table</span></a> gallery example.</p>
+<p>While this approach works, it’s somewhat cumbersome, and still does not make it
+possible to access the transformed data from Python. To make transformed data
+results available in Python, Altair provides the <code class="xref py py-meth docutils literal notranslate"><span class="pre">transformed_data()</span></code>
+Chart method which integrates with <a class="reference external" href="https://vegafusion.io/">VegaFusion</a>
+to evaluate data transformations in the Python kernel.</p>
+<p>First, install VegaFusion with the embed extras enabled.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pip install &quot;vegafusion[embed]&quot;
+</pre></div>
+</div>
+<p>Then create an Altair chart and call the <code class="xref py py-meth docutils literal notranslate"><span class="pre">transformed_data()</span></code> method
+to extract a pandas DataFrame containing the transformed data.</p>
+<div class="highlight-python notranslate" id="index-rst-altair-source-0"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+
+<span class="n">cars</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">cars</span><span class="o">.</span><span class="n">url</span>
+<span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">cars</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Cylinders:O&#39;</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;mean_acc:Q&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_aggregate</span><span class="p">(</span>
+    <span class="n">mean_acc</span><span class="o">=</span><span class="s1">&#39;mean(Acceleration)&#39;</span><span class="p">,</span>
+    <span class="n">groupby</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Cylinders&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">transformed_data</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>       Cylinders   mean_acc  mean_acc_start  mean_acc_end
+    0          8  12.837037             0.0     12.837037
+    1          4  16.616425             0.0     16.616425
+    2          6  16.263095             0.0     16.263095
+    3          3  13.250000             0.0     13.250000
+    4          5  18.633333             0.0     18.633333
+</pre></div>
+</div>
+<p>The <code class="xref py py-meth docutils literal notranslate"><span class="pre">transformed_data()</span></code> method currently supports most, but not all,
+of Altair’s transforms. See the table below.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Transform</p></th>
+<th class="head"><p>Supported</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="aggregate.html#user-guide-aggregate-transform"><span class="std std-ref">Aggregate</span></a></p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="bin.html#user-guide-bin-transform"><span class="std std-ref">Bin</span></a></p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="calculate.html#user-guide-calculate-transform"><span class="std std-ref">Calculate</span></a></p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="density.html#user-guide-density-transform"><span class="std std-ref">Density</span></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="extent.html#user-guide-extent-transform"><span class="std std-ref">Extent</span></a></p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="filter.html#user-guide-filter-transform"><span class="std std-ref">Filter</span></a></p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="flatten.html#user-guide-flatten-transform"><span class="std std-ref">Flatten</span></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="fold.html#user-guide-fold-transform"><span class="std std-ref">Fold</span></a></p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="impute.html#user-guide-impute-transform"><span class="std std-ref">Impute</span></a></p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="joinaggregate.html#user-guide-joinaggregate-transform"><span class="std std-ref">Join Aggregate</span></a></p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="loess.html#user-guide-loess-transform"><span class="std std-ref">LOESS</span></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="lookup.html#user-guide-lookup-transform"><span class="std std-ref">Lookup</span></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pivot.html#user-guide-pivot-transform"><span class="std std-ref">Pivot</span></a></p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="quantile.html#user-guide-quantile-transform"><span class="std std-ref">Quantile</span></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="regression.html#user-guide-regression-transform"><span class="std std-ref">Regression</span></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="sample.html#user-guide-sample-transform"><span class="std std-ref">Sample</span></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="stack.html#user-guide-stack-transform"><span class="std std-ref">Stack</span></a></p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="timeunit.html#user-guide-timeunit-transform"><span class="std std-ref">TimeUnit</span></a></p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="window.html#user-guide-window-transform"><span class="std std-ref">Window</span></a></p></td>
+<td><p>✔</p></td>
+</tr>
+</tbody>
+</table>
 <div class="toctree-wrapper compound">
 </div>
+</section>
 </section>
 
 
@@ -670,6 +788,20 @@ methods of top-level objects:</p>
             
             
               
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-transformed-data">Accessing Transformed Data</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
             
           </div>
           <footer class="bd-footer-content">
@@ -700,7 +832,7 @@ methods of top-level objects:</p>
       
         <div class="footer-item">
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
     <br/>
   </p>
 </div>

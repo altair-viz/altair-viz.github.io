@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 
 
@@ -7,9 +6,9 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Wheat and Wages &#8212; Vega-Altair 5.0.1 documentation</title>
+    <title>Wheat and Wages &#8212; Vega-Altair 5.1.0 documentation</title>
   
   
   
@@ -29,27 +28,27 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/altair-plot.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/altair-gallery.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/altair-plot.css?v=a673d9d3" />
+    <link rel="stylesheet" type="text/css" href="../_static/altair-gallery.css?v=1975c9e6" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=9736ff9e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=1d452c66" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=19a850bc"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.8.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.14.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'gallery/wheat_wages';</script>
     <link rel="icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -179,15 +178,15 @@
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../user_guide/ecosystem.html">
-                        Resources
+                      <a class="nav-link nav-internal" href="../releases/changes.html">
+                        Release Notes
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../releases/changes.html">
-                        Release Notes
+                      <a class="nav-link nav-internal" href="../about/roadmap.html">
+                        About
                       </a>
                     </li>
                 
@@ -321,15 +320,15 @@ document.write(`
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../user_guide/ecosystem.html">
-                        Resources
+                      <a class="nav-link nav-internal" href="../releases/changes.html">
+                        Release Notes
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../releases/changes.html">
-                        Release Notes
+                      <a class="nav-link nav-internal" href="../about/roadmap.html">
+                        About
                       </a>
                     </li>
                 
@@ -445,7 +444,7 @@ the price of wheat, the wages of a mechanic, and the reigning British monarch.</
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300, "stroke": "transparent"}, "axis": {"domain": false, "gridColor": "white", "gridOpacity": 0.25, "title": null}}, "layer": [{"mark": {"type": "bar", "fill": "#aaa", "stroke": "#999"}, "encoding": {"x": {"axis": {"format": "d", "tickCount": 5}, "field": "year", "type": "quantitative"}, "x2": {"field": "year_end"}, "y": {"axis": {"zindex": 1}, "field": "wheat", "type": "quantitative"}}, "transform": [{"calculate": "+datum.year + 5", "as": "year_end"}]}, {"mark": {"type": "area", "color": "#a4cedb", "opacity": 0.7}, "encoding": {"x": {"field": "year", "type": "quantitative"}, "y": {"field": "wages", "type": "quantitative"}}, "transform": [{"calculate": "+datum.year + 5", "as": "year_end"}]}, {"mark": {"type": "line", "color": "#000", "opacity": 0.7}, "encoding": {"x": {"field": "year", "type": "quantitative"}, "y": {"field": "wages", "type": "quantitative"}}, "transform": [{"calculate": "+datum.year + 5", "as": "year_end"}]}, {"mark": {"type": "line", "color": "#EE8182", "yOffset": -2}, "encoding": {"x": {"field": "year", "type": "quantitative"}, "y": {"field": "wages", "type": "quantitative"}}, "transform": [{"calculate": "+datum.year + 5", "as": "year_end"}]}, {"data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/monarchs.json"}, "mark": {"type": "bar", "stroke": "#000"}, "encoding": {"fill": {"field": "commonwealth", "legend": null, "scale": {"range": ["black", "white"]}, "type": "nominal"}, "x": {"field": "start", "type": "quantitative"}, "x2": {"field": "end"}, "y": {"field": "y", "type": "quantitative"}, "y2": {"field": "offset"}}, "transform": [{"calculate": "((!datum.commonwealth && datum.index % 2) ? -1: 1) * 2 + 95", "as": "offset"}, {"calculate": "((!datum.commonwealth && datum.index % 2) ? -1: 1) + 95", "as": "off2"}, {"calculate": "95", "as": "y"}, {"calculate": "+datum.start + (+datum.end - +datum.start)/2", "as": "x"}]}, {"data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/monarchs.json"}, "mark": {"type": "text", "fontSize": 9, "fontStyle": "italic", "yOffset": 14}, "encoding": {"text": {"field": "name", "type": "nominal"}, "x": {"field": "x", "type": "quantitative"}, "y": {"field": "off2", "type": "quantitative"}}, "transform": [{"calculate": "((!datum.commonwealth && datum.index % 2) ? -1: 1) * 2 + 95", "as": "offset"}, {"calculate": "((!datum.commonwealth && datum.index % 2) ? -1: 1) + 95", "as": "off2"}, {"calculate": "95", "as": "y"}, {"calculate": "+datum.start + (+datum.end - +datum.start)/2", "as": "x"}]}], "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/wheat.json"}, "height": 400, "width": 900, "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300, "stroke": "transparent"}, "axis": {"domain": false, "gridColor": "white", "gridOpacity": 0.25, "title": null}}, "layer": [{"data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/wheat.json"}, "mark": {"type": "bar", "fill": "#aaa", "stroke": "#999"}, "encoding": {"x": {"axis": {"format": "d", "tickCount": 5}, "bin": "binned", "field": "year", "scale": {"zero": false}, "type": "quantitative"}, "x2": {"field": "year_end"}, "y": {"axis": {"zindex": 1}, "field": "wheat", "type": "quantitative"}}, "transform": [{"calculate": "+datum.year + 5", "as": "year_end"}]}, {"data": {"name": "data-8f0a5028c53ab9336ad3e370cb2fe8eb"}, "mark": {"type": "rule", "opacity": 0.7, "stroke": "#000", "strokeWidth": 0.6}, "encoding": {"x": {"field": "year", "type": "quantitative"}}}, {"data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/wheat.json"}, "mark": {"type": "area", "color": "#a4cedb", "opacity": 0.7}, "encoding": {"x": {"field": "year", "type": "quantitative"}, "y": {"field": "wages", "type": "quantitative"}}, "transform": [{"calculate": "+datum.year + 5", "as": "year_end"}]}, {"data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/wheat.json"}, "mark": {"type": "line", "color": "#000", "opacity": 0.7}, "encoding": {"x": {"field": "year", "type": "quantitative"}, "y": {"field": "wages", "type": "quantitative"}}, "transform": [{"calculate": "+datum.year + 5", "as": "year_end"}]}, {"data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/wheat.json"}, "mark": {"type": "line", "color": "#EE8182", "yOffset": -2}, "encoding": {"x": {"field": "year", "type": "quantitative"}, "y": {"field": "wages", "type": "quantitative"}}, "transform": [{"calculate": "+datum.year + 5", "as": "year_end"}]}, {"data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/monarchs.json"}, "mark": {"type": "bar", "stroke": "#000"}, "encoding": {"fill": {"field": "commonwealth", "legend": null, "scale": {"range": ["black", "white"]}, "type": "nominal"}, "x": {"field": "start", "type": "quantitative"}, "x2": {"field": "end"}, "y": {"field": "y", "type": "quantitative"}, "y2": {"field": "offset"}}, "transform": [{"calculate": "((!datum.commonwealth && datum.index % 2) ? -1: 1) * 2 + 95", "as": "offset"}, {"calculate": "((!datum.commonwealth && datum.index % 2) ? -1: 1) + 95", "as": "off2"}, {"calculate": "95", "as": "y"}, {"calculate": "+datum.start + (+datum.end - +datum.start)/2", "as": "x"}]}, {"data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/monarchs.json"}, "mark": {"type": "text", "fontSize": 9, "fontStyle": "italic", "yOffset": 14}, "encoding": {"text": {"field": "name", "type": "nominal"}, "x": {"field": "x", "type": "quantitative"}, "y": {"field": "off2", "type": "quantitative"}}, "transform": [{"calculate": "((!datum.commonwealth && datum.index % 2) ? -1: 1) * 2 + 95", "as": "offset"}, {"calculate": "((!datum.commonwealth && datum.index % 2) ? -1: 1) + 95", "as": "off2"}, {"calculate": "95", "as": "y"}, {"calculate": "+datum.start + (+datum.end - +datum.start)/2", "as": "x"}]}], "height": 400, "width": 900, "$schema": "https://vega.github.io/schema/vega-lite/v5.14.1.json", "datasets": {"data-8f0a5028c53ab9336ad3e370cb2fe8eb": [{"year": 1600}, {"year": 1650}, {"year": 1700}, {"year": 1750}, {"year": 1800}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -459,53 +458,65 @@ the price of wheat, the wages of a mechanic, and the reigning British monarch.</
 </input><label class="sd-tab-label" data-sync-id="method" for="sd-tab-item-0">
 Method syntax</label><div class="sd-tab-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
 
 
-<span class="n">base_wheat</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">wheat</span><span class="o">.</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">transform_calculate</span><span class="p">(</span>
-    <span class="n">year_end</span><span class="o">=</span><span class="s2">&quot;+datum.year + 5&quot;</span><span class="p">)</span>
+<span class="n">base_wheat</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">wheat</span><span class="o">.</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">transform_calculate</span><span class="p">(</span><span class="n">year_end</span><span class="o">=</span><span class="s2">&quot;+datum.year + 5&quot;</span><span class="p">)</span>
 
 <span class="n">base_monarchs</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">monarchs</span><span class="o">.</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">transform_calculate</span><span class="p">(</span>
     <span class="n">offset</span><span class="o">=</span><span class="s2">&quot;((!datum.commonwealth &amp;&amp; datum.index % 2) ? -1: 1) * 2 + 95&quot;</span><span class="p">,</span>
     <span class="n">off2</span><span class="o">=</span><span class="s2">&quot;((!datum.commonwealth &amp;&amp; datum.index % 2) ? -1: 1) + 95&quot;</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="s2">&quot;95&quot;</span><span class="p">,</span>
-    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;+datum.start + (+datum.end - +datum.start)/2&quot;</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;+datum.start + (+datum.end - +datum.start)/2&quot;</span><span class="p">,</span>
 <span class="p">)</span>
 
-<span class="n">bars</span> <span class="o">=</span> <span class="n">base_wheat</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s2">&quot;fill&quot;</span><span class="p">:</span> <span class="s2">&quot;#aaa&quot;</span><span class="p">,</span> <span class="s2">&quot;stroke&quot;</span><span class="p">:</span> <span class="s2">&quot;#999&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;year:Q&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="n">tickCount</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span>
+<span class="n">bars</span> <span class="o">=</span> <span class="n">base_wheat</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="s2">&quot;#aaa&quot;</span><span class="p">,</span> <span class="n">stroke</span><span class="o">=</span><span class="s2">&quot;#999&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;year:Q&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">bin</span><span class="p">(</span><span class="s2">&quot;binned&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="n">tickCount</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">zero</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
     <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;wheat:Q&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="n">zindex</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">X2</span><span class="p">(</span><span class="s2">&quot;year_end&quot;</span><span class="p">)</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X2</span><span class="p">(</span><span class="s2">&quot;year_end&quot;</span><span class="p">),</span>
 <span class="p">)</span>
 
-<span class="n">area</span> <span class="o">=</span> <span class="n">base_wheat</span><span class="o">.</span><span class="n">mark_area</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;#a4cedb&quot;</span><span class="p">,</span> <span class="s2">&quot;opacity&quot;</span><span class="p">:</span> <span class="mf">0.7</span><span class="p">})</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;year:Q&quot;</span><span class="p">),</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;wages:Q&quot;</span><span class="p">)</span>
+<span class="n">section_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="mi">1600</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="mi">1650</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="mi">1700</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="mi">1750</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="mi">1800</span><span class="p">},</span>
+    <span class="p">]</span>
 <span class="p">)</span>
 
-<span class="n">area_line_1</span> <span class="o">=</span> <span class="n">area</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;#000&quot;</span><span class="p">,</span> <span class="s2">&quot;opacity&quot;</span><span class="p">:</span> <span class="mf">0.7</span><span class="p">})</span>
-<span class="n">area_line_2</span> <span class="o">=</span> <span class="n">area</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s2">&quot;yOffset&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;#EE8182&quot;</span><span class="p">})</span>
+<span class="n">section_line</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">section_data</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">mark_rule</span><span class="p">(</span><span class="n">stroke</span><span class="o">=</span><span class="s2">&quot;#000&quot;</span><span class="p">,</span> <span class="n">strokeWidth</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;year&quot;</span><span class="p">))</span>
+<span class="p">)</span>
+
+<span class="n">area</span> <span class="o">=</span> <span class="n">base_wheat</span><span class="o">.</span><span class="n">mark_area</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;#a4cedb&quot;</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;year:Q&quot;</span><span class="p">),</span> <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;wages:Q&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">area_line_1</span> <span class="o">=</span> <span class="n">area</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;#000&quot;</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">area_line_2</span> <span class="o">=</span> <span class="n">area</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">yOffset</span><span class="o">=-</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#EE8182&quot;</span><span class="p">)</span>
 
 <span class="n">top_bars</span> <span class="o">=</span> <span class="n">base_monarchs</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">(</span><span class="n">stroke</span><span class="o">=</span><span class="s2">&quot;#000&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;start:Q&quot;</span><span class="p">),</span>
     <span class="n">alt</span><span class="o">.</span><span class="n">X2</span><span class="p">(</span><span class="s2">&quot;end&quot;</span><span class="p">),</span>
     <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;y:Q&quot;</span><span class="p">),</span>
     <span class="n">alt</span><span class="o">.</span><span class="n">Y2</span><span class="p">(</span><span class="s2">&quot;offset&quot;</span><span class="p">),</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Fill</span><span class="p">(</span><span class="s2">&quot;commonwealth:N&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="s2">&quot;white&quot;</span><span class="p">])</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Fill</span><span class="p">(</span><span class="s2">&quot;commonwealth:N&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="s2">&quot;white&quot;</span><span class="p">]),</span>
 <span class="p">)</span>
 
-<span class="n">top_text</span> <span class="o">=</span> <span class="n">base_monarchs</span><span class="o">.</span><span class="n">mark_text</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s2">&quot;yOffset&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span> <span class="s2">&quot;fontSize&quot;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span> <span class="s2">&quot;fontStyle&quot;</span><span class="p">:</span> <span class="s2">&quot;italic&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;x:Q&quot;</span><span class="p">),</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;off2:Q&quot;</span><span class="p">),</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="s2">&quot;name:N&quot;</span><span class="p">)</span>
+<span class="n">top_text</span> <span class="o">=</span> <span class="n">base_monarchs</span><span class="o">.</span><span class="n">mark_text</span><span class="p">(</span><span class="n">yOffset</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">fontSize</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">fontStyle</span><span class="o">=</span><span class="s2">&quot;italic&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;x:Q&quot;</span><span class="p">),</span> <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;off2:Q&quot;</span><span class="p">),</span> <span class="n">alt</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="s2">&quot;name:N&quot;</span><span class="p">)</span>
 <span class="p">)</span>
 
-<span class="p">(</span><span class="n">bars</span> <span class="o">+</span> <span class="n">area</span> <span class="o">+</span> <span class="n">area_line_1</span> <span class="o">+</span> <span class="n">area_line_2</span> <span class="o">+</span> <span class="n">top_bars</span> <span class="o">+</span> <span class="n">top_text</span><span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
-    <span class="n">width</span><span class="o">=</span><span class="mi">900</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">400</span>
-<span class="p">)</span><span class="o">.</span><span class="n">configure_axis</span><span class="p">(</span>
-    <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">gridColor</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="n">gridOpacity</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="kc">False</span>
-<span class="p">)</span><span class="o">.</span><span class="n">configure_view</span><span class="p">(</span>
-    <span class="n">stroke</span><span class="o">=</span><span class="s2">&quot;transparent&quot;</span>
+<span class="p">(</span>
+    <span class="p">(</span><span class="n">bars</span> <span class="o">+</span> <span class="n">section_line</span> <span class="o">+</span> <span class="n">area</span> <span class="o">+</span> <span class="n">area_line_1</span> <span class="o">+</span> <span class="n">area_line_2</span> <span class="o">+</span> <span class="n">top_bars</span> <span class="o">+</span> <span class="n">top_text</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">900</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">configure_axis</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">gridColor</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="n">gridOpacity</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">configure_view</span><span class="p">(</span><span class="n">stroke</span><span class="o">=</span><span class="s2">&quot;transparent&quot;</span><span class="p">)</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -514,53 +525,69 @@ Method syntax</label><div class="sd-tab-content docutils">
 </input><label class="sd-tab-label" data-sync-id="attribute" for="sd-tab-item-1">
 Attribute syntax</label><div class="sd-tab-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
 
 
-<span class="n">base_wheat</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">wheat</span><span class="o">.</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">transform_calculate</span><span class="p">(</span>
-    <span class="n">year_end</span><span class="o">=</span><span class="s2">&quot;+datum.year + 5&quot;</span><span class="p">)</span>
+<span class="n">base_wheat</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">wheat</span><span class="o">.</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">transform_calculate</span><span class="p">(</span><span class="n">year_end</span><span class="o">=</span><span class="s2">&quot;+datum.year + 5&quot;</span><span class="p">)</span>
 
 <span class="n">base_monarchs</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">monarchs</span><span class="o">.</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">transform_calculate</span><span class="p">(</span>
     <span class="n">offset</span><span class="o">=</span><span class="s2">&quot;((!datum.commonwealth &amp;&amp; datum.index % 2) ? -1: 1) * 2 + 95&quot;</span><span class="p">,</span>
     <span class="n">off2</span><span class="o">=</span><span class="s2">&quot;((!datum.commonwealth &amp;&amp; datum.index % 2) ? -1: 1) + 95&quot;</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="s2">&quot;95&quot;</span><span class="p">,</span>
-    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;+datum.start + (+datum.end - +datum.start)/2&quot;</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;+datum.start + (+datum.end - +datum.start)/2&quot;</span><span class="p">,</span>
 <span class="p">)</span>
 
-<span class="n">bars</span> <span class="o">=</span> <span class="n">base_wheat</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s2">&quot;fill&quot;</span><span class="p">:</span> <span class="s2">&quot;#aaa&quot;</span><span class="p">,</span> <span class="s2">&quot;stroke&quot;</span><span class="p">:</span> <span class="s2">&quot;#999&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;year:Q&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="n">tickCount</span><span class="o">=</span><span class="mi">5</span><span class="p">)),</span>
+<span class="n">bars</span> <span class="o">=</span> <span class="n">base_wheat</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="s2">&quot;#aaa&quot;</span><span class="p">,</span> <span class="n">stroke</span><span class="o">=</span><span class="s2">&quot;#999&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;year:Q&quot;</span><span class="p">,</span> <span class="nb">bin</span><span class="o">=</span><span class="s2">&quot;binned&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="n">tickCount</span><span class="o">=</span><span class="mi">5</span><span class="p">))</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span>
+        <span class="n">zero</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">),</span>
     <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;wheat:Q&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">zindex</span><span class="o">=</span><span class="mi">1</span><span class="p">)),</span>
-    <span class="n">x2</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X2</span><span class="p">(</span><span class="s2">&quot;year_end&quot;</span><span class="p">)</span>
+    <span class="n">x2</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X2</span><span class="p">(</span><span class="s2">&quot;year_end&quot;</span><span class="p">),</span>
 <span class="p">)</span>
 
-<span class="n">area</span> <span class="o">=</span> <span class="n">base_wheat</span><span class="o">.</span><span class="n">mark_area</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;#a4cedb&quot;</span><span class="p">,</span> <span class="s2">&quot;opacity&quot;</span><span class="p">:</span> <span class="mf">0.7</span><span class="p">})</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;year:Q&quot;</span><span class="p">),</span>
-    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;wages:Q&quot;</span><span class="p">)</span>
+<span class="n">section_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="mi">1600</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="mi">1650</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="mi">1700</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="mi">1750</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="mi">1800</span><span class="p">},</span>
+    <span class="p">]</span>
 <span class="p">)</span>
 
-<span class="n">area_line_1</span> <span class="o">=</span> <span class="n">area</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;#000&quot;</span><span class="p">,</span> <span class="s2">&quot;opacity&quot;</span><span class="p">:</span> <span class="mf">0.7</span><span class="p">})</span>
-<span class="n">area_line_2</span> <span class="o">=</span> <span class="n">area</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s2">&quot;yOffset&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;#EE8182&quot;</span><span class="p">})</span>
+<span class="n">section_line</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">section_data</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">mark_rule</span><span class="p">(</span><span class="n">stroke</span><span class="o">=</span><span class="s2">&quot;#000&quot;</span><span class="p">,</span> <span class="n">strokeWidth</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;year&quot;</span><span class="p">))</span>
+<span class="p">)</span>
+
+<span class="n">area</span> <span class="o">=</span> <span class="n">base_wheat</span><span class="o">.</span><span class="n">mark_area</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;#a4cedb&quot;</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;year:Q&quot;</span><span class="p">),</span> <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;wages:Q&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">area_line_1</span> <span class="o">=</span> <span class="n">area</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;#000&quot;</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">area_line_2</span> <span class="o">=</span> <span class="n">area</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">yOffset</span><span class="o">=-</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#EE8182&quot;</span><span class="p">)</span>
 
 <span class="n">top_bars</span> <span class="o">=</span> <span class="n">base_monarchs</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">(</span><span class="n">stroke</span><span class="o">=</span><span class="s2">&quot;#000&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;start:Q&quot;</span><span class="p">),</span>
     <span class="n">x2</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X2</span><span class="p">(</span><span class="s2">&quot;end&quot;</span><span class="p">),</span>
     <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;y:Q&quot;</span><span class="p">),</span>
     <span class="n">y2</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y2</span><span class="p">(</span><span class="s2">&quot;offset&quot;</span><span class="p">),</span>
-    <span class="n">fill</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Fill</span><span class="p">(</span><span class="s2">&quot;commonwealth:N&quot;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="s2">&quot;white&quot;</span><span class="p">]))</span>
+    <span class="n">fill</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Fill</span><span class="p">(</span>
+        <span class="s2">&quot;commonwealth:N&quot;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="s2">&quot;white&quot;</span><span class="p">])</span>
+    <span class="p">),</span>
 <span class="p">)</span>
 
-<span class="n">top_text</span> <span class="o">=</span> <span class="n">base_monarchs</span><span class="o">.</span><span class="n">mark_text</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s2">&quot;yOffset&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span> <span class="s2">&quot;fontSize&quot;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span> <span class="s2">&quot;fontStyle&quot;</span><span class="p">:</span> <span class="s2">&quot;italic&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;x:Q&quot;</span><span class="p">),</span>
-    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;off2:Q&quot;</span><span class="p">),</span>
-    <span class="n">text</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="s2">&quot;name:N&quot;</span><span class="p">)</span>
+<span class="n">top_text</span> <span class="o">=</span> <span class="n">base_monarchs</span><span class="o">.</span><span class="n">mark_text</span><span class="p">(</span><span class="n">yOffset</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">fontSize</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">fontStyle</span><span class="o">=</span><span class="s2">&quot;italic&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;x:Q&quot;</span><span class="p">),</span> <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;off2:Q&quot;</span><span class="p">),</span> <span class="n">text</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="s2">&quot;name:N&quot;</span><span class="p">)</span>
 <span class="p">)</span>
 
-<span class="p">(</span><span class="n">bars</span> <span class="o">+</span> <span class="n">area</span> <span class="o">+</span> <span class="n">area_line_1</span> <span class="o">+</span> <span class="n">area_line_2</span> <span class="o">+</span> <span class="n">top_bars</span> <span class="o">+</span> <span class="n">top_text</span><span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
-    <span class="n">width</span><span class="o">=</span><span class="mi">900</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">400</span>
-<span class="p">)</span><span class="o">.</span><span class="n">configure_axis</span><span class="p">(</span>
-    <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">gridColor</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="n">gridOpacity</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="kc">False</span>
-<span class="p">)</span><span class="o">.</span><span class="n">configure_view</span><span class="p">(</span>
-    <span class="n">stroke</span><span class="o">=</span><span class="s2">&quot;transparent&quot;</span>
+<span class="p">(</span>
+    <span class="p">(</span><span class="n">bars</span> <span class="o">+</span> <span class="n">section_line</span> <span class="o">+</span> <span class="n">area</span> <span class="o">+</span> <span class="n">area_line_1</span> <span class="o">+</span> <span class="n">area_line_2</span> <span class="o">+</span> <span class="n">top_bars</span> <span class="o">+</span> <span class="n">top_text</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">900</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">configure_axis</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">gridColor</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="n">gridOpacity</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">configure_view</span><span class="p">(</span><span class="n">stroke</span><span class="o">=</span><span class="s2">&quot;transparent&quot;</span><span class="p">)</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -619,7 +646,7 @@ Attribute syntax</label><div class="sd-tab-content docutils">
       
         <div class="footer-item">
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
     <br/>
   </p>
 </div>

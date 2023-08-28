@@ -62,7 +62,7 @@ suitable representation.
         row=alt.Row(
             'Month:T',
             title=None,
-            header=alt.Header(labelAngle=0, labelAlign='right', format='%B')
+            header=alt.Header(labelAngle=0, labelAlign='left', format='%B')
         )
     ).properties(
         title='Seattle Weather',
@@ -109,7 +109,7 @@ suitable representation.
                 strokeWidth=0.5
             ).encode(
                 alt.X('bin_min:Q')
-                    .bin(True)
+                    .bin('binned')
                     .title('Maximum Daily Temperature (C)'),
                 alt.Y('value:Q')
                     .axis(None)
@@ -118,9 +118,9 @@ suitable representation.
                     .legend(None)
                     .scale(domain=[30, 5], scheme='redyellowblue')
             ).facet(
-                alt.Row('Month:T')
+                row=alt.Row('Month:T')
                     .title(None)
-                    .header(labelAngle=0, labelAlign='right', format='%B')
+                    .header(labelAngle=0, labelAlign='left', format='%B')
             ).properties(
                 title='Seattle Weather',
                 bounds='flush'
@@ -178,7 +178,7 @@ suitable representation.
                 row=alt.Row(
                     'Month:T',
                     title=None,
-                    header=alt.Header(labelAngle=0, labelAlign='right', format='%B')
+                    header=alt.Header(labelAngle=0, labelAlign='left', format='%B')
                 )
             ).properties(
                 title='Seattle Weather',

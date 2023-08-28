@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 
 
@@ -7,9 +6,9 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Isotype Grid &#8212; Vega-Altair 5.0.1 documentation</title>
+    <title>Isotype Grid &#8212; Vega-Altair 5.1.0 documentation</title>
   
   
   
@@ -29,27 +28,27 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/altair-plot.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/altair-gallery.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/altair-plot.css?v=a673d9d3" />
+    <link rel="stylesheet" type="text/css" href="../_static/altair-gallery.css?v=1975c9e6" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=9736ff9e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=1d452c66" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=19a850bc"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.8.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.14.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'gallery/isotype_grid';</script>
     <link rel="icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -179,15 +178,15 @@
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../user_guide/ecosystem.html">
-                        Resources
+                      <a class="nav-link nav-internal" href="../releases/changes.html">
+                        Release Notes
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../releases/changes.html">
-                        Release Notes
+                      <a class="nav-link nav-internal" href="../about/roadmap.html">
+                        About
                       </a>
                     </li>
                 
@@ -321,15 +320,15 @@ document.write(`
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../user_guide/ecosystem.html">
-                        Resources
+                      <a class="nav-link nav-internal" href="../releases/changes.html">
+                        Release Notes
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../releases/changes.html">
-                        Release Notes
+                      <a class="nav-link nav-internal" href="../about/roadmap.html">
+                        About
                       </a>
                     </li>
                 
@@ -443,7 +442,7 @@ document.write(`
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300, "strokeWidth": 0}}, "data": {"name": "data-33e0d8fd414409bdd77cbb1bde37149a"}, "mark": {"type": "point", "filled": true, "size": 50}, "encoding": {"shape": {"value": "M1.7 -1.7h-0.8c0.3 -0.2 0.6 -0.5 0.6 -0.9c0 -0.6 -0.4 -1 -1 -1c-0.6 0 -1 0.4 -1 1c0 0.4 0.2 0.7 0.6 0.9h-0.8c-0.4 0 -0.7 0.3 -0.7 0.6v1.9c0 0.3 0.3 0.6 0.6 0.6h0.2c0 0 0 0.1 0 0.1v1.9c0 0.3 0.2 0.6 0.3 0.6h1.3c0.2 0 0.3 -0.3 0.3 -0.6v-1.8c0 0 0 -0.1 0 -0.1h0.2c0.3 0 0.6 -0.3 0.6 -0.6v-2c0.2 -0.3 -0.1 -0.6 -0.4 -0.6z"}, "x": {"axis": null, "field": "col", "type": "ordinal"}, "y": {"axis": null, "field": "row", "type": "ordinal"}}, "height": 400, "transform": [{"calculate": "ceil(datum.id/10)", "as": "row"}, {"calculate": "datum.id - datum.row*10", "as": "col"}], "width": 400, "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-33e0d8fd414409bdd77cbb1bde37149a": [{"id": 1}, {"id": 2}, {"id": 3}, {"id": 4}, {"id": 5}, {"id": 6}, {"id": 7}, {"id": 8}, {"id": 9}, {"id": 10}, {"id": 11}, {"id": 12}, {"id": 13}, {"id": 14}, {"id": 15}, {"id": 16}, {"id": 17}, {"id": 18}, {"id": 19}, {"id": 20}, {"id": 21}, {"id": 22}, {"id": 23}, {"id": 24}, {"id": 25}, {"id": 26}, {"id": 27}, {"id": 28}, {"id": 29}, {"id": 30}, {"id": 31}, {"id": 32}, {"id": 33}, {"id": 34}, {"id": 35}, {"id": 36}, {"id": 37}, {"id": 38}, {"id": 39}, {"id": 40}, {"id": 41}, {"id": 42}, {"id": 43}, {"id": 44}, {"id": 45}, {"id": 46}, {"id": 47}, {"id": 48}, {"id": 49}, {"id": 50}, {"id": 51}, {"id": 52}, {"id": 53}, {"id": 54}, {"id": 55}, {"id": 56}, {"id": 57}, {"id": 58}, {"id": 59}, {"id": 60}, {"id": 61}, {"id": 62}, {"id": 63}, {"id": 64}, {"id": 65}, {"id": 66}, {"id": 67}, {"id": 68}, {"id": 69}, {"id": 70}, {"id": 71}, {"id": 72}, {"id": 73}, {"id": 74}, {"id": 75}, {"id": 76}, {"id": 77}, {"id": 78}, {"id": 79}, {"id": 80}, {"id": 81}, {"id": 82}, {"id": 83}, {"id": 84}, {"id": 85}, {"id": 86}, {"id": 87}, {"id": 88}, {"id": 89}, {"id": 90}, {"id": 91}, {"id": 92}, {"id": 93}, {"id": 94}, {"id": 95}, {"id": 96}, {"id": 97}, {"id": 98}, {"id": 99}, {"id": 100}]}};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300, "strokeWidth": 0}}, "data": {"name": "data-33e0d8fd414409bdd77cbb1bde37149a"}, "mark": {"type": "point", "filled": true, "size": 50}, "encoding": {"shape": {"value": "M1.7 -1.7h-0.8c0.3 -0.2 0.6 -0.5 0.6 -0.9c0 -0.6 -0.4 -1 -1 -1c-0.6 0 -1 0.4 -1 1c0 0.4 0.2 0.7 0.6 0.9h-0.8c-0.4 0 -0.7 0.3 -0.7 0.6v1.9c0 0.3 0.3 0.6 0.6 0.6h0.2c0 0 0 0.1 0 0.1v1.9c0 0.3 0.2 0.6 0.3 0.6h1.3c0.2 0 0.3 -0.3 0.3 -0.6v-1.8c0 0 0 -0.1 0 -0.1h0.2c0.3 0 0.6 -0.3 0.6 -0.6v-2c0.2 -0.3 -0.1 -0.6 -0.4 -0.6z"}, "x": {"axis": null, "field": "col", "type": "ordinal"}, "y": {"axis": null, "field": "row", "type": "ordinal"}}, "height": 400, "transform": [{"calculate": "ceil(datum.id/10)", "as": "row"}, {"calculate": "datum.id - datum.row*10", "as": "col"}], "width": 400, "$schema": "https://vega.github.io/schema/vega-lite/v5.14.1.json", "datasets": {"data-33e0d8fd414409bdd77cbb1bde37149a": [{"id": 1}, {"id": 2}, {"id": 3}, {"id": 4}, {"id": 5}, {"id": 6}, {"id": 7}, {"id": 8}, {"id": 9}, {"id": 10}, {"id": 11}, {"id": 12}, {"id": 13}, {"id": 14}, {"id": 15}, {"id": 16}, {"id": 17}, {"id": 18}, {"id": 19}, {"id": 20}, {"id": 21}, {"id": 22}, {"id": 23}, {"id": 24}, {"id": 25}, {"id": 26}, {"id": 27}, {"id": 28}, {"id": 29}, {"id": 30}, {"id": 31}, {"id": 32}, {"id": 33}, {"id": 34}, {"id": 35}, {"id": 36}, {"id": 37}, {"id": 38}, {"id": 39}, {"id": 40}, {"id": 41}, {"id": 42}, {"id": 43}, {"id": 44}, {"id": 45}, {"id": 46}, {"id": 47}, {"id": 48}, {"id": 49}, {"id": 50}, {"id": 51}, {"id": 52}, {"id": 53}, {"id": 54}, {"id": 55}, {"id": 56}, {"id": 57}, {"id": 58}, {"id": 59}, {"id": 60}, {"id": 61}, {"id": 62}, {"id": 63}, {"id": 64}, {"id": 65}, {"id": 66}, {"id": 67}, {"id": 68}, {"id": 69}, {"id": 70}, {"id": 71}, {"id": 72}, {"id": 73}, {"id": 74}, {"id": 75}, {"id": 76}, {"id": 77}, {"id": 78}, {"id": 79}, {"id": 80}, {"id": 81}, {"id": 82}, {"id": 83}, {"id": 84}, {"id": 85}, {"id": 86}, {"id": 87}, {"id": 88}, {"id": 89}, {"id": 90}, {"id": 91}, {"id": 92}, {"id": 93}, {"id": 94}, {"id": 95}, {"id": 96}, {"id": 97}, {"id": 98}, {"id": 99}, {"id": 100}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -583,7 +582,7 @@ Attribute syntax</label><div class="sd-tab-content docutils">
       
         <div class="footer-item">
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
     <br/>
   </p>
 </div>

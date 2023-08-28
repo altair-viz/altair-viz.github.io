@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 
 
@@ -7,9 +6,9 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Diverging Stacked Bar Chart &#8212; Vega-Altair 5.0.1 documentation</title>
+    <title>Diverging Stacked Bar Chart &#8212; Vega-Altair 5.1.0 documentation</title>
   
   
   
@@ -29,27 +28,27 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/altair-plot.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/altair-gallery.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/altair-plot.css?v=a673d9d3" />
+    <link rel="stylesheet" type="text/css" href="../_static/altair-gallery.css?v=1975c9e6" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=9736ff9e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=1d452c66" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=19a850bc"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.8.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.14.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'gallery/diverging_stacked_bar_chart';</script>
     <link rel="icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -179,15 +178,15 @@
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../user_guide/ecosystem.html">
-                        Resources
+                      <a class="nav-link nav-internal" href="../releases/changes.html">
+                        Release Notes
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../releases/changes.html">
-                        Release Notes
+                      <a class="nav-link nav-internal" href="../about/roadmap.html">
+                        About
                       </a>
                     </li>
                 
@@ -321,15 +320,15 @@ document.write(`
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../user_guide/ecosystem.html">
-                        Resources
+                      <a class="nav-link nav-internal" href="../releases/changes.html">
+                        Release Notes
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../releases/changes.html">
-                        Release Notes
+                      <a class="nav-link nav-internal" href="../about/roadmap.html">
+                        About
                       </a>
                     </li>
                 
@@ -443,7 +442,7 @@ document.write(`
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-1dc8f18481c6cfda6c4d71fbf4066a53"}, "mark": {"type": "bar"}, "encoding": {"color": {"field": "type", "legend": {"title": "Response"}, "scale": {"domain": ["Strongly disagree", "Disagree", "Neither agree nor disagree", "Agree", "Strongly agree"], "range": ["#c30d24", "#f3a583", "#cccccc", "#94c6da", "#1770ab"]}, "type": "nominal"}, "x": {"field": "percentage_start", "type": "quantitative"}, "x2": {"field": "percentage_end"}, "y": {"axis": {"domain": false, "minExtent": 60, "offset": 5, "ticks": false, "title": "Question"}, "field": "question", "type": "nominal"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-1dc8f18481c6cfda6c4d71fbf4066a53": [{"question": "Question 1", "type": "Strongly disagree", "value": 24, "percentage": 0.7, "percentage_start": -19.1, "percentage_end": -18.4}, {"question": "Question 1", "type": "Disagree", "value": 294, "percentage": 9.1, "percentage_start": -18.4, "percentage_end": -9.2}, {"question": "Question 1", "type": "Neither agree nor disagree", "value": 594, "percentage": 18.5, "percentage_start": -9.2, "percentage_end": 9.2}, {"question": "Question 1", "type": "Agree", "value": 1927, "percentage": 59.9, "percentage_start": 9.2, "percentage_end": 69.2}, {"question": "Question 1", "type": "Strongly agree", "value": 376, "percentage": 11.7, "percentage_start": 69.2, "percentage_end": 80.9}, {"question": "Question 2", "type": "Strongly disagree", "value": 2, "percentage": 18.2, "percentage_start": -36.4, "percentage_end": -18.2}, {"question": "Question 2", "type": "Disagree", "value": 2, "percentage": 18.2, "percentage_start": -18.2, "percentage_end": 0.0}, {"question": "Question 2", "type": "Neither agree nor disagree", "value": 0, "percentage": 0.0, "percentage_start": 0.0, "percentage_end": 0.0}, {"question": "Question 2", "type": "Agree", "value": 7, "percentage": 63.6, "percentage_start": 0.0, "percentage_end": 63.6}, {"question": "Question 2", "type": "Strongly agree", "value": 11, "percentage": 0.0, "percentage_start": 63.6, "percentage_end": 63.6}, {"question": "Question 3", "type": "Strongly disagree", "value": 2, "percentage": 20.0, "percentage_start": -30.0, "percentage_end": -10.0}, {"question": "Question 3", "type": "Disagree", "value": 0, "percentage": 0.0, "percentage_start": -10.0, "percentage_end": -10.0}, {"question": "Question 3", "type": "Neither agree nor disagree", "value": 2, "percentage": 20.0, "percentage_start": -10.0, "percentage_end": 10.0}, {"question": "Question 3", "type": "Agree", "value": 4, "percentage": 40.0, "percentage_start": 10.0, "percentage_end": 50.0}, {"question": "Question 3", "type": "Strongly agree", "value": 2, "percentage": 20.0, "percentage_start": 50.0, "percentage_end": 70.0}, {"question": "Question 4", "type": "Strongly disagree", "value": 0, "percentage": 0.0, "percentage_start": -15.6, "percentage_end": -15.6}, {"question": "Question 4", "type": "Disagree", "value": 2, "percentage": 12.5, "percentage_start": -15.6, "percentage_end": -3.1}, {"question": "Question 4", "type": "Neither agree nor disagree", "value": 1, "percentage": 6.3, "percentage_start": -3.1, "percentage_end": 3.1}, {"question": "Question 4", "type": "Agree", "value": 7, "percentage": 43.8, "percentage_start": 3.1, "percentage_end": 46.9}, {"question": "Question 4", "type": "Strongly agree", "value": 6, "percentage": 37.5, "percentage_start": 46.9, "percentage_end": 84.4}, {"question": "Question 5", "type": "Strongly disagree", "value": 0, "percentage": 0.0, "percentage_start": -10.4, "percentage_end": -10.4}, {"question": "Question 5", "type": "Disagree", "value": 1, "percentage": 4.2, "percentage_start": -10.4, "percentage_end": -6.3}, {"question": "Question 5", "type": "Neither agree nor disagree", "value": 3, "percentage": 12.5, "percentage_start": -6.3, "percentage_end": 6.3}, {"question": "Question 5", "type": "Agree", "value": 16, "percentage": 66.7, "percentage_start": 6.3, "percentage_end": 72.9}, {"question": "Question 5", "type": "Strongly agree", "value": 4, "percentage": 16.7, "percentage_start": 72.9, "percentage_end": 89.6}, {"question": "Question 6", "type": "Strongly disagree", "value": 1, "percentage": 6.3, "percentage_start": -18.8, "percentage_end": -12.5}, {"question": "Question 6", "type": "Disagree", "value": 1, "percentage": 6.3, "percentage_start": -12.5, "percentage_end": -6.3}, {"question": "Question 6", "type": "Neither agree nor disagree", "value": 2, "percentage": 12.5, "percentage_start": -6.3, "percentage_end": 6.3}, {"question": "Question 6", "type": "Agree", "value": 9, "percentage": 56.3, "percentage_start": 6.3, "percentage_end": 62.5}, {"question": "Question 6", "type": "Strongly agree", "value": 3, "percentage": 18.8, "percentage_start": 62.5, "percentage_end": 81.3}, {"question": "Question 7", "type": "Strongly disagree", "value": 0, "percentage": 0.0, "percentage_start": -10.0, "percentage_end": -10.0}, {"question": "Question 7", "type": "Disagree", "value": 0, "percentage": 0.0, "percentage_start": -10.0, "percentage_end": -10.0}, {"question": "Question 7", "type": "Neither agree nor disagree", "value": 1, "percentage": 20.0, "percentage_start": -10.0, "percentage_end": 10.0}, {"question": "Question 7", "type": "Agree", "value": 4, "percentage": 80.0, "percentage_start": 10.0, "percentage_end": 90.0}, {"question": "Question 7", "type": "Strongly agree", "value": 0, "percentage": 0.0, "percentage_start": 90.0, "percentage_end": 90.0}, {"question": "Question 8", "type": "Strongly disagree", "value": 0, "percentage": 0.0, "percentage_start": 0.0, "percentage_end": 0.0}, {"question": "Question 8", "type": "Disagree", "value": 0, "percentage": 0.0, "percentage_start": 0.0, "percentage_end": 0.0}, {"question": "Question 8", "type": "Neither agree nor disagree", "value": 0, "percentage": 0.0, "percentage_start": 0.0, "percentage_end": 0.0}, {"question": "Question 8", "type": "Agree", "value": 0, "percentage": 0.0, "percentage_start": 0.0, "percentage_end": 0.0}, {"question": "Question 8", "type": "Strongly agree", "value": 2, "percentage": 100.0, "percentage_start": 0.0, "percentage_end": 100.0}]}};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-d56c117fd2d829c12fd5bafba2080c21"}, "mark": {"type": "bar"}, "encoding": {"color": {"field": "type", "legend": {"title": "Response"}, "scale": {"domain": ["Strongly disagree", "Disagree", "Neither agree nor disagree", "Agree", "Strongly agree"], "range": ["#c30d24", "#f3a583", "#cccccc", "#94c6da", "#1770ab"]}, "type": "nominal"}, "x": {"field": "percentage_start", "type": "quantitative"}, "x2": {"field": "percentage_end"}, "y": {"axis": {"domain": false, "minExtent": 60, "offset": 5, "ticks": false, "title": "Question"}, "field": "question", "type": "nominal"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.14.1.json", "datasets": {"data-d56c117fd2d829c12fd5bafba2080c21": [{"question": "Question 1", "type": "Strongly disagree", "value": 24, "percentage": 0.7465007776049767, "percentage_end": -18.382581648522553, "percentage_start": -19.12908242612753}, {"question": "Question 1", "type": "Disagree", "value": 294, "percentage": 9.144634525660965, "percentage_end": -9.237947122861586, "percentage_start": -18.382581648522553}, {"question": "Question 1", "type": "Neither agree nor disagree", "value": 594, "percentage": 18.475894245723172, "percentage_end": 9.237947122861588, "percentage_start": -9.237947122861584}, {"question": "Question 1", "type": "Agree", "value": 1927, "percentage": 59.93779160186625, "percentage_end": 69.17573872472784, "percentage_start": 9.237947122861584}, {"question": "Question 1", "type": "Strongly agree", "value": 376, "percentage": 11.695178849144634, "percentage_end": 80.87091757387248, "percentage_start": 69.17573872472784}, {"question": "Question 2", "type": "Strongly disagree", "value": 2, "percentage": 9.090909090909092, "percentage_end": -9.090909090909092, "percentage_start": -18.181818181818183}, {"question": "Question 2", "type": "Disagree", "value": 2, "percentage": 9.090909090909092, "percentage_end": 0.0, "percentage_start": -9.090909090909092}, {"question": "Question 2", "type": "Neither agree nor disagree", "value": 0, "percentage": 0.0, "percentage_end": 0.0, "percentage_start": 0.0}, {"question": "Question 2", "type": "Agree", "value": 7, "percentage": 31.818181818181817, "percentage_end": 31.818181818181817, "percentage_start": 0.0}, {"question": "Question 2", "type": "Strongly agree", "value": 11, "percentage": 50.0, "percentage_end": 81.81818181818181, "percentage_start": 31.818181818181813}, {"question": "Question 3", "type": "Strongly disagree", "value": 2, "percentage": 20.0, "percentage_end": -10.0, "percentage_start": -30.0}, {"question": "Question 3", "type": "Disagree", "value": 0, "percentage": 0.0, "percentage_end": -10.0, "percentage_start": -10.0}, {"question": "Question 3", "type": "Neither agree nor disagree", "value": 2, "percentage": 20.0, "percentage_end": 10.0, "percentage_start": -10.0}, {"question": "Question 3", "type": "Agree", "value": 4, "percentage": 40.0, "percentage_end": 50.0, "percentage_start": 10.0}, {"question": "Question 3", "type": "Strongly agree", "value": 2, "percentage": 20.0, "percentage_end": 70.0, "percentage_start": 50.0}, {"question": "Question 4", "type": "Strongly disagree", "value": 0, "percentage": 0.0, "percentage_end": -15.625, "percentage_start": -15.625}, {"question": "Question 4", "type": "Disagree", "value": 2, "percentage": 12.5, "percentage_end": -3.125, "percentage_start": -15.625}, {"question": "Question 4", "type": "Neither agree nor disagree", "value": 1, "percentage": 6.25, "percentage_end": 3.125, "percentage_start": -3.125}, {"question": "Question 4", "type": "Agree", "value": 7, "percentage": 43.75, "percentage_end": 46.875, "percentage_start": 3.125}, {"question": "Question 4", "type": "Strongly agree", "value": 6, "percentage": 37.5, "percentage_end": 84.375, "percentage_start": 46.875}, {"question": "Question 5", "type": "Strongly disagree", "value": 0, "percentage": 0.0, "percentage_end": -10.416666666666666, "percentage_start": -10.416666666666666}, {"question": "Question 5", "type": "Disagree", "value": 1, "percentage": 4.166666666666666, "percentage_end": -6.25, "percentage_start": -10.416666666666666}, {"question": "Question 5", "type": "Neither agree nor disagree", "value": 3, "percentage": 12.5, "percentage_end": 6.249999999999998, "percentage_start": -6.250000000000002}, {"question": "Question 5", "type": "Agree", "value": 16, "percentage": 66.66666666666666, "percentage_end": 72.91666666666664, "percentage_start": 6.249999999999986}, {"question": "Question 5", "type": "Strongly agree", "value": 4, "percentage": 16.666666666666664, "percentage_end": 89.5833333333333, "percentage_start": 72.91666666666663}, {"question": "Question 6", "type": "Strongly disagree", "value": 1, "percentage": 6.25, "percentage_end": -12.5, "percentage_start": -18.75}, {"question": "Question 6", "type": "Disagree", "value": 1, "percentage": 6.25, "percentage_end": -6.25, "percentage_start": -12.5}, {"question": "Question 6", "type": "Neither agree nor disagree", "value": 2, "percentage": 12.5, "percentage_end": 6.25, "percentage_start": -6.25}, {"question": "Question 6", "type": "Agree", "value": 9, "percentage": 56.25, "percentage_end": 62.5, "percentage_start": 6.25}, {"question": "Question 6", "type": "Strongly agree", "value": 3, "percentage": 18.75, "percentage_end": 81.25, "percentage_start": 62.5}, {"question": "Question 7", "type": "Strongly disagree", "value": 0, "percentage": 0.0, "percentage_end": -10.0, "percentage_start": -10.0}, {"question": "Question 7", "type": "Disagree", "value": 0, "percentage": 0.0, "percentage_end": -10.0, "percentage_start": -10.0}, {"question": "Question 7", "type": "Neither agree nor disagree", "value": 1, "percentage": 20.0, "percentage_end": 10.0, "percentage_start": -10.0}, {"question": "Question 7", "type": "Agree", "value": 4, "percentage": 80.0, "percentage_end": 90.0, "percentage_start": 10.0}, {"question": "Question 7", "type": "Strongly agree", "value": 0, "percentage": 0.0, "percentage_end": 90.0, "percentage_start": 90.0}, {"question": "Question 8", "type": "Strongly disagree", "value": 0, "percentage": 0.0, "percentage_end": 0.0, "percentage_start": 0.0}, {"question": "Question 8", "type": "Disagree", "value": 0, "percentage": 0.0, "percentage_end": 0.0, "percentage_start": 0.0}, {"question": "Question 8", "type": "Neither agree nor disagree", "value": 0, "percentage": 0.0, "percentage_end": 0.0, "percentage_start": 0.0}, {"question": "Question 8", "type": "Agree", "value": 0, "percentage": 0.0, "percentage_end": 0.0, "percentage_start": 0.0}, {"question": "Question 8", "type": "Strongly agree", "value": 2, "percentage": 100.0, "percentage_end": 100.0, "percentage_start": 0.0}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -457,336 +456,249 @@ document.write(`
 </input><label class="sd-tab-label" data-sync-id="method" for="sd-tab-item-0">
 Method syntax</label><div class="sd-tab-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-<span class="n">source</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 1&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly disagree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">24</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mf">0.7</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">19.1</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">18.4</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 1&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Disagree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">294</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mf">9.1</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">18.4</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">9.2</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 1&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Neither agree nor disagree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">594</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mf">18.5</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">9.2</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mf">9.2</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 1&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Agree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">1927</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mf">59.9</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="mf">9.2</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mf">69.2</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 1&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly agree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">376</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mf">11.7</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="mf">69.2</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mf">80.9</span>
-      <span class="p">},</span>
 
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 2&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly disagree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mf">18.2</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">36.4</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">18.2</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 2&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Disagree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mf">18.2</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">18.2</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mi">0</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 2&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Neither agree nor disagree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mi">0</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 2&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Agree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mf">63.6</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mf">63.6</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 2&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly agree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="mf">63.6</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mf">63.6</span>
-      <span class="p">},</span>
+<span class="n">source</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 1&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly disagree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">24</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 1&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Disagree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">294</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 1&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Neither agree nor disagree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">594</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 1&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Agree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">1927</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 1&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly agree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">376</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 2&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly disagree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 2&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Disagree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 2&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Neither agree nor disagree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 2&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Agree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 2&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly agree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 3&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly disagree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 3&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Disagree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 3&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Neither agree nor disagree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 3&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Agree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 3&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly agree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 4&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly disagree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 4&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Disagree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 4&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Neither agree nor disagree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 4&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Agree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 4&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly agree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 5&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly disagree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 5&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Disagree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 5&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Neither agree nor disagree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 5&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Agree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 5&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly agree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 6&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly disagree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 6&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Disagree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 6&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Neither agree nor disagree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 6&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Agree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 6&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly agree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 7&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly disagree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 7&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Disagree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 7&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Neither agree nor disagree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 7&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Agree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 7&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly agree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 8&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly disagree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 8&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Disagree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 8&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Neither agree nor disagree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 8&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Agree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 8&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly agree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">]</span>
+<span class="p">)</span>
 
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 3&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly disagree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">30</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">10</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 3&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Disagree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">10</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 3&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Neither agree nor disagree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mi">10</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 3&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Agree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mi">50</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 3&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly agree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mi">70</span>
-      <span class="p">},</span>
 
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 4&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly disagree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">15.6</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">15.6</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 4&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Disagree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mf">12.5</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">15.6</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">3.1</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 4&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Neither agree nor disagree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mf">6.3</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">3.1</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mf">3.1</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 4&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Agree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mf">43.8</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="mf">3.1</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mf">46.9</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 4&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly agree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mf">37.5</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="mf">46.9</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mf">84.4</span>
-      <span class="p">},</span>
+<span class="c1"># Add type_code that we can sort by</span>
+<span class="n">source</span><span class="p">[</span><span class="s2">&quot;type_code&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">source</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;Strongly disagree&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span>
+        <span class="s2">&quot;Disagree&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;Neither agree nor disagree&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;Agree&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;Strongly agree&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">)</span>
 
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 5&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly disagree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">10.4</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">10.4</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 5&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Disagree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mf">4.2</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">10.4</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">6.3</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 5&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Neither agree nor disagree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mf">12.5</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">6.3</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mf">6.3</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 5&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Agree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mf">66.7</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="mf">6.3</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mf">72.9</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 5&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly agree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mf">16.7</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="mf">72.9</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mf">89.6</span>
-      <span class="p">},</span>
 
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 6&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly disagree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mf">6.3</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">18.8</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">12.5</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 6&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Disagree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mf">6.3</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">12.5</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">6.3</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 6&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Neither agree nor disagree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mf">12.5</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">6.3</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mf">6.3</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 6&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Agree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mf">56.3</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="mf">6.3</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mf">62.5</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 6&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly agree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mf">18.8</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="mf">62.5</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mf">81.3</span>
-      <span class="p">},</span>
+<span class="k">def</span> <span class="nf">compute_percentages</span><span class="p">(</span>
+    <span class="n">group</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="c1"># Set type_code as index and sort</span>
+    <span class="n">group</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;type_code&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
 
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 7&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly disagree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">10</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 7&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Disagree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">10</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 7&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Neither agree nor disagree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mi">10</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 7&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Agree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mi">90</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 7&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly agree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="mi">90</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mi">90</span>
-      <span class="p">},</span>
+    <span class="c1"># Compute percentage of value with question group</span>
+    <span class="n">perc</span> <span class="o">=</span> <span class="p">(</span><span class="n">group</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="n">group</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span> <span class="o">*</span> <span class="mi">100</span>
+    <span class="n">group</span><span class="p">[</span><span class="s2">&quot;percentage&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">perc</span>
 
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 8&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly disagree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mi">0</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 8&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Disagree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mi">0</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 8&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Neither agree nor disagree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mi">0</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 8&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Agree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mi">0</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 8&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly agree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mi">100</span>
-      <span class="p">}</span>
-<span class="p">])</span>
+    <span class="c1"># Compute percentage end, centered on &quot;Neither agree nor disagree&quot; (type_code 0)</span>
+    <span class="c1"># Note that we access the perc series via index which is based on &#39;type_code&#39;.</span>
+    <span class="n">group</span><span class="p">[</span><span class="s2">&quot;percentage_end&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">perc</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span> <span class="o">-</span> <span class="p">(</span><span class="n">perc</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">perc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">perc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+
+    <span class="c1"># Compute percentage start by subtracting percent</span>
+    <span class="n">group</span><span class="p">[</span><span class="s2">&quot;percentage_start&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">group</span><span class="p">[</span><span class="s2">&quot;percentage_end&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">perc</span>
+
+    <span class="k">return</span> <span class="n">group</span>
+
+
+<span class="n">source</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;question&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">compute_percentages</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
 
 <span class="n">color_scale</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span>
     <span class="n">domain</span><span class="o">=</span><span class="p">[</span>
@@ -794,24 +706,18 @@ Method syntax</label><div class="sd-tab-content docutils">
         <span class="s2">&quot;Disagree&quot;</span><span class="p">,</span>
         <span class="s2">&quot;Neither agree nor disagree&quot;</span><span class="p">,</span>
         <span class="s2">&quot;Agree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;Strongly agree&quot;</span>
+        <span class="s2">&quot;Strongly agree&quot;</span><span class="p">,</span>
     <span class="p">],</span>
-    <span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;#c30d24&quot;</span><span class="p">,</span> <span class="s2">&quot;#f3a583&quot;</span><span class="p">,</span> <span class="s2">&quot;#cccccc&quot;</span><span class="p">,</span> <span class="s2">&quot;#94c6da&quot;</span><span class="p">,</span> <span class="s2">&quot;#1770ab&quot;</span><span class="p">]</span>
+    <span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;#c30d24&quot;</span><span class="p">,</span> <span class="s2">&quot;#f3a583&quot;</span><span class="p">,</span> <span class="s2">&quot;#cccccc&quot;</span><span class="p">,</span> <span class="s2">&quot;#94c6da&quot;</span><span class="p">,</span> <span class="s2">&quot;#1770ab&quot;</span><span class="p">],</span>
 <span class="p">)</span>
 
-<span class="n">y_axis</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span>
-    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Question&#39;</span><span class="p">,</span>
-    <span class="n">offset</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
-    <span class="n">ticks</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="n">minExtent</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span>
-    <span class="n">domain</span><span class="o">=</span><span class="kc">False</span>
-<span class="p">)</span>
+<span class="n">y_axis</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Question&quot;</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">ticks</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">minExtent</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;percentage_start:Q&#39;</span><span class="p">,</span>
-    <span class="n">x2</span><span class="o">=</span><span class="s1">&#39;percentage_end:Q&#39;</span><span class="p">,</span>
-    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;question:N&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="n">y_axis</span><span class="p">),</span>
-    <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;type:N&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Response&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">color_scale</span><span class="p">),</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;percentage_start:Q&quot;</span><span class="p">,</span>
+    <span class="n">x2</span><span class="o">=</span><span class="s2">&quot;percentage_end:Q&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;question:N&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="n">y_axis</span><span class="p">),</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;type:N&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Response&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">color_scale</span><span class="p">),</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -820,336 +726,248 @@ Method syntax</label><div class="sd-tab-content docutils">
 </input><label class="sd-tab-label" data-sync-id="attribute" for="sd-tab-item-1">
 Attribute syntax</label><div class="sd-tab-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-<span class="n">source</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 1&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly disagree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">24</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mf">0.7</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">19.1</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">18.4</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 1&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Disagree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">294</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mf">9.1</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">18.4</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">9.2</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 1&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Neither agree nor disagree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">594</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mf">18.5</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">9.2</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mf">9.2</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 1&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Agree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">1927</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mf">59.9</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="mf">9.2</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mf">69.2</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 1&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly agree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">376</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mf">11.7</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="mf">69.2</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mf">80.9</span>
-      <span class="p">},</span>
 
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 2&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly disagree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mf">18.2</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">36.4</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">18.2</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 2&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Disagree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mf">18.2</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">18.2</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mi">0</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 2&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Neither agree nor disagree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mi">0</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 2&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Agree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mf">63.6</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mf">63.6</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 2&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly agree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="mf">63.6</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mf">63.6</span>
-      <span class="p">},</span>
+<span class="n">source</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 1&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly disagree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">24</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 1&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Disagree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">294</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 1&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Neither agree nor disagree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">594</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 1&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Agree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">1927</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 1&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly agree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">376</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 2&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly disagree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 2&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Disagree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 2&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Neither agree nor disagree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 2&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Agree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 2&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly agree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 3&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly disagree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 3&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Disagree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 3&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Neither agree nor disagree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 3&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Agree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 3&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly agree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 4&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly disagree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 4&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Disagree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 4&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Neither agree nor disagree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 4&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Agree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 4&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly agree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 5&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly disagree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 5&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Disagree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 5&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Neither agree nor disagree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 5&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Agree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 5&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly agree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 6&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly disagree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 6&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Disagree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 6&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Neither agree nor disagree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 6&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Agree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 6&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly agree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 7&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly disagree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 7&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Disagree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 7&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Neither agree nor disagree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 7&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Agree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 7&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly agree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 8&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly disagree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 8&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Disagree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 8&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Neither agree nor disagree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 8&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Agree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 8&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly agree&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">]</span>
+<span class="p">)</span>
 
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 3&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly disagree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">30</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">10</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 3&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Disagree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">10</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 3&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Neither agree nor disagree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mi">10</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 3&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Agree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mi">50</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 3&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly agree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mi">70</span>
-      <span class="p">},</span>
 
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 4&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly disagree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">15.6</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">15.6</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 4&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Disagree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mf">12.5</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">15.6</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">3.1</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 4&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Neither agree nor disagree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mf">6.3</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">3.1</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mf">3.1</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 4&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Agree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mf">43.8</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="mf">3.1</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mf">46.9</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 4&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly agree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mf">37.5</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="mf">46.9</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mf">84.4</span>
-      <span class="p">},</span>
+<span class="c1"># Add type_code that we can sort by</span>
+<span class="n">source</span><span class="p">[</span><span class="s2">&quot;type_code&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">source</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;Strongly disagree&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span>
+        <span class="s2">&quot;Disagree&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;Neither agree nor disagree&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;Agree&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;Strongly agree&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">)</span>
 
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 5&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly disagree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">10.4</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">10.4</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 5&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Disagree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mf">4.2</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">10.4</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">6.3</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 5&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Neither agree nor disagree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mf">12.5</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">6.3</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mf">6.3</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 5&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Agree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mf">66.7</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="mf">6.3</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mf">72.9</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 5&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly agree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mf">16.7</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="mf">72.9</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mf">89.6</span>
-      <span class="p">},</span>
 
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 6&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly disagree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mf">6.3</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">18.8</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">12.5</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 6&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Disagree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mf">6.3</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">12.5</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">6.3</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 6&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Neither agree nor disagree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mf">12.5</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">6.3</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mf">6.3</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 6&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Agree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mf">56.3</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="mf">6.3</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mf">62.5</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 6&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly agree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mf">18.8</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="mf">62.5</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mf">81.3</span>
-      <span class="p">},</span>
+<span class="k">def</span> <span class="nf">compute_percentages</span><span class="p">(</span>
+    <span class="n">group</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="c1"># Set type_code as index and sort</span>
+    <span class="n">group</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;type_code&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
 
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 7&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly disagree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">10</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 7&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Disagree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">10</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 7&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Neither agree nor disagree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mi">10</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 7&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Agree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mi">90</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 7&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly agree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="mi">90</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mi">90</span>
-      <span class="p">},</span>
+    <span class="c1"># Compute percentage of value with question group</span>
+    <span class="n">perc</span> <span class="o">=</span> <span class="p">(</span><span class="n">group</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="n">group</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span> <span class="o">*</span> <span class="mi">100</span>
+    <span class="n">group</span><span class="p">[</span><span class="s2">&quot;percentage&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">perc</span>
 
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 8&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly disagree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mi">0</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 8&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Disagree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mi">0</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 8&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Neither agree nor disagree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mi">0</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 8&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Agree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mi">0</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Question 8&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Strongly agree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-        <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_start&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;percentage_end&quot;</span><span class="p">:</span> <span class="mi">100</span>
-      <span class="p">}</span>
-<span class="p">])</span>
+    <span class="c1"># Compute percentage end, centered on &quot;Neither agree nor disagree&quot; (type_code 0)</span>
+    <span class="c1"># Note that we access the perc series via index which is based on &#39;type_code&#39;.</span>
+    <span class="n">group</span><span class="p">[</span><span class="s2">&quot;percentage_end&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">perc</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span> <span class="o">-</span> <span class="p">(</span><span class="n">perc</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">perc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">perc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+
+    <span class="c1"># Compute percentage start by subtracting percent</span>
+    <span class="n">group</span><span class="p">[</span><span class="s2">&quot;percentage_start&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">group</span><span class="p">[</span><span class="s2">&quot;percentage_end&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">perc</span>
+
+    <span class="k">return</span> <span class="n">group</span>
+
+
+<span class="n">source</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;question&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">compute_percentages</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="n">color_scale</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span>
     <span class="n">domain</span><span class="o">=</span><span class="p">[</span>
@@ -1157,28 +975,22 @@ Attribute syntax</label><div class="sd-tab-content docutils">
         <span class="s2">&quot;Disagree&quot;</span><span class="p">,</span>
         <span class="s2">&quot;Neither agree nor disagree&quot;</span><span class="p">,</span>
         <span class="s2">&quot;Agree&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;Strongly agree&quot;</span>
+        <span class="s2">&quot;Strongly agree&quot;</span><span class="p">,</span>
     <span class="p">],</span>
-    <span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;#c30d24&quot;</span><span class="p">,</span> <span class="s2">&quot;#f3a583&quot;</span><span class="p">,</span> <span class="s2">&quot;#cccccc&quot;</span><span class="p">,</span> <span class="s2">&quot;#94c6da&quot;</span><span class="p">,</span> <span class="s2">&quot;#1770ab&quot;</span><span class="p">]</span>
+    <span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;#c30d24&quot;</span><span class="p">,</span> <span class="s2">&quot;#f3a583&quot;</span><span class="p">,</span> <span class="s2">&quot;#cccccc&quot;</span><span class="p">,</span> <span class="s2">&quot;#94c6da&quot;</span><span class="p">,</span> <span class="s2">&quot;#1770ab&quot;</span><span class="p">],</span>
 <span class="p">)</span>
 
-<span class="n">y_axis</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span>
-    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Question&#39;</span><span class="p">,</span>
-    <span class="n">offset</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
-    <span class="n">ticks</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="n">minExtent</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span>
-    <span class="n">domain</span><span class="o">=</span><span class="kc">False</span>
-<span class="p">)</span>
+<span class="n">y_axis</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Question&quot;</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">ticks</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">minExtent</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;percentage_start:Q&#39;</span><span class="p">,</span>
-    <span class="n">x2</span><span class="o">=</span><span class="s1">&#39;percentage_end:Q&#39;</span><span class="p">,</span>
-    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;question:N&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">y_axis</span><span class="p">),</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;percentage_start:Q&quot;</span><span class="p">,</span>
+    <span class="n">x2</span><span class="o">=</span><span class="s2">&quot;percentage_end:Q&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;question:N&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">y_axis</span><span class="p">),</span>
     <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span>
-        <span class="s1">&#39;type:N&#39;</span><span class="p">,</span>
-        <span class="n">legend</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Legend</span><span class="p">(</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Response&#39;</span><span class="p">),</span>
+        <span class="s2">&quot;type:N&quot;</span><span class="p">,</span>
+        <span class="n">legend</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Response&quot;</span><span class="p">),</span>
         <span class="n">scale</span><span class="o">=</span><span class="n">color_scale</span><span class="p">,</span>
-    <span class="p">)</span>
+    <span class="p">),</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -1237,7 +1049,7 @@ Attribute syntax</label><div class="sd-tab-content docutils">
       
         <div class="footer-item">
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
     <br/>
   </p>
 </div>
