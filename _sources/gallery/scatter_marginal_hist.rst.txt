@@ -24,11 +24,10 @@ with faceted marginal histograms that share their respective x- and y-limits.
     source = data.iris()
 
     base = alt.Chart(source)
+    base_bar = base.mark_bar(opacity=0.3, binSpacing=0)
 
     xscale = alt.Scale(domain=(4.0, 8.0))
     yscale = alt.Scale(domain=(1.9, 4.55))
-
-    bar_args = {"opacity": 0.3, "binSpacing": 0}
 
     points = base.mark_circle().encode(
         alt.X("sepalLength", scale=xscale),
@@ -37,7 +36,7 @@ with faceted marginal histograms that share their respective x- and y-limits.
     )
 
     top_hist = (
-        base.mark_bar(**bar_args)
+        base_bar
         .encode(
             alt.X(
                 "sepalLength:Q",
@@ -55,7 +54,7 @@ with faceted marginal histograms that share their respective x- and y-limits.
     )
 
     right_hist = (
-        base.mark_bar(**bar_args)
+        base_bar
         .encode(
             alt.Y(
                 "sepalWidth:Q",
@@ -86,11 +85,10 @@ with faceted marginal histograms that share their respective x- and y-limits.
             source = data.iris()
 
             base = alt.Chart(source)
+            base_bar = base.mark_bar(opacity=0.3, binSpacing=0)
 
             xscale = alt.Scale(domain=(4.0, 8.0))
             yscale = alt.Scale(domain=(1.9, 4.55))
-
-            bar_args = {"opacity": 0.3, "binSpacing": 0}
 
             points = base.mark_circle().encode(
                 alt.X("sepalLength").scale(xscale),
@@ -99,7 +97,7 @@ with faceted marginal histograms that share their respective x- and y-limits.
             )
 
             top_hist = (
-                base.mark_bar(**bar_args)
+                base_bar
                 .encode(
                     alt.X("sepalLength:Q")
                         # when using bins, the axis scale is set through
@@ -113,7 +111,7 @@ with faceted marginal histograms that share their respective x- and y-limits.
             )
 
             right_hist = (
-                base.mark_bar(**bar_args)
+                base_bar
                 .encode(
                     alt.Y("sepalWidth:Q")
                         .bin(maxbins=20, extent=yscale.domain)
@@ -140,11 +138,10 @@ with faceted marginal histograms that share their respective x- and y-limits.
             source = data.iris()
 
             base = alt.Chart(source)
+            base_bar = base.mark_bar(opacity=0.3, binSpacing=0)
 
             xscale = alt.Scale(domain=(4.0, 8.0))
             yscale = alt.Scale(domain=(1.9, 4.55))
-
-            bar_args = {"opacity": 0.3, "binSpacing": 0}
 
             points = base.mark_circle().encode(
                 alt.X("sepalLength", scale=xscale),
@@ -153,7 +150,7 @@ with faceted marginal histograms that share their respective x- and y-limits.
             )
 
             top_hist = (
-                base.mark_bar(**bar_args)
+                base_bar
                 .encode(
                     alt.X(
                         "sepalLength:Q",
@@ -171,7 +168,7 @@ with faceted marginal histograms that share their respective x- and y-limits.
             )
 
             right_hist = (
-                base.mark_bar(**bar_args)
+                base_bar
                 .encode(
                     alt.Y(
                         "sepalWidth:Q",

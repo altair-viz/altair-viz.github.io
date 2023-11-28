@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Data Transformers &#8212; Vega-Altair 5.1.2 documentation</title>
+    <title>Data Transformers &#8212; Vega-Altair 5.2.0 documentation</title>
   
   
   
@@ -18,35 +18,36 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=362ab14a" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../_static/altair-plot.css?v=a673d9d3" />
     <link rel="stylesheet" type="text/css" href="../_static/altair-gallery.css?v=1975c9e6" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=9736ff9e" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=1d452c66" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=7c07b56e" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=9059be31"></script>
+    <script src="../_static/documentation_options.js?v=2dde5210"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.15.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.16.3"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     <script src="../_static/design-tabs.js?v=36754332"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'user_guide/data_transformers';</script>
@@ -65,6 +66,15 @@
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -111,7 +121,8 @@
     <span class="fa-solid fa-bars"></span>
   </label>
   
-  <div class="navbar-header-items__start">
+  
+  <div class="col-lg-3 navbar-header-items__start">
     
       <div class="navbar-item">
   
@@ -121,11 +132,12 @@
   
   
   
+  
     
     
     
-    <img src="../_static/altair-logo-light.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/altair-logo-light.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/altair-logo-light.png" class="logo__image only-light" alt="Vega-Altair 5.2.0 documentation - Home"/>
+    <script>document.write(`<img src="../_static/altair-logo-light.png" class="logo__image only-dark" alt="Vega-Altair 5.2.0 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -136,7 +148,6 @@
 </div>
     
   </div>
-  
   
   <div class="col-lg-9 navbar-header-items">
     
@@ -202,23 +213,25 @@
       
         <div class="navbar-item navbar-persistent--container">
           
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
-`);
-</script>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
         </div>
       
       
         <div class="navbar-item">
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script></div>
@@ -234,8 +247,8 @@ document.write(`
           
           
           
-          <a href="https://github.com/altair-viz/altair" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-github fa-lg"></i></span>
-            <label class="sr-only">GitHub</label></a>
+          <a href="https://github.com/altair-viz/altair" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-github fa-lg fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
           
@@ -246,8 +259,8 @@ document.write(`
           
           
           
-          <a href="https://stackoverflow.com/tags/altair" title="StackOverflow" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-stack-overflow fa-xl"></i></span>
-            <label class="sr-only">StackOverflow</label></a>
+          <a href="https://stackoverflow.com/tags/altair" title="StackOverflow" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-stack-overflow fa-xl fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">StackOverflow</span></a>
         </li>
 </ul></div>
       
@@ -257,18 +270,20 @@ document.write(`
   
   
     <div class="navbar-persistent--mobile">
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
-`);
-</script>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
     </div>
   
 
   
-    <label class="sidebar-toggle secondary-toggle" for="__secondary">
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
       <span class="fa-solid fa-outdent"></span>
     </label>
   
@@ -350,10 +365,10 @@ document.write(`
           <div class="navbar-item">
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script></div>
@@ -369,8 +384,8 @@ document.write(`
           
           
           
-          <a href="https://github.com/altair-viz/altair" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-github fa-lg"></i></span>
-            <label class="sr-only">GitHub</label></a>
+          <a href="https://github.com/altair-viz/altair" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-github fa-lg fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
           
@@ -381,8 +396,8 @@ document.write(`
           
           
           
-          <a href="https://stackoverflow.com/tags/altair" title="StackOverflow" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-stack-overflow fa-xl"></i></span>
-            <label class="sr-only">StackOverflow</label></a>
+          <a href="https://stackoverflow.com/tags/altair" title="StackOverflow" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-stack-overflow fa-xl fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">StackOverflow</span></a>
         </li>
 </ul></div>
         
@@ -503,8 +518,8 @@ document.write(`
 
 
 
-<nav aria-label="Breadcrumbs">
-  <ul class="bd-breadcrumbs" role="navigation" aria-label="Breadcrumb">
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
     
     <li class="breadcrumb-item breadcrumb-home">
       <a href="../index.html" class="nav-link" aria-label="Home">
@@ -532,11 +547,11 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="data-transformers">
-<span id="id1"></span><h1>Data Transformers<a class="headerlink" href="#data-transformers" title="Permalink to this heading">#</a></h1>
+<span id="id1"></span><h1>Data Transformers<a class="headerlink" href="#data-transformers" title="Link to this heading">#</a></h1>
 <p>Before a Vega-Lite or Vega specification can be passed to a renderer, it typically
 has to be transformed in a number of ways:</p>
 <ul class="simple">
-<li><p>Pandas Dataframe has to be sanitized and serialized to JSON.</p></li>
+<li><p>pandas Dataframe has to be sanitized and serialized to JSON.</p></li>
 <li><p>The rows of a Dataframe might need to be sampled or limited to a maximum number.</p></li>
 <li><p>The Dataframe might be written to a <code class="docutils literal notranslate"><span class="pre">.csv</span></code> of <code class="docutils literal notranslate"><span class="pre">.json</span></code> file for performance
 reasons.</p></li>
@@ -548,7 +563,7 @@ reasons.</p></li>
 API of Vega and Vega-Lite.</p>
 </div>
 <p>A data transformer is a Python function that takes a Vega-Lite data <code class="docutils literal notranslate"><span class="pre">dict</span></code> or
-Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> and returns a transformed version of either of these types:</p>
+pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> and returns a transformed version of either of these types:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 <span class="n">Data</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]</span>
 
@@ -558,8 +573,8 @@ Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</s
 </pre></div>
 </div>
 <section id="dataset-consolidation">
-<h2>Dataset Consolidation<a class="headerlink" href="#dataset-consolidation" title="Permalink to this heading">#</a></h2>
-<p>Datasets passed as Pandas dataframes can be represented in the chart in two
+<h2>Dataset Consolidation<a class="headerlink" href="#dataset-consolidation" title="Link to this heading">#</a></h2>
+<p>Datasets passed as pandas dataframes can be represented in the chart in two
 ways:</p>
 <ul class="simple">
 <li><p>As literal dataset values in the <code class="docutils literal notranslate"><span class="pre">data</span></code> attribute at any level of the
@@ -596,7 +611,7 @@ of the data transformer.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "layer": [{"mark": {"type": "line"}, "encoding": {"x": {"field": "x", "type": "quantitative"}, "y": {"field": "y", "type": "quantitative"}}}, {"mark": {"type": "point"}, "encoding": {"x": {"field": "x", "type": "quantitative"}, "y": {"field": "y", "type": "quantitative"}}}], "data": {"name": "data-137453ccbb3f929636eb2f9dd7052f16"}, "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json", "datasets": {"data-137453ccbb3f929636eb2f9dd7052f16": [{"x": 0, "y": 1}, {"x": 1, "y": 3}, {"x": 2, "y": 4}, {"x": 3, "y": 3}, {"x": 4, "y": 5}]}};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "layer": [{"mark": {"type": "line"}, "encoding": {"x": {"field": "x", "type": "quantitative"}, "y": {"field": "y", "type": "quantitative"}}}, {"mark": {"type": "point"}, "encoding": {"x": {"field": "x", "type": "quantitative"}, "y": {"field": "y", "type": "quantitative"}}}], "data": {"name": "data-137453ccbb3f929636eb2f9dd7052f16"}, "$schema": "https://vega.github.io/schema/vega-lite/v5.16.3.json", "datasets": {"data-137453ccbb3f929636eb2f9dd7052f16": [{"x": 0, "y": 1}, {"x": 1, "y": 3}, {"x": 2, "y": 4}, {"x": 3, "y": 3}, {"x": 4, "y": 5}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -611,7 +626,7 @@ was specified twice, only one copy of it is output in the spec:</p>
 <span class="n">pprint</span><span class="p">(</span><span class="n">chart</span><span class="o">.</span><span class="n">to_dict</span><span class="p">())</span>
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;$schema&#39;: &#39;https://vega.github.io/schema/vega-lite/v5.15.1.json&#39;,
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;$schema&#39;: &#39;https://vega.github.io/schema/vega-lite/v5.16.3.json&#39;,
  &#39;config&#39;: {&#39;view&#39;: {&#39;continuousHeight&#39;: 300, &#39;continuousWidth&#39;: 300}},
  &#39;data&#39;: {&#39;name&#39;: &#39;data-137453ccbb3f929636eb2f9dd7052f16&#39;},
  &#39;datasets&#39;: {&#39;data-137453ccbb3f929636eb2f9dd7052f16&#39;: [{&#39;x&#39;: 0, &#39;y&#39;: 1},
@@ -636,7 +651,7 @@ by using the <code class="docutils literal notranslate"><span class="pre">enable
     <span class="n">pprint</span><span class="p">(</span><span class="n">chart</span><span class="o">.</span><span class="n">to_dict</span><span class="p">())</span>
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;$schema&#39;: &#39;https://vega.github.io/schema/vega-lite/v5.15.1.json&#39;,
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;$schema&#39;: &#39;https://vega.github.io/schema/vega-lite/v5.16.3.json&#39;,
  &#39;config&#39;: {&#39;view&#39;: {&#39;continuousHeight&#39;: 300, &#39;continuousWidth&#39;: 300}},
  &#39;data&#39;: {&#39;values&#39;: [{&#39;x&#39;: 0, &#39;y&#39;: 1},
                      {&#39;x&#39;: 1, &#39;y&#39;: 3},
@@ -657,7 +672,7 @@ individual layer. This duplication of data is the reason that dataset
 consolidation is set to <code class="docutils literal notranslate"><span class="pre">True</span></code> by default.</p>
 </section>
 <section id="built-in-data-transformers">
-<h2>Built-in Data Transformers<a class="headerlink" href="#built-in-data-transformers" title="Permalink to this heading">#</a></h2>
+<h2>Built-in Data Transformers<a class="headerlink" href="#built-in-data-transformers" title="Link to this heading">#</a></h2>
 <p>Altair includes a default set of data transformers with the following signatures.</p>
 <p>Raise a <code class="docutils literal notranslate"><span class="pre">MaxRowsError</span></code> if a Dataframe has more than <code class="docutils literal notranslate"><span class="pre">max_rows</span></code> rows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">limit_rows</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">max_rows</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
@@ -681,7 +696,7 @@ consolidation is set to <code class="docutils literal notranslate"><span class="
 </div>
 </section>
 <section id="piping">
-<h2>Piping<a class="headerlink" href="#piping" title="Permalink to this heading">#</a></h2>
+<h2>Piping<a class="headerlink" href="#piping" title="Link to this heading">#</a></h2>
 <p>Multiple data transformers can be piped together using <code class="docutils literal notranslate"><span class="pre">pipe</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">altair</span> <span class="kn">import</span> <span class="n">limit_rows</span><span class="p">,</span> <span class="n">to_values</span>
 <span class="kn">from</span> <span class="nn">toolz.curried</span> <span class="kn">import</span> <span class="n">pipe</span>
@@ -690,7 +705,7 @@ consolidation is set to <code class="docutils literal notranslate"><span class="
 </div>
 </section>
 <section id="managing-data-transformers">
-<h2>Managing Data Transformers<a class="headerlink" href="#managing-data-transformers" title="Permalink to this heading">#</a></h2>
+<h2>Managing Data Transformers<a class="headerlink" href="#managing-data-transformers" title="Link to this heading">#</a></h2>
 <p>Altair maintains a registry of data transformers, which includes a default
 data transformer that is automatically applied to all Dataframes before rendering.</p>
 <p>To see the registered transformers:</p>
@@ -733,7 +748,7 @@ be registered and enabled as:</p>
 </div>
 </section>
 <section id="storing-json-data-in-a-separate-directory">
-<h2>Storing JSON Data in a Separate Directory<a class="headerlink" href="#storing-json-data-in-a-separate-directory" title="Permalink to this heading">#</a></h2>
+<h2>Storing JSON Data in a Separate Directory<a class="headerlink" href="#storing-json-data-in-a-separate-directory" title="Link to this heading">#</a></h2>
 <p>When creating many charts with <code class="docutils literal notranslate"><span class="pre">alt.data_transformers.enable('json')</span></code> the
 working directory can get a bit cluttered. To avoid this we can build a simple
 custom data transformer that stores all JSON files in separate directory.:</p>
@@ -763,11 +778,10 @@ desired directory and make sure that the directory actually exists.</p>
               
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="custom_renderers.html"
@@ -787,10 +801,7 @@ desired directory and make sure that the directory actually exists.</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -826,8 +837,8 @@ desired directory and make sure that the directory actually exists.</p>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -845,7 +856,7 @@ desired directory and make sure that the directory actually exists.</p>
       
         <div class="footer-item">
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     <br/>
   </p>
 </div>
@@ -853,10 +864,11 @@ desired directory and make sure that the directory actually exists.</p>
     </div>
   
   
+  
     <div class="footer-items__end">
       
         <div class="footer-item"><p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.3.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.3.
 </p></div>
       
     </div>

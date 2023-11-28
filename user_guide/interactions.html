@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Interactive Charts &#8212; Vega-Altair 5.1.2 documentation</title>
+    <title>Interactive Charts &#8212; Vega-Altair 5.2.0 documentation</title>
   
   
   
@@ -18,35 +18,36 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=362ab14a" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../_static/altair-plot.css?v=a673d9d3" />
     <link rel="stylesheet" type="text/css" href="../_static/altair-gallery.css?v=1975c9e6" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=9736ff9e" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=1d452c66" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=7c07b56e" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=9059be31"></script>
+    <script src="../_static/documentation_options.js?v=2dde5210"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.15.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.16.3"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     <script src="../_static/design-tabs.js?v=36754332"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'user_guide/interactions';</script>
@@ -65,6 +66,15 @@
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -111,7 +121,8 @@
     <span class="fa-solid fa-bars"></span>
   </label>
   
-  <div class="navbar-header-items__start">
+  
+  <div class="col-lg-3 navbar-header-items__start">
     
       <div class="navbar-item">
   
@@ -121,11 +132,12 @@
   
   
   
+  
     
     
     
-    <img src="../_static/altair-logo-light.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/altair-logo-light.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/altair-logo-light.png" class="logo__image only-light" alt="Vega-Altair 5.2.0 documentation - Home"/>
+    <script>document.write(`<img src="../_static/altair-logo-light.png" class="logo__image only-dark" alt="Vega-Altair 5.2.0 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -136,7 +148,6 @@
 </div>
     
   </div>
-  
   
   <div class="col-lg-9 navbar-header-items">
     
@@ -202,23 +213,25 @@
       
         <div class="navbar-item navbar-persistent--container">
           
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
-`);
-</script>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
         </div>
       
       
         <div class="navbar-item">
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script></div>
@@ -234,8 +247,8 @@ document.write(`
           
           
           
-          <a href="https://github.com/altair-viz/altair" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-github fa-lg"></i></span>
-            <label class="sr-only">GitHub</label></a>
+          <a href="https://github.com/altair-viz/altair" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-github fa-lg fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
           
@@ -246,8 +259,8 @@ document.write(`
           
           
           
-          <a href="https://stackoverflow.com/tags/altair" title="StackOverflow" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-stack-overflow fa-xl"></i></span>
-            <label class="sr-only">StackOverflow</label></a>
+          <a href="https://stackoverflow.com/tags/altair" title="StackOverflow" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-stack-overflow fa-xl fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">StackOverflow</span></a>
         </li>
 </ul></div>
       
@@ -257,18 +270,20 @@ document.write(`
   
   
     <div class="navbar-persistent--mobile">
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
-`);
-</script>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
     </div>
   
 
   
-    <label class="sidebar-toggle secondary-toggle" for="__secondary">
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
       <span class="fa-solid fa-outdent"></span>
     </label>
   
@@ -350,10 +365,10 @@ document.write(`
           <div class="navbar-item">
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script></div>
@@ -369,8 +384,8 @@ document.write(`
           
           
           
-          <a href="https://github.com/altair-viz/altair" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-github fa-lg"></i></span>
-            <label class="sr-only">GitHub</label></a>
+          <a href="https://github.com/altair-viz/altair" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-github fa-lg fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
           
@@ -381,8 +396,8 @@ document.write(`
           
           
           
-          <a href="https://stackoverflow.com/tags/altair" title="StackOverflow" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-stack-overflow fa-xl"></i></span>
-            <label class="sr-only">StackOverflow</label></a>
+          <a href="https://stackoverflow.com/tags/altair" title="StackOverflow" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-stack-overflow fa-xl fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">StackOverflow</span></a>
         </li>
 </ul></div>
         
@@ -503,8 +518,8 @@ document.write(`
 
 
 
-<nav aria-label="Breadcrumbs">
-  <ul class="bd-breadcrumbs" role="navigation" aria-label="Breadcrumb">
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
     
     <li class="breadcrumb-item breadcrumb-home">
       <a href="../index.html" class="nav-link" aria-label="Home">
@@ -532,7 +547,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="interactive-charts">
-<span id="user-guide-interactions"></span><h1>Interactive Charts<a class="headerlink" href="#interactive-charts" title="Permalink to this heading">#</a></h1>
+<span id="user-guide-interactions"></span><h1>Interactive Charts<a class="headerlink" href="#interactive-charts" title="Link to this heading">#</a></h1>
 <p>One of the unique features of Altair, inherited from Vega-Lite, is a
 declarative grammar of not just visualization, but also <em>interaction</em>.
 This is both convenient and powerful,
@@ -548,7 +563,7 @@ and update chart elements based on that input.</p></li>
 so that charts can be manipulated via drop-down menus, radio buttons, sliders, legends, etc.</p></li>
 </ul>
 <section id="parameters">
-<span id="id1"></span><h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading">#</a></h2>
+<span id="id1"></span><h2>Parameters<a class="headerlink" href="#parameters" title="Link to this heading">#</a></h2>
 <p>Parameters are the building blocks of interaction in Altair.
 There are two types of parameters: <em>variables</em> and <em>selections</em>. We introduce these concepts through a series of examples.</p>
 <div class="admonition note">
@@ -556,7 +571,7 @@ There are two types of parameters: <em>variables</em> and <em>selections</em>. W
 <p>This material was changed considerably with the release of Altair 5.</p>
 </div>
 <section id="variables-reusing-values">
-<span id="basic-variable"></span><h3>Variables: Reusing Values<a class="headerlink" href="#variables-reusing-values" title="Permalink to this heading">#</a></h3>
+<span id="basic-variable"></span><h3>Variables: Reusing Values<a class="headerlink" href="#variables-reusing-values" title="Link to this heading">#</a></h3>
 <p>Variable parameters allow for a value to be defined once
 and then reused throughout the rest of the chart.
 Here is a simple scatter-plot created from the <code class="docutils literal notranslate"><span class="pre">cars</span></code> dataset:</p>
@@ -578,7 +593,7 @@ Here is a simple scatter-plot created from the <code class="docutils literal not
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "circle"}, "encoding": {"color": {"field": "Origin", "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "circle"}, "encoding": {"color": {"field": "Origin", "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.16.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -611,7 +626,7 @@ we create a parameter with a default value of 0.1 using the <code class="docutil
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "circle", "opacity": {"expr": "param_78"}}, "encoding": {"color": {"field": "Origin", "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "params": [{"name": "param_78", "value": 0.1}], "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "circle", "opacity": {"expr": "param_80"}}, "encoding": {"color": {"field": "Origin", "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "params": [{"name": "param_80", "value": 0.1}], "$schema": "https://vega.github.io/schema/vega-lite/v5.16.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -636,7 +651,7 @@ we create a parameter with a default value of 0.1 using the <code class="docutil
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "circle", "opacity": 0.1}, "encoding": {"color": {"field": "Origin", "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "circle", "opacity": 0.1}, "encoding": {"color": {"field": "Origin", "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.16.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -664,7 +679,7 @@ we create a parameter with a default value of 0.1 using the <code class="docutil
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "circle", "opacity": {"expr": "param_79"}}, "encoding": {"color": {"field": "Origin", "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "params": [{"name": "param_79", "bind": {"input": "range", "max": 1, "min": 0, "name": "opacity:", "step": 0.05}, "value": 0.1}], "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "circle", "opacity": {"expr": "param_81"}}, "encoding": {"color": {"field": "Origin", "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "params": [{"name": "param_81", "bind": {"input": "range", "max": 1, "min": 0, "name": "opacity:", "step": 0.05}, "value": 0.1}], "$schema": "https://vega.github.io/schema/vega-lite/v5.16.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -680,7 +695,7 @@ we create a parameter with a default value of 0.1 using the <code class="docutil
 </div>
 </section>
 <section id="selections-capturing-chart-interactions">
-<h3>Selections: Capturing Chart Interactions<a class="headerlink" href="#selections-capturing-chart-interactions" title="Permalink to this heading">#</a></h3>
+<h3>Selections: Capturing Chart Interactions<a class="headerlink" href="#selections-capturing-chart-interactions" title="Link to this heading">#</a></h3>
 <p>Selection parameters define data queries
 that are driven by interactive manipulation of the chart
 by the user (e.g., via mouse clicks or drags).
@@ -708,7 +723,7 @@ but it is more convenient to use the shorter <code class="docutils literal notra
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "point"}, "encoding": {"color": {"field": "Origin", "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "point"}, "encoding": {"color": {"field": "Origin", "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.16.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -738,7 +753,7 @@ function (an interval selection is also referred to as a “brush”):</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "point"}, "encoding": {"color": {"field": "Origin", "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "params": [{"name": "param_80", "select": {"type": "interval"}}], "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "point"}, "encoding": {"color": {"field": "Origin", "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "params": [{"name": "param_82", "select": {"type": "interval"}}], "$schema": "https://vega.github.io/schema/vega-lite/v5.16.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -756,9 +771,9 @@ One difference is that here we have not defined how the chart should respond to 
 </section>
 </section>
 <section id="conditions-filters">
-<h2>Conditions &amp; Filters<a class="headerlink" href="#conditions-filters" title="Permalink to this heading">#</a></h2>
+<h2>Conditions &amp; Filters<a class="headerlink" href="#conditions-filters" title="Link to this heading">#</a></h2>
 <section id="conditional-encodings">
-<h3>Conditional Encodings<a class="headerlink" href="#conditional-encodings" title="Permalink to this heading">#</a></h3>
+<h3>Conditional Encodings<a class="headerlink" href="#conditional-encodings" title="Link to this heading">#</a></h3>
 <p>The example above is neat, but the selection interval doesn’t actually <em>do</em> anything yet.
 To make the chart respond to this selection, we need to reference the selection in within
 the chart specification. Here, we will use the <a class="reference internal" href="generated/api/altair.condition.html#altair.condition" title="altair.condition"><code class="xref py py-func docutils literal notranslate"><span class="pre">condition()</span></code></a> function to create
@@ -780,7 +795,7 @@ for points outside the selection:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "point"}, "encoding": {"color": {"condition": {"param": "param_80", "field": "Origin", "type": "nominal"}, "value": "lightgray"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "params": [{"name": "param_80", "select": {"type": "interval"}}], "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "point"}, "encoding": {"color": {"condition": {"param": "param_82", "field": "Origin", "type": "nominal"}, "value": "lightgray"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "params": [{"name": "param_82", "select": {"type": "interval"}}], "$schema": "https://vega.github.io/schema/vega-lite/v5.16.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -824,7 +839,7 @@ tied to <code class="docutils literal notranslate"><span class="pre">&quot;Accel
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "hconcat": [{"mark": {"type": "point"}, "encoding": {"color": {"condition": {"param": "param_80", "field": "Origin", "type": "nominal"}, "value": "lightgray"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "height": 250, "name": "view_76", "width": 250}, {"mark": {"type": "point"}, "encoding": {"color": {"condition": {"param": "param_80", "field": "Origin", "type": "nominal"}, "value": "lightgray"}, "x": {"field": "Acceleration", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "height": 250, "name": "view_77", "width": 250}], "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "params": [{"name": "param_80", "select": {"type": "interval"}, "views": ["view_76", "view_77"]}], "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "hconcat": [{"mark": {"type": "point"}, "encoding": {"color": {"condition": {"param": "param_82", "field": "Origin", "type": "nominal"}, "value": "lightgray"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "height": 250, "name": "view_78", "width": 250}, {"mark": {"type": "point"}, "encoding": {"color": {"condition": {"param": "param_82", "field": "Origin", "type": "nominal"}, "value": "lightgray"}, "x": {"field": "Acceleration", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "height": 250, "name": "view_79", "width": 250}], "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "params": [{"name": "param_82", "select": {"type": "interval"}, "views": ["view_78", "view_79"]}], "$schema": "https://vega.github.io/schema/vega-lite/v5.16.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -863,7 +878,7 @@ We can modify the brush definition, and leave the rest of the code unchanged:</p
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "hconcat": [{"mark": {"type": "point"}, "encoding": {"color": {"condition": {"param": "param_81", "field": "Origin", "type": "nominal"}, "value": "lightgray"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "height": 250, "name": "view_78", "width": 250}, {"mark": {"type": "point"}, "encoding": {"color": {"condition": {"param": "param_81", "field": "Origin", "type": "nominal"}, "value": "lightgray"}, "x": {"field": "Acceleration", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "height": 250, "name": "view_79", "width": 250}], "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "params": [{"name": "param_81", "select": {"type": "interval", "encodings": ["x"]}, "views": ["view_78", "view_79"]}], "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "hconcat": [{"mark": {"type": "point"}, "encoding": {"color": {"condition": {"param": "param_83", "field": "Origin", "type": "nominal"}, "value": "lightgray"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "height": 250, "name": "view_80", "width": 250}, {"mark": {"type": "point"}, "encoding": {"color": {"condition": {"param": "param_83", "field": "Origin", "type": "nominal"}, "value": "lightgray"}, "x": {"field": "Acceleration", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "height": 250, "name": "view_81", "width": 250}], "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "params": [{"name": "param_83", "select": {"type": "interval", "encodings": ["x"]}, "views": ["view_80", "view_81"]}], "$schema": "https://vega.github.io/schema/vega-lite/v5.16.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -874,7 +889,7 @@ We can modify the brush definition, and leave the rest of the code unchanged:</p
 </script>
 </div></section>
 <section id="filtering-data">
-<h3>Filtering Data<a class="headerlink" href="#filtering-data" title="Permalink to this heading">#</a></h3>
+<h3>Filtering Data<a class="headerlink" href="#filtering-data" title="Link to this heading">#</a></h3>
 <p>Using a selection parameter to filter data works in much the same way
 as using it within <code class="docutils literal notranslate"><span class="pre">condition</span></code>,
 For example, in <code class="docutils literal notranslate"><span class="pre">transform_filter(brush)</span></code>,
@@ -915,7 +930,7 @@ depending on the size and position of the selection in the scatter plot.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "vconcat": [{"mark": {"type": "point"}, "encoding": {"color": {"field": "Origin", "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "name": "view_80"}, {"mark": {"type": "bar"}, "encoding": {"color": {"field": "Origin", "type": "nominal"}, "x": {"aggregate": "count", "type": "quantitative"}, "y": {"field": "Origin", "type": "nominal"}}, "transform": [{"filter": {"param": "param_82"}}]}], "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "params": [{"name": "param_82", "select": {"type": "interval"}, "views": ["view_80"]}], "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "vconcat": [{"mark": {"type": "point"}, "encoding": {"color": {"field": "Origin", "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "name": "view_82"}, {"mark": {"type": "bar"}, "encoding": {"color": {"field": "Origin", "type": "nominal"}, "x": {"aggregate": "count", "type": "quantitative"}, "y": {"field": "Origin", "type": "nominal"}}, "transform": [{"filter": {"param": "param_84"}}]}], "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "params": [{"name": "param_84", "select": {"type": "interval"}, "views": ["view_82"]}], "$schema": "https://vega.github.io/schema/vega-lite/v5.16.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -927,7 +942,7 @@ depending on the size and position of the selection in the scatter plot.</p>
 </div></section>
 </section>
 <section id="selection-types">
-<h2>Selection Types<a class="headerlink" href="#selection-types" title="Permalink to this heading">#</a></h2>
+<h2>Selection Types<a class="headerlink" href="#selection-types" title="Link to this heading">#</a></h2>
 <p>Now that we have seen the basics of how we can use a selection to interact with a chart,
 let’s take a more systematic look at some of the types of selection parameters available in Altair.
 For simplicity, we’ll use a common chart in all the following examples; a
@@ -952,7 +967,7 @@ selection:</p>
 </div>
 <p>Next we’ll use this function to demonstrate the properties of various selections.</p>
 <section id="interval-selections">
-<h3>Interval Selections<a class="headerlink" href="#interval-selections" title="Permalink to this heading">#</a></h3>
+<h3>Interval Selections<a class="headerlink" href="#interval-selections" title="Link to this heading">#</a></h3>
 <p>An <em>interval</em> selection allows you to select chart elements by clicking and dragging.
 You can create such a selection using the <a class="reference internal" href="generated/api/altair.selection_interval.html#altair.selection_interval" title="altair.selection_interval"><code class="xref py py-func docutils literal notranslate"><span class="pre">selection_interval()</span></code></a> function:</p>
 <div class="highlight-python notranslate" id="interactions-rst-altair-source-13"><div class="highlight"><pre><span></span><span class="n">interval</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection_interval</span><span class="p">()</span>
@@ -965,7 +980,7 @@ You can create such a selection using the <a class="reference internal" href="ge
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "rect"}, "encoding": {"color": {"condition": {"param": "param_83", "aggregate": "count", "type": "quantitative"}, "value": "lightgray"}, "x": {"field": "Cylinders", "type": "ordinal"}, "y": {"field": "Origin", "type": "nominal"}}, "height": 180, "params": [{"name": "param_83", "select": {"type": "interval"}}], "width": 300, "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "rect"}, "encoding": {"color": {"condition": {"param": "param_85", "aggregate": "count", "type": "quantitative"}, "value": "lightgray"}, "x": {"field": "Cylinders", "type": "ordinal"}, "y": {"field": "Origin", "type": "nominal"}}, "height": 180, "params": [{"name": "param_85", "select": {"type": "interval"}}], "width": 300, "$schema": "https://vega.github.io/schema/vega-lite/v5.16.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -989,7 +1004,7 @@ empty selection contains none of the points:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "rect"}, "encoding": {"color": {"condition": {"param": "param_84", "empty": false, "aggregate": "count", "type": "quantitative"}, "value": "lightgray"}, "x": {"field": "Cylinders", "type": "ordinal"}, "y": {"field": "Origin", "type": "nominal"}}, "height": 180, "params": [{"name": "param_84", "select": {"type": "interval", "encodings": ["x"]}}], "width": 300, "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "rect"}, "encoding": {"color": {"condition": {"param": "param_86", "empty": false, "aggregate": "count", "type": "quantitative"}, "value": "lightgray"}, "x": {"field": "Cylinders", "type": "ordinal"}, "y": {"field": "Origin", "type": "nominal"}}, "height": 180, "params": [{"name": "param_86", "select": {"type": "interval", "encodings": ["x"]}}], "width": 300, "$schema": "https://vega.github.io/schema/vega-lite/v5.16.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -1000,7 +1015,7 @@ empty selection contains none of the points:</p>
 </script>
 </div></section>
 <section id="point-selections">
-<h3>Point Selections<a class="headerlink" href="#point-selections" title="Permalink to this heading">#</a></h3>
+<h3>Point Selections<a class="headerlink" href="#point-selections" title="Link to this heading">#</a></h3>
 <p>A <em>point</em> selection allows you to select chart elements one at a time
 via mouse actions. By default, points are selected on click:</p>
 <div class="highlight-python notranslate" id="interactions-rst-altair-source-15"><div class="highlight"><pre><span></span><span class="n">point</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection_point</span><span class="p">()</span>
@@ -1013,7 +1028,7 @@ via mouse actions. By default, points are selected on click:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "rect"}, "encoding": {"color": {"condition": {"param": "param_85", "aggregate": "count", "type": "quantitative"}, "value": "lightgray"}, "x": {"field": "Cylinders", "type": "ordinal"}, "y": {"field": "Origin", "type": "nominal"}}, "height": 180, "params": [{"name": "param_85", "select": {"type": "point"}}], "width": 300, "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "rect"}, "encoding": {"color": {"condition": {"param": "param_87", "aggregate": "count", "type": "quantitative"}, "value": "lightgray"}, "x": {"field": "Cylinders", "type": "ordinal"}, "y": {"field": "Origin", "type": "nominal"}}, "height": 180, "params": [{"name": "param_87", "select": {"type": "point"}}], "width": 300, "$schema": "https://vega.github.io/schema/vega-lite/v5.16.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -1035,7 +1050,7 @@ point is highlighted:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "rect"}, "encoding": {"color": {"condition": {"param": "param_86", "aggregate": "count", "type": "quantitative"}, "value": "lightgray"}, "x": {"field": "Cylinders", "type": "ordinal"}, "y": {"field": "Origin", "type": "nominal"}}, "height": 180, "params": [{"name": "param_86", "select": {"type": "point", "nearest": true, "on": "mouseover"}}], "width": 300, "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "rect"}, "encoding": {"color": {"condition": {"param": "param_88", "aggregate": "count", "type": "quantitative"}, "value": "lightgray"}, "x": {"field": "Cylinders", "type": "ordinal"}, "y": {"field": "Origin", "type": "nominal"}}, "height": 180, "params": [{"name": "param_88", "select": {"type": "point", "nearest": true, "on": "mouseover"}}], "width": 300, "$schema": "https://vega.github.io/schema/vega-lite/v5.16.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -1050,7 +1065,7 @@ by clicking on them while holding the <em>shift</em> key, you can try in the two
 </section>
 </section>
 <section id="selection-targets">
-<h2>Selection Targets<a class="headerlink" href="#selection-targets" title="Permalink to this heading">#</a></h2>
+<h2>Selection Targets<a class="headerlink" href="#selection-targets" title="Link to this heading">#</a></h2>
 <p>For any but the simplest selections, the user needs to think about exactly
 what is targeted by the selection, and this can be controlled with either the
 <code class="docutils literal notranslate"><span class="pre">fields</span></code> or <code class="docutils literal notranslate"><span class="pre">encodings</span></code> arguments. These control what data properties are
@@ -1089,7 +1104,7 @@ with a matching <code class="docutils literal notranslate"><span class="pre">Ori
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "hconcat": [{"mark": {"type": "point"}, "encoding": {"color": {"condition": {"param": "param_87", "field": "Origin", "legend": null, "type": "nominal"}, "value": "lightgray"}, "tooltip": {"field": "Name", "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}}, {"mark": {"type": "point"}, "encoding": {"color": {"condition": {"param": "param_87", "field": "Origin", "legend": null, "type": "nominal"}, "value": "lightgray"}, "y": {"axis": {"orient": "right"}, "field": "Origin", "type": "nominal"}}, "name": "view_81"}], "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "params": [{"name": "param_87", "select": {"type": "point", "fields": ["Origin"]}, "views": ["view_81"]}], "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "hconcat": [{"mark": {"type": "point"}, "encoding": {"color": {"condition": {"param": "param_89", "field": "Origin", "legend": null, "type": "nominal"}, "value": "lightgray"}, "tooltip": {"field": "Name", "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}}, {"mark": {"type": "point"}, "encoding": {"color": {"condition": {"param": "param_89", "field": "Origin", "legend": null, "type": "nominal"}, "value": "lightgray"}, "y": {"axis": {"orient": "right"}, "field": "Origin", "type": "nominal"}}, "name": "view_83"}], "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "params": [{"name": "param_89", "select": {"type": "point", "fields": ["Origin"]}, "views": ["view_83"]}], "$schema": "https://vega.github.io/schema/vega-lite/v5.16.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -1138,7 +1153,7 @@ cylinders:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "hconcat": [{"mark": {"type": "point"}, "encoding": {"color": {"condition": {"param": "param_88", "field": "Origin", "legend": null, "type": "nominal"}, "value": "lightgray"}, "tooltip": {"field": "Name", "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}}, {"mark": {"type": "rect"}, "encoding": {"color": {"condition": {"param": "param_88", "field": "Origin", "legend": null, "type": "nominal"}, "value": "lightgray"}, "x": {"field": "Cylinders", "type": "ordinal"}, "y": {"axis": {"orient": "right"}, "field": "Origin", "type": "nominal"}}, "name": "view_82"}], "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "params": [{"name": "param_88", "select": {"type": "point", "fields": ["Origin", "Cylinders"]}, "views": ["view_82"]}], "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "hconcat": [{"mark": {"type": "point"}, "encoding": {"color": {"condition": {"param": "param_90", "field": "Origin", "legend": null, "type": "nominal"}, "value": "lightgray"}, "tooltip": {"field": "Name", "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}}, {"mark": {"type": "rect"}, "encoding": {"color": {"condition": {"param": "param_90", "field": "Origin", "legend": null, "type": "nominal"}, "value": "lightgray"}, "x": {"field": "Cylinders", "type": "ordinal"}, "y": {"axis": {"orient": "right"}, "field": "Origin", "type": "nominal"}}, "name": "view_84"}], "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "params": [{"name": "param_90", "select": {"type": "point", "fields": ["Origin", "Cylinders"]}, "views": ["view_84"]}], "$schema": "https://vega.github.io/schema/vega-lite/v5.16.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -1151,7 +1166,7 @@ cylinders:</p>
 create a wide variety of linked interactive chart types.</p>
 </section>
 <section id="parameter-composition">
-<h2>Parameter Composition<a class="headerlink" href="#parameter-composition" title="Permalink to this heading">#</a></h2>
+<h2>Parameter Composition<a class="headerlink" href="#parameter-composition" title="Link to this heading">#</a></h2>
 <p>Altair also supports combining multiple parameters using the <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>, <code class="docutils literal notranslate"><span class="pre">|</span></code>
 and <code class="docutils literal notranslate"><span class="pre">~</span></code> for respectively <code class="docutils literal notranslate"><span class="pre">AND</span></code>, <code class="docutils literal notranslate"><span class="pre">OR</span></code> and <code class="docutils literal notranslate"><span class="pre">NOT</span></code> logical composition
 operands.</p>
@@ -1193,7 +1208,7 @@ selection
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "rect"}, "encoding": {"color": {"condition": {"test": {"or": [{"param": "alex"}, {"param": "morgan"}]}, "aggregate": "count", "type": "quantitative"}, "value": "grey"}, "x": {"field": "Cylinders", "type": "ordinal"}, "y": {"field": "Origin", "type": "ordinal"}}, "height": 180, "params": [{"name": "alex", "select": {"type": "interval", "on": "[mousedown[event.altKey], mouseup] > mousemove"}}, {"name": "morgan", "select": {"type": "interval", "mark": {"fill": "#fdbb84", "fillOpacity": 0.5, "stroke": "#e34a33"}, "on": "[mousedown[event.shiftKey], mouseup] > mousemove"}}], "width": 300, "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "rect"}, "encoding": {"color": {"condition": {"test": {"or": [{"param": "alex"}, {"param": "morgan"}]}, "aggregate": "count", "type": "quantitative"}, "value": "grey"}, "x": {"field": "Cylinders", "type": "ordinal"}, "y": {"field": "Origin", "type": "ordinal"}}, "height": 180, "params": [{"name": "alex", "select": {"type": "interval", "on": "[mousedown[event.altKey], mouseup] > mousemove"}}, {"name": "morgan", "select": {"type": "interval", "mark": {"fill": "#fdbb84", "fillOpacity": 0.5, "stroke": "#e34a33"}, "on": "[mousedown[event.shiftKey], mouseup] > mousemove"}}], "width": 300, "$schema": "https://vega.github.io/schema/vega-lite/v5.16.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -1211,7 +1226,7 @@ selection or outside the selection of Morgan</p></li>
 </ul>
 </section>
 <section id="bindings-widgets">
-<span id="binding-parameters"></span><h2>Bindings &amp; Widgets<a class="headerlink" href="#bindings-widgets" title="Permalink to this heading">#</a></h2>
+<span id="binding-parameters"></span><h2>Bindings &amp; Widgets<a class="headerlink" href="#bindings-widgets" title="Link to this heading">#</a></h2>
 <p>With an understanding of the parameter types and conditions, you can now bind parameters to chart elements (e.g. legends) and widgets (e.g. drop-downs and sliders). This is done using the <code class="docutils literal notranslate"><span class="pre">bind</span></code> option inside <code class="docutils literal notranslate"><span class="pre">param</span></code> and <code class="docutils literal notranslate"><span class="pre">selection</span></code>. As specified by <a class="reference external" href="https://vega.github.io/vega-lite/docs/bind.html#input-element-binding">the Vega-lite binding docs</a>, there are three types of bindings available:</p>
 <ol class="arabic simple">
 <li><p>Point and interval selections can be used for data-driven interactive elements, such as highlighting and filtering based on values in the data.</p></li>
@@ -1250,13 +1265,13 @@ selection or outside the selection of Morgan</p></li>
 </tbody>
 </table>
 <section id="widget-binding">
-<h3>Widget Binding<a class="headerlink" href="#widget-binding" title="Permalink to this heading">#</a></h3>
+<h3>Widget Binding<a class="headerlink" href="#widget-binding" title="Link to this heading">#</a></h3>
 <p>Widgets are HTML input elements, such as drop-downs, sliders, radio buttons, and search boxes.
 There are a three strategies for how variable and selection parameters
 can be used together with widgets:
 data-driven lookups, data-driven comparisons, and logic-driven comparisons.</p>
 <section id="data-driven-lookups">
-<h4>Data-Driven Lookups<a class="headerlink" href="#data-driven-lookups" title="Permalink to this heading">#</a></h4>
+<h4>Data-Driven Lookups<a class="headerlink" href="#data-driven-lookups" title="Link to this heading">#</a></h4>
 <p>Data-driven lookups use the active value(s) of the widget
 together with a <code class="docutils literal notranslate"><span class="pre">selection</span></code> parameter
 to look up points with matching values in the chart’s dataset.
@@ -1287,7 +1302,7 @@ where a drop-down is used to highlight cars of a specific <code class="docutils 
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "point"}, "encoding": {"color": {"condition": {"param": "param_89", "field": "Origin", "legend": null, "type": "nominal"}, "value": "lightgray"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "params": [{"name": "param_89", "select": {"type": "point", "fields": ["Origin"]}, "bind": {"input": "select", "options": ["Europe", "Japan", "USA"], "name": "Region "}}], "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "point"}, "encoding": {"color": {"condition": {"param": "param_91", "field": "Origin", "legend": null, "type": "nominal"}, "value": "lightgray"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "params": [{"name": "param_91", "select": {"type": "point", "fields": ["Origin"]}, "bind": {"input": "select", "options": ["Europe", "Japan", "USA"], "name": "Region "}}], "$schema": "https://vega.github.io/schema/vega-lite/v5.16.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -1345,7 +1360,7 @@ after a selection has been made in a radio button or drop-down
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "point"}, "encoding": {"color": {"field": "Origin", "scale": {"domain": ["Europe", "Japan", "USA"]}, "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "params": [{"name": "param_90", "select": {"type": "point", "fields": ["Origin"]}, "bind": {"input": "radio", "options": ["Europe", "Japan", "USA", null], "labels": ["Europe ", "Japan ", "USA ", "All"], "name": "Region: "}}], "transform": [{"filter": {"param": "param_90"}}], "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "point"}, "encoding": {"color": {"field": "Origin", "scale": {"domain": ["Europe", "Japan", "USA"]}, "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "params": [{"name": "param_92", "select": {"type": "point", "fields": ["Origin"]}, "bind": {"input": "radio", "options": ["Europe", "Japan", "USA", null], "labels": ["Europe ", "Japan ", "USA ", "All"], "name": "Region: "}}], "transform": [{"filter": {"param": "param_92"}}], "$schema": "https://vega.github.io/schema/vega-lite/v5.16.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -1392,7 +1407,7 @@ to see the point highlighted
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "point", "size": 60}, "encoding": {"opacity": {"condition": {"param": "param_91", "value": 1, "empty": false}, "value": 0.05}, "tooltip": {"field": "Name", "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "params": [{"name": "param_91", "select": {"type": "point", "fields": ["Name"]}, "bind": {"input": "search", "placeholder": "Car model", "name": "Search "}}], "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "point", "size": 60}, "encoding": {"opacity": {"condition": {"param": "param_93", "value": 1, "empty": false}, "value": 0.05}, "tooltip": {"field": "Name", "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "params": [{"name": "param_93", "select": {"type": "point", "fields": ["Name"]}, "bind": {"input": "search", "placeholder": "Car model", "name": "Search "}}], "$schema": "https://vega.github.io/schema/vega-lite/v5.16.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -1406,7 +1421,7 @@ and when we will be learning about <a class="reference internal" href="#expressi
 we will see how we can match partial strings via a regex instead.</p>
 </section>
 <section id="data-driven-comparisons">
-<h4>Data-Driven Comparisons<a class="headerlink" href="#data-driven-comparisons" title="Permalink to this heading">#</a></h4>
+<h4>Data-Driven Comparisons<a class="headerlink" href="#data-driven-comparisons" title="Link to this heading">#</a></h4>
 <p>So far we have seen the use of selections
 to lookup points with precisely matching values in our data.
 This is often useful,
@@ -1457,7 +1472,7 @@ which would have been the case if we just wrote <code class="docutils literal no
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-a99664901d810a6b330d8e4930eed708"}, "mark": {"type": "point"}, "encoding": {"color": {"condition": {"test": "(datum.xval < SelectorName)", "value": "red"}, "value": "blue"}, "x": {"field": "xval", "type": "quantitative"}, "y": {"field": "yval", "type": "quantitative"}}, "params": [{"name": "SelectorName", "bind": {"input": "range", "max": 100, "min": 0, "name": "Cutoff ", "step": 1}, "value": 50}], "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json", "datasets": {"data-a99664901d810a6b330d8e4930eed708": [{"xval": 0, "yval": 0.4967141530112327}, {"xval": 1, "yval": 0.358449851840048}, {"xval": 2, "yval": 1.0061383899407406}, {"xval": 3, "yval": 2.5291682463487657}, {"xval": 4, "yval": 2.2950148716254297}, {"xval": 5, "yval": 2.060877914676249}, {"xval": 6, "yval": 3.6400907301836405}, {"xval": 7, "yval": 4.407525459336549}, {"xval": 8, "yval": 3.938051073401597}, {"xval": 9, "yval": 4.4806111169875615}, {"xval": 10, "yval": 4.017193424175099}, {"xval": 11, "yval": 3.5514636706048424}, {"xval": 12, "yval": 3.7934259421708765}, {"xval": 13, "yval": 1.8801456975130786}, {"xval": 14, "yval": 0.15522786500004582}, {"xval": 15, "yval": -0.4070596642409269}, {"xval": 16, "yval": -1.4198907845753506}, {"xval": 17, "yval": -1.1056434519800766}, {"xval": 18, "yval": -2.0136675275012874}, {"xval": 19, "yval": -3.4259712288365787}, {"xval": 20, "yval": -1.9603224599150246}, {"xval": 21, "yval": -2.1860987604015603}, {"xval": 22, "yval": -2.1185705557136365}, {"xval": 23, "yval": -3.5433187419270933}, {"xval": 24, "yval": -4.087701466452276}, {"xval": 25, "yval": -3.9767788767424097}, {"xval": 26, "yval": -5.127772454164712}, {"xval": 27, "yval": -4.75207443581904}, {"xval": 28, "yval": -5.352713125737845}, {"xval": 29, "yval": -5.644406875531121}, {"xval": 30, "yval": -6.2461134877605184}, {"xval": 31, "yval": -4.3938353032515804}, {"xval": 32, "yval": -4.407332527989515}, {"xval": 33, "yval": -5.4650434569454145}, {"xval": 34, "yval": -4.642498544842225}, {"xval": 35, "yval": -5.863342194813248}, {"xval": 36, "yval": -5.654478599808492}, {"xval": 37, "yval": -7.614148723688268}, {"xval": 38, "yval": -8.942334772586698}, {"xval": 39, "yval": -8.745473536717574}, {"xval": 40, "yval": -8.007006956722163}, {"xval": 41, "yval": -7.835638675532193}, {"xval": 42, "yval": -7.951286957920433}, {"xval": 43, "yval": -8.252390653509723}, {"xval": 44, "yval": -9.73091264387715}, {"xval": 45, "yval": -10.450756852271859}, {"xval": 46, "yval": -10.911395623231646}, {"xval": 47, "yval": -9.854273397012731}, {"xval": 48, "yval": -9.51065510744427}, {"xval": 49, "yval": -11.273695262807005}, {"xval": 50, "yval": -10.94961129341221}, {"xval": 51, "yval": -11.334693573828526}, {"xval": 52, "yval": -12.011615574134485}, {"xval": 53, "yval": -11.399939285293616}, {"xval": 54, "yval": -10.368939762797666}, {"xval": 55, "yval": -9.437659643681467}, {"xval": 56, "yval": -10.276877166904105}, {"xval": 57, "yval": -10.58608954275532}, {"xval": 58, "yval": -10.254826111351756}, {"xval": 59, "yval": -9.279280984229397}, {"xval": 60, "yval": -9.758455222074687}, {"xval": 61, "yval": -9.944114198738504}, {"xval": 62, "yval": -11.050449172744532}, {"xval": 63, "yval": -12.246655796825202}, {"xval": 64, "yval": -11.434129974431004}, {"xval": 65, "yval": -10.07788994586018}, {"xval": 66, "yval": -10.149900067440514}, {"xval": 67, "yval": -9.14636716954849}, {"xval": 68, "yval": -8.784731144500856}, {"xval": 69, "yval": -9.42985089910598}, {"xval": 70, "yval": -9.068455293597568}, {"xval": 71, "yval": -7.5304187271315985}, {"xval": 72, "yval": -7.56624476624155}, {"xval": 73, "yval": -6.001601110427544}, {"xval": 74, "yval": -8.621346214517288}, {"xval": 75, "yval": -7.799443710142064}, {"xval": 76, "yval": -7.712396641903893}, {"xval": 77, "yval": -8.011403992369761}, {"xval": 78, "yval": -7.919643215834259}, {"xval": 79, "yval": -9.907212130435152}, {"xval": 80, "yval": -10.126884018272664}, {"xval": 81, "yval": -9.769771446760917}, {"xval": 82, "yval": -8.2918774020194}, {"xval": 83, "yval": -8.810147620293048}, {"xval": 84, "yval": -9.618641223186236}, {"xval": 85, "yval": -10.120398266770772}, {"xval": 86, "yval": -9.204996149068698}, {"xval": 87, "yval": -8.876245039409014}, {"xval": 88, "yval": -9.406005243176052}, {"xval": 89, "yval": -8.892737810062696}, {"xval": 90, "yval": -8.795660260714657}, {"xval": 91, "yval": -7.827015270181768}, {"xval": 92, "yval": -8.529068364059121}, {"xval": 93, "yval": -8.85673051065689}, {"xval": 94, "yval": -9.248838663789048}, {"xval": 95, "yval": -10.712353611921166}, {"xval": 96, "yval": -10.41623333485659}, {"xval": 97, "yval": -10.1551780626767}, {"xval": 98, "yval": -10.15006460603424}, {"xval": 99, "yval": -10.384651739409387}]}};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-45472a6b49c2114088f578a20dfd0fdb"}, "mark": {"type": "point"}, "encoding": {"color": {"condition": {"test": "(datum.xval < SelectorName)", "value": "red"}, "value": "blue"}, "x": {"field": "xval", "type": "quantitative"}, "y": {"field": "yval", "type": "quantitative"}}, "params": [{"name": "SelectorName", "bind": {"input": "range", "max": 100, "min": 0, "name": "Cutoff ", "step": 1}, "value": 50}], "$schema": "https://vega.github.io/schema/vega-lite/v5.16.3.json", "datasets": {"data-45472a6b49c2114088f578a20dfd0fdb": [{"xval": 0, "yval": 0.4967141530112327}, {"xval": 1, "yval": 0.358449851840048}, {"xval": 2, "yval": 1.0061383899407406}, {"xval": 3, "yval": 2.5291682463487657}, {"xval": 4, "yval": 2.2950148716254297}, {"xval": 5, "yval": 2.060877914676249}, {"xval": 6, "yval": 3.6400907301836405}, {"xval": 7, "yval": 4.407525459336549}, {"xval": 8, "yval": 3.938051073401597}, {"xval": 9, "yval": 4.4806111169875615}, {"xval": 10, "yval": 4.017193424175099}, {"xval": 11, "yval": 3.5514636706048424}, {"xval": 12, "yval": 3.7934259421708765}, {"xval": 13, "yval": 1.8801456975130786}, {"xval": 14, "yval": 0.15522786500004582}, {"xval": 15, "yval": -0.4070596642409269}, {"xval": 16, "yval": -1.4198907845753506}, {"xval": 17, "yval": -1.1056434519800766}, {"xval": 18, "yval": -2.0136675275012874}, {"xval": 19, "yval": -3.4259712288365787}, {"xval": 20, "yval": -1.9603224599150246}, {"xval": 21, "yval": -2.1860987604015603}, {"xval": 22, "yval": -2.1185705557136365}, {"xval": 23, "yval": -3.5433187419270933}, {"xval": 24, "yval": -4.087701466452276}, {"xval": 25, "yval": -3.9767788767424097}, {"xval": 26, "yval": -5.127772454164712}, {"xval": 27, "yval": -4.75207443581904}, {"xval": 28, "yval": -5.352713125737845}, {"xval": 29, "yval": -5.644406875531121}, {"xval": 30, "yval": -6.2461134877605184}, {"xval": 31, "yval": -4.3938353032515804}, {"xval": 32, "yval": -4.407332527989515}, {"xval": 33, "yval": -5.4650434569454145}, {"xval": 34, "yval": -4.642498544842225}, {"xval": 35, "yval": -5.863342194813248}, {"xval": 36, "yval": -5.654478599808492}, {"xval": 37, "yval": -7.614148723688268}, {"xval": 38, "yval": -8.942334772586698}, {"xval": 39, "yval": -8.745473536717574}, {"xval": 40, "yval": -8.007006956722163}, {"xval": 41, "yval": -7.835638675532193}, {"xval": 42, "yval": -7.951286957920433}, {"xval": 43, "yval": -8.252390653509723}, {"xval": 44, "yval": -9.73091264387715}, {"xval": 45, "yval": -10.450756852271859}, {"xval": 46, "yval": -10.911395623231646}, {"xval": 47, "yval": -9.854273397012731}, {"xval": 48, "yval": -9.51065510744427}, {"xval": 49, "yval": -11.273695262807005}, {"xval": 50, "yval": -10.94961129341221}, {"xval": 51, "yval": -11.334693573828526}, {"xval": 52, "yval": -12.011615574134485}, {"xval": 53, "yval": -11.399939285293616}, {"xval": 54, "yval": -10.368939762797666}, {"xval": 55, "yval": -9.437659643681467}, {"xval": 56, "yval": -10.276877166904105}, {"xval": 57, "yval": -10.58608954275532}, {"xval": 58, "yval": -10.254826111351756}, {"xval": 59, "yval": -9.279280984229397}, {"xval": 60, "yval": -9.758455222074687}, {"xval": 61, "yval": -9.944114198738504}, {"xval": 62, "yval": -11.050449172744532}, {"xval": 63, "yval": -12.246655796825202}, {"xval": 64, "yval": -11.434129974431004}, {"xval": 65, "yval": -10.07788994586018}, {"xval": 66, "yval": -10.149900067440514}, {"xval": 67, "yval": -9.14636716954849}, {"xval": 68, "yval": -8.784731144500856}, {"xval": 69, "yval": -9.42985089910598}, {"xval": 70, "yval": -9.068455293597568}, {"xval": 71, "yval": -7.5304187271315985}, {"xval": 72, "yval": -7.56624476624155}, {"xval": 73, "yval": -6.001601110427544}, {"xval": 74, "yval": -8.621346214517288}, {"xval": 75, "yval": -7.799443710142064}, {"xval": 76, "yval": -7.712396641903894}, {"xval": 77, "yval": -8.011403992369761}, {"xval": 78, "yval": -7.919643215834259}, {"xval": 79, "yval": -9.907212130435152}, {"xval": 80, "yval": -10.126884018272664}, {"xval": 81, "yval": -9.769771446760917}, {"xval": 82, "yval": -8.2918774020194}, {"xval": 83, "yval": -8.810147620293048}, {"xval": 84, "yval": -9.618641223186236}, {"xval": 85, "yval": -10.120398266770772}, {"xval": 86, "yval": -9.204996149068698}, {"xval": 87, "yval": -8.876245039409014}, {"xval": 88, "yval": -9.406005243176052}, {"xval": 89, "yval": -8.892737810062696}, {"xval": 90, "yval": -8.795660260714657}, {"xval": 91, "yval": -7.827015270181768}, {"xval": 92, "yval": -8.529068364059121}, {"xval": 93, "yval": -8.85673051065689}, {"xval": 94, "yval": -9.248838663789048}, {"xval": 95, "yval": -10.712353611921166}, {"xval": 96, "yval": -10.41623333485659}, {"xval": 97, "yval": -10.1551780626767}, {"xval": 98, "yval": -10.15006460603424}, {"xval": 99, "yval": -10.384651739409387}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -1498,7 +1513,7 @@ points based on whether they are smaller or larger than the value:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-a99664901d810a6b330d8e4930eed708"}, "mark": {"type": "point"}, "encoding": {"color": {"condition": {"test": "(datum.xval < SelectorName.cutoff)", "value": "red"}, "value": "blue"}, "x": {"field": "xval", "type": "quantitative"}, "y": {"field": "yval", "type": "quantitative"}}, "params": [{"name": "SelectorName", "select": {"type": "point", "fields": ["cutoff"]}, "bind": {"input": "range", "max": 100, "min": 0, "name": "Cutoff ", "step": 1}, "value": [{"cutoff": 50}]}], "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json", "datasets": {"data-a99664901d810a6b330d8e4930eed708": [{"xval": 0, "yval": 0.4967141530112327}, {"xval": 1, "yval": 0.358449851840048}, {"xval": 2, "yval": 1.0061383899407406}, {"xval": 3, "yval": 2.5291682463487657}, {"xval": 4, "yval": 2.2950148716254297}, {"xval": 5, "yval": 2.060877914676249}, {"xval": 6, "yval": 3.6400907301836405}, {"xval": 7, "yval": 4.407525459336549}, {"xval": 8, "yval": 3.938051073401597}, {"xval": 9, "yval": 4.4806111169875615}, {"xval": 10, "yval": 4.017193424175099}, {"xval": 11, "yval": 3.5514636706048424}, {"xval": 12, "yval": 3.7934259421708765}, {"xval": 13, "yval": 1.8801456975130786}, {"xval": 14, "yval": 0.15522786500004582}, {"xval": 15, "yval": -0.4070596642409269}, {"xval": 16, "yval": -1.4198907845753506}, {"xval": 17, "yval": -1.1056434519800766}, {"xval": 18, "yval": -2.0136675275012874}, {"xval": 19, "yval": -3.4259712288365787}, {"xval": 20, "yval": -1.9603224599150246}, {"xval": 21, "yval": -2.1860987604015603}, {"xval": 22, "yval": -2.1185705557136365}, {"xval": 23, "yval": -3.5433187419270933}, {"xval": 24, "yval": -4.087701466452276}, {"xval": 25, "yval": -3.9767788767424097}, {"xval": 26, "yval": -5.127772454164712}, {"xval": 27, "yval": -4.75207443581904}, {"xval": 28, "yval": -5.352713125737845}, {"xval": 29, "yval": -5.644406875531121}, {"xval": 30, "yval": -6.2461134877605184}, {"xval": 31, "yval": -4.3938353032515804}, {"xval": 32, "yval": -4.407332527989515}, {"xval": 33, "yval": -5.4650434569454145}, {"xval": 34, "yval": -4.642498544842225}, {"xval": 35, "yval": -5.863342194813248}, {"xval": 36, "yval": -5.654478599808492}, {"xval": 37, "yval": -7.614148723688268}, {"xval": 38, "yval": -8.942334772586698}, {"xval": 39, "yval": -8.745473536717574}, {"xval": 40, "yval": -8.007006956722163}, {"xval": 41, "yval": -7.835638675532193}, {"xval": 42, "yval": -7.951286957920433}, {"xval": 43, "yval": -8.252390653509723}, {"xval": 44, "yval": -9.73091264387715}, {"xval": 45, "yval": -10.450756852271859}, {"xval": 46, "yval": -10.911395623231646}, {"xval": 47, "yval": -9.854273397012731}, {"xval": 48, "yval": -9.51065510744427}, {"xval": 49, "yval": -11.273695262807005}, {"xval": 50, "yval": -10.94961129341221}, {"xval": 51, "yval": -11.334693573828526}, {"xval": 52, "yval": -12.011615574134485}, {"xval": 53, "yval": -11.399939285293616}, {"xval": 54, "yval": -10.368939762797666}, {"xval": 55, "yval": -9.437659643681467}, {"xval": 56, "yval": -10.276877166904105}, {"xval": 57, "yval": -10.58608954275532}, {"xval": 58, "yval": -10.254826111351756}, {"xval": 59, "yval": -9.279280984229397}, {"xval": 60, "yval": -9.758455222074687}, {"xval": 61, "yval": -9.944114198738504}, {"xval": 62, "yval": -11.050449172744532}, {"xval": 63, "yval": -12.246655796825202}, {"xval": 64, "yval": -11.434129974431004}, {"xval": 65, "yval": -10.07788994586018}, {"xval": 66, "yval": -10.149900067440514}, {"xval": 67, "yval": -9.14636716954849}, {"xval": 68, "yval": -8.784731144500856}, {"xval": 69, "yval": -9.42985089910598}, {"xval": 70, "yval": -9.068455293597568}, {"xval": 71, "yval": -7.5304187271315985}, {"xval": 72, "yval": -7.56624476624155}, {"xval": 73, "yval": -6.001601110427544}, {"xval": 74, "yval": -8.621346214517288}, {"xval": 75, "yval": -7.799443710142064}, {"xval": 76, "yval": -7.712396641903893}, {"xval": 77, "yval": -8.011403992369761}, {"xval": 78, "yval": -7.919643215834259}, {"xval": 79, "yval": -9.907212130435152}, {"xval": 80, "yval": -10.126884018272664}, {"xval": 81, "yval": -9.769771446760917}, {"xval": 82, "yval": -8.2918774020194}, {"xval": 83, "yval": -8.810147620293048}, {"xval": 84, "yval": -9.618641223186236}, {"xval": 85, "yval": -10.120398266770772}, {"xval": 86, "yval": -9.204996149068698}, {"xval": 87, "yval": -8.876245039409014}, {"xval": 88, "yval": -9.406005243176052}, {"xval": 89, "yval": -8.892737810062696}, {"xval": 90, "yval": -8.795660260714657}, {"xval": 91, "yval": -7.827015270181768}, {"xval": 92, "yval": -8.529068364059121}, {"xval": 93, "yval": -8.85673051065689}, {"xval": 94, "yval": -9.248838663789048}, {"xval": 95, "yval": -10.712353611921166}, {"xval": 96, "yval": -10.41623333485659}, {"xval": 97, "yval": -10.1551780626767}, {"xval": 98, "yval": -10.15006460603424}, {"xval": 99, "yval": -10.384651739409387}]}};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-45472a6b49c2114088f578a20dfd0fdb"}, "mark": {"type": "point"}, "encoding": {"color": {"condition": {"test": "(datum.xval < SelectorName.cutoff)", "value": "red"}, "value": "blue"}, "x": {"field": "xval", "type": "quantitative"}, "y": {"field": "yval", "type": "quantitative"}}, "params": [{"name": "SelectorName", "select": {"type": "point", "fields": ["cutoff"]}, "bind": {"input": "range", "max": 100, "min": 0, "name": "Cutoff ", "step": 1}, "value": [{"cutoff": 50}]}], "$schema": "https://vega.github.io/schema/vega-lite/v5.16.3.json", "datasets": {"data-45472a6b49c2114088f578a20dfd0fdb": [{"xval": 0, "yval": 0.4967141530112327}, {"xval": 1, "yval": 0.358449851840048}, {"xval": 2, "yval": 1.0061383899407406}, {"xval": 3, "yval": 2.5291682463487657}, {"xval": 4, "yval": 2.2950148716254297}, {"xval": 5, "yval": 2.060877914676249}, {"xval": 6, "yval": 3.6400907301836405}, {"xval": 7, "yval": 4.407525459336549}, {"xval": 8, "yval": 3.938051073401597}, {"xval": 9, "yval": 4.4806111169875615}, {"xval": 10, "yval": 4.017193424175099}, {"xval": 11, "yval": 3.5514636706048424}, {"xval": 12, "yval": 3.7934259421708765}, {"xval": 13, "yval": 1.8801456975130786}, {"xval": 14, "yval": 0.15522786500004582}, {"xval": 15, "yval": -0.4070596642409269}, {"xval": 16, "yval": -1.4198907845753506}, {"xval": 17, "yval": -1.1056434519800766}, {"xval": 18, "yval": -2.0136675275012874}, {"xval": 19, "yval": -3.4259712288365787}, {"xval": 20, "yval": -1.9603224599150246}, {"xval": 21, "yval": -2.1860987604015603}, {"xval": 22, "yval": -2.1185705557136365}, {"xval": 23, "yval": -3.5433187419270933}, {"xval": 24, "yval": -4.087701466452276}, {"xval": 25, "yval": -3.9767788767424097}, {"xval": 26, "yval": -5.127772454164712}, {"xval": 27, "yval": -4.75207443581904}, {"xval": 28, "yval": -5.352713125737845}, {"xval": 29, "yval": -5.644406875531121}, {"xval": 30, "yval": -6.2461134877605184}, {"xval": 31, "yval": -4.3938353032515804}, {"xval": 32, "yval": -4.407332527989515}, {"xval": 33, "yval": -5.4650434569454145}, {"xval": 34, "yval": -4.642498544842225}, {"xval": 35, "yval": -5.863342194813248}, {"xval": 36, "yval": -5.654478599808492}, {"xval": 37, "yval": -7.614148723688268}, {"xval": 38, "yval": -8.942334772586698}, {"xval": 39, "yval": -8.745473536717574}, {"xval": 40, "yval": -8.007006956722163}, {"xval": 41, "yval": -7.835638675532193}, {"xval": 42, "yval": -7.951286957920433}, {"xval": 43, "yval": -8.252390653509723}, {"xval": 44, "yval": -9.73091264387715}, {"xval": 45, "yval": -10.450756852271859}, {"xval": 46, "yval": -10.911395623231646}, {"xval": 47, "yval": -9.854273397012731}, {"xval": 48, "yval": -9.51065510744427}, {"xval": 49, "yval": -11.273695262807005}, {"xval": 50, "yval": -10.94961129341221}, {"xval": 51, "yval": -11.334693573828526}, {"xval": 52, "yval": -12.011615574134485}, {"xval": 53, "yval": -11.399939285293616}, {"xval": 54, "yval": -10.368939762797666}, {"xval": 55, "yval": -9.437659643681467}, {"xval": 56, "yval": -10.276877166904105}, {"xval": 57, "yval": -10.58608954275532}, {"xval": 58, "yval": -10.254826111351756}, {"xval": 59, "yval": -9.279280984229397}, {"xval": 60, "yval": -9.758455222074687}, {"xval": 61, "yval": -9.944114198738504}, {"xval": 62, "yval": -11.050449172744532}, {"xval": 63, "yval": -12.246655796825202}, {"xval": 64, "yval": -11.434129974431004}, {"xval": 65, "yval": -10.07788994586018}, {"xval": 66, "yval": -10.149900067440514}, {"xval": 67, "yval": -9.14636716954849}, {"xval": 68, "yval": -8.784731144500856}, {"xval": 69, "yval": -9.42985089910598}, {"xval": 70, "yval": -9.068455293597568}, {"xval": 71, "yval": -7.5304187271315985}, {"xval": 72, "yval": -7.56624476624155}, {"xval": 73, "yval": -6.001601110427544}, {"xval": 74, "yval": -8.621346214517288}, {"xval": 75, "yval": -7.799443710142064}, {"xval": 76, "yval": -7.712396641903894}, {"xval": 77, "yval": -8.011403992369761}, {"xval": 78, "yval": -7.919643215834259}, {"xval": 79, "yval": -9.907212130435152}, {"xval": 80, "yval": -10.126884018272664}, {"xval": 81, "yval": -9.769771446760917}, {"xval": 82, "yval": -8.2918774020194}, {"xval": 83, "yval": -8.810147620293048}, {"xval": 84, "yval": -9.618641223186236}, {"xval": 85, "yval": -10.120398266770772}, {"xval": 86, "yval": -9.204996149068698}, {"xval": 87, "yval": -8.876245039409014}, {"xval": 88, "yval": -9.406005243176052}, {"xval": 89, "yval": -8.892737810062696}, {"xval": 90, "yval": -8.795660260714657}, {"xval": 91, "yval": -7.827015270181768}, {"xval": 92, "yval": -8.529068364059121}, {"xval": 93, "yval": -8.85673051065689}, {"xval": 94, "yval": -9.248838663789048}, {"xval": 95, "yval": -10.712353611921166}, {"xval": 96, "yval": -10.41623333485659}, {"xval": 97, "yval": -10.1551780626767}, {"xval": 98, "yval": -10.15006460603424}, {"xval": 99, "yval": -10.384651739409387}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -1522,7 +1537,7 @@ but it is often more convenient to switch to a selection parameter
 and specify a field/encoding.</p>
 </section>
 <section id="logic-driven-comparisons">
-<h4>Logic-Driven Comparisons<a class="headerlink" href="#logic-driven-comparisons" title="Permalink to this heading">#</a></h4>
+<h4>Logic-Driven Comparisons<a class="headerlink" href="#logic-driven-comparisons" title="Link to this heading">#</a></h4>
 <p>A logic comparison is a type of comparison
 that is based on logical rules and conditions,
 rather than on the actual data values themselves.
@@ -1555,7 +1570,7 @@ just if the value of the check box is True (checked) or False (unchecked):</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "point"}, "encoding": {"size": {"condition": {"param": "param_92", "field": "Acceleration", "type": "quantitative"}, "value": 25}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "params": [{"name": "param_92", "bind": {"input": "checkbox", "name": "Scale point size by \"Acceleration\": "}}], "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "point"}, "encoding": {"size": {"condition": {"param": "param_94", "field": "Acceleration", "type": "quantitative"}, "value": 25}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "params": [{"name": "param_94", "bind": {"input": "checkbox", "name": "Scale point size by \"Acceleration\": "}}], "$schema": "https://vega.github.io/schema/vega-lite/v5.16.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -1594,7 +1609,7 @@ where the user can choose the colors of the chart interactively:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "circle"}, "encoding": {"color": {"field": "Origin", "scale": {"domain": ["USA", "Europe", "Japan"], "range": [{"expr": "param_93"}, {"expr": "param_94"}, {"expr": "param_95"}]}, "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "params": [{"name": "param_93", "bind": {"input": "color", "name": "USA "}, "value": "#317bb4"}, {"name": "param_94", "bind": {"input": "color", "name": "Europe "}, "value": "#ffb54d"}, {"name": "param_95", "bind": {"input": "color", "name": "Japan "}, "value": "#adadad"}], "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "circle"}, "encoding": {"color": {"field": "Origin", "scale": {"domain": ["USA", "Europe", "Japan"], "range": [{"expr": "param_95"}, {"expr": "param_96"}, {"expr": "param_97"}]}, "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "params": [{"name": "param_95", "bind": {"input": "color", "name": "USA "}, "value": "#317bb4"}, {"name": "param_96", "bind": {"input": "color", "name": "Europe "}, "value": "#ffb54d"}, {"name": "param_97", "bind": {"input": "color", "name": "Japan "}, "value": "#adadad"}], "$schema": "https://vega.github.io/schema/vega-lite/v5.16.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -1606,7 +1621,7 @@ where the user can choose the colors of the chart interactively:</p>
 </div></section>
 </section>
 <section id="encoding-channel-binding">
-<span id="id2"></span><h3>Encoding Channel Binding<a class="headerlink" href="#encoding-channel-binding" title="Permalink to this heading">#</a></h3>
+<span id="id2"></span><h3>Encoding Channel Binding<a class="headerlink" href="#encoding-channel-binding" title="Link to this heading">#</a></h3>
 <p>There is no direct way to map an encoding channel to a widget in order to dynamically display different charts based on different column choices, such as <code class="docutils literal notranslate"><span class="pre">y=column_param</span></code>. The underlying reason this is not possible is that in Vega-Lite, the <code class="docutils literal notranslate"><span class="pre">field</span></code> property does not accept a parameter as value; see the <a class="reference external" href="https://vega.github.io/vega-lite/docs/field.html">field Vega-Lite documentation</a>. You can follow the discussion in this issue <a class="github reference external" href="https://github.com/vega/vega-lite/issues/7365">vega/vega-lite#7365</a>, and in the meantime, you can use parameters for a convenient workaround which let’s you achieve the same functionality and change the plotted columns based on a widget selection (the x-axis title cannot be changed dynamically, but a text mark could be used instead if desired):</p>
 <div class="highlight-python notranslate" id="interactions-rst-altair-source-27"><div class="highlight"><pre><span></span><span class="n">dropdown</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">binding_select</span><span class="p">(</span>
     <span class="n">options</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Horsepower&#39;</span><span class="p">,</span> <span class="s1">&#39;Displacement&#39;</span><span class="p">,</span> <span class="s1">&#39;Weight_in_lbs&#39;</span><span class="p">,</span> <span class="s1">&#39;Acceleration&#39;</span><span class="p">],</span>
@@ -1634,7 +1649,7 @@ where the user can choose the colors of the chart interactively:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "circle"}, "encoding": {"color": {"field": "Origin", "type": "nominal"}, "x": {"field": "x", "title": "", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "params": [{"name": "param_96", "bind": {"input": "select", "options": ["Horsepower", "Displacement", "Weight_in_lbs", "Acceleration"], "name": "X-axis column "}, "value": "Horsepower"}], "transform": [{"calculate": "datum[param_96]", "as": "x"}], "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "circle"}, "encoding": {"color": {"field": "Origin", "type": "nominal"}, "x": {"field": "x", "title": "", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "params": [{"name": "param_98", "bind": {"input": "select", "options": ["Horsepower", "Displacement", "Weight_in_lbs", "Acceleration"], "name": "X-axis column "}, "value": "Horsepower"}], "transform": [{"calculate": "datum[param_98]", "as": "x"}], "$schema": "https://vega.github.io/schema/vega-lite/v5.16.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -1646,7 +1661,7 @@ where the user can choose the colors of the chart interactively:</p>
 </div><p>It was possible to achieve something similar before the introduction of parameters in Altair 5 by using <code class="docutils literal notranslate"><span class="pre">transform_fold</span></code> and <code class="docutils literal notranslate"><span class="pre">transform_filter</span></code>, but the spec for this is more complex (as can be seen in <a class="reference external" href="https://stackoverflow.com/a/70950329/2166823">this SO answer</a>) so the solution above is to prefer.</p>
 </section>
 <section id="legend-binding">
-<span id="id3"></span><h3>Legend Binding<a class="headerlink" href="#legend-binding" title="Permalink to this heading">#</a></h3>
+<span id="id3"></span><h3>Legend Binding<a class="headerlink" href="#legend-binding" title="Link to this heading">#</a></h3>
 <p>An interactive legend can often be helpful to assist in focusing in on groups of data.
 Instead of manually having to build a separate chart to use as a legend,
 Altair provides the <code class="docutils literal notranslate"><span class="pre">bind='legend'</span></code> option to facilitate the creation of clickable legends:</p>
@@ -1668,7 +1683,7 @@ Altair provides the <code class="docutils literal notranslate"><span class="pre"
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "point"}, "encoding": {"color": {"field": "Origin", "type": "nominal"}, "opacity": {"condition": {"param": "param_97", "value": 0.8}, "value": 0.2}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "params": [{"name": "param_97", "select": {"type": "point", "fields": ["Origin"]}, "bind": "legend"}], "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "point"}, "encoding": {"color": {"field": "Origin", "type": "nominal"}, "opacity": {"condition": {"param": "param_99", "value": 0.8}, "value": 0.2}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "params": [{"name": "param_99", "select": {"type": "point", "fields": ["Origin"]}, "bind": "legend"}], "$schema": "https://vega.github.io/schema/vega-lite/v5.16.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -1679,7 +1694,7 @@ Altair provides the <code class="docutils literal notranslate"><span class="pre"
 </script>
 </div></section>
 <section id="scale-binding">
-<h3>Scale Binding<a class="headerlink" href="#scale-binding" title="Permalink to this heading">#</a></h3>
+<h3>Scale Binding<a class="headerlink" href="#scale-binding" title="Link to this heading">#</a></h3>
 <p>With interval selections, the <code class="docutils literal notranslate"><span class="pre">bind</span></code> property can be set to the value of <code class="docutils literal notranslate"><span class="pre">&quot;scales&quot;</span></code>. In these cases, the binding will automatically respond to the panning and zooming along the chart:</p>
 <div class="highlight-python notranslate" id="interactions-rst-altair-source-29"><div class="highlight"><pre><span></span><span class="n">selection</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection_interval</span><span class="p">(</span><span class="n">bind</span><span class="o">=</span><span class="s1">&#39;scales&#39;</span><span class="p">)</span>
 
@@ -1698,7 +1713,7 @@ Altair provides the <code class="docutils literal notranslate"><span class="pre"
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "point"}, "encoding": {"color": {"field": "Origin", "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "params": [{"name": "param_98", "select": {"type": "interval"}, "bind": "scales"}], "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "point"}, "encoding": {"color": {"field": "Origin", "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "params": [{"name": "param_100", "select": {"type": "interval"}, "bind": "scales"}], "$schema": "https://vega.github.io/schema/vega-lite/v5.16.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -1723,7 +1738,7 @@ which creates a scale-bound selection more concisely:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "point"}, "encoding": {"color": {"field": "Origin", "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "params": [{"name": "param_99", "select": {"type": "interval", "encodings": ["x", "y"]}, "bind": "scales"}], "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "point"}, "encoding": {"color": {"field": "Origin", "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "params": [{"name": "param_101", "select": {"type": "interval", "encodings": ["x", "y"]}, "bind": "scales"}], "$schema": "https://vega.github.io/schema/vega-lite/v5.16.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -1735,7 +1750,7 @@ which creates a scale-bound selection more concisely:</p>
 </div></section>
 </section>
 <section id="expressions">
-<span id="id4"></span><h2>Expressions<a class="headerlink" href="#expressions" title="Permalink to this heading">#</a></h2>
+<span id="id4"></span><h2>Expressions<a class="headerlink" href="#expressions" title="Link to this heading">#</a></h2>
 <p>Altair allows custom interactions by utilizing the <a class="reference external" href="https://vega.github.io/vega/docs/expressions/">expression language of Vega</a> for writing basic formulas. A Vega expression string is a well-defined set of JavaScript-style operations.
 To simplify building these expressions in Python, Altair provides the <code class="docutils literal notranslate"><span class="pre">expr</span></code> module, which offers constants and functions to construct expressions using Python syntax. Both JavaScript-syntax and Python-syntax are supported within Altair to define an expression
 and an introductory example of each is available in the <a class="reference internal" href="transform/calculate.html#user-guide-calculate-transform"><span class="std std-ref">Calculate</span></a> transform documentation so we recommend checking out that page before continuing.</p>
@@ -1765,7 +1780,7 @@ Using these two expressions defined as a parameter, we can connect them to an en
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-a99664901d810a6b330d8e4930eed708"}, "mark": {"type": "point"}, "encoding": {"x": {"axis": {"titleColor": {"expr": "param_101"}}, "field": "xval", "type": "quantitative"}, "y": {"axis": {"titleColor": {"expr": "param_102"}}, "field": "yval", "type": "quantitative"}}, "params": [{"name": "param_100", "bind": {"input": "range", "max": 300, "min": 100, "name": "Slider value:  "}}, {"name": "param_101", "expr": "param_100 < 200 ? 'red' : 'black'"}, {"name": "param_102", "expr": "if((param_100 < 200),'red','black')"}], "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json", "datasets": {"data-a99664901d810a6b330d8e4930eed708": [{"xval": 0, "yval": 0.4967141530112327}, {"xval": 1, "yval": 0.358449851840048}, {"xval": 2, "yval": 1.0061383899407406}, {"xval": 3, "yval": 2.5291682463487657}, {"xval": 4, "yval": 2.2950148716254297}, {"xval": 5, "yval": 2.060877914676249}, {"xval": 6, "yval": 3.6400907301836405}, {"xval": 7, "yval": 4.407525459336549}, {"xval": 8, "yval": 3.938051073401597}, {"xval": 9, "yval": 4.4806111169875615}, {"xval": 10, "yval": 4.017193424175099}, {"xval": 11, "yval": 3.5514636706048424}, {"xval": 12, "yval": 3.7934259421708765}, {"xval": 13, "yval": 1.8801456975130786}, {"xval": 14, "yval": 0.15522786500004582}, {"xval": 15, "yval": -0.4070596642409269}, {"xval": 16, "yval": -1.4198907845753506}, {"xval": 17, "yval": -1.1056434519800766}, {"xval": 18, "yval": -2.0136675275012874}, {"xval": 19, "yval": -3.4259712288365787}, {"xval": 20, "yval": -1.9603224599150246}, {"xval": 21, "yval": -2.1860987604015603}, {"xval": 22, "yval": -2.1185705557136365}, {"xval": 23, "yval": -3.5433187419270933}, {"xval": 24, "yval": -4.087701466452276}, {"xval": 25, "yval": -3.9767788767424097}, {"xval": 26, "yval": -5.127772454164712}, {"xval": 27, "yval": -4.75207443581904}, {"xval": 28, "yval": -5.352713125737845}, {"xval": 29, "yval": -5.644406875531121}, {"xval": 30, "yval": -6.2461134877605184}, {"xval": 31, "yval": -4.3938353032515804}, {"xval": 32, "yval": -4.407332527989515}, {"xval": 33, "yval": -5.4650434569454145}, {"xval": 34, "yval": -4.642498544842225}, {"xval": 35, "yval": -5.863342194813248}, {"xval": 36, "yval": -5.654478599808492}, {"xval": 37, "yval": -7.614148723688268}, {"xval": 38, "yval": -8.942334772586698}, {"xval": 39, "yval": -8.745473536717574}, {"xval": 40, "yval": -8.007006956722163}, {"xval": 41, "yval": -7.835638675532193}, {"xval": 42, "yval": -7.951286957920433}, {"xval": 43, "yval": -8.252390653509723}, {"xval": 44, "yval": -9.73091264387715}, {"xval": 45, "yval": -10.450756852271859}, {"xval": 46, "yval": -10.911395623231646}, {"xval": 47, "yval": -9.854273397012731}, {"xval": 48, "yval": -9.51065510744427}, {"xval": 49, "yval": -11.273695262807005}, {"xval": 50, "yval": -10.94961129341221}, {"xval": 51, "yval": -11.334693573828526}, {"xval": 52, "yval": -12.011615574134485}, {"xval": 53, "yval": -11.399939285293616}, {"xval": 54, "yval": -10.368939762797666}, {"xval": 55, "yval": -9.437659643681467}, {"xval": 56, "yval": -10.276877166904105}, {"xval": 57, "yval": -10.58608954275532}, {"xval": 58, "yval": -10.254826111351756}, {"xval": 59, "yval": -9.279280984229397}, {"xval": 60, "yval": -9.758455222074687}, {"xval": 61, "yval": -9.944114198738504}, {"xval": 62, "yval": -11.050449172744532}, {"xval": 63, "yval": -12.246655796825202}, {"xval": 64, "yval": -11.434129974431004}, {"xval": 65, "yval": -10.07788994586018}, {"xval": 66, "yval": -10.149900067440514}, {"xval": 67, "yval": -9.14636716954849}, {"xval": 68, "yval": -8.784731144500856}, {"xval": 69, "yval": -9.42985089910598}, {"xval": 70, "yval": -9.068455293597568}, {"xval": 71, "yval": -7.5304187271315985}, {"xval": 72, "yval": -7.56624476624155}, {"xval": 73, "yval": -6.001601110427544}, {"xval": 74, "yval": -8.621346214517288}, {"xval": 75, "yval": -7.799443710142064}, {"xval": 76, "yval": -7.712396641903893}, {"xval": 77, "yval": -8.011403992369761}, {"xval": 78, "yval": -7.919643215834259}, {"xval": 79, "yval": -9.907212130435152}, {"xval": 80, "yval": -10.126884018272664}, {"xval": 81, "yval": -9.769771446760917}, {"xval": 82, "yval": -8.2918774020194}, {"xval": 83, "yval": -8.810147620293048}, {"xval": 84, "yval": -9.618641223186236}, {"xval": 85, "yval": -10.120398266770772}, {"xval": 86, "yval": -9.204996149068698}, {"xval": 87, "yval": -8.876245039409014}, {"xval": 88, "yval": -9.406005243176052}, {"xval": 89, "yval": -8.892737810062696}, {"xval": 90, "yval": -8.795660260714657}, {"xval": 91, "yval": -7.827015270181768}, {"xval": 92, "yval": -8.529068364059121}, {"xval": 93, "yval": -8.85673051065689}, {"xval": 94, "yval": -9.248838663789048}, {"xval": 95, "yval": -10.712353611921166}, {"xval": 96, "yval": -10.41623333485659}, {"xval": 97, "yval": -10.1551780626767}, {"xval": 98, "yval": -10.15006460603424}, {"xval": 99, "yval": -10.384651739409387}]}};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-45472a6b49c2114088f578a20dfd0fdb"}, "mark": {"type": "point"}, "encoding": {"x": {"axis": {"titleColor": {"expr": "param_103"}}, "field": "xval", "type": "quantitative"}, "y": {"axis": {"titleColor": {"expr": "param_104"}}, "field": "yval", "type": "quantitative"}}, "params": [{"name": "param_102", "bind": {"input": "range", "max": 300, "min": 100, "name": "Slider value:  "}}, {"name": "param_103", "expr": "param_102 < 200 ? 'red' : 'black'"}, {"name": "param_104", "expr": "if((param_102 < 200),'red','black')"}], "$schema": "https://vega.github.io/schema/vega-lite/v5.16.3.json", "datasets": {"data-45472a6b49c2114088f578a20dfd0fdb": [{"xval": 0, "yval": 0.4967141530112327}, {"xval": 1, "yval": 0.358449851840048}, {"xval": 2, "yval": 1.0061383899407406}, {"xval": 3, "yval": 2.5291682463487657}, {"xval": 4, "yval": 2.2950148716254297}, {"xval": 5, "yval": 2.060877914676249}, {"xval": 6, "yval": 3.6400907301836405}, {"xval": 7, "yval": 4.407525459336549}, {"xval": 8, "yval": 3.938051073401597}, {"xval": 9, "yval": 4.4806111169875615}, {"xval": 10, "yval": 4.017193424175099}, {"xval": 11, "yval": 3.5514636706048424}, {"xval": 12, "yval": 3.7934259421708765}, {"xval": 13, "yval": 1.8801456975130786}, {"xval": 14, "yval": 0.15522786500004582}, {"xval": 15, "yval": -0.4070596642409269}, {"xval": 16, "yval": -1.4198907845753506}, {"xval": 17, "yval": -1.1056434519800766}, {"xval": 18, "yval": -2.0136675275012874}, {"xval": 19, "yval": -3.4259712288365787}, {"xval": 20, "yval": -1.9603224599150246}, {"xval": 21, "yval": -2.1860987604015603}, {"xval": 22, "yval": -2.1185705557136365}, {"xval": 23, "yval": -3.5433187419270933}, {"xval": 24, "yval": -4.087701466452276}, {"xval": 25, "yval": -3.9767788767424097}, {"xval": 26, "yval": -5.127772454164712}, {"xval": 27, "yval": -4.75207443581904}, {"xval": 28, "yval": -5.352713125737845}, {"xval": 29, "yval": -5.644406875531121}, {"xval": 30, "yval": -6.2461134877605184}, {"xval": 31, "yval": -4.3938353032515804}, {"xval": 32, "yval": -4.407332527989515}, {"xval": 33, "yval": -5.4650434569454145}, {"xval": 34, "yval": -4.642498544842225}, {"xval": 35, "yval": -5.863342194813248}, {"xval": 36, "yval": -5.654478599808492}, {"xval": 37, "yval": -7.614148723688268}, {"xval": 38, "yval": -8.942334772586698}, {"xval": 39, "yval": -8.745473536717574}, {"xval": 40, "yval": -8.007006956722163}, {"xval": 41, "yval": -7.835638675532193}, {"xval": 42, "yval": -7.951286957920433}, {"xval": 43, "yval": -8.252390653509723}, {"xval": 44, "yval": -9.73091264387715}, {"xval": 45, "yval": -10.450756852271859}, {"xval": 46, "yval": -10.911395623231646}, {"xval": 47, "yval": -9.854273397012731}, {"xval": 48, "yval": -9.51065510744427}, {"xval": 49, "yval": -11.273695262807005}, {"xval": 50, "yval": -10.94961129341221}, {"xval": 51, "yval": -11.334693573828526}, {"xval": 52, "yval": -12.011615574134485}, {"xval": 53, "yval": -11.399939285293616}, {"xval": 54, "yval": -10.368939762797666}, {"xval": 55, "yval": -9.437659643681467}, {"xval": 56, "yval": -10.276877166904105}, {"xval": 57, "yval": -10.58608954275532}, {"xval": 58, "yval": -10.254826111351756}, {"xval": 59, "yval": -9.279280984229397}, {"xval": 60, "yval": -9.758455222074687}, {"xval": 61, "yval": -9.944114198738504}, {"xval": 62, "yval": -11.050449172744532}, {"xval": 63, "yval": -12.246655796825202}, {"xval": 64, "yval": -11.434129974431004}, {"xval": 65, "yval": -10.07788994586018}, {"xval": 66, "yval": -10.149900067440514}, {"xval": 67, "yval": -9.14636716954849}, {"xval": 68, "yval": -8.784731144500856}, {"xval": 69, "yval": -9.42985089910598}, {"xval": 70, "yval": -9.068455293597568}, {"xval": 71, "yval": -7.5304187271315985}, {"xval": 72, "yval": -7.56624476624155}, {"xval": 73, "yval": -6.001601110427544}, {"xval": 74, "yval": -8.621346214517288}, {"xval": 75, "yval": -7.799443710142064}, {"xval": 76, "yval": -7.712396641903894}, {"xval": 77, "yval": -8.011403992369761}, {"xval": 78, "yval": -7.919643215834259}, {"xval": 79, "yval": -9.907212130435152}, {"xval": 80, "yval": -10.126884018272664}, {"xval": 81, "yval": -9.769771446760917}, {"xval": 82, "yval": -8.2918774020194}, {"xval": 83, "yval": -8.810147620293048}, {"xval": 84, "yval": -9.618641223186236}, {"xval": 85, "yval": -10.120398266770772}, {"xval": 86, "yval": -9.204996149068698}, {"xval": 87, "yval": -8.876245039409014}, {"xval": 88, "yval": -9.406005243176052}, {"xval": 89, "yval": -8.892737810062696}, {"xval": 90, "yval": -8.795660260714657}, {"xval": 91, "yval": -7.827015270181768}, {"xval": 92, "yval": -8.529068364059121}, {"xval": 93, "yval": -8.85673051065689}, {"xval": 94, "yval": -9.248838663789048}, {"xval": 95, "yval": -10.712353611921166}, {"xval": 96, "yval": -10.41623333485659}, {"xval": 97, "yval": -10.1551780626767}, {"xval": 98, "yval": -10.15006460603424}, {"xval": 99, "yval": -10.384651739409387}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -1789,7 +1804,7 @@ In the next example, we modify the chart above to change the size of the points 
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-a99664901d810a6b330d8e4930eed708"}, "mark": {"type": "point", "size": {"expr": "param_100"}}, "encoding": {"x": {"axis": {"titleColor": {"expr": "param_101"}}, "field": "xval", "type": "quantitative"}, "y": {"axis": {"titleColor": {"expr": "param_102"}}, "field": "yval", "type": "quantitative"}}, "params": [{"name": "param_100", "bind": {"input": "range", "max": 300, "min": 100, "name": "Slider value:  "}}, {"name": "param_101", "expr": "param_100 < 200 ? 'red' : 'black'"}, {"name": "param_102", "expr": "if((param_100 < 200),'red','black')"}], "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json", "datasets": {"data-a99664901d810a6b330d8e4930eed708": [{"xval": 0, "yval": 0.4967141530112327}, {"xval": 1, "yval": 0.358449851840048}, {"xval": 2, "yval": 1.0061383899407406}, {"xval": 3, "yval": 2.5291682463487657}, {"xval": 4, "yval": 2.2950148716254297}, {"xval": 5, "yval": 2.060877914676249}, {"xval": 6, "yval": 3.6400907301836405}, {"xval": 7, "yval": 4.407525459336549}, {"xval": 8, "yval": 3.938051073401597}, {"xval": 9, "yval": 4.4806111169875615}, {"xval": 10, "yval": 4.017193424175099}, {"xval": 11, "yval": 3.5514636706048424}, {"xval": 12, "yval": 3.7934259421708765}, {"xval": 13, "yval": 1.8801456975130786}, {"xval": 14, "yval": 0.15522786500004582}, {"xval": 15, "yval": -0.4070596642409269}, {"xval": 16, "yval": -1.4198907845753506}, {"xval": 17, "yval": -1.1056434519800766}, {"xval": 18, "yval": -2.0136675275012874}, {"xval": 19, "yval": -3.4259712288365787}, {"xval": 20, "yval": -1.9603224599150246}, {"xval": 21, "yval": -2.1860987604015603}, {"xval": 22, "yval": -2.1185705557136365}, {"xval": 23, "yval": -3.5433187419270933}, {"xval": 24, "yval": -4.087701466452276}, {"xval": 25, "yval": -3.9767788767424097}, {"xval": 26, "yval": -5.127772454164712}, {"xval": 27, "yval": -4.75207443581904}, {"xval": 28, "yval": -5.352713125737845}, {"xval": 29, "yval": -5.644406875531121}, {"xval": 30, "yval": -6.2461134877605184}, {"xval": 31, "yval": -4.3938353032515804}, {"xval": 32, "yval": -4.407332527989515}, {"xval": 33, "yval": -5.4650434569454145}, {"xval": 34, "yval": -4.642498544842225}, {"xval": 35, "yval": -5.863342194813248}, {"xval": 36, "yval": -5.654478599808492}, {"xval": 37, "yval": -7.614148723688268}, {"xval": 38, "yval": -8.942334772586698}, {"xval": 39, "yval": -8.745473536717574}, {"xval": 40, "yval": -8.007006956722163}, {"xval": 41, "yval": -7.835638675532193}, {"xval": 42, "yval": -7.951286957920433}, {"xval": 43, "yval": -8.252390653509723}, {"xval": 44, "yval": -9.73091264387715}, {"xval": 45, "yval": -10.450756852271859}, {"xval": 46, "yval": -10.911395623231646}, {"xval": 47, "yval": -9.854273397012731}, {"xval": 48, "yval": -9.51065510744427}, {"xval": 49, "yval": -11.273695262807005}, {"xval": 50, "yval": -10.94961129341221}, {"xval": 51, "yval": -11.334693573828526}, {"xval": 52, "yval": -12.011615574134485}, {"xval": 53, "yval": -11.399939285293616}, {"xval": 54, "yval": -10.368939762797666}, {"xval": 55, "yval": -9.437659643681467}, {"xval": 56, "yval": -10.276877166904105}, {"xval": 57, "yval": -10.58608954275532}, {"xval": 58, "yval": -10.254826111351756}, {"xval": 59, "yval": -9.279280984229397}, {"xval": 60, "yval": -9.758455222074687}, {"xval": 61, "yval": -9.944114198738504}, {"xval": 62, "yval": -11.050449172744532}, {"xval": 63, "yval": -12.246655796825202}, {"xval": 64, "yval": -11.434129974431004}, {"xval": 65, "yval": -10.07788994586018}, {"xval": 66, "yval": -10.149900067440514}, {"xval": 67, "yval": -9.14636716954849}, {"xval": 68, "yval": -8.784731144500856}, {"xval": 69, "yval": -9.42985089910598}, {"xval": 70, "yval": -9.068455293597568}, {"xval": 71, "yval": -7.5304187271315985}, {"xval": 72, "yval": -7.56624476624155}, {"xval": 73, "yval": -6.001601110427544}, {"xval": 74, "yval": -8.621346214517288}, {"xval": 75, "yval": -7.799443710142064}, {"xval": 76, "yval": -7.712396641903893}, {"xval": 77, "yval": -8.011403992369761}, {"xval": 78, "yval": -7.919643215834259}, {"xval": 79, "yval": -9.907212130435152}, {"xval": 80, "yval": -10.126884018272664}, {"xval": 81, "yval": -9.769771446760917}, {"xval": 82, "yval": -8.2918774020194}, {"xval": 83, "yval": -8.810147620293048}, {"xval": 84, "yval": -9.618641223186236}, {"xval": 85, "yval": -10.120398266770772}, {"xval": 86, "yval": -9.204996149068698}, {"xval": 87, "yval": -8.876245039409014}, {"xval": 88, "yval": -9.406005243176052}, {"xval": 89, "yval": -8.892737810062696}, {"xval": 90, "yval": -8.795660260714657}, {"xval": 91, "yval": -7.827015270181768}, {"xval": 92, "yval": -8.529068364059121}, {"xval": 93, "yval": -8.85673051065689}, {"xval": 94, "yval": -9.248838663789048}, {"xval": 95, "yval": -10.712353611921166}, {"xval": 96, "yval": -10.41623333485659}, {"xval": 97, "yval": -10.1551780626767}, {"xval": 98, "yval": -10.15006460603424}, {"xval": 99, "yval": -10.384651739409387}]}};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-45472a6b49c2114088f578a20dfd0fdb"}, "mark": {"type": "point", "size": {"expr": "param_102"}}, "encoding": {"x": {"axis": {"titleColor": {"expr": "param_103"}}, "field": "xval", "type": "quantitative"}, "y": {"axis": {"titleColor": {"expr": "param_104"}}, "field": "yval", "type": "quantitative"}}, "params": [{"name": "param_102", "bind": {"input": "range", "max": 300, "min": 100, "name": "Slider value:  "}}, {"name": "param_103", "expr": "param_102 < 200 ? 'red' : 'black'"}, {"name": "param_104", "expr": "if((param_102 < 200),'red','black')"}], "$schema": "https://vega.github.io/schema/vega-lite/v5.16.3.json", "datasets": {"data-45472a6b49c2114088f578a20dfd0fdb": [{"xval": 0, "yval": 0.4967141530112327}, {"xval": 1, "yval": 0.358449851840048}, {"xval": 2, "yval": 1.0061383899407406}, {"xval": 3, "yval": 2.5291682463487657}, {"xval": 4, "yval": 2.2950148716254297}, {"xval": 5, "yval": 2.060877914676249}, {"xval": 6, "yval": 3.6400907301836405}, {"xval": 7, "yval": 4.407525459336549}, {"xval": 8, "yval": 3.938051073401597}, {"xval": 9, "yval": 4.4806111169875615}, {"xval": 10, "yval": 4.017193424175099}, {"xval": 11, "yval": 3.5514636706048424}, {"xval": 12, "yval": 3.7934259421708765}, {"xval": 13, "yval": 1.8801456975130786}, {"xval": 14, "yval": 0.15522786500004582}, {"xval": 15, "yval": -0.4070596642409269}, {"xval": 16, "yval": -1.4198907845753506}, {"xval": 17, "yval": -1.1056434519800766}, {"xval": 18, "yval": -2.0136675275012874}, {"xval": 19, "yval": -3.4259712288365787}, {"xval": 20, "yval": -1.9603224599150246}, {"xval": 21, "yval": -2.1860987604015603}, {"xval": 22, "yval": -2.1185705557136365}, {"xval": 23, "yval": -3.5433187419270933}, {"xval": 24, "yval": -4.087701466452276}, {"xval": 25, "yval": -3.9767788767424097}, {"xval": 26, "yval": -5.127772454164712}, {"xval": 27, "yval": -4.75207443581904}, {"xval": 28, "yval": -5.352713125737845}, {"xval": 29, "yval": -5.644406875531121}, {"xval": 30, "yval": -6.2461134877605184}, {"xval": 31, "yval": -4.3938353032515804}, {"xval": 32, "yval": -4.407332527989515}, {"xval": 33, "yval": -5.4650434569454145}, {"xval": 34, "yval": -4.642498544842225}, {"xval": 35, "yval": -5.863342194813248}, {"xval": 36, "yval": -5.654478599808492}, {"xval": 37, "yval": -7.614148723688268}, {"xval": 38, "yval": -8.942334772586698}, {"xval": 39, "yval": -8.745473536717574}, {"xval": 40, "yval": -8.007006956722163}, {"xval": 41, "yval": -7.835638675532193}, {"xval": 42, "yval": -7.951286957920433}, {"xval": 43, "yval": -8.252390653509723}, {"xval": 44, "yval": -9.73091264387715}, {"xval": 45, "yval": -10.450756852271859}, {"xval": 46, "yval": -10.911395623231646}, {"xval": 47, "yval": -9.854273397012731}, {"xval": 48, "yval": -9.51065510744427}, {"xval": 49, "yval": -11.273695262807005}, {"xval": 50, "yval": -10.94961129341221}, {"xval": 51, "yval": -11.334693573828526}, {"xval": 52, "yval": -12.011615574134485}, {"xval": 53, "yval": -11.399939285293616}, {"xval": 54, "yval": -10.368939762797666}, {"xval": 55, "yval": -9.437659643681467}, {"xval": 56, "yval": -10.276877166904105}, {"xval": 57, "yval": -10.58608954275532}, {"xval": 58, "yval": -10.254826111351756}, {"xval": 59, "yval": -9.279280984229397}, {"xval": 60, "yval": -9.758455222074687}, {"xval": 61, "yval": -9.944114198738504}, {"xval": 62, "yval": -11.050449172744532}, {"xval": 63, "yval": -12.246655796825202}, {"xval": 64, "yval": -11.434129974431004}, {"xval": 65, "yval": -10.07788994586018}, {"xval": 66, "yval": -10.149900067440514}, {"xval": 67, "yval": -9.14636716954849}, {"xval": 68, "yval": -8.784731144500856}, {"xval": 69, "yval": -9.42985089910598}, {"xval": 70, "yval": -9.068455293597568}, {"xval": 71, "yval": -7.5304187271315985}, {"xval": 72, "yval": -7.56624476624155}, {"xval": 73, "yval": -6.001601110427544}, {"xval": 74, "yval": -8.621346214517288}, {"xval": 75, "yval": -7.799443710142064}, {"xval": 76, "yval": -7.712396641903894}, {"xval": 77, "yval": -8.011403992369761}, {"xval": 78, "yval": -7.919643215834259}, {"xval": 79, "yval": -9.907212130435152}, {"xval": 80, "yval": -10.126884018272664}, {"xval": 81, "yval": -9.769771446760917}, {"xval": 82, "yval": -8.2918774020194}, {"xval": 83, "yval": -8.810147620293048}, {"xval": 84, "yval": -9.618641223186236}, {"xval": 85, "yval": -10.120398266770772}, {"xval": 86, "yval": -9.204996149068698}, {"xval": 87, "yval": -8.876245039409014}, {"xval": 88, "yval": -9.406005243176052}, {"xval": 89, "yval": -8.892737810062696}, {"xval": 90, "yval": -8.795660260714657}, {"xval": 91, "yval": -7.827015270181768}, {"xval": 92, "yval": -8.529068364059121}, {"xval": 93, "yval": -8.85673051065689}, {"xval": 94, "yval": -9.248838663789048}, {"xval": 95, "yval": -10.712353611921166}, {"xval": 96, "yval": -10.41623333485659}, {"xval": 97, "yval": -10.1551780626767}, {"xval": 98, "yval": -10.15006460603424}, {"xval": 99, "yval": -10.384651739409387}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -1810,7 +1825,7 @@ so they can be added directly in the chart spec instead of via <code class="docu
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-a99664901d810a6b330d8e4930eed708"}, "mark": {"type": "point"}, "encoding": {"size": {"value": {"expr": "param_100"}}, "x": {"axis": {"titleColor": {"expr": "param_101"}}, "field": "xval", "type": "quantitative"}, "y": {"axis": {"titleColor": {"expr": "param_102"}}, "field": "yval", "type": "quantitative"}}, "params": [{"name": "param_100", "bind": {"input": "range", "max": 300, "min": 100, "name": "Slider value:  "}}, {"name": "param_101", "expr": "param_100 < 200 ? 'red' : 'black'"}, {"name": "param_102", "expr": "if((param_100 < 200),'red','black')"}], "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json", "datasets": {"data-a99664901d810a6b330d8e4930eed708": [{"xval": 0, "yval": 0.4967141530112327}, {"xval": 1, "yval": 0.358449851840048}, {"xval": 2, "yval": 1.0061383899407406}, {"xval": 3, "yval": 2.5291682463487657}, {"xval": 4, "yval": 2.2950148716254297}, {"xval": 5, "yval": 2.060877914676249}, {"xval": 6, "yval": 3.6400907301836405}, {"xval": 7, "yval": 4.407525459336549}, {"xval": 8, "yval": 3.938051073401597}, {"xval": 9, "yval": 4.4806111169875615}, {"xval": 10, "yval": 4.017193424175099}, {"xval": 11, "yval": 3.5514636706048424}, {"xval": 12, "yval": 3.7934259421708765}, {"xval": 13, "yval": 1.8801456975130786}, {"xval": 14, "yval": 0.15522786500004582}, {"xval": 15, "yval": -0.4070596642409269}, {"xval": 16, "yval": -1.4198907845753506}, {"xval": 17, "yval": -1.1056434519800766}, {"xval": 18, "yval": -2.0136675275012874}, {"xval": 19, "yval": -3.4259712288365787}, {"xval": 20, "yval": -1.9603224599150246}, {"xval": 21, "yval": -2.1860987604015603}, {"xval": 22, "yval": -2.1185705557136365}, {"xval": 23, "yval": -3.5433187419270933}, {"xval": 24, "yval": -4.087701466452276}, {"xval": 25, "yval": -3.9767788767424097}, {"xval": 26, "yval": -5.127772454164712}, {"xval": 27, "yval": -4.75207443581904}, {"xval": 28, "yval": -5.352713125737845}, {"xval": 29, "yval": -5.644406875531121}, {"xval": 30, "yval": -6.2461134877605184}, {"xval": 31, "yval": -4.3938353032515804}, {"xval": 32, "yval": -4.407332527989515}, {"xval": 33, "yval": -5.4650434569454145}, {"xval": 34, "yval": -4.642498544842225}, {"xval": 35, "yval": -5.863342194813248}, {"xval": 36, "yval": -5.654478599808492}, {"xval": 37, "yval": -7.614148723688268}, {"xval": 38, "yval": -8.942334772586698}, {"xval": 39, "yval": -8.745473536717574}, {"xval": 40, "yval": -8.007006956722163}, {"xval": 41, "yval": -7.835638675532193}, {"xval": 42, "yval": -7.951286957920433}, {"xval": 43, "yval": -8.252390653509723}, {"xval": 44, "yval": -9.73091264387715}, {"xval": 45, "yval": -10.450756852271859}, {"xval": 46, "yval": -10.911395623231646}, {"xval": 47, "yval": -9.854273397012731}, {"xval": 48, "yval": -9.51065510744427}, {"xval": 49, "yval": -11.273695262807005}, {"xval": 50, "yval": -10.94961129341221}, {"xval": 51, "yval": -11.334693573828526}, {"xval": 52, "yval": -12.011615574134485}, {"xval": 53, "yval": -11.399939285293616}, {"xval": 54, "yval": -10.368939762797666}, {"xval": 55, "yval": -9.437659643681467}, {"xval": 56, "yval": -10.276877166904105}, {"xval": 57, "yval": -10.58608954275532}, {"xval": 58, "yval": -10.254826111351756}, {"xval": 59, "yval": -9.279280984229397}, {"xval": 60, "yval": -9.758455222074687}, {"xval": 61, "yval": -9.944114198738504}, {"xval": 62, "yval": -11.050449172744532}, {"xval": 63, "yval": -12.246655796825202}, {"xval": 64, "yval": -11.434129974431004}, {"xval": 65, "yval": -10.07788994586018}, {"xval": 66, "yval": -10.149900067440514}, {"xval": 67, "yval": -9.14636716954849}, {"xval": 68, "yval": -8.784731144500856}, {"xval": 69, "yval": -9.42985089910598}, {"xval": 70, "yval": -9.068455293597568}, {"xval": 71, "yval": -7.5304187271315985}, {"xval": 72, "yval": -7.56624476624155}, {"xval": 73, "yval": -6.001601110427544}, {"xval": 74, "yval": -8.621346214517288}, {"xval": 75, "yval": -7.799443710142064}, {"xval": 76, "yval": -7.712396641903893}, {"xval": 77, "yval": -8.011403992369761}, {"xval": 78, "yval": -7.919643215834259}, {"xval": 79, "yval": -9.907212130435152}, {"xval": 80, "yval": -10.126884018272664}, {"xval": 81, "yval": -9.769771446760917}, {"xval": 82, "yval": -8.2918774020194}, {"xval": 83, "yval": -8.810147620293048}, {"xval": 84, "yval": -9.618641223186236}, {"xval": 85, "yval": -10.120398266770772}, {"xval": 86, "yval": -9.204996149068698}, {"xval": 87, "yval": -8.876245039409014}, {"xval": 88, "yval": -9.406005243176052}, {"xval": 89, "yval": -8.892737810062696}, {"xval": 90, "yval": -8.795660260714657}, {"xval": 91, "yval": -7.827015270181768}, {"xval": 92, "yval": -8.529068364059121}, {"xval": 93, "yval": -8.85673051065689}, {"xval": 94, "yval": -9.248838663789048}, {"xval": 95, "yval": -10.712353611921166}, {"xval": 96, "yval": -10.41623333485659}, {"xval": 97, "yval": -10.1551780626767}, {"xval": 98, "yval": -10.15006460603424}, {"xval": 99, "yval": -10.384651739409387}]}};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-45472a6b49c2114088f578a20dfd0fdb"}, "mark": {"type": "point"}, "encoding": {"size": {"value": {"expr": "param_102"}}, "x": {"axis": {"titleColor": {"expr": "param_103"}}, "field": "xval", "type": "quantitative"}, "y": {"axis": {"titleColor": {"expr": "param_104"}}, "field": "yval", "type": "quantitative"}}, "params": [{"name": "param_102", "bind": {"input": "range", "max": 300, "min": 100, "name": "Slider value:  "}}, {"name": "param_103", "expr": "param_102 < 200 ? 'red' : 'black'"}, {"name": "param_104", "expr": "if((param_102 < 200),'red','black')"}], "$schema": "https://vega.github.io/schema/vega-lite/v5.16.3.json", "datasets": {"data-45472a6b49c2114088f578a20dfd0fdb": [{"xval": 0, "yval": 0.4967141530112327}, {"xval": 1, "yval": 0.358449851840048}, {"xval": 2, "yval": 1.0061383899407406}, {"xval": 3, "yval": 2.5291682463487657}, {"xval": 4, "yval": 2.2950148716254297}, {"xval": 5, "yval": 2.060877914676249}, {"xval": 6, "yval": 3.6400907301836405}, {"xval": 7, "yval": 4.407525459336549}, {"xval": 8, "yval": 3.938051073401597}, {"xval": 9, "yval": 4.4806111169875615}, {"xval": 10, "yval": 4.017193424175099}, {"xval": 11, "yval": 3.5514636706048424}, {"xval": 12, "yval": 3.7934259421708765}, {"xval": 13, "yval": 1.8801456975130786}, {"xval": 14, "yval": 0.15522786500004582}, {"xval": 15, "yval": -0.4070596642409269}, {"xval": 16, "yval": -1.4198907845753506}, {"xval": 17, "yval": -1.1056434519800766}, {"xval": 18, "yval": -2.0136675275012874}, {"xval": 19, "yval": -3.4259712288365787}, {"xval": 20, "yval": -1.9603224599150246}, {"xval": 21, "yval": -2.1860987604015603}, {"xval": 22, "yval": -2.1185705557136365}, {"xval": 23, "yval": -3.5433187419270933}, {"xval": 24, "yval": -4.087701466452276}, {"xval": 25, "yval": -3.9767788767424097}, {"xval": 26, "yval": -5.127772454164712}, {"xval": 27, "yval": -4.75207443581904}, {"xval": 28, "yval": -5.352713125737845}, {"xval": 29, "yval": -5.644406875531121}, {"xval": 30, "yval": -6.2461134877605184}, {"xval": 31, "yval": -4.3938353032515804}, {"xval": 32, "yval": -4.407332527989515}, {"xval": 33, "yval": -5.4650434569454145}, {"xval": 34, "yval": -4.642498544842225}, {"xval": 35, "yval": -5.863342194813248}, {"xval": 36, "yval": -5.654478599808492}, {"xval": 37, "yval": -7.614148723688268}, {"xval": 38, "yval": -8.942334772586698}, {"xval": 39, "yval": -8.745473536717574}, {"xval": 40, "yval": -8.007006956722163}, {"xval": 41, "yval": -7.835638675532193}, {"xval": 42, "yval": -7.951286957920433}, {"xval": 43, "yval": -8.252390653509723}, {"xval": 44, "yval": -9.73091264387715}, {"xval": 45, "yval": -10.450756852271859}, {"xval": 46, "yval": -10.911395623231646}, {"xval": 47, "yval": -9.854273397012731}, {"xval": 48, "yval": -9.51065510744427}, {"xval": 49, "yval": -11.273695262807005}, {"xval": 50, "yval": -10.94961129341221}, {"xval": 51, "yval": -11.334693573828526}, {"xval": 52, "yval": -12.011615574134485}, {"xval": 53, "yval": -11.399939285293616}, {"xval": 54, "yval": -10.368939762797666}, {"xval": 55, "yval": -9.437659643681467}, {"xval": 56, "yval": -10.276877166904105}, {"xval": 57, "yval": -10.58608954275532}, {"xval": 58, "yval": -10.254826111351756}, {"xval": 59, "yval": -9.279280984229397}, {"xval": 60, "yval": -9.758455222074687}, {"xval": 61, "yval": -9.944114198738504}, {"xval": 62, "yval": -11.050449172744532}, {"xval": 63, "yval": -12.246655796825202}, {"xval": 64, "yval": -11.434129974431004}, {"xval": 65, "yval": -10.07788994586018}, {"xval": 66, "yval": -10.149900067440514}, {"xval": 67, "yval": -9.14636716954849}, {"xval": 68, "yval": -8.784731144500856}, {"xval": 69, "yval": -9.42985089910598}, {"xval": 70, "yval": -9.068455293597568}, {"xval": 71, "yval": -7.5304187271315985}, {"xval": 72, "yval": -7.56624476624155}, {"xval": 73, "yval": -6.001601110427544}, {"xval": 74, "yval": -8.621346214517288}, {"xval": 75, "yval": -7.799443710142064}, {"xval": 76, "yval": -7.712396641903894}, {"xval": 77, "yval": -8.011403992369761}, {"xval": 78, "yval": -7.919643215834259}, {"xval": 79, "yval": -9.907212130435152}, {"xval": 80, "yval": -10.126884018272664}, {"xval": 81, "yval": -9.769771446760917}, {"xval": 82, "yval": -8.2918774020194}, {"xval": 83, "yval": -8.810147620293048}, {"xval": 84, "yval": -9.618641223186236}, {"xval": 85, "yval": -10.120398266770772}, {"xval": 86, "yval": -9.204996149068698}, {"xval": 87, "yval": -8.876245039409014}, {"xval": 88, "yval": -9.406005243176052}, {"xval": 89, "yval": -8.892737810062696}, {"xval": 90, "yval": -8.795660260714657}, {"xval": 91, "yval": -7.827015270181768}, {"xval": 92, "yval": -8.529068364059121}, {"xval": 93, "yval": -8.85673051065689}, {"xval": 94, "yval": -9.248838663789048}, {"xval": 95, "yval": -10.712353611921166}, {"xval": 96, "yval": -10.41623333485659}, {"xval": 97, "yval": -10.1551780626767}, {"xval": 98, "yval": -10.15006460603424}, {"xval": 99, "yval": -10.384651739409387}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -1840,7 +1855,7 @@ so they can be added directly in the chart spec instead of via <code class="docu
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-a99664901d810a6b330d8e4930eed708"}, "mark": {"type": "point"}, "encoding": {"x": {"field": "xval", "type": "quantitative"}, "y": {"field": "yval", "type": "quantitative"}}, "params": [{"name": "width", "bind": {"input": "range", "max": 300, "min": 100, "name": "Chart width: "}}], "title": {"text": {"expr": "\"This chart is \" + width + \" px wide\""}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json", "datasets": {"data-a99664901d810a6b330d8e4930eed708": [{"xval": 0, "yval": 0.4967141530112327}, {"xval": 1, "yval": 0.358449851840048}, {"xval": 2, "yval": 1.0061383899407406}, {"xval": 3, "yval": 2.5291682463487657}, {"xval": 4, "yval": 2.2950148716254297}, {"xval": 5, "yval": 2.060877914676249}, {"xval": 6, "yval": 3.6400907301836405}, {"xval": 7, "yval": 4.407525459336549}, {"xval": 8, "yval": 3.938051073401597}, {"xval": 9, "yval": 4.4806111169875615}, {"xval": 10, "yval": 4.017193424175099}, {"xval": 11, "yval": 3.5514636706048424}, {"xval": 12, "yval": 3.7934259421708765}, {"xval": 13, "yval": 1.8801456975130786}, {"xval": 14, "yval": 0.15522786500004582}, {"xval": 15, "yval": -0.4070596642409269}, {"xval": 16, "yval": -1.4198907845753506}, {"xval": 17, "yval": -1.1056434519800766}, {"xval": 18, "yval": -2.0136675275012874}, {"xval": 19, "yval": -3.4259712288365787}, {"xval": 20, "yval": -1.9603224599150246}, {"xval": 21, "yval": -2.1860987604015603}, {"xval": 22, "yval": -2.1185705557136365}, {"xval": 23, "yval": -3.5433187419270933}, {"xval": 24, "yval": -4.087701466452276}, {"xval": 25, "yval": -3.9767788767424097}, {"xval": 26, "yval": -5.127772454164712}, {"xval": 27, "yval": -4.75207443581904}, {"xval": 28, "yval": -5.352713125737845}, {"xval": 29, "yval": -5.644406875531121}, {"xval": 30, "yval": -6.2461134877605184}, {"xval": 31, "yval": -4.3938353032515804}, {"xval": 32, "yval": -4.407332527989515}, {"xval": 33, "yval": -5.4650434569454145}, {"xval": 34, "yval": -4.642498544842225}, {"xval": 35, "yval": -5.863342194813248}, {"xval": 36, "yval": -5.654478599808492}, {"xval": 37, "yval": -7.614148723688268}, {"xval": 38, "yval": -8.942334772586698}, {"xval": 39, "yval": -8.745473536717574}, {"xval": 40, "yval": -8.007006956722163}, {"xval": 41, "yval": -7.835638675532193}, {"xval": 42, "yval": -7.951286957920433}, {"xval": 43, "yval": -8.252390653509723}, {"xval": 44, "yval": -9.73091264387715}, {"xval": 45, "yval": -10.450756852271859}, {"xval": 46, "yval": -10.911395623231646}, {"xval": 47, "yval": -9.854273397012731}, {"xval": 48, "yval": -9.51065510744427}, {"xval": 49, "yval": -11.273695262807005}, {"xval": 50, "yval": -10.94961129341221}, {"xval": 51, "yval": -11.334693573828526}, {"xval": 52, "yval": -12.011615574134485}, {"xval": 53, "yval": -11.399939285293616}, {"xval": 54, "yval": -10.368939762797666}, {"xval": 55, "yval": -9.437659643681467}, {"xval": 56, "yval": -10.276877166904105}, {"xval": 57, "yval": -10.58608954275532}, {"xval": 58, "yval": -10.254826111351756}, {"xval": 59, "yval": -9.279280984229397}, {"xval": 60, "yval": -9.758455222074687}, {"xval": 61, "yval": -9.944114198738504}, {"xval": 62, "yval": -11.050449172744532}, {"xval": 63, "yval": -12.246655796825202}, {"xval": 64, "yval": -11.434129974431004}, {"xval": 65, "yval": -10.07788994586018}, {"xval": 66, "yval": -10.149900067440514}, {"xval": 67, "yval": -9.14636716954849}, {"xval": 68, "yval": -8.784731144500856}, {"xval": 69, "yval": -9.42985089910598}, {"xval": 70, "yval": -9.068455293597568}, {"xval": 71, "yval": -7.5304187271315985}, {"xval": 72, "yval": -7.56624476624155}, {"xval": 73, "yval": -6.001601110427544}, {"xval": 74, "yval": -8.621346214517288}, {"xval": 75, "yval": -7.799443710142064}, {"xval": 76, "yval": -7.712396641903893}, {"xval": 77, "yval": -8.011403992369761}, {"xval": 78, "yval": -7.919643215834259}, {"xval": 79, "yval": -9.907212130435152}, {"xval": 80, "yval": -10.126884018272664}, {"xval": 81, "yval": -9.769771446760917}, {"xval": 82, "yval": -8.2918774020194}, {"xval": 83, "yval": -8.810147620293048}, {"xval": 84, "yval": -9.618641223186236}, {"xval": 85, "yval": -10.120398266770772}, {"xval": 86, "yval": -9.204996149068698}, {"xval": 87, "yval": -8.876245039409014}, {"xval": 88, "yval": -9.406005243176052}, {"xval": 89, "yval": -8.892737810062696}, {"xval": 90, "yval": -8.795660260714657}, {"xval": 91, "yval": -7.827015270181768}, {"xval": 92, "yval": -8.529068364059121}, {"xval": 93, "yval": -8.85673051065689}, {"xval": 94, "yval": -9.248838663789048}, {"xval": 95, "yval": -10.712353611921166}, {"xval": 96, "yval": -10.41623333485659}, {"xval": 97, "yval": -10.1551780626767}, {"xval": 98, "yval": -10.15006460603424}, {"xval": 99, "yval": -10.384651739409387}]}};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-45472a6b49c2114088f578a20dfd0fdb"}, "mark": {"type": "point"}, "encoding": {"x": {"field": "xval", "type": "quantitative"}, "y": {"field": "yval", "type": "quantitative"}}, "params": [{"name": "width", "bind": {"input": "range", "max": 300, "min": 100, "name": "Chart width: "}}], "title": {"text": {"expr": "\"This chart is \" + width + \" px wide\""}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.16.3.json", "datasets": {"data-45472a6b49c2114088f578a20dfd0fdb": [{"xval": 0, "yval": 0.4967141530112327}, {"xval": 1, "yval": 0.358449851840048}, {"xval": 2, "yval": 1.0061383899407406}, {"xval": 3, "yval": 2.5291682463487657}, {"xval": 4, "yval": 2.2950148716254297}, {"xval": 5, "yval": 2.060877914676249}, {"xval": 6, "yval": 3.6400907301836405}, {"xval": 7, "yval": 4.407525459336549}, {"xval": 8, "yval": 3.938051073401597}, {"xval": 9, "yval": 4.4806111169875615}, {"xval": 10, "yval": 4.017193424175099}, {"xval": 11, "yval": 3.5514636706048424}, {"xval": 12, "yval": 3.7934259421708765}, {"xval": 13, "yval": 1.8801456975130786}, {"xval": 14, "yval": 0.15522786500004582}, {"xval": 15, "yval": -0.4070596642409269}, {"xval": 16, "yval": -1.4198907845753506}, {"xval": 17, "yval": -1.1056434519800766}, {"xval": 18, "yval": -2.0136675275012874}, {"xval": 19, "yval": -3.4259712288365787}, {"xval": 20, "yval": -1.9603224599150246}, {"xval": 21, "yval": -2.1860987604015603}, {"xval": 22, "yval": -2.1185705557136365}, {"xval": 23, "yval": -3.5433187419270933}, {"xval": 24, "yval": -4.087701466452276}, {"xval": 25, "yval": -3.9767788767424097}, {"xval": 26, "yval": -5.127772454164712}, {"xval": 27, "yval": -4.75207443581904}, {"xval": 28, "yval": -5.352713125737845}, {"xval": 29, "yval": -5.644406875531121}, {"xval": 30, "yval": -6.2461134877605184}, {"xval": 31, "yval": -4.3938353032515804}, {"xval": 32, "yval": -4.407332527989515}, {"xval": 33, "yval": -5.4650434569454145}, {"xval": 34, "yval": -4.642498544842225}, {"xval": 35, "yval": -5.863342194813248}, {"xval": 36, "yval": -5.654478599808492}, {"xval": 37, "yval": -7.614148723688268}, {"xval": 38, "yval": -8.942334772586698}, {"xval": 39, "yval": -8.745473536717574}, {"xval": 40, "yval": -8.007006956722163}, {"xval": 41, "yval": -7.835638675532193}, {"xval": 42, "yval": -7.951286957920433}, {"xval": 43, "yval": -8.252390653509723}, {"xval": 44, "yval": -9.73091264387715}, {"xval": 45, "yval": -10.450756852271859}, {"xval": 46, "yval": -10.911395623231646}, {"xval": 47, "yval": -9.854273397012731}, {"xval": 48, "yval": -9.51065510744427}, {"xval": 49, "yval": -11.273695262807005}, {"xval": 50, "yval": -10.94961129341221}, {"xval": 51, "yval": -11.334693573828526}, {"xval": 52, "yval": -12.011615574134485}, {"xval": 53, "yval": -11.399939285293616}, {"xval": 54, "yval": -10.368939762797666}, {"xval": 55, "yval": -9.437659643681467}, {"xval": 56, "yval": -10.276877166904105}, {"xval": 57, "yval": -10.58608954275532}, {"xval": 58, "yval": -10.254826111351756}, {"xval": 59, "yval": -9.279280984229397}, {"xval": 60, "yval": -9.758455222074687}, {"xval": 61, "yval": -9.944114198738504}, {"xval": 62, "yval": -11.050449172744532}, {"xval": 63, "yval": -12.246655796825202}, {"xval": 64, "yval": -11.434129974431004}, {"xval": 65, "yval": -10.07788994586018}, {"xval": 66, "yval": -10.149900067440514}, {"xval": 67, "yval": -9.14636716954849}, {"xval": 68, "yval": -8.784731144500856}, {"xval": 69, "yval": -9.42985089910598}, {"xval": 70, "yval": -9.068455293597568}, {"xval": 71, "yval": -7.5304187271315985}, {"xval": 72, "yval": -7.56624476624155}, {"xval": 73, "yval": -6.001601110427544}, {"xval": 74, "yval": -8.621346214517288}, {"xval": 75, "yval": -7.799443710142064}, {"xval": 76, "yval": -7.712396641903894}, {"xval": 77, "yval": -8.011403992369761}, {"xval": 78, "yval": -7.919643215834259}, {"xval": 79, "yval": -9.907212130435152}, {"xval": 80, "yval": -10.126884018272664}, {"xval": 81, "yval": -9.769771446760917}, {"xval": 82, "yval": -8.2918774020194}, {"xval": 83, "yval": -8.810147620293048}, {"xval": 84, "yval": -9.618641223186236}, {"xval": 85, "yval": -10.120398266770772}, {"xval": 86, "yval": -9.204996149068698}, {"xval": 87, "yval": -8.876245039409014}, {"xval": 88, "yval": -9.406005243176052}, {"xval": 89, "yval": -8.892737810062696}, {"xval": 90, "yval": -8.795660260714657}, {"xval": 91, "yval": -7.827015270181768}, {"xval": 92, "yval": -8.529068364059121}, {"xval": 93, "yval": -8.85673051065689}, {"xval": 94, "yval": -9.248838663789048}, {"xval": 95, "yval": -10.712353611921166}, {"xval": 96, "yval": -10.41623333485659}, {"xval": 97, "yval": -10.1551780626767}, {"xval": 98, "yval": -10.15006460603424}, {"xval": 99, "yval": -10.384651739409387}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -1889,7 +1904,7 @@ To try this out, you can type <code class="docutils literal notranslate"><span c
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "point", "size": 60}, "encoding": {"opacity": {"condition": {"test": "test(regexp(param_103,'i'),datum.Name)", "value": 1}, "value": 0.05}, "tooltip": {"field": "Name", "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "params": [{"name": "param_103", "bind": {"input": "search", "placeholder": "Car model", "name": "Search "}, "value": ""}], "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "point", "size": 60}, "encoding": {"opacity": {"condition": {"test": "test(regexp(param_105,'i'),datum.Name)", "value": 1}, "value": 0.05}, "tooltip": {"field": "Name", "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "params": [{"name": "param_105", "bind": {"input": "search", "placeholder": "Car model", "name": "Search "}, "value": ""}], "$schema": "https://vega.github.io/schema/vega-lite/v5.16.3.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -1912,7 +1927,7 @@ Quite powerful!</p>
 </ul>
 </section>
 <section id="further-examples">
-<h2>Further Examples<a class="headerlink" href="#further-examples" title="Permalink to this heading">#</a></h2>
+<h2>Further Examples<a class="headerlink" href="#further-examples" title="Link to this heading">#</a></h2>
 <p>Now that you understand the basics of Altair selections and bindings, you might wish to look
 through the <a class="reference internal" href="../gallery/index.html#gallery-category-interactive-charts"><span class="std std-ref">Interactive Charts</span></a> section of the example gallery
 for ideas about how they can be applied to more interesting charts.</p>
@@ -1920,7 +1935,7 @@ for ideas about how they can be applied to more interesting charts.</p>
 mouse and keystroke options, see the <a class="reference external" href="https://vega.github.io/vega-lite/docs/selection.html">Vega-Lite Selection documentation</a>.</p>
 </section>
 <section id="access-params-from-python">
-<h2>Access Params From Python<a class="headerlink" href="#access-params-from-python" title="Permalink to this heading">#</a></h2>
+<h2>Access Params From Python<a class="headerlink" href="#access-params-from-python" title="Link to this heading">#</a></h2>
 <p>As of Vega-Altair 5.1, it’s now possible to access the values of variable and selection parameters
 from Python using the <a class="reference internal" href="jupyter_chart.html#user-guide-jupyterchart"><span class="std std-ref">JupyterChart Interactivity</span></a> class.</p>
 <p>Additionally, the dashboarding package <code class="docutils literal notranslate"><span class="pre">Panel</span></code> includes support for processing Altair selections
@@ -1934,11 +1949,10 @@ with custom callbacks. See the
               
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="transform/window.html"
@@ -1958,10 +1972,7 @@ with custom callbacks. See the
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -2024,8 +2035,8 @@ with custom callbacks. See the
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -2043,7 +2054,7 @@ with custom callbacks. See the
       
         <div class="footer-item">
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     <br/>
   </p>
 </div>
@@ -2051,10 +2062,11 @@ with custom callbacks. See the
     </div>
   
   
+  
     <div class="footer-items__end">
       
         <div class="footer-item"><p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.3.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.3.
 </p></div>
       
     </div>
