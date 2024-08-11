@@ -202,14 +202,12 @@ Altair also contains expressions related to geographical features. We can for ex
 
 .. altair-plot::
 
-    from altair.expr import datum, geoCentroid
-
     basemap = alt.Chart(gdf_sel).mark_geoshape(
          fill='lightgray', stroke='white', strokeWidth=0.5
     )
 
     bubbles = alt.Chart(gdf_sel).transform_calculate(
-        centroid=geoCentroid(None, datum)
+        centroid=alt.expr.geoCentroid(None, alt.datum)
     ).mark_circle(
         stroke='black'
     ).encode(
@@ -466,7 +464,7 @@ The :class:`FacetChart` pattern, accessible via the :meth:`Chart.facet` method
 provides a convenient interface for a particular type of horizontal or vertical
 concatenation of a dataset where one field contain multiple ``variables``.
 
-Unfortunately, until https://github.com/altair-viz/altair/issues/2369 is resolved
+Unfortunately, until https://github.com/vega/altair/issues/2369 is resolved
 regular faceting will not work for geographic visualization:
 
 .. altair-plot::

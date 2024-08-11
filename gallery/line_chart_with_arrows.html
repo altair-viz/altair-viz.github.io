@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Line Chart with Arrows &#8212; Vega-Altair 5.3.0 documentation</title>
+    <title>Line Chart with Arrows &#8212; Vega-Altair 5.4.0 documentation</title>
   
   
   
@@ -18,15 +18,15 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../_static/altair-plot.css?v=a673d9d3" />
@@ -34,22 +34,22 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=9736ff9e" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=7c07b56e" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=5c0b1849"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/documentation_options.js?v=d250e987"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.17.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script data-domain="altair-viz.github.io" defer="defer" src="https://views.scientific-python.org/js/script.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'gallery/line_chart_with_arrows';</script>
     <link rel="icon" href="../_static/favicon.ico"/>
@@ -64,27 +64,23 @@
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -107,23 +103,27 @@
 </form></div>
   </div>
 
-
-  <div class="bd-header-announcement container-fluid bd-header-announcement">
-    <div class="bd-header-announcement__content">This website is for version 5. You can find the documentation for version 4 <a href='https://altair-viz.github.io/altair-viz-v4/'>here</a>.</div>
-  </div>
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+<aside class="bd-header-announcement" aria-label="Announcement">
+  <div class="bd-header-announcement__content">This website is for version 5. You can find the documentation for version 4 <a href='https://altair-viz.github.io/altair-viz-v4/'>here</a>.</div>
+</aside>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
 <div class="bd-header__inner bd-page-width">
-  <label class="sidebar-toggle primary-toggle" for="__primary">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
     <span class="fa-solid fa-bars"></span>
-  </label>
+  </button>
   
   
   <div class="col-lg-3 navbar-header-items__start">
     
       <div class="navbar-item">
 
+  
+    
   
 
 <a class="navbar-brand logo" href="../index.html">
@@ -135,8 +135,8 @@
     
     
     
-    <img src="../_static/altair-logo-light.png" class="logo__image only-light" alt="Vega-Altair 5.3.0 documentation - Home"/>
-    <script>document.write(`<img src="../_static/altair-logo-light.png" class="logo__image only-dark" alt="Vega-Altair 5.3.0 documentation - Home"/>`);</script>
+    <img src="../_static/altair-logo-light.png" class="logo__image only-light" alt="Vega-Altair 5.4.0 documentation - Home"/>
+    <script>document.write(`<img src="../_static/altair-logo-light.png" class="logo__image only-dark" alt="Vega-Altair 5.4.0 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -153,50 +153,58 @@
     <div class="me-auto navbar-header-items__center">
       
         <div class="navbar-item">
-<nav class="navbar-nav">
+<nav>
   <ul class="bd-navbar-elements navbar-nav">
     
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../getting_started/overview.html">
-                        Getting Started
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started/overview.html">
+    Getting Started
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../user_guide/data.html">
-                        User Guide
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="index.html">
-                        Examples
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/data.html">
+    User Guide
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../user_guide/api.html">
-                        API
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-external" href="https://github.com/altair-viz/altair/releases">
-                        Release Notes
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="index.html">
+    Examples
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../about/roadmap.html">
-                        About
-                      </a>
-                    </li>
-                
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/api.html">
+    API
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://github.com/vega/altair/releases">
+    Release Notes
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../about/roadmap.html">
+    About
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
   </ul>
 </nav></div>
       
@@ -210,7 +218,7 @@
 
  <script>
  document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
     <span class="search-button__default-text">Search</span>
     <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
@@ -224,15 +232,15 @@
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script></div>
       
-        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+        <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
         <li class="nav-item">
           
@@ -243,7 +251,7 @@ document.write(`
           
           
           
-          <a href="https://github.com/altair-viz/altair" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-github fa-lg fa-lg" aria-hidden="true"></i></span>
+          <a href="https://github.com/vega/altair" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
@@ -255,7 +263,7 @@ document.write(`
           
           
           
-          <a href="https://stackoverflow.com/tags/altair" title="StackOverflow" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-stack-overflow fa-xl fa-lg" aria-hidden="true"></i></span>
+          <a href="https://stackoverflow.com/tags/altair" title="StackOverflow" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-stack-overflow fa-xl fa-lg" aria-hidden="true"></i>
             <span class="sr-only">StackOverflow</span></a>
         </li>
 </ul></div>
@@ -269,7 +277,7 @@ document.write(`
 
  <script>
  document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
     <span class="search-button__default-text">Search</span>
     <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
@@ -301,53 +309,56 @@ document.write(`
     
       <div class="sidebar-header-items__center">
         
-          <div class="navbar-item">
-<nav class="navbar-nav">
+          
+          
+            <div class="navbar-item">
+<nav>
   <ul class="bd-navbar-elements navbar-nav">
     
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../getting_started/overview.html">
-                        Getting Started
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started/overview.html">
+    Getting Started
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../user_guide/data.html">
-                        User Guide
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="index.html">
-                        Examples
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/data.html">
+    User Guide
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../user_guide/api.html">
-                        API
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-external" href="https://github.com/altair-viz/altair/releases">
-                        Release Notes
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="index.html">
+    Examples
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../about/roadmap.html">
-                        About
-                      </a>
-                    </li>
-                
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/api.html">
+    API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://github.com/vega/altair/releases">
+    Release Notes
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../about/roadmap.html">
+    About
+  </a>
+</li>
+
   </ul>
 </nav></div>
+          
         
       </div>
     
@@ -359,15 +370,15 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script></div>
         
-          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+          <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
         <li class="nav-item">
           
@@ -378,7 +389,7 @@ document.write(`
           
           
           
-          <a href="https://github.com/altair-viz/altair" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-github fa-lg fa-lg" aria-hidden="true"></i></span>
+          <a href="https://github.com/vega/altair" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
@@ -390,7 +401,7 @@ document.write(`
           
           
           
-          <a href="https://stackoverflow.com/tags/altair" title="StackOverflow" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-stack-overflow fa-xl fa-lg" aria-hidden="true"></i></span>
+          <a href="https://stackoverflow.com/tags/altair" title="StackOverflow" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-stack-overflow fa-xl fa-lg" aria-hidden="true"></i>
             <span class="sr-only">StackOverflow</span></a>
         </li>
 </ul></div>
@@ -408,13 +419,13 @@ document.write(`
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -423,7 +434,7 @@ document.write(`
 
 
 
-<nav aria-label="Breadcrumb">
+<nav aria-label="Breadcrumb" class="d-print-none">
   <ul class="bd-breadcrumbs">
     
     <li class="breadcrumb-item breadcrumb-home">
@@ -460,7 +471,7 @@ such as customizable arrowheads.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "layer": [{"data": {"name": "data-96202df407f72fe0bbe8279fda25847b"}, "mark": {"type": "line", "point": true}, "encoding": {"x": {"field": "x", "type": "quantitative"}, "y": {"field": "y", "type": "quantitative"}}}, {"layer": [{"data": {"name": "empty"}, "mark": {"type": "text", "align": "left", "angle": 340, "baseline": "bottom", "fontWeight": 100, "size": 60}, "encoding": {"text": {"datum": "\ud83e\udc03"}, "x": {"datum": 2.8}, "y": {"datum": -0.3}}}, {"data": {"name": "empty"}, "mark": {"type": "text", "align": "center", "baseline": "bottom", "size": 14}, "encoding": {"text": {"datum": "decreasing"}, "x": {"datum": 1.8}, "y": {"datum": -0.1}}}]}, {"layer": [{"data": {"name": "empty"}, "mark": {"type": "line", "size": 2}, "encoding": {"x": {"datum": 5.4}, "x2": {"datum": 5.9}, "y": {"datum": -0.4}, "y2": {"datum": 0}}}, {"data": {"name": "empty"}, "mark": {"type": "point", "fillOpacity": 1, "filled": true, "shape": "triangle"}, "encoding": {"angle": {"value": 23}, "color": {"value": "#000000"}, "size": {"value": 100}, "x": {"datum": 5.9}, "y": {"datum": 0}}}, {"data": {"name": "empty"}, "mark": {"type": "text", "align": "center", "baseline": "bottom", "size": 14}, "encoding": {"text": {"datum": "increasing"}, "x": {"datum": 4.7}, "y": {"datum": -0.3}}}]}], "$schema": "https://vega.github.io/schema/vega-lite/v5.17.0.json", "datasets": {"data-96202df407f72fe0bbe8279fda25847b": [{"x": 1.0, "y": 0.8414709848078965}, {"x": 1.1224489795918366, "y": 0.9011647193541048}, {"x": 1.2448979591836735, "y": 0.947363487374668}, {"x": 1.3673469387755102, "y": 0.9793754610443571}, {"x": 1.489795918367347, "y": 0.996721260174607}, {"x": 1.6122448979591837, "y": 0.9991411309450606}, {"x": 1.7346938775510203, "y": 0.9865988357241925}, {"x": 1.8571428571428572, "y": 0.9592821957288404}, {"x": 1.9795918367346939, "y": 0.9176002783963034}, {"x": 2.1020408163265305, "y": 0.862177271588186}, {"x": 2.2244897959183674, "y": 0.793843136359957}, {"x": 2.3469387755102042, "y": 0.7136211782712532}, {"x": 2.4693877551020407, "y": 0.6227127233569034}, {"x": 2.5918367346938775, "y": 0.5224791282364234}, {"x": 2.7142857142857144, "y": 0.4144213937610953}, {"x": 2.836734693877551, "y": 0.3001576874848237}, {"x": 2.9591836734693877, "y": 0.18139911156038566}, {"x": 3.0816326530612246, "y": 0.05992407893750542}, {"x": 3.204081632653061, "y": -0.06244831842011605}, {"x": 3.326530612244898, "y": -0.1838855504871279}, {"x": 3.4489795918367347, "y": -0.30256909136419585}, {"x": 3.571428571428571, "y": -0.41672165175349946}, {"x": 3.693877551020408, "y": -0.5246337939149841}, {"x": 3.816326530612245, "y": -0.6246895305436606}, {"x": 3.9387755102040813, "y": -0.7153905242240666}, {"x": 4.061224489795919, "y": -0.7953785250743864}, {"x": 4.183673469387755, "y": -0.8634557105758878}, {"x": 4.3061224489795915, "y": -0.9186026229981786}, {"x": 4.428571428571429, "y": -0.9599934358068326}, {"x": 4.551020408163265, "y": -0.9870083204385179}, {"x": 4.673469387755102, "y": -0.9992427282508292}, {"x": 4.795918367346939, "y": -0.9965134486493629}, {"x": 4.918367346938775, "y": -0.978861352671422}, {"x": 5.040816326530612, "y": -0.9465507809411055}, {"x": 5.163265306122449, "y": -0.900065585161171}, {"x": 5.285714285714286, "y": -0.8401018824204437}, {"x": 5.408163265306122, "y": -0.7675576308212114}, {"x": 5.530612244897959, "y": -0.6835191825318773}, {"x": 5.653061224489796, "y": -0.5892450156332808}, {"x": 5.775510204081632, "y": -0.48614688837472503}, {"x": 5.8979591836734695, "y": -0.37576869805526025}, {"x": 6.020408163265306, "y": -0.2597633611190539}, {"x": 6.142857142857142, "y": -0.13986806068604837}, {"x": 6.26530612244898, "y": -0.017878232186832283}, {"x": 6.387755102040816, "y": 0.1043793233324464}, {"x": 6.5102040816326525, "y": 0.22507379560613325}, {"x": 6.63265306122449, "y": 0.34239778158328493}, {"x": 6.755102040816326, "y": 0.45459435133820136}, {"x": 6.877551020408163, "y": 0.5599833581445223}, {"x": 7.0, "y": 0.6569865987187891}], "empty": [{}]}};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "layer": [{"data": {"name": "data-96202df407f72fe0bbe8279fda25847b"}, "mark": {"type": "line", "point": true}, "encoding": {"x": {"field": "x", "type": "quantitative"}, "y": {"field": "y", "type": "quantitative"}}}, {"layer": [{"data": {"name": "empty"}, "mark": {"type": "text", "align": "left", "angle": 340, "baseline": "bottom", "fontWeight": 100, "size": 60}, "encoding": {"text": {"datum": "\ud83e\udc03"}, "x": {"datum": 2.8}, "y": {"datum": -0.3}}}, {"data": {"name": "empty"}, "mark": {"type": "text", "align": "center", "baseline": "bottom", "size": 14}, "encoding": {"text": {"datum": "decreasing"}, "x": {"datum": 1.8}, "y": {"datum": -0.1}}}]}, {"layer": [{"data": {"name": "empty"}, "mark": {"type": "line", "size": 2}, "encoding": {"x": {"datum": 5.4}, "x2": {"datum": 5.9}, "y": {"datum": -0.4}, "y2": {"datum": 0}}}, {"data": {"name": "empty"}, "mark": {"type": "point", "fillOpacity": 1, "filled": true, "shape": "triangle"}, "encoding": {"angle": {"value": 23}, "color": {"value": "#000000"}, "size": {"value": 100}, "x": {"datum": 5.9}, "y": {"datum": 0}}}, {"data": {"name": "empty"}, "mark": {"type": "text", "align": "center", "baseline": "bottom", "size": 14}, "encoding": {"text": {"datum": "increasing"}, "x": {"datum": 4.7}, "y": {"datum": -0.3}}}]}], "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-96202df407f72fe0bbe8279fda25847b": [{"x": 1.0, "y": 0.8414709848078965}, {"x": 1.1224489795918366, "y": 0.9011647193541048}, {"x": 1.2448979591836735, "y": 0.947363487374668}, {"x": 1.3673469387755102, "y": 0.9793754610443571}, {"x": 1.489795918367347, "y": 0.996721260174607}, {"x": 1.6122448979591837, "y": 0.9991411309450606}, {"x": 1.7346938775510203, "y": 0.9865988357241925}, {"x": 1.8571428571428572, "y": 0.9592821957288404}, {"x": 1.9795918367346939, "y": 0.9176002783963034}, {"x": 2.1020408163265305, "y": 0.862177271588186}, {"x": 2.2244897959183674, "y": 0.793843136359957}, {"x": 2.3469387755102042, "y": 0.7136211782712532}, {"x": 2.4693877551020407, "y": 0.6227127233569034}, {"x": 2.5918367346938775, "y": 0.5224791282364234}, {"x": 2.7142857142857144, "y": 0.4144213937610953}, {"x": 2.836734693877551, "y": 0.3001576874848237}, {"x": 2.9591836734693877, "y": 0.18139911156038566}, {"x": 3.0816326530612246, "y": 0.05992407893750542}, {"x": 3.204081632653061, "y": -0.06244831842011605}, {"x": 3.326530612244898, "y": -0.1838855504871279}, {"x": 3.4489795918367347, "y": -0.30256909136419585}, {"x": 3.571428571428571, "y": -0.41672165175349946}, {"x": 3.693877551020408, "y": -0.5246337939149841}, {"x": 3.816326530612245, "y": -0.6246895305436606}, {"x": 3.9387755102040813, "y": -0.7153905242240666}, {"x": 4.061224489795919, "y": -0.7953785250743864}, {"x": 4.183673469387755, "y": -0.8634557105758878}, {"x": 4.3061224489795915, "y": -0.9186026229981786}, {"x": 4.428571428571429, "y": -0.9599934358068326}, {"x": 4.551020408163265, "y": -0.9870083204385179}, {"x": 4.673469387755102, "y": -0.9992427282508292}, {"x": 4.795918367346939, "y": -0.9965134486493629}, {"x": 4.918367346938775, "y": -0.978861352671422}, {"x": 5.040816326530612, "y": -0.9465507809411055}, {"x": 5.163265306122449, "y": -0.900065585161171}, {"x": 5.285714285714286, "y": -0.8401018824204437}, {"x": 5.408163265306122, "y": -0.7675576308212114}, {"x": 5.530612244897959, "y": -0.6835191825318773}, {"x": 5.653061224489796, "y": -0.5892450156332808}, {"x": 5.775510204081632, "y": -0.48614688837472503}, {"x": 5.8979591836734695, "y": -0.37576869805526025}, {"x": 6.020408163265306, "y": -0.2597633611190539}, {"x": 6.142857142857142, "y": -0.13986806068604837}, {"x": 6.26530612244898, "y": -0.017878232186832283}, {"x": 6.387755102040816, "y": 0.1043793233324464}, {"x": 6.5102040816326525, "y": 0.22507379560613325}, {"x": 6.63265306122449, "y": 0.34239778158328493}, {"x": 6.755102040816326, "y": 0.45459435133820136}, {"x": 6.877551020408163, "y": 0.5599833581445223}, {"x": 7.0, "y": 0.6569865987187891}], "empty": [{}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -471,7 +482,7 @@ such as customizable arrowheads.</p>
 </script>
 </div><div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
-</input><label class="sd-tab-label" data-sync-id="method" for="sd-tab-item-0">
+<label class="sd-tab-label" data-sync-group="tab" data-sync-id="method" for="sd-tab-item-0">
 Method syntax</label><div class="sd-tab-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -533,7 +544,7 @@ Method syntax</label><div class="sd-tab-content docutils">
 </div>
 </div>
 <input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
-</input><label class="sd-tab-label" data-sync-id="attribute" for="sd-tab-item-1">
+<label class="sd-tab-label" data-sync-group="tab" data-sync-id="attribute" for="sd-tab-item-1">
 Attribute syntax</label><div class="sd-tab-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -606,7 +617,7 @@ Attribute syntax</label><div class="sd-tab-content docutils">
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
 </div>
@@ -627,8 +638,8 @@ Attribute syntax</label><div class="sd-tab-content docutils">
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -648,7 +659,7 @@ Attribute syntax</label><div class="sd-tab-content docutils">
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.0.2.
     <br/>
   </p>
 </div>
@@ -661,7 +672,7 @@ Attribute syntax</label><div class="sd-tab-content docutils">
       
         <div class="footer-item">
 <p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.2.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
 </p></div>
       
     </div>

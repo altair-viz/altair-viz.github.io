@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Top-Level Chart Configuration &#8212; Vega-Altair 5.3.0 documentation</title>
+    <title>Top-Level Chart Configuration &#8212; Vega-Altair 5.4.0 documentation</title>
   
   
   
@@ -18,15 +18,15 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../_static/altair-plot.css?v=a673d9d3" />
@@ -34,22 +34,22 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=9736ff9e" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=7c07b56e" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=5c0b1849"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/documentation_options.js?v=d250e987"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.17.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script data-domain="altair-viz.github.io" defer="defer" src="https://views.scientific-python.org/js/script.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'user_guide/configuration';</script>
     <link rel="icon" href="../_static/favicon.ico"/>
@@ -66,27 +66,23 @@
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -109,23 +105,27 @@
 </form></div>
   </div>
 
-
-  <div class="bd-header-announcement container-fluid bd-header-announcement">
-    <div class="bd-header-announcement__content">This website is for version 5. You can find the documentation for version 4 <a href='https://altair-viz.github.io/altair-viz-v4/'>here</a>.</div>
-  </div>
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+<aside class="bd-header-announcement" aria-label="Announcement">
+  <div class="bd-header-announcement__content">This website is for version 5. You can find the documentation for version 4 <a href='https://altair-viz.github.io/altair-viz-v4/'>here</a>.</div>
+</aside>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
 <div class="bd-header__inner bd-page-width">
-  <label class="sidebar-toggle primary-toggle" for="__primary">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
     <span class="fa-solid fa-bars"></span>
-  </label>
+  </button>
   
   
   <div class="col-lg-3 navbar-header-items__start">
     
       <div class="navbar-item">
 
+  
+    
   
 
 <a class="navbar-brand logo" href="../index.html">
@@ -137,8 +137,8 @@
     
     
     
-    <img src="../_static/altair-logo-light.png" class="logo__image only-light" alt="Vega-Altair 5.3.0 documentation - Home"/>
-    <script>document.write(`<img src="../_static/altair-logo-light.png" class="logo__image only-dark" alt="Vega-Altair 5.3.0 documentation - Home"/>`);</script>
+    <img src="../_static/altair-logo-light.png" class="logo__image only-light" alt="Vega-Altair 5.4.0 documentation - Home"/>
+    <script>document.write(`<img src="../_static/altair-logo-light.png" class="logo__image only-dark" alt="Vega-Altair 5.4.0 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -155,50 +155,58 @@
     <div class="me-auto navbar-header-items__center">
       
         <div class="navbar-item">
-<nav class="navbar-nav">
+<nav>
   <ul class="bd-navbar-elements navbar-nav">
     
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../getting_started/overview.html">
-                        Getting Started
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started/overview.html">
+    Getting Started
+  </a>
+</li>
 
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="data.html">
-                        User Guide
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../gallery/index.html">
-                        Examples
-                      </a>
-                    </li>
-                
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="data.html">
+    User Guide
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="api.html">
-                        API
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-external" href="https://github.com/altair-viz/altair/releases">
-                        Release Notes
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../gallery/index.html">
+    Examples
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../about/roadmap.html">
-                        About
-                      </a>
-                    </li>
-                
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api.html">
+    API
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://github.com/vega/altair/releases">
+    Release Notes
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../about/roadmap.html">
+    About
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
   </ul>
 </nav></div>
       
@@ -212,7 +220,7 @@
 
  <script>
  document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
     <span class="search-button__default-text">Search</span>
     <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
@@ -226,15 +234,15 @@
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script></div>
       
-        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+        <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
         <li class="nav-item">
           
@@ -245,7 +253,7 @@ document.write(`
           
           
           
-          <a href="https://github.com/altair-viz/altair" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-github fa-lg fa-lg" aria-hidden="true"></i></span>
+          <a href="https://github.com/vega/altair" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
@@ -257,7 +265,7 @@ document.write(`
           
           
           
-          <a href="https://stackoverflow.com/tags/altair" title="StackOverflow" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-stack-overflow fa-xl fa-lg" aria-hidden="true"></i></span>
+          <a href="https://stackoverflow.com/tags/altair" title="StackOverflow" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-stack-overflow fa-xl fa-lg" aria-hidden="true"></i>
             <span class="sr-only">StackOverflow</span></a>
         </li>
 </ul></div>
@@ -271,7 +279,7 @@ document.write(`
 
  <script>
  document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
     <span class="search-button__default-text">Search</span>
     <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
@@ -282,9 +290,9 @@ document.write(`
   
 
   
-    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
       <span class="fa-solid fa-outdent"></span>
-    </label>
+    </button>
   
 </div>
 
@@ -305,53 +313,56 @@ document.write(`
     
       <div class="sidebar-header-items__center">
         
-          <div class="navbar-item">
-<nav class="navbar-nav">
+          
+          
+            <div class="navbar-item">
+<nav>
   <ul class="bd-navbar-elements navbar-nav">
     
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../getting_started/overview.html">
-                        Getting Started
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started/overview.html">
+    Getting Started
+  </a>
+</li>
 
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="data.html">
-                        User Guide
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../gallery/index.html">
-                        Examples
-                      </a>
-                    </li>
-                
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="data.html">
+    User Guide
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="api.html">
-                        API
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-external" href="https://github.com/altair-viz/altair/releases">
-                        Release Notes
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../gallery/index.html">
+    Examples
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../about/roadmap.html">
-                        About
-                      </a>
-                    </li>
-                
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api.html">
+    API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://github.com/vega/altair/releases">
+    Release Notes
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../about/roadmap.html">
+    About
+  </a>
+</li>
+
   </ul>
 </nav></div>
+          
         
       </div>
     
@@ -363,15 +374,15 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script></div>
         
-          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+          <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
         <li class="nav-item">
           
@@ -382,7 +393,7 @@ document.write(`
           
           
           
-          <a href="https://github.com/altair-viz/altair" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-github fa-lg fa-lg" aria-hidden="true"></i></span>
+          <a href="https://github.com/vega/altair" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
@@ -394,7 +405,7 @@ document.write(`
           
           
           
-          <a href="https://stackoverflow.com/tags/altair" title="StackOverflow" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-stack-overflow fa-xl fa-lg" aria-hidden="true"></i></span>
+          <a href="https://stackoverflow.com/tags/altair" title="StackOverflow" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-stack-overflow fa-xl fa-lg" aria-hidden="true"></i>
             <span class="sr-only">StackOverflow</span></a>
         </li>
 </ul></div>
@@ -411,12 +422,12 @@ document.write(`
   <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="data.html">Specifying Data</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="encodings/index.html">Encodings</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="encodings/index.html">Encodings</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="encodings/channels.html">Channels</a></li>
 <li class="toctree-l2"><a class="reference internal" href="encodings/channel_options.html">Channel Options</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="marks/index.html">Marks</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="marks/index.html">Marks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="marks/arc.html">Arc</a></li>
 <li class="toctree-l2"><a class="reference internal" href="marks/area.html">Area</a></li>
 <li class="toctree-l2"><a class="reference internal" href="marks/bar.html">Bar</a></li>
@@ -450,8 +461,8 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="marks/tick.html">Tick</a></li>
 <li class="toctree-l2"><a class="reference internal" href="marks/trail.html">Trail</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="transform/index.html">Data Transformations</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="transform/index.html">Data Transformations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="transform/aggregate.html">Aggregate</a></li>
 <li class="toctree-l2"><a class="reference internal" href="transform/bin.html">Bin</a></li>
 <li class="toctree-l2"><a class="reference internal" href="transform/calculate.html">Calculate</a></li>
@@ -472,7 +483,7 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="transform/timeunit.html">TimeUnit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="transform/window.html">Window</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="interactions.html">Interactive Charts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compound_charts.html">Layered and Multi-View Charts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="scale_resolve.html">Scale and Guide Resolution</a></li>
@@ -503,13 +514,13 @@ document.write(`
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -518,7 +529,7 @@ document.write(`
 
 
 
-<nav aria-label="Breadcrumb">
+<nav aria-label="Breadcrumb" class="d-print-none">
   <ul class="bd-breadcrumbs">
     
     <li class="breadcrumb-item breadcrumb-home">
@@ -575,7 +586,7 @@ overridden by specific style settings associated with chart elements.</p>
 <span id="config-chart"></span><h2>Chart Configuration<a class="headerlink" href="#chart-configuration" title="Link to this heading">#</a></h2>
 <p>The <code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure()</span></code> method adds a <a class="reference internal" href="generated/core/altair.Config.html#altair.Config" title="altair.Config"><code class="xref py py-class docutils literal notranslate"><span class="pre">Config</span></code></a> instance to the chart,
 and accepts the following parameters:</p>
-<details><summary><a>Click to show table</a></summary><table class="table">
+<details><summary><a>Click to show table</a></summary><div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Property</p></th>
 <th class="head"><p>Type</p></th>
@@ -909,6 +920,7 @@ and accepts the following parameters:</p>
 </tr>
 </tbody>
 </table>
+</div>
 </details></section>
 <section id="axis-configuration">
 <span id="config-axis"></span><h2>Axis Configuration<a class="headerlink" href="#axis-configuration" title="Link to this heading">#</a></h2>
@@ -949,7 +961,7 @@ over general options.</p>
 <li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_axisYTemporal()</span></code></p></li>
 </ul>
 <p>They have the following properties:</p>
-<details><summary><a>Click to show table</a></summary><table class="table">
+<details><summary><a>Click to show table</a></summary><div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Property</p></th>
 <th class="head"><p>Type</p></th>
@@ -1369,6 +1381,7 @@ over general options.</p>
 </tr>
 </tbody>
 </table>
+</div>
 </details></section>
 <section id="header-configuration">
 <span id="config-header"></span><h2>Header Configuration<a class="headerlink" href="#header-configuration" title="Link to this heading">#</a></h2>
@@ -1404,7 +1417,7 @@ the <code class="xref py py-meth docutils literal notranslate"><span class="pre"
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}, "header": {"labelColor": "red", "labelFontSize": 14, "titleColor": "green", "titleFontSize": 14}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "point"}, "encoding": {"color": {"field": "Origin", "type": "nominal"}, "column": {"field": "Origin", "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "height": 180, "width": 180, "$schema": "https://vega.github.io/schema/vega-lite/v5.17.0.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}, "header": {"labelColor": "red", "labelFontSize": 14, "titleColor": "green", "titleFontSize": 14}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "point"}, "encoding": {"color": {"field": "Origin", "type": "nominal"}, "column": {"field": "Origin", "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "height": 180, "width": 180, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -1421,7 +1434,7 @@ the <code class="xref py py-meth docutils literal notranslate"><span class="pre"
 <li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_headerRow()</span></code></p></li>
 </ul>
 <p>They have the following properties:</p>
-<details><summary><a>Click to show table</a></summary><table class="table">
+<details><summary><a>Click to show table</a></summary><div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Property</p></th>
 <th class="head"><p>Type</p></th>
@@ -1591,6 +1604,7 @@ the <code class="xref py py-meth docutils literal notranslate"><span class="pre"
 </tr>
 </tbody>
 </table>
+</div>
 </details></section>
 <section id="legend-configuration">
 <span id="config-legend"></span><h2>Legend Configuration<a class="headerlink" href="#legend-configuration" title="Link to this heading">#</a></h2>
@@ -1623,7 +1637,7 @@ Here is an example:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}, "legend": {"cornerRadius": 10, "fillColor": "#EEEEEE", "orient": "top-right", "padding": 10, "strokeColor": "gray"}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "point"}, "encoding": {"color": {"field": "Origin", "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.17.0.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}, "legend": {"cornerRadius": 10, "fillColor": "#EEEEEE", "orient": "top-right", "padding": 10, "strokeColor": "gray"}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "point"}, "encoding": {"color": {"field": "Origin", "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -1633,7 +1647,7 @@ Here is an example:</p>
   });
 </script>
 </div><p>Additional properties are  summarized in the following table:</p>
-<details><summary><a>Click to show table</a></summary><table class="table">
+<details><summary><a>Click to show table</a></summary><div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Property</p></th>
 <th class="head"><p>Type</p></th>
@@ -2018,6 +2032,7 @@ Here is an example:</p>
 </tr>
 </tbody>
 </table>
+</div>
 </details></section>
 <section id="mark-and-mark-style-configuration">
 <span id="config-mark"></span><h2>Mark and Mark Style Configuration<a class="headerlink" href="#mark-and-mark-style-configuration" title="Link to this heading">#</a></h2>
@@ -2051,7 +2066,7 @@ defining default properties for each mark.</p>
 <li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_trail()</span></code></p></li>
 </ul>
 <p>Each of the above methods accepts the following properties:</p>
-<details><summary><a>Click to show table</a></summary><table class="table">
+<details><summary><a>Click to show table</a></summary><div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Property</p></th>
 <th class="head"><p>Type</p></th>
@@ -2243,12 +2258,16 @@ defining default properties for each mark.</p>
 </td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>invalid</p></td>
-<td class="vl-type-def"><p>[‘filter’, None]</p></td>
-<td class="vl-decsr"><p>Defines how Vega-Lite should handle marks for invalid values (<code class="docutils literal notranslate"><span class="pre">null</span></code> and <code class="docutils literal notranslate"><span class="pre">NaN</span></code>).</p>
+<td class="vl-type-def"><p>anyOf(<a class="reference internal" href="generated/core/altair.MarkInvalidDataMode.html#altair.MarkInvalidDataMode" title="altair.MarkInvalidDataMode"><code class="xref py py-class docutils literal notranslate"><span class="pre">MarkInvalidDataMode</span></code></a>, <code class="docutils literal notranslate"><span class="pre">null</span></code>)</p></td>
+<td class="vl-decsr"><p>Invalid data mode, which defines how the marks and corresponding scales should represent invalid values (<code class="docutils literal notranslate"><span class="pre">null</span></code> and <code class="docutils literal notranslate"><span class="pre">NaN</span></code> in continuous scales <em>without</em> defined output for invalid values).</p>
 <ul class="simple">
-<li><p>If set to <code class="docutils literal notranslate"><span class="pre">&quot;filter&quot;</span></code> (default), all data items with null values will be skipped (for line, trail, and area marks) or filtered (for other marks).</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">null</span></code>, all data items are included. In this case, invalid values will be interpreted as zeroes.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;filter&quot;</span></code> — <em>Exclude</em> all invalid values from the visualization’s <em>marks</em> and <em>scales</em>. For path marks (for line, area, trail), this option will create paths that connect valid points, as if the data rows with invalid values do not exist.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;break-paths-filter-domains&quot;</span></code> — Break path marks (for line, area, trail) at invalid values.  For non-path marks, this is equivalent to <code class="docutils literal notranslate"><span class="pre">&quot;filter&quot;</span></code>. All <em>scale</em> domains will <em>exclude</em> these filtered data points.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;break-paths-show-domains&quot;</span></code> — Break paths (for line, area, trail) at invalid values.  Hide invalid values for non-path marks. All <em>scale</em> domains will <em>include</em> these filtered data points (for both path and non-path marks).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;show&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">null</span></code> — Show all data points in the marks and scale domains. Each scale will use the output for invalid values defined in <code class="docutils literal notranslate"><span class="pre">config.scale.invalid</span></code> or, if unspecified, by default invalid values will produce the same visual values as zero (if the scale includes zero) or the minimum value (if the scale does not include zero).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;break-paths-show-path-domains&quot;</span></code> (default) — This is equivalent to <code class="docutils literal notranslate"><span class="pre">&quot;break-paths-show-domains&quot;</span></code> for path-based marks (line/area/trail) and <code class="docutils literal notranslate"><span class="pre">&quot;filter&quot;</span></code> for non-path marks.</p></li>
 </ul>
+<p><strong>Note</strong>: If any channel’s scale has an output for invalid values defined in <code class="docutils literal notranslate"><span class="pre">config.scale.invalid</span></code>, all values for the scales will be considered “valid” since they can produce a reasonable output for the scales. Thus, fields for such channels will not be filtered and will not cause path breaks.</p>
 </td>
 </tr>
 <tr class="row-odd"><td class="vl-prop"><p>limit</p></td>
@@ -2463,6 +2482,7 @@ defining default properties for each mark.</p>
 </tr>
 </tbody>
 </table>
+</div>
 </details><p>In addition to the default mark properties above, default values can be
 further customized using named styles defined as keyword arguments to
 the <code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_style()</span></code> method.
@@ -2473,7 +2493,7 @@ definition object.</p>
 <span id="config-scale"></span><h2>Scale Configuration<a class="headerlink" href="#scale-configuration" title="Link to this heading">#</a></h2>
 <p>Scales can be configured using <code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_scale()</span></code>, which has
 the following properties:</p>
-<details><summary><a>Click to show table</a></summary><table class="table">
+<details><summary><a>Click to show table</a></summary><div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Property</p></th>
 <th class="head"><p>Type</p></th>
@@ -2526,103 +2546,120 @@ the following properties:</p>
 <p><strong>Default:</strong> The bar width for continuous x-scale of a vertical bar and continuous y-scale of a horizontal bar.; <code class="docutils literal notranslate"><span class="pre">0</span></code> otherwise.</p>
 </td>
 </tr>
-<tr class="row-odd"><td class="vl-prop"><p>maxBandSize</p></td>
+<tr class="row-odd"><td class="vl-prop"><p>invalid</p></td>
+<td class="vl-type-def"><p><a class="reference internal" href="generated/core/altair.ScaleInvalidDataConfig.html#altair.ScaleInvalidDataConfig" title="altair.ScaleInvalidDataConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">ScaleInvalidDataConfig</span></code></a></p></td>
+<td class="vl-decsr"><p>An object that defines scale outputs per channel for invalid values (nulls and NaNs on a continuous scale).</p>
+<ul class="simple">
+<li><p>The keys in this object are the scale channels.</p></li>
+<li><p>The values is either <code class="docutils literal notranslate"><span class="pre">&quot;zero-or-min&quot;</span></code> (use zero if the scale includes zero or min value otherwise) or a value definition <code class="docutils literal notranslate"><span class="pre">{value:</span> <span class="pre">...}</span></code>.</p></li>
+</ul>
+<p><em>Example:</em> Setting this <code class="docutils literal notranslate"><span class="pre">config.scale.invalid</span></code> property to <code class="docutils literal notranslate"><span class="pre">{color:</span> <span class="pre">{value:</span> <span class="pre">'#aaa'}}</span></code> will make the visualization color all invalid values with ‘#aaa’.</p>
+<p>See [https://vega.github.io/vega-lite/docs/invalid-data.html](Invalid Data Docs) for more details.</p>
+</td>
+</tr>
+<tr class="row-even"><td class="vl-prop"><p>maxBandSize</p></td>
 <td class="vl-type-def"><p><code class="docutils literal notranslate"><span class="pre">number</span></code></p></td>
 <td class="vl-decsr"><p>The default max value for mapping quantitative fields to bar’s size/bandSize.</p>
 <p>If undefined (default), we will use the axis’s size (width or height) - 1.</p>
 </td>
 </tr>
-<tr class="row-even"><td class="vl-prop"><p>maxFontSize</p></td>
+<tr class="row-odd"><td class="vl-prop"><p>maxFontSize</p></td>
 <td class="vl-type-def"><p><code class="docutils literal notranslate"><span class="pre">number</span></code></p></td>
-<td class="vl-decsr"><p>The default max value for mapping quantitative fields to text’s size/fontSize.</p>
+<td class="vl-decsr"><p>The default max value for mapping quantitative fields to text’s size/fontSize scale.</p>
 <p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">40</span></code></p>
 </td>
 </tr>
-<tr class="row-odd"><td class="vl-prop"><p>maxOpacity</p></td>
+<tr class="row-even"><td class="vl-prop"><p>maxOpacity</p></td>
 <td class="vl-type-def"><p><code class="docutils literal notranslate"><span class="pre">number</span></code></p></td>
 <td class="vl-decsr"><p>Default max opacity for mapping a field to opacity.</p>
 <p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">0.8</span></code></p>
 </td>
 </tr>
-<tr class="row-even"><td class="vl-prop"><p>maxSize</p></td>
+<tr class="row-odd"><td class="vl-prop"><p>maxSize</p></td>
 <td class="vl-type-def"><p><code class="docutils literal notranslate"><span class="pre">number</span></code></p></td>
 <td class="vl-decsr"><p>Default max value for point size scale.</p></td>
 </tr>
-<tr class="row-odd"><td class="vl-prop"><p>maxStrokeWidth</p></td>
+<tr class="row-even"><td class="vl-prop"><p>maxStrokeWidth</p></td>
 <td class="vl-type-def"><p><code class="docutils literal notranslate"><span class="pre">number</span></code></p></td>
 <td class="vl-decsr"><p>Default max strokeWidth for the scale of strokeWidth for rule and line marks and of size for trail marks.</p>
 <p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">4</span></code></p>
 </td>
 </tr>
-<tr class="row-even"><td class="vl-prop"><p>minBandSize</p></td>
+<tr class="row-odd"><td class="vl-prop"><p>minBandSize</p></td>
 <td class="vl-type-def"><p><code class="docutils literal notranslate"><span class="pre">number</span></code></p></td>
-<td class="vl-decsr"><p>The default min value for mapping quantitative fields to bar and tick’s size/bandSize scale with zero=false.</p>
+<td class="vl-decsr"><p>The default min value for mapping quantitative fields to bar and tick’s size/bandSize scale.</p>
 <p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">2</span></code></p>
 </td>
 </tr>
-<tr class="row-odd"><td class="vl-prop"><p>minFontSize</p></td>
+<tr class="row-even"><td class="vl-prop"><p>minFontSize</p></td>
 <td class="vl-type-def"><p><code class="docutils literal notranslate"><span class="pre">number</span></code></p></td>
-<td class="vl-decsr"><p>The default min value for mapping quantitative fields to tick’s size/fontSize scale with zero=false</p>
+<td class="vl-decsr"><p>The default min value for mapping quantitative fields to text’s size/fontSize scale.</p>
 <p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">8</span></code></p>
 </td>
 </tr>
-<tr class="row-even"><td class="vl-prop"><p>minOpacity</p></td>
+<tr class="row-odd"><td class="vl-prop"><p>minOpacity</p></td>
 <td class="vl-type-def"><p><code class="docutils literal notranslate"><span class="pre">number</span></code></p></td>
 <td class="vl-decsr"><p>Default minimum opacity for mapping a field to opacity.</p>
 <p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">0.3</span></code></p>
 </td>
 </tr>
-<tr class="row-odd"><td class="vl-prop"><p>minSize</p></td>
+<tr class="row-even"><td class="vl-prop"><p>minSize</p></td>
 <td class="vl-type-def"><p><code class="docutils literal notranslate"><span class="pre">number</span></code></p></td>
-<td class="vl-decsr"><p>Default minimum value for point size scale with zero=false.</p>
+<td class="vl-decsr"><p>Default minimum value for point size scale.</p>
 <p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">9</span></code></p>
 </td>
 </tr>
-<tr class="row-even"><td class="vl-prop"><p>minStrokeWidth</p></td>
+<tr class="row-odd"><td class="vl-prop"><p>minStrokeWidth</p></td>
 <td class="vl-type-def"><p><code class="docutils literal notranslate"><span class="pre">number</span></code></p></td>
-<td class="vl-decsr"><p>Default minimum strokeWidth for the scale of strokeWidth for rule and line marks and of size for trail marks with zero=false.</p>
+<td class="vl-decsr"><p>Default minimum strokeWidth for the scale of strokeWidth for rule and line marks and of size for trail marks.</p>
 <p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
 </td>
 </tr>
-<tr class="row-odd"><td class="vl-prop"><p>offsetBandPaddingInner</p></td>
+<tr class="row-even"><td class="vl-prop"><p>offsetBandPaddingInner</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
 <td class="vl-decsr"><p>Default padding inner for xOffset/yOffset’s band scales.</p>
 <p><strong>Default Value:</strong> <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
 </td>
 </tr>
-<tr class="row-even"><td class="vl-prop"><p>offsetBandPaddingOuter</p></td>
+<tr class="row-odd"><td class="vl-prop"><p>offsetBandPaddingOuter</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
 <td class="vl-decsr"><p>Default padding outer for xOffset/yOffset’s band scales.</p>
 <p><strong>Default Value:</strong> <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
 </td>
 </tr>
-<tr class="row-odd"><td class="vl-prop"><p>pointPadding</p></td>
+<tr class="row-even"><td class="vl-prop"><p>pointPadding</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
 <td class="vl-decsr"><p>Default outer padding for <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> point-ordinal scales.</p>
 <p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">0.5</span></code> (which makes <em>width/height = number of unique values * step</em>)</p>
 </td>
 </tr>
-<tr class="row-even"><td class="vl-prop"><p>quantileCount</p></td>
+<tr class="row-odd"><td class="vl-prop"><p>quantileCount</p></td>
 <td class="vl-type-def"><p><code class="docutils literal notranslate"><span class="pre">number</span></code></p></td>
 <td class="vl-decsr"><p>Default range cardinality for <a class="reference external" href="https://vega.github.io/vega-lite/docs/scale.html#quantile"><code class="docutils literal notranslate"><span class="pre">quantile</span></code></a> scale.</p>
 <p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">4</span></code></p>
 </td>
 </tr>
-<tr class="row-odd"><td class="vl-prop"><p>quantizeCount</p></td>
+<tr class="row-even"><td class="vl-prop"><p>quantizeCount</p></td>
 <td class="vl-type-def"><p><code class="docutils literal notranslate"><span class="pre">number</span></code></p></td>
 <td class="vl-decsr"><p>Default range cardinality for <a class="reference external" href="https://vega.github.io/vega-lite/docs/scale.html#quantize"><code class="docutils literal notranslate"><span class="pre">quantize</span></code></a> scale.</p>
 <p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">4</span></code></p>
 </td>
 </tr>
-<tr class="row-even"><td class="vl-prop"><p>rectBandPaddingInner</p></td>
+<tr class="row-odd"><td class="vl-prop"><p>rectBandPaddingInner</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
 <td class="vl-decsr"><p>Default inner padding for <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> band-ordinal scales of <code class="docutils literal notranslate"><span class="pre">&quot;rect&quot;</span></code> marks.</p>
 <p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
 </td>
 </tr>
-<tr class="row-odd"><td class="vl-prop"><p>round</p></td>
+<tr class="row-even"><td class="vl-prop"><p>round</p></td>
 <td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">boolean</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
 <td class="vl-decsr"><p>If true, rounds numeric output values to integers. This can be helpful for snapping to the pixel grid. (Only available for <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, and <code class="docutils literal notranslate"><span class="pre">size</span></code> scales.)</p></td>
+</tr>
+<tr class="row-odd"><td class="vl-prop"><p>tickBandPaddingInner</p></td>
+<td class="vl-type-def"><p>anyOf(<code class="docutils literal notranslate"><span class="pre">number</span></code>, <a class="reference internal" href="generated/core/altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>)</p></td>
+<td class="vl-decsr"><p>Default inner padding for <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> band-ordinal scales of <code class="docutils literal notranslate"><span class="pre">&quot;tick&quot;</span></code> marks.</p>
+<p><strong>Default value:</strong> <code class="docutils literal notranslate"><span class="pre">0.25</span></code></p>
+</td>
 </tr>
 <tr class="row-even"><td class="vl-prop"><p>useUnaggregatedDomain</p></td>
 <td class="vl-type-def"><p><code class="docutils literal notranslate"><span class="pre">boolean</span></code></p></td>
@@ -2644,12 +2681,13 @@ the following properties:</p>
 </tr>
 </tbody>
 </table>
+</div>
 </details></section>
 <section id="scale-range-configuration">
 <span id="config-range"></span><h2>Scale Range Configuration<a class="headerlink" href="#scale-range-configuration" title="Link to this heading">#</a></h2>
 <p>Scale ranges can be configured using <code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_range()</span></code>, which has
 the following properties:</p>
-<details><summary><a>Click to show table</a></summary><table class="table">
+<details><summary><a>Click to show table</a></summary><div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Property</p></th>
 <th class="head"><p>Type</p></th>
@@ -2683,12 +2721,13 @@ the following properties:</p>
 </tr>
 </tbody>
 </table>
+</div>
 </details></section>
 <section id="projection-configuration">
 <span id="config-projection"></span><h2>Projection Configuration<a class="headerlink" href="#projection-configuration" title="Link to this heading">#</a></h2>
 <p>Projections can be configured using <code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_projection()</span></code>,
 which has the following properties:</p>
-<details><summary><a>Click to show table</a></summary><table class="table">
+<details><summary><a>Click to show table</a></summary><div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Property</p></th>
 <th class="head"><p>Type</p></th>
@@ -2812,12 +2851,13 @@ which has the following properties:</p>
 </tr>
 </tbody>
 </table>
+</div>
 </details></section>
 <section id="concat-and-facet-configuration">
 <span id="config-composition"></span><h2>Concat and Facet Configuration<a class="headerlink" href="#concat-and-facet-configuration" title="Link to this heading">#</a></h2>
 <p>Various aspects of concat and facet charts can be configured using <code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_concat()</span></code>
 and <code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_facet()</span></code>, which have the following properties:</p>
-<details><summary><a>Click to show table</a></summary><table class="table">
+<details><summary><a>Click to show table</a></summary><div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Property</p></th>
 <th class="head"><p>Type</p></th>
@@ -2850,12 +2890,13 @@ and <code class="xref py py-meth docutils literal notranslate"><span class="pre"
 </tr>
 </tbody>
 </table>
+</div>
 </details></section>
 <section id="selection-configuration">
 <span id="config-selection"></span><h2>Selection Configuration<a class="headerlink" href="#selection-configuration" title="Link to this heading">#</a></h2>
 <p>Selections can be configured using <code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_selection()</span></code>,
 which has the following properties:</p>
-<details><summary><a>Click to show table</a></summary><table class="table">
+<details><summary><a>Click to show table</a></summary><div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Property</p></th>
 <th class="head"><p>Type</p></th>
@@ -2877,6 +2918,7 @@ which has the following properties:</p>
 </tr>
 </tbody>
 </table>
+</div>
 </details></section>
 <section id="title-configuration">
 <span id="config-title"></span><h2>Title Configuration<a class="headerlink" href="#title-configuration" title="Link to this heading">#</a></h2>
@@ -2909,7 +2951,7 @@ Here is an example:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}, "title": {"anchor": "start", "color": "gray", "font": "Courier", "fontSize": 20}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "point"}, "encoding": {"x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "title": "Cars Data", "$schema": "https://vega.github.io/schema/vega-lite/v5.17.0.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}, "title": {"anchor": "start", "color": "gray", "font": "Courier", "fontSize": 20}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "point"}, "encoding": {"x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "title": "Cars Data", "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -2919,7 +2961,7 @@ Here is an example:</p>
   });
 </script>
 </div><p>Additional title configuration options are listed in the following table:</p>
-<details><summary><a>Click to show table</a></summary><table class="table">
+<details><summary><a>Click to show table</a></summary><div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Property</p></th>
 <th class="head"><p>Type</p></th>
@@ -3033,6 +3075,7 @@ Here is an example:</p>
 </tr>
 </tbody>
 </table>
+</div>
 </details></section>
 <section id="view-configuration">
 <span id="config-view"></span><h2>View Configuration<a class="headerlink" href="#view-configuration" title="Link to this heading">#</a></h2>
@@ -3065,7 +3108,7 @@ be controlled:</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 200, "continuousHeight": 200, "fill": "#FFEEDD", "stroke": "red", "strokeWidth": 4}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "point"}, "encoding": {"x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.17.0.json"};
+      var spec = {"config": {"view": {"continuousWidth": 200, "continuousHeight": 200, "fill": "#FFEEDD", "stroke": "red", "strokeWidth": 4}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json"}, "mark": {"type": "point"}, "encoding": {"x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -3075,7 +3118,7 @@ be controlled:</p>
   });
 </script>
 </div><p>Additional properties are summarized in the following table:</p>
-<details><summary><a>Click to show table</a></summary><table class="table">
+<details><summary><a>Click to show table</a></summary><div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Property</p></th>
 <th class="head"><p>Type</p></th>
@@ -3185,6 +3228,7 @@ be controlled:</p>
 </tr>
 </tbody>
 </table>
+</div>
 </details></section>
 </section>
 
@@ -3195,7 +3239,7 @@ be controlled:</p>
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -3262,8 +3306,8 @@ be controlled:</p>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -3283,7 +3327,7 @@ be controlled:</p>
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.0.2.
     <br/>
   </p>
 </div>
@@ -3296,7 +3340,7 @@ be controlled:</p>
       
         <div class="footer-item">
 <p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.2.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
 </p></div>
       
     </div>
