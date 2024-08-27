@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Cumulative Count Chart &#8212; Vega-Altair 5.4.0 documentation</title>
+    <title>Cumulative Count Chart &#8212; Vega-Altair 5.5.0dev documentation</title>
   
   
   
@@ -41,7 +41,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=d250e987"></script>
+    <script src="../_static/documentation_options.js?v=d2f74b0e"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -135,8 +135,8 @@
     
     
     
-    <img src="../_static/altair-logo-light.png" class="logo__image only-light" alt="Vega-Altair 5.4.0 documentation - Home"/>
-    <script>document.write(`<img src="../_static/altair-logo-light.png" class="logo__image only-dark" alt="Vega-Altair 5.4.0 documentation - Home"/>`);</script>
+    <img src="../_static/altair-logo-light.png" class="logo__image only-light" alt="Vega-Altair 5.5.0dev documentation - Home"/>
+    <script>document.write(`<img src="../_static/altair-logo-light.png" class="logo__image only-dark" alt="Vega-Altair 5.5.0dev documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -469,7 +469,7 @@ Adapted from <a class="reference external" href="https://vega.github.io/vega-lit
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/movies.json"}, "mark": {"type": "area"}, "encoding": {"x": {"field": "IMDB_Rating", "type": "quantitative"}, "y": {"field": "cumulative_count", "type": "quantitative"}}, "transform": [{"window": [{"op": "count", "as": "cumulative_count"}], "sort": [{"field": "IMDB_Rating"}]}], "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/movies.json"}, "mark": {"type": "area"}, "encoding": {"x": {"field": "IMDB_Rating", "type": "quantitative"}, "y": {"field": "cumulative_count", "stack": false, "type": "quantitative"}}, "transform": [{"window": [{"op": "count", "as": "cumulative_count"}], "sort": [{"field": "IMDB_Rating"}]}], "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -492,7 +492,7 @@ Method syntax</label><div class="sd-tab-content docutils">
     <span class="n">sort</span><span class="o">=</span><span class="p">[{</span><span class="s2">&quot;field&quot;</span><span class="p">:</span> <span class="s2">&quot;IMDB_Rating&quot;</span><span class="p">}],</span>
 <span class="p">)</span><span class="o">.</span><span class="n">mark_area</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="s2">&quot;IMDB_Rating:Q&quot;</span><span class="p">,</span>
-    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;cumulative_count:Q&quot;</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;cumulative_count:Q&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -510,10 +510,8 @@ Attribute syntax</label><div class="sd-tab-content docutils">
     <span class="n">sort</span><span class="o">=</span><span class="p">[{</span><span class="s2">&quot;field&quot;</span><span class="p">:</span> <span class="s2">&quot;IMDB_Rating&quot;</span><span class="p">}],</span>
 <span class="p">)</span><span class="o">.</span><span class="n">mark_area</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="s2">&quot;IMDB_Rating:Q&quot;</span><span class="p">,</span>
-    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;cumulative_count:Q&quot;</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;cumulative_count:Q&quot;</span><span class="p">,</span> <span class="n">stack</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="p">)</span>
-<span class="c1"># No channel encoding options are specified in this chart</span>
-<span class="c1"># so the code is the same as for the method-based syntax.</span>
 </pre></div>
 </div>
 </div>

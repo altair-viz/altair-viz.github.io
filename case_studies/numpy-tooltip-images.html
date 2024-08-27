@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Displaying Numpy Images in Tooltips &#8212; Vega-Altair 5.4.0 documentation</title>
+    <title>Displaying Numpy Images in Tooltips &#8212; Vega-Altair 5.5.0dev documentation</title>
   
   
   
@@ -41,7 +41,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=d250e987"></script>
+    <script src="../_static/documentation_options.js?v=d2f74b0e"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -137,8 +137,8 @@
     
     
     
-    <img src="../_static/altair-logo-light.png" class="logo__image only-light" alt="Vega-Altair 5.4.0 documentation - Home"/>
-    <script>document.write(`<img src="../_static/altair-logo-light.png" class="logo__image only-dark" alt="Vega-Altair 5.4.0 documentation - Home"/>`);</script>
+    <img src="../_static/altair-logo-light.png" class="logo__image only-light" alt="Vega-Altair 5.5.0dev documentation - Home"/>
+    <script>document.write(`<img src="../_static/altair-logo-light.png" class="logo__image only-dark" alt="Vega-Altair 5.5.0dev documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -523,18 +523,18 @@ to compare them with in our charts.</p>
 <span class="n">df</span>
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                                                    image1                                             image2 group  image1_area  image2_area
-    0    [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...  [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...     b     0.030599     0.070855
-    1    [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...  [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...     b     0.134006     0.167752
-    2    [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...  [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...     a     0.014865     0.195421
-    3    [[0.8408188559277083, 0.8434385804894682, 0.84...  [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...     c     0.097222     0.208550
-    4    [[0.0, 0.0, 0.00030006935893488147, 0.00039595...  [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...     b     0.072266     0.043294
-    ..                                                 ...                                                ...   ...          ...          ...
-    195  [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...  [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...     a     0.014865     0.100260
-    196  [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...  [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...     a     0.040148     0.070747
-    197  [[0.020642835524827916, 0.021450917851981367, ...  [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...     b     0.122830     0.135091
-    198  [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...  [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...     a     0.064779     0.088542
-    199  [[0.0, 2.078157310309435e-06, 2.74224551900630...  [[0.5236619475835835, 0.446206634299134, 0.398...     b     0.130317     0.145942
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                                                    image1  ... image2_area
+    0    [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...  ...    0.070855
+    1    [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...  ...    0.167752
+    2    [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...  ...    0.195421
+    3    [[0.8408188559277084, 0.8434385804894683, 0.84...  ...    0.208550
+    4    [[0.0, 0.0, 0.00030006935893488147, 0.00039595...  ...    0.043294
+    ..                                                 ...  ...         ...
+    195  [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...  ...    0.100260
+    196  [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...  ...    0.070747
+    197  [[0.020642835524827916, 0.021450917851981367, ...  ...    0.135091
+    198  [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...  ...    0.088542
+    199  [[0.0, 2.078157310309435e-06, 2.74224551900630...  ...    0.145942
     
     [200 rows x 5 columns]
 </pre></div>
@@ -674,18 +674,18 @@ instead of both the images concatenated together.</p>
 <span class="n">df_plot</span>
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>        group  image1_area  image2_area                                      image1_base64                                      image2_base64
-    0       b     0.030599     0.070855  data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA...  data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA...
-    1       b     0.134006     0.167752  data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA...  data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA...
-    2       a     0.014865     0.195421  data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA...  data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA...
-    3       c     0.097222     0.208550  data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA...  data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA...
-    4       b     0.072266     0.043294  data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA...  data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA...
-    ..    ...          ...          ...                                                ...                                                ...
-    195     a     0.014865     0.100260  data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA...  data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA...
-    196     a     0.040148     0.070747  data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA...  data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA...
-    197     b     0.122830     0.135091  data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA...  data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA...
-    198     a     0.064779     0.088542  data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA...  data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA...
-    199     b     0.130317     0.145942  data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA...  data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA...
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>        group  ...                                      image2_base64
+    0       b  ...  data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA...
+    1       b  ...  data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA...
+    2       a  ...  data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA...
+    3       c  ...  data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA...
+    4       b  ...  data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA...
+    ..    ...  ...                                                ...
+    195     a  ...  data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA...
+    196     a  ...  data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA...
+    197     b  ...  data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA...
+    198     a  ...  data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA...
+    199     b  ...  data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA...
     
     [200 rows x 5 columns]
 </pre></div>

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>altair.LineConfig &#8212; Vega-Altair 5.4.0 documentation</title>
+    <title>altair.LineConfig &#8212; Vega-Altair 5.5.0dev documentation</title>
   
   
   
@@ -41,7 +41,7 @@
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../../_static/documentation_options.js?v=d250e987"></script>
+    <script src="../../../_static/documentation_options.js?v=d2f74b0e"></script>
     <script src="../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -137,8 +137,8 @@
     
     
     
-    <img src="../../../_static/altair-logo-light.png" class="logo__image only-light" alt="Vega-Altair 5.4.0 documentation - Home"/>
-    <script>document.write(`<img src="../../../_static/altair-logo-light.png" class="logo__image only-dark" alt="Vega-Altair 5.4.0 documentation - Home"/>`);</script>
+    <img src="../../../_static/altair-logo-light.png" class="logo__image only-light" alt="Vega-Altair 5.5.0dev documentation - Home"/>
+    <script>document.write(`<img src="../../../_static/altair-logo-light.png" class="logo__image only-dark" alt="Vega-Altair 5.5.0dev documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -1145,7 +1145,7 @@ Warning: this property is experimental and may be changed in the future.</p>
 </dd>
 <dt><strong>aspect</strong><span class="classifier">bool, dict, <a class="reference internal" href="altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a></span></dt><dd><p>Whether to keep aspect ratio of image marks.</p>
 </dd>
-<dt><strong>baseline</strong><span class="classifier">str, dict, <a class="reference internal" href="altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>, <a class="reference internal" href="altair.Baseline.html#altair.Baseline" title="altair.Baseline"><code class="xref py py-class docutils literal notranslate"><span class="pre">Baseline</span></code></a>, <a class="reference internal" href="altair.TextBaseline.html#altair.TextBaseline" title="altair.TextBaseline"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextBaseline</span></code></a>, Literal[‘top’, ‘middle’, ‘bottom’]</span></dt><dd><p>For text marks, the vertical text baseline. One of <code class="docutils literal notranslate"><span class="pre">&quot;alphabetic&quot;</span></code> (default),
+<dt><strong>baseline</strong><span class="classifier">dict, <a class="reference internal" href="altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>, <a class="reference internal" href="altair.Baseline.html#altair.Baseline" title="altair.Baseline"><code class="xref py py-class docutils literal notranslate"><span class="pre">Baseline</span></code></a>, <a class="reference internal" href="altair.TextBaseline.html#altair.TextBaseline" title="altair.TextBaseline"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextBaseline</span></code></a>, Literal[‘alphabetic’, ‘line-bottom’, ‘line-top’, ‘top’, ‘middle’, ‘bottom’]</span></dt><dd><p>For text marks, the vertical text baseline. One of <code class="docutils literal notranslate"><span class="pre">&quot;alphabetic&quot;</span></code> (default),
 <code class="docutils literal notranslate"><span class="pre">&quot;top&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;middle&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;bottom&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;line-top&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;line-bottom&quot;</span></code>, or an
 expression reference that provides one of the valid values. The <code class="docutils literal notranslate"><span class="pre">&quot;line-top&quot;</span></code> and
 <code class="docutils literal notranslate"><span class="pre">&quot;line-bottom&quot;</span></code> values operate similarly to <code class="docutils literal notranslate"><span class="pre">&quot;top&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;bottom&quot;</span></code>, but are
@@ -1321,7 +1321,7 @@ value will be ignored.</p></li>
 </dd>
 <dt><strong>padAngle</strong><span class="classifier">dict, float, <a class="reference internal" href="altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a></span></dt><dd><p>The angular padding applied to sides of the arc, in radians.</p>
 </dd>
-<dt><strong>point</strong><span class="classifier">str, bool, dict, <a class="reference internal" href="altair.OverlayMarkDef.html#altair.OverlayMarkDef" title="altair.OverlayMarkDef"><code class="xref py py-class docutils literal notranslate"><span class="pre">OverlayMarkDef</span></code></a></span></dt><dd><p>A flag for overlaying points on top of line or area marks, or an object defining the
+<dt><strong>point</strong><span class="classifier">bool, dict, Literal[‘transparent’], <a class="reference internal" href="altair.OverlayMarkDef.html#altair.OverlayMarkDef" title="altair.OverlayMarkDef"><code class="xref py py-class docutils literal notranslate"><span class="pre">OverlayMarkDef</span></code></a></span></dt><dd><p>A flag for overlaying points on top of line or area marks, or an object defining the
 properties of the overlayed points.</p>
 <ul class="simple">
 <li><p>If this property is <code class="docutils literal notranslate"><span class="pre">&quot;transparent&quot;</span></code>, transparent points will be used (for
@@ -1444,21 +1444,21 @@ documentation for a detailed discussion about tooltip  in Vega-Lite.</p>
 </dd>
 <dt><strong>width</strong><span class="classifier">dict, float, <a class="reference internal" href="altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a></span></dt><dd><p>Width of the marks.</p>
 </dd>
-<dt><strong>x</strong><span class="classifier">str, dict, float, <a class="reference internal" href="altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a></span></dt><dd><p>X coordinates of the marks, or width of horizontal <code class="docutils literal notranslate"><span class="pre">&quot;bar&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;area&quot;</span></code> without
+<dt><strong>x</strong><span class="classifier">dict, float, <a class="reference internal" href="altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>, Literal[‘width’]</span></dt><dd><p>X coordinates of the marks, or width of horizontal <code class="docutils literal notranslate"><span class="pre">&quot;bar&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;area&quot;</span></code> without
 specified <code class="docutils literal notranslate"><span class="pre">x2</span></code> or <code class="docutils literal notranslate"><span class="pre">width</span></code>.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">value</span></code> of this channel can be a number or a string <code class="docutils literal notranslate"><span class="pre">&quot;width&quot;</span></code> for the width
 of the plot.</p>
 </dd>
-<dt><strong>x2</strong><span class="classifier">str, dict, float, <a class="reference internal" href="altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a></span></dt><dd><p>X2 coordinates for ranged <code class="docutils literal notranslate"><span class="pre">&quot;area&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;bar&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;rect&quot;</span></code>, and  <code class="docutils literal notranslate"><span class="pre">&quot;rule&quot;</span></code>.</p>
+<dt><strong>x2</strong><span class="classifier">dict, float, <a class="reference internal" href="altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>, Literal[‘width’]</span></dt><dd><p>X2 coordinates for ranged <code class="docutils literal notranslate"><span class="pre">&quot;area&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;bar&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;rect&quot;</span></code>, and  <code class="docutils literal notranslate"><span class="pre">&quot;rule&quot;</span></code>.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">value</span></code> of this channel can be a number or a string <code class="docutils literal notranslate"><span class="pre">&quot;width&quot;</span></code> for the width
 of the plot.</p>
 </dd>
-<dt><strong>y</strong><span class="classifier">str, dict, float, <a class="reference internal" href="altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a></span></dt><dd><p>Y coordinates of the marks, or height of vertical <code class="docutils literal notranslate"><span class="pre">&quot;bar&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;area&quot;</span></code> without
+<dt><strong>y</strong><span class="classifier">dict, float, <a class="reference internal" href="altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>, Literal[‘height’]</span></dt><dd><p>Y coordinates of the marks, or height of vertical <code class="docutils literal notranslate"><span class="pre">&quot;bar&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;area&quot;</span></code> without
 specified <code class="docutils literal notranslate"><span class="pre">y2</span></code> or <code class="docutils literal notranslate"><span class="pre">height</span></code>.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">value</span></code> of this channel can be a number or a string <code class="docutils literal notranslate"><span class="pre">&quot;height&quot;</span></code> for the
 height of the plot.</p>
 </dd>
-<dt><strong>y2</strong><span class="classifier">str, dict, float, <a class="reference internal" href="altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a></span></dt><dd><p>Y2 coordinates for ranged <code class="docutils literal notranslate"><span class="pre">&quot;area&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;bar&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;rect&quot;</span></code>, and  <code class="docutils literal notranslate"><span class="pre">&quot;rule&quot;</span></code>.</p>
+<dt><strong>y2</strong><span class="classifier">dict, float, <a class="reference internal" href="altair.ExprRef.html#altair.ExprRef" title="altair.ExprRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExprRef</span></code></a>, Literal[‘height’]</span></dt><dd><p>Y2 coordinates for ranged <code class="docutils literal notranslate"><span class="pre">&quot;area&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;bar&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;rect&quot;</span></code>, and  <code class="docutils literal notranslate"><span class="pre">&quot;rule&quot;</span></code>.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">value</span></code> of this channel can be a number or a string <code class="docutils literal notranslate"><span class="pre">&quot;height&quot;</span></code> for the
 height of the plot.</p>
 </dd>

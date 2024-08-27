@@ -30,10 +30,8 @@ Adapted from https://vega.github.io/vega-lite/examples/area_cumulative_freq.html
         sort=[{"field": "IMDB_Rating"}],
     ).mark_area().encode(
         x="IMDB_Rating:Q",
-        y="cumulative_count:Q"
+        y=alt.Y("cumulative_count:Q", stack=False)
     )
-    # No channel encoding options are specified in this chart
-    # so the code is the same as for the method-based syntax.
 
 
 .. tab-set::
@@ -55,7 +53,7 @@ Adapted from https://vega.github.io/vega-lite/examples/area_cumulative_freq.html
                 sort=[{"field": "IMDB_Rating"}],
             ).mark_area().encode(
                 x="IMDB_Rating:Q",
-                y="cumulative_count:Q"
+                y=alt.Y("cumulative_count:Q").stack(False)
             )
 
 
@@ -76,7 +74,5 @@ Adapted from https://vega.github.io/vega-lite/examples/area_cumulative_freq.html
                 sort=[{"field": "IMDB_Rating"}],
             ).mark_area().encode(
                 x="IMDB_Rating:Q",
-                y="cumulative_count:Q"
+                y=alt.Y("cumulative_count:Q", stack=False)
             )
-            # No channel encoding options are specified in this chart
-            # so the code is the same as for the method-based syntax.
