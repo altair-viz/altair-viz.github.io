@@ -34,6 +34,7 @@ This example is a fully developed bar chart with negative values using the sampl
             "president": "Obama"
         }
     ])
+    predicate = alt.datum.nonfarm_change > 0
 
     bars = alt.Chart(
         source,
@@ -41,11 +42,7 @@ This example is a fully developed bar chart with negative values using the sampl
     ).mark_bar().encode(
         x=alt.X("month:T", title=""),
         y=alt.Y("nonfarm_change:Q", title="Change in non-farm employment (in thousands)"),
-        color=alt.condition(
-            alt.datum.nonfarm_change > 0,
-            alt.value("steelblue"),
-            alt.value("orange")
-        )
+        color=alt.when(predicate).then(alt.value("steelblue")).otherwise(alt.value("orange")),
     )
 
     rule = alt.Chart(presidents).mark_rule(
@@ -95,6 +92,7 @@ This example is a fully developed bar chart with negative values using the sampl
                     "president": "Obama"
                 }
             ])
+            predicate = alt.datum.nonfarm_change > 0
 
             bars = alt.Chart(
                 source,
@@ -102,11 +100,7 @@ This example is a fully developed bar chart with negative values using the sampl
             ).mark_bar().encode(
                 alt.X("month:T").title(""),
                 alt.Y("nonfarm_change:Q").title("Change in non-farm employment (in thousands)"),
-                color=alt.condition(
-                    alt.datum.nonfarm_change > 0,
-                    alt.value("steelblue"),
-                    alt.value("orange")
-                )
+                color=alt.when(predicate).then(alt.value("steelblue")).otherwise(alt.value("orange")),
             )
 
             rule = alt.Chart(presidents).mark_rule(
@@ -154,6 +148,7 @@ This example is a fully developed bar chart with negative values using the sampl
                     "president": "Obama"
                 }
             ])
+            predicate = alt.datum.nonfarm_change > 0
 
             bars = alt.Chart(
                 source,
@@ -161,11 +156,7 @@ This example is a fully developed bar chart with negative values using the sampl
             ).mark_bar().encode(
                 x=alt.X("month:T", title=""),
                 y=alt.Y("nonfarm_change:Q", title="Change in non-farm employment (in thousands)"),
-                color=alt.condition(
-                    alt.datum.nonfarm_change > 0,
-                    alt.value("steelblue"),
-                    alt.value("orange")
-                )
+                color=alt.when(predicate).then(alt.value("steelblue")).otherwise(alt.value("orange")),
             )
 
             rule = alt.Chart(presidents).mark_rule(

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>API Reference &#8212; Vega-Altair 5.5.0dev documentation</title>
+    <title>API Reference &#8212; Vega-Altair 5.5.0 documentation</title>
   
   
   
@@ -16,17 +16,19 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../_static/altair-plot.css?v=a673d9d3" />
@@ -36,14 +38,16 @@
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=7c07b56e" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="../_static/documentation_options.js?v=d2f74b0e"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/documentation_options.js?v=a385a3de"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script defer="defer" type="module" src="https://pyscript.net/releases/2024.10.1/core.js"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
@@ -59,6 +63,7 @@
     <link rel="prev" title="Displaying Numpy Images in Tooltips" href="../case_studies/numpy-tooltip-images.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="5.5.0" />
   </head>
   
   
@@ -74,19 +79,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -94,7 +88,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search the docs ..."
          aria-label="Search the docs ..."
          autocomplete="off"
@@ -102,8 +95,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -137,8 +130,8 @@
     
     
     
-    <img src="../_static/altair-logo-light.png" class="logo__image only-light" alt="Vega-Altair 5.5.0dev documentation - Home"/>
-    <script>document.write(`<img src="../_static/altair-logo-light.png" class="logo__image only-dark" alt="Vega-Altair 5.5.0dev documentation - Home"/>`);</script>
+    <img src="../_static/altair-logo-light.png" class="logo__image only-light" alt="Vega-Altair 5.5.0 documentation - Home"/>
+    <img src="../_static/altair-logo-light.png" class="logo__image only-dark pst-js-only" alt="Vega-Altair 5.5.0 documentation - Home"/>
   
   
 </a></div>
@@ -218,29 +211,21 @@
         <div class="navbar-item navbar-persistent--container">
           
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
         </div>
       
       
         <div class="navbar-item">
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script></div>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
       
         <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
@@ -277,15 +262,11 @@ document.write(`
   
     <div class="navbar-persistent--mobile">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
     </div>
   
 
@@ -304,7 +285,8 @@ document.write(`
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -372,15 +354,11 @@ document.write(`
         
           <div class="navbar-item">
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script></div>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
         
           <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
@@ -552,6 +530,85 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="generated/api/altair.value.html">altair.value</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generated/api/altair.vconcat.html">altair.vconcat</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generated/api/altair.when.html">altair.when</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.active.html">altair.theme.active</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.enable.html">altair.theme.enable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.get.html">altair.theme.get</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.names.html">altair.theme.names</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.options.html">altair.theme.options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.register.html">altair.theme.register</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.unregister.html">altair.theme.unregister</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.ThemeConfig.html">altair.theme.ThemeConfig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.AreaConfigKwds.html">altair.theme.AreaConfigKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.AutoSizeParamsKwds.html">altair.theme.AutoSizeParamsKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.AxisConfigKwds.html">altair.theme.AxisConfigKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.AxisResolveMapKwds.html">altair.theme.AxisResolveMapKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.BarConfigKwds.html">altair.theme.BarConfigKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.BindCheckboxKwds.html">altair.theme.BindCheckboxKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.BindDirectKwds.html">altair.theme.BindDirectKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.BindInputKwds.html">altair.theme.BindInputKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.BindRadioSelectKwds.html">altair.theme.BindRadioSelectKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.BindRangeKwds.html">altair.theme.BindRangeKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.BoxPlotConfigKwds.html">altair.theme.BoxPlotConfigKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.BrushConfigKwds.html">altair.theme.BrushConfigKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.CompositionConfigKwds.html">altair.theme.CompositionConfigKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.ConfigKwds.html">altair.theme.ConfigKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.DateTimeKwds.html">altair.theme.DateTimeKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.DerivedStreamKwds.html">altair.theme.DerivedStreamKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.ErrorBandConfigKwds.html">altair.theme.ErrorBandConfigKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.ErrorBarConfigKwds.html">altair.theme.ErrorBarConfigKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.FeatureGeometryGeoJsonPropertiesKwds.html">altair.theme.FeatureGeometryGeoJsonPropertiesKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.FormatConfigKwds.html">altair.theme.FormatConfigKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.GeoJsonFeatureCollectionKwds.html">altair.theme.GeoJsonFeatureCollectionKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.GeoJsonFeatureKwds.html">altair.theme.GeoJsonFeatureKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.GeometryCollectionKwds.html">altair.theme.GeometryCollectionKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.GradientStopKwds.html">altair.theme.GradientStopKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.HeaderConfigKwds.html">altair.theme.HeaderConfigKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.IntervalSelectionConfigKwds.html">altair.theme.IntervalSelectionConfigKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.IntervalSelectionConfigWithoutTypeKwds.html">altair.theme.IntervalSelectionConfigWithoutTypeKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.LegendConfigKwds.html">altair.theme.LegendConfigKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.LegendResolveMapKwds.html">altair.theme.LegendResolveMapKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.LegendStreamBindingKwds.html">altair.theme.LegendStreamBindingKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.LineConfigKwds.html">altair.theme.LineConfigKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.LineStringKwds.html">altair.theme.LineStringKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.LinearGradientKwds.html">altair.theme.LinearGradientKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.LocaleKwds.html">altair.theme.LocaleKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.MarkConfigKwds.html">altair.theme.MarkConfigKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.MergedStreamKwds.html">altair.theme.MergedStreamKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.MultiLineStringKwds.html">altair.theme.MultiLineStringKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.MultiPointKwds.html">altair.theme.MultiPointKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.MultiPolygonKwds.html">altair.theme.MultiPolygonKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.NumberLocaleKwds.html">altair.theme.NumberLocaleKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.OverlayMarkDefKwds.html">altair.theme.OverlayMarkDefKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.PaddingKwds.html">altair.theme.PaddingKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.PointKwds.html">altair.theme.PointKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.PointSelectionConfigKwds.html">altair.theme.PointSelectionConfigKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.PointSelectionConfigWithoutTypeKwds.html">altair.theme.PointSelectionConfigWithoutTypeKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.PolygonKwds.html">altair.theme.PolygonKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.ProjectionConfigKwds.html">altair.theme.ProjectionConfigKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.ProjectionKwds.html">altair.theme.ProjectionKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.RadialGradientKwds.html">altair.theme.RadialGradientKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.RangeConfigKwds.html">altair.theme.RangeConfigKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.RectConfigKwds.html">altair.theme.RectConfigKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.ResolveKwds.html">altair.theme.ResolveKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.RowColKwds.html">altair.theme.RowColKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.ScaleConfigKwds.html">altair.theme.ScaleConfigKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.ScaleInvalidDataConfigKwds.html">altair.theme.ScaleInvalidDataConfigKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.ScaleResolveMapKwds.html">altair.theme.ScaleResolveMapKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.SelectionConfigKwds.html">altair.theme.SelectionConfigKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.StepKwds.html">altair.theme.StepKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.StyleConfigIndexKwds.html">altair.theme.StyleConfigIndexKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.TickConfigKwds.html">altair.theme.TickConfigKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.TimeIntervalStepKwds.html">altair.theme.TimeIntervalStepKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.TimeLocaleKwds.html">altair.theme.TimeLocaleKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.TitleConfigKwds.html">altair.theme.TitleConfigKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.TitleParamsKwds.html">altair.theme.TitleParamsKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.TooltipContentKwds.html">altair.theme.TooltipContentKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.TopLevelSelectionParameterKwds.html">altair.theme.TopLevelSelectionParameterKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.VariableParameterKwds.html">altair.theme.VariableParameterKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.ViewBackgroundKwds.html">altair.theme.ViewBackgroundKwds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/theme/altair.theme.ViewConfigKwds.html">altair.theme.ViewConfigKwds</a></li>
 </ul>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="generated/core/altair.Aggregate.html">altair.Aggregate</a></li>
@@ -1085,8 +1142,6 @@ document.write(`
       
         <div class="header-article-item">
 
-
-
 <nav aria-label="Breadcrumb" class="d-print-none">
   <ul class="bd-breadcrumbs">
     
@@ -1095,7 +1150,7 @@ document.write(`
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page">API Reference</li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">API Reference</span></li>
   </ul>
 </nav>
 </div>
@@ -1120,7 +1175,7 @@ Please refer to the <a class="reference external" href="http://altair-viz.github
 further details, as this low-level documentation may not be enough to give
 full guidelines on their use.</p>
 <section id="top-level-objects">
-<h2>Top-Level Objects<a class="headerlink" href="#top-level-objects" title="Link to this heading">#</a></h2>
+<span id="api-toplevel"></span><h2>Top-Level Objects<a class="headerlink" href="#top-level-objects" title="Link to this heading">#</a></h2>
 <div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/toplevel/altair.Chart.html#altair.Chart" title="altair.Chart"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Chart</span></code></a></p></td>
@@ -1152,7 +1207,7 @@ full guidelines on their use.</p>
 </div>
 </section>
 <section id="encoding-channels">
-<h2>Encoding Channels<a class="headerlink" href="#encoding-channels" title="Link to this heading">#</a></h2>
+<span id="api-channels"></span><h2>Encoding Channels<a class="headerlink" href="#encoding-channels" title="Link to this heading">#</a></h2>
 <div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/channels/altair.Angle.html#altair.Angle" title="altair.Angle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Angle</span></code></a></p></td>
@@ -1457,7 +1512,7 @@ full guidelines on their use.</p>
 </div>
 </section>
 <section id="api-functions">
-<h2>API Functions<a class="headerlink" href="#api-functions" title="Link to this heading">#</a></h2>
+<span id="id1"></span><h2>API Functions<a class="headerlink" href="#api-functions" title="Link to this heading">#</a></h2>
 <div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/api/altair.binding.html#altair.binding" title="altair.binding"><code class="xref py py-obj docutils literal notranslate"><span class="pre">binding</span></code></a></p></td>
@@ -1527,8 +1582,247 @@ full guidelines on their use.</p>
 </table>
 </div>
 </section>
+<section id="theme">
+<span id="api-theme"></span><h2>Theme<a class="headerlink" href="#theme" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/theme/altair.theme.active.html#altair.theme.active" title="altair.theme.active"><code class="xref py py-obj docutils literal notranslate"><span class="pre">active</span></code></a></p></td>
+<td><p>Return the name of the currently active theme.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/theme/altair.theme.enable.html#altair.theme.enable" title="altair.theme.enable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">enable</span></code></a></p></td>
+<td><p>Enable a theme by name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/theme/altair.theme.get.html#altair.theme.get" title="altair.theme.get"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get</span></code></a></p></td>
+<td><p>Return the currently active theme.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/theme/altair.theme.names.html#altair.theme.names" title="altair.theme.names"><code class="xref py py-obj docutils literal notranslate"><span class="pre">names</span></code></a></p></td>
+<td><p>Return the names of the registered and entry points themes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/theme/altair.theme.options.html#altair.theme.options" title="altair.theme.options"><code class="xref py py-obj docutils literal notranslate"><span class="pre">options</span></code></a></p></td>
+<td><p>Return the current themes options dictionary.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/theme/altair.theme.register.html#altair.theme.register" title="altair.theme.register"><code class="xref py py-obj docutils literal notranslate"><span class="pre">register</span></code></a></p></td>
+<td><p>Decorator for registering a theme function.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/theme/altair.theme.unregister.html#altair.theme.unregister" title="altair.theme.unregister"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unregister</span></code></a></p></td>
+<td><p>Remove and return a previously registered theme.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/theme/altair.theme.ThemeConfig.html#altair.theme.ThemeConfig" title="altair.theme.ThemeConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ThemeConfig</span></code></a></p></td>
+<td><p>Top-Level Configuration <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> for creating a consistent theme.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/theme/altair.theme.AreaConfigKwds.html#altair.theme.AreaConfigKwds" title="altair.theme.AreaConfigKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AreaConfigKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.AreaConfig.html#altair.AreaConfig" title="altair.AreaConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.AreaConfig</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/theme/altair.theme.AutoSizeParamsKwds.html#altair.theme.AutoSizeParamsKwds" title="altair.theme.AutoSizeParamsKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AutoSizeParamsKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.AutoSizeParams.html#altair.AutoSizeParams" title="altair.AutoSizeParams"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.AutoSizeParams</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/theme/altair.theme.AxisConfigKwds.html#altair.theme.AxisConfigKwds" title="altair.theme.AxisConfigKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AxisConfigKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.AxisConfig.html#altair.AxisConfig" title="altair.AxisConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.AxisConfig</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/theme/altair.theme.AxisResolveMapKwds.html#altair.theme.AxisResolveMapKwds" title="altair.theme.AxisResolveMapKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AxisResolveMapKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.AxisResolveMap.html#altair.AxisResolveMap" title="altair.AxisResolveMap"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.AxisResolveMap</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/theme/altair.theme.BarConfigKwds.html#altair.theme.BarConfigKwds" title="altair.theme.BarConfigKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BarConfigKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.BarConfig.html#altair.BarConfig" title="altair.BarConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.BarConfig</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/theme/altair.theme.BindCheckboxKwds.html#altair.theme.BindCheckboxKwds" title="altair.theme.BindCheckboxKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BindCheckboxKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.BindCheckbox.html#altair.BindCheckbox" title="altair.BindCheckbox"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.BindCheckbox</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/theme/altair.theme.BindDirectKwds.html#altair.theme.BindDirectKwds" title="altair.theme.BindDirectKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BindDirectKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.BindDirect.html#altair.BindDirect" title="altair.BindDirect"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.BindDirect</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/theme/altair.theme.BindInputKwds.html#altair.theme.BindInputKwds" title="altair.theme.BindInputKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BindInputKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.BindInput.html#altair.BindInput" title="altair.BindInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.BindInput</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/theme/altair.theme.BindRadioSelectKwds.html#altair.theme.BindRadioSelectKwds" title="altair.theme.BindRadioSelectKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BindRadioSelectKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.BindRadioSelect.html#altair.BindRadioSelect" title="altair.BindRadioSelect"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.BindRadioSelect</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/theme/altair.theme.BindRangeKwds.html#altair.theme.BindRangeKwds" title="altair.theme.BindRangeKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BindRangeKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.BindRange.html#altair.BindRange" title="altair.BindRange"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.BindRange</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/theme/altair.theme.BoxPlotConfigKwds.html#altair.theme.BoxPlotConfigKwds" title="altair.theme.BoxPlotConfigKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BoxPlotConfigKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.BoxPlotConfig.html#altair.BoxPlotConfig" title="altair.BoxPlotConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.BoxPlotConfig</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/theme/altair.theme.BrushConfigKwds.html#altair.theme.BrushConfigKwds" title="altair.theme.BrushConfigKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BrushConfigKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.BrushConfig.html#altair.BrushConfig" title="altair.BrushConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.BrushConfig</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/theme/altair.theme.CompositionConfigKwds.html#altair.theme.CompositionConfigKwds" title="altair.theme.CompositionConfigKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CompositionConfigKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.CompositionConfig.html#altair.CompositionConfig" title="altair.CompositionConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.CompositionConfig</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/theme/altair.theme.ConfigKwds.html#altair.theme.ConfigKwds" title="altair.theme.ConfigKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConfigKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.Config.html#altair.Config" title="altair.Config"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.Config</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/theme/altair.theme.DateTimeKwds.html#altair.theme.DateTimeKwds" title="altair.theme.DateTimeKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DateTimeKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.DateTime.html#altair.DateTime" title="altair.DateTime"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.DateTime</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/theme/altair.theme.DerivedStreamKwds.html#altair.theme.DerivedStreamKwds" title="altair.theme.DerivedStreamKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DerivedStreamKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.DerivedStream.html#altair.DerivedStream" title="altair.DerivedStream"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.DerivedStream</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/theme/altair.theme.ErrorBandConfigKwds.html#altair.theme.ErrorBandConfigKwds" title="altair.theme.ErrorBandConfigKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ErrorBandConfigKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.ErrorBandConfig.html#altair.ErrorBandConfig" title="altair.ErrorBandConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.ErrorBandConfig</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/theme/altair.theme.ErrorBarConfigKwds.html#altair.theme.ErrorBarConfigKwds" title="altair.theme.ErrorBarConfigKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ErrorBarConfigKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.ErrorBarConfig.html#altair.ErrorBarConfig" title="altair.ErrorBarConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.ErrorBarConfig</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/theme/altair.theme.FeatureGeometryGeoJsonPropertiesKwds.html#altair.theme.FeatureGeometryGeoJsonPropertiesKwds" title="altair.theme.FeatureGeometryGeoJsonPropertiesKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FeatureGeometryGeoJsonPropertiesKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.FeatureGeometryGeoJsonProperties.html#altair.FeatureGeometryGeoJsonProperties" title="altair.FeatureGeometryGeoJsonProperties"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.FeatureGeometryGeoJsonProperties</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/theme/altair.theme.FormatConfigKwds.html#altair.theme.FormatConfigKwds" title="altair.theme.FormatConfigKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FormatConfigKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.FormatConfig.html#altair.FormatConfig" title="altair.FormatConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.FormatConfig</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/theme/altair.theme.GeoJsonFeatureCollectionKwds.html#altair.theme.GeoJsonFeatureCollectionKwds" title="altair.theme.GeoJsonFeatureCollectionKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GeoJsonFeatureCollectionKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.GeoJsonFeatureCollection.html#altair.GeoJsonFeatureCollection" title="altair.GeoJsonFeatureCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.GeoJsonFeatureCollection</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/theme/altair.theme.GeoJsonFeatureKwds.html#altair.theme.GeoJsonFeatureKwds" title="altair.theme.GeoJsonFeatureKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GeoJsonFeatureKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.GeoJsonFeature.html#altair.GeoJsonFeature" title="altair.GeoJsonFeature"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.GeoJsonFeature</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/theme/altair.theme.GeometryCollectionKwds.html#altair.theme.GeometryCollectionKwds" title="altair.theme.GeometryCollectionKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GeometryCollectionKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.GeometryCollection.html#altair.GeometryCollection" title="altair.GeometryCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.GeometryCollection</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/theme/altair.theme.GradientStopKwds.html#altair.theme.GradientStopKwds" title="altair.theme.GradientStopKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GradientStopKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.GradientStop.html#altair.GradientStop" title="altair.GradientStop"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.GradientStop</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/theme/altair.theme.HeaderConfigKwds.html#altair.theme.HeaderConfigKwds" title="altair.theme.HeaderConfigKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HeaderConfigKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.HeaderConfig.html#altair.HeaderConfig" title="altair.HeaderConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.HeaderConfig</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/theme/altair.theme.IntervalSelectionConfigKwds.html#altair.theme.IntervalSelectionConfigKwds" title="altair.theme.IntervalSelectionConfigKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IntervalSelectionConfigKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.IntervalSelectionConfig.html#altair.IntervalSelectionConfig" title="altair.IntervalSelectionConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.IntervalSelectionConfig</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/theme/altair.theme.IntervalSelectionConfigWithoutTypeKwds.html#altair.theme.IntervalSelectionConfigWithoutTypeKwds" title="altair.theme.IntervalSelectionConfigWithoutTypeKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IntervalSelectionConfigWithoutTypeKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.IntervalSelectionConfigWithoutType.html#altair.IntervalSelectionConfigWithoutType" title="altair.IntervalSelectionConfigWithoutType"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.IntervalSelectionConfigWithoutType</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/theme/altair.theme.LegendConfigKwds.html#altair.theme.LegendConfigKwds" title="altair.theme.LegendConfigKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LegendConfigKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.LegendConfig.html#altair.LegendConfig" title="altair.LegendConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.LegendConfig</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/theme/altair.theme.LegendResolveMapKwds.html#altair.theme.LegendResolveMapKwds" title="altair.theme.LegendResolveMapKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LegendResolveMapKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.LegendResolveMap.html#altair.LegendResolveMap" title="altair.LegendResolveMap"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.LegendResolveMap</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/theme/altair.theme.LegendStreamBindingKwds.html#altair.theme.LegendStreamBindingKwds" title="altair.theme.LegendStreamBindingKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LegendStreamBindingKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.LegendStreamBinding.html#altair.LegendStreamBinding" title="altair.LegendStreamBinding"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.LegendStreamBinding</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/theme/altair.theme.LineConfigKwds.html#altair.theme.LineConfigKwds" title="altair.theme.LineConfigKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LineConfigKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.LineConfig.html#altair.LineConfig" title="altair.LineConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.LineConfig</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/theme/altair.theme.LineStringKwds.html#altair.theme.LineStringKwds" title="altair.theme.LineStringKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LineStringKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.LineString.html#altair.LineString" title="altair.LineString"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.LineString</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/theme/altair.theme.LinearGradientKwds.html#altair.theme.LinearGradientKwds" title="altair.theme.LinearGradientKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LinearGradientKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.LinearGradient.html#altair.LinearGradient" title="altair.LinearGradient"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.LinearGradient</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/theme/altair.theme.LocaleKwds.html#altair.theme.LocaleKwds" title="altair.theme.LocaleKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LocaleKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.Locale.html#altair.Locale" title="altair.Locale"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.Locale</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/theme/altair.theme.MarkConfigKwds.html#altair.theme.MarkConfigKwds" title="altair.theme.MarkConfigKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MarkConfigKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.MarkConfig.html#altair.MarkConfig" title="altair.MarkConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.MarkConfig</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/theme/altair.theme.MergedStreamKwds.html#altair.theme.MergedStreamKwds" title="altair.theme.MergedStreamKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MergedStreamKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.MergedStream.html#altair.MergedStream" title="altair.MergedStream"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.MergedStream</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/theme/altair.theme.MultiLineStringKwds.html#altair.theme.MultiLineStringKwds" title="altair.theme.MultiLineStringKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiLineStringKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.MultiLineString.html#altair.MultiLineString" title="altair.MultiLineString"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.MultiLineString</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/theme/altair.theme.MultiPointKwds.html#altair.theme.MultiPointKwds" title="altair.theme.MultiPointKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiPointKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.MultiPoint.html#altair.MultiPoint" title="altair.MultiPoint"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.MultiPoint</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/theme/altair.theme.MultiPolygonKwds.html#altair.theme.MultiPolygonKwds" title="altair.theme.MultiPolygonKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiPolygonKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.MultiPolygon.html#altair.MultiPolygon" title="altair.MultiPolygon"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.MultiPolygon</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/theme/altair.theme.NumberLocaleKwds.html#altair.theme.NumberLocaleKwds" title="altair.theme.NumberLocaleKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NumberLocaleKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.NumberLocale.html#altair.NumberLocale" title="altair.NumberLocale"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.NumberLocale</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/theme/altair.theme.OverlayMarkDefKwds.html#altair.theme.OverlayMarkDefKwds" title="altair.theme.OverlayMarkDefKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OverlayMarkDefKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.OverlayMarkDef.html#altair.OverlayMarkDef" title="altair.OverlayMarkDef"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.OverlayMarkDef</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/theme/altair.theme.PaddingKwds.html#altair.theme.PaddingKwds" title="altair.theme.PaddingKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PaddingKwds</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/theme/altair.theme.PointKwds.html#altair.theme.PointKwds" title="altair.theme.PointKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PointKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.Point.html#altair.Point" title="altair.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.Point</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/theme/altair.theme.PointSelectionConfigKwds.html#altair.theme.PointSelectionConfigKwds" title="altair.theme.PointSelectionConfigKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PointSelectionConfigKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.PointSelectionConfig.html#altair.PointSelectionConfig" title="altair.PointSelectionConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.PointSelectionConfig</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/theme/altair.theme.PointSelectionConfigWithoutTypeKwds.html#altair.theme.PointSelectionConfigWithoutTypeKwds" title="altair.theme.PointSelectionConfigWithoutTypeKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PointSelectionConfigWithoutTypeKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.PointSelectionConfigWithoutType.html#altair.PointSelectionConfigWithoutType" title="altair.PointSelectionConfigWithoutType"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.PointSelectionConfigWithoutType</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/theme/altair.theme.PolygonKwds.html#altair.theme.PolygonKwds" title="altair.theme.PolygonKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolygonKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.Polygon.html#altair.Polygon" title="altair.Polygon"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.Polygon</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/theme/altair.theme.ProjectionConfigKwds.html#altair.theme.ProjectionConfigKwds" title="altair.theme.ProjectionConfigKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ProjectionConfigKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.ProjectionConfig.html#altair.ProjectionConfig" title="altair.ProjectionConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.ProjectionConfig</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/theme/altair.theme.ProjectionKwds.html#altair.theme.ProjectionKwds" title="altair.theme.ProjectionKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ProjectionKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.Projection.html#altair.Projection" title="altair.Projection"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.Projection</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/theme/altair.theme.RadialGradientKwds.html#altair.theme.RadialGradientKwds" title="altair.theme.RadialGradientKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RadialGradientKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.RadialGradient.html#altair.RadialGradient" title="altair.RadialGradient"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.RadialGradient</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/theme/altair.theme.RangeConfigKwds.html#altair.theme.RangeConfigKwds" title="altair.theme.RangeConfigKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RangeConfigKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.RangeConfig.html#altair.RangeConfig" title="altair.RangeConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.RangeConfig</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/theme/altair.theme.RectConfigKwds.html#altair.theme.RectConfigKwds" title="altair.theme.RectConfigKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RectConfigKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.RectConfig.html#altair.RectConfig" title="altair.RectConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.RectConfig</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/theme/altair.theme.ResolveKwds.html#altair.theme.ResolveKwds" title="altair.theme.ResolveKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ResolveKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.Resolve.html#altair.Resolve" title="altair.Resolve"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.Resolve</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/theme/altair.theme.RowColKwds.html#altair.theme.RowColKwds" title="altair.theme.RowColKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RowColKwds</span></code></a></p></td>
+<td><p>A <a class="reference external" href="https://typing.readthedocs.io/en/latest/spec/generics.html#generics">Generic</a> two-item <code class="docutils literal notranslate"><span class="pre">dict</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/theme/altair.theme.ScaleConfigKwds.html#altair.theme.ScaleConfigKwds" title="altair.theme.ScaleConfigKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleConfigKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.ScaleConfig.html#altair.ScaleConfig" title="altair.ScaleConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.ScaleConfig</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/theme/altair.theme.ScaleInvalidDataConfigKwds.html#altair.theme.ScaleInvalidDataConfigKwds" title="altair.theme.ScaleInvalidDataConfigKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleInvalidDataConfigKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.ScaleInvalidDataConfig.html#altair.ScaleInvalidDataConfig" title="altair.ScaleInvalidDataConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.ScaleInvalidDataConfig</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/theme/altair.theme.ScaleResolveMapKwds.html#altair.theme.ScaleResolveMapKwds" title="altair.theme.ScaleResolveMapKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleResolveMapKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.ScaleResolveMap.html#altair.ScaleResolveMap" title="altair.ScaleResolveMap"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.ScaleResolveMap</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/theme/altair.theme.SelectionConfigKwds.html#altair.theme.SelectionConfigKwds" title="altair.theme.SelectionConfigKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SelectionConfigKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.SelectionConfig.html#altair.SelectionConfig" title="altair.SelectionConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.SelectionConfig</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/theme/altair.theme.StepKwds.html#altair.theme.StepKwds" title="altair.theme.StepKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StepKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.Step.html#altair.Step" title="altair.Step"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.Step</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/theme/altair.theme.StyleConfigIndexKwds.html#altair.theme.StyleConfigIndexKwds" title="altair.theme.StyleConfigIndexKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StyleConfigIndexKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.StyleConfigIndex.html#altair.StyleConfigIndex" title="altair.StyleConfigIndex"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.StyleConfigIndex</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/theme/altair.theme.TickConfigKwds.html#altair.theme.TickConfigKwds" title="altair.theme.TickConfigKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TickConfigKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.TickConfig.html#altair.TickConfig" title="altair.TickConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.TickConfig</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/theme/altair.theme.TimeIntervalStepKwds.html#altair.theme.TimeIntervalStepKwds" title="altair.theme.TimeIntervalStepKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TimeIntervalStepKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.TimeIntervalStep.html#altair.TimeIntervalStep" title="altair.TimeIntervalStep"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.TimeIntervalStep</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/theme/altair.theme.TimeLocaleKwds.html#altair.theme.TimeLocaleKwds" title="altair.theme.TimeLocaleKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TimeLocaleKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.TimeLocale.html#altair.TimeLocale" title="altair.TimeLocale"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.TimeLocale</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/theme/altair.theme.TitleConfigKwds.html#altair.theme.TitleConfigKwds" title="altair.theme.TitleConfigKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TitleConfigKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.TitleConfig.html#altair.TitleConfig" title="altair.TitleConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.TitleConfig</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/theme/altair.theme.TitleParamsKwds.html#altair.theme.TitleParamsKwds" title="altair.theme.TitleParamsKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TitleParamsKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.TitleParams.html#altair.TitleParams" title="altair.TitleParams"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.TitleParams</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/theme/altair.theme.TooltipContentKwds.html#altair.theme.TooltipContentKwds" title="altair.theme.TooltipContentKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TooltipContentKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.TooltipContent.html#altair.TooltipContent" title="altair.TooltipContent"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.TooltipContent</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/theme/altair.theme.TopLevelSelectionParameterKwds.html#altair.theme.TopLevelSelectionParameterKwds" title="altair.theme.TopLevelSelectionParameterKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TopLevelSelectionParameterKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.TopLevelSelectionParameter.html#altair.TopLevelSelectionParameter" title="altair.TopLevelSelectionParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.TopLevelSelectionParameter</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/theme/altair.theme.VariableParameterKwds.html#altair.theme.VariableParameterKwds" title="altair.theme.VariableParameterKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VariableParameterKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.VariableParameter.html#altair.VariableParameter" title="altair.VariableParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.VariableParameter</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/theme/altair.theme.ViewBackgroundKwds.html#altair.theme.ViewBackgroundKwds" title="altair.theme.ViewBackgroundKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ViewBackgroundKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.ViewBackground.html#altair.ViewBackground" title="altair.ViewBackground"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.ViewBackground</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/theme/altair.theme.ViewConfigKwds.html#altair.theme.ViewConfigKwds" title="altair.theme.ViewConfigKwds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ViewConfigKwds</span></code></a></p></td>
+<td><p><a class="reference internal" href="generated/core/altair.ViewConfig.html#altair.ViewConfig" title="altair.ViewConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">altair.ViewConfig</span></code></a> <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> wrapper.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
 <section id="low-level-schema-wrappers">
-<h2>Low-Level Schema Wrappers<a class="headerlink" href="#low-level-schema-wrappers" title="Link to this heading">#</a></h2>
+<span id="api-core"></span><h2>Low-Level Schema Wrappers<a class="headerlink" href="#low-level-schema-wrappers" title="Link to this heading">#</a></h2>
 <div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.Aggregate.html#altair.Aggregate" title="altair.Aggregate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Aggregate</span></code></a></p></td>
@@ -2892,7 +3186,7 @@ full guidelines on their use.</p>
 </div>
 </section>
 <section id="api-utility-classes">
-<h2>API Utility Classes<a class="headerlink" href="#api-utility-classes" title="Link to this heading">#</a></h2>
+<span id="api-cls"></span><h2>API Utility Classes<a class="headerlink" href="#api-utility-classes" title="Link to this heading">#</a></h2>
 <div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/api-cls/altair.expr.html#altair.expr" title="altair.expr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">expr</span></code></a></p></td>
@@ -2912,7 +3206,7 @@ full guidelines on their use.</p>
 </div>
 </section>
 <section id="typing">
-<h2>Typing<a class="headerlink" href="#typing" title="Link to this heading">#</a></h2>
+<span id="api-typing"></span><h2>Typing<a class="headerlink" href="#typing" title="Link to this heading">#</a></h2>
 <div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/typing/altair.typing.ChannelAngle.html#altair.typing.ChannelAngle" title="altair.typing.ChannelAngle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChannelAngle</span></code></a></p></td>
@@ -2928,7 +3222,7 @@ full guidelines on their use.</p>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/typing/altair.typing.ChannelDetail.html#altair.typing.ChannelDetail" title="altair.typing.ChannelDetail"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChannelDetail</span></code></a></p></td>
-<td><p>Type alias.</p></td>
+<td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/typing/altair.typing.ChannelFacet.html#altair.typing.ChannelFacet" title="altair.typing.ChannelFacet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChannelFacet</span></code></a></p></td>
 <td><p></p></td>
@@ -2961,7 +3255,7 @@ full guidelines on their use.</p>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/typing/altair.typing.ChannelOrder.html#altair.typing.ChannelOrder" title="altair.typing.ChannelOrder"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChannelOrder</span></code></a></p></td>
-<td><p>Type alias.</p></td>
+<td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/typing/altair.typing.ChannelRadius.html#altair.typing.ChannelRadius" title="altair.typing.ChannelRadius"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChannelRadius</span></code></a></p></td>
 <td><p></p></td>
@@ -3000,7 +3294,7 @@ full guidelines on their use.</p>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/typing/altair.typing.ChannelTooltip.html#altair.typing.ChannelTooltip" title="altair.typing.ChannelTooltip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChannelTooltip</span></code></a></p></td>
-<td><p>Type alias.</p></td>
+<td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/typing/altair.typing.ChannelUrl.html#altair.typing.ChannelUrl" title="altair.typing.ChannelUrl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChannelUrl</span></code></a></p></td>
 <td><p></p></td>
@@ -3088,7 +3382,8 @@ full guidelines on their use.</p>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -3102,6 +3397,7 @@ full guidelines on their use.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#top-level-objects">Top-Level Objects</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#encoding-channels">Encoding Channels</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#api-functions">API Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#theme">Theme</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#low-level-schema-wrappers">Low-Level Schema Wrappers</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#api-utility-classes">API Utility Classes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#typing">Typing</a></li>
@@ -3121,8 +3417,8 @@ full guidelines on their use.</p>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -3142,7 +3438,7 @@ full guidelines on their use.</p>
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.0.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
     <br/>
   </p>
 </div>
@@ -3155,7 +3451,7 @@ full guidelines on their use.</p>
       
         <div class="footer-item">
 <p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.0.
 </p></div>
       
     </div>
