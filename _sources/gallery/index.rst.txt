@@ -8,13 +8,16 @@ Example Gallery
 
 This gallery contains a selection of examples of the plots Altair can create. Some may seem fairly complicated at first glance, but they are built by combining a simple set of declarative building blocks.
 
-Many draw upon sample datasets compiled by the `Vega <https://vega.github.io/vega/>`_ project. To access them yourself, install `vega_datasets <https://github.com/altair-viz/vega_datasets>`_.
-
-.. code-block:: none
-
-   python -m pip install vega_datasets
+Many draw upon sample datasets compiled by the `Vega <https://vega.github.io/vega/>`_ project.
 
 If you can't find the plots you are looking for here, make sure to check out the :ref:`altair-ecosystem` section, which has links to packages for making e.g. network diagrams and animations.
+
+.. note::
+
+    With the release of Altair 6, the documentation was updated to use
+    ``from altair.datasets import data`` instead of ``from vega_datasets import data``.
+    This change also introduced updated column names in some datasets (e.g., spaces
+    instead of underscores).
 
 
 
@@ -1394,6 +1397,17 @@ Maps
      <span class="image-title">Choropleth Map</span>
    </a>
    
+   <a class="imagegroup" href="maps_faceted_species.html">
+   <span
+        class="image" alt="Faceted County-Level Choropleth Maps"
+
+        style="background-image: url(../_static/maps_faceted_species-thumb.png);"
+
+    ></span>
+
+     <span class="image-title">Faceted County-Level Choropleth Maps</span>
+   </a>
+   
    <a class="imagegroup" href="groupby-map.html">
    <span
         class="image" alt="Grouped Points with Proportional Symbols Map"
@@ -2044,6 +2058,17 @@ Case Studies
      <span class="image-title">Becker's Barley Wrapped Facet Plot</span>
    </a>
    
+   <a class="imagegroup" href="deviation_ellipses.html">
+   <span
+        class="image" alt="Confidence Interval Ellipses"
+
+        style="background-image: url(../_static/deviation_ellipses-thumb.png);"
+
+    ></span>
+
+     <span class="image-title">Confidence Interval Ellipses</span>
+   </a>
+   
    <a class="imagegroup" href="airport_connections.html">
    <span
         class="image" alt="Connections Among U.S. Airports Interactive"
@@ -2167,13 +2192,13 @@ Case Studies
    
    <a class="imagegroup" href="us_state_capitals.html">
    <span
-        class="image" alt="U.S. State Capitals Overlayed on a Map of the U.S"
+        class="image" alt="U.S. State Capitals Overlaid on a Map of the U.S"
 
         style="background-image: url(../_static/us_state_capitals-thumb.png);"
 
     ></span>
 
-     <span class="image-title">U.S. State Capitals Overlayed on a Map of the U.S</span>
+     <span class="image-title">U.S. State Capitals Overlaid on a Map of the U.S</span>
    </a>
    
    <a class="imagegroup" href="us_population_pyramid_over_time.html">

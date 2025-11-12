@@ -9,7 +9,7 @@
 
 Top-K Plot with Others
 ----------------------
-This example shows how to use aggregate, window, and calculate transfromations
+This example shows how to use aggregate, window, and calculate transformations
 to display the top-k directors by average worldwide gross while grouping the 
 remaining directors as 'All Others'.
 
@@ -20,7 +20,7 @@ remaining directors as 'All Others'.
 
 
     import altair as alt
-    from vega_datasets import data
+    from altair.datasets import data
 
     source = data.movies.url
 
@@ -32,7 +32,7 @@ remaining directors as 'All Others'.
             title=None,
         ),
     ).transform_aggregate(
-        aggregate_gross='mean(Worldwide_Gross)',
+        aggregate_gross='mean(Worldwide Gross)',
         groupby=["Director"],
     ).transform_window(
         rank='row_number()',
@@ -53,7 +53,7 @@ remaining directors as 'All Others'.
 
 
             import altair as alt
-            from vega_datasets import data
+            from altair.datasets import data
 
             source = data.movies.url
 
@@ -63,7 +63,7 @@ remaining directors as 'All Others'.
                     .sort(op="mean", field="aggregate_gross", order="descending")
                     .title(None)
             ).transform_aggregate(
-                aggregate_gross='mean(Worldwide_Gross)',
+                aggregate_gross='mean(Worldwide Gross)',
                 groupby=["Director"],
             ).transform_window(
                 rank='row_number()',
@@ -82,7 +82,7 @@ remaining directors as 'All Others'.
 
 
             import altair as alt
-            from vega_datasets import data
+            from altair.datasets import data
 
             source = data.movies.url
 
@@ -94,7 +94,7 @@ remaining directors as 'All Others'.
                     title=None,
                 ),
             ).transform_aggregate(
-                aggregate_gross='mean(Worldwide_Gross)',
+                aggregate_gross='mean(Worldwide Gross)',
                 groupby=["Director"],
             ).transform_window(
                 rank='row_number()',

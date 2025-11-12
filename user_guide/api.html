@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>API Reference &#8212; Vega-Altair 5.5.0 documentation</title>
+    <title>API Reference &#8212; Vega-Altair 6.0.0 documentation</title>
   
   
   
@@ -16,8 +16,8 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
+  <!--
+    this give us a css class that will be invisible only if js is disabled
   -->
   <noscript>
     <style>
@@ -27,32 +27,32 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/altair-plot.css?v=a673d9d3" />
     <link rel="stylesheet" type="text/css" href="../_static/altair-gallery.css?v=1975c9e6" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=9736ff9e" />
+    <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=9524fec3" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=7c07b56e" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=a385a3de"></script>
+    <script src="../_static/documentation_options.js?v=12958129"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script defer="defer" type="module" src="https://pyscript.net/releases/2024.10.1/core.js"></script>
+    <script defer="defer" type="module" src="https://pyscript.net/releases/2025.2.2/core.js"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega@6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@6.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script data-domain="altair-viz.github.io" defer="defer" src="https://views.scientific-python.org/js/script.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'user_guide/api';</script>
@@ -63,7 +63,7 @@
     <link rel="prev" title="Displaying Numpy Images in Tooltips" href="../case_studies/numpy-tooltip-images.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="5.5.0" />
+  <meta name="docsearch:version" content="6.0.0" />
   </head>
   
   
@@ -101,9 +101,6 @@
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
-<aside class="bd-header-announcement" aria-label="Announcement">
-  <div class="bd-header-announcement__content">This website is for version 5. You can find the documentation for version 4 <a href='https://altair-viz.github.io/altair-viz-v4/'>here</a>.</div>
-</aside>
 
   
     <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
@@ -130,8 +127,8 @@
     
     
     
-    <img src="../_static/altair-logo-light.png" class="logo__image only-light" alt="Vega-Altair 5.5.0 documentation - Home"/>
-    <img src="../_static/altair-logo-light.png" class="logo__image only-dark pst-js-only" alt="Vega-Altair 5.5.0 documentation - Home"/>
+    <img src="../_static/altair-logo-light.png" class="logo__image only-light" alt="Vega-Altair 6.0.0 documentation - Home"/>
+    <img src="../_static/altair-logo-light.png" class="logo__image only-dark pst-js-only" alt="Vega-Altair 6.0.0 documentation - Home"/>
   
   
 </a></div>
@@ -179,7 +176,9 @@
 </li>
 
             <li class="nav-item dropdown">
-                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
                     More
                 </button>
                 <ul id="pst-nav-more-links" class="dropdown-menu">
@@ -477,6 +476,7 @@
 <li class="toctree-l1"><a class="reference internal" href="generated/channels/altair.Theta2Value.html">altair.Theta2Value</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generated/channels/altair.ThetaDatum.html">altair.ThetaDatum</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generated/channels/altair.ThetaValue.html">altair.ThetaValue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/channels/altair.Time.html">altair.Time</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generated/channels/altair.Tooltip.html">altair.Tooltip</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generated/channels/altair.TooltipValue.html">altair.TooltipValue</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generated/channels/altair.Url.html">altair.Url</a></li>
@@ -782,6 +782,7 @@
 <li class="toctree-l1"><a class="reference internal" href="generated/core/altair.FoldTransform.html">altair.FoldTransform</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generated/core/altair.FontStyle.html">altair.FontStyle</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generated/core/altair.FontWeight.html">altair.FontWeight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/core/altair.Format.html">altair.Format</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generated/core/altair.FormatConfig.html">altair.FormatConfig</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generated/core/altair.Generator.html">altair.Generator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generated/core/altair.GenericUnitSpecEncodingAnyMark.html">altair.GenericUnitSpecEncodingAnyMark</a></li>
@@ -934,6 +935,7 @@
 <li class="toctree-l1"><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAsValuestrokeOpacity.html">altair.ScaleInvalidDataShowAsValuestrokeOpacity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAsValuestrokeWidth.html">altair.ScaleInvalidDataShowAsValuestrokeWidth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAsValuetheta.html">altair.ScaleInvalidDataShowAsValuetheta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAsValuetime.html">altair.ScaleInvalidDataShowAsValuetime</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAsValuex.html">altair.ScaleInvalidDataShowAsValuex</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAsValuexOffset.html">altair.ScaleInvalidDataShowAsValuexOffset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAsValuey.html">altair.ScaleInvalidDataShowAsValuey</a></li>
@@ -951,6 +953,7 @@
 <li class="toctree-l1"><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAsstrokeOpacity.html">altair.ScaleInvalidDataShowAsstrokeOpacity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAsstrokeWidth.html">altair.ScaleInvalidDataShowAsstrokeWidth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAstheta.html">altair.ScaleInvalidDataShowAstheta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAstime.html">altair.ScaleInvalidDataShowAstime</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAsx.html">altair.ScaleInvalidDataShowAsx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAsxOffset.html">altair.ScaleInvalidDataShowAsxOffset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAsy.html">altair.ScaleInvalidDataShowAsy</a></li>
@@ -1003,6 +1006,9 @@
 <li class="toctree-l1"><a class="reference internal" href="generated/core/altair.TextDirection.html">altair.TextDirection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generated/core/altair.TickConfig.html">altair.TickConfig</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generated/core/altair.TickCount.html">altair.TickCount</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/core/altair.TimeDef.html">altair.TimeDef</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/core/altair.TimeFieldDef.html">altair.TimeFieldDef</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/core/altair.TimeFormatSpecifier.html">altair.TimeFormatSpecifier</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generated/core/altair.TimeInterval.html">altair.TimeInterval</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generated/core/altair.TimeIntervalStep.html">altair.TimeIntervalStep</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generated/core/altair.TimeLocale.html">altair.TimeLocale</a></li>
@@ -1116,6 +1122,12 @@
 <li class="toctree-l1"><a class="reference internal" href="generated/typing/altair.typing.Optional.html">altair.typing.Optional</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generated/typing/altair.typing.is_chart_type.html">altair.typing.is_chart_type</a></li>
 </ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="generated/datasets/altair.datasets.Loader.html">altair.datasets.Loader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/datasets/altair.datasets.data.html">altair.datasets.data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/datasets/altair.datasets.load.html">altair.datasets.load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/datasets/altair.datasets.url.html">altair.datasets.url</a></li>
+</ul>
 </div>
 </nav></div>
     </div>
@@ -1123,8 +1135,6 @@
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -1176,7 +1186,7 @@ further details, as this low-level documentation may not be enough to give
 full guidelines on their use.</p>
 <section id="top-level-objects">
 <span id="api-toplevel"></span><h2>Top-Level Objects<a class="headerlink" href="#top-level-objects" title="Link to this heading">#</a></h2>
-<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/toplevel/altair.Chart.html#altair.Chart" title="altair.Chart"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Chart</span></code></a></p></td>
 <td><p>Create a basic Altair/Vega-Lite chart.</p></td>
@@ -1208,7 +1218,7 @@ full guidelines on their use.</p>
 </section>
 <section id="encoding-channels">
 <span id="api-channels"></span><h2>Encoding Channels<a class="headerlink" href="#encoding-channels" title="Link to this heading">#</a></h2>
-<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/channels/altair.Angle.html#altair.Angle" title="altair.Angle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Angle</span></code></a></p></td>
 <td><p>Angle schema wrapper.</p></td>
@@ -1417,94 +1427,97 @@ full guidelines on their use.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/channels/altair.ThetaValue.html#altair.ThetaValue" title="altair.ThetaValue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ThetaValue</span></code></a></p></td>
 <td><p>ThetaValue schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/channels/altair.Tooltip.html#altair.Tooltip" title="altair.Tooltip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Tooltip</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/channels/altair.Time.html#altair.Time" title="altair.Time"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Time</span></code></a></p></td>
+<td><p>Time schema wrapper.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/channels/altair.Tooltip.html#altair.Tooltip" title="altair.Tooltip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Tooltip</span></code></a></p></td>
 <td><p>Tooltip schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/channels/altair.TooltipValue.html#altair.TooltipValue" title="altair.TooltipValue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TooltipValue</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/channels/altair.TooltipValue.html#altair.TooltipValue" title="altair.TooltipValue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TooltipValue</span></code></a></p></td>
 <td><p>TooltipValue schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/channels/altair.Url.html#altair.Url" title="altair.Url"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Url</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/channels/altair.Url.html#altair.Url" title="altair.Url"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Url</span></code></a></p></td>
 <td><p>Url schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/channels/altair.UrlValue.html#altair.UrlValue" title="altair.UrlValue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UrlValue</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/channels/altair.UrlValue.html#altair.UrlValue" title="altair.UrlValue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UrlValue</span></code></a></p></td>
 <td><p>UrlValue schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/channels/altair.X.html#altair.X" title="altair.X"><code class="xref py py-obj docutils literal notranslate"><span class="pre">X</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/channels/altair.X.html#altair.X" title="altair.X"><code class="xref py py-obj docutils literal notranslate"><span class="pre">X</span></code></a></p></td>
 <td><p>X schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/channels/altair.X2.html#altair.X2" title="altair.X2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">X2</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/channels/altair.X2.html#altair.X2" title="altair.X2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">X2</span></code></a></p></td>
 <td><p>X2 schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/channels/altair.X2Datum.html#altair.X2Datum" title="altair.X2Datum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">X2Datum</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/channels/altair.X2Datum.html#altair.X2Datum" title="altair.X2Datum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">X2Datum</span></code></a></p></td>
 <td><p>X2Datum schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/channels/altair.X2Value.html#altair.X2Value" title="altair.X2Value"><code class="xref py py-obj docutils literal notranslate"><span class="pre">X2Value</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/channels/altair.X2Value.html#altair.X2Value" title="altair.X2Value"><code class="xref py py-obj docutils literal notranslate"><span class="pre">X2Value</span></code></a></p></td>
 <td><p>X2Value schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/channels/altair.XDatum.html#altair.XDatum" title="altair.XDatum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">XDatum</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/channels/altair.XDatum.html#altair.XDatum" title="altair.XDatum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">XDatum</span></code></a></p></td>
 <td><p>XDatum schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/channels/altair.XError.html#altair.XError" title="altair.XError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">XError</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/channels/altair.XError.html#altair.XError" title="altair.XError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">XError</span></code></a></p></td>
 <td><p>XError schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/channels/altair.XError2.html#altair.XError2" title="altair.XError2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">XError2</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/channels/altair.XError2.html#altair.XError2" title="altair.XError2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">XError2</span></code></a></p></td>
 <td><p>XError2 schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/channels/altair.XError2Value.html#altair.XError2Value" title="altair.XError2Value"><code class="xref py py-obj docutils literal notranslate"><span class="pre">XError2Value</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/channels/altair.XError2Value.html#altair.XError2Value" title="altair.XError2Value"><code class="xref py py-obj docutils literal notranslate"><span class="pre">XError2Value</span></code></a></p></td>
 <td><p>XError2Value schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/channels/altair.XErrorValue.html#altair.XErrorValue" title="altair.XErrorValue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">XErrorValue</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/channels/altair.XErrorValue.html#altair.XErrorValue" title="altair.XErrorValue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">XErrorValue</span></code></a></p></td>
 <td><p>XErrorValue schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/channels/altair.XOffset.html#altair.XOffset" title="altair.XOffset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">XOffset</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/channels/altair.XOffset.html#altair.XOffset" title="altair.XOffset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">XOffset</span></code></a></p></td>
 <td><p>XOffset schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/channels/altair.XOffsetDatum.html#altair.XOffsetDatum" title="altair.XOffsetDatum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">XOffsetDatum</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/channels/altair.XOffsetDatum.html#altair.XOffsetDatum" title="altair.XOffsetDatum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">XOffsetDatum</span></code></a></p></td>
 <td><p>XOffsetDatum schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/channels/altair.XOffsetValue.html#altair.XOffsetValue" title="altair.XOffsetValue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">XOffsetValue</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/channels/altair.XOffsetValue.html#altair.XOffsetValue" title="altair.XOffsetValue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">XOffsetValue</span></code></a></p></td>
 <td><p>XOffsetValue schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/channels/altair.XValue.html#altair.XValue" title="altair.XValue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">XValue</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/channels/altair.XValue.html#altair.XValue" title="altair.XValue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">XValue</span></code></a></p></td>
 <td><p>XValue schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/channels/altair.Y.html#altair.Y" title="altair.Y"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Y</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/channels/altair.Y.html#altair.Y" title="altair.Y"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Y</span></code></a></p></td>
 <td><p>Y schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/channels/altair.Y2.html#altair.Y2" title="altair.Y2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Y2</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/channels/altair.Y2.html#altair.Y2" title="altair.Y2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Y2</span></code></a></p></td>
 <td><p>Y2 schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/channels/altair.Y2Datum.html#altair.Y2Datum" title="altair.Y2Datum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Y2Datum</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/channels/altair.Y2Datum.html#altair.Y2Datum" title="altair.Y2Datum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Y2Datum</span></code></a></p></td>
 <td><p>Y2Datum schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/channels/altair.Y2Value.html#altair.Y2Value" title="altair.Y2Value"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Y2Value</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/channels/altair.Y2Value.html#altair.Y2Value" title="altair.Y2Value"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Y2Value</span></code></a></p></td>
 <td><p>Y2Value schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/channels/altair.YDatum.html#altair.YDatum" title="altair.YDatum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">YDatum</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/channels/altair.YDatum.html#altair.YDatum" title="altair.YDatum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">YDatum</span></code></a></p></td>
 <td><p>YDatum schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/channels/altair.YError.html#altair.YError" title="altair.YError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">YError</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/channels/altair.YError.html#altair.YError" title="altair.YError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">YError</span></code></a></p></td>
 <td><p>YError schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/channels/altair.YError2.html#altair.YError2" title="altair.YError2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">YError2</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/channels/altair.YError2.html#altair.YError2" title="altair.YError2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">YError2</span></code></a></p></td>
 <td><p>YError2 schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/channels/altair.YError2Value.html#altair.YError2Value" title="altair.YError2Value"><code class="xref py py-obj docutils literal notranslate"><span class="pre">YError2Value</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/channels/altair.YError2Value.html#altair.YError2Value" title="altair.YError2Value"><code class="xref py py-obj docutils literal notranslate"><span class="pre">YError2Value</span></code></a></p></td>
 <td><p>YError2Value schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/channels/altair.YErrorValue.html#altair.YErrorValue" title="altair.YErrorValue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">YErrorValue</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/channels/altair.YErrorValue.html#altair.YErrorValue" title="altair.YErrorValue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">YErrorValue</span></code></a></p></td>
 <td><p>YErrorValue schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/channels/altair.YOffset.html#altair.YOffset" title="altair.YOffset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">YOffset</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/channels/altair.YOffset.html#altair.YOffset" title="altair.YOffset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">YOffset</span></code></a></p></td>
 <td><p>YOffset schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/channels/altair.YOffsetDatum.html#altair.YOffsetDatum" title="altair.YOffsetDatum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">YOffsetDatum</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/channels/altair.YOffsetDatum.html#altair.YOffsetDatum" title="altair.YOffsetDatum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">YOffsetDatum</span></code></a></p></td>
 <td><p>YOffsetDatum schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/channels/altair.YOffsetValue.html#altair.YOffsetValue" title="altair.YOffsetValue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">YOffsetValue</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/channels/altair.YOffsetValue.html#altair.YOffsetValue" title="altair.YOffsetValue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">YOffsetValue</span></code></a></p></td>
 <td><p>YOffsetValue schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/channels/altair.YValue.html#altair.YValue" title="altair.YValue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">YValue</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/channels/altair.YValue.html#altair.YValue" title="altair.YValue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">YValue</span></code></a></p></td>
 <td><p>YValue schema wrapper.</p></td>
 </tr>
 </tbody>
@@ -1513,7 +1526,7 @@ full guidelines on their use.</p>
 </section>
 <section id="api-functions">
 <span id="id1"></span><h2>API Functions<a class="headerlink" href="#api-functions" title="Link to this heading">#</a></h2>
-<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/api/altair.binding.html#altair.binding" title="altair.binding"><code class="xref py py-obj docutils literal notranslate"><span class="pre">binding</span></code></a></p></td>
 <td><p>A generic binding.</p></td>
@@ -1549,7 +1562,7 @@ full guidelines on their use.</p>
 <td><p>Layer multiple charts.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/api/altair.param.html#altair.param" title="altair.param"><code class="xref py py-obj docutils literal notranslate"><span class="pre">param</span></code></a></p></td>
-<td><p>Create a named parameter, see <a class="reference external" href="https://altair-viz.github.io/user_guide/interactions.html">https://altair-viz.github.io/user_guide/interactions.html</a> for examples.</p></td>
+<td><p>Create a named parameter, see <a class="reference external" href="https://altair-viz.github.io/user_guide/interactions/parameters.html">https://altair-viz.github.io/user_guide/interactions/parameters.html</a> for examples.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/api/altair.repeat.html#altair.repeat" title="altair.repeat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">repeat</span></code></a></p></td>
 <td><p>Tie a channel to the row or column within a repeated chart.</p></td>
@@ -1584,7 +1597,7 @@ full guidelines on their use.</p>
 </section>
 <section id="theme">
 <span id="api-theme"></span><h2>Theme<a class="headerlink" href="#theme" title="Link to this heading">#</a></h2>
-<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/theme/altair.theme.active.html#altair.theme.active" title="altair.theme.active"><code class="xref py py-obj docutils literal notranslate"><span class="pre">active</span></code></a></p></td>
 <td><p>Return the name of the currently active theme.</p></td>
@@ -1823,7 +1836,7 @@ full guidelines on their use.</p>
 </section>
 <section id="low-level-schema-wrappers">
 <span id="api-core"></span><h2>Low-Level Schema Wrappers<a class="headerlink" href="#low-level-schema-wrappers" title="Link to this heading">#</a></h2>
-<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.Aggregate.html#altair.Aggregate" title="altair.Aggregate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Aggregate</span></code></a></p></td>
 <td><p>Aggregate schema wrapper.</p></td>
@@ -2338,461 +2351,467 @@ full guidelines on their use.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.FontWeight.html#altair.FontWeight" title="altair.FontWeight"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FontWeight</span></code></a></p></td>
 <td><p>FontWeight schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.FormatConfig.html#altair.FormatConfig" title="altair.FormatConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FormatConfig</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.Format.html#altair.Format" title="altair.Format"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Format</span></code></a></p></td>
+<td><p>Format schema wrapper.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.FormatConfig.html#altair.FormatConfig" title="altair.FormatConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FormatConfig</span></code></a></p></td>
 <td><p>FormatConfig schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.Generator.html#altair.Generator" title="altair.Generator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Generator</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.Generator.html#altair.Generator" title="altair.Generator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Generator</span></code></a></p></td>
 <td><p>Generator schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.GenericUnitSpecEncodingAnyMark.html#altair.GenericUnitSpecEncodingAnyMark" title="altair.GenericUnitSpecEncodingAnyMark"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GenericUnitSpecEncodingAnyMark</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.GenericUnitSpecEncodingAnyMark.html#altair.GenericUnitSpecEncodingAnyMark" title="altair.GenericUnitSpecEncodingAnyMark"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GenericUnitSpecEncodingAnyMark</span></code></a></p></td>
 <td><p>GenericUnitSpecEncodingAnyMark schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.GeoJsonFeature.html#altair.GeoJsonFeature" title="altair.GeoJsonFeature"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GeoJsonFeature</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.GeoJsonFeature.html#altair.GeoJsonFeature" title="altair.GeoJsonFeature"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GeoJsonFeature</span></code></a></p></td>
 <td><p>GeoJsonFeature schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.GeoJsonFeatureCollection.html#altair.GeoJsonFeatureCollection" title="altair.GeoJsonFeatureCollection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GeoJsonFeatureCollection</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.GeoJsonFeatureCollection.html#altair.GeoJsonFeatureCollection" title="altair.GeoJsonFeatureCollection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GeoJsonFeatureCollection</span></code></a></p></td>
 <td><p>GeoJsonFeatureCollection schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.GeoJsonProperties.html#altair.GeoJsonProperties" title="altair.GeoJsonProperties"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GeoJsonProperties</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.GeoJsonProperties.html#altair.GeoJsonProperties" title="altair.GeoJsonProperties"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GeoJsonProperties</span></code></a></p></td>
 <td><p>GeoJsonProperties schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.Geometry.html#altair.Geometry" title="altair.Geometry"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Geometry</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.Geometry.html#altair.Geometry" title="altair.Geometry"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Geometry</span></code></a></p></td>
 <td><p>Geometry schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.GeometryCollection.html#altair.GeometryCollection" title="altair.GeometryCollection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GeometryCollection</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.GeometryCollection.html#altair.GeometryCollection" title="altair.GeometryCollection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GeometryCollection</span></code></a></p></td>
 <td><p>GeometryCollection schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.Gradient.html#altair.Gradient" title="altair.Gradient"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gradient</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.Gradient.html#altair.Gradient" title="altair.Gradient"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gradient</span></code></a></p></td>
 <td><p>Gradient schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.GradientStop.html#altair.GradientStop" title="altair.GradientStop"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GradientStop</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.GradientStop.html#altair.GradientStop" title="altair.GradientStop"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GradientStop</span></code></a></p></td>
 <td><p>GradientStop schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.GraticuleGenerator.html#altair.GraticuleGenerator" title="altair.GraticuleGenerator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GraticuleGenerator</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.GraticuleGenerator.html#altair.GraticuleGenerator" title="altair.GraticuleGenerator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GraticuleGenerator</span></code></a></p></td>
 <td><p>GraticuleGenerator schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.GraticuleParams.html#altair.GraticuleParams" title="altair.GraticuleParams"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GraticuleParams</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.GraticuleParams.html#altair.GraticuleParams" title="altair.GraticuleParams"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GraticuleParams</span></code></a></p></td>
 <td><p>GraticuleParams schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.HConcatSpecGenericSpec.html#altair.HConcatSpecGenericSpec" title="altair.HConcatSpecGenericSpec"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HConcatSpecGenericSpec</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.HConcatSpecGenericSpec.html#altair.HConcatSpecGenericSpec" title="altair.HConcatSpecGenericSpec"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HConcatSpecGenericSpec</span></code></a></p></td>
 <td><p>HConcatSpecGenericSpec schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.Header.html#altair.Header" title="altair.Header"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Header</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.Header.html#altair.Header" title="altair.Header"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Header</span></code></a></p></td>
 <td><p>Header schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.HeaderConfig.html#altair.HeaderConfig" title="altair.HeaderConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HeaderConfig</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.HeaderConfig.html#altair.HeaderConfig" title="altair.HeaderConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HeaderConfig</span></code></a></p></td>
 <td><p>HeaderConfig schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.HexColor.html#altair.HexColor" title="altair.HexColor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HexColor</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.HexColor.html#altair.HexColor" title="altair.HexColor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HexColor</span></code></a></p></td>
 <td><p>HexColor schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.ImputeMethod.html#altair.ImputeMethod" title="altair.ImputeMethod"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ImputeMethod</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.ImputeMethod.html#altair.ImputeMethod" title="altair.ImputeMethod"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ImputeMethod</span></code></a></p></td>
 <td><p>ImputeMethod schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.ImputeParams.html#altair.ImputeParams" title="altair.ImputeParams"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ImputeParams</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.ImputeParams.html#altair.ImputeParams" title="altair.ImputeParams"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ImputeParams</span></code></a></p></td>
 <td><p>ImputeParams schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.ImputeSequence.html#altair.ImputeSequence" title="altair.ImputeSequence"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ImputeSequence</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.ImputeSequence.html#altair.ImputeSequence" title="altair.ImputeSequence"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ImputeSequence</span></code></a></p></td>
 <td><p>ImputeSequence schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.ImputeTransform.html#altair.ImputeTransform" title="altair.ImputeTransform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ImputeTransform</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.ImputeTransform.html#altair.ImputeTransform" title="altair.ImputeTransform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ImputeTransform</span></code></a></p></td>
 <td><p>ImputeTransform schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.InlineData.html#altair.InlineData" title="altair.InlineData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InlineData</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.InlineData.html#altair.InlineData" title="altair.InlineData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InlineData</span></code></a></p></td>
 <td><p>InlineData schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.InlineDataset.html#altair.InlineDataset" title="altair.InlineDataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InlineDataset</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.InlineDataset.html#altair.InlineDataset" title="altair.InlineDataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InlineDataset</span></code></a></p></td>
 <td><p>InlineDataset schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.Interpolate.html#altair.Interpolate" title="altair.Interpolate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Interpolate</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.Interpolate.html#altair.Interpolate" title="altair.Interpolate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Interpolate</span></code></a></p></td>
 <td><p>Interpolate schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.IntervalSelectionConfig.html#altair.IntervalSelectionConfig" title="altair.IntervalSelectionConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IntervalSelectionConfig</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.IntervalSelectionConfig.html#altair.IntervalSelectionConfig" title="altair.IntervalSelectionConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IntervalSelectionConfig</span></code></a></p></td>
 <td><p>IntervalSelectionConfig schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.IntervalSelectionConfigWithoutType.html#altair.IntervalSelectionConfigWithoutType" title="altair.IntervalSelectionConfigWithoutType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IntervalSelectionConfigWithoutType</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.IntervalSelectionConfigWithoutType.html#altair.IntervalSelectionConfigWithoutType" title="altair.IntervalSelectionConfigWithoutType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IntervalSelectionConfigWithoutType</span></code></a></p></td>
 <td><p>IntervalSelectionConfigWithoutType schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.JoinAggregateFieldDef.html#altair.JoinAggregateFieldDef" title="altair.JoinAggregateFieldDef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">JoinAggregateFieldDef</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.JoinAggregateFieldDef.html#altair.JoinAggregateFieldDef" title="altair.JoinAggregateFieldDef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">JoinAggregateFieldDef</span></code></a></p></td>
 <td><p>JoinAggregateFieldDef schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.JoinAggregateTransform.html#altair.JoinAggregateTransform" title="altair.JoinAggregateTransform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">JoinAggregateTransform</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.JoinAggregateTransform.html#altair.JoinAggregateTransform" title="altair.JoinAggregateTransform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">JoinAggregateTransform</span></code></a></p></td>
 <td><p>JoinAggregateTransform schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.JsonDataFormat.html#altair.JsonDataFormat" title="altair.JsonDataFormat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">JsonDataFormat</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.JsonDataFormat.html#altair.JsonDataFormat" title="altair.JsonDataFormat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">JsonDataFormat</span></code></a></p></td>
 <td><p>JsonDataFormat schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.LabelOverlap.html#altair.LabelOverlap" title="altair.LabelOverlap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LabelOverlap</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.LabelOverlap.html#altair.LabelOverlap" title="altair.LabelOverlap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LabelOverlap</span></code></a></p></td>
 <td><p>LabelOverlap schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.LatLongDef.html#altair.LatLongDef" title="altair.LatLongDef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LatLongDef</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.LatLongDef.html#altair.LatLongDef" title="altair.LatLongDef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LatLongDef</span></code></a></p></td>
 <td><p>LatLongDef schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.LatLongFieldDef.html#altair.LatLongFieldDef" title="altair.LatLongFieldDef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LatLongFieldDef</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.LatLongFieldDef.html#altair.LatLongFieldDef" title="altair.LatLongFieldDef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LatLongFieldDef</span></code></a></p></td>
 <td><p>LatLongFieldDef schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.LayerRepeatMapping.html#altair.LayerRepeatMapping" title="altair.LayerRepeatMapping"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LayerRepeatMapping</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.LayerRepeatMapping.html#altair.LayerRepeatMapping" title="altair.LayerRepeatMapping"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LayerRepeatMapping</span></code></a></p></td>
 <td><p>LayerRepeatMapping schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.LayerRepeatSpec.html#altair.LayerRepeatSpec" title="altair.LayerRepeatSpec"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LayerRepeatSpec</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.LayerRepeatSpec.html#altair.LayerRepeatSpec" title="altair.LayerRepeatSpec"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LayerRepeatSpec</span></code></a></p></td>
 <td><p>LayerRepeatSpec schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.LayerSpec.html#altair.LayerSpec" title="altair.LayerSpec"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LayerSpec</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.LayerSpec.html#altair.LayerSpec" title="altair.LayerSpec"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LayerSpec</span></code></a></p></td>
 <td><p>LayerSpec schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.LayoutAlign.html#altair.LayoutAlign" title="altair.LayoutAlign"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LayoutAlign</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.LayoutAlign.html#altair.LayoutAlign" title="altair.LayoutAlign"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LayoutAlign</span></code></a></p></td>
 <td><p>LayoutAlign schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.Legend.html#altair.Legend" title="altair.Legend"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Legend</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.Legend.html#altair.Legend" title="altair.Legend"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Legend</span></code></a></p></td>
 <td><p>Legend schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.LegendBinding.html#altair.LegendBinding" title="altair.LegendBinding"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LegendBinding</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.LegendBinding.html#altair.LegendBinding" title="altair.LegendBinding"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LegendBinding</span></code></a></p></td>
 <td><p>LegendBinding schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.LegendConfig.html#altair.LegendConfig" title="altair.LegendConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LegendConfig</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.LegendConfig.html#altair.LegendConfig" title="altair.LegendConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LegendConfig</span></code></a></p></td>
 <td><p>LegendConfig schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.LegendOrient.html#altair.LegendOrient" title="altair.LegendOrient"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LegendOrient</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.LegendOrient.html#altair.LegendOrient" title="altair.LegendOrient"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LegendOrient</span></code></a></p></td>
 <td><p>LegendOrient schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.LegendResolveMap.html#altair.LegendResolveMap" title="altair.LegendResolveMap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LegendResolveMap</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.LegendResolveMap.html#altair.LegendResolveMap" title="altair.LegendResolveMap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LegendResolveMap</span></code></a></p></td>
 <td><p>LegendResolveMap schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.LegendStreamBinding.html#altair.LegendStreamBinding" title="altair.LegendStreamBinding"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LegendStreamBinding</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.LegendStreamBinding.html#altair.LegendStreamBinding" title="altair.LegendStreamBinding"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LegendStreamBinding</span></code></a></p></td>
 <td><p>LegendStreamBinding schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.LineConfig.html#altair.LineConfig" title="altair.LineConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LineConfig</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.LineConfig.html#altair.LineConfig" title="altair.LineConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LineConfig</span></code></a></p></td>
 <td><p>LineConfig schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.LineString.html#altair.LineString" title="altair.LineString"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LineString</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.LineString.html#altair.LineString" title="altair.LineString"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LineString</span></code></a></p></td>
 <td><p>LineString schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.LinearGradient.html#altair.LinearGradient" title="altair.LinearGradient"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LinearGradient</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.LinearGradient.html#altair.LinearGradient" title="altair.LinearGradient"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LinearGradient</span></code></a></p></td>
 <td><p>LinearGradient schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.LocalMultiTimeUnit.html#altair.LocalMultiTimeUnit" title="altair.LocalMultiTimeUnit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LocalMultiTimeUnit</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.LocalMultiTimeUnit.html#altair.LocalMultiTimeUnit" title="altair.LocalMultiTimeUnit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LocalMultiTimeUnit</span></code></a></p></td>
 <td><p>LocalMultiTimeUnit schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.LocalSingleTimeUnit.html#altair.LocalSingleTimeUnit" title="altair.LocalSingleTimeUnit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LocalSingleTimeUnit</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.LocalSingleTimeUnit.html#altair.LocalSingleTimeUnit" title="altair.LocalSingleTimeUnit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LocalSingleTimeUnit</span></code></a></p></td>
 <td><p>LocalSingleTimeUnit schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.Locale.html#altair.Locale" title="altair.Locale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Locale</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.Locale.html#altair.Locale" title="altair.Locale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Locale</span></code></a></p></td>
 <td><p>Locale schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.LoessTransform.html#altair.LoessTransform" title="altair.LoessTransform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LoessTransform</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.LoessTransform.html#altair.LoessTransform" title="altair.LoessTransform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LoessTransform</span></code></a></p></td>
 <td><p>LoessTransform schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.LogicalAndPredicate.html#altair.LogicalAndPredicate" title="altair.LogicalAndPredicate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LogicalAndPredicate</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.LogicalAndPredicate.html#altair.LogicalAndPredicate" title="altair.LogicalAndPredicate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LogicalAndPredicate</span></code></a></p></td>
 <td><p>LogicalAndPredicate schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.LogicalNotPredicate.html#altair.LogicalNotPredicate" title="altair.LogicalNotPredicate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LogicalNotPredicate</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.LogicalNotPredicate.html#altair.LogicalNotPredicate" title="altair.LogicalNotPredicate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LogicalNotPredicate</span></code></a></p></td>
 <td><p>LogicalNotPredicate schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.LogicalOrPredicate.html#altair.LogicalOrPredicate" title="altair.LogicalOrPredicate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LogicalOrPredicate</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.LogicalOrPredicate.html#altair.LogicalOrPredicate" title="altair.LogicalOrPredicate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LogicalOrPredicate</span></code></a></p></td>
 <td><p>LogicalOrPredicate schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.LookupData.html#altair.LookupData" title="altair.LookupData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LookupData</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.LookupData.html#altair.LookupData" title="altair.LookupData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LookupData</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.LookupSelection.html#altair.LookupSelection" title="altair.LookupSelection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LookupSelection</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.LookupSelection.html#altair.LookupSelection" title="altair.LookupSelection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LookupSelection</span></code></a></p></td>
 <td><p>LookupSelection schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.LookupTransform.html#altair.LookupTransform" title="altair.LookupTransform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LookupTransform</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.LookupTransform.html#altair.LookupTransform" title="altair.LookupTransform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LookupTransform</span></code></a></p></td>
 <td><p>LookupTransform schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.Mark.html#altair.Mark" title="altair.Mark"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Mark</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.Mark.html#altair.Mark" title="altair.Mark"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Mark</span></code></a></p></td>
 <td><p>Mark schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.MarkConfig.html#altair.MarkConfig" title="altair.MarkConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MarkConfig</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.MarkConfig.html#altair.MarkConfig" title="altair.MarkConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MarkConfig</span></code></a></p></td>
 <td><p>MarkConfig schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.MarkDef.html#altair.MarkDef" title="altair.MarkDef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MarkDef</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.MarkDef.html#altair.MarkDef" title="altair.MarkDef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MarkDef</span></code></a></p></td>
 <td><p>MarkDef schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.MarkInvalidDataMode.html#altair.MarkInvalidDataMode" title="altair.MarkInvalidDataMode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MarkInvalidDataMode</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.MarkInvalidDataMode.html#altair.MarkInvalidDataMode" title="altair.MarkInvalidDataMode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MarkInvalidDataMode</span></code></a></p></td>
 <td><p>MarkInvalidDataMode schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.MarkPropDefGradientstringnull.html#altair.MarkPropDefGradientstringnull" title="altair.MarkPropDefGradientstringnull"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MarkPropDefGradientstringnull</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.MarkPropDefGradientstringnull.html#altair.MarkPropDefGradientstringnull" title="altair.MarkPropDefGradientstringnull"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MarkPropDefGradientstringnull</span></code></a></p></td>
 <td><p>MarkPropDefGradientstringnull schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.MarkPropDefnumber.html#altair.MarkPropDefnumber" title="altair.MarkPropDefnumber"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MarkPropDefnumber</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.MarkPropDefnumber.html#altair.MarkPropDefnumber" title="altair.MarkPropDefnumber"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MarkPropDefnumber</span></code></a></p></td>
 <td><p>MarkPropDefnumber schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.MarkPropDefnumberArray.html#altair.MarkPropDefnumberArray" title="altair.MarkPropDefnumberArray"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MarkPropDefnumberArray</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.MarkPropDefnumberArray.html#altair.MarkPropDefnumberArray" title="altair.MarkPropDefnumberArray"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MarkPropDefnumberArray</span></code></a></p></td>
 <td><p>MarkPropDefnumberArray schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.MarkPropDefstringnullTypeForShape.html#altair.MarkPropDefstringnullTypeForShape" title="altair.MarkPropDefstringnullTypeForShape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MarkPropDefstringnullTypeForShape</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.MarkPropDefstringnullTypeForShape.html#altair.MarkPropDefstringnullTypeForShape" title="altair.MarkPropDefstringnullTypeForShape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MarkPropDefstringnullTypeForShape</span></code></a></p></td>
 <td><p>MarkPropDefstringnullTypeForShape schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.MarkType.html#altair.MarkType" title="altair.MarkType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MarkType</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.MarkType.html#altair.MarkType" title="altair.MarkType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MarkType</span></code></a></p></td>
 <td><p>MarkType schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.MergedStream.html#altair.MergedStream" title="altair.MergedStream"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MergedStream</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.MergedStream.html#altair.MergedStream" title="altair.MergedStream"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MergedStream</span></code></a></p></td>
 <td><p>MergedStream schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.Month.html#altair.Month" title="altair.Month"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Month</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.Month.html#altair.Month" title="altair.Month"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Month</span></code></a></p></td>
 <td><p>Month schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.MultiLineString.html#altair.MultiLineString" title="altair.MultiLineString"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiLineString</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.MultiLineString.html#altair.MultiLineString" title="altair.MultiLineString"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiLineString</span></code></a></p></td>
 <td><p>MultiLineString schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.MultiPoint.html#altair.MultiPoint" title="altair.MultiPoint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiPoint</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.MultiPoint.html#altair.MultiPoint" title="altair.MultiPoint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiPoint</span></code></a></p></td>
 <td><p>MultiPoint schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.MultiPolygon.html#altair.MultiPolygon" title="altair.MultiPolygon"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiPolygon</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.MultiPolygon.html#altair.MultiPolygon" title="altair.MultiPolygon"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiPolygon</span></code></a></p></td>
 <td><p>MultiPolygon schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.MultiTimeUnit.html#altair.MultiTimeUnit" title="altair.MultiTimeUnit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiTimeUnit</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.MultiTimeUnit.html#altair.MultiTimeUnit" title="altair.MultiTimeUnit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiTimeUnit</span></code></a></p></td>
 <td><p>MultiTimeUnit schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.NamedData.html#altair.NamedData" title="altair.NamedData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NamedData</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.NamedData.html#altair.NamedData" title="altair.NamedData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NamedData</span></code></a></p></td>
 <td><p>NamedData schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.NonArgAggregateOp.html#altair.NonArgAggregateOp" title="altair.NonArgAggregateOp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NonArgAggregateOp</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.NonArgAggregateOp.html#altair.NonArgAggregateOp" title="altair.NonArgAggregateOp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NonArgAggregateOp</span></code></a></p></td>
 <td><p>NonArgAggregateOp schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.NonLayerRepeatSpec.html#altair.NonLayerRepeatSpec" title="altair.NonLayerRepeatSpec"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NonLayerRepeatSpec</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.NonLayerRepeatSpec.html#altair.NonLayerRepeatSpec" title="altair.NonLayerRepeatSpec"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NonLayerRepeatSpec</span></code></a></p></td>
 <td><p>NonLayerRepeatSpec schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.NonNormalizedSpec.html#altair.NonNormalizedSpec" title="altair.NonNormalizedSpec"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NonNormalizedSpec</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.NonNormalizedSpec.html#altair.NonNormalizedSpec" title="altair.NonNormalizedSpec"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NonNormalizedSpec</span></code></a></p></td>
 <td><p>NonNormalizedSpec schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.NumberLocale.html#altair.NumberLocale" title="altair.NumberLocale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NumberLocale</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.NumberLocale.html#altair.NumberLocale" title="altair.NumberLocale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NumberLocale</span></code></a></p></td>
 <td><p>NumberLocale schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.NumericArrayMarkPropDef.html#altair.NumericArrayMarkPropDef" title="altair.NumericArrayMarkPropDef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NumericArrayMarkPropDef</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.NumericArrayMarkPropDef.html#altair.NumericArrayMarkPropDef" title="altair.NumericArrayMarkPropDef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NumericArrayMarkPropDef</span></code></a></p></td>
 <td><p>NumericArrayMarkPropDef schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.NumericMarkPropDef.html#altair.NumericMarkPropDef" title="altair.NumericMarkPropDef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NumericMarkPropDef</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.NumericMarkPropDef.html#altair.NumericMarkPropDef" title="altair.NumericMarkPropDef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NumericMarkPropDef</span></code></a></p></td>
 <td><p>NumericMarkPropDef schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.OffsetDef.html#altair.OffsetDef" title="altair.OffsetDef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OffsetDef</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.OffsetDef.html#altair.OffsetDef" title="altair.OffsetDef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OffsetDef</span></code></a></p></td>
 <td><p>OffsetDef schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.OrderFieldDef.html#altair.OrderFieldDef" title="altair.OrderFieldDef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OrderFieldDef</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.OrderFieldDef.html#altair.OrderFieldDef" title="altair.OrderFieldDef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OrderFieldDef</span></code></a></p></td>
 <td><p>OrderFieldDef schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.OrderOnlyDef.html#altair.OrderOnlyDef" title="altair.OrderOnlyDef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OrderOnlyDef</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.OrderOnlyDef.html#altair.OrderOnlyDef" title="altair.OrderOnlyDef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OrderOnlyDef</span></code></a></p></td>
 <td><p>OrderOnlyDef schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.OrderValueDef.html#altair.OrderValueDef" title="altair.OrderValueDef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OrderValueDef</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.OrderValueDef.html#altair.OrderValueDef" title="altair.OrderValueDef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OrderValueDef</span></code></a></p></td>
 <td><p>OrderValueDef schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.Orient.html#altair.Orient" title="altair.Orient"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Orient</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.Orient.html#altair.Orient" title="altair.Orient"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Orient</span></code></a></p></td>
 <td><p>Orient schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.Orientation.html#altair.Orientation" title="altair.Orientation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Orientation</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.Orientation.html#altair.Orientation" title="altair.Orientation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Orientation</span></code></a></p></td>
 <td><p>Orientation schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.OverlayMarkDef.html#altair.OverlayMarkDef" title="altair.OverlayMarkDef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OverlayMarkDef</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.OverlayMarkDef.html#altair.OverlayMarkDef" title="altair.OverlayMarkDef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OverlayMarkDef</span></code></a></p></td>
 <td><p>OverlayMarkDef schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.Padding.html#altair.Padding" title="altair.Padding"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Padding</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.Padding.html#altair.Padding" title="altair.Padding"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Padding</span></code></a></p></td>
 <td><p>Padding schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.ParameterExtent.html#altair.ParameterExtent" title="altair.ParameterExtent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ParameterExtent</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.ParameterExtent.html#altair.ParameterExtent" title="altair.ParameterExtent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ParameterExtent</span></code></a></p></td>
 <td><p>ParameterExtent schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.ParameterName.html#altair.ParameterName" title="altair.ParameterName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ParameterName</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.ParameterName.html#altair.ParameterName" title="altair.ParameterName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ParameterName</span></code></a></p></td>
 <td><p>ParameterName schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.ParameterPredicate.html#altair.ParameterPredicate" title="altair.ParameterPredicate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ParameterPredicate</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.ParameterPredicate.html#altair.ParameterPredicate" title="altair.ParameterPredicate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ParameterPredicate</span></code></a></p></td>
 <td><p>ParameterPredicate schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.Parse.html#altair.Parse" title="altair.Parse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Parse</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.Parse.html#altair.Parse" title="altair.Parse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Parse</span></code></a></p></td>
 <td><p>Parse schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.ParseValue.html#altair.ParseValue" title="altair.ParseValue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ParseValue</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.ParseValue.html#altair.ParseValue" title="altair.ParseValue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ParseValue</span></code></a></p></td>
 <td><p>ParseValue schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.PivotTransform.html#altair.PivotTransform" title="altair.PivotTransform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PivotTransform</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.PivotTransform.html#altair.PivotTransform" title="altair.PivotTransform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PivotTransform</span></code></a></p></td>
 <td><p>PivotTransform schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.Point.html#altair.Point" title="altair.Point"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Point</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.Point.html#altair.Point" title="altair.Point"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Point</span></code></a></p></td>
 <td><p>Point schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.PointSelectionConfig.html#altair.PointSelectionConfig" title="altair.PointSelectionConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PointSelectionConfig</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.PointSelectionConfig.html#altair.PointSelectionConfig" title="altair.PointSelectionConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PointSelectionConfig</span></code></a></p></td>
 <td><p>PointSelectionConfig schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.PointSelectionConfigWithoutType.html#altair.PointSelectionConfigWithoutType" title="altair.PointSelectionConfigWithoutType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PointSelectionConfigWithoutType</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.PointSelectionConfigWithoutType.html#altair.PointSelectionConfigWithoutType" title="altair.PointSelectionConfigWithoutType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PointSelectionConfigWithoutType</span></code></a></p></td>
 <td><p>PointSelectionConfigWithoutType schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.PolarDef.html#altair.PolarDef" title="altair.PolarDef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolarDef</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.PolarDef.html#altair.PolarDef" title="altair.PolarDef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolarDef</span></code></a></p></td>
 <td><p>PolarDef schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.Polygon.html#altair.Polygon" title="altair.Polygon"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Polygon</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.Polygon.html#altair.Polygon" title="altair.Polygon"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Polygon</span></code></a></p></td>
 <td><p>Polygon schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.Position.html#altair.Position" title="altair.Position"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Position</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.Position.html#altair.Position" title="altair.Position"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Position</span></code></a></p></td>
 <td><p>Position schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.Position2Def.html#altair.Position2Def" title="altair.Position2Def"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Position2Def</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.Position2Def.html#altair.Position2Def" title="altair.Position2Def"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Position2Def</span></code></a></p></td>
 <td><p>Position2Def schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.PositionDatumDef.html#altair.PositionDatumDef" title="altair.PositionDatumDef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PositionDatumDef</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.PositionDatumDef.html#altair.PositionDatumDef" title="altair.PositionDatumDef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PositionDatumDef</span></code></a></p></td>
 <td><p>PositionDatumDef schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.PositionDatumDefBase.html#altair.PositionDatumDefBase" title="altair.PositionDatumDefBase"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PositionDatumDefBase</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.PositionDatumDefBase.html#altair.PositionDatumDefBase" title="altair.PositionDatumDefBase"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PositionDatumDefBase</span></code></a></p></td>
 <td><p>PositionDatumDefBase schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.PositionDef.html#altair.PositionDef" title="altair.PositionDef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PositionDef</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.PositionDef.html#altair.PositionDef" title="altair.PositionDef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PositionDef</span></code></a></p></td>
 <td><p>PositionDef schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.PositionFieldDef.html#altair.PositionFieldDef" title="altair.PositionFieldDef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PositionFieldDef</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.PositionFieldDef.html#altair.PositionFieldDef" title="altair.PositionFieldDef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PositionFieldDef</span></code></a></p></td>
 <td><p>PositionFieldDef schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.PositionFieldDefBase.html#altair.PositionFieldDefBase" title="altair.PositionFieldDefBase"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PositionFieldDefBase</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.PositionFieldDefBase.html#altair.PositionFieldDefBase" title="altair.PositionFieldDefBase"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PositionFieldDefBase</span></code></a></p></td>
 <td><p>PositionFieldDefBase schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.PositionValueDef.html#altair.PositionValueDef" title="altair.PositionValueDef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PositionValueDef</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.PositionValueDef.html#altair.PositionValueDef" title="altair.PositionValueDef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PositionValueDef</span></code></a></p></td>
 <td><p>PositionValueDef schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.Predicate.html#altair.Predicate" title="altair.Predicate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Predicate</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.Predicate.html#altair.Predicate" title="altair.Predicate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Predicate</span></code></a></p></td>
 <td><p>Predicate schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.PredicateComposition.html#altair.PredicateComposition" title="altair.PredicateComposition"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PredicateComposition</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.PredicateComposition.html#altair.PredicateComposition" title="altair.PredicateComposition"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PredicateComposition</span></code></a></p></td>
 <td><p>PredicateComposition schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.PrimitiveValue.html#altair.PrimitiveValue" title="altair.PrimitiveValue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PrimitiveValue</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.PrimitiveValue.html#altair.PrimitiveValue" title="altair.PrimitiveValue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PrimitiveValue</span></code></a></p></td>
 <td><p>PrimitiveValue schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.Projection.html#altair.Projection" title="altair.Projection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Projection</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.Projection.html#altair.Projection" title="altair.Projection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Projection</span></code></a></p></td>
 <td><p>Projection schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.ProjectionConfig.html#altair.ProjectionConfig" title="altair.ProjectionConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ProjectionConfig</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.ProjectionConfig.html#altair.ProjectionConfig" title="altair.ProjectionConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ProjectionConfig</span></code></a></p></td>
 <td><p>ProjectionConfig schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.ProjectionType.html#altair.ProjectionType" title="altair.ProjectionType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ProjectionType</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.ProjectionType.html#altair.ProjectionType" title="altair.ProjectionType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ProjectionType</span></code></a></p></td>
 <td><p>ProjectionType schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.QuantileTransform.html#altair.QuantileTransform" title="altair.QuantileTransform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">QuantileTransform</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.QuantileTransform.html#altair.QuantileTransform" title="altair.QuantileTransform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">QuantileTransform</span></code></a></p></td>
 <td><p>QuantileTransform schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.RadialGradient.html#altair.RadialGradient" title="altair.RadialGradient"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RadialGradient</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.RadialGradient.html#altair.RadialGradient" title="altair.RadialGradient"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RadialGradient</span></code></a></p></td>
 <td><p>RadialGradient schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.RangeConfig.html#altair.RangeConfig" title="altair.RangeConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RangeConfig</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.RangeConfig.html#altair.RangeConfig" title="altair.RangeConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RangeConfig</span></code></a></p></td>
 <td><p>RangeConfig schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.RangeEnum.html#altair.RangeEnum" title="altair.RangeEnum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RangeEnum</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.RangeEnum.html#altair.RangeEnum" title="altair.RangeEnum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RangeEnum</span></code></a></p></td>
 <td><p>RangeEnum schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.RangeRaw.html#altair.RangeRaw" title="altair.RangeRaw"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RangeRaw</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.RangeRaw.html#altair.RangeRaw" title="altair.RangeRaw"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RangeRaw</span></code></a></p></td>
 <td><p>RangeRaw schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.RangeRawArray.html#altair.RangeRawArray" title="altair.RangeRawArray"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RangeRawArray</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.RangeRawArray.html#altair.RangeRawArray" title="altair.RangeRawArray"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RangeRawArray</span></code></a></p></td>
 <td><p>RangeRawArray schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.RangeScheme.html#altair.RangeScheme" title="altair.RangeScheme"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RangeScheme</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.RangeScheme.html#altair.RangeScheme" title="altair.RangeScheme"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RangeScheme</span></code></a></p></td>
 <td><p>RangeScheme schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.RectConfig.html#altair.RectConfig" title="altair.RectConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RectConfig</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.RectConfig.html#altair.RectConfig" title="altair.RectConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RectConfig</span></code></a></p></td>
 <td><p>RectConfig schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.RegressionTransform.html#altair.RegressionTransform" title="altair.RegressionTransform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RegressionTransform</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.RegressionTransform.html#altair.RegressionTransform" title="altair.RegressionTransform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RegressionTransform</span></code></a></p></td>
 <td><p>RegressionTransform schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.RelativeBandSize.html#altair.RelativeBandSize" title="altair.RelativeBandSize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RelativeBandSize</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.RelativeBandSize.html#altair.RelativeBandSize" title="altair.RelativeBandSize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RelativeBandSize</span></code></a></p></td>
 <td><p>RelativeBandSize schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.RepeatMapping.html#altair.RepeatMapping" title="altair.RepeatMapping"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RepeatMapping</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.RepeatMapping.html#altair.RepeatMapping" title="altair.RepeatMapping"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RepeatMapping</span></code></a></p></td>
 <td><p>RepeatMapping schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.RepeatRef.html#altair.RepeatRef" title="altair.RepeatRef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RepeatRef</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.RepeatRef.html#altair.RepeatRef" title="altair.RepeatRef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RepeatRef</span></code></a></p></td>
 <td><p>RepeatRef schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.RepeatSpec.html#altair.RepeatSpec" title="altair.RepeatSpec"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RepeatSpec</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.RepeatSpec.html#altair.RepeatSpec" title="altair.RepeatSpec"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RepeatSpec</span></code></a></p></td>
 <td><p>RepeatSpec schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.Resolve.html#altair.Resolve" title="altair.Resolve"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Resolve</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.Resolve.html#altair.Resolve" title="altair.Resolve"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Resolve</span></code></a></p></td>
 <td><p>Resolve schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.ResolveMode.html#altair.ResolveMode" title="altair.ResolveMode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ResolveMode</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.ResolveMode.html#altair.ResolveMode" title="altair.ResolveMode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ResolveMode</span></code></a></p></td>
 <td><p>ResolveMode schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.Root.html#altair.Root" title="altair.Root"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Root</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.Root.html#altair.Root" title="altair.Root"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Root</span></code></a></p></td>
 <td><p>Root schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.RowColLayoutAlign.html#altair.RowColLayoutAlign" title="altair.RowColLayoutAlign"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RowColLayoutAlign</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.RowColLayoutAlign.html#altair.RowColLayoutAlign" title="altair.RowColLayoutAlign"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RowColLayoutAlign</span></code></a></p></td>
 <td><p>RowColLayoutAlign schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.RowColboolean.html#altair.RowColboolean" title="altair.RowColboolean"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RowColboolean</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.RowColboolean.html#altair.RowColboolean" title="altair.RowColboolean"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RowColboolean</span></code></a></p></td>
 <td><p>RowColboolean schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.RowColnumber.html#altair.RowColnumber" title="altair.RowColnumber"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RowColnumber</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.RowColnumber.html#altair.RowColnumber" title="altair.RowColnumber"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RowColnumber</span></code></a></p></td>
 <td><p>RowColnumber schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.RowColumnEncodingFieldDef.html#altair.RowColumnEncodingFieldDef" title="altair.RowColumnEncodingFieldDef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RowColumnEncodingFieldDef</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.RowColumnEncodingFieldDef.html#altair.RowColumnEncodingFieldDef" title="altair.RowColumnEncodingFieldDef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RowColumnEncodingFieldDef</span></code></a></p></td>
 <td><p>RowColumnEncodingFieldDef schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.SampleTransform.html#altair.SampleTransform" title="altair.SampleTransform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SampleTransform</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.SampleTransform.html#altair.SampleTransform" title="altair.SampleTransform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SampleTransform</span></code></a></p></td>
 <td><p>SampleTransform schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.Scale.html#altair.Scale" title="altair.Scale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Scale</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.Scale.html#altair.Scale" title="altair.Scale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Scale</span></code></a></p></td>
 <td><p>Scale schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.ScaleBinParams.html#altair.ScaleBinParams" title="altair.ScaleBinParams"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleBinParams</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.ScaleBinParams.html#altair.ScaleBinParams" title="altair.ScaleBinParams"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleBinParams</span></code></a></p></td>
 <td><p>ScaleBinParams schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.ScaleBins.html#altair.ScaleBins" title="altair.ScaleBins"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleBins</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.ScaleBins.html#altair.ScaleBins" title="altair.ScaleBins"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleBins</span></code></a></p></td>
 <td><p>ScaleBins schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.ScaleConfig.html#altair.ScaleConfig" title="altair.ScaleConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleConfig</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.ScaleConfig.html#altair.ScaleConfig" title="altair.ScaleConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleConfig</span></code></a></p></td>
 <td><p>ScaleConfig schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.ScaleDatumDef.html#altair.ScaleDatumDef" title="altair.ScaleDatumDef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleDatumDef</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.ScaleDatumDef.html#altair.ScaleDatumDef" title="altair.ScaleDatumDef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleDatumDef</span></code></a></p></td>
 <td><p>ScaleDatumDef schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.ScaleFieldDef.html#altair.ScaleFieldDef" title="altair.ScaleFieldDef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleFieldDef</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.ScaleFieldDef.html#altair.ScaleFieldDef" title="altair.ScaleFieldDef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleFieldDef</span></code></a></p></td>
 <td><p>ScaleFieldDef schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.ScaleInterpolateEnum.html#altair.ScaleInterpolateEnum" title="altair.ScaleInterpolateEnum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleInterpolateEnum</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.ScaleInterpolateEnum.html#altair.ScaleInterpolateEnum" title="altair.ScaleInterpolateEnum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleInterpolateEnum</span></code></a></p></td>
 <td><p>ScaleInterpolateEnum schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.ScaleInterpolateParams.html#altair.ScaleInterpolateParams" title="altair.ScaleInterpolateParams"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleInterpolateParams</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.ScaleInterpolateParams.html#altair.ScaleInterpolateParams" title="altair.ScaleInterpolateParams"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleInterpolateParams</span></code></a></p></td>
 <td><p>ScaleInterpolateParams schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.ScaleInvalidDataConfig.html#altair.ScaleInvalidDataConfig" title="altair.ScaleInvalidDataConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleInvalidDataConfig</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.ScaleInvalidDataConfig.html#altair.ScaleInvalidDataConfig" title="altair.ScaleInvalidDataConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleInvalidDataConfig</span></code></a></p></td>
 <td><p>ScaleInvalidDataConfig schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAsValueangle.html#altair.ScaleInvalidDataShowAsValueangle" title="altair.ScaleInvalidDataShowAsValueangle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleInvalidDataShowAsValueangle</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAsValueangle.html#altair.ScaleInvalidDataShowAsValueangle" title="altair.ScaleInvalidDataShowAsValueangle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleInvalidDataShowAsValueangle</span></code></a></p></td>
 <td><p>ScaleInvalidDataShowAsValueangle schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAsValuecolor.html#altair.ScaleInvalidDataShowAsValuecolor" title="altair.ScaleInvalidDataShowAsValuecolor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleInvalidDataShowAsValuecolor</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAsValuecolor.html#altair.ScaleInvalidDataShowAsValuecolor" title="altair.ScaleInvalidDataShowAsValuecolor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleInvalidDataShowAsValuecolor</span></code></a></p></td>
 <td><p>ScaleInvalidDataShowAsValuecolor schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAsValuefill.html#altair.ScaleInvalidDataShowAsValuefill" title="altair.ScaleInvalidDataShowAsValuefill"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleInvalidDataShowAsValuefill</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAsValuefill.html#altair.ScaleInvalidDataShowAsValuefill" title="altair.ScaleInvalidDataShowAsValuefill"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleInvalidDataShowAsValuefill</span></code></a></p></td>
 <td><p>ScaleInvalidDataShowAsValuefill schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAsValuefillOpacity.html#altair.ScaleInvalidDataShowAsValuefillOpacity" title="altair.ScaleInvalidDataShowAsValuefillOpacity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleInvalidDataShowAsValuefillOpacity</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAsValuefillOpacity.html#altair.ScaleInvalidDataShowAsValuefillOpacity" title="altair.ScaleInvalidDataShowAsValuefillOpacity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleInvalidDataShowAsValuefillOpacity</span></code></a></p></td>
 <td><p>ScaleInvalidDataShowAsValuefillOpacity schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAsValueopacity.html#altair.ScaleInvalidDataShowAsValueopacity" title="altair.ScaleInvalidDataShowAsValueopacity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleInvalidDataShowAsValueopacity</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAsValueopacity.html#altair.ScaleInvalidDataShowAsValueopacity" title="altair.ScaleInvalidDataShowAsValueopacity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleInvalidDataShowAsValueopacity</span></code></a></p></td>
 <td><p>ScaleInvalidDataShowAsValueopacity schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAsValueradius.html#altair.ScaleInvalidDataShowAsValueradius" title="altair.ScaleInvalidDataShowAsValueradius"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleInvalidDataShowAsValueradius</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAsValueradius.html#altair.ScaleInvalidDataShowAsValueradius" title="altair.ScaleInvalidDataShowAsValueradius"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleInvalidDataShowAsValueradius</span></code></a></p></td>
 <td><p>ScaleInvalidDataShowAsValueradius schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAsValueshape.html#altair.ScaleInvalidDataShowAsValueshape" title="altair.ScaleInvalidDataShowAsValueshape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleInvalidDataShowAsValueshape</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAsValueshape.html#altair.ScaleInvalidDataShowAsValueshape" title="altair.ScaleInvalidDataShowAsValueshape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleInvalidDataShowAsValueshape</span></code></a></p></td>
 <td><p>ScaleInvalidDataShowAsValueshape schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAsValuesize.html#altair.ScaleInvalidDataShowAsValuesize" title="altair.ScaleInvalidDataShowAsValuesize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleInvalidDataShowAsValuesize</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAsValuesize.html#altair.ScaleInvalidDataShowAsValuesize" title="altair.ScaleInvalidDataShowAsValuesize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleInvalidDataShowAsValuesize</span></code></a></p></td>
 <td><p>ScaleInvalidDataShowAsValuesize schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAsValuestroke.html#altair.ScaleInvalidDataShowAsValuestroke" title="altair.ScaleInvalidDataShowAsValuestroke"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleInvalidDataShowAsValuestroke</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAsValuestroke.html#altair.ScaleInvalidDataShowAsValuestroke" title="altair.ScaleInvalidDataShowAsValuestroke"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleInvalidDataShowAsValuestroke</span></code></a></p></td>
 <td><p>ScaleInvalidDataShowAsValuestroke schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAsValuestrokeDash.html#altair.ScaleInvalidDataShowAsValuestrokeDash" title="altair.ScaleInvalidDataShowAsValuestrokeDash"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleInvalidDataShowAsValuestrokeDash</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAsValuestrokeDash.html#altair.ScaleInvalidDataShowAsValuestrokeDash" title="altair.ScaleInvalidDataShowAsValuestrokeDash"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleInvalidDataShowAsValuestrokeDash</span></code></a></p></td>
 <td><p>ScaleInvalidDataShowAsValuestrokeDash schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAsValuestrokeOpacity.html#altair.ScaleInvalidDataShowAsValuestrokeOpacity" title="altair.ScaleInvalidDataShowAsValuestrokeOpacity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleInvalidDataShowAsValuestrokeOpacity</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAsValuestrokeOpacity.html#altair.ScaleInvalidDataShowAsValuestrokeOpacity" title="altair.ScaleInvalidDataShowAsValuestrokeOpacity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleInvalidDataShowAsValuestrokeOpacity</span></code></a></p></td>
 <td><p>ScaleInvalidDataShowAsValuestrokeOpacity schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAsValuestrokeWidth.html#altair.ScaleInvalidDataShowAsValuestrokeWidth" title="altair.ScaleInvalidDataShowAsValuestrokeWidth"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleInvalidDataShowAsValuestrokeWidth</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAsValuestrokeWidth.html#altair.ScaleInvalidDataShowAsValuestrokeWidth" title="altair.ScaleInvalidDataShowAsValuestrokeWidth"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleInvalidDataShowAsValuestrokeWidth</span></code></a></p></td>
 <td><p>ScaleInvalidDataShowAsValuestrokeWidth schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAsValuetheta.html#altair.ScaleInvalidDataShowAsValuetheta" title="altair.ScaleInvalidDataShowAsValuetheta"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleInvalidDataShowAsValuetheta</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAsValuetheta.html#altair.ScaleInvalidDataShowAsValuetheta" title="altair.ScaleInvalidDataShowAsValuetheta"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleInvalidDataShowAsValuetheta</span></code></a></p></td>
 <td><p>ScaleInvalidDataShowAsValuetheta schema wrapper.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAsValuetime.html#altair.ScaleInvalidDataShowAsValuetime" title="altair.ScaleInvalidDataShowAsValuetime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleInvalidDataShowAsValuetime</span></code></a></p></td>
+<td><p>ScaleInvalidDataShowAsValuetime schema wrapper.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAsValuex.html#altair.ScaleInvalidDataShowAsValuex" title="altair.ScaleInvalidDataShowAsValuex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleInvalidDataShowAsValuex</span></code></a></p></td>
 <td><p>ScaleInvalidDataShowAsValuex schema wrapper.</p></td>
@@ -2845,161 +2864,173 @@ full guidelines on their use.</p>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAstheta.html#altair.ScaleInvalidDataShowAstheta" title="altair.ScaleInvalidDataShowAstheta"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleInvalidDataShowAstheta</span></code></a></p></td>
 <td><p>ScaleInvalidDataShowAstheta schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAsx.html#altair.ScaleInvalidDataShowAsx" title="altair.ScaleInvalidDataShowAsx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleInvalidDataShowAsx</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAstime.html#altair.ScaleInvalidDataShowAstime" title="altair.ScaleInvalidDataShowAstime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleInvalidDataShowAstime</span></code></a></p></td>
+<td><p>ScaleInvalidDataShowAstime schema wrapper.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAsx.html#altair.ScaleInvalidDataShowAsx" title="altair.ScaleInvalidDataShowAsx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleInvalidDataShowAsx</span></code></a></p></td>
 <td><p>ScaleInvalidDataShowAsx schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAsxOffset.html#altair.ScaleInvalidDataShowAsxOffset" title="altair.ScaleInvalidDataShowAsxOffset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleInvalidDataShowAsxOffset</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAsxOffset.html#altair.ScaleInvalidDataShowAsxOffset" title="altair.ScaleInvalidDataShowAsxOffset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleInvalidDataShowAsxOffset</span></code></a></p></td>
 <td><p>ScaleInvalidDataShowAsxOffset schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAsy.html#altair.ScaleInvalidDataShowAsy" title="altair.ScaleInvalidDataShowAsy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleInvalidDataShowAsy</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAsy.html#altair.ScaleInvalidDataShowAsy" title="altair.ScaleInvalidDataShowAsy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleInvalidDataShowAsy</span></code></a></p></td>
 <td><p>ScaleInvalidDataShowAsy schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAsyOffset.html#altair.ScaleInvalidDataShowAsyOffset" title="altair.ScaleInvalidDataShowAsyOffset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleInvalidDataShowAsyOffset</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.ScaleInvalidDataShowAsyOffset.html#altair.ScaleInvalidDataShowAsyOffset" title="altair.ScaleInvalidDataShowAsyOffset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleInvalidDataShowAsyOffset</span></code></a></p></td>
 <td><p>ScaleInvalidDataShowAsyOffset schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.ScaleResolveMap.html#altair.ScaleResolveMap" title="altair.ScaleResolveMap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleResolveMap</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.ScaleResolveMap.html#altair.ScaleResolveMap" title="altair.ScaleResolveMap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleResolveMap</span></code></a></p></td>
 <td><p>ScaleResolveMap schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.ScaleType.html#altair.ScaleType" title="altair.ScaleType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleType</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.ScaleType.html#altair.ScaleType" title="altair.ScaleType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScaleType</span></code></a></p></td>
 <td><p>ScaleType schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.SchemaBase.html#altair.SchemaBase" title="altair.SchemaBase"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SchemaBase</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.SchemaBase.html#altair.SchemaBase" title="altair.SchemaBase"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SchemaBase</span></code></a></p></td>
 <td><p>Base class for schema wrappers.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.SchemeParams.html#altair.SchemeParams" title="altair.SchemeParams"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SchemeParams</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.SchemeParams.html#altair.SchemeParams" title="altair.SchemeParams"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SchemeParams</span></code></a></p></td>
 <td><p>SchemeParams schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.SecondaryFieldDef.html#altair.SecondaryFieldDef" title="altair.SecondaryFieldDef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SecondaryFieldDef</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.SecondaryFieldDef.html#altair.SecondaryFieldDef" title="altair.SecondaryFieldDef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SecondaryFieldDef</span></code></a></p></td>
 <td><p>SecondaryFieldDef schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.SelectionConfig.html#altair.SelectionConfig" title="altair.SelectionConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SelectionConfig</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.SelectionConfig.html#altair.SelectionConfig" title="altair.SelectionConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SelectionConfig</span></code></a></p></td>
 <td><p>SelectionConfig schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.SelectionInit.html#altair.SelectionInit" title="altair.SelectionInit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SelectionInit</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.SelectionInit.html#altair.SelectionInit" title="altair.SelectionInit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SelectionInit</span></code></a></p></td>
 <td><p>SelectionInit schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.SelectionInitInterval.html#altair.SelectionInitInterval" title="altair.SelectionInitInterval"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SelectionInitInterval</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.SelectionInitInterval.html#altair.SelectionInitInterval" title="altair.SelectionInitInterval"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SelectionInitInterval</span></code></a></p></td>
 <td><p>SelectionInitInterval schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.SelectionInitIntervalMapping.html#altair.SelectionInitIntervalMapping" title="altair.SelectionInitIntervalMapping"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SelectionInitIntervalMapping</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.SelectionInitIntervalMapping.html#altair.SelectionInitIntervalMapping" title="altair.SelectionInitIntervalMapping"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SelectionInitIntervalMapping</span></code></a></p></td>
 <td><p>SelectionInitIntervalMapping schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.SelectionInitMapping.html#altair.SelectionInitMapping" title="altair.SelectionInitMapping"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SelectionInitMapping</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.SelectionInitMapping.html#altair.SelectionInitMapping" title="altair.SelectionInitMapping"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SelectionInitMapping</span></code></a></p></td>
 <td><p>SelectionInitMapping schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.SelectionParameter.html#altair.SelectionParameter" title="altair.SelectionParameter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SelectionParameter</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.SelectionParameter.html#altair.SelectionParameter" title="altair.SelectionParameter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SelectionParameter</span></code></a></p></td>
 <td><p>SelectionParameter schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.SelectionResolution.html#altair.SelectionResolution" title="altair.SelectionResolution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SelectionResolution</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.SelectionResolution.html#altair.SelectionResolution" title="altair.SelectionResolution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SelectionResolution</span></code></a></p></td>
 <td><p>SelectionResolution schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.SelectionType.html#altair.SelectionType" title="altair.SelectionType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SelectionType</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.SelectionType.html#altair.SelectionType" title="altair.SelectionType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SelectionType</span></code></a></p></td>
 <td><p>SelectionType schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.SequenceGenerator.html#altair.SequenceGenerator" title="altair.SequenceGenerator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SequenceGenerator</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.SequenceGenerator.html#altair.SequenceGenerator" title="altair.SequenceGenerator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SequenceGenerator</span></code></a></p></td>
 <td><p>SequenceGenerator schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.SequenceParams.html#altair.SequenceParams" title="altair.SequenceParams"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SequenceParams</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.SequenceParams.html#altair.SequenceParams" title="altair.SequenceParams"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SequenceParams</span></code></a></p></td>
 <td><p>SequenceParams schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.SequentialMultiHue.html#altair.SequentialMultiHue" title="altair.SequentialMultiHue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SequentialMultiHue</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.SequentialMultiHue.html#altair.SequentialMultiHue" title="altair.SequentialMultiHue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SequentialMultiHue</span></code></a></p></td>
 <td><p>SequentialMultiHue schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.SequentialSingleHue.html#altair.SequentialSingleHue" title="altair.SequentialSingleHue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SequentialSingleHue</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.SequentialSingleHue.html#altair.SequentialSingleHue" title="altair.SequentialSingleHue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SequentialSingleHue</span></code></a></p></td>
 <td><p>SequentialSingleHue schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.ShapeDef.html#altair.ShapeDef" title="altair.ShapeDef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ShapeDef</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.ShapeDef.html#altair.ShapeDef" title="altair.ShapeDef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ShapeDef</span></code></a></p></td>
 <td><p>ShapeDef schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.SharedEncoding.html#altair.SharedEncoding" title="altair.SharedEncoding"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SharedEncoding</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.SharedEncoding.html#altair.SharedEncoding" title="altair.SharedEncoding"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SharedEncoding</span></code></a></p></td>
 <td><p>SharedEncoding schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.SingleDefUnitChannel.html#altair.SingleDefUnitChannel" title="altair.SingleDefUnitChannel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SingleDefUnitChannel</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.SingleDefUnitChannel.html#altair.SingleDefUnitChannel" title="altair.SingleDefUnitChannel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SingleDefUnitChannel</span></code></a></p></td>
 <td><p>SingleDefUnitChannel schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.SingleTimeUnit.html#altair.SingleTimeUnit" title="altair.SingleTimeUnit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SingleTimeUnit</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.SingleTimeUnit.html#altair.SingleTimeUnit" title="altair.SingleTimeUnit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SingleTimeUnit</span></code></a></p></td>
 <td><p>SingleTimeUnit schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.Sort.html#altair.Sort" title="altair.Sort"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Sort</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.Sort.html#altair.Sort" title="altair.Sort"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Sort</span></code></a></p></td>
 <td><p>Sort schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.SortArray.html#altair.SortArray" title="altair.SortArray"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SortArray</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.SortArray.html#altair.SortArray" title="altair.SortArray"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SortArray</span></code></a></p></td>
 <td><p>SortArray schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.SortByChannel.html#altair.SortByChannel" title="altair.SortByChannel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SortByChannel</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.SortByChannel.html#altair.SortByChannel" title="altair.SortByChannel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SortByChannel</span></code></a></p></td>
 <td><p>SortByChannel schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.SortByChannelDesc.html#altair.SortByChannelDesc" title="altair.SortByChannelDesc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SortByChannelDesc</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.SortByChannelDesc.html#altair.SortByChannelDesc" title="altair.SortByChannelDesc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SortByChannelDesc</span></code></a></p></td>
 <td><p>SortByChannelDesc schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.SortByEncoding.html#altair.SortByEncoding" title="altair.SortByEncoding"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SortByEncoding</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.SortByEncoding.html#altair.SortByEncoding" title="altair.SortByEncoding"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SortByEncoding</span></code></a></p></td>
 <td><p>SortByEncoding schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.SortField.html#altair.SortField" title="altair.SortField"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SortField</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.SortField.html#altair.SortField" title="altair.SortField"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SortField</span></code></a></p></td>
 <td><p>SortField schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.SortOrder.html#altair.SortOrder" title="altair.SortOrder"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SortOrder</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.SortOrder.html#altair.SortOrder" title="altair.SortOrder"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SortOrder</span></code></a></p></td>
 <td><p>SortOrder schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.Spec.html#altair.Spec" title="altair.Spec"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Spec</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.Spec.html#altair.Spec" title="altair.Spec"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Spec</span></code></a></p></td>
 <td><p>Spec schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.SphereGenerator.html#altair.SphereGenerator" title="altair.SphereGenerator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SphereGenerator</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.SphereGenerator.html#altair.SphereGenerator" title="altair.SphereGenerator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SphereGenerator</span></code></a></p></td>
 <td><p>SphereGenerator schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.StackOffset.html#altair.StackOffset" title="altair.StackOffset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StackOffset</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.StackOffset.html#altair.StackOffset" title="altair.StackOffset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StackOffset</span></code></a></p></td>
 <td><p>StackOffset schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.StackTransform.html#altair.StackTransform" title="altair.StackTransform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StackTransform</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.StackTransform.html#altair.StackTransform" title="altair.StackTransform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StackTransform</span></code></a></p></td>
 <td><p>StackTransform schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.StandardType.html#altair.StandardType" title="altair.StandardType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StandardType</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.StandardType.html#altair.StandardType" title="altair.StandardType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StandardType</span></code></a></p></td>
 <td><p>StandardType schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.Step.html#altair.Step" title="altair.Step"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Step</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.Step.html#altair.Step" title="altair.Step"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Step</span></code></a></p></td>
 <td><p>Step schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.StepFor.html#altair.StepFor" title="altair.StepFor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StepFor</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.StepFor.html#altair.StepFor" title="altair.StepFor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StepFor</span></code></a></p></td>
 <td><p>StepFor schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.Stream.html#altair.Stream" title="altair.Stream"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Stream</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.Stream.html#altair.Stream" title="altair.Stream"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Stream</span></code></a></p></td>
 <td><p>Stream schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.StringFieldDef.html#altair.StringFieldDef" title="altair.StringFieldDef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StringFieldDef</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.StringFieldDef.html#altair.StringFieldDef" title="altair.StringFieldDef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StringFieldDef</span></code></a></p></td>
 <td><p>StringFieldDef schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.StringFieldDefWithCondition.html#altair.StringFieldDefWithCondition" title="altair.StringFieldDefWithCondition"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StringFieldDefWithCondition</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.StringFieldDefWithCondition.html#altair.StringFieldDefWithCondition" title="altair.StringFieldDefWithCondition"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StringFieldDefWithCondition</span></code></a></p></td>
 <td><p>StringFieldDefWithCondition schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.StringValueDefWithCondition.html#altair.StringValueDefWithCondition" title="altair.StringValueDefWithCondition"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StringValueDefWithCondition</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.StringValueDefWithCondition.html#altair.StringValueDefWithCondition" title="altair.StringValueDefWithCondition"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StringValueDefWithCondition</span></code></a></p></td>
 <td><p>StringValueDefWithCondition schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.StrokeCap.html#altair.StrokeCap" title="altair.StrokeCap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StrokeCap</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.StrokeCap.html#altair.StrokeCap" title="altair.StrokeCap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StrokeCap</span></code></a></p></td>
 <td><p>StrokeCap schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.StrokeJoin.html#altair.StrokeJoin" title="altair.StrokeJoin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StrokeJoin</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.StrokeJoin.html#altair.StrokeJoin" title="altair.StrokeJoin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StrokeJoin</span></code></a></p></td>
 <td><p>StrokeJoin schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.StyleConfigIndex.html#altair.StyleConfigIndex" title="altair.StyleConfigIndex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StyleConfigIndex</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.StyleConfigIndex.html#altair.StyleConfigIndex" title="altair.StyleConfigIndex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StyleConfigIndex</span></code></a></p></td>
 <td><p>StyleConfigIndex schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.SymbolShape.html#altair.SymbolShape" title="altair.SymbolShape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SymbolShape</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.SymbolShape.html#altair.SymbolShape" title="altair.SymbolShape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SymbolShape</span></code></a></p></td>
 <td><p>SymbolShape schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.TextBaseline.html#altair.TextBaseline" title="altair.TextBaseline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TextBaseline</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.TextBaseline.html#altair.TextBaseline" title="altair.TextBaseline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TextBaseline</span></code></a></p></td>
 <td><p>TextBaseline schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.TextDef.html#altair.TextDef" title="altair.TextDef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TextDef</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.TextDef.html#altair.TextDef" title="altair.TextDef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TextDef</span></code></a></p></td>
 <td><p>TextDef schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.TextDirection.html#altair.TextDirection" title="altair.TextDirection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TextDirection</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.TextDirection.html#altair.TextDirection" title="altair.TextDirection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TextDirection</span></code></a></p></td>
 <td><p>TextDirection schema wrapper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.TickConfig.html#altair.TickConfig" title="altair.TickConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TickConfig</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.TickConfig.html#altair.TickConfig" title="altair.TickConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TickConfig</span></code></a></p></td>
 <td><p>TickConfig schema wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.TickCount.html#altair.TickCount" title="altair.TickCount"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TickCount</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.TickCount.html#altair.TickCount" title="altair.TickCount"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TickCount</span></code></a></p></td>
 <td><p>TickCount schema wrapper.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.TimeDef.html#altair.TimeDef" title="altair.TimeDef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TimeDef</span></code></a></p></td>
+<td><p>TimeDef schema wrapper.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.TimeFieldDef.html#altair.TimeFieldDef" title="altair.TimeFieldDef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TimeFieldDef</span></code></a></p></td>
+<td><p>TimeFieldDef schema wrapper.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/core/altair.TimeFormatSpecifier.html#altair.TimeFormatSpecifier" title="altair.TimeFormatSpecifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TimeFormatSpecifier</span></code></a></p></td>
+<td><p>TimeFormatSpecifier schema wrapper.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/core/altair.TimeInterval.html#altair.TimeInterval" title="altair.TimeInterval"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TimeInterval</span></code></a></p></td>
 <td><p>TimeInterval schema wrapper.</p></td>
@@ -3187,7 +3218,7 @@ full guidelines on their use.</p>
 </section>
 <section id="api-utility-classes">
 <span id="api-cls"></span><h2>API Utility Classes<a class="headerlink" href="#api-utility-classes" title="Link to this heading">#</a></h2>
-<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/api-cls/altair.expr.html#altair.expr" title="altair.expr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">expr</span></code></a></p></td>
 <td><p>Utility providing <em>constants</em> and <em>classmethods</em> to construct expressions.</p></td>
@@ -3207,7 +3238,7 @@ full guidelines on their use.</p>
 </section>
 <section id="typing">
 <span id="api-typing"></span><h2>Typing<a class="headerlink" href="#typing" title="Link to this heading">#</a></h2>
-<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/typing/altair.typing.ChannelAngle.html#altair.typing.ChannelAngle" title="altair.typing.ChannelAngle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChannelAngle</span></code></a></p></td>
 <td><p></p></td>
@@ -3222,7 +3253,7 @@ full guidelines on their use.</p>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/typing/altair.typing.ChannelDetail.html#altair.typing.ChannelDetail" title="altair.typing.ChannelDetail"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChannelDetail</span></code></a></p></td>
-<td><p></p></td>
+<td><p>Type alias.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/typing/altair.typing.ChannelFacet.html#altair.typing.ChannelFacet" title="altair.typing.ChannelFacet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChannelFacet</span></code></a></p></td>
 <td><p></p></td>
@@ -3255,7 +3286,7 @@ full guidelines on their use.</p>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/typing/altair.typing.ChannelOrder.html#altair.typing.ChannelOrder" title="altair.typing.ChannelOrder"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChannelOrder</span></code></a></p></td>
-<td><p></p></td>
+<td><p>Type alias.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/typing/altair.typing.ChannelRadius.html#altair.typing.ChannelRadius" title="altair.typing.ChannelRadius"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChannelRadius</span></code></a></p></td>
 <td><p></p></td>
@@ -3294,7 +3325,7 @@ full guidelines on their use.</p>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/typing/altair.typing.ChannelTooltip.html#altair.typing.ChannelTooltip" title="altair.typing.ChannelTooltip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChannelTooltip</span></code></a></p></td>
-<td><p></p></td>
+<td><p>Type alias.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/typing/altair.typing.ChannelUrl.html#altair.typing.ChannelUrl" title="altair.typing.ChannelUrl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChannelUrl</span></code></a></p></td>
 <td><p></p></td>
@@ -3340,6 +3371,26 @@ full guidelines on their use.</p>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/typing/altair.typing.is_chart_type.html#altair.typing.is_chart_type" title="altair.typing.is_chart_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_chart_type</span></code></a></p></td>
 <td><p>Return <cite>True</cite> if the object is an Altair chart.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="datasets">
+<span id="api-datasets"></span><h2>Datasets<a class="headerlink" href="#datasets" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/datasets/altair.datasets.Loader.html#altair.datasets.Loader" title="altair.datasets.Loader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Loader</span></code></a></p></td>
+<td><p>Load example datasets <em>remotely</em> from <a class="reference external" href="https://github.com/vega/vega-datasets">vega-datasets</a>, with caching.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/datasets/altair.datasets.data.html#altair.datasets.data" title="altair.datasets.data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data</span></code></a></p></td>
+<td><p>Main data object that provides access to all datasets as attributes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/datasets/altair.datasets.load.html#altair.datasets.load" title="altair.datasets.load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load</span></code></a></p></td>
+<td><p>Get a remote dataset and load as tabular data.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/datasets/altair.datasets.url.html#altair.datasets.url" title="altair.datasets.url"><code class="xref py py-obj docutils literal notranslate"><span class="pre">url</span></code></a></p></td>
+<td><p>Return the address of a remote dataset.</p></td>
 </tr>
 </tbody>
 </table>
@@ -3401,6 +3452,7 @@ full guidelines on their use.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#low-level-schema-wrappers">Low-Level Schema Wrappers</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#api-utility-classes">API Utility Classes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#typing">Typing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datasets">Datasets</a></li>
 </ul>
   </nav></div>
 
@@ -3417,8 +3469,8 @@ full guidelines on their use.</p>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -3429,7 +3481,7 @@ full guidelines on their use.</p>
 
   <p class="copyright">
     
-      © Copyright 2016-2024, Vega-Altair Developers.
+      © Copyright 2015-2025, Vega-Altair Developers.
       <br/>
     
   </p>
@@ -3438,7 +3490,7 @@ full guidelines on their use.</p>
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
     <br/>
   </p>
 </div>
@@ -3451,7 +3503,8 @@ full guidelines on their use.</p>
       
         <div class="footer-item">
 <p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.0.
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
 </p></div>
       
     </div>

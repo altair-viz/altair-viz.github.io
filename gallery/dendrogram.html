@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Dendrogram of Hierarchical Clustering &#8212; Vega-Altair 5.5.0 documentation</title>
+    <title>Dendrogram of Hierarchical Clustering &#8212; Vega-Altair 6.0.0 documentation</title>
   
   
   
@@ -16,8 +16,8 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
+  <!--
+    this give us a css class that will be invisible only if js is disabled
   -->
   <noscript>
     <style>
@@ -27,32 +27,32 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/altair-plot.css?v=a673d9d3" />
     <link rel="stylesheet" type="text/css" href="../_static/altair-gallery.css?v=1975c9e6" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=9736ff9e" />
+    <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=9524fec3" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=7c07b56e" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=a385a3de"></script>
+    <script src="../_static/documentation_options.js?v=12958129"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script defer="defer" type="module" src="https://pyscript.net/releases/2024.10.1/core.js"></script>
+    <script defer="defer" type="module" src="https://pyscript.net/releases/2025.2.2/core.js"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega@6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@6.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script data-domain="altair-viz.github.io" defer="defer" src="https://views.scientific-python.org/js/script.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'gallery/dendrogram';</script>
@@ -61,7 +61,7 @@
     <link rel="search" title="Search" href="../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="5.5.0" />
+  <meta name="docsearch:version" content="6.0.0" />
   </head>
   
   
@@ -99,9 +99,6 @@
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
-<aside class="bd-header-announcement" aria-label="Announcement">
-  <div class="bd-header-announcement__content">This website is for version 5. You can find the documentation for version 4 <a href='https://altair-viz.github.io/altair-viz-v4/'>here</a>.</div>
-</aside>
 
   
     <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
@@ -128,8 +125,8 @@
     
     
     
-    <img src="../_static/altair-logo-light.png" class="logo__image only-light" alt="Vega-Altair 5.5.0 documentation - Home"/>
-    <img src="../_static/altair-logo-light.png" class="logo__image only-dark pst-js-only" alt="Vega-Altair 5.5.0 documentation - Home"/>
+    <img src="../_static/altair-logo-light.png" class="logo__image only-light" alt="Vega-Altair 6.0.0 documentation - Home"/>
+    <img src="../_static/altair-logo-light.png" class="logo__image only-dark pst-js-only" alt="Vega-Altair 6.0.0 documentation - Home"/>
   
   
 </a></div>
@@ -177,7 +174,9 @@
 </li>
 
             <li class="nav-item dropdown">
-                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
                     More
                 </button>
                 <ul id="pst-nav-more-links" class="dropdown-menu">
@@ -391,8 +390,6 @@
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -445,7 +442,7 @@
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}, "axis": {"grid": false, "labels": false, "ticks": false}, "concat": {"spacing": 0}, "padding": {"top": 10, "left": 10}}, "vconcat": [{"layer": [{"mark": {"type": "rule"}, "encoding": {"x": {"field": "xk2", "title": "", "type": "quantitative"}, "x2": {"field": "xk3"}, "y": {"field": "yk2", "title": "", "type": "quantitative"}}}, {"mark": {"type": "rule"}, "encoding": {"x": {"field": "xk1", "type": "quantitative"}, "y": {"field": "yk1", "type": "quantitative"}, "y2": {"field": "yk2"}}}, {"mark": {"type": "rule"}, "encoding": {"x": {"field": "xk3", "type": "quantitative"}, "y": {"field": "yk3", "type": "quantitative"}, "y2": {"field": "yk4"}}}], "data": {"name": "data-765149d862c448121c8d81fdba241e36"}}, {"data": {"name": "data-d19409710c72972ab6c9beba9c59388a"}, "mark": {"type": "text", "align": "center", "angle": 0, "dy": 0}, "encoding": {"text": {"field": "labels", "type": "nominal"}, "x": {"axis": {"grid": false, "title": "Number of points in nodes"}, "field": "x", "type": "quantitative"}}}], "resolve": {"scale": {"x": "shared"}}, "title": "Hierarchical Clustering Dendrogram", "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-765149d862c448121c8d81fdba241e36": [{"xk1": 5.0, "xk2": 5.0, "xk3": 15.0, "xk4": 15.0, "yk1": 0.0, "yk2": 0.8187388676087964, "yk3": 0.8187388676087964, "yk4": 0.0}, {"xk1": 25.0, "xk2": 25.0, "xk3": 35.0, "xk4": 35.0, "yk1": 0.0, "yk2": 1.105139508538779, "yk3": 1.105139508538779, "yk4": 0.0}, {"xk1": 10.0, "xk2": 10.0, "xk3": 30.0, "xk4": 30.0, "yk1": 0.8187388676087964, "yk2": 1.3712698320830048, "yk3": 1.3712698320830048, "yk4": 1.105139508538779}, {"xk1": 45.0, "xk2": 45.0, "xk3": 55.0, "xk4": 55.0, "yk1": 0.0, "yk2": 0.9099819926189507, "yk3": 0.9099819926189507, "yk4": 0.0}, {"xk1": 65.0, "xk2": 65.0, "xk3": 75.0, "xk4": 75.0, "yk1": 0.0, "yk2": 1.2539936203984452, "yk3": 1.2539936203984452, "yk4": 0.0}, {"xk1": 50.0, "xk2": 50.0, "xk3": 70.0, "xk4": 70.0, "yk1": 0.9099819926189507, "yk2": 1.9187528699821954, "yk3": 1.9187528699821954, "yk4": 1.2539936203984452}, {"xk1": 20.0, "xk2": 20.0, "xk3": 60.0, "xk4": 60.0, "yk1": 1.3712698320830048, "yk2": 3.828052620290243, "yk3": 3.828052620290243, "yk4": 1.9187528699821954}, {"xk1": 85.0, "xk2": 85.0, "xk3": 95.0, "xk4": 95.0, "yk1": 0.0, "yk2": 1.7604450194955439, "yk3": 1.7604450194955439, "yk4": 0.0}, {"xk1": 105.0, "xk2": 105.0, "xk3": 115.0, "xk4": 115.0, "yk1": 0.0, "yk2": 1.845844754344974, "yk3": 1.845844754344974, "yk4": 0.0}, {"xk1": 90.0, "xk2": 90.0, "xk3": 110.0, "xk4": 110.0, "yk1": 1.7604450194955439, "yk2": 4.847708507921838, "yk3": 4.847708507921838, "yk4": 1.845844754344974}, {"xk1": 125.0, "xk2": 125.0, "xk3": 135.0, "xk4": 135.0, "yk1": 0.0, "yk2": 2.8139388316471536, "yk3": 2.8139388316471536, "yk4": 0.0}, {"xk1": 145.0, "xk2": 145.0, "xk3": 155.0, "xk4": 155.0, "yk1": 0.0, "yk2": 2.8694176394568705, "yk3": 2.8694176394568705, "yk4": 0.0}, {"xk1": 130.0, "xk2": 130.0, "xk3": 150.0, "xk4": 150.0, "yk1": 2.8139388316471536, "yk2": 6.399406819518539, "yk3": 6.399406819518539, "yk4": 2.8694176394568705}, {"xk1": 100.0, "xk2": 100.0, "xk3": 140.0, "xk4": 140.0, "yk1": 4.847708507921838, "yk2": 12.300396052792589, "yk3": 12.300396052792589, "yk4": 6.399406819518539}, {"xk1": 40.0, "xk2": 40.0, "xk3": 120.0, "xk4": 120.0, "yk1": 3.828052620290243, "yk2": 32.44760699959244, "yk3": 32.44760699959244, "yk4": 12.300396052792589}], "data-d19409710c72972ab6c9beba9c59388a": [{"labels": "(7)", "x": 5}, {"labels": "(8)", "x": 15}, {"labels": "41", "x": 25}, {"labels": "(5)", "x": 35}, {"labels": "(10)", "x": 45}, {"labels": "(7)", "x": 55}, {"labels": "(4)", "x": 65}, {"labels": "(8)", "x": 75}, {"labels": "(9)", "x": 85}, {"labels": "(15)", "x": 95}, {"labels": "(5)", "x": 105}, {"labels": "(7)", "x": 115}, {"labels": "(4)", "x": 125}, {"labels": "(22)", "x": 135}, {"labels": "(15)", "x": 145}, {"labels": "(23)", "x": 155}]}};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}, "axis": {"grid": false, "labels": false, "ticks": false}, "concat": {"spacing": 0}, "padding": {"top": 10, "left": 10}}, "vconcat": [{"layer": [{"mark": {"type": "rule"}, "encoding": {"x": {"field": "xk2", "title": "", "type": "quantitative"}, "x2": {"field": "xk3"}, "y": {"field": "yk2", "title": "", "type": "quantitative"}}}, {"mark": {"type": "rule"}, "encoding": {"x": {"field": "xk1", "type": "quantitative"}, "y": {"field": "yk1", "type": "quantitative"}, "y2": {"field": "yk2"}}}, {"mark": {"type": "rule"}, "encoding": {"x": {"field": "xk3", "type": "quantitative"}, "y": {"field": "yk3", "type": "quantitative"}, "y2": {"field": "yk4"}}}], "data": {"name": "data-765149d862c448121c8d81fdba241e36"}}, {"data": {"name": "data-d19409710c72972ab6c9beba9c59388a"}, "mark": {"type": "text", "align": "center", "angle": 0, "dy": 0}, "encoding": {"text": {"field": "labels", "type": "nominal"}, "x": {"axis": {"grid": false, "title": "Number of points in nodes"}, "field": "x", "type": "quantitative"}}}], "resolve": {"scale": {"x": "shared"}}, "title": "Hierarchical Clustering Dendrogram", "$schema": "https://vega.github.io/schema/vega-lite/v6.1.0.json", "datasets": {"data-765149d862c448121c8d81fdba241e36": [{"xk1": 5.0, "xk2": 5.0, "xk3": 15.0, "xk4": 15.0, "yk1": 0.0, "yk2": 0.8187388676087964, "yk3": 0.8187388676087964, "yk4": 0.0}, {"xk1": 25.0, "xk2": 25.0, "xk3": 35.0, "xk4": 35.0, "yk1": 0.0, "yk2": 1.105139508538779, "yk3": 1.105139508538779, "yk4": 0.0}, {"xk1": 10.0, "xk2": 10.0, "xk3": 30.0, "xk4": 30.0, "yk1": 0.8187388676087964, "yk2": 1.3712698320830048, "yk3": 1.3712698320830048, "yk4": 1.105139508538779}, {"xk1": 45.0, "xk2": 45.0, "xk3": 55.0, "xk4": 55.0, "yk1": 0.0, "yk2": 0.9099819926189507, "yk3": 0.9099819926189507, "yk4": 0.0}, {"xk1": 65.0, "xk2": 65.0, "xk3": 75.0, "xk4": 75.0, "yk1": 0.0, "yk2": 1.2539936203984452, "yk3": 1.2539936203984452, "yk4": 0.0}, {"xk1": 50.0, "xk2": 50.0, "xk3": 70.0, "xk4": 70.0, "yk1": 0.9099819926189507, "yk2": 1.9187528699821954, "yk3": 1.9187528699821954, "yk4": 1.2539936203984452}, {"xk1": 20.0, "xk2": 20.0, "xk3": 60.0, "xk4": 60.0, "yk1": 1.3712698320830048, "yk2": 3.828052620290243, "yk3": 3.828052620290243, "yk4": 1.9187528699821954}, {"xk1": 85.0, "xk2": 85.0, "xk3": 95.0, "xk4": 95.0, "yk1": 0.0, "yk2": 1.7604450194955439, "yk3": 1.7604450194955439, "yk4": 0.0}, {"xk1": 105.0, "xk2": 105.0, "xk3": 115.0, "xk4": 115.0, "yk1": 0.0, "yk2": 1.845844754344974, "yk3": 1.845844754344974, "yk4": 0.0}, {"xk1": 90.0, "xk2": 90.0, "xk3": 110.0, "xk4": 110.0, "yk1": 1.7604450194955439, "yk2": 4.847708507921838, "yk3": 4.847708507921838, "yk4": 1.845844754344974}, {"xk1": 125.0, "xk2": 125.0, "xk3": 135.0, "xk4": 135.0, "yk1": 0.0, "yk2": 2.8139388316471536, "yk3": 2.8139388316471536, "yk4": 0.0}, {"xk1": 145.0, "xk2": 145.0, "xk3": 155.0, "xk4": 155.0, "yk1": 0.0, "yk2": 2.8694176394568705, "yk3": 2.8694176394568705, "yk4": 0.0}, {"xk1": 130.0, "xk2": 130.0, "xk3": 150.0, "xk4": 150.0, "yk1": 2.8139388316471536, "yk2": 6.399406819518539, "yk3": 6.399406819518539, "yk4": 2.8694176394568705}, {"xk1": 100.0, "xk2": 100.0, "xk3": 140.0, "xk4": 140.0, "yk1": 4.847708507921838, "yk2": 12.300396052792589, "yk3": 12.300396052792589, "yk4": 6.399406819518539}, {"xk1": 40.0, "xk2": 40.0, "xk3": 120.0, "xk4": 120.0, "yk1": 3.828052620290243, "yk2": 32.44760699959244, "yk3": 32.44760699959244, "yk4": 12.300396052792589}], "data-d19409710c72972ab6c9beba9c59388a": [{"labels": "(7)", "x": 5}, {"labels": "(8)", "x": 15}, {"labels": "41", "x": 25}, {"labels": "(5)", "x": 35}, {"labels": "(10)", "x": 45}, {"labels": "(7)", "x": 55}, {"labels": "(4)", "x": 65}, {"labels": "(8)", "x": 75}, {"labels": "(9)", "x": 85}, {"labels": "(15)", "x": 95}, {"labels": "(5)", "x": 105}, {"labels": "(7)", "x": 115}, {"labels": "(4)", "x": 125}, {"labels": "(22)", "x": 135}, {"labels": "(15)", "x": 145}, {"labels": "(23)", "x": 155}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -458,9 +455,9 @@
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" data-sync-group="tab" data-sync-id="method" for="sd-tab-item-0">
 Method syntax</label><div class="sd-tab-content docutils">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">altair</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">alt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="c1"># the variable `den` shown below is an exemplary output of `scipy.cluster.hierarchy.dendrogram`</span>
 <span class="c1"># (https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.dendrogram.html#scipy.cluster.hierarchy.dendrogram)</span>
@@ -522,7 +519,7 @@ Method syntax</label><div class="sd-tab-content docutils">
      <span class="p">],</span>
 <span class="p">}</span>
 
-<span class="k">def</span> <span class="nf">get_leaf_loc</span><span class="p">(</span><span class="n">den</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_leaf_loc</span><span class="p">(</span><span class="n">den</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get the location of the leaves</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -530,7 +527,7 @@ Method syntax</label><div class="sd-tab-content docutils">
     <span class="n">_to</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">den</span><span class="p">[</span><span class="s2">&quot;icoord&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
     <span class="k">return</span> <span class="nb">range</span><span class="p">(</span><span class="n">_from</span><span class="p">,</span> <span class="n">_to</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">get_df_coord</span><span class="p">(</span><span class="n">den</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_df_coord</span><span class="p">(</span><span class="n">den</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get coordinate dataframe.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -599,9 +596,9 @@ Method syntax</label><div class="sd-tab-content docutils">
 <input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" data-sync-group="tab" data-sync-id="attribute" for="sd-tab-item-1">
 Attribute syntax</label><div class="sd-tab-content docutils">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">altair</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">alt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="c1"># the variable `den` shown below is an exemplary output of `scipy.cluster.hierarchy.dendrogram`</span>
 <span class="c1"># (https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.dendrogram.html#scipy.cluster.hierarchy.dendrogram)</span>
@@ -663,7 +660,7 @@ Attribute syntax</label><div class="sd-tab-content docutils">
      <span class="p">],</span>
 <span class="p">}</span>
 
-<span class="k">def</span> <span class="nf">get_leaf_loc</span><span class="p">(</span><span class="n">den</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_leaf_loc</span><span class="p">(</span><span class="n">den</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get the location of the leaves</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -671,7 +668,7 @@ Attribute syntax</label><div class="sd-tab-content docutils">
     <span class="n">_to</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">den</span><span class="p">[</span><span class="s2">&quot;icoord&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
     <span class="k">return</span> <span class="nb">range</span><span class="p">(</span><span class="n">_from</span><span class="p">,</span> <span class="n">_to</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">get_df_coord</span><span class="p">(</span><span class="n">den</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_df_coord</span><span class="p">(</span><span class="n">den</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get coordinate dataframe.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -769,8 +766,8 @@ Attribute syntax</label><div class="sd-tab-content docutils">
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -781,7 +778,7 @@ Attribute syntax</label><div class="sd-tab-content docutils">
 
   <p class="copyright">
     
-      © Copyright 2016-2024, Vega-Altair Developers.
+      © Copyright 2015-2025, Vega-Altair Developers.
       <br/>
     
   </p>
@@ -790,7 +787,7 @@ Attribute syntax</label><div class="sd-tab-content docutils">
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
     <br/>
   </p>
 </div>
@@ -803,7 +800,8 @@ Attribute syntax</label><div class="sd-tab-content docutils">
       
         <div class="footer-item">
 <p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.0.
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
 </p></div>
       
     </div>

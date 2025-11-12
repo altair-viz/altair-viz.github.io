@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Simple Stacked Area Chart &#8212; Vega-Altair 5.5.0 documentation</title>
+    <title>Simple Stacked Area Chart &#8212; Vega-Altair 6.0.0 documentation</title>
   
   
   
@@ -16,8 +16,8 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
+  <!--
+    this give us a css class that will be invisible only if js is disabled
   -->
   <noscript>
     <style>
@@ -27,32 +27,32 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/altair-plot.css?v=a673d9d3" />
     <link rel="stylesheet" type="text/css" href="../_static/altair-gallery.css?v=1975c9e6" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=9736ff9e" />
+    <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=9524fec3" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=7c07b56e" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=a385a3de"></script>
+    <script src="../_static/documentation_options.js?v=12958129"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script defer="defer" type="module" src="https://pyscript.net/releases/2024.10.1/core.js"></script>
+    <script defer="defer" type="module" src="https://pyscript.net/releases/2025.2.2/core.js"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega@6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@6.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script data-domain="altair-viz.github.io" defer="defer" src="https://views.scientific-python.org/js/script.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'gallery/simple_stacked_area_chart';</script>
@@ -61,7 +61,7 @@
     <link rel="search" title="Search" href="../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="5.5.0" />
+  <meta name="docsearch:version" content="6.0.0" />
   </head>
   
   
@@ -99,9 +99,6 @@
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
-<aside class="bd-header-announcement" aria-label="Announcement">
-  <div class="bd-header-announcement__content">This website is for version 5. You can find the documentation for version 4 <a href='https://altair-viz.github.io/altair-viz-v4/'>here</a>.</div>
-</aside>
 
   
     <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
@@ -128,8 +125,8 @@
     
     
     
-    <img src="../_static/altair-logo-light.png" class="logo__image only-light" alt="Vega-Altair 5.5.0 documentation - Home"/>
-    <img src="../_static/altair-logo-light.png" class="logo__image only-dark pst-js-only" alt="Vega-Altair 5.5.0 documentation - Home"/>
+    <img src="../_static/altair-logo-light.png" class="logo__image only-light" alt="Vega-Altair 6.0.0 documentation - Home"/>
+    <img src="../_static/altair-logo-light.png" class="logo__image only-dark pst-js-only" alt="Vega-Altair 6.0.0 documentation - Home"/>
   
   
 </a></div>
@@ -177,7 +174,9 @@
 </li>
 
             <li class="nav-item dropdown">
-                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
                     More
                 </button>
                 <ul id="pst-nav-more-links" class="dropdown-menu">
@@ -391,8 +390,6 @@
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -444,7 +441,7 @@
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-7fb5cba8489b31900f8ac51a35bf2f48"}, "mark": {"type": "area"}, "encoding": {"color": {"field": "source", "type": "nominal"}, "x": {"field": "year", "type": "temporal"}, "y": {"field": "net_generation", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-7fb5cba8489b31900f8ac51a35bf2f48": [{"year": "2001-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 35361}, {"year": "2002-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 35991}, {"year": "2003-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 36234}, {"year": "2004-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 36205}, {"year": "2005-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 36883}, {"year": "2006-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 37014}, {"year": "2007-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 41389}, {"year": "2008-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 42734}, {"year": "2009-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 38620}, {"year": "2010-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 42750}, {"year": "2011-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 39361}, {"year": "2012-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 37379}, {"year": "2013-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 34873}, {"year": "2014-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 35250}, {"year": "2015-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 32319}, {"year": "2016-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 28437}, {"year": "2017-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 29329}, {"year": "2001-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 3853}, {"year": "2002-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 4574}, {"year": "2003-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 3988}, {"year": "2004-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 4929}, {"year": "2005-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 4538}, {"year": "2006-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 5095}, {"year": "2007-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 4519}, {"year": "2008-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 5282}, {"year": "2009-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 4679}, {"year": "2010-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 4451}, {"year": "2011-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 5215}, {"year": "2012-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 4347}, {"year": "2013-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 5321}, {"year": "2014-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 4152}, {"year": "2015-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 5243}, {"year": "2016-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 4703}, {"year": "2017-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 5214}, {"year": "2001-01-01T00:00:00", "source": "Renewables", "net_generation": 1437}, {"year": "2002-01-01T00:00:00", "source": "Renewables", "net_generation": 1963}, {"year": "2003-01-01T00:00:00", "source": "Renewables", "net_generation": 1885}, {"year": "2004-01-01T00:00:00", "source": "Renewables", "net_generation": 2102}, {"year": "2005-01-01T00:00:00", "source": "Renewables", "net_generation": 2724}, {"year": "2006-01-01T00:00:00", "source": "Renewables", "net_generation": 3364}, {"year": "2007-01-01T00:00:00", "source": "Renewables", "net_generation": 3870}, {"year": "2008-01-01T00:00:00", "source": "Renewables", "net_generation": 5070}, {"year": "2009-01-01T00:00:00", "source": "Renewables", "net_generation": 8560}, {"year": "2010-01-01T00:00:00", "source": "Renewables", "net_generation": 10308}, {"year": "2011-01-01T00:00:00", "source": "Renewables", "net_generation": 11795}, {"year": "2012-01-01T00:00:00", "source": "Renewables", "net_generation": 14949}, {"year": "2013-01-01T00:00:00", "source": "Renewables", "net_generation": 16476}, {"year": "2014-01-01T00:00:00", "source": "Renewables", "net_generation": 17452}, {"year": "2015-01-01T00:00:00", "source": "Renewables", "net_generation": 19091}, {"year": "2016-01-01T00:00:00", "source": "Renewables", "net_generation": 21241}, {"year": "2017-01-01T00:00:00", "source": "Renewables", "net_generation": 21933}]}};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-7fb5cba8489b31900f8ac51a35bf2f48"}, "mark": {"type": "area"}, "encoding": {"color": {"field": "source", "type": "nominal"}, "x": {"field": "year", "type": "temporal"}, "y": {"field": "net_generation", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v6.1.0.json", "datasets": {"data-7fb5cba8489b31900f8ac51a35bf2f48": [{"year": "2001-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 35361}, {"year": "2002-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 35991}, {"year": "2003-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 36234}, {"year": "2004-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 36205}, {"year": "2005-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 36883}, {"year": "2006-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 37014}, {"year": "2007-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 41389}, {"year": "2008-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 42734}, {"year": "2009-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 38620}, {"year": "2010-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 42750}, {"year": "2011-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 39361}, {"year": "2012-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 37379}, {"year": "2013-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 34873}, {"year": "2014-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 35250}, {"year": "2015-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 32319}, {"year": "2016-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 28437}, {"year": "2017-01-01T00:00:00", "source": "Fossil Fuels", "net_generation": 29329}, {"year": "2001-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 3853}, {"year": "2002-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 4574}, {"year": "2003-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 3988}, {"year": "2004-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 4929}, {"year": "2005-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 4538}, {"year": "2006-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 5095}, {"year": "2007-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 4519}, {"year": "2008-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 5282}, {"year": "2009-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 4679}, {"year": "2010-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 4451}, {"year": "2011-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 5215}, {"year": "2012-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 4347}, {"year": "2013-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 5321}, {"year": "2014-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 4152}, {"year": "2015-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 5243}, {"year": "2016-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 4703}, {"year": "2017-01-01T00:00:00", "source": "Nuclear Energy", "net_generation": 5214}, {"year": "2001-01-01T00:00:00", "source": "Renewables", "net_generation": 1437}, {"year": "2002-01-01T00:00:00", "source": "Renewables", "net_generation": 1963}, {"year": "2003-01-01T00:00:00", "source": "Renewables", "net_generation": 1885}, {"year": "2004-01-01T00:00:00", "source": "Renewables", "net_generation": 2102}, {"year": "2005-01-01T00:00:00", "source": "Renewables", "net_generation": 2724}, {"year": "2006-01-01T00:00:00", "source": "Renewables", "net_generation": 3364}, {"year": "2007-01-01T00:00:00", "source": "Renewables", "net_generation": 3870}, {"year": "2008-01-01T00:00:00", "source": "Renewables", "net_generation": 5070}, {"year": "2009-01-01T00:00:00", "source": "Renewables", "net_generation": 8560}, {"year": "2010-01-01T00:00:00", "source": "Renewables", "net_generation": 10308}, {"year": "2011-01-01T00:00:00", "source": "Renewables", "net_generation": 11795}, {"year": "2012-01-01T00:00:00", "source": "Renewables", "net_generation": 14949}, {"year": "2013-01-01T00:00:00", "source": "Renewables", "net_generation": 16476}, {"year": "2014-01-01T00:00:00", "source": "Renewables", "net_generation": 17452}, {"year": "2015-01-01T00:00:00", "source": "Renewables", "net_generation": 19091}, {"year": "2016-01-01T00:00:00", "source": "Renewables", "net_generation": 21241}, {"year": "2017-01-01T00:00:00", "source": "Renewables", "net_generation": 21933}]}};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -457,8 +454,8 @@
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" data-sync-group="tab" data-sync-id="method" for="sd-tab-item-0">
 Method syntax</label><div class="sd-tab-content docutils">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
-<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">altair</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">alt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">altair.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">data</span>
 
 <span class="n">source</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">iowa_electricity</span><span class="p">()</span>
 
@@ -473,8 +470,8 @@ Method syntax</label><div class="sd-tab-content docutils">
 <input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" data-sync-group="tab" data-sync-id="attribute" for="sd-tab-item-1">
 Attribute syntax</label><div class="sd-tab-content docutils">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
-<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">altair</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">alt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">altair.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">data</span>
 
 <span class="n">source</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">iowa_electricity</span><span class="p">()</span>
 
@@ -519,8 +516,8 @@ Attribute syntax</label><div class="sd-tab-content docutils">
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -531,7 +528,7 @@ Attribute syntax</label><div class="sd-tab-content docutils">
 
   <p class="copyright">
     
-      © Copyright 2016-2024, Vega-Altair Developers.
+      © Copyright 2015-2025, Vega-Altair Developers.
       <br/>
     
   </p>
@@ -540,7 +537,7 @@ Attribute syntax</label><div class="sd-tab-content docutils">
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
     <br/>
   </p>
 </div>
@@ -553,7 +550,8 @@ Attribute syntax</label><div class="sd-tab-content docutils">
       
         <div class="footer-item">
 <p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.0.
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
 </p></div>
       
     </div>
