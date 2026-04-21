@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Top-K Plot with Others &#8212; Vega-Altair 6.0.0 documentation</title>
+    <title>Top-K Plot with Others &#8212; Vega-Altair 6.1.0dev documentation</title>
   
   
   
@@ -32,10 +32,10 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/altair-plot.css?v=a673d9d3" />
-    <link rel="stylesheet" type="text/css" href="../_static/altair-gallery.css?v=1975c9e6" />
+    <link rel="stylesheet" type="text/css" href="../_static/altair-gallery.css?v=945786fe" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=9524fec3" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=7c07b56e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=ee81cbed" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
@@ -44,14 +44,14 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=12958129"></script>
-    <script src="../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/documentation_options.js?v=473bec34"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script defer="defer" type="module" src="https://pyscript.net/releases/2025.2.2/core.js"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@6"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@6.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@6.4.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script data-domain="altair-viz.github.io" defer="defer" src="https://views.scientific-python.org/js/script.js"></script>
@@ -61,7 +61,7 @@
     <link rel="search" title="Search" href="../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="6.0.0" />
+  <meta name="docsearch:version" content="6.1.0dev" />
   </head>
   
   
@@ -125,8 +125,8 @@
     
     
     
-    <img src="../_static/altair-logo-light.png" class="logo__image only-light" alt="Vega-Altair 6.0.0 documentation - Home"/>
-    <img src="../_static/altair-logo-light.png" class="logo__image only-dark pst-js-only" alt="Vega-Altair 6.0.0 documentation - Home"/>
+    <img src="../_static/altair-logo-light.png" class="logo__image only-light" alt="Vega-Altair 6.1.0dev documentation - Home"/>
+    <img src="../_static/altair-logo-light.png" class="logo__image only-dark pst-js-only" alt="Vega-Altair 6.1.0dev documentation - Home"/>
   
   
 </a></div>
@@ -443,7 +443,7 @@ remaining directors as ‘All Others’.</p>
   // embed when document is loaded, to ensure vega library is available
   // this works on all modern browsers, except IE8 and older
   document.addEventListener("DOMContentLoaded", function(event) {
-      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v3.2.1/data/movies.json"}, "mark": {"type": "bar"}, "encoding": {"x": {"aggregate": "mean", "field": "aggregate_gross", "title": null, "type": "quantitative"}, "y": {"field": "ranked_director", "sort": {"op": "mean", "field": "aggregate_gross", "order": "descending"}, "title": null, "type": "nominal"}}, "title": "Top Directors by Average Worldwide Gross", "transform": [{"aggregate": [{"op": "mean", "field": "Worldwide Gross", "as": "aggregate_gross"}], "groupby": ["Director"]}, {"window": [{"op": "row_number", "field": "", "as": "rank"}], "sort": [{"field": "aggregate_gross", "order": "descending"}]}, {"calculate": "datum.rank < 10 ? datum.Director : 'All Others'", "as": "ranked_director"}], "$schema": "https://vega.github.io/schema/vega-lite/v6.1.0.json"};
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v3.2.1/data/movies.json"}, "mark": {"type": "bar"}, "encoding": {"x": {"aggregate": "mean", "field": "aggregate_gross", "title": null, "type": "quantitative"}, "y": {"field": "ranked_director", "sort": {"op": "mean", "field": "aggregate_gross", "order": "descending"}, "title": null, "type": "nominal"}}, "title": "Top Directors by Average Worldwide Gross", "transform": [{"aggregate": [{"op": "mean", "field": "Worldwide Gross", "as": "aggregate_gross"}], "groupby": ["Director"]}, {"window": [{"op": "row_number", "field": "", "as": "rank"}], "sort": [{"field": "aggregate_gross", "order": "descending"}]}, {"calculate": "datum.rank < 10 ? datum.Director : 'All Others'", "as": "ranked_director"}], "$schema": "https://vega.github.io/schema/vega-lite/v6.4.1.json"};
       var opt = {
         "mode": "vega-lite",
         "renderer": "canvas",
@@ -552,7 +552,7 @@ Attribute syntax</label><div class="sd-tab-content docutils">
 
   <p class="copyright">
     
-      © Copyright 2015-2025, Vega-Altair Developers.
+      © Copyright 2015-2026, Vega-Altair Developers.
       <br/>
     
   </p>
@@ -561,7 +561,7 @@ Attribute syntax</label><div class="sd-tab-content docutils">
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
     <br/>
   </p>
 </div>

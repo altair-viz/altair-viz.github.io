@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Installation &#8212; Vega-Altair 6.0.0 documentation</title>
+    <title>Installation &#8212; Vega-Altair 6.1.0dev documentation</title>
   
   
   
@@ -32,10 +32,10 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/altair-plot.css?v=a673d9d3" />
-    <link rel="stylesheet" type="text/css" href="../_static/altair-gallery.css?v=1975c9e6" />
+    <link rel="stylesheet" type="text/css" href="../_static/altair-gallery.css?v=945786fe" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=9524fec3" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=7c07b56e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=ee81cbed" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
@@ -44,14 +44,14 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=12958129"></script>
-    <script src="../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/documentation_options.js?v=473bec34"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script defer="defer" type="module" src="https://pyscript.net/releases/2025.2.2/core.js"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@6"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@6.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@6.4.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script data-domain="altair-viz.github.io" defer="defer" src="https://views.scientific-python.org/js/script.js"></script>
@@ -63,7 +63,7 @@
     <link rel="prev" title="Overview" href="overview.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="6.0.0" />
+  <meta name="docsearch:version" content="6.1.0dev" />
   </head>
   
   
@@ -127,8 +127,8 @@
     
     
     
-    <img src="../_static/altair-logo-light.png" class="logo__image only-light" alt="Vega-Altair 6.0.0 documentation - Home"/>
-    <img src="../_static/altair-logo-light.png" class="logo__image only-dark pst-js-only" alt="Vega-Altair 6.0.0 documentation - Home"/>
+    <img src="../_static/altair-logo-light.png" class="logo__image only-light" alt="Vega-Altair 6.1.0dev documentation - Home"/>
+    <img src="../_static/altair-logo-light.png" class="logo__image only-dark pst-js-only" alt="Vega-Altair 6.1.0dev documentation - Home"/>
   
   
 </a></div>
@@ -478,6 +478,23 @@ you can omit the <code class="docutils literal notranslate"><span class="pre">[a
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span><span class="s2">&quot;altair[save]&quot;</span>
 </pre></div>
 </div>
+<section id="installing-altair-in-wasm-pyodide-environments">
+<h2>Installing Altair in WASM / Pyodide environments<a class="headerlink" href="#installing-altair-in-wasm-pyodide-environments" title="Link to this heading">#</a></h2>
+<p>Altair is included in the official Pyodide distribution. The version of Altair
+available in Pyodide can be found in the Pyodide package list:
+<a class="reference external" href="https://pyodide.org/en/stable/usage/packages-in-pyodide.html">https://pyodide.org/en/stable/usage/packages-in-pyodide.html</a></p>
+<p>Altair can also be installed in browser-based Python environments such as
+Pyodide, PyScript, or other WebAssembly (WASM) runtimes using <code class="docutils literal notranslate"><span class="pre">micropip</span></code>.</p>
+<p>For example, in a Pyodide-based environment:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">micropip</span>
+<span class="k">await</span> <span class="n">micropip</span><span class="o">.</span><span class="n">install</span><span class="p">(</span><span class="s2">&quot;altair&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To install a specific version of Altair, specify the version explicitly:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">await</span> <span class="n">micropip</span><span class="o">.</span><span class="n">install</span><span class="p">(</span><span class="s2">&quot;altair==6.0.0&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
 </section>
 <section id="development-installation">
 <h1>Development Installation<a class="headerlink" href="#development-installation" title="Link to this heading">#</a></h1>
@@ -532,7 +549,10 @@ for details on how to contribute to the Altair project.</p>
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Installation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Installation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-altair-in-wasm-pyodide-environments">Installing Altair in WASM / Pyodide environments</a></li>
+</ul>
+</li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#development-installation">Development Installation</a></li>
 </ul>
 
@@ -563,7 +583,7 @@ for details on how to contribute to the Altair project.</p>
 
   <p class="copyright">
     
-      © Copyright 2015-2025, Vega-Altair Developers.
+      © Copyright 2015-2026, Vega-Altair Developers.
       <br/>
     
   </p>
@@ -572,7 +592,7 @@ for details on how to contribute to the Altair project.</p>
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
     <br/>
   </p>
 </div>
